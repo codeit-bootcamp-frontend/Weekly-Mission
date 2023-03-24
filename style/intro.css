@@ -33,3 +33,35 @@
   font-size: 16px;
   line-height: 150%;
 }
+
+.gradient-list1 {
+  background: linear-gradient(95.63deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.gradient-list2 {
+  background: linear-gradient(95.63deg, #6fbaff 1.72%, #ffd88b 74.97%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.gradient-list3 {
+  background: linear-gradient(95.63deg, #6d7ccd 1.72%, #52888538 74.97%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.gradient-list4 {
+  background: linear-gradient(95.63deg, #fe578f 1.72%, #68e8f9 74.97%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
