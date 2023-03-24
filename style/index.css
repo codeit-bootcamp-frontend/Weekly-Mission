@@ -1,4 +1,6 @@
 @import './landing.css';
+@import './intro.css';
+@import './footer.css';
 
 @font-face {
   font-family: 'Pretendard-Regular';
