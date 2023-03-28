@@ -46,6 +46,10 @@ nav {
   margin: 40px 0;
 }
 
+.title-break {
+  display: block;
+}
+
 .gradient-hero {
   background: linear-gradient(91.26deg, #6d6afe 17.28%, #ff9f9f 74.98%);
   -webkit-background-clip: text;
@@ -70,4 +74,41 @@ nav {
 
 li {
   list-style-type: none;
+}
+
+@media screen and (max-width: 390px) {
+  nav {
+    padding: 13px 32px;
+  }
+
+  .gradient-button {
+    font-size: 14px;
+  }
+
+  .login {
+    width: 80px;
+    height: 37px;
+  }
+
+  #logo img {
+    width: 77px;
+  }
+
+  .link-add {
+    width: 200px;
+    height: 37px;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  #landing-img {
+    width: 300px;
+  }
+
+  .title-break-mobile {
+    display: block;
+  }
 }
