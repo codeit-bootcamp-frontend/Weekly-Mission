@@ -1,7 +1,19 @@
+body {
+  position: relative;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 24px 200px;
+  background: #f0f6ff;
+  position: sticky;
+  top: 0;
+}
+
+.floating-nav {
+  box-shadow: 0px 1px 10px #99999985;
 }
 
 .gradient-button {
