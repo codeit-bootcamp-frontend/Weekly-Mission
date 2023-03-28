@@ -16,6 +16,14 @@
   margin: 100px 0;
 }
 
+.intro-item:nth-child(even) > img {
+  order: 1;
+}
+
+.intro-item:nth-child(even) > .intro-item__text {
+  order: 2;
+}
+
 .intro-item img {
   width: 550px;
   height: 450px;
@@ -32,6 +40,7 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
+  color: #6b6b6b;
 }
 
 .gradient-list1 {
@@ -64,4 +73,38 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
+}
+
+@media screen and (max-width: 390px) {
+  .intro {
+    padding: 0 32px;
+  }
+
+  .intro-item img {
+    width: 325px;
+    height: 265.91px;
+  }
+
+  .intro-item {
+    flex-direction: column;
+    margin: 50px 0;
+    width: 100%;
+  }
+
+  .intro-item h3 {
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  .intro-item p {
+    font-size: 15px;
+  }
+
+  .intro-item:nth-child(even) > img {
+    order: 2;
+  }
+
+  .intro-item:nth-child(even) > .intro-item__text {
+    order: 1;
+  }
 }

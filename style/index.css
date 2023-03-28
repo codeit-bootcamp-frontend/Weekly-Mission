@@ -13,3 +13,13 @@
 body {
   font-family: 'Pretendard-Regular';
 }
+
+.word-break {
+  display: block;
+}
+
+@media screen and (max-width: 390px) {
+  .word-break {
+    display: none;
+  }
+}
