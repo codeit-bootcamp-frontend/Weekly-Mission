@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 32px 104px 64px;
+  padding: 32px 32px 104px 32px;
 }
 
 .copyright {
@@ -39,15 +39,15 @@
   margin-right: 10px;
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 767px) {
   .footer {
     padding: 32px;
     flex-wrap: wrap;
+    align-items: start;
   }
 
   .copyright {
     order: 3;
-    margin-top: 60px;
   }
 
   .info-box {
@@ -56,6 +56,7 @@
 
   .social {
     order: 2;
+    margin-bottom: 60px;
   }
 
   .social a:last-child {
