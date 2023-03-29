@@ -6,6 +6,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: sticky;
+  top: 0;
 }
 
 .navbar {
@@ -15,8 +17,6 @@ body {
   align-items: center;
   padding: 24px 200px;
   background: #f0f6ff;
-  position: sticky;
-  top: 0;
 }
 
 .floating-nav {
@@ -93,6 +93,10 @@ li {
 
   .title-break-mobile {
     display: block;
+  }
+
+  #landing-img {
+    width: 650px;
   }
 }
 
