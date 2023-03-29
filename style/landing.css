@@ -2,7 +2,14 @@ body {
   position: relative;
 }
 
-nav {
+.navbar__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,6 +34,7 @@ nav {
 }
 
 .login {
+  min-width: 128px;
   width: 128px;
   height: 53px;
   display: flex;
@@ -76,9 +84,19 @@ li {
   list-style-type: none;
 }
 
+@media screen and (max-width: 1199px) {
+  .navbar {
+    padding: 24px 0;
+    gap: 538px;
+    justify-content: center;
+  }
+}
+
 @media screen and (max-width: 390px) {
-  nav {
+  .navbar {
     padding: 13px 32px;
+    gap: 0;
+    justify-content: space-between;
   }
 
   .gradient-button {
@@ -86,6 +104,7 @@ li {
   }
 
   .login {
+    min-width: 80px;
     width: 80px;
     height: 37px;
   }

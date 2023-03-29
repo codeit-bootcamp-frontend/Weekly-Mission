@@ -74,6 +74,19 @@
   background-clip: text;
   text-fill-color: transparent;
 }
+@media screen and (max-width: 1199px) {
+  .intro-item {
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 863px) {
+  .navbar {
+    padding: 24px 32px;
+    gap: 0;
+    justify-content: space-between;
+  }
+}
 
 @media screen and (max-width: 390px) {
   .intro {
