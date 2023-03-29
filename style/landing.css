@@ -100,7 +100,7 @@ li {
   }
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 767px) {
   .navbar {
     padding: 13px 32px;
     gap: 0;
