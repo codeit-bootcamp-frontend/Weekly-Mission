@@ -1,0 +1,141 @@
+.intro {
+  display: flex;
+  justify-content: center;
+}
+
+.intro-list {
+  padding: 0;
+  margin: 0;
+}
+
+.intro-item {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 1000px;
+  height: 450px;
+  margin: 100px 0;
+}
+
+.intro-item:nth-child(even) > img {
+  order: 1;
+}
+
+.intro-item:nth-child(even) > h3 {
+  order: 2;
+}
+
+.intro-item:nth-child(even) > p {
+  order: 3;
+}
+
+.intro-item img {
+  width: 550px;
+  height: 450px;
+}
+
+.intro-item h3 {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 57px;
+  margin: 0;
+}
+
+.intro-item p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #6b6b6b;
+}
+
+.gradient-list1 {
+  background: linear-gradient(95.63deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.gradient-list2 {
+  background: linear-gradient(95.63deg, #6fbaff 1.72%, #ffd88b 74.97%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.gradient-list3 {
+  background: linear-gradient(95.63deg, #6d7ccd 1.72%, #52888538 74.97%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.gradient-list4 {
+  background: linear-gradient(95.63deg, #fe578f 1.72%, #68e8f9 74.97%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+@media screen and (max-width: 1199px) {
+  .intro-item {
+    width: 700px;
+    height: 315px;
+  }
+
+  .intro-item img {
+    width: 385px;
+    height: 265.91px;
+  }
+}
+
+@media screen and (max-width: 863px) {
+  .navbar {
+    padding: 24px 32px;
+    gap: 0;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .intro {
+    padding: 0 32px;
+  }
+
+  .intro-item {
+    flex-direction: column;
+    margin: 50px 0 70px 0;
+    width: 325px;
+    height: auto;
+    align-items: start;
+  }
+
+  .intro-item h3 {
+    order: 1;
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 20px;
+  }
+
+  .intro-item img {
+    order: 2;
+    width: 325px;
+    height: 265.91px;
+  }
+
+  .intro-item p {
+    order: 3;
+    font-size: 15px;
+  }
+
+  .intro-item:nth-child(even) > img {
+    order: 2;
+  }
+
+  .intro-item:nth-child(even) > .intro-item__text {
+    order: 1;
+  }
+}

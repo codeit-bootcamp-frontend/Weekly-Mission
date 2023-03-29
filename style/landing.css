@@ -1,0 +1,141 @@
+body {
+  position: relative;
+}
+
+.navbar__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 200px;
+  background: #f0f6ff;
+}
+
+.floating-nav {
+  box-shadow: 0px 1px 10px #99999985;
+}
+
+.gradient-button {
+  font-size: 18px;
+  font-weight: 600;
+  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  border-radius: 8px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.login {
+  min-width: 128px;
+  width: 128px;
+  height: 53px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login a {
+  text-decoration: none;
+  color: white;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 64px;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.title-break {
+  display: block;
+}
+
+.gradient-hero {
+  background: linear-gradient(91.26deg, #6d6afe 17.28%, #ff9f9f 74.98%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.link-add {
+  width: 350px;
+  height: 53px;
+  margin-bottom: 40px;
+}
+
+.landing {
+  background: #f0f6ff;
+}
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+@media screen and (max-width: 1199px) {
+  .navbar {
+    padding: 24px 0;
+    gap: 538px;
+    justify-content: center;
+  }
+
+  .title-break-mobile {
+    display: block;
+  }
+
+  #landing-img {
+    width: 650px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .navbar {
+    padding: 13px 32px;
+    gap: 0;
+    justify-content: space-between;
+  }
+
+  .gradient-button {
+    font-size: 14px;
+  }
+
+  .login {
+    min-width: 80px;
+    width: 80px;
+    height: 37px;
+  }
+
+  #logo img {
+    width: 77px;
+  }
+
+  .link-add {
+    width: 200px;
+    height: 37px;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  #landing-img {
+    width: 300px;
+  }
+
+  .title-break-mobile {
+    display: block;
+  }
+}
