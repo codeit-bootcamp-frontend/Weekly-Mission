@@ -14,6 +14,7 @@
   line-height: 18px;
   text-align: center;
   color: #676767;
+  margin: 0;
 }
 
 .info-box {
@@ -36,4 +37,28 @@
 
 .social > * {
   margin-right: 10px;
+}
+
+@media screen and (max-width: 390px) {
+  .footer {
+    padding: 32px;
+    flex-wrap: wrap;
+  }
+
+  .copyright {
+    order: 3;
+    margin-top: 60px;
+  }
+
+  .info-box {
+    order: 1;
+  }
+
+  .social {
+    order: 2;
+  }
+
+  .social a:last-child {
+    margin-right: 0;
+  }
 }
