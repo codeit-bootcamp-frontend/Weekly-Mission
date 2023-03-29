@@ -76,7 +76,12 @@
 }
 @media screen and (max-width: 1199px) {
   .intro-item {
-    width: auto;
+    width: 700px;
+  }
+
+  .intro-item img {
+    width: 385px;
+    height: 265.91px;
   }
 }
 
@@ -93,15 +98,15 @@
     padding: 0 32px;
   }
 
-  .intro-item img {
-    width: 325px;
-    height: 265.91px;
-  }
-
   .intro-item {
     flex-direction: column;
     margin: 50px 0 70px 0;
     width: 100%;
+  }
+
+  .intro-item img {
+    width: 325px;
+    height: 265.91px;
   }
 
   .intro-item h3 {
