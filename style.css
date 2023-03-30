@@ -142,7 +142,6 @@
     width: 62.375rem;
     height: 28.125rem;
     margin: 6.25rem auto;
-    display: flex;
   }
 
   .content-frame .content-area {
@@ -320,7 +319,6 @@
     width: 43.75rem;
     height: 19.6875rem;
     margin: 6.25rem auto;
-    display: flex;
   }
 
   .content-frame:first-child {
@@ -573,4 +571,21 @@
   .footer-right a:not(:first-child) {
     margin-left: 0.8125rem;
   }
+}
+
+
+.content-frame .title {
+  display: inline-block;
+  font-size: 3rem;
+  margin: 0;
+}
+
+.content-frame .description {
+  margin: 0.625rem 0 0 0;
+  color: var(--description);
+  line-height: 150%;
+}
+.right-side {
+  float: right;
+  height: 100%;
 }
