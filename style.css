@@ -156,24 +156,24 @@
     background: var(--footer-background);
   }
 
-  .site-footer .container {
+  .site-footer .footer {
     height: 10rem;
     padding: 2rem 6.5rem;
     font-weight: 400;
     color: var(--footer-text2);
   }
 
-  .container {
+  .footer {
     display: flex;
     max-width: 1920px;
     margin: 0 auto;
   }
 
-  .container .footer-left {
+  .footer .footer-left {
     color: var(--footer-text1);
   }
 
-  .container .footer-middle {
+  .footer .footer-middle {
     margin: 0 auto;
   }
 
@@ -258,10 +258,11 @@
     background-color: var(--site-header-background);
   }
 
+  /* 변경 */
   .site-header .navbar {
     height: 5.875rem;
     padding: 1.25rem 12.5rem;
-    max-width: 1920px;
+    min-width: 1200px;
     margin: 0 auto;
   }
 
@@ -329,24 +330,24 @@
     background: var(--footer-background);
   }
 
-  .site-footer .container {
+  .site-footer .footer {
     height: 10rem;
     padding: 2rem 6.5rem;
     font-weight: 400;
     color: var(--footer-text2);
   }
 
-  .container {
+  .footer {
     display: flex;
     max-width: 1920px;
     margin: 0 auto;
   }
 
-  .container .footer-left {
+  .footer .footer-left {
     color: var(--footer-text1);
   }
 
-  .container .footer-middle {
+  .footer .footer-middle {
     margin: 0 auto;
   }
 
@@ -500,26 +501,26 @@
   .site-footer {
     margin-top: 7.5rem;
     background: var(--footer-background);
+    max-width: 1920px;
   }
 
-  .site-footer .container {
+  .site-footer .footer {
     height: 10rem;
     padding: 2rem 6.5rem;
     font-weight: 400;
     color: var(--footer-text2);
   }
 
-  .container {
+  .footer {
     display: flex;
-    max-width: 1920px;
     margin: 0 auto;
   }
 
-  .container .footer-left {
+  .footer .footer-left {
     color: var(--footer-text1);
   }
 
-  .container .footer-middle {
+  .footer .footer-middle {
     margin: 0 auto;
   }
 
