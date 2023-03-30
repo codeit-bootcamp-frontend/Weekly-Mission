@@ -204,14 +204,7 @@
 }
 
 /* tablet */
-@media (min-width: 769px) and (max-width: 1199px) {
-  @media (max-width: 863px) {
-    .navbar .navbar-container {
-      height: 5.875rem;
-      margin: 0 2rem;
-      padding: 1.25rem 0;
-    }
-  }
+@media (min-width: 768px) and (max-width: 1199px) {
   * {
     box-sizing: border-box;
   }
@@ -274,12 +267,19 @@
 
   /* 변경 */
   .navbar .navbar-container {
-    width: 800px;
     height: 5.875rem;
-    margin: 0 auto;
+    margin: 0 2rem;
     padding: 1.25rem 0;
   }
-
+  @media (min-width: 863px) {
+    .navbar .navbar-container {
+      width: 800px;
+      height: 5.875rem;
+      margin: 0 auto;
+      padding: 1.25rem 0;
+    }
+  }
+  
   .navbar-container .logo {
     float: left;
     line-height: 3.3125rem;
