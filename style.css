@@ -130,7 +130,7 @@
     display: block;
     width: 75rem;
     margin: 0 auto;
-    margin-top: 5.625rem;
+    margin-top: 2.5rem;
   }
 
   .site-body {
@@ -315,15 +315,15 @@
     margin-top: 2.5rem;
   }
 
-  .site-body {
-    margin-top: 7.5rem;
-  }
-
   .content-frame {
-    width: 40rem;
-    height: 15.23rem;
+    width: 43.75rem;
+    height: 19.6875rem;
     margin: 6.25rem auto;
     display: flex;
+  }
+
+  .content-frame:first-child {
+    margin-top: 5rem;
   }
 
   .content-frame .text-area {
