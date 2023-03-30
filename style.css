@@ -144,16 +144,27 @@
     margin: 6.25rem auto;
   }
 
-  .content-frame .content-area {
-    margin: auto 0;
+  .content-frame:first-child {
+    margin-top: 7.5rem;
   }
 
-  .content-area .title {
+  .right-side{
+    float:right;
+    height: 100%;
+  }
+  .left-side{
+    float: left;
+    height: 100%;
+  }
+
+  .content-frame .title {
+    display: inline-block;
     font-size: 3rem;
     margin: 0;
   }
 
-  .content-area .description {
+  .content-frame .description {
+    display: inline-block;
     margin: 0.625rem 0 0 0;
     color: var(--description);
     line-height: 150%;
