@@ -206,6 +206,13 @@
 
 /* tablet */
 @media (min-width: 769px) and (max-width: 1199px) {
+  @media (max-width: 863px) {
+    .navbar .navbar-container {
+      height: 5.875rem;
+      margin: 0 2rem;
+      padding: 1.25rem 0;
+    }
+  }
   * {
     box-sizing: border-box;
   }
@@ -267,11 +274,11 @@
   }
 
   /* 변경 */
-
   .navbar .navbar-container {
     width: 800px;
-    padding: 1.25rem 0;
+    height: 5.875rem;
     margin: 0 auto;
+    padding: 1.25rem 0;
   }
 
   .navbar-container .logo {
