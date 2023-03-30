@@ -309,7 +309,7 @@
 
   .site-header .header-content {
     display: block;
-    width: 75rem;
+    width: 40.625rem;
     margin: 0 auto;
     margin-top: 2.5rem;
   }
@@ -449,8 +449,11 @@
 
 
   /* 변경 */
-  .site-header > * {
-    margin: 0 2rem;
+  .site-header,
+  .site-body,
+  .site-footer {
+    margin: 0;
+    padding: 0 2rem;
   }
 
   .navbar-container img,
@@ -460,12 +463,10 @@
 
   .site-header .navbar {
     max-width: 1920px;
-    margin: 0 auto;
   }
 
   .navbar .navbar-container {
     height: 5.875rem;
-    margin: 0 2rem;
     padding: 1.25rem 0;
   }
 
