@@ -85,6 +85,10 @@
     background-color: var(--site-header-background);
   }
 
+  .media-query-br {
+    display: none;
+  }
+
   .site-header .navbar {
     max-width: 1920px;
     margin: 0 auto;
@@ -262,16 +266,11 @@
     background-color: var(--site-header-background);
   }
 
-  .site-header .navbar {
-    max-width: 1920px;
-    margin: 0 auto;
-  }
-
   /* 변경 */
+
   .navbar .navbar-container {
-    min-width: 1200px;
-    height: 5.875rem;
-    padding: 1.25rem 12.5rem;
+    width: 800px;
+    padding: 1.25rem 0;
     margin: 0 auto;
   }
 
