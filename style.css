@@ -23,6 +23,7 @@
 
 /* site */
 
+
 /* PC */
 @media (min-width: 1200px) {
   * {
@@ -144,16 +145,16 @@
     display: flex;
   }
 
-  .content-frame .text-area {
+  .content-frame .content-area {
     margin: auto 0;
   }
 
-  .text-area .title {
+  .content-area .title {
     font-size: 3rem;
     margin: 0;
   }
 
-  .text-area .description {
+  .content-area .description {
     margin: 0.625rem 0 0 0;
     color: var(--description);
     line-height: 150%;
@@ -326,16 +327,16 @@
     margin-top: 5rem;
   }
 
-  .content-frame .text-area {
+  .content-frame .content-area {
     margin: auto 0;
   }
 
-  .text-area .title {
+  .content-area .title {
     font-size: 3rem;
     margin: 0;
   }
 
-  .text-area .description {
+  .content-area .description {
     margin: 0.625rem 0 0 0;
     color: var(--description);
     line-height: 150%;
@@ -515,16 +516,16 @@
     display: flex;
   }
 
-  .content-frame .text-area {
+  .content-frame .content-area {
     margin: auto 0;
   }
 
-  .text-area .title {
+  .content-area .title {
     font-size: 3rem;
     margin: 0;
   }
 
-  .text-area .description {
+  .content-area .description {
     margin: 0.625rem 0 0 0;
     color: var(--description);
     line-height: 150%;
