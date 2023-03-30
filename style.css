@@ -24,7 +24,7 @@
 /* site */
 
 /* PC */
-@media (min-width: 1201px) {
+@media (min-width: 1200px) {
   * {
     box-sizing: border-box;
   }
@@ -197,7 +197,7 @@
 }
 
 /* tablet */
-@media (min-width: 768px) {
+@media (min-width: 769px) and (max-width: 1199px) {
   * {
     box-sizing: border-box;
   }
@@ -370,7 +370,7 @@
 }
 
 /* mobile */
-@media (min-width: 375px) {
+@media (min-width: 375px) and (max-width: 767px) {
   * {
     box-sizing: border-box;
   }
