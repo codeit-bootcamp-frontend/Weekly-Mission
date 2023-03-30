@@ -146,7 +146,6 @@
   }
 
   .text-area .description {
-    font-size: 16px;
     margin: 10px 0 0 0;
     color: var(--description);
     line-height: 150%;
@@ -160,7 +159,6 @@
   .site-footer .container {
     height: 160px;
     padding: 32px 104px;
-    font-size: 16px;
     font-weight: 400;
     color: var(--footer-text2);
   }
@@ -321,7 +319,6 @@
   }
 
   .text-area .description {
-    font-size: 16px;
     margin: 10px 0 0 0;
     color: var(--description);
     line-height: 150%;
@@ -335,7 +332,6 @@
   .site-footer .container {
     height: 160px;
     padding: 32px 104px;
-    font-size: 16px;
     font-weight: 400;
     color: var(--footer-text2);
   }
@@ -496,7 +492,6 @@
   }
 
   .text-area .description {
-    font-size: 16px;
     margin: 10px 0 0 0;
     color: var(--description);
     line-height: 150%;
@@ -510,7 +505,6 @@
   .site-footer .container {
     height: 160px;
     padding: 32px 104px;
-    font-size: 16px;
     font-weight: 400;
     color: var(--footer-text2);
   }
