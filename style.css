@@ -24,7 +24,7 @@
 /* site */
 
 /* PC */
-@media (min-width: 1200px) {
+@media (min-width: 1201px) {
   * {
     box-sizing: border-box;
   }
@@ -36,8 +36,8 @@
 
   .clickable {
     background: linear-gradient(90deg, var(--clickable-background-left), var(--clickable-background-right));
-    line-height: 53px;
-    border-radius: 8px;
+    line-height: 3.3125rem;
+    border-radius: 0.5rem;
     text-align: center;
   }
 
@@ -86,15 +86,15 @@
   }
 
   .site-header .navbar {
-    height: 101px;
-    padding: 24px 200px;
+    height: 5.875rem;
+    padding: 1.25rem 12.5rem;
     max-width: 1920px;
     margin: 0 auto;
   }
 
   .navbar .logo {
     float: left;
-    line-height: 53px;
+    line-height: 3.3125rem;
   }
 
   .navbar .logo img {
@@ -103,36 +103,36 @@
 
   .navbar .clickable {
     float: right;
-    width: 128px;
+    width: 8rem;
   }
 
   .site-header .header-title {
     text-align: center;
-    margin-top: 65px;
-    margin-bottom: 40px;
-    font-size: 64px;
+    margin-top: 4.0625rem;
+    margin-bottom: 2.5rem;
+    font-size: 4rem;
   }
 
   .clickable.add-link {
-    width: 350px;
+    width: 21.875rem;
     margin: 0 auto;
   }
 
   .site-header .header-content {
     display: block;
-    width: 1200px;
+    width: 75rem;
     margin: 0 auto;
-    margin-top: 40px;
+    margin-top: 2.5rem;
   }
 
   .site-body {
-    margin-top: 120px;
+    margin-top: 7.5rem;
   }
 
   .content-frame {
-    width: 998px;
-    height: 450px;
-    margin: 100px auto;
+    width: 62.375rem;
+    height: 28.125rem;
+    margin: 6.25rem auto;
     display: flex;
   }
 
@@ -141,24 +141,24 @@
   }
 
   .text-area .title {
-    font-size: 48px;
+    font-size: 3rem;
     margin: 0;
   }
 
   .text-area .description {
-    margin: 10px 0 0 0;
+    margin: 0.625rem 0 0 0;
     color: var(--description);
     line-height: 150%;
   }
 
   .site-footer {
-    margin-top: 120px;
+    margin-top: 7.5rem;
     background: var(--footer-background);
   }
 
   .site-footer .container {
-    height: 160px;
-    padding: 32px 104px;
+    height: 10rem;
+    padding: 2rem 6.5rem;
     font-weight: 400;
     color: var(--footer-text2);
   }
@@ -183,16 +183,16 @@
   }
 
   .footer-middle a:not(:first-child) {
-    margin-left: 30px;
+    margin-left: 1.875rem;
   }
 
   .footer-right img {
-    width: 17px;
-    height: 17px;
+    width: 1rem;
+    height: 1rem;
   }
 
   .footer-right a:not(:first-child) {
-    margin-left: 13px;
+    margin-left: 0.8125rem;
   }
 }
 
@@ -209,8 +209,8 @@
 
   .clickable {
     background: linear-gradient(90deg, var(--clickable-background-left), var(--clickable-background-right));
-    line-height: 53px;
-    border-radius: 8px;
+    line-height: 3.3125rem;
+    border-radius: 0.5rem;
     text-align: center;
   }
 
@@ -259,15 +259,15 @@
   }
 
   .site-header .navbar {
-    height: 101px;
-    padding: 24px 200px;
+    height: 5.875rem;
+    padding: 1.25rem 12.5rem;
     max-width: 1920px;
     margin: 0 auto;
   }
 
   .navbar .logo {
     float: left;
-    line-height: 53px;
+    line-height: 3.3125rem;
   }
 
   .navbar .logo img {
@@ -276,36 +276,36 @@
 
   .navbar .clickable {
     float: right;
-    width: 128px;
+    width: 8rem;
   }
 
   .site-header .header-title {
     text-align: center;
-    margin-top: 65px;
-    margin-bottom: 40px;
-    font-size: 64px;
+    margin-top: 4.0625rem;
+    margin-bottom: 2.5rem;
+    font-size: 4rem;
   }
 
   .clickable.add-link {
-    width: 350px;
+    width: 21.875rem;
     margin: 0 auto;
   }
 
   .site-header .header-content {
     display: block;
-    width: 1200px;
+    width: 75rem;
     margin: 0 auto;
-    margin-top: 40px;
+    margin-top: 2.5rem;
   }
 
   .site-body {
-    margin-top: 120px;
+    margin-top: 7.5rem;
   }
 
   .content-frame {
-    width: 998px;
-    height: 450px;
-    margin: 100px auto;
+    width: 62.375rem;
+    height: 28.125rem;
+    margin: 6.25rem auto;
     display: flex;
   }
 
@@ -314,24 +314,24 @@
   }
 
   .text-area .title {
-    font-size: 48px;
+    font-size: 3rem;
     margin: 0;
   }
 
   .text-area .description {
-    margin: 10px 0 0 0;
+    margin: 0.625rem 0 0 0;
     color: var(--description);
     line-height: 150%;
   }
 
   .site-footer {
-    margin-top: 120px;
+    margin-top: 7.5rem;
     background: var(--footer-background);
   }
 
   .site-footer .container {
-    height: 160px;
-    padding: 32px 104px;
+    height: 10rem;
+    padding: 2rem 6.5rem;
     font-weight: 400;
     color: var(--footer-text2);
   }
@@ -356,16 +356,16 @@
   }
 
   .footer-middle a:not(:first-child) {
-    margin-left: 30px;
+    margin-left: 1.875rem;
   }
 
   .footer-right img {
-    width: 17px;
-    height: 17px;
+    width: 1rem;
+    height: 1rem;
   }
 
   .footer-right a:not(:first-child) {
-    margin-left: 13px;
+    margin-left: 0.8125rem;
   }
 }
 
@@ -382,8 +382,8 @@
 
   .clickable {
     background: linear-gradient(90deg, var(--clickable-background-left), var(--clickable-background-right));
-    line-height: 53px;
-    border-radius: 8px;
+    line-height: 3.3125rem;
+    border-radius: 0.5rem;
     text-align: center;
   }
 
@@ -432,15 +432,15 @@
   }
 
   .site-header .navbar {
-    height: 101px;
-    padding: 24px 200px;
+    height: 5.875rem;
+    padding: 1.25rem 12.5rem;
     max-width: 1920px;
     margin: 0 auto;
   }
 
   .navbar .logo {
     float: left;
-    line-height: 53px;
+    line-height: 3.3125rem;
   }
 
   .navbar .logo img {
@@ -449,36 +449,36 @@
 
   .navbar .clickable {
     float: right;
-    width: 128px;
+    width: 8rem;
   }
 
   .site-header .header-title {
     text-align: center;
-    margin-top: 65px;
-    margin-bottom: 40px;
-    font-size: 64px;
+    margin-top: 4.0625rem;
+    margin-bottom: 2.5rem;
+    font-size: 4rem;
   }
 
   .clickable.add-link {
-    width: 350px;
+    width: 21.875rem;
     margin: 0 auto;
   }
 
   .site-header .header-content {
     display: block;
-    width: 1200px;
+    width: 75rem;
     margin: 0 auto;
-    margin-top: 40px;
+    margin-top: 2.5rem;
   }
 
   .site-body {
-    margin-top: 120px;
+    margin-top: 7.5rem;
   }
 
   .content-frame {
-    width: 998px;
-    height: 450px;
-    margin: 100px auto;
+    width: 62.375rem;
+    height: 28.125rem;
+    margin: 6.25rem auto;
     display: flex;
   }
 
@@ -487,24 +487,24 @@
   }
 
   .text-area .title {
-    font-size: 48px;
+    font-size: 3rem;
     margin: 0;
   }
 
   .text-area .description {
-    margin: 10px 0 0 0;
+    margin: 0.625rem 0 0 0;
     color: var(--description);
     line-height: 150%;
   }
 
   .site-footer {
-    margin-top: 120px;
+    margin-top: 7.5rem;
     background: var(--footer-background);
   }
 
   .site-footer .container {
-    height: 160px;
-    padding: 32px 104px;
+    height: 10rem;
+    padding: 2rem 6.5rem;
     font-weight: 400;
     color: var(--footer-text2);
   }
@@ -529,15 +529,15 @@
   }
 
   .footer-middle a:not(:first-child) {
-    margin-left: 30px;
+    margin-left: 1.875rem;
   }
 
   .footer-right img {
-    width: 17px;
-    height: 17px;
+    width: 1rem;
+    height: 1rem;
   }
 
   .footer-right a:not(:first-child) {
-    margin-left: 13px;
+    margin-left: 0.8125rem;
   }
 }
