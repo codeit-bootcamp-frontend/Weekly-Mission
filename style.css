@@ -22,68 +22,130 @@
 }
 
 /* site */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--body-background);
+  margin: 0 auto;
+}
+
+.clickable {
+  background: linear-gradient(90deg, var(--clickable-background-left), var(--clickable-background-right));
+  line-height: 3.3125rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+header a {
+  text-decoration: none;
+  color: var(--clickable-text);
+}
+
+.emphasis-1 {
+  background: linear-gradient(90deg, var(--emphasis-1-left), var(--emphasis-1-right));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.emphasis-2 {
+  background: linear-gradient(90deg, var(--emphasis-2-left), var(--emphasis-2-right));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.emphasis-3 {
+  background: linear-gradient(90deg, var(--emphasis-3-left), var(--emphasis-3-right));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.emphasis-4 {
+  background: linear-gradient(90deg, var(--emphasis-4-left), var(--emphasis-4-right));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.emphasis-5 {
+  background: linear-gradient(90deg, var(--emphasis-5-left), var(--emphasis-5-right));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.site-header {
+  background-color: var(--site-header-background);
+}
+
+.navbar-container .logo {
+  float: left;
+  line-height: 3.3125rem;
+}
+
+.navbar-container .logo img {
+  vertical-align: middle;
+}
+
+.navbar-container .clickable {
+  float: right;
+  width: 8rem;
+}
+
+.clickable.add-link {
+  width: 21.875rem;
+  margin: 0 auto;
+}
+
+.site-footer {
+  margin-top: 10.625rem;
+  background: var(--footer-background);
+}
+
+.site-footer .footer {
+  padding: 2rem 6.5rem 6.875rem;
+  font-weight: 400;
+  color: var(--footer-text2);
+}
+
+.footer {
+  display: flex;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.footer .footer-left {
+  color: var(--footer-text1);
+}
+
+.footer .footer-middle {
+  margin: 0 auto;
+}
+
+.footer-middle a {
+  color: var(--footer-text2);
+  text-decoration: none;
+}
+
+.footer-middle a:not(:first-child) {
+  margin-left: 1.875rem;
+}
+
+.footer-right img {
+  width: 1rem;
+  height: 1rem;
+}
+
+.footer-right a:not(:first-child) {
+  margin-left: 0.8125rem;
+}
+
 /* PC */
 @media (min-width: 1200px) {
-  * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    background-color: var(--body-background);
-    margin: 0 auto;
-  }
-  
-  .clickable {
-    background: linear-gradient(90deg, var(--clickable-background-left), var(--clickable-background-right));
-    line-height: 3.3125rem;
-    border-radius: 0.5rem;
-    text-align: center;
-  }
-  
-  header a {
-    text-decoration: none;
-    color: var(--clickable-text);
-  }
-  
-  .emphasis-1 {
-    background: linear-gradient(90deg, var(--emphasis-1-left), var(--emphasis-1-right));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  .emphasis-2 {
-    background: linear-gradient(90deg, var(--emphasis-2-left), var(--emphasis-2-right));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  .emphasis-3 {
-    background: linear-gradient(90deg, var(--emphasis-3-left), var(--emphasis-3-right));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  .emphasis-4 {
-    background: linear-gradient(90deg, var(--emphasis-4-left), var(--emphasis-4-right));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  .emphasis-5 {
-    background: linear-gradient(90deg, var(--emphasis-5-left), var(--emphasis-5-right));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  .site-header {
-    background-color: var(--site-header-background);
-  }
-
   .tablet-br {
     display: none;
   }
@@ -99,30 +161,11 @@
     padding: 1.25rem 0;
   }
 
-  .navbar-container .logo {
-    float: left;
-    line-height: 3.3125rem;
-  }
-
-  .navbar-container .logo img {
-    vertical-align: middle;
-  }
-
-  .navbar-container .clickable {
-    float: right;
-    width: 8rem;
-  }
-
   .site-header .header-title {
     text-align: center;
     margin-top: 4.375rem;
     margin-bottom: 2.5rem;
     font-size: 4rem;
-  }
-
-  .clickable.add-link {
-    width: 21.875rem;
-    margin: 0 auto;
   }
 
   .site-header .header-content {
@@ -168,113 +211,10 @@
     line-height: 150%;
   }
 
-  .site-footer {
-    margin-top: 10.625rem;
-    background: var(--footer-background);
-  }
-
-  .site-footer .footer {
-    padding: 2rem 6.5rem 6.875rem;
-    font-weight: 400;
-    color: var(--footer-text2);
-  }
-
-  .footer {
-    display: flex;
-    max-width: 1920px;
-    margin: 0 auto;
-  }
-
-  .footer .footer-left {
-    color: var(--footer-text1);
-  }
-
-  .footer .footer-middle {
-    margin: 0 auto;
-  }
-
-  .footer-middle a {
-    color: var(--footer-text2);
-    text-decoration: none;
-  }
-
-  .footer-middle a:not(:first-child) {
-    margin-left: 1.875rem;
-  }
-
-  .footer-right img {
-    width: 1rem;
-    height: 1rem;
-  }
-
-  .footer-right a:not(:first-child) {
-    margin-left: 0.8125rem;
-  }
 }
 
 /* tablet */
 @media (min-width: 768px) and (max-width: 1199px) {
-  * {
-    box-sizing: border-box;
-  }
-
-  body {
-    background-color: var(--body-background);
-    margin: 0 auto;
-  }
-
-  .clickable {
-    background: linear-gradient(90deg, var(--clickable-background-left), var(--clickable-background-right));
-    line-height: 3.3125rem;
-    border-radius: 0.5rem;
-    text-align: center;
-  }
-
-  header a {
-    text-decoration: none;
-    color: var(--clickable-text);
-  }
-
-  .emphasis-1 {
-    background: linear-gradient(90deg, var(--emphasis-1-left), var(--emphasis-1-right));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .emphasis-2 {
-    background: linear-gradient(90deg, var(--emphasis-2-left), var(--emphasis-2-right));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .emphasis-3 {
-    background: linear-gradient(90deg, var(--emphasis-3-left), var(--emphasis-3-right));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .emphasis-4 {
-    background: linear-gradient(90deg, var(--emphasis-4-left), var(--emphasis-4-right));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .emphasis-5 {
-    background: linear-gradient(90deg, var(--emphasis-5-left), var(--emphasis-5-right));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .site-header {
-    background-color: var(--site-header-background);
-  }
-
-  /* 변경 */
   .navbar .navbar-container {
     height: 5.875rem;
     margin: 0 2rem;
@@ -288,32 +228,12 @@
       padding: 1.25rem 0;
     }
   }
-  
-  .navbar-container .logo {
-    float: left;
-    line-height: 3.3125rem;
-  }
 
-  .navbar-container .logo img {
-    vertical-align: middle;
-  }
-
-  .navbar-container .clickable {
-    float: right;
-    width: 8rem;
-  }
-
-  /* 변경 */
   .site-header .header-title {
     text-align: center;
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
     font-size: 4rem;
-  }
-
-  .clickable.add-link {
-    width: 21.875rem;
-    margin: 0 auto;
   }
 
   /* 변경 */
@@ -395,72 +315,10 @@
 
 /* mobile */
 @media (min-width: 375px) and (max-width: 767px) {
-  * {
-    box-sizing: border-box;
-  }
-
-  body {
-    background-color: var(--body-background);
-    margin: 0 auto;
-  }
-
-  .clickable {
-    background: linear-gradient(90deg, var(--clickable-background-left), var(--clickable-background-right));
-    line-height: 3.3125rem;
-    border-radius: 0.5rem;
-    text-align: center;
-  }
-
-  header a {
-    text-decoration: none;
-    color: var(--clickable-text);
-  }
-
-  .emphasis-1 {
-    background: linear-gradient(90deg, var(--emphasis-1-left), var(--emphasis-1-right));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .emphasis-2 {
-    background: linear-gradient(90deg, var(--emphasis-2-left), var(--emphasis-2-right));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .emphasis-3 {
-    background: linear-gradient(90deg, var(--emphasis-3-left), var(--emphasis-3-right));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .emphasis-4 {
-    background: linear-gradient(90deg, var(--emphasis-4-left), var(--emphasis-4-right));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .emphasis-5 {
-    background: linear-gradient(90deg, var(--emphasis-5-left), var(--emphasis-5-right));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
   .content-frame br {
     display: none;
   }
 
-  .site-header {
-    background-color: var(--site-header-background);
-  }
-
-
-  /* 변경 */
   .site-header,
   .site-body,
   .site-footer {
@@ -473,27 +331,9 @@
     width: 100%;
   }
 
-  .site-header .navbar {
-    max-width: 1920px;
-  }
-
   .navbar .navbar-container {
     height: 5.875rem;
     padding: 1.25rem 0;
-  }
-
-  .navbar-container .logo {
-    float: left;
-    line-height: 3.3125rem;
-  }
-
-  .navbar-container .logo img {
-    vertical-align: middle;
-  }
-
-  .navbar-container .clickable {
-    float: right;
-    width: 8rem;
   }
 
   .site-header .header-title {
@@ -501,11 +341,6 @@
     margin-top: 4.0625rem;
     margin-bottom: 2.5rem;
     font-size: 4rem;
-  }
-
-  .clickable.add-link {
-    width: 21.875rem;
-    margin: 0 auto;
   }
 
   .site-header .header-content {
@@ -549,57 +384,4 @@
     font-size: 0.94rem;
     color: var(--description);
   }
-
-  .site-footer {
-    background: var(--footer-background);
-    max-width: 1920px;
-  }
-
-  .site-footer .footer {
-    padding: 2rem 6.5rem 6.875rem;
-    font-weight: 400;
-    color: var(--footer-text2);
-  }
-
-  .footer {
-    display: flex;
-    margin: 0 auto;
-  }
-
-  .footer .footer-left {
-    color: var(--footer-text1);
-  }
-
-  .footer .footer-middle {
-    margin: 0 auto;
-  }
-
-  .footer-middle a {
-    color: var(--footer-text2);
-    text-decoration: none;
-  }
-
-  .footer-middle a:not(:first-child) {
-    margin-left: 1.875rem;
-  }
-
-  .footer-right img {
-    width: 1rem;
-    height: 1rem;
-  }
-
-  .footer-right a:not(:first-child) {
-    margin-left: 0.8125rem;
-  }
 }
-
-/* 
-.right-side {
-  float: right;
-  height: 100%;
-}
-
-.left-side {
-  float: left;
-  height: 100%;
-} */
