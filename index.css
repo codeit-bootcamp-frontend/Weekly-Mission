@@ -18,6 +18,8 @@ header {
   max-width: 1920px;
   height: 101px;
   padding: 24px 200px;
+  margin: 0 auto;
+  background-color: #f0f6ff;
 }
 
 #intro-wrapper {
@@ -44,10 +46,6 @@ nav > #login-btn {
   background-image: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
 }
 
-#header-wrapper {
-  background-color: #f0f6ff;
-}
-
 nav > img:hover {
   cursor: pointer;
 }
@@ -57,7 +55,7 @@ nav > img:hover {
   max-width: 1920px;
   height: 948px;
   padding-top: 65px;
-  margin-bottom: 120px;
+  margin: 0 auto 120px auto;
   text-align: center;
 }
 
@@ -102,6 +100,7 @@ nav > img:hover {
 
 .tutorial-section {
   max-width: 1920px;
+  margin: 0 auto;
 }
 
 article.tutorial {
@@ -194,6 +193,7 @@ footer {
 
 #footer-wrapper {
   max-width: 1920px;
+  margin: 0 auto;
   height: 160px;
   padding-top: 32px;
   padding-bottom: 108px;
