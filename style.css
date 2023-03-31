@@ -1,0 +1,197 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+header,
+main {
+  background-color: #f0f6ff;
+}
+
+header nav,
+footer #wrap {
+  max-width: 1920px;
+  margin: 0 auto; /* 왜 한번더 적어줘야 동작 하는 지..? */
+}
+
+header,
+main,
+section {
+  font-family: Pretendard;
+}
+
+main {
+  height: 948px;
+  overflow: hidden;
+}
+
+header nav,
+article,
+footer #wrap {
+  justify-content: space-between;
+  display: flex;
+}
+header {
+  padding: 0 200px;
+}
+header nav {
+  align-items: center;
+  height: 101px;
+}
+
+nav #logo {
+  width: 133px;
+  height: 24px;
+}
+
+nav #login {
+  float: right;
+  width: 128px;
+  height: 53px;
+  color: #f5f5f5;
+  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  border: 0;
+  border-radius: 8px;
+  padding: 16px 20px;
+  font-weight: 600;
+  font-size: 18px;
+}
+main #title {
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 80px;
+  margin: 0;
+  padding: 65px 0 0;
+}
+
+main #add_link {
+  display: block;
+  width: 350px;
+  margin: 40px auto;
+  height: 53px;
+  color: #f5f5f5;
+  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  border-radius: 8px;
+  padding: 16px 20px;
+  font-weight: 600;
+  font-size: 18px;
+  border: 0;
+}
+
+main #img1 {
+  width: 1200px;
+  border-radius: 25px;
+  margin: 0 auto;
+}
+
+.content_imgs {
+  width: 550px;
+}
+
+article {
+  flex-direction: row;
+  align-items: center;
+  margin: 100px auto;
+  width: 998px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+}
+.explains {
+  display: inline-block;
+  text-align: left;
+}
+
+article h2 {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 57px;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+article h2 #span1 {
+  background: linear-gradient(95.63deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+article h2 #span2 {
+  background: linear-gradient(95.63deg, #ffd88b 1.72%, #6fbaff 74.97%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+article h2 #span3 {
+  background: linear-gradient(95.63deg, #6d7ccd 1.72%, #52888538 74.97%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+article h2 #span4 {
+  background: linear-gradient(95.63deg, #68e8f9 1.72%, #fe578f 74.97%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+article p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  margin: 10px auto 0;
+}
+
+footer {
+  background-color: #111322;
+  padding: 32px 200px 108px;
+  height: 160px;
+  font-family: "Arial";
+}
+
+footer #wrap {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+#copyright {
+  width: 105px;
+  height: 18px;
+  color: #676767;
+  margin: 0;
+}
+
+#privacy_policy {
+  color: #cfcfcf;
+  display: inline-block;
+  margin-right: 30px;
+}
+
+#faq {
+  color: #cfcfcf;
+  display: inline-block;
+}
+
+footer img {
+  width: 18px;
+  height: 18px;
+  margin-right: 13px;
+}
