@@ -37,6 +37,8 @@ body {
   line-height: 3.3rem;
   border-radius: 0.5rem;
   text-align: center;
+  font-weight: 600;
+  font-size: 1.125rem;
 }
 
 .emphasis-1 {
@@ -84,9 +86,8 @@ body {
   position: fixed;
   inset: 0;
   height: 6rem;
-  background-color: var(--body-background);
+  background-color: rgba(240, 246, 255, 0.5);
 }
-
 
 .navbar-container .logo {
   line-height: 3.3rem;
@@ -99,12 +100,13 @@ body {
 
 .navbar-container .clickable {
   width: 8rem;
-  float:right;
+  float: right;
 }
 
 /* site-body */
 .site-body {
   background-color: var(--site-body-background);
+  padding-bottom: 10.625rem;
 }
 
 .clickable.add-link {
@@ -118,8 +120,8 @@ body {
 }
 
 .site-footer .footer {
+  height: 10rem;
   padding: 2rem 6.5rem 7rem;
-  font-weight: 400;
   color: var(--footer-text2);
 }
 
@@ -172,8 +174,8 @@ body {
 
   .site-header .header-title {
     text-align: center;
-    padding-top: 4.375rem;
-    padding-bottom: 2.5rem;
+    margin-top: 10.25rem;
+    margin-bottom: 2.5rem;
     font-size: 4rem;
   }
 
@@ -187,7 +189,6 @@ body {
   /* site-body */
   .site-body {
     padding-top: 7.5rem;
-    padding-bottom: 10.5rem;
   }
 
   .content-frame {
@@ -197,11 +198,11 @@ body {
   }
 
   .content-frame:first-child {
-    margin-top: 7.5rem;
+    margin-top: 0;
   }
 
   .right-side{
-    float:right;
+    float: right;
     height: 100%;
   }
   .left-side{
@@ -227,15 +228,14 @@ body {
 @media (min-width: 768px) and (max-width: 1199px) {
   /* site-header */
   .navbar .navbar-container {
-    height: 5.875rem;
+    height: 6rem;
     margin: 0 auto;
     padding: 1.25rem 2rem;
-    max-width: 1920px;
   }
   @media (min-width: 863px) {
     .navbar .navbar-container {
       width: 800px;
-      height: 5.875rem;
+      height: 6rem;
       margin: 0 auto;
       padding: 1.25rem 0;
     }
@@ -243,8 +243,8 @@ body {
 
   .site-header .header-title {
     text-align: center;
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+    margin-top: 8.5rem;
+    margin-bottom: 2.5rem;
     font-size: 4rem;
   }
 
@@ -256,6 +256,9 @@ body {
   }
 
   /* site-body */
+  .site-body {
+    padding-top: 7.5rem;
+  }
   .content-frame {
     width: 43.75rem;
     height: 19.6875rem;
@@ -263,30 +266,37 @@ body {
   }
 
   .content-frame:first-child {
-    margin-top: 5rem;
+    margin-top: 0;
   }
 
   .content-frame .content-area {
     margin: auto 0;
   }
 
-  .content-area .title {
+  .content-frame .title {
+    display: inline-block;
     font-size: 3rem;
     margin: 0;
   }
 
-  .content-area .description {
+  .content-frame .description {
+    display: inline-block;
     margin: 0.625rem 0 0 0;
     color: var(--description);
     line-height: 150%;
   }
 
-  /* site-footer */
-  .site-footer {
-    margin-top: 10.625rem;
-    background: var(--footer-background);
+  .right-side{
+    float: right;
+    height: 100%;
   }
+  .left-side{
+    float: left;
+    height: 100%;
+  }
+}
 
+  /* site-footer */
   .site-footer .footer {
     padding: 2rem 6.5rem 6.875rem;
     font-weight: 400;
@@ -324,7 +334,6 @@ body {
   .footer-right a:not(:first-child) {
     margin-left: 0.8125rem;
   }
-}
 
 /* mobile */
 @media (min-width: 375px) and (max-width: 767px) {
@@ -335,28 +344,50 @@ body {
 
   .site-header,
   .site-body,
-  .site-footer {
+  .site-footer,
+  .navbar {
     margin: 0;
     padding: 0 2rem;
   }
 
-  .navbar-container img,
-  .content-frame img {
-    width: 100%;
+  .clickable {
+    line-height: 2.3rem;
+    font-size: 0.875rem;
+  }
+
+  /* site-header */
+  .site-header .navbar {
+    height: 4rem;
+  }
+
+  .navbar-container .logo {
+    line-height: 2.3rem;
+  }
+  
+  .navbar-container .clickable {
+    width: 5rem;
+    float: right;
+  }
+  /* site-header */
+
+  .site-header .header-content {
+    display: block;
+    width: 75rem;
+    margin: 0 auto;
+    margin-top: 2.5rem;
   }
 
   .navbar .navbar-container {
-    height: 5.875rem;
-    padding: 1.25rem 0;
-    max-width: 1920px;
+    height: 4rem;
+    padding: 0.8rem 0;
     margin: 0 auto;
   }
 
   .site-header .header-title {
     text-align: center;
-    padding-top: 4.0625rem;
-    padding-bottom: 2.5rem;
-    font-size: 4rem;
+    margin-top: 5.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
   }
 
   .site-header .header-content {
