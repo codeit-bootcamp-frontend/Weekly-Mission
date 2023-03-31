@@ -209,7 +209,7 @@ footer {
 .bottom-nav {
   display: flex;
   justify-content: space-between;
-  margin: 0 200px;
+  margin: 0 104px;
 }
 
 .bottom-nav > span {
@@ -243,4 +243,16 @@ footer {
   display: inline-block;
   vertical-align: middle;
   margin-left: 3px;
+}
+
+/* tablet  */
+@media only screen and (max-width: 1200px) {
+  #header-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 24px 0;
+  }
+  nav {
+    width: 784.44px;
+  }
 }
