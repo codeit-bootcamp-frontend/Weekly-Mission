@@ -28,19 +28,14 @@
 
 body {
   background-color: var(--body-background);
-  margin: 0 auto;
+  margin: 0;
 }
 
 .clickable {
   background: linear-gradient(90deg, var(--clickable-background-left), var(--clickable-background-right));
-  line-height: 3.3125rem;
+  line-height: 3.3rem;
   border-radius: 0.5rem;
   text-align: center;
-}
-
-header a {
-  text-decoration: none;
-  color: var(--clickable-text);
 }
 
 .emphasis-1 {
@@ -82,9 +77,14 @@ header a {
   background-color: var(--site-header-background);
 }
 
+.site-header a {
+  text-decoration: none;
+  color: var(--clickable-text);
+}
+
 .navbar-container .logo {
   float: left;
-  line-height: 3.3125rem;
+  line-height: 3.3rem;
 }
 
 .navbar-container .logo img {
@@ -97,17 +97,17 @@ header a {
 }
 
 .clickable.add-link {
-  width: 21.875rem;
+  width: 22rem;
   margin: 0 auto;
 }
 
 .site-footer {
-  margin-top: 10.625rem;
+  margin-top: 10.5rem;
   background: var(--footer-background);
 }
 
 .site-footer .footer {
-  padding: 2rem 6.5rem 6.875rem;
+  padding: 2rem 6.5rem 7rem;
   font-weight: 400;
   color: var(--footer-text2);
 }
@@ -132,7 +132,7 @@ header a {
 }
 
 .footer-middle a:not(:first-child) {
-  margin-left: 1.875rem;
+  margin-left: 2rem;
 }
 
 .footer-right img {
@@ -141,7 +141,7 @@ header a {
 }
 
 .footer-right a:not(:first-child) {
-  margin-left: 0.8125rem;
+  margin-left: 0.8rem;
 }
 
 /* PC */
@@ -156,7 +156,7 @@ header a {
   }
 
   .navbar .navbar-container {
-    height: 5.875rem;
+    height: 6rem;
     margin: 0 12.5rem;
     padding: 1.25rem 0;
   }
