@@ -275,4 +275,20 @@ footer {
     width: 698px;
     height: 343px;
   }
+
+  article.tutorial {
+    width: 698px;
+    height: 315px;
+    margin: 100px auto;
+  }
+
+  article.tutorial > section.explanation {
+    width: 313px;
+    height: 313px;
+  }
+
+  article.tutorial > section.image-container {
+    width: 385px;
+    height: 315px;
+  }
 }
