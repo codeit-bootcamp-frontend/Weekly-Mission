@@ -236,6 +236,7 @@ main .save-link .img-box img:nth-child(2) {
 }
 
 /* share */
+
 .share {
   display: flex;
   justify-content: space-between;
@@ -276,6 +277,7 @@ main .save-link .img-box img:nth-child(2) {
 }
 
 /* search */
+
 .search {
   display: flex;
   justify-content: space-between;
@@ -310,6 +312,7 @@ main .save-link .img-box img:nth-child(2) {
 }
 
 /* footer */
+
 footer {
   width: 100vw;
   background-color: black;
