@@ -15,6 +15,13 @@ h1 {
 header {
   width: 100%;
   background-color: #f0f6ff;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+main {
+  margin-top: 101px;
 }
 
 #header-wrapper {
