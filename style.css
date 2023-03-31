@@ -82,9 +82,9 @@ body {
 
 .site-header .navbar {
   position: fixed;
-  max-width: 1920px;
-  margin: 0 auto;
   inset: 0;
+  height: 6rem;
+  background-color: var(--body-background);
 }
 
 
@@ -165,14 +165,15 @@ body {
   /* site-header */
   .navbar .navbar-container {
     height: 6rem;
-    margin: 0 12.5rem;
-    padding: 1.25rem 0;
+    padding: 1.25rem 12.5rem;
+    max-width: 1920px;
+    margin: 0 auto;
   }
 
   .site-header .header-title {
     text-align: center;
-    margin-top: 4.375rem;
-    margin-bottom: 2.5rem;
+    padding-top: 4.375rem;
+    padding-bottom: 2.5rem;
     font-size: 4rem;
   }
 
@@ -227,8 +228,9 @@ body {
   /* site-header */
   .navbar .navbar-container {
     height: 5.875rem;
-    margin: 0 2rem;
-    padding: 1.25rem 0;
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    max-width: 1920px;
   }
   @media (min-width: 863px) {
     .navbar .navbar-container {
@@ -241,8 +243,8 @@ body {
 
   .site-header .header-title {
     text-align: center;
-    margin-top: 2.5rem;
-    margin-bottom: 2.5rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
     font-size: 4rem;
   }
 
@@ -346,12 +348,14 @@ body {
   .navbar .navbar-container {
     height: 5.875rem;
     padding: 1.25rem 0;
+    max-width: 1920px;
+    margin: 0 auto;
   }
 
   .site-header .header-title {
     text-align: center;
-    margin-top: 4.0625rem;
-    margin-bottom: 2.5rem;
+    padding-top: 4.0625rem;
+    padding-bottom: 2.5rem;
     font-size: 4rem;
   }
 
