@@ -1,6 +1,6 @@
 :root {
-  --body-background: #FFFFFF;
-  --site-header-background: #F0F6FF;
+  --body-background: #F0F6FF;
+  --site-body-background: #FFFFFF;
   --clickable-background-left: #6D6AFE;
   --clickable-background-right: #6AE3FE;
   --clickable-text: #F5F5F5;
@@ -22,6 +22,7 @@
 }
 
 /* site */
+/* settings */
 * {
   box-sizing: border-box;
 }
@@ -73,18 +74,23 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-.site-header {
-  background-color: var(--site-header-background);
-}
-
+/* site-header */
 .site-header a {
   text-decoration: none;
   color: var(--clickable-text);
 }
 
+.site-header .navbar {
+  position: fixed;
+  max-width: 1920px;
+  margin: 0 auto;
+  inset: 0;
+}
+
+
 .navbar-container .logo {
-  float: left;
   line-height: 3.3rem;
+  float: left;
 }
 
 .navbar-container .logo img {
@@ -92,8 +98,13 @@ body {
 }
 
 .navbar-container .clickable {
-  float: right;
   width: 8rem;
+  float:right;
+}
+
+/* site-body */
+.site-body {
+  background-color: var(--site-body-background);
 }
 
 .clickable.add-link {
@@ -101,8 +112,8 @@ body {
   margin: 0 auto;
 }
 
+/* site-footer */
 .site-footer {
-  margin-top: 10.5rem;
   background: var(--footer-background);
 }
 
@@ -146,15 +157,12 @@ body {
 
 /* PC */
 @media (min-width: 1200px) {
+  /* setting */
   .tablet-br {
     display: none;
   }
 
-  .site-header .navbar {
-    max-width: 1920px;
-    margin: 0 auto;
-  }
-
+  /* site-header */
   .navbar .navbar-container {
     height: 6rem;
     margin: 0 12.5rem;
@@ -175,8 +183,10 @@ body {
     margin-top: 2.5rem;
   }
 
+  /* site-body */
   .site-body {
-    margin-top: 7.5rem;
+    padding-top: 7.5rem;
+    padding-bottom: 10.5rem;
   }
 
   .content-frame {
@@ -210,11 +220,11 @@ body {
     color: var(--description);
     line-height: 150%;
   }
-
 }
 
 /* tablet */
 @media (min-width: 768px) and (max-width: 1199px) {
+  /* site-header */
   .navbar .navbar-container {
     height: 5.875rem;
     margin: 0 2rem;
@@ -236,7 +246,6 @@ body {
     font-size: 4rem;
   }
 
-  /* 변경 */
   .site-header .header-content {
     display: block;
     width: 40.625rem;
@@ -244,6 +253,7 @@ body {
     margin-top: 2.5rem;
   }
 
+  /* site-body */
   .content-frame {
     width: 43.75rem;
     height: 19.6875rem;
@@ -269,6 +279,7 @@ body {
     line-height: 150%;
   }
 
+  /* site-footer */
   .site-footer {
     margin-top: 10.625rem;
     background: var(--footer-background);
@@ -315,6 +326,7 @@ body {
 
 /* mobile */
 @media (min-width: 375px) and (max-width: 767px) {
+  /* setting */
   .content-frame br {
     display: none;
   }
