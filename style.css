@@ -114,6 +114,10 @@ body {
   margin: 0 auto;
 }
 
+.content-frame {
+  position: relative;
+}
+
 /* site-footer */
 .site-footer {
   background: var(--footer-background);
@@ -198,11 +202,12 @@ body {
     margin-top: 0;
   }
 
-  .right-side{
+  .content-frame.right-side img{
     float: right;
     height: 100%;
   }
-  .left-side{
+
+  .content-frame.left-side img{
     float: left;
     height: 100%;
   }
@@ -211,13 +216,38 @@ body {
     display: inline-block;
     font-size: 3rem;
     margin: 0;
+    width: 18rem;
   }
 
   .content-frame .description {
     display: inline-block;
-    margin: 0.625rem 0 0 0;
+    margin: 0;
     color: var(--description);
     line-height: 150%;
+    width: 18rem;
+  }
+
+  /* 세로 정렬을 absolute position으로 해결했는데 범용적이지 않음 */
+  .content-frame.right-side .title {
+    position: absolute;
+    top: 8rem;
+  }
+
+  .content-frame.right-side .description {
+    position: absolute;
+    top: 15.625rem;
+  }
+
+  .content-frame.left-side .title {
+    position: absolute;
+    top: 8rem;
+    right: 0;
+  }
+
+  .content-frame.left-side .description {
+    position: absolute;
+    top: 15.625rem;
+    right: 0;
   }
 }
 
@@ -267,14 +297,21 @@ body {
     margin-top: 0;
   }
 
-  .content-frame .content-area {
-    margin: auto 0;
+  .content-frame.right-side img{
+    float: right;
+    height: 100%;
   }
 
+  .content-frame.left-side img{
+    float: left;
+    height: 100%;
+  }
+  
   .content-frame .title {
     display: inline-block;
     font-size: 3rem;
     margin: 0;
+    width: 17.3rem;
   }
 
   .content-frame .description {
@@ -282,17 +319,30 @@ body {
     margin: 0.625rem 0 0 0;
     color: var(--description);
     line-height: 150%;
+    width: 17.3rem;
   }
 
-  .right-side{
-    float: right;
-    height: 100%;
-  }
-  .left-side{
-    float: left;
-    height: 100%;
+  .content-frame.right-side .title {
+    position: absolute;
+    top: 3.7rem;
   }
 
+  .content-frame.right-side .description {
+    position: absolute;
+    top: 11.5rem;
+  }
+
+  .content-frame.left-side .title {
+    position: absolute;
+    top: 3.7rem;
+    right: 0;
+  }
+
+  .content-frame.left-side .description {
+    position: absolute;
+    top: 11.5rem;
+    right: 0;
+  }
   /* site-footer */
   .site-footer .footer {
     padding: 2rem 6.5rem 6.875rem;
