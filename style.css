@@ -97,6 +97,21 @@ main #title {
   padding: 65px 0 0;
 }
 
+main .break {
+  display: block;
+}
+@media screen and (max-width: 1199px) {
+  main #title .mobile_break {
+    display: block;
+  }
+}
+main #title_gradient {
+  background: linear-gradient(91.26deg, #6d6afe 17.28%, #ff9f9f 74.98%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 main #add_link {
   display: block;
   width: 350px;
