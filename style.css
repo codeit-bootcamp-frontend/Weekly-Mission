@@ -48,13 +48,13 @@ footer #wrap {
   display: flex;
 }
 
-@media screen and (min-width: 1199px) {
+@media screen and (min-width: 1200px) {
   header nav {
     padding: 0 200px;
   }
 }
 
-@media screen and (min-width: 863px) and (max-width: 1199px) {
+@media screen and (min-width: 863px) {
   header nav {
     gap: 538px;
     justify-content: center;
@@ -136,7 +136,7 @@ main #img1 {
   width: 550px;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1199px) {
+@media screen and (min-width: 768px) {
   main #img1 {
     width: 698px;
     border-radius: 25px;
@@ -213,15 +213,20 @@ article p {
 
 footer {
   background-color: #111322;
-  padding: 32px 200px 108px;
+  padding: 32px 0 108px;
   height: 160px;
   font-family: "Arial";
+}
+
+@media screen and (max-width: 767px) {
 }
 
 footer #wrap {
   font-weight: 400;
   font-size: 16px;
-  line-height: 18px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 104px;
 }
 
 #copyright {
@@ -242,8 +247,8 @@ footer #wrap {
   display: inline-block;
 }
 
-footer img {
+fo footer img {
   width: 18px;
   height: 18px;
-  margin-right: 13px;
+  gap: 13px;
 }
