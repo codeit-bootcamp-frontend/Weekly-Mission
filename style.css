@@ -136,7 +136,7 @@ main #img1 {
   width: 550px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 1199px) {
   main #img1 {
     width: 698px;
     border-radius: 25px;
@@ -145,6 +145,19 @@ main #img1 {
 
   .content_imgs {
     width: 385px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  main #img1 {
+    width: 100%;
+    border-radius: 25px;
+    margin: 0 32px;
+  }
+
+  .content_imgs {
+    width: 100%;
+    margin: 0 32px;
   }
 }
 
