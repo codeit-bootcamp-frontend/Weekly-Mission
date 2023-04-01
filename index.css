@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+body:not(footer) {
+  font-family: "Pretendard";
+}
+
 body,
 h1 {
   margin: 0;
@@ -11,13 +15,22 @@ h1 {
 header {
   width: 100%;
   background-color: #f0f6ff;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+main {
+  margin-top: 5.813rem;
 }
 
 #header-wrapper {
   width: 100%;
-  max-width: 1920px;
-  height: 101px;
-  padding: 24px 200px;
+  max-width: 120rem;
+  height: 5.813rem;
+  padding: 1.25rem 12.5rem;
+  margin: 0 auto;
+  background-color: #f0f6ff;
 }
 
 #intro-wrapper {
@@ -32,20 +45,15 @@ nav {
 }
 
 nav > #login-btn {
-  width: 128px;
-  height: 53px;
-  border-radius: 8px;
+  width: 8rem;
+  height: 3.313rem;
+  border-radius: 0.5rem;
   text-decoration: none;
-  padding: 16px 40.5px;
-  font-size: 18px;
-  font-weight: 600px;
-  font-family: "Pretendard";
+  padding: 1rem 2.531rem;
+  font-size: 1.125rem;
+  font-weight: 600;
   color: #f5f5f5;
   background-image: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
-}
-
-#header-wrapper {
-  background-color: #f0f6ff;
 }
 
 nav > img:hover {
@@ -54,22 +62,21 @@ nav > img:hover {
 
 .intro-section {
   width: 100%;
-  max-width: 1920px;
-  height: 948px;
-  padding-top: 65px;
-  margin-bottom: 120px;
+  max-width: 120rem;
+  height: 59.25rem;
+  padding-top: 4.063rem;
+  margin: 0 auto 7.5rem auto;
   text-align: center;
 }
 
 .intro-section h1 {
-  font-size: 64px;
+  font-size: 4rem;
   font-weight: 700;
-  font-family: "Pretendard";
-  line-height: 80px;
-  margin-bottom: 40px;
+  line-height: 5rem;
+  margin-bottom: 2.5rem;
 }
 
-.intro-section h1 > span {
+.intro-section h1 > span:first-child {
   background: linear-gradient(91.26deg, #6d6afe 17.28%, #ff9f9f 74.98%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -78,22 +85,21 @@ nav > img:hover {
 
 .intro-section a {
   display: inline-block;
-  width: 350px;
-  height: 53px;
-  padding: 16px 126px;
-  font-size: 17px;
-  font-family: "Pretendard";
+  width: 21.875rem;
+  height: 3.313rem;
+  padding: 1rem 7.875rem;
+  font-size: 1.063rem;
   font-weight: 600;
-  line-height: 21px;
-  border-radius: 8px;
+  line-height: 1.313rem;
+  border-radius: 0.5rem;
   background-image: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
   text-decoration: none;
   color: #f5f5f5;
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
 }
 
-.intro-section #landing-img-container {
-  height: 590px;
+#landing-img-container {
+  height: 36.875rem;
 }
 
 .intro-section {
@@ -101,13 +107,14 @@ nav > img:hover {
 }
 
 .tutorial-section {
-  max-width: 1920px;
+  max-width: 120rem;
+  margin: 0 auto;
 }
 
 article.tutorial {
-  width: 998px;
-  height: 450px;
-  margin: 100px auto;
+  width: 62.375rem;
+  height: 28.125rem;
+  margin: 6.25rem auto;
   padding: 0;
 }
 
@@ -120,13 +127,17 @@ article.tutorial > section {
 article.tutorial > section.explanation {
   display: flex;
   align-items: center;
-  width: 448px;
-  height: 450px;
+  width: 28rem;
+  height: 28.125rem;
 }
 
 article.tutorial > section.image-container {
-  width: 550px;
-  height: 450px;
+  width: 34.375rem;
+  height: 28.125rem;
+}
+
+article.tutorial > section.explanation .hidden {
+  display: none;
 }
 
 article.tutorial:nth-child(2n + 1) > .explanation {
@@ -144,18 +155,16 @@ section.image-container > img {
 }
 
 .text-area > h1 {
-  font-size: 48px;
-  font-family: "Pretendard";
+  font-size: 3rem;
   font-weight: 700;
-  line-height: 57.28px;
-  margin-bottom: 10px;
+  line-height: 3.58rem;
+  margin-bottom: 0.625rem;
 }
 
 .text-area > p {
-  font-size: 16px;
-  font-family: "Pretendard";
+  font-size: 1rem;
   font-weight: 500;
-  line-height: 24px;
+  line-height: 1.5rem;
   color: #6b6b6b;
 }
 
@@ -190,39 +199,39 @@ section.image-container > img {
 footer {
   width: 100%;
   background-color: #111322;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #footer-wrapper {
-  max-width: 1920px;
-  height: 160px;
-  padding-top: 32px;
-  padding-bottom: 108px;
+  max-width: 120rem;
+  margin: 0 auto;
+  height: 10rem;
+  padding-top: 2rem;
+  padding-bottom: 6.75rem;
 }
 
 .bottom-nav {
   display: flex;
   justify-content: space-between;
-  margin: 0 200px;
+  margin: 0 6.5rem;
 }
 
 .bottom-nav > span {
   display: inline-block;
-  font-size: 16px;
-  font-family: "Arial";
-  line-height: 18.4px;
+  font-size: 1rem;
+  line-height: 1.15rem;
   font-weight: 400;
 }
 
 .bottom-nav > div {
   display: inline-block;
-  font-size: 16px;
-  font-family: "Arial";
-  line-height: 18.4px;
+  font-size: 1rem;
+  line-height: 1.15rem;
   font-weight: 400;
 }
 
 .bottom-nav > div#internal-links a#faq-link {
-  margin-left: 30px;
+  margin-left: 1.875rem;
 }
 
 .bottom-nav a {
@@ -237,5 +246,193 @@ footer {
 .iconbox img {
   display: inline-block;
   vertical-align: middle;
-  margin-left: 3px;
+  margin-left: 0.188rem;
+}
+
+/* tablet  */
+@media only screen and (max-width: 1200px) {
+  #header-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem 0;
+  }
+
+  nav {
+    width: 49.028rem;
+  }
+
+  .intro-section > h1 > span.tablet-nl {
+    display: block;
+  }
+
+  .intro-section {
+    height: 47.25rem;
+    padding-top: 2.5rem;
+    margin-bottom: 5rem;
+  }
+
+  #landing-img-container {
+    height: 21.438rem;
+  }
+
+  #landing-img-container img {
+    width: 43.625rem;
+    height: 21.438rem;
+  }
+
+  article.tutorial {
+    width: 43.625rem;
+    height: 19.688rem;
+    margin: 6.25rem auto;
+  }
+
+  article.tutorial > section.explanation {
+    width: 19.563rem;
+    height: 19.688rem;
+  }
+
+  article.tutorial > section.image-container {
+    width: 24.063rem;
+    height: 19.688rem;
+  }
+}
+
+/* navbar for smaller tablet size */
+@media only screen and (max-width: 868px) {
+  #header-wrapper {
+    padding: 1.5rem 2rem;
+  }
+}
+
+/* mobile */
+@media only screen and (max-width: 767px) {
+  #header-wrapper {
+    width: 100%;
+    height: 3.938rem;
+    padding: 0.813rem 2rem;
+    display: flex;
+  }
+  main {
+    margin-top: 3.938rem;
+  }
+  nav > a:first-child img {
+    width: 4.849rem;
+    height: 0.875rem;
+  }
+  nav > #login-btn {
+    width: 5rem;
+    height: 2.313rem;
+    padding: 0.625rem 1.344rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.063rem;
+  }
+
+  #intro-wrapper {
+    padding: 0 2rem;
+  }
+
+  .intro-section {
+    height: fit-content;
+    padding-top: 1.75rem;
+    margin-bottom: 5rem;
+  }
+
+  .intro-section > h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 2.625rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .intro-section > a {
+    width: 12.5rem;
+    height: 2.313rem;
+    padding: 0.625rem 1rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.063rem;
+    margin-bottom: 1.5rem;
+  }
+
+  #landing-img-container {
+    height: 100%;
+  }
+
+  #landing-img-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .tutorial-section {
+    padding: 0 2rem;
+  }
+
+  article.tutorial {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    margin-top: 5rem;
+    margin-bottom: 4.75rem;
+  }
+
+  article.tutorial > section.explanation {
+    width: 100%;
+    height: auto;
+    order: -1;
+  }
+
+  article.tutorial > section.explanation .hidden {
+    display: block;
+    margin-top: 1.25rem;
+  }
+
+  article.tutorial > section.image-container {
+    display: none;
+  }
+
+  .text-area {
+    width: 100%;
+  }
+
+  .text-area h1 {
+    font-size: calc(1rem + 2vw);
+    line-height: 1.79rem;
+  }
+
+  .text-area p {
+    font-size: 1.35vh;
+    line-height: 1.406rem;
+  }
+
+  .text-area br {
+    display: none;
+  }
+
+  #footer-wrapper {
+    padding: 2rem;
+  }
+
+  .bottom-nav {
+    position: relative;
+    margin: auto;
+  }
+
+  .bottom-nav > div#internal-links a#faq-link {
+    margin-left: 8vw;
+  }
+
+  #copyright {
+    position: absolute;
+    top: 3.75rem;
+    left: 0;
+  }
+
+  .iconbox img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2vw;
+  }
 }
