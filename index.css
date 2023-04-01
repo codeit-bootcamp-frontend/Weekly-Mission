@@ -333,7 +333,7 @@ footer {
   }
 
   .intro-section {
-    height: 24.938rem;
+    height: fit-content;
     padding-top: 1.75rem;
     margin-bottom: 5rem;
   }
@@ -356,12 +356,13 @@ footer {
   }
 
   #landing-img-container {
-    height: 10rem;
+    height: 100%;
   }
 
   #landing-img-container img {
-    width: 20.313rem;
-    height: 10rem;
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   .tutorial-section {
