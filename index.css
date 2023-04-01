@@ -55,6 +55,7 @@ main{
 
 .section-top {
   display: flex;
+  margin-bottom: 7.5rem;
   flex-direction: column;
   align-items: center;
 
@@ -108,21 +109,21 @@ main{
 
 .sections-feature{
   height: 34.38rem;
-  width: 62.38rem;
-  margin: 0 auto;
+  margin: 3.13rem;
 
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
 }
 
-.section-save{
-  height: 38.75rem;
+.box-for-flex{
+  width: 18.19rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.box-text-explain{
-  
-}
 
 .text-explain-feature{
   margin-bottom: 0.63rem;
@@ -142,7 +143,7 @@ main{
   color: #6b6b6b;
 }
 
-.box-image-feature{
+.img-feature{
   width: 34.38rem;
   height: 28.13rem;
   border-radius: 0.94rem;
@@ -151,20 +152,18 @@ main{
   background-size: cover;
 }
 
-.box-image-save{
-  background-image: url("/images/capture-save.png");
+.img-save, .img-share{
+  order: 1;
+  margin-left: 9.81rem;
 }
 
-.box-image-manage{
-  background-image: url("/images/capture-manage.png");
+.img-manage, .img-search {
+  order: -1;
+  margin-right: 9.81rem;
 }
 
-.box-image-share{
-  background-image: url("/images/capture-share.png");
-}
-
-.box-image-search{
-  background-image: url("/images/capture-search.png");
+.img-feature-for-mobile{
+  display: none;
 }
 
 span.gradation-1{
