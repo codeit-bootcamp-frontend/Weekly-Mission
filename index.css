@@ -108,8 +108,8 @@ main{
 }
 
 .sections-feature{
-  height: 34.38rem;
-  margin: 3.13rem;
+  margin-top: 3.13rem;
+  margin-bottom: 3.13rem;
 
   display: flex;
   justify-content: center;
@@ -275,10 +275,23 @@ footer{
 
   }
 
-  .box-image-feature{
+  .section-top{
+    margin-bottom: 5rem;
+  }
+
+  .img-feature{
     width: 24.06rem;
     height: 19.69rem;
   }
+
+  .img-save, .img-share{
+    margin-left: 3.19rem;
+  }
+  
+  .img-manage, .img-search {
+    margin-right: 3.19rem;
+  }
+
 
 }
 
