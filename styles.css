@@ -15,10 +15,10 @@ body {
   font-family: 'pretendard';
   width: 100%;
   background-color: #F0F6FF;
+  padding-top: 20px;
 }
 
 header {
-  padding-top: 20px;
   max-width: 1920px;
 }
 
@@ -37,11 +37,16 @@ footer {
 }
 
 .title-nav {
+  width: 100%;
+  position: sticky;
+  top: 0px;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #F0F6FF;
   margin-bottom: 91px;
-  padding: 0 200px;
+  padding: 20px 200px;
   height: 53px;
 }
 
@@ -85,6 +90,7 @@ footer {
 .title-img {
   display: block;
   margin: 0 auto;
+  max-width: 100%;
 }
 
 .sections {
@@ -219,4 +225,22 @@ footer {
   background: linear-gradient(to right, #FE578F, #68E8F9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 1199px) and (min-width: 863px) {
+  .title-img {
+    width: 650.3px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .title-nav {
+    min-width: 798px;
+  }
+}
+
+@media (max-width: 863px) {
+  .title-nav {
+    padding: 0 32px;
+  }
 }
