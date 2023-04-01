@@ -11,6 +11,13 @@ a {
   text-decoration: none;
 }
 
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
 header,
 main {
   background-color: #f0f6ff;
@@ -29,6 +36,7 @@ section {
 }
 
 main {
+  margin-top: 94px;
   height: 948px;
   overflow: hidden;
 }
@@ -61,7 +69,7 @@ footer #wrap {
 
 header nav {
   align-items: center;
-  height: 101px;
+  height: 94px;
 }
 
 nav #logo {
