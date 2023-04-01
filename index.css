@@ -5,8 +5,6 @@
 body {
   font-family: "Pretendard", sans-serif;
   margin: 0;
-  width: 100%
-  
 }
 
 header {
@@ -255,7 +253,12 @@ footer{
 @media (min-width: 1200px) {
   body {
     max-width: 1920px;
+    }
+
+  header {
+    max-width: 1920px;
+    }
+
     
-  }
 
 }
