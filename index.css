@@ -8,7 +8,7 @@ body {
 }
 
 header {
-  width: 100%;
+  width: 100vw;
   height: 5.88rem;
   background-color: #f0f6ff;
 
@@ -17,6 +17,8 @@ header {
   align-items: center;
 
   position: fixed;
+  left: 0;
+  right: 0;
 }
 
 header > a{
@@ -233,19 +235,20 @@ footer{
 
 
 /* Mobile 반응형 */
-@media (min-width: 375px) and (max-width: 767px){
+@media (min-width: 375px) and (max-width: 768px){
 
 }
 
 /* Tablet 반응형 */
-@media (min-width: 768px) and (max-width: 1199px){
+@media (min-width: 768px) and (max-width: 1200px){
   .logo{
     margin-right: 33.63rem;
-
   }
 
   header{
     justify-content: center;
+    padding-left: min(2rem);
+    padding-right: min(2rem);
 
   }
 
@@ -263,6 +266,18 @@ footer{
   .box-image-feature{
     width: 385px;
     height: 315px;
+  }
+
+}
+
+/* Tablet 반응형(header 좌우 min margin 32px를 위함) */
+@media (min-width: 768px) and (max-width: 863px){
+  header{
+    justify-content: space-between;
+  }
+
+  .logo{
+    margin-right: 0;
   }
 
 }
