@@ -37,12 +37,11 @@ section {
 
 main {
   margin-top: 94px;
-  height: 948px;
+  height: auto;
   overflow: hidden;
 }
 
 header nav,
-article,
 footer #wrap {
   justify-content: space-between;
   display: flex;
@@ -149,6 +148,9 @@ main #img1 {
 }
 
 @media screen and (max-width: 767px) {
+  main {
+    height: auto;
+  }
   main #img1 {
     width: 100%;
     border-radius: 25px;
@@ -156,19 +158,44 @@ main #img1 {
   }
 
   .content_imgs {
-    width: 100%;
+    /* width: 100%; */
     margin: 0 32px;
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  article h2 {
+    order: 1;
+  }
+
+  article img {
+    width: 100%;
+    order: 2;
+  }
+
+  article p {
+    order: 3;
+  }
+}
+@media screen and (min-width: 768px) {
+  article {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 450px;
+    margin: 100px auto;
+    padding: 40px auto;
   }
 }
 
-article {
-  flex-direction: row;
-  align-items: center;
-  margin: 100px auto;
-  gap: 51px;
-}
-
 section {
+  text-align: left;
   display: flex;
   flex-direction: column;
 }
