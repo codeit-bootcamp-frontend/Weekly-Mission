@@ -166,15 +166,17 @@ main #img1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 40px 32px;
   }
 
   article h2 {
     order: 1;
   }
 
-  article img {
+  .content_imgs {
     width: 100%;
     order: 2;
+    flex-grow: 1;
   }
 
   article p {
@@ -192,6 +194,10 @@ main #img1 {
     margin: 50px auto;
     padding: 40px auto;
     gap: 0 51px;
+  }
+
+  article .break {
+    display: block;
   }
 }
 
