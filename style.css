@@ -254,7 +254,9 @@ footer {
   font-family: "Arial";
   font-weight: 400;
   font-size: 16px;
+}
 
+.footer_wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -262,10 +264,13 @@ footer {
 }
 
 @media screen and (max-width: 767px) {
-  footer {
+  .footer_wrap {
+    display: grid;
     padding: 32px;
-    flex-wrap: wrap;
     align-items: start;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px 0;
   }
 
   #copyright {
@@ -273,7 +278,8 @@ footer {
   }
 
   footer #imgs {
-    margin-bottom: 60px;
+    display: flex;
+    justify-content: end;
   }
 }
 
