@@ -21,14 +21,14 @@ header {
 }
 
 main {
-  margin-top: 93px;
+  margin-top: 5.813rem;
 }
 
 #header-wrapper {
   width: 100%;
-  max-width: 1920px;
-  height: 93px;
-  padding: 20px 200px;
+  max-width: 120rem;
+  height: 5.813rem;
+  padding: 1.25rem 12.5rem;
   margin: 0 auto;
   background-color: #f0f6ff;
 }
@@ -45,13 +45,13 @@ nav {
 }
 
 nav > #login-btn {
-  width: 128px;
-  height: 53px;
-  border-radius: 8px;
+  width: 8rem;
+  height: 3.313rem;
+  border-radius: 0.5rem;
   text-decoration: none;
-  padding: 16px 40.5px;
-  font-size: 18px;
-  font-weight: 600px;
+  padding: 1rem 2.531rem;
+  font-size: 1.125rem;
+  font-weight: 600;
   color: #f5f5f5;
   background-image: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
 }
@@ -62,18 +62,18 @@ nav > img:hover {
 
 .intro-section {
   width: 100%;
-  max-width: 1920px;
-  height: 948px;
-  padding-top: 65px;
-  margin: 0 auto 120px auto;
+  max-width: 120rem;
+  height: 59.25rem;
+  padding-top: 4.063rem;
+  margin: 0 auto 7.5rem auto;
   text-align: center;
 }
 
 .intro-section h1 {
-  font-size: 64px;
+  font-size: 4rem;
   font-weight: 700;
-  line-height: 80px;
-  margin-bottom: 40px;
+  line-height: 5rem;
+  margin-bottom: 2.5rem;
 }
 
 .intro-section h1 > span:first-child {
@@ -85,21 +85,21 @@ nav > img:hover {
 
 .intro-section a {
   display: inline-block;
-  width: 350px;
-  height: 53px;
-  padding: 16px 126px;
-  font-size: 17px;
+  width: 21.875rem;
+  height: 3.313rem;
+  padding: 1rem 7.875rem;
+  font-size: 1.063rem;
   font-weight: 600;
-  line-height: 21px;
-  border-radius: 8px;
+  line-height: 1.313rem;
+  border-radius: 0.5rem;
   background-image: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
   text-decoration: none;
   color: #f5f5f5;
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
 }
 
 #landing-img-container {
-  height: 590px;
+  height: 36.875rem;
 }
 
 .intro-section {
@@ -107,14 +107,14 @@ nav > img:hover {
 }
 
 .tutorial-section {
-  max-width: 1920px;
+  max-width: 120rem;
   margin: 0 auto;
 }
 
 article.tutorial {
-  width: 998px;
-  height: 450px;
-  margin: 100px auto;
+  width: 62.375rem;
+  height: 28.125rem;
+  margin: 6.25rem auto;
   padding: 0;
 }
 
@@ -127,13 +127,13 @@ article.tutorial > section {
 article.tutorial > section.explanation {
   display: flex;
   align-items: center;
-  width: 448px;
-  height: 450px;
+  width: 28rem;
+  height: 28.125rem;
 }
 
 article.tutorial > section.image-container {
-  width: 550px;
-  height: 450px;
+  width: 34.375rem;
+  height: 28.125rem;
 }
 
 article.tutorial > section.explanation .hidden {
@@ -155,16 +155,16 @@ section.image-container > img {
 }
 
 .text-area > h1 {
-  font-size: 48px;
+  font-size: 3rem;
   font-weight: 700;
-  line-height: 57.28px;
-  margin-bottom: 10px;
+  line-height: 3.58rem;
+  margin-bottom: 0.625rem;
 }
 
 .text-area > p {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
-  line-height: 24px;
+  line-height: 1.5rem;
   color: #6b6b6b;
 }
 
@@ -203,35 +203,35 @@ footer {
 }
 
 #footer-wrapper {
-  max-width: 1920px;
+  max-width: 120rem;
   margin: 0 auto;
-  height: 160px;
-  padding-top: 32px;
-  padding-bottom: 108px;
+  height: 10rem;
+  padding-top: 2rem;
+  padding-bottom: 6.75rem;
 }
 
 .bottom-nav {
   display: flex;
   justify-content: space-between;
-  margin: 0 104px;
+  margin: 0 6.5rem;
 }
 
 .bottom-nav > span {
   display: inline-block;
-  font-size: 16px;
-  line-height: 18.4px;
+  font-size: 1rem;
+  line-height: 1.15rem;
   font-weight: 400;
 }
 
 .bottom-nav > div {
   display: inline-block;
-  font-size: 16px;
-  line-height: 18.4px;
+  font-size: 1rem;
+  line-height: 1.15rem;
   font-weight: 400;
 }
 
 .bottom-nav > div#internal-links a#faq-link {
-  margin-left: 30px;
+  margin-left: 1.875rem;
 }
 
 .bottom-nav a {
@@ -246,7 +246,7 @@ footer {
 .iconbox img {
   display: inline-block;
   vertical-align: middle;
-  margin-left: 3px;
+  margin-left: 0.188rem;
 }
 
 /* tablet  */
@@ -254,11 +254,11 @@ footer {
   #header-wrapper {
     display: flex;
     justify-content: center;
-    padding: 24px 0;
+    padding: 1.5rem 0;
   }
 
   nav {
-    width: 784.44px;
+    width: 49.028rem;
   }
 
   .intro-section > h1 > span.tablet-nl {
@@ -266,41 +266,41 @@ footer {
   }
 
   .intro-section {
-    height: 756px;
-    padding-top: 40px;
-    margin-bottom: 80px;
+    height: 47.25rem;
+    padding-top: 2.5rem;
+    margin-bottom: 5rem;
   }
 
   #landing-img-container {
-    height: 343px;
+    height: 21.438rem;
   }
 
   #landing-img-container img {
-    width: 698px;
-    height: 343px;
+    width: 43.625rem;
+    height: 21.438rem;
   }
 
   article.tutorial {
-    width: 698px;
-    height: 315px;
-    margin: 100px auto;
+    width: 43.625rem;
+    height: 19.688rem;
+    margin: 6.25rem auto;
   }
 
   article.tutorial > section.explanation {
-    width: 313px;
-    height: 313px;
+    width: 19.563rem;
+    height: 19.688rem;
   }
 
   article.tutorial > section.image-container {
-    width: 385px;
-    height: 315px;
+    width: 24.063rem;
+    height: 19.688rem;
   }
 }
 
 /* navbar for smaller tablet size */
 @media only screen and (max-width: 868px) {
   #header-wrapper {
-    padding: 24px 32px;
+    padding: 1.5rem 2rem;
   }
 }
 
@@ -308,64 +308,64 @@ footer {
 @media only screen and (max-width: 767px) {
   #header-wrapper {
     width: 100%;
-    height: 63px;
-    padding: 13px 32px;
+    height: 3.938rem;
+    padding: 0.813rem 2rem;
     display: flex;
   }
   main {
-    margin-top: 63px;
+    margin-top: 3.938rem;
   }
   nav > a:first-child img {
-    width: 77.58px;
-    height: 14px;
+    width: 4.849rem;
+    height: 0.875rem;
   }
   nav > #login-btn {
-    width: 80px;
-    height: 37px;
-    padding: 10px 21.5px;
+    width: 5rem;
+    height: 2.313rem;
+    padding: 0.625rem 1.344rem;
     font-weight: 600;
-    font-size: 14px;
-    line-height: 17px;
+    font-size: 0.875rem;
+    line-height: 1.063rem;
   }
 
   #intro-wrapper {
-    padding: 0 32px;
+    padding: 0 2rem;
   }
 
   .intro-section {
-    height: 399px;
-    padding-top: 28px;
-    margin-bottom: 40px;
+    height: 24.938rem;
+    padding-top: 1.75rem;
+    margin-bottom: 5rem;
   }
 
   .intro-section > h1 {
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 700;
-    line-height: 42px;
-    margin-bottom: 24px;
+    line-height: 2.625rem;
+    margin-bottom: 1.5rem;
   }
 
   .intro-section > a {
-    width: 200px;
-    height: 37px;
-    padding: 10px 16px;
+    width: 12.5rem;
+    height: 2.313rem;
+    padding: 0.625rem 1rem;
     font-weight: 600;
-    font-size: 14px;
-    line-height: 17px;
-    margin-bottom: 24px;
+    font-size: 0.875rem;
+    line-height: 1.063rem;
+    margin-bottom: 1.5rem;
   }
 
   #landing-img-container {
-    height: 160px;
+    height: 10rem;
   }
 
   #landing-img-container img {
-    width: 325px;
-    height: 160px;
+    width: 20.313rem;
+    height: 10rem;
   }
 
   .tutorial-section {
-    padding: 0 32px;
+    padding: 0 2rem;
   }
 
   article.tutorial {
@@ -373,8 +373,8 @@ footer {
     flex-direction: column;
     width: 100%;
     height: fit-content;
-    margin-top: 40px;
-    margin-bottom: 76px;
+    margin-top: 5rem;
+    margin-bottom: 4.75rem;
   }
 
   article.tutorial > section.explanation {
@@ -385,7 +385,7 @@ footer {
 
   article.tutorial > section.explanation .hidden {
     display: block;
-    margin-top: 20px;
+    margin-top: 1.25rem;
   }
 
   article.tutorial > section.image-container {
@@ -397,13 +397,13 @@ footer {
   }
 
   .text-area h1 {
-    font-size: calc(1em + 2vw);
-    line-height: 28.64px;
+    font-size: calc(1rem + 2vw);
+    line-height: 1.79rem;
   }
 
   .text-area p {
     font-size: 1.35vh;
-    line-height: 22.5px;
+    line-height: 1.406rem;
   }
 
   .text-area br {
@@ -411,7 +411,7 @@ footer {
   }
 
   #footer-wrapper {
-    padding: 032px;
+    padding: 2rem;
   }
 
   .bottom-nav {
@@ -425,7 +425,7 @@ footer {
 
   #copyright {
     position: absolute;
-    top: 60px;
+    top: 3.75rem;
     left: 0;
   }
 
