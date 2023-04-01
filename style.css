@@ -39,9 +39,26 @@ footer #wrap {
   justify-content: space-between;
   display: flex;
 }
-header {
-  padding: 0 200px;
+
+@media screen and (min-width: 1199px) {
+  header nav {
+    padding: 0 200px;
+  }
 }
+
+@media screen and (min-width: 863px) and (max-width: 1199px) {
+  header nav {
+    gap: 538px;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 863px) {
+  header nav {
+    padding: 0 32px;
+  }
+}
+
 header nav {
   align-items: center;
   height: 101px;
