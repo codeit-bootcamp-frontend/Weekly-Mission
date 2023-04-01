@@ -58,6 +58,8 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: inherit;
+  position: fixed;
 }
 
 .login-button {
@@ -75,7 +77,7 @@ main {
 }
 
 .header-content {
-  padding-top: 65px;
+  padding-top: 164px;
 }
 
 .header-title {
