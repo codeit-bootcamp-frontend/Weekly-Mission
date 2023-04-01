@@ -236,9 +236,20 @@ footer{
 }
 
 
-/* Mobile 반응형 */
-@media (min-width: 375px) and (max-width: 768px){
+/* PC 반응형 */
+@media (min-width: 1200px) {
+  body {
+    max-width: 1920px;
+    }
 
+  header {
+    max-width: 1920px;
+    padding: 0 12.5rem 0;
+    }
+
+  .br-not-pc{
+    display: none;
+  }
 }
 
 /* Tablet 반응형 */
@@ -284,21 +295,11 @@ footer{
 
 }
 
-/* PC 반응형 */
-@media (min-width: 1200px) {
-  body {
-    max-width: 1920px;
-    }
 
-  header {
-    max-width: 1920px;
-    padding: 0 12.5rem 0;
-    }
-
-  .br-not-pc{
-    display: none;
+/* Mobile 반응형 */
+@media (min-width: 375px) and (max-width: 768px){
+  body{
+    padding: 0 2rem;
   }
-
-    
 
 }
