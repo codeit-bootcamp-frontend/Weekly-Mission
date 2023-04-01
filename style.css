@@ -121,11 +121,23 @@ main #img1 {
   width: 550px;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  main #img1 {
+    width: 698px;
+    border-radius: 25px;
+    margin: 0 auto;
+  }
+
+  .content_imgs {
+    width: 385px;
+  }
+}
+
 article {
   flex-direction: row;
   align-items: center;
   margin: 100px auto;
-  width: 998px;
+  gap: 51px;
 }
 
 section {
