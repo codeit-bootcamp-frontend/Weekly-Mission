@@ -294,12 +294,3 @@ footer{
   }
 
 }
-
-
-/* Mobile 반응형 */
-@media (min-width: 375px) and (max-width: 768px){
-  body{
-    padding: 0 2rem;
-  }
-
-}
