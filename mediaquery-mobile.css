@@ -1,9 +1,5 @@
 /* Mobile 반응형 */
 @media (min-width: 375px) and (max-width: 768px){
-  body{
-    /* padding: 0 2rem; */
-  }
-
   header {
     height: 3.94rem;
     justify-content: space-between;
@@ -29,4 +25,31 @@
     padding-top: 3.94rem;
   }
   
+  .section-top{
+    padding: 0 2rem;
+
+  }
+
+  .text-explain-linkbrary {
+    margin-top: 1.75rem;
+    font-size: 2rem;
+    line-height: 2.63rem;
+  }
+
+  .button-add-link{
+    width: 12.5rem;
+    height: 2.31rem;
+    margin: 1.5rem auto;
+  
+    font-size: 0.88rem;
+    line-height: 2.31rem;
+  }
+
+  .img-example-linkbrary{
+    width: 100%;
+    height: 100%;
+  }
+
+  
+
 }
