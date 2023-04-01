@@ -1,7 +1,32 @@
 /* Mobile 반응형 */
 @media (min-width: 375px) and (max-width: 768px){
   body{
+    /* padding: 0 2rem; */
+  }
+
+  header {
+    height: 3.94rem;
+    justify-content: space-between;
     padding: 0 2rem;
   }
 
+  .logo {
+    width: 4.85rem;
+    height: 0.88rem;  
+  }
+  
+  .button-login {
+    width: 5rem;
+    height: 2.31rem;
+    border-radius: 0.5rem;
+    
+    font-size: 0.88rem;
+    font-weight: 600;
+    line-height: 2.31rem;
+  }
+
+  main{
+    padding-top: 3.94rem;
+  }
+  
 }
