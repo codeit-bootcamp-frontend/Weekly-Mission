@@ -2,3 +2,4 @@
 
 - [없음](?expand=1&template=empty.md)
 - [샘플](?expand=1&template=sample.md)
+- [Kenny](?expand=1&template=pr-template-kenny.md)
