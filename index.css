@@ -281,6 +281,7 @@ footer {
   }
 
   article.tutorial {
+    display: flex;
     width: 43.625rem;
     height: 19.688rem;
     margin: 6.25rem auto;
