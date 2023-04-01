@@ -32,7 +32,7 @@ main {
 }
 
 header nav,
-footer #wrap {
+footer .footer_wrap {
   max-width: 1920px;
   margin: 0 auto; /* 왜 한번더 적어줘야 동작 하는 지..? */
 }
