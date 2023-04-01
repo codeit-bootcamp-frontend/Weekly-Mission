@@ -413,4 +413,18 @@ footer{
     line-height: 1.41rem;
   }
 
+  footer{
+    margin-top: 2.57rem;
+    padding: 2rem 2rem;
+  }
+
+  .text-footer-logo{
+    display: none;
+  }
+  
+  .text-footer-logo-for-mobile{
+    display: block;
+    color: #676767;
+  }
+
 }
