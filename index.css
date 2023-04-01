@@ -136,6 +136,10 @@ article.tutorial > section.image-container {
   height: 450px;
 }
 
+article.tutorial > section.explanation .hidden {
+  display: none;
+}
+
 article.tutorial:nth-child(2n + 1) > .explanation {
   float: left;
 }
@@ -373,14 +377,21 @@ footer {
     margin-bottom: 76px;
   }
 
-  article.tutorial > section.explanation,
-  article.tutorial > section.image-container {
+  article.tutorial > section.explanation {
     width: 100%;
     height: auto;
-  }
-  article.tutorial > section.explanation {
     order: -1;
   }
+
+  article.tutorial > section.explanation .hidden {
+    display: block;
+    margin-top: 20px;
+  }
+
+  article.tutorial > section.image-container {
+    display: none;
+  }
+
   .text-area {
     width: 100%;
   }
