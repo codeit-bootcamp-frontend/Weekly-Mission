@@ -207,6 +207,12 @@
   .banner_contents .link_btn {
     margin-bottom: 70px;
   }
+  .banner .title {
+    line-height: 1.2;
+  }
+  .banner .line_break {
+    display: block;
+  }
   .banner .main_img {
     width: 650px;
   }
