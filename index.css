@@ -398,4 +398,29 @@ footer {
   .text-area br {
     display: none;
   }
+
+  #footer-wrapper {
+    padding: 032px;
+  }
+
+  .bottom-nav {
+    position: relative;
+    margin: auto;
+  }
+
+  .bottom-nav > div#internal-links a#faq-link {
+    margin-left: 8vw;
+  }
+
+  #copyright {
+    position: absolute;
+    top: 60px;
+    left: 0;
+  }
+
+  .iconbox img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2vw;
+  }
 }
