@@ -213,20 +213,30 @@ article p {
 
 footer {
   background-color: #111322;
-  padding: 32px 0 108px;
-  height: 160px;
   font-family: "Arial";
+  font-weight: 400;
+  font-size: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 32px 104px;
 }
 
 @media screen and (max-width: 767px) {
-}
+  footer {
+    padding: 32px;
+    flex-wrap: wrap;
+    align-items: start;
+  }
 
-footer #wrap {
-  font-weight: 400;
-  font-size: 16px;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 104px;
+  #copyright {
+    order: 1;
+  }
+
+  footer #imgs {
+    margin-bottom: 60px;
+  }
 }
 
 #copyright {
@@ -235,20 +245,22 @@ footer #wrap {
   color: #676767;
   margin: 0;
 }
+#privacy_policy_faq {
+  display: flex;
+  justify-content: space-between;
+  gap: 30;
+}
 
-#privacy_policy {
+#privacy_policy_faq a {
   color: #cfcfcf;
-  display: inline-block;
+}
+
+#privacy_policy_faq a:first-child {
   margin-right: 30px;
 }
 
-#faq {
-  color: #cfcfcf;
-  display: inline-block;
-}
-
-fo footer img {
+footer img {
   width: 18px;
   height: 18px;
-  gap: 13px;
+  margin-right: 13px;
 }
