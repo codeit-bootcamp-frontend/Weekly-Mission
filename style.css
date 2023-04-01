@@ -189,8 +189,9 @@ main #img1 {
     justify-content: center;
     flex-wrap: wrap;
     height: 450px;
-    margin: 100px auto;
+    margin: 50px auto;
     padding: 40px auto;
+    gap: 0 51px;
   }
 }
 
@@ -198,17 +199,13 @@ section {
   text-align: left;
   display: flex;
   flex-direction: column;
-}
-.explains {
-  display: inline-block;
-  text-align: left;
+  flex-grow: 1;
 }
 
 article h2 {
   font-weight: 700;
   font-size: 48px;
   line-height: 57px;
-  margin: 0;
   letter-spacing: -0.3px;
 }
 
@@ -248,7 +245,8 @@ article p {
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
-  margin: 10px auto 0;
+  padding: 10px 0;
+  margin: 0;
 }
 
 footer {
