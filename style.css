@@ -207,6 +207,9 @@
   .banner_contents .link_btn {
     margin-bottom: 70px;
   }
+  .banner .line_break {
+    display: block;
+  }
   .banner .main_img {
     width: 650px;
   }
