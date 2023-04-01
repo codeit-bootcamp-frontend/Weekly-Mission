@@ -259,6 +259,10 @@ footer{
     max-width: 1920px;
     }
 
+  .br-not-pc{
+    display: none;
+  }
+
     
 
 }
