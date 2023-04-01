@@ -324,9 +324,14 @@ footer {
     line-height: 17px;
   }
 
+  #intro-wrapper {
+    padding: 0 32px;
+  }
+
   .intro-section {
     height: 399px;
     padding-top: 28px;
+    margin-bottom: 40px;
   }
 
   .intro-section > h1 {
@@ -353,5 +358,44 @@ footer {
   #landing-img-container img {
     width: 325px;
     height: 160px;
+  }
+
+  .tutorial-section {
+    padding: 0 32px;
+  }
+
+  article.tutorial {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    margin-top: 40px;
+    margin-bottom: 76px;
+  }
+
+  article.tutorial > section.explanation,
+  article.tutorial > section.image-container {
+    width: 100%;
+    height: auto;
+  }
+  article.tutorial > section.explanation {
+    order: -1;
+  }
+  .text-area {
+    width: 100%;
+  }
+
+  .text-area h1 {
+    font-size: calc(1em + 2vw);
+    line-height: 28.64px;
+  }
+
+  .text-area p {
+    font-size: 1.35vh;
+    line-height: 22.5px;
+  }
+
+  .text-area br {
+    display: none;
   }
 }
