@@ -19,6 +19,10 @@ header {
   position: fixed;
 }
 
+header > a{
+  text-decoration: none;
+}
+
 .logo {
   width: 8.31rem;
   height: 1.5rem;  
@@ -33,7 +37,6 @@ header {
   font-weight: 600;
   line-height: 3.31rem;
   text-align: center;
-  text-decoration: none;
   background: linear-gradient(90.99deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
   color: #F5F5F5;
 }
