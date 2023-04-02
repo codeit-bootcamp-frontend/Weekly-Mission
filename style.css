@@ -87,7 +87,11 @@ main {
   margin-bottom: 40px;
 }
 
-.header-title .tablet-mobile-br {
+.tablet-mobile-br {
+  display: none;
+}
+
+.tablet-br {
   display: none;
 }
 
@@ -191,7 +195,11 @@ ul > li {
     padding: 0;
   }
 
-  .header-title .tablet-mobile-br {
+  .tablet-br-none {
+    display: none;
+  }
+  
+  .tablet-br, .tablet-mobile-br {
     display: inline;
   }
 
@@ -295,6 +303,14 @@ ul > li {
     width: 100%;
     height: 100%;
     grid-area: image; 
+  }
+
+  br {
+    display: none !important;
+  }
+
+  .header-title br {
+    display: inline !important;
   }
 }
 
