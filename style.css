@@ -250,6 +250,8 @@ ul > li {
 
   .header-content {
     padding-top: 91px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 
   .header-title {
