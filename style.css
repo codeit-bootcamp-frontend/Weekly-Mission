@@ -230,6 +230,13 @@ ul > li {
 }
 
 @media (max-width: 767px) {
+  .logo img {
+    width: 77.58px;
+    height: 14px;
+  }
 
+  .login-link {
+    padding: 10px 21.5px;
+  }
 }
 
