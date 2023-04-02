@@ -122,22 +122,7 @@ main {
   line-height: 1.5;
 }
 
-#image01 {
-  width: 550px;
-  height: 450px;
-}
-
-#image02 {
-  width: 550px;
-  height: 450px;
-}
-
-#image03 {
-  width: 570px;
-  height: 469px;
-}
-
-#image04 {
+.card img {
   width: 550px;
   height: 450px;
 }
@@ -220,7 +205,7 @@ ul > li {
     height: 315px;
   }
 
-  #image01, #image02, #image03, #image04 {
+  .card img {
     width: 385px;
     height: 315px;
   }
