@@ -238,6 +238,10 @@ ul > li {
     width: 77.58px;
     height: 14px;
   }
+  
+  .login-button {
+    margin: 13px 0;
+  }
 
   .login-link {
     padding: 10px 21.5px;
