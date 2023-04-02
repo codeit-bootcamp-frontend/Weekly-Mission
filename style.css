@@ -197,6 +197,10 @@ ul > li {
     margin-right: 538px;
   }
 
+  .gnb {
+    justify-content: center;
+    padding: 0;
+  }
 }
 
 @media (max-width: 862px) {
