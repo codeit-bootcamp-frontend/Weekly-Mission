@@ -206,6 +206,11 @@ ul > li {
     width: 698px;
     height: 315px;
   }
+
+  #image01, #image02, #image03, #image04 {
+    width: 385px;
+    height: 315px;
+  }
 }
 
 @media (max-width: 862px) {
