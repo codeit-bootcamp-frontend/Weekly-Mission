@@ -223,6 +223,10 @@ ul > li {
 }
 
 @media (max-width: 767px) {
+  main {
+    padding: 0 32px;
+  }
+
   .gnb {
     height: 63px;
   }
