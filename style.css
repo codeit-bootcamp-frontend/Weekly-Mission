@@ -316,5 +316,9 @@ ul > li {
   .header-title br {
     display: inline !important;
   }
+  
+  footer {
+    padding: 32px;
+  }
 }
 
