@@ -87,6 +87,10 @@ main {
   margin-bottom: 40px;
 }
 
+.header-title .tablet-mobile-br {
+  display: none;
+}
+
 .add-button {
   text-align: center;
   margin: 0 auto 40px;
@@ -200,6 +204,10 @@ ul > li {
   .gnb {
     justify-content: center;
     padding: 0;
+  }
+
+  .header-title .tablet-mobile-br {
+    display: inline;
   }
 
   .header-image {
