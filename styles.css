@@ -38,17 +38,19 @@ footer {
   background-color: #111322;
 }
 
-.title-nav {
-  max-width: 1920px;
+.navigation {
   position: sticky;
   top: 0px;
   z-index: 1;
+  background-color: #F0F6FF;
+  margin: 0 auto 91px;
+}
+
+.title-nav {
+  max-width: 1920px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #F0F6FF;
-  margin-bottom: 91px;
-  padding: 20px 200px;
   height: 53px;
 }
 
@@ -224,6 +226,52 @@ footer {
   -webkit-text-fill-color: transparent;
 }
 
-@media (max-width: 1199px) {
-  
+@media (min-width: 1921px) {
+  .navigation {
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+}
+
+@media (max-width: 1920px) {
+  .navigation {
+    margin: 0 200px 91px;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 863px) {
+  .navigation {
+    width: 49.063rem;
+    margin: 0 auto 91px;
+  }
+
+  .in-blck {
+    display: block;
+  }
+
+  .sections {
+    gap: 3.188rem;
+  }
+
+  .main-image{
+    width: 24.063rem;
+  }
+}
+
+@media (max-width: 863px) {
+  .navigation {
+    margin: 0 32px 91px;
+  }
+
+  .in-blck {
+    display: block;
+  }
+
+  .sections {
+    gap: 3.188rem;
+  }
+
+  .main-image{
+    width: 24.063rem;
+  }
 }
