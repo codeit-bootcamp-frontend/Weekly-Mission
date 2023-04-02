@@ -663,6 +663,14 @@ footer .icons img {
     padding: 1rem 2rem 1.5rem;
   }
 
+  .header-section header img {
+    width: 6rem;
+  }
+
+  .header-section header button {
+    width: 6rem;
+  }
+
   .header-section .header-content {
     width: calc(100% - 4rem);
     height: auto;
