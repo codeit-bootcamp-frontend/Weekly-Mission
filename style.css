@@ -204,6 +204,9 @@ ul > li {
 }
 
 @media (max-width: 862px) {
+  .logo {
+    margin-right: 0;
+  }
 
 }
 
