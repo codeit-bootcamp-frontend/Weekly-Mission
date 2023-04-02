@@ -319,6 +319,28 @@ ul > li {
   
   footer {
     padding: 32px;
+    height: 96px;
+    box-sizing: content-box;
+    position: relative;
+  }
+
+  footer .corporation, footer .more-information, footer .sns-container {
+    position: absolute;
+  }
+
+  footer .corporation {
+    left: 32px;
+    bottom: 32px;
+  }
+
+  footer .more-information {
+    left: 32px;
+    top: 32px;
+  }
+
+  footer .sns-container {
+    right: 32px;
+    top: 32px;
   }
 }
 
