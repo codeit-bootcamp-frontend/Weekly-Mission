@@ -208,6 +208,9 @@ ul > li {
     margin-right: 0;
   }
 
+  .gnb {
+    justify-content: space-between;
+  }
 }
 
 @media (max-width: 767px) {
