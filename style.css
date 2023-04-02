@@ -201,6 +201,11 @@ ul > li {
     justify-content: center;
     padding: 0;
   }
+
+  .card {
+    width: 698px;
+    height: 315px;
+  }
 }
 
 @media (max-width: 862px) {
