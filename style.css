@@ -8,7 +8,7 @@
 
 body {
   font-family: "Pretendard", sans-serif;
-  max-width: 1920px;
+  max-width: 120rem;
   margin: 0 auto;
 }
 
@@ -21,7 +21,7 @@ a {
 }
 
 main {
-  margin: 120px 0 170px;
+  margin: 7.5rem 0 10.625rem;
 }
 
 .text-gradient {
@@ -53,9 +53,9 @@ main {
 
 .gnb {
   width: 100%;
-  max-width: 1920px;
-  height: 94px;
-  padding: 0 200px;
+  max-width: 120rem;
+  height: 5.875rem;
+  padding: 0 12.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -64,27 +64,27 @@ main {
 }
 
 .login-button {
-  margin: 20px 0;
+  margin: 1.25rem 0;
 }
 
 .login-link {
   display: inline-block;
-  padding: 16px 40.5px;
-  font-size: 18px;
+  padding: 1rem 2.531rem;
+  font-size: 1.125rem;
   font-weight: 600;
   color: #f5f5f5;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background-image: linear-gradient(to right, #6d6afe 20%, #6ae3fe);
 }
 
 .header-content {
-  padding-top: 164px;
+  padding-top: 10.25rem;
 }
 
 .header-title {
-  font-size: 64px;
+  font-size: 4rem;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
 }
 
 .tablet-mobile-br {
@@ -97,16 +97,16 @@ main {
 
 .add-button {
   text-align: center;
-  margin: 0 auto 40px;
+  margin: 0 auto 2.5rem;
 }
 
 .add-link {
   display: inline-block;
-  font-size: 18px;
+  font-size: 1.125;
   font-weight: 600;
-  padding: 16px 126px;
+  padding: 1rem 7.875rem;
   background-image: linear-gradient(to right, #6d6afe, #6ae3fe);
-  border-radius: 8px;
+  border-radius: 0.5rem;
   color: #f5f5f5;
 }
 
@@ -116,25 +116,25 @@ main {
 }
 
 .title {
-  font-size: 48px;
+  font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 .description {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.5;
 }
 
 .card img {
-  width: 550px;
-  height: 450px;
+  width: 34.375rem;
+  height: 28.125rem;
 }
 
 .card {
-  margin: 100px auto;
-  width: 998px;
-  height: 450px;
+  margin: 6.25rem auto;
+  width: 62.375rem;
+  height: 28.125rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -145,7 +145,7 @@ main {
 }
 
 footer {
-  padding: 32px 104px 108px;
+  padding: 2rem 6.5rem 6.75rem;
   background-color: #111322;
   display: flex;
   align-items: center;
@@ -157,20 +157,20 @@ footer {
 }
 
 .corporation {
-  font-size: 16px;
+  font-size: 1rem;
   color: #676767;
   font-weight: 400;
-  flex-basis: 115px;
+  flex-basis: 7.1875rem;
 }
 
 .more-information a {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   color: #cfcfcf;
 }
 
 .more-information li:first-child {
-  margin-right: 30px;
+  margin-right: 1.875rem;
 }
 
 ul > li {
@@ -178,16 +178,16 @@ ul > li {
 }
 
 .sns-container {
-  flex-basis: 115px;
+  flex-basis: 7.1875rem;
 }
 
 .sns-container li:not(:first-of-type) {
-  margin-left: 13px;
+  margin-left: 0.8125rem;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 74.9375rem) {
   .logo {
-    margin-right: 538px;
+    margin-right: 33.625rem;
   }
 
   .gnb {
@@ -204,18 +204,18 @@ ul > li {
   }
 
   .header-image {
-    width: 698px;
-    height: 343px;
+    width: 43.625rem;
+    height: 21.4375rem;
   }
 
   .card {
-    width: 698px;
-    height: 315px;
+    width: 43.625rem;
+    height: 19.6875rem;
   }
 
   .card img {
-    width: 385px;
-    height: 315px;
+    width: 24.0625rem;
+    height: 19.6875rem;
   }
 }
 
@@ -226,38 +226,38 @@ ul > li {
   
   .gnb {
     justify-content: space-between;
-    padding: 0 32px;
+    padding: 0 2rem;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 47.9375rem) {
   main {
-    padding: 0 32px;
-    margin: 40px 0 0 0;
+    padding: 0 2rem;
+    margin: 2.5rem 0 0 0;
   }
 
   .gnb {
-    height: 63px;
+    height: 3.9375rem;
   }
   
   .logo img {
-    width: 77.58px;
-    height: 14px;
+    width: 4.84875rem;
+    height: 0.875rem;
   }
   
   .login-button {
-    margin: 13px 0;
+    margin: 0.8125rem 0;
   }
 
   .login-link {
-    padding: 10px 21.5px;
-    font-size: 14px;
+    padding: 0.625rem 1.34375rem;
+    font-size: 0.875rem;
   }
 
   .header-content {
-    padding-top: 91px;
-    padding-left: 32px;
-    padding-right: 32px;
+    padding-top: 5.6875rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
   .header-content .header-image {
@@ -266,23 +266,23 @@ ul > li {
   }
 
   .header-title {
-    font-size: 32px;
-    margin-bottom: 24px;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .add-button {
-    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
   }
 
   .add-button .add-link {
-    font-size: 14px;
+    font-size: 0.875rem;
   }  
 
   .card{
     width: 100%;
     height: 100%;
     margin: 0;
-    padding: 0 0 80px;
+    padding: 0 0 5rem;
     display: grid;
     grid-template-areas: 
       "text"
@@ -292,15 +292,15 @@ ul > li {
   .text-container {
     display: block;
     grid-area: text;
-    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
   }
 
   .title {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
 
   .description {
-    font-size: 15px;
+    font-size: 0.9375rem;
   }
 
   .card img {
@@ -318,8 +318,8 @@ ul > li {
   }
   
   footer {
-    padding: 32px;
-    height: 96px;
+    padding: 2rem;
+    height: 6rem;
     box-sizing: content-box;
     position: relative;
   }
@@ -329,18 +329,18 @@ ul > li {
   }
 
   footer .corporation {
-    left: 32px;
-    bottom: 32px;
+    left: 2rem;
+    bottom: 2rem;
   }
 
   footer .more-information {
-    left: 32px;
-    top: 32px;
+    left: 2rem;
+    top: 2rem;
   }
 
   footer .sns-container {
-    right: 32px;
-    top: 32px;
+    right: 2rem;
+    top: 2rem;
   }
 }
 
