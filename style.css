@@ -254,6 +254,11 @@ ul > li {
 
   .header-title {
     font-size: 32px;
+    margin-bottom: 24px;
+  }
+
+  .add-button {
+    margin-bottom: 24px;
   }
 
   .add-button .add-link {
