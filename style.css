@@ -269,12 +269,32 @@ ul > li {
     font-size: 14px;
   }  
 
+  .card{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-areas: 
+      "text"
+      "image";
+  }
+
+  .text-container {
+    display: block;
+    grid-area: text;
+  }
+
   .title {
     font-size: 24px;
   }
 
   .description {
     font-size: 15px;
+  }
+
+  .card img {
+    width: 100%;
+    height: 100%;
+    grid-area: image; 
   }
 }
 
