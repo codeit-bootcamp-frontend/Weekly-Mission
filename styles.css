@@ -34,6 +34,9 @@ body {
   letter-spacing: -0.03rem;
   color: #000000;
 }
+.paragraph h2 > span {
+  display: block;
+}
 .paragraph p {
   margin-top: 1rem;
   font-weight: 500;
@@ -283,7 +286,8 @@ body {
   .detail__content .content__manage .paragraph,
   .detail__content .content__share .paragraph,
   .detail__content .content__search .paragraph {
-    width: min(34vw, 26.2rem);
+    max-width: 26.2rem;
+    width: 100%;
   }
 }
 
@@ -297,7 +301,7 @@ body {
   }
 
   .detail .inner {
-    max-width: calc(100% - 34rem);
+    max-width: calc(100% - 50rem);
   }
 
   .footer .inner {
@@ -308,7 +312,17 @@ body {
   .detail__content .content__manage .paragraph,
   .detail__content .content__share .paragraph,
   .detail__content .content__search .paragraph {
-    width: min(34vw, 26.2rem);
+    width: 100%;
+    max-width: 26.2rem;
+  }
+
+  .detail__content .content__save .paragraph,
+  .detail__content .content__share .paragraph {
+    margin-right: 8rem;
+  }
+  .detail__content .content__manage .paragraph,
+  .detail__content .content__search .paragraph {
+    margin-left: 8rem;
   }
 }
 
@@ -321,7 +335,7 @@ body {
   }
 
   .detail .inner {
-    max-width: calc(1199px - 36rem);
+    max-width: calc(1199px - 50rem);
   }
   .get-started__content .content--title {
     height: 24rem;
@@ -340,7 +354,17 @@ body {
   .detail__content .content__manage .paragraph,
   .detail__content .content__share .paragraph,
   .detail__content .content__search .paragraph {
-    width: min(34vw, 26.2rem);
+    width: 100%;
+    max-width: 26.2rem;
+  }
+
+  .detail__content .content__save .paragraph,
+  .detail__content .content__share .paragraph {
+    margin-right: 4rem;
+  }
+  .detail__content .content__manage .paragraph,
+  .detail__content .content__search .paragraph {
+    margin-left: 4rem;
   }
 
   .detail__content .content__save div,
@@ -348,6 +372,7 @@ body {
   .detail__content .content__share div,
   .detail__content .content__search div {
     max-width: 38.5rem;
+    width: 100%;
   }
 
   .detail__content .content__save {
@@ -357,16 +382,16 @@ body {
 
 @media (max-width: 863px) {
   .inner {
-    max-width: calc(100% - min(15vw, 6.4rem));
+    max-width: calc(100% - 6.4rem);
   }
   .get-started__header {
-    width: calc(100% - min(15vw, 6.4rem));
+    width: calc(100% - 6.4rem);
   }
   .detail .inner {
-    max-width: calc(100% - min(15vw, 6.4rem));
+    max-width: calc(100% - 10rem);
   }
   .footer .inner {
-    max-width: calc(100% - min(15vw, 6.4rem));
+    max-width: calc(100% - 6.4rem);
   }
   .get-started__content .content--title {
     height: min(30vw, 24rem);
@@ -409,7 +434,8 @@ body {
   .detail__content .content__manage div,
   .detail__content .content__share div,
   .detail__content .content__search div {
-    width: min(38vw, 32.5rem);
+    width: 100%;
+    max-width: 38.5rem;
   }
 
   .detail__content .content__save .paragraph p,
@@ -491,38 +517,31 @@ body {
     margin: 3.7rem auto 0;
   }
 
-  .detail__content .content__save .paragraph,
-  .detail__content .content__manage .paragraph,
-  .detail__content .content__share .paragraph,
-  .detail__content .content__search .paragraph {
-    width: 32.5rem;
+  .paragraph {
+    width: 100%;
     height: 2.9rem;
   }
-
+  .paragraph h2 span {
+    display: inline-block;
+  }
+  .paragraph p {
+    display: none;
+  }
   .detail__content .content__save {
     margin: 4rem auto 0;
-  }
-  .detail__content .content__save .paragraph {
-    margin: 0 auto;
   }
   .detail__content .content__save .paragraph h2 {
     font-size: 2.4rem;
     line-height: 2.864rem;
   }
-  .detail__content .content__save .paragraph h2 span {
-    display: inline-block;
-  }
-  .detail__content .content__save .paragraph p {
-    display: none;
-  }
   .detail__content .content__save div {
     margin: 2rem auto 0;
-    width: 32.5rem;
+    width: 100%;
   }
   .detail__content .content__save p.mobile-save {
     margin: 1.6rem auto 0;
     display: block;
-    width: 32.5rem;
+    width: 100%;
     font-weight: 500;
     font-size: 1.5rem;
     line-height: 2.2rem;
@@ -534,27 +553,21 @@ body {
   }
   .detail__content .content__manage .paragraph {
     order: 1;
-    margin: 0 auto;
+    margin-left: 0;
   }
   .detail__content .content__manage .paragraph h2 {
     font-size: 2.4rem;
     line-height: 2.864rem;
   }
-  .detail__content .content__manage .paragraph h2 span {
-    display: inline-block;
-  }
-  .detail__content .content__manage .paragraph p {
-    display: none;
-  }
   .detail__content .content__manage div {
     margin: 2rem auto 0;
-    width: 32.5rem;
+    width: 100%;
     order: 2;
   }
   .detail__content .content__manage p.mobile-manage {
     margin: 1.6rem auto 0;
     display: block;
-    width: 32.5rem;
+    width: 100%;
     font-weight: 500;
     font-size: 1.5rem;
     line-height: 2.2rem;
@@ -565,27 +578,18 @@ body {
   .detail__content .content__share {
     margin: 8rem auto 0;
   }
-  .detail__content .content__share .paragraph {
-    margin: 0 auto;
-  }
   .detail__content .content__share .paragraph h2 {
     font-size: 2.4rem;
     line-height: 2.864rem;
   }
-  .detail__content .content__share .paragraph h2 span {
-    display: inline-block;
-  }
-  .detail__content .content__share .paragraph p {
-    display: none;
-  }
   .detail__content .content__share div {
     margin: 2rem auto 0;
-    width: 32.5rem;
+    width: 100%;
   }
   .detail__content .content__share p.mobile-share {
     margin: 1.6rem auto 0;
     display: block;
-    width: 32.5rem;
+    width: 100%;
     font-weight: 500;
     font-size: 1.5rem;
     line-height: 2.2rem;
@@ -597,27 +601,21 @@ body {
   }
   .detail__content .content__search .paragraph {
     order: 1;
-    margin: 0 auto;
+    margin-left: 0;
   }
   .detail__content .content__search .paragraph h2 {
     font-size: 2.4rem;
     line-height: 2.864rem;
   }
-  .detail__content .content__search .paragraph h2 span {
-    display: inline-block;
-  }
-  .detail__content .content__search .paragraph p {
-    display: none;
-  }
   .detail__content .content__search div {
     margin: 2rem auto 0;
-    width: 32.5rem;
+    width: 100%;
     order: 2;
   }
   .detail__content .content__search p.mobile-search {
     margin: 1.6rem auto 0;
     display: block;
-    width: 32.5rem;
+    width: 100%;
     font-weight: 500;
     font-size: 1.5rem;
     line-height: 2.2rem;
