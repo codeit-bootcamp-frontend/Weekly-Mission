@@ -204,3 +204,56 @@ footer {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* 1199px부터 Tablet 사이즈*/
+@media (max-width: 1200px) {
+  header {
+    justify-content: center;
+    gap: 538px;
+    padding: 0;
+  }
+
+  .section_1 {
+    padding-top: 40px;
+  }
+
+  #lineChange {
+    display: block;
+  }
+
+  #image1 {
+    width: 698px;
+    height: 343px;
+  }
+
+  .rightText {
+    margin-right: 51px;
+  }
+
+  .leftText {
+    margin-left: 51px;
+  }
+
+  .section_2 {
+    margin-top: 80px;
+  }
+
+  .card {
+    margin-top: 80px;
+  }
+
+  .cardImage {
+    width: 385px;
+    height: 315px;
+  }
+
+}
+
+@media (max-width: 863px) {
+  header {
+    padding: 0 32px;
+    justify-content: space-between;
+    gap: 0;
+  }
+}
+
