@@ -202,6 +202,11 @@ ul > li {
     padding: 0;
   }
 
+  .header-image {
+    width: 698px;
+    height: 343px;
+  }
+
   .card {
     width: 698px;
     height: 315px;
