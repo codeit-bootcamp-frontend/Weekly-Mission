@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--페이지 설명-->
+    <title>Linkbrary</title>
+    <meta
+      name="description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해보세요"
+    >
+    <!--SNS 링크 미리보기-->
+    <meta property="og:image" content="images/preview.jpg">
+    <meta property="og:title" content="Linkbrary">
+    <meta property="og:url" content="https://sally-library.netlify.app/">
+    <meta
+      property="og:description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해보세요"
+    >
+    <!--트위터 링크 미리보기-->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="images/preview.jpg">
+    <meta
+      name="twitter:title"
+      content="Linkbrary"
+    >
+    <meta
+      name="twitter:description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해보세요"
+    >
+    <link
+    rel=“stylesheet”
+    type=“text/css”
+    href=“https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css”
+    >
+    <link rel="stylesheet" href="Linkbrary.css">
+  </head>
+  <body>
+    <!--네비게이션 바-->
+    <header>
+      <a id="home" href="/">
+        <img class="logo" src="images/logo.png">
+      </a>
+      <a class="button" id="signin" href="/signin">
+        로그인
+      </a>
+    </header>
+    <main>
+      <!--첫 번째 영역-->
+      <section class="section_1">
+        <h1 class="title1">
+          <span id="gradient1">세상의 모든 정보</span>를<br>
+          <span id="lineChange">쉽게 저장하고</span> 관리해 보세요
+        </h1>
+        <a class="button" id="addLink" href="">링크 추가하기</a>
+        <img id="image1" src="images/image1.png">
+      </section>
+      <!--두 번째 영역-->
+      <!-- section_2에 4개의 card가 있다고 생각-->
+      <section class="section_2">
+        <div class="card">
+          <div class="cardText rightText">
+            <h2 class="title2">
+              <span id="gradient2">원하는 링크</span>를<br>
+              저장하세요
+            </h2>
+            <p class="description">
+              나중에 읽고 싶은 글, 다시 보고 싶은 영상,<br>
+              사고 싶은 옷, 기억하고 싶은 모든 것을<br>
+              한 공간에 저장하세요.
+            </p>
+          </div>
+          <img class="cardImage" src="images/image2.png">
+        </div>
+        <div class="card">
+          <img class="cardImage" src="images/image3.png">
+          <div class="cardText leftText">
+            <h2 class="title2">
+              링크를 폴더로<br>
+              <span id="gradient3">관리</span>하세요
+            </h2>
+            <p class="description">
+              나만의 폴더를 무제한으로 만들고<br>
+              다양하게 활용할 수 있어요.
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cardText rightText">
+            <h2 class="title2">
+              저장한 링크를<br>
+              <span id="gradient4">공유</span>해 보세요.
+            </h2>
+            <p class="description">
+              여러 링크를 폴더에 담고 공유할 수 있어요.<br>
+              가족, 친구, 동료들에게 쉽고 빠르게 링크를<br>
+              공유해 보세요.
+            </p>
+          </div>
+          <img class="cardImage" src="images/image4.png">
+        </div>
+        <div class="card">
+          <img class="cardImage" src="images/image5.png">
+          <div class="cardText leftText">
+            <h2 class="title2">
+              저장한 링크를<br>
+              <span id="gradient5">검색</span>해 보세요
+            </h2>
+            <p class="description">
+              중요한 정보들을 검색으로 쉽게 찾아보세요.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div id="copywright">©codeit-2023</div>
+      <div class="bottomLinks">
+        <a class="bottomLink" href="/privacy">Privacy Policy</a>
+        <a class="bottomLink" href="/faq">FAQ</a>
+      </div>
+      <div class="snsIcons">
+        <a href="https://www.facebook.com">
+          <img class="snsIcon" src="images/facebook.png" alt="페이스북">
+        </a>
+        <a href="https://twitter.com">
+          <img  class="snsIcon"src="images/twitter.png" alt="트위터">
+        </a>
+        <a href="https://www.youtube.com">
+          <img class="snsIcon" src="images/youtube.png" alt="유튜브">
+        </a>
+        <a href="https://www.instagram.com">
+          <img class="snsIcon" src="images/instagram.png" alt="인스타그램">
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,266 @@
+/* 1주차 내용인 데스크탑 사이즈 */
+* {
+  font-family: 'Pretendard';
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* 모든 a태그에 밑줄 없앰 */
+a {
+  text-decoration: none;
+}
+
+/* 네비게이션 바를 header로 지정 */
+header {
+  background-color: #f0f6ff;
+  width: 100%;
+  height: 94px;
+  padding: 0 200px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Linkbrary 로고 사이즈 조절 */
+.logo {
+  height: 24px;
+}
+
+/* 로그인, 링크추가하기를 같은 class button */
+.button {
+  display: block;
+  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  height: 53px;
+  border-radius: 8px;
+  padding: 16px 0;
+  color: #f5f5f5;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 21px;
+}
+
+/* 로그인 button 너비 */
+#signin {
+  width: 128px;
+}
+
+/* 링크추가하기 button 너비 */
+#addLink {
+  width: 350px;
+  margin: 40px auto 0;
+}
+
+/* 파란 배경의 section_1 */
+.section_1 {
+  background-color: #f0f6ff;
+  height: auto;
+  padding-top: 70px;
+}
+
+.title1 {
+  font-size: 64px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 80px;
+}
+
+#image1 {
+  display: block;
+  width: 1200px;
+  height: 590px;
+  margin: 40px auto 0;
+}
+
+/* 하얀 배경의 section_2 */
+.section_2 {
+  margin: 120px 0 170px;
+  height: auto;
+}
+
+.card {
+  height: auto;
+  display: flex;
+  justify-content: center;
+  margin: 100px 0;
+}
+
+.title2 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 57px;
+}
+
+.description {
+  font-size: 16px;
+  font-weight: 500;
+  color: #6b6b6b;
+  line-height: 24px;
+}
+
+.cardText {
+  width: 291px;
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rightText {
+  margin-right: 157px;
+}
+
+.leftText {
+  margin-left: 157px;
+}
+
+.cardImage {
+  width: 550px;
+  height: 450px;
+}
+
+
+/* footer 영역 */
+footer {
+  background-color: black;
+  height: 160px;
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 104px 0;
+}
+
+#copywright {
+  font-family: 'Arial';
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #676767;
+}
+
+.bottomLinks {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.bottomLink {
+  font-family: 'Arial';
+  font-size: 16px;
+  font-weight: 400;
+  color: #cfcfcf;
+}
+
+.snsIcons {
+  display: flex;
+  gap: 13px;
+  align-items: flex-start;
+}
+
+.snsIcon {
+  height: 20px;
+}
+
+
+/* font 그라데이션 */
+#gradient1 {
+  background: linear-gradient(91.26deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#gradient2 {
+  background: linear-gradient(95.63deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#gradient3 {
+  background: -webkit-linear-gradient(0deg, #ffd88b 0%, #6fbaff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#gradient4 {
+  background: -webkit-linear-gradient(180deg, #528885 22%, #6d7ccd 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#gradient5 {
+  background: -webkit-linear-gradient(0deg, #fe578f 0%, #68e8f9 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 1199px부터 Tablet 사이즈*/
+@media (max-width: 1199px) {
+  header {
+    justify-content: center;
+    gap: 538px;
+    padding: 0;
+  }
+
+  .section_1 {
+    padding-top: 40px;
+  }
+
+  #lineChange {
+    display: block;
+  }
+
+  #image1 {
+    width: 698px;
+    height: 343px;
+  }
+
+  .rightText {
+    margin-right: 51px;
+  }
+
+  .leftText {
+    margin-left: 51px;
+  }
+
+  .section_2 {
+    margin-top: 80px;
+  }
+
+  .card {
+    margin-top: 80px;
+  }
+
+  .cardImage {
+    width: 385px;
+    height: 315px;
+  }
+
+}
+
+@media (max-width: 863px) {
+  header {
+    padding: 0 32px;
+    justify-content: space-between;
+    gap: 0;
+  }
+}
+
+/* mobile 사이즈 */
+@media (max-width: 767px) {
+  main {
+    padding: 0 32px;
+  }
+}
+
