@@ -245,6 +245,23 @@ ul > li {
 
   .login-link {
     padding: 10px 21.5px;
+    font-size: 14px;
+  }
+
+  .header-title {
+    font-size: 32px;
+  }
+
+  .add-button .add-link {
+    font-size: 14px;
+  }  
+
+  .title {
+    font-size: 24px;
+  }
+
+  .description {
+    font-size: 15px;
   }
 }
 
