@@ -275,3 +275,75 @@ footer {
     width: 24.063rem;
   }
 }
+
+@media (max-width: 767px) {
+  header, main, footer, nav {
+    padding: 0 32px;
+  }
+
+  main {
+    padding-top: 40px;
+    padding-bottom: 81px;
+  }
+
+  .navigation {
+    margin: 0 auto 51px;
+    height: ;
+  }
+
+  .title {
+    width: 100%;
+    font-size: 2rem;
+    line-height: 42px;
+  }
+
+  .add-lik {
+    width: 200px;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .sections {
+    width: 100%;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .main-title {
+    width: 100%;
+    font-size: 24px;
+    line-height: 28.64px;
+  }
+
+  .main-des {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .main-image {
+    width: 100%;
+  }
+
+  .inline {
+    display: inline;
+  }
+
+  .section-imgbottom {
+    flex-direction: column-reverse;
+  }
+
+  .footer {
+    padding: 32px 0 0;
+    position: relative;
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .copyright {
+    position: absolute;
+    top: 6rem;
+    left: 0;
+  }
+}
