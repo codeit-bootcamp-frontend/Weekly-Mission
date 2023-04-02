@@ -259,8 +259,80 @@ footer {
 
 /* mobile 사이즈 */
 @media (max-width: 767px) {
-  main {
+  /* main 내부 padding 조절 */
+  .section_1 {
+    padding: 28px 32px 0;
+  }
+
+  .section_2 {
     padding: 0 32px;
   }
+
+  /* header */
+  header {
+    height: 63px;
+  }
+  
+  .logo {
+    width: 77.58px;
+    height: 14px;
+  }
+
+  /* 로그인 링크추가 버튼 */
+  .button {
+    height: 37px;
+    font-size: 14px;
+    line-height: 17px;
+    padding: 10px 0;
+  }
+
+  #signin {
+    width: 80px;
+  }
+
+  #addLink {
+    width: 200px;
+    margin-top: 24px;
+  }
+
+  /* section_1 */
+  .title1 {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  #image1 {
+    width: 100%;
+    height: auto;
+    margin-top: 24px;
+  }
+
+  /* section_2 */
+  .title2 {
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: -0.3px;
+  }
+
+  .description {
+    font-size: 15px;
+    line-height: 150%;
+  }
+
+  .card {
+    flex-direction: column;
+  }
+
+  .cardImage {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Mobile footer */
+  footer {
+    height: 160px;
+    padding: 32px;
+  }
+
 }
 
