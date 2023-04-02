@@ -207,9 +207,10 @@ ul > li {
   .logo {
     margin-right: 0;
   }
-
+  
   .gnb {
     justify-content: space-between;
+    padding: 0 32px;
   }
 }
 
