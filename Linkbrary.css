@@ -206,7 +206,7 @@ footer {
 }
 
 /* 1199px부터 Tablet 사이즈*/
-@media (max-width: 1200px) {
+@media (max-width: 1199px) {
   header {
     justify-content: center;
     gap: 538px;
@@ -254,6 +254,13 @@ footer {
     padding: 0 32px;
     justify-content: space-between;
     gap: 0;
+  }
+}
+
+/* mobile 사이즈 */
+@media (max-width: 767px) {
+  main {
+    padding: 0 32px;
   }
 }
 
