@@ -248,6 +248,10 @@ ul > li {
     font-size: 14px;
   }
 
+  .header-content {
+    padding-top: 91px;
+  }
+
   .header-title {
     font-size: 32px;
   }
