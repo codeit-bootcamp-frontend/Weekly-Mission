@@ -230,6 +230,10 @@ ul > li {
 }
 
 @media (max-width: 767px) {
+  .gnb {
+    height: 63px;
+  }
+  
   .logo img {
     width: 77.58px;
     height: 14px;
