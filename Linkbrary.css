@@ -143,7 +143,7 @@ footer {
   padding: 3.2rem 10.4rem 0;
 }
 
-#copywright {
+#copyright {
   font-family: 'Arial';
   font-size: 1.6rem;
   font-weight: 400;
@@ -355,5 +355,7 @@ footer {
     height: 16rem;
     padding: 3.2rem;
     margin-top: 4rem;
+    position: relative;
   }
+
 }
