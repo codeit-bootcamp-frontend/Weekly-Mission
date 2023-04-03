@@ -24,7 +24,7 @@
   --login-button-text: #ffffff;
   --social-login-background: #E7EFFB;
   --social-login-text: #3E3E43;
-  --password-reset-text: #3E3E43;
+  --forgot-password-link-text: #3E3E43;
 }
 
 /* site */
@@ -501,14 +501,14 @@ a {
   cursor: pointer;
 }
 
-.account .password-reset {
+.account .forgot-passwor {
   text-align: center;
   font-size: 0.9rem;
   margin-bottom: 2rem;
 }
 
-.account .password-reset a {
-  color: var(--password-reset-text);
+.account .forgot-password a {
+  color: var(--forgot-password-link-text);
 }
 
 .account .social-login {
