@@ -358,4 +358,9 @@ footer {
     position: relative;
   }
 
+  #copyright {
+    position: absolute;
+    bottom: 3.2rem;
+    left: 3.2rem;
+  }
 }
