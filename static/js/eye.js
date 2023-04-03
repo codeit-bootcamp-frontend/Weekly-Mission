@@ -1,4 +1,4 @@
-window.onload = $(document).ready(function(){
+$(function(){
   $('.password-input i').on('click',function(){
       $('input').toggleClass('active');
       if($('input').hasClass('active')){

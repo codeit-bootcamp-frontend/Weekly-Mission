@@ -27,6 +27,7 @@
   --account-social-login-background: #E7EFFB;
   --account-social-login-text: #3E3E43;
   --account-forgot-password-link-text: #3E3E43;
+  --account-password-hide-eye: #4B5563;
 }
 
 /* site */
@@ -510,6 +511,7 @@ a {
   height: 2rem;
   font-size: 22px;
   cursor: pointer;
+  color: var(--account-password-hide-eye);
 }
 
 .account button[type="submit"] {
