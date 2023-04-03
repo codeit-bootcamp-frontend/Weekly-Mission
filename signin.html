@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>로그인 | Linkbrary</title>
+  </head>
+  <body>
+    <main class="account">
+      <div class="title">
+        <a href="/">
+          <img class="logo" src="static/Linkbrary.png" alt="Linkbrary Logo">
+        </a>
+        <p class="description">회원이 아니신가요?<a class="signup-link" href="signup.html">회원 가입하기</a></p>
+      </div>
+
+      <form method="post">
+        <p>이메일</p>
+        <div>
+          <input class="lb-input" type="email" name="login" placeholder="이메일을 입력해주세요." autocomplete="email">
+        </div>
+        <p>비밀번호</p>
+        <div>
+          <input class="lb-input" type="password" name="password" placeholder="비밀번호" autocomplete="current-password">
+        </div>
+        <button class="clickable" type="submit">로그인</button>
+      </form>
+      <div class="password-reset">
+        <a href="/password_reset">비밀번호 찾기</a>
+      </div>
+      <div class="social-login">
+        <span class="title">소셜 로그인</span>
+        <a class="ico-box google" href="https://www.google.com/">
+          <img src="static/google.png" alt="google icon">
+        </a>
+        <a class="ico-box kakaotalk" href="https://www.kakaocorp.com/">
+          <img src="static/kakaotalk.png" alt="kakaotalk icon">
+        </a>
+      </div>
+    </main>
+  </body>
+</html>

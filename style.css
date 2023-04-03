@@ -19,6 +19,12 @@
   --footer-background: #111322;
   --footer-text1: #676767;
   --footer-text2: #CFCFCF;
+  --signup-link-text:#6D6AFE;
+  --account-border: #CCD5E3;
+  --login-button-text: #ffffff;
+  --social-login-background: #E7EFFB;
+  --social-login-text: #3E3E43;
+  --password-reset-text: #3E3E43;
 }
 
 /* site */
@@ -32,6 +38,11 @@ body {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
+/* index */
 .clickable {
   background: linear-gradient(90deg, var(--clickable-background-left), var(--clickable-background-right));
   line-height: 3.3rem;
@@ -78,7 +89,6 @@ body {
 
 /* site-header */
 .site-header a {
-  text-decoration: none;
   color: var(--clickable-text);
 }
 
@@ -156,7 +166,6 @@ body {
 
 .footer-middle a {
   color: var(--footer-text2);
-  text-decoration: none;
 }
 
 .footer-middle a:not(:first-child) {
@@ -434,4 +443,107 @@ body {
   .grid-item:nth-child(1) {
     order: 1;
   }
+}
+
+/* account */
+.account {
+  margin: 15rem auto;
+  max-width: 25rem;
+  width: 100%;
+}
+
+.account .title {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.account .logo {
+  width: 13rem;
+}
+
+.account .title .description {
+  margin: 1rem auto 2rem;
+}
+
+.account .description a {
+  text-decoration: underline;
+  margin-left: 0.5rem;
+}
+
+.account form {
+  display: flex;
+  flex-direction: column;
+}
+
+.account form > p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.account form .lb-input {
+  margin: 0.75rem 0 1.5rem 0;
+  font-size: 1rem;
+  width: 100%;
+  height: 3.5rem;
+  padding: 1rem;
+  border: 0.016rem solid var(--account-border);
+  border-radius: 0.5rem;
+}
+
+.account button[type="submit"] {
+  margin: 0.4rem 0 1rem 0;
+  border: 0;
+  padding: 0;
+  color: var(--login-button-text);
+}
+
+.account button[type="submit"]:hover {
+  cursor: pointer;
+}
+
+.account .password-reset {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.account .password-reset a {
+  color: var(--password-reset-text);
+}
+
+.account .social-login {
+  display: flex;
+  font-size: 0.9rem;
+  background-color: var(--social-login-background);
+  border: 0.06rem solid var(--account-border);
+  color: var(--social-login-text);
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  padding-right: auto;
+}
+
+.account .social-login .title {
+  margin: 0;
+  line-height: 2.5rem;
+}
+
+.account .social-login .ico-box {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 70%;
+  overflow: hidden;
+}
+
+.account .ico-box.google {
+  background-color: var(--login-button-text);
+  margin-left: auto;
+}
+
+.account .ico-box.kakaotalk {
+  background-color: #F5E14B;
+  margin-left: 1rem;
+}
+
+.account .ico-box img {
 }
