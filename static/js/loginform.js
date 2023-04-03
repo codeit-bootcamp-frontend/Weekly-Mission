@@ -1,14 +1,13 @@
-const el = document.querySelector('form');
-const email = document.querySelector('input[type="email"]');
-const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const form = document.querySelector('form');
 
-function isValidEmail(e) {
-  if (email.value === "") {
-    alert("이메일을 입력해주세요.")
+form.onsubmit = function(e) {
+  const email = document.querySelector('input.email');
+  const password = document.querySelector('input.password');
+  e.preventDefault();
+  if (email.value === "test@codeit.com" && password.value === "codeit101") {
+    location.href = "/my-link"
   }
-  else if (!email.value.match(validRegex)) {
-    alert("올바른 이메일 주소가 아닙니다.")
+  else {
+    alert("이메일과 비밀번호를 확인해주세요.")
   }
 }
-
-email.addEventListener('focusout', isValidEmail)
