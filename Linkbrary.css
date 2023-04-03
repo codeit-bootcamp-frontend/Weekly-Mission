@@ -130,6 +130,7 @@ header {
 .cardImage {
   width: 55rem;
   height: 45rem;
+  margin-top: 2.4rem;
 }
 
 
@@ -271,6 +272,7 @@ footer {
 
   .section_2 {
     padding: 0 3.2rem;
+    margin: 0;
   }
 
   /* header */
@@ -315,6 +317,8 @@ footer {
   /* section_2 */
   .card {
     flex-direction: column;
+    margin: 0;
+    padding: 4rem 0;
   }
 
   .reverseCard {
@@ -350,6 +354,6 @@ footer {
   footer {
     height: 16rem;
     padding: 3.2rem;
+    margin-top: 4rem;
   }
-
 }
