@@ -573,3 +573,22 @@ a {
   top: 0.6rem;
   left: 0.6rem;
 }
+
+/* account-mobile */
+@media (max-width: 767px) {
+  /* setting */
+  .account {
+    max-width: 29rem;
+    margin: 0 auto;
+    padding: 7.5rem 2rem 8rem;
+  }
+  
+  .account form {
+    width: 100%;
+  }
+
+  .clickable {
+    line-height: 2.3rem;
+    font-size: 0.875rem;
+  }
+}
