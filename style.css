@@ -290,7 +290,7 @@ body {
   }
 
   .content-frame.normal-flow .title {
-    margin: auto 0 0.3rem 0;
+    margin: auto auto 0.3rem 0;
   }
 
   .content-frame.normal-flow img {
