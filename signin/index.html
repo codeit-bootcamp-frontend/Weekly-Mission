@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/style.css">
     <title>로그인 | Linkbrary</title>
   </head>
@@ -21,8 +22,9 @@
           <input class="lb-input" type="email" name="login" placeholder="이메일을 입력해주세요." autocomplete="email">
         </div>
         <p>비밀번호</p>
-        <div>
+        <div class="password-input">
           <input class="lb-input" type="password" name="password" placeholder="비밀번호" autocomplete="current-password">
+            <i class="fa fa-eye fa-lg"></i>
         </div>
         <button class="clickable" type="submit">로그인</button>
       </form>
@@ -39,5 +41,6 @@
         </a>
       </div>
     </main>
+    <script type="text/javascript" src="/static/js/eye.js"></script>
   </body>
 </html>
