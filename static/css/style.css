@@ -517,9 +517,6 @@ a {
   border: 0;
   padding: 0;
   color: var(--account-login-button-text);
-}
-
-.account button[type="submit"]:hover {
   cursor: pointer;
 }
 
