@@ -490,6 +490,11 @@ a {
   padding: 1rem;
   border: 0.016rem solid var(--account-border);
   border-radius: 0.5rem;
+  color: var(--account-lb-input-text-focus-out);
+}
+
+.account form .lb-input:focus {
+  color: var(--account-lb-input-text-focus-in);
 }
 
 .account button[type="submit"] {
