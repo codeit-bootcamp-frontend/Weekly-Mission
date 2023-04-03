@@ -313,6 +313,19 @@ footer {
   }
 
   /* section_2 */
+  .card {
+    flex-direction: column;
+  }
+
+  .reverseCard {
+    flex-direction: column-reverse;
+  }
+
+  .cardText {
+    width: 100%;
+    margin: 0;
+  }
+
   .title2 {
     font-size: 2.4rem;
     line-height: 2.9rem;
@@ -324,8 +337,8 @@ footer {
     line-height: 150%;
   }
 
-  .card {
-    flex-direction: column;
+  .description br{
+    display: none;
   }
 
   .cardImage {
@@ -340,4 +353,3 @@ footer {
   }
 
 }
-
