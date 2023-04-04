@@ -1,3 +1,5 @@
+# Site-URL: https://jeris-weekly-mission.netlify.app/
+
 # Weekly-Mission 3
 ## **(전체 영향) 필수 요구사항**
 - 로고 클릭시 루트 페이지("/")로 이동해야 합니다.

@@ -58,34 +58,25 @@ a {
 
 .emphasis-1 {
   background: linear-gradient(90deg, var(--emphasis-1-left), var(--emphasis-1-right));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .emphasis-2 {
   background: linear-gradient(90deg, var(--emphasis-2-left), var(--emphasis-2-right));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .emphasis-3 {
   background: linear-gradient(90deg, var(--emphasis-3-left), var(--emphasis-3-right));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .emphasis-4 {
   background: linear-gradient(90deg, var(--emphasis-4-left), var(--emphasis-4-right));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .emphasis-5 {
   background: linear-gradient(90deg, var(--emphasis-5-left), var(--emphasis-5-right));
+}
+
+.emphasis {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -124,7 +115,8 @@ a {
   padding-bottom: 10.625rem;
 }
 
-.clickable.add-link {
+.add-link {
+  display: block;
   width: 22rem;
   margin: 0 auto;
 }
@@ -383,7 +375,7 @@ a {
     font-size: 2rem;
   }
 
-  .clickable.add-link {
+  .add-link {
     width: 12.5rem;
   }
 
