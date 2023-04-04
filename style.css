@@ -134,7 +134,6 @@ header button {
 
 main {
   width: 100vw;
-  background-color: #fff;
 }
 
 main .main-container {
@@ -150,17 +149,17 @@ main .main-container .container {
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
+  align-content: space-between;
 }
 
-main .container .p-box {
-  width: 28rem;
+main .title-box {
+  width: 17.5rem;
   font-weight: 700;
   line-height: 3.58rem;
   font-size: 3rem;
 }
 
-main .container .p-box p span {
+main .container .title-box p span {
   background-color: black;
   background-clip: text;
   -webkit-background-clip: text;
@@ -168,16 +167,17 @@ main .container .p-box p span {
 }
 
 main .container .additional-explanation {
+  width: 17.5rem;
   font-weight: 700;
   font-size: 1rem;
   line-height: 1.5rem;
   color: #6b6b6b;
+  margin-top: 1rem;
 }
 
 main .container .img-box {
   width: 34.375rem;
   height: 28.125rem;
-  background-color: #f0f6ff;
 }
 
 main .container .img-box img {
@@ -185,165 +185,52 @@ main .container .img-box img {
   height: 100%;
 }
 
-/*----------------------- save ---------------------------*/
+/*----------------------- save ----------------------------*/
 
-main .save-link .p-box p span {
+main .save-link .title-box span {
   background-image: linear-gradient(95.63deg, #fe8a8a 1.72%, #a4ceff 74.97%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/*-------------------- folder ---------------------------*/
+/*----------------------- folder -------------------------*/
 
-/* main .folder {
-  display: flex;
-  align-items: center;
-  width: 62.375rem;
-  height: 28.125rem;
-  margin-bottom: 5.625rem;
-} */
-
-/* main .folder .mobile-version {
-  display: none;
-}
-
-main .folder .img-box {
-  width: 34.375rem;
-  height: 28.125rem;
-  background-color: #f0f6ff;
-}
-
-main .folder .img-box img {
-  height: 100%;
-  width: 100%;
-}
-
-main .folder .folder-p {
-  width: 28rem;
-  font-weight: 700;
-  line-height: 3.58rem;
-  font-size: 3rem;
-} */
-
-/* main .folder .folder-p p:first-child {
-  margin-left: 157px;
-}
-
-main .folder .folder-p p.desktop-version span {
+main .folder .title-box span {
   background-image: linear-gradient(90deg, #6fbaff, #ffd88b);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-main .folder .folder-p p:last-child {
-  margin-top: 0.625rem;
-  margin-left: 9.813rem;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.5rem;
-  color: #6b6b6b;
-} */
+/*------------------------ share -------------------------*/
 
-/* share */
-
-main .share {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 5.625rem;
-  width: 62.375rem;
-  height: 28.125rem;
-}
-
-main .share .mobile-version {
-  display: none;
-}
-
-main .share .share-p {
-  width: 26.75rem;
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 3.58rem;
-}
-
-main .share .share-p p:first-child {
-  margin-bottom: 0.625rem;
-}
-
-main .share .share-p p:last-child {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-weight: 500;
-  color: #6b6b6b;
-}
-
-main .share .share-p span {
+main .share .title-box span {
   background-image: linear-gradient(90deg, #6d7ccd 100%, #528885 22%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-main .share .share-img img {
-  width: 35.625rem;
-  height: 29.313rem;
-}
+/*------------------------ search ------------------------*/
 
-/* search */
-
-main .search {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 5.625rem;
-  width: 62.375rem;
-  height: 28.125rem;
-}
-
-main .search .search-img img {
-  width: 34.375rem;
-  height: 28.125rem;
-}
-
-main .search .search-p p:first-child {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 0.625rem;
-}
-
-main .search .search-p p:last-child {
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.5rem;
-  color: #6b6b6b;
-  margin-bottom: 0.625rem;
-}
-
-main .search .search-p p span {
+main .search .title-box span {
   background-image: linear-gradient(#fe578f, #68e8f9);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-main .search .mobile-version {
-  display: none;
-}
-
-/* footer */
+/*------------------------- footer ----------------------*/
 
 footer {
-  width: 100vw;
-  background-color: black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   font-family: Arial, Helvetica, sans-serif;
+  width: 100vw;
+  height: 160px;
+  background-color: black;
 }
 
-.footer-container {
+footer .footer-container {
   width: calc(100% - 208px);
   display: flex;
   justify-content: space-between;
@@ -351,10 +238,10 @@ footer {
   box-sizing: border-box;
   max-width: 1920px;
   height: 5.125rem;
-  margin: 0 6.5rem 4rem;
+  margin: 0 auto;
 }
 
-footer .footer-container div:first-child {
+footer .footer-container .codeit {
   color: #676767;
   font-size: 1rem;
   font-weight: 400;
@@ -913,12 +800,12 @@ footer .icons img {
   }
 
   /* footer */
-  .footer-container {
+  footer .footer-container {
     position: relative;
     width: calc(100% - 4rem);
   }
 
-  .footer-container .codeit {
+  footer .footer-container .codeit {
     position: absolute;
     top: 6rem;
     left: 0;
