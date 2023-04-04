@@ -7,7 +7,13 @@ const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
 form.onsubmit = function(e) {
   e.preventDefault();
-  if (email.value === "test@codeit.com") {
+  if (email.value === "") {
+    alert("이메일을 입력해주세요.");
+  }
+  else if (!email.value.match(emailRegex)) {
+    alert("올바른 이메일 주소가 아닙니다.");
+  }
+  else if (email.value === "test@codeit.com") {
     alert("이미 사용 중인 아이디입니다.");
   }
   else if (!passwordRegex.test(password.value)) {
