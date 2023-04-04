@@ -1,9 +1,9 @@
 :root {
   --body-background: #F0F6FF;
   --site-body-background: #FFFFFF;
-  --clickable-background-left: #6D6AFE;
-  --clickable-background-right: #6AE3FE;
-  --clickable-text: #F5F5F5;
+  --link-button-background-left: #6D6AFE;
+  --link-button-background-right: #6AE3FE;
+  --link-button-text: #F5F5F5;
   --emphasis-1-left: #6D6AFE;
   --emphasis-1-right: #FF9F9F;
   --emphasis-2-left: #FE8A8A;
@@ -47,8 +47,8 @@ a {
 }
 
 /* index */
-.clickable {
-  background: linear-gradient(90deg, var(--clickable-background-left), var(--clickable-background-right));
+.link-button {
+  background: linear-gradient(90deg, var(--link-button-background-left), var(--link-button-background-right));
   line-height: 3.3rem;
   border-radius: 0.5rem;
   text-align: center;
@@ -84,7 +84,7 @@ a {
 
 /* site-header */
 .site-header a {
-  color: var(--clickable-text);
+  color: var(--link-button-text);
 }
 
 .site-header .navbar {
@@ -104,7 +104,7 @@ a {
   vertical-align: middle;
 }
 
-.navbar-container .clickable {
+.navbar-container .link-button {
   width: 8rem;
   float: right;
 }
@@ -339,7 +339,7 @@ a {
     padding: 0 2rem;
   }
 
-  .clickable {
+  .link-button {
     line-height: 2.3rem;
     font-size: 0.875rem;
   }
@@ -357,7 +357,7 @@ a {
     width: 5rem;
   }
   
-  .navbar-container .clickable {
+  .navbar-container .link-button {
     width: 5rem;
   }
   
@@ -581,7 +581,7 @@ a {
     width: 100%;
   }
 
-  .clickable {
+  .link-button {
     line-height: 2.3rem;
     font-size: 0.875rem;
   }
