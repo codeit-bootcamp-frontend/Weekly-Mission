@@ -95,7 +95,7 @@ header button {
   margin-right: 0.625rem;
 }
 
-.header-section .header-content p:first-child {
+.header-section .header-content p {
   background-image: linear-gradient(90deg, #6d6afe, #ff9f9f);
   background-clip: text;
   -webkit-background-clip: text;
@@ -135,90 +135,76 @@ header button {
 main {
   width: 100vw;
   background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 main .main-container {
-  margin-top: 7.5rem;
   width: 62.375rem;
+  margin: 0 auto 10.625rem;
 }
 
 main .main-container .container {
-}
-
-/* save */
-main .save-link {
+  width: 100%;
   height: 28.125rem;
-  background-color: #fff;
+  margin: 7.5rem 0 auto;
   display: flex;
-  align-items: center;
-  margin-bottom: 6.25rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-main .save-link .p-box {
+main .container .p-box {
   width: 28rem;
   font-weight: 700;
   line-height: 3.58rem;
   font-size: 3rem;
 }
 
-main .save-link .p-box p:first-child {
-  background-image: linear-gradient(95.63deg, #fe8a8a 1.72%, #a4ceff 74.97%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-main .save-link .p-box p:nth-child(2) {
+main .container .p-box p span {
   background-color: black;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 0.625rem;
 }
 
-main .save-link .p-box p:nth-child(3) {
+main .container .additional-explanation {
   font-weight: 700;
   font-size: 1rem;
   line-height: 1.5rem;
   color: #6b6b6b;
 }
 
-main .save-link .p-box p:first-child span {
-  background-color: black;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-main .save-link .img-box {
+main .container .img-box {
   width: 34.375rem;
   height: 28.125rem;
   background-color: #f0f6ff;
 }
 
-main .save-link .img-box img {
+main .container .img-box img {
   width: 100%;
   height: 100%;
 }
 
-main .save-link .mobile-version {
-  display: none;
+/*----------------------- save ---------------------------*/
+
+main .save-link .p-box p span {
+  background-image: linear-gradient(95.63deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* folder */
+/*-------------------- folder ---------------------------*/
 
-main .folder {
+/* main .folder {
   display: flex;
   align-items: center;
   width: 62.375rem;
   height: 28.125rem;
   margin-bottom: 5.625rem;
-}
+} */
 
-main .folder .mobile-version {
+/* main .folder .mobile-version {
   display: none;
 }
 
@@ -238,9 +224,9 @@ main .folder .folder-p {
   font-weight: 700;
   line-height: 3.58rem;
   font-size: 3rem;
-}
+} */
 
-main .folder .folder-p p:first-child {
+/* main .folder .folder-p p:first-child {
   margin-left: 157px;
 }
 
@@ -258,7 +244,7 @@ main .folder .folder-p p:last-child {
   font-weight: 500;
   line-height: 1.5rem;
   color: #6b6b6b;
-}
+} */
 
 /* share */
 
