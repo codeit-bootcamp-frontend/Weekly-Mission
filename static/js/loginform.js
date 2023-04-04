@@ -9,7 +9,7 @@ form.onsubmit = function(e) {
     location.href = "/my-link"
   }
   else {
-    alert("이메일과 비밀번호를 확인해주세요.")
+    alert("이메일과 비밀번호를 확인해주세요.");
   }
 }
 

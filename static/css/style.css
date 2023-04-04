@@ -209,7 +209,7 @@ a {
 /* site-footer */
 .site-footer {
   background: var(--footer-background);
-  font-family: "Arial"
+  font-family: "Arial";
 }
 
 .site-footer .footer-container {
@@ -512,7 +512,7 @@ a {
   .content-frame.inverse-flow .title,
   .content-frame.normal-flow .description,
   .content-frame.inverse-flow .description {
-    margin: 0
+    margin: 0;
   }
 
   /* site-footer */
