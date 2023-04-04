@@ -39,6 +39,7 @@
 body {
   background-color: var(--body-background);
   margin: 0;
+  font-family: 'Pretendard';
 }
 
 a {
@@ -148,6 +149,7 @@ a {
 /* site-footer */
 .site-footer {
   background: var(--footer-background);
+  font-family: "Arial"
 }
 
 .site-footer .footer-container {
