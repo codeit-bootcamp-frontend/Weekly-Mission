@@ -16,6 +16,7 @@ body {
   height: 100%;
   font-size: 1.6rem;
   font-family: "Pretendard", "sans-serif";
+  background-color: #f0f6ff;
 }
 .inner {
   margin: 0 auto;
@@ -39,9 +40,9 @@ body {
   }
 }
 
-/* ================================== footer ================================== */
+/* ================================== header ================================== */
 header {
-  background-color: #f0f6ff;
+  background-color: #f0f6ff80;
   height: 7.3rem;
   position: sticky;
   top: 0;
@@ -233,7 +234,7 @@ header nav .signin {
   }
 }
 
-/* ================================== main > contents ================================== */
+/* ================================== main > contents (common) ================================== */
 .paragraph {
   display: flex;
   flex-direction: column;
@@ -268,11 +269,13 @@ header nav .signin {
   display: none;
 }
 
+/* ================================== main > contents ================================== */
 .contents {
   width: 100%;
   height: auto;
   background: #ffffff;
-  margin-top: 12rem;
+  padding-top: 12rem;
+  padding-bottom: 17rem;
 }
 .contents .inner {
   max-width: calc(1920px - 92.2rem);
@@ -330,7 +333,7 @@ header nav .signin {
   color: transparent;
 }
 .contents .search {
-  margin: 10rem auto 17rem;
+  margin: 10rem auto 0;
   max-width: 100rem;
 }
 .contents .search div {
@@ -380,7 +383,7 @@ header nav .signin {
     max-width: 38.5rem;
   }
   .contents {
-    margin-top: 8rem;
+    padding-top: 8rem;
   }
   .paragraph h2 {
     font-size: 2.5rem;
@@ -395,7 +398,8 @@ header nav .signin {
     font-size: 1.55rem;
   }
   .contents {
-    margin-top: 6rem;
+    padding-top: 6rem;
+    padding-bottom: 11rem;
   }
   .contents .manage {
     margin: 9rem auto 0;
@@ -404,7 +408,7 @@ header nav .signin {
     margin: 9rem auto 0;
   }
   .contents .search {
-    margin: 9rem auto 12rem;
+    margin: 9rem auto 0;
   }
 }
 @media (max-width: 414px) {
@@ -425,7 +429,8 @@ header nav .signin {
     display: none;
   }
   .contents {
-    margin-top: 4rem;
+    padding-top: 4rem;
+    padding-bottom: 8rem;
   }
   .paragraph h2 {
     font-size: 2.4rem;
@@ -464,7 +469,7 @@ header nav .signin {
     margin: 8.2rem auto 0;
   }
   .contents .search {
-    margin: 8.2rem auto 8rem;
+    margin: 8.2rem auto 0;
   }
   .contents .search .paragraph {
     order: 1;
