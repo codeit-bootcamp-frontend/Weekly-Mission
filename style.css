@@ -1,21 +1,21 @@
 @charset "UTF-8";
-@import url('font.css');
+@import url("font.css");
 
 /*header*/
-#header .container {
-  position: fixed;
-  width: 100%;
+.header {
+  position: sticky;
+  top: 0;
   background-color: #f0f6ff;
 }
-#header .row {
+
+.header .container {
   padding: 0 200px;
-}
-.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 94px;
 }
+
 .header .logo {
   width: 136px;
   height: 32px;
@@ -24,44 +24,47 @@
   background-size: contain;
   background-position: center;
 }
-.header .login_btn {
+
+.header .login-btn {
   width: 128px;
   height: 53px;
   background-image: linear-gradient(to right, #6d6afe, #6ae3fe);
   border-radius: 8px;
   color: white;
   line-height: 55px;
-  font-family: "Pretendard";
-  font-weight: 500;
   font-size: 18px;
   text-align: center;
 }
 
 /*banner*/
-#banner {
+.banner {
   background-color: #f0f6ff;
 }
-.banner {
+
+.banner .container {
   text-align: center;
-  padding-top: 180px;
+  padding-top: 70px;
 }
+
 .banner .title {
-  font-family: "Pretendard";
   font-weight: 700;
   font-size: 64px;
   line-height: 80px;
   margin-bottom: 40px;
 }
-.banner .main_img {
+
+.banner .main-img {
   width: 1118px;
   vertical-align: bottom;
 }
+
 .banner .highlight {
   background: linear-gradient(to right, #6d6afe, #ff9f9f);
   color: transparent;
   -webkit-background-clip: text;
 }
-.banner .link_btn {
+
+.banner .link-btn {
   display: block;
   margin: 0 auto;
   width: 351px;
@@ -69,18 +72,17 @@
   border-radius: 8px;
   color: white;
   line-height: 55px;
-  font-family: "Pretendard";
-  font-weight: 500;
   font-size: 18px;
   margin-bottom: 60px;
 }
 
 /*content*/
-.content {
+.content .container {
   padding-top: 120px;
   width: fit-content;
   margin: 0 auto;
 }
+
 .card {
   margin-bottom: 100px;
   display: flex;
@@ -91,48 +93,63 @@
   width: 1000px;
   height: 450px;
 }
+
 .card .title {
-  font-family: "Pretendard";
   font-weight: 700;
   font-size: 48px;
   margin-bottom: 20px;
 }
+
+.card .title .line-break {
+  display: block;
+}
+
 .card .desc {
-  font-family: "Pretendard";
-  font-weight: 500;
   font-size: 16px;
   line-height: 150%;
   color: #6b6b6b;
   word-break: keep-all;
-  width: 250px;
+  width: 277px;
 }
+
+.card .desc .line-break {
+  display: block;
+}
+
 .card .img {
   width: 550px;
 }
+
 .card:nth-child(2n) .title {
   order: 1;
 }
+
 .card:nth-child(2n) .desc {
   order: 2;
 }
+
 .card:nth-child(2n) .img {
   order: 0;
 }
+
 .card:nth-child(1) .highlight {
   background: linear-gradient(to right, #fe8a8a, #a4ceff);
   color: transparent;
   -webkit-background-clip: text;
 }
+
 .card:nth-child(2) .highlight {
   background: linear-gradient(to right, #6fbaff, #ffd88b);
   color: transparent;
   -webkit-background-clip: text;
 }
+
 .card:nth-child(3) .highlight {
   background: linear-gradient(to right, #6d7ccd, #96abc9);
   color: transparent;
   -webkit-background-clip: text;
 }
+
 .card:nth-child(4) .highlight {
   background: linear-gradient(to right, #79d8ed, #99b8d6);
   color: transparent;
@@ -140,172 +157,211 @@
 }
 
 /*footer*/
-#footer {
+.footer {
   background-color: #111322;
 }
-#footer .row {
-  padding: 0 104px;
-}
-.footer {
+
+.footer .container {
   display: flex;
   justify-content: space-between;
   align-items: start;
   height: 160px;
-  padding-top: 30px;
+  padding: 30px 104px 0;
 }
+
 .copyright {
   color: #676767;
 }
+
 .info {
   color: #cfcfcf;
 }
+
 .icons {
   display: flex;
 }
+
 .icon {
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 24px;
-  height: 24px;
-  margin-left: 7px;
-}
-.facebook {
-  background-image: url(img/페이스북.png);
-  margin-top: -1px;
-}
-.twitter {
-  background-image: url(img/트위터.png);
-}
-.youtube {
-  background-image: url(img/유튜브.png);
-}
-.instagram {
-  background-image: url(img/인스타그램.png);
+  width: 18px;
+  height: 18px;
+  margin-left: 13px;
+  display: flex;
+  align-items: center;
 }
 
 /*타블렛*/
 @media (max-width: 1199px) {
-  .row {
-    padding: 0 32px !important;
+  .container {
+    padding: 0 32px;
   }
-  .header {
+
+  .header .container {
     width: 800px;
     margin: 0 auto;
+    padding: 0 32px;
   }
+
   .header .logo {
     width: 133px;
   }
-  .header .login_btn {
+
+  .header .login-btn {
     width: 128px;
     height: 53px;
     font-size: 16px;
     line-height: 53px;
   }
-  .banner_row {
-    width: 100%;
+
+  .banner .container {
+    padding-top: 40px;
   }
-  .banner_contents .link_btn {
-    margin-bottom: 70px;
-  }
-  .banner .line_break {
-    display: block;
-  }
-  .banner .main_img {
+
+  .banner .main-img {
     width: 650px;
   }
-  .content .row {
+
+  .banner .line-break {
+    display: block;
+  }
+
+  .content .container {
     padding-top: 80px;
   }
+
   .card {
     width: 685px;
     height: 315px;
   }
+
+  .card .desc {
+    width: 250px;
+  }
+
   .card .img {
     width: 385px;
   }
+
   .card .title {
     font-size: 45px;
   }
 }
 
 @media (max-width: 868px) {
-  .header {
+  .header .container {
     width: 100%;
   }
 }
 
 /*모바일*/
 @media (max-width: 767px) {
-  .header {
+  .header .container {
     height: 64px;
   }
+
   .header .logo {
     width: 80px;
   }
-  .header .login_btn {
+
+  .header .login-btn {
     width: 80px;
     height: 37px;
     font-size: 14px;
     line-height: 37px;
   }
-  .banner {
-    padding-top: 100px;
+
+  .banner .container {
+    padding-top: 28px;
   }
+
   .banner .title {
     font-size: 32px;
     line-height: 42px;
     margin-bottom: 20px;
   }
-  .banner .main_img {
+
+  .banner .main-img {
     width: 100%;
   }
-  .banner .link_btn {
+  
+  .banner .link-btn {
     width: 200px;
     font-size: 14px;
     line-height: 37px;
     margin-bottom: 30px;
   }
-  .content {
-    padding: 40px 0 80px;
+
+  .content .container {
+    padding-top: 40px;
+    padding-bottom: 80px;
   }
+
   .card {
     width: 100%;
     height: fit-content;
     margin-bottom: 80px;
   }
+
   .card:last-child {
     margin-bottom: 0;
   }
-  .card .img {
+
+  .card .img:nth-child(1n) {
     width: 100%;
     margin-bottom: 20px;
-    order: 1 !important;
+    order: 1;
   }
+
   .card .title {
     font-size: 24px;
     margin-bottom: 20px;
   }
-  .card .title > div {
+
+  .card .title .line-break {
     display: inline;
   }
+
   .card .desc {
     font-size: 15px;
-    order: 2 !important;
+    order: 2;
     width: 100%;
   }
+
+  .card .desc .line-break {
+    display: inline;
+  }
+
   .copyright {
     position: absolute;
     bottom: 32px;
     left: 32px;
   }
+
+  .footer .container {
+    position: relative;
+    padding: 32px;
+  }
+
   .info {
     width: 100%;
     display: flex;
   }
+
   .FAQ {
     margin: 0 auto;
   }
-  #footer .container {
-    position: relative;
+}
+
+@media (max-width: 375px){
+  .header .container {
+    width: 375px;
+  }
+  .banner .container {
+    width: 375px;
+  }
+  .content .container {
+    width: 375px;
+  }
+  .footer .container {
+    width: 375px;
   }
 }
