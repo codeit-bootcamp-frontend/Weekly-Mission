@@ -16,9 +16,8 @@ header {
   justify-content: space-between;
   align-items: center;
 
-  position: fixed;
-  left: 0;
-  right: 0;
+  position: sticky;
+  top: 0;
 
   z-index: 1;
   background-color: #f0f6ff;
@@ -51,10 +50,6 @@ header > a {
 }
 
 /*section-top*/
-main {
-  padding-top: 5.88rem;
-}
-
 .section-top {
   display: flex;
   margin-bottom: 7.5rem;
@@ -269,19 +264,22 @@ footer {
     margin-bottom: 1.88rem;
   }
 
-  .img-feature {
-    width: 24.06rem;
+  .sections-feature {
+    width: 43.63rem;
     height: 19.69rem;
   }
 
-  .img-save,
-  .img-share {
-    margin-left: 3.19rem;
+  .text-explain-feature {
+    width: 16.38rem;
   }
 
-  .img-manage,
-  .img-search {
-    margin-right: 3.19rem;
+  .text-explain-detail {
+    width: 16.38rem;
+  }
+
+  .img-feature {
+    width: 24.06rem;
+    height: 19.69rem;
   }
 }
 
@@ -317,10 +315,6 @@ footer {
     font-size: 0.88rem;
     font-weight: 600;
     line-height: 2.31rem;
-  }
-
-  main {
-    padding-top: 3.94rem;
   }
 
   .section-top {
