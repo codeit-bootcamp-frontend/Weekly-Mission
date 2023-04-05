@@ -212,7 +212,7 @@ footer {
 }
 
 /* 1199px부터 Tablet 사이즈*/
-@media (max-width: 1199px) {
+@media (max-width: 1200px) {
   header {
     justify-content: center;
     gap: 53.8rem;
@@ -264,7 +264,7 @@ footer {
 }
 
 /* mobile 사이즈 */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   /* main 내부 padding 조절 */
   .introducePage {
     padding: 2.8rem 3.2rem 0;
