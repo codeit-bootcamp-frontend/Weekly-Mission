@@ -18,6 +18,7 @@ body {
 
 header {
   background-color: #f0f6ff;
+  padding-top: 7rem;
 }
 
 a {
@@ -63,8 +64,9 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: inherit;
-  position: fixed;
+  background-color: #f0f6ff;
+  position: sticky;
+  top: 0;
 }
 
 .linkbrary-logo, .linkbrary-logo img {
@@ -84,8 +86,8 @@ main {
   background-image: linear-gradient(to right, #6d6afe 20%, #6ae3fe);
 }
 
-.header-content {
-  padding-top: 16.4rem;
+header {
+
 }
 
 .header-title {
