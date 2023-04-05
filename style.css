@@ -102,19 +102,17 @@ main {
   display: none;
 }
 
-.add-button {
+.add-link-button {
+  display: block;
+  width: 35rem;
+  height: 5.3rem;
+  line-height: 5.3rem;
   text-align: center;
-  margin: 0 auto 2.5rem;
-}
-
-.add-link {
-  display: inline-block;
-  font-size: 1.125;
-  font-weight: 600;
-  padding: 1rem 7.875rem;
+  margin: 0 auto;
   background-image: linear-gradient(to right, #6d6afe, #6ae3fe);
-  border-radius: 0.5rem;
+  border-radius: 0.8rem;
   color: #f5f5f5;
+  font-size: 1.8rem;
 }
 
 .header-image {
