@@ -67,6 +67,10 @@ main {
   position: fixed;
 }
 
+.linkbrary-logo, .linkbrary-logo img {
+  display: block;
+}
+
 .login-button {
   display: block;
   flex-basis: 12.8rem;
