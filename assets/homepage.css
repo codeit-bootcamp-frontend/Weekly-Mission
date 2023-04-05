@@ -211,6 +211,20 @@ footer {
   -webkit-text-fill-color: transparent;
 }
 
+
+@media (min-width: 1920px) {
+  header {
+    justify-content: center;
+    gap: 1259px;
+  }
+
+  footer {
+    justify-content: center;
+    gap: 668px;
+  }
+  
+}
+
 /* 1199px부터 Tablet 사이즈*/
 @media (max-width: 1200px) {
   header {
