@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Pretendard-Regular";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts-2107@1.1/Pretendard-Regular.woff")
     format("woff");
   font-weight: 400;
   font-style: normal;
@@ -40,7 +40,7 @@ main {
 }
 
 header nav,
-footer .footer_wrap {
+footer .footer-wrap {
   max-width: 1920px;
   margin: 0 auto; /* 왜 한번더 적어줘야 동작 하는 지..? */
 }
@@ -58,7 +58,7 @@ main {
 }
 
 header nav,
-footer #wrap {
+footer .wrap {
   justify-content: space-between;
   display: flex;
 }
@@ -69,12 +69,12 @@ header nav {
   padding: 0 200px;
 }
 
-nav #logo {
+nav .logo {
   width: 133px;
   height: 24px;
 }
 
-nav #login {
+nav .login {
   float: right;
   width: 128px;
   height: 53px;
@@ -87,7 +87,7 @@ nav #login {
   font-size: 1.8rem;
 }
 
-main #title {
+main .title {
   font-weight: 700;
   font-size: 6.4rem;
   line-height: 80px;
@@ -95,14 +95,14 @@ main #title {
   padding: 65px 0 0;
 }
 
-main #title_gradient {
+main .title-gradient {
   background: linear-gradient(91.26deg, #6d6afe 17.28%, #ff9f9f 74.98%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-main #add_link {
+main .add-link {
   display: block;
   width: 350px;
   margin: 40px auto;
@@ -116,17 +116,17 @@ main #add_link {
   border: 0;
 }
 
-main #img1 {
+main .home-hero-img {
   width: 1200px;
   border-radius: 25px;
   margin: 0 auto;
 }
 
-main #title .hidden_br_pc {
+main .title .hidden-br-pc {
   display: none;
 }
 
-.content_imgs {
+.content-imgs {
   width: 550px;
 }
 
@@ -155,7 +155,7 @@ article h2 {
   letter-spacing: -0.3px;
 }
 
-article h2 #span1 {
+article h2 .save-link-gradient {
   background: linear-gradient(95.63deg, #fe8a8a 1.72%, #a4ceff 74.97%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -163,7 +163,7 @@ article h2 #span1 {
   color: transparent;
 }
 
-article h2 #span2 {
+article h2 .manage-link-gradient {
   background: linear-gradient(95.63deg, #ffd88b 1.72%, #6fbaff 74.97%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -171,7 +171,7 @@ article h2 #span2 {
   color: transparent;
 }
 
-article h2 #span3 {
+article h2 .share-link-gradient {
   background: linear-gradient(95.63deg, #6d7ccd 1.72%, #52888538 74.97%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -179,7 +179,7 @@ article h2 #span3 {
   color: transparent;
 }
 
-article h2 #span4 {
+article h2 .search-link-gradient {
   background: linear-gradient(95.63deg, #68e8f9 1.72%, #fe578f 74.97%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -203,30 +203,30 @@ footer {
   font-size: 1.6rem;
 }
 
-.footer_wrap {
+.footer-wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 32px 32px 104px;
 }
 
-#copyright {
+.copyright {
   width: 105px;
   height: 18px;
   color: #676767;
   margin: 0;
 }
-#privacy_policy_faq {
+.privacy-policy-faq {
   display: flex;
   justify-content: space-between;
   gap: 30;
 }
 
-#privacy_policy_faq a {
+.privacy-policy-faq a {
   color: #cfcfcf;
 }
 
-#privacy_policy_faq a:first-child {
+.privacy-policy-faq a:first-child {
   margin-right: 30px;
 }
 
