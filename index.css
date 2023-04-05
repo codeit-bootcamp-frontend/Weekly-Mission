@@ -154,29 +154,23 @@ header > a {
   order: -1;
 }
 
-span.gradation-1 {
+span.grad-1 {
   background: linear-gradient(95.63deg, #fe8a8a 1.72%, #a4ceff 74.97%);
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
 }
 
-span.gradation-2 {
+span.grad-2 {
   background: linear-gradient(95.63deg, #6fbaff 1.72%, #ffd88b 74.97%);
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
 }
 
-span.gradation-3 {
+span.grad-3 {
   background: linear-gradient(95.63deg, #6d7ccd 1.72%, #528885 74.97%);
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
 }
 
-span.gradation-4 {
+span.grad-4 {
   background: linear-gradient(95.63deg, #fe578f 1.72%, #68e8f9 74.97%);
+}
+
+span.gradation {
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
