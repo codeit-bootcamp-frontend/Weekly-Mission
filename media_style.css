@@ -4,6 +4,12 @@
   }
 }
 
+@media screen and (min-width: 1199px) {
+  main #title .hidden_br_pc {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 862px) {
   header nav {
     padding: 0 32px;
@@ -11,9 +17,6 @@
 }
 
 @media screen and (max-width: 1199px) {
-  main #title .mobile_break {
-    display: block;
-  }
   main #img1 {
     width: 698px;
     border-radius: 25px;
@@ -104,6 +107,11 @@
     order: 3;
     font-size: 15px;
   }
+
+  article .hidden_br_mobile {
+    display: none;
+  }
+
   .footer_wrap {
     display: grid;
     padding: 32px;

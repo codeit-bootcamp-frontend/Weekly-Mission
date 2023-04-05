@@ -10,6 +10,7 @@
   box-sizing: border-box;
 }
 
+
 body {
   margin: 0 auto;
   text-align: center;
@@ -86,9 +87,6 @@ main #title {
   padding: 65px 0 0;
 }
 
-main .break {
-  display: block;
-}
 
 main #title_gradient {
   background: linear-gradient(91.26deg, #6d6afe 17.28%, #ff9f9f 74.98%);
