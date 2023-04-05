@@ -69,12 +69,11 @@ main {
   top: 0;
 }
 
-.linkbrary-logo, .linkbrary-logo img {
+.linkbrary-logo img {
   display: block;
 }
 
 .login-button {
-  display: block;
   flex-basis: 12.8rem;
   height: 5.3rem;
   line-height: 5.3rem;  /* height와 동일하게 설정하여 세로 정렬 */
