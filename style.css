@@ -68,16 +68,15 @@ main {
 }
 
 .login-button {
-  margin: 1.25rem 0;
-}
-
-.login-link {
-  display: inline-block;
-  padding: 1rem 2.531rem;
-  font-size: 1.125rem;
+  display: block;
+  flex-basis: 12.8rem;
+  height: 5.3rem;
+  line-height: 5.3rem;  /* height와 동일하게 설정하여 세로 정렬 */
+  text-align: center;
+  font-size: 1.8rem;
   font-weight: 600;
   color: #f5f5f5;
-  border-radius: 0.5rem;
+  border-radius: 0.8rem;
   background-image: linear-gradient(to right, #6d6afe 20%, #6ae3fe);
 }
 
