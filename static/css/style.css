@@ -103,6 +103,10 @@ a {
   max-width: 1920px;
 }
 
+.navbar-container .logo img {
+  width: 13.3rem;
+}
+
 .navbar-container .link-button {
   width: 12.8rem;
 }
