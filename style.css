@@ -183,10 +183,9 @@ ul > li {
 
 .sns-container {
   flex-basis: 7.1875rem;
-}
-
-.sns-container li:not(:first-of-type) {
-  margin-left: 0.8125rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 @media (max-width: 74.9375rem) {
