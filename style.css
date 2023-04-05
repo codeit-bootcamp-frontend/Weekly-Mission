@@ -114,6 +114,10 @@ main #img1 {
   margin: 0 auto;
 }
 
+main #title .hidden_br_pc {
+  display: none;
+}
+
 .content_imgs {
   width: 550px;
 }
@@ -123,6 +127,17 @@ section {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 450px;
+  margin: 50px auto;
+  gap: 0 51px;
 }
 
 article h2 {
@@ -165,6 +180,7 @@ article h2 #span4 {
 }
 
 article p {
+  font-size: 16px;
   font-weight: 500;
   line-height: 150%;
   padding: 10px 0;
