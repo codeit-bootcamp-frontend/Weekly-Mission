@@ -198,7 +198,7 @@ header nav .signin {
     margin: 5.6rem auto 0;
   }
 }
-@media (max-width: 414px) {
+@media (max-width: 767px) {
   header nav .logo {
     width: 7.758rem;
   }
@@ -410,13 +410,7 @@ header nav .signin {
     margin: 9rem auto 0;
   }
 }
-@media (max-width: 686px) {
-  .paragraph h2 {
-    font-size: 3.6rem;
-    line-height: 4.4rem;
-  }
-}
-@media (max-width: 544px) {
+@media (max-width: 767px) {
   .contents .inner {
     max-width: calc(100% - 6.4rem);
   }
@@ -442,15 +436,18 @@ header nav .signin {
     line-height: 2.864rem;
   }
   .contents .save div,
-  .contents .share div {
+  .contents .share div,
+  .contents .manage div,
+  .contents .search div {
     margin: 2rem auto 0;
     width: 100%;
+    max-width: 100%;
   }
   .contents p.mobile {
     margin: 1.6rem auto 0;
     display: block;
     width: 100%;
-    max-width: 38.5rem;
+    max-width: 100%;
     font-weight: 500;
     font-size: 1.5rem;
     line-height: 2.2rem;
@@ -463,8 +460,6 @@ header nav .signin {
     order: 1;
   }
   .contents .manage div {
-    margin: 2rem auto 0;
-    width: 100%;
     order: 2;
   }
   .contents .manage p.mobile {
@@ -480,8 +475,6 @@ header nav .signin {
     order: 1;
   }
   .contents .search div {
-    margin: 2rem auto 0;
-    width: 100%;
     order: 2;
   }
   .contents .search p.mobile {
@@ -491,7 +484,7 @@ header nav .signin {
   .share .paragraph,
   .manage .paragraph,
   .search .paragraph {
-    max-width: 38.5rem;
+    max-width: 100%;
     margin: 0 auto;
   }
 }
@@ -557,7 +550,7 @@ footer .sns a {
     max-width: calc(100% - 6.4rem);
   }
 }
-@media (max-width: 449px) {
+@media (max-width: 767px) {
   footer .inner {
     position: relative;
   }
@@ -565,10 +558,5 @@ footer .sns a {
     position: absolute;
     top: 7.8rem;
     left: 0;
-  }
-}
-@media (max-width: 414px) {
-  footer .inner {
-    max-width: calc(100% - 6.4rem);
   }
 }
