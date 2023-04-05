@@ -11,11 +11,14 @@
   </head>
   <body>
     <main class="account">
-      <div class="title">
+      <div class="account-header">
         <a href="/">
           <img class="logo" src="/static/Linkbrary.png" alt="Linkbrary Logo">
         </a>
-        <p class="description">회원이 아니신가요?<a class="account-link" href="/signup">회원 가입하기</a></p>
+        <p>
+          회원이 아니신가요?
+          <a class="account-link" href="/signup">회원 가입하기</a>
+        </p>
       </div>
       <form method="post">
         <p>이메일</p>
@@ -33,13 +36,15 @@
         <a href="/forgot-password">비밀번호 찾기</a>
       </div>
       <div class="social-login">
-        <span class="title">소셜 로그인</span>
-        <a class="ico-box google" href="https://www.google.com/" target="_blank">
-          <img src="/static/google.png" alt="google icon">
-        </a>
-        <a class="ico-box kakaotalk" href="https://www.kakaocorp.com/" target="_blank">
-          <img src="/static/kakaotalk.png" alt="kakaotalk icon">
-        </a>
+        <p>소셜 로그인</p>
+        <div class="icon-box">
+          <a class="google" href="https://www.google.com/" target="_blank">
+            <img src="/static/google.png" alt="google icon">
+          </a>
+          <a class="kakaotalk" href="https://www.kakaocorp.com/" target="_blank">
+            <img src="/static/kakaotalk.png" alt="kakaotalk icon">
+          </a>
+        </div>
       </div>
     </main>
     <script src="/static/js/loginform.js"></script>
