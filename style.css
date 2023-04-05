@@ -6,6 +6,14 @@
   font-style: normal;
 }
 
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -76,12 +84,12 @@ nav #login {
   border-radius: 8px;
   padding: 16px 20px;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 1.8rem;
 }
 
 main #title {
   font-weight: 700;
-  font-size: 64px;
+  font-size: 6.4rem;
   line-height: 80px;
   margin: 0;
   padding: 65px 0 0;
@@ -104,7 +112,7 @@ main #add_link {
   border-radius: 8px;
   padding: 16px 20px;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 1.8rem;
   border: 0;
 }
 
@@ -142,7 +150,7 @@ article {
 
 article h2 {
   font-weight: 700;
-  font-size: 48px;
+  font-size: 4.8rem;
   line-height: 57px;
   letter-spacing: -0.3px;
 }
@@ -180,7 +188,7 @@ article h2 #span4 {
 }
 
 article p {
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 500;
   line-height: 150%;
   padding: 10px 0;
@@ -192,7 +200,7 @@ footer {
   background-color: #111322;
   font-family: "Arial";
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 
 .footer_wrap {
