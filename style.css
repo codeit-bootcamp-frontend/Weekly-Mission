@@ -148,10 +148,6 @@ header {
   justify-content: space-between;
 }
 
-.text-container {
-  display: inline-block;
-}
-
 footer {
   height: 16rem;
   padding: 3.2rem 10.4rem 10.8rem;
