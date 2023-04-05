@@ -189,12 +189,11 @@ span.gradation-4 {
 
 /* footer */
 footer {
-  margin-top: 4.38rem;
+  margin-top: 10.63rem;
   height: 10rem;
   padding: 2rem 6.5rem;
 
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
 
   font-family: "Arial", sans-serif;
@@ -203,12 +202,6 @@ footer {
   line-height: 1.13rem;
 
   background-color: #111322;
-}
-
-.box-footer-for-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .text-footer-logo {
@@ -232,10 +225,6 @@ footer {
 
   display: flex;
   justify-content: space-between;
-}
-
-.text-footer-logo-for-mobile {
-  display: none;
 }
 
 /* PC 반응형 */
