@@ -10,7 +10,6 @@
   box-sizing: border-box;
 }
 
-
 body {
   margin: 0 auto;
   text-align: center;
@@ -59,6 +58,7 @@ footer #wrap {
 header nav {
   align-items: center;
   height: 94px;
+  padding: 0 200px;
 }
 
 nav #logo {
@@ -86,7 +86,6 @@ main #title {
   margin: 0;
   padding: 65px 0 0;
 }
-
 
 main #title_gradient {
   background: linear-gradient(91.26deg, #6d6afe 17.28%, #ff9f9f 74.98%);
