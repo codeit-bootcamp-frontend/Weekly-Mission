@@ -64,8 +64,8 @@ header {
   margin: 4rem auto 0;
 }
 
-/* 파란 배경의 section_1 */
-.section_1 {
+/* 파란 배경의 introducePage */
+.introducePage {
   background-color: #f0f6ff;
   height: auto;
   padding-top: 7rem;
@@ -85,8 +85,8 @@ header {
   margin: 4rem auto 0;
 }
 
-/* 하얀 배경의 section_2 */
-.section_2 {
+/* 하얀 배경의 cardContainer */
+.cardContainer {
   margin: 12rem 0 17rem;
   height: auto;
 }
@@ -219,7 +219,7 @@ footer {
     padding: 0;
   }
 
-  .section_1 {
+  .introducePage {
     padding-top: 4rem;
   }
 
@@ -240,7 +240,7 @@ footer {
     margin-left: 5.1rem;
   }
 
-  .section_2 {
+  .cardContainer {
     margin-top: 8rem;
   }
 
@@ -266,11 +266,11 @@ footer {
 /* mobile 사이즈 */
 @media (max-width: 767px) {
   /* main 내부 padding 조절 */
-  .section_1 {
+  .introducePage {
     padding: 2.8rem 3.2rem 0;
   }
 
-  .section_2 {
+  .cardContainer {
     padding: 0 3.2rem;
     margin: 0;
   }
@@ -302,7 +302,7 @@ footer {
     margin-top: 2.4rem;
   }
 
-  /* section_1 */
+  /* introducePage */
   .title1 {
     font-size: 3.2rem;
     line-height: 4.2rem;
@@ -314,7 +314,7 @@ footer {
     margin-top: 2.4rem;
   }
 
-  /* section_2 */
+  /* cardContainer */
   .card {
     flex-direction: column;
     margin: 0;
