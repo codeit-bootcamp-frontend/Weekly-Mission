@@ -278,12 +278,10 @@ a {
 .account .password-input i{
   position: absolute;
   top: 0;
-  bottom: 0;
   right: 0;
-  margin: 3.2rem 1.5rem 2.8rem;
-  height: 3.2rem;
+  margin: 3.5rem 1.5rem 0 0;
+  width: 1.6rem;
   cursor: pointer;
-  font-size: 1.6rem;
   color: var(--account-password-hide);
 }
 
