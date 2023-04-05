@@ -28,7 +28,7 @@ a {
 }
 
 header {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
@@ -52,7 +52,6 @@ section {
 }
 
 main {
-  margin-top: 94px;
   height: auto;
   overflow: hidden;
 }
@@ -91,7 +90,7 @@ main .title {
   font-size: 6.4rem;
   line-height: 80px;
   margin: 0;
-  padding: 65px 0 0;
+  padding: 70px 0 40px;
 }
 
 main .title-gradient {
@@ -104,7 +103,7 @@ main .title-gradient {
 main .add-link {
   display: block;
   width: 350px;
-  margin: 40px auto;
+  margin: 0 auto;
   height: 53px;
   color: #f5f5f5;
   background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
@@ -141,8 +140,7 @@ article {
   align-content: center;
   justify-content: center;
   flex-wrap: wrap;
-  height: 450px;
-  margin: 50px auto;
+  height: 620px;
   gap: 0 51px;
 }
 

@@ -5,6 +5,10 @@
     justify-content: center;
   }
 
+  main .title {
+    padding: 40px 0;
+  }
+
   main .title .hidden-br-pc {
     display: inline;
   }
@@ -13,6 +17,10 @@
     width: 698px;
     border-radius: 25px;
     margin: 0 auto;
+  }
+
+  article {
+    height: 445px;
   }
 
   .content-imgs {
