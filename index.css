@@ -101,7 +101,7 @@ header > a {
 }
 
 /* 중간 sections*/
-.sections-feature {
+.section-feature {
   width: 62.38rem;
   height: 28.13rem;
   margin: 6.25rem auto;
@@ -112,7 +112,7 @@ header > a {
   align-content: space-between;
 }
 
-.text-explain-feature {
+.feature-title {
   width: 18.19rem;
   margin-bottom: 0.63rem;
   font-size: 3rem;
@@ -121,7 +121,7 @@ header > a {
   letter-spacing: 0;
 }
 
-.text-explain-detail {
+.feature-detail {
   width: 18.19rem;
   font-size: 1rem;
   font-weight: 500;
@@ -138,11 +138,11 @@ header > a {
   background-size: cover;
 }
 
-.sections-feature:nth-child(2n) .img-feature {
+.section-feature:nth-child(2n) .img-feature {
   order: 1;
 }
 
-.sections-feature:nth-child(2n + 1) .img-feature {
+.section-feature:nth-child(2n + 1) .img-feature {
   order: -1;
 }
 
@@ -232,16 +232,16 @@ footer {
     margin-bottom: 1.88rem;
   }
 
-  .sections-feature {
+  .section-feature {
     width: 43.63rem;
     height: 19.69rem;
   }
 
-  .text-explain-feature {
+  .feature-title {
     width: 16.38rem;
   }
 
-  .text-explain-detail {
+  .feature-detail {
     width: 16.38rem;
   }
 
@@ -306,14 +306,14 @@ footer {
     height: 100%;
   }
 
-  .sections-feature {
+  .section-feature {
     width: auto;
     height: auto;
     padding: 2.5rem 2rem;
     margin: 0;
   }
 
-  .text-explain-feature {
+  .feature-title {
     width: auto;
     font-size: 1.5rem;
     line-height: 1.5rem;
@@ -330,15 +330,15 @@ footer {
     margin-bottom: 1rem;
   }
 
-  .sections-feature:nth-child(2n) .img-feature {
+  .section-feature:nth-child(2n) .img-feature {
     order: 0;
   }
 
-  .sections-feature:nth-child(2n + 1) .img-feature {
+  .section-feature:nth-child(2n + 1) .img-feature {
     order: 0;
   }
 
-  .text-explain-detail {
+  .feature-detail {
     width: auto;
     font-size: 0.94rem;
     line-height: 1.41rem;
