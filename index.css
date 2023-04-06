@@ -7,13 +7,11 @@ html {
 }
 
 body {
-  max-width: 1920px;
-  margin: 0 auto;
+  margin: 0;
   font-family: "Pretendard", sans-serif;
 }
 
 header {
-  max-width: 1920px;
   height: 9.4rem;
   padding: 0 20rem;
   margin: 0 auto;
