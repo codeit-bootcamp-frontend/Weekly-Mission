@@ -60,7 +60,7 @@ main {
   width: 100%;
   max-width: 192rem;
   height: 9.4rem;
-  padding: 0 12.5rem;
+  padding: 0 20rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -85,10 +85,6 @@ main {
   background-image: linear-gradient(to right, #6d6afe 20%, #6ae3fe);
 }
 
-header {
-
-}
-
 .header-title {
   font-size: 6.4rem;
   line-height: 8rem;
@@ -96,11 +92,7 @@ header {
   margin-bottom: 4rem;
 }
 
-.tablet-mobile-br {
-  display: none;
-}
-
-.tablet-br {
+.tablet-br, .tablet-mobile-br{
   display: none;
 }
 
@@ -188,14 +180,18 @@ ul > li {
   align-items: center;
 }
 
-@media (max-width: 74.9375rem) {
-  .logo {
-    margin-right: 33.625rem;
-  }
-
+@media (max-width: 1199px) {
   .gnb {
     justify-content: center;
     padding: 0;
+  }
+
+  .linkbrary-logo {
+    margin-right: 53.8rem;
+  }
+
+  header {
+    padding-top: 4rem;
   }
 
   .tablet-br-none {
@@ -207,18 +203,26 @@ ul > li {
   }
 
   .header-image {
-    width: 43.625rem;
-    height: 21.4375rem;
+    width: 69.8rem;
+    height: 34.3rem;
+  }
+
+  main {
+    margin: 8rem 0 17rem;
+  }
+
+  .card:first-of-type {
+    margin-top: 0;
   }
 
   .card {
-    width: 43.625rem;
-    height: 19.6875rem;
+    width: 69.8rem;
+    height: 31.5rem;
   }
 
   .card img {
-    width: 24.0625rem;
-    height: 19.6875rem;
+    width: 38.3rem;
+    height: 31.5rem;
   }
 }
 
@@ -312,12 +316,8 @@ ul > li {
     grid-area: image; 
   }
 
-  br {
-    display: none !important;
-  }
-
-  .header-title br {
-    display: inline !important;
+  .card br {
+    display: none;
   }
   
   footer {
