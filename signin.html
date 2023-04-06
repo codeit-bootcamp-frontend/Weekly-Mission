@@ -5,8 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>signin</title>
+    <link rel="stylesheet" href="signin_style.css"></link>
+    <link rel="stylesheet" href="reset.css"></link>
 </head>
 <body>
-    로그인페이지
+    <div class="login-wrapper">
+        <a href="/" class="login-title ir-pm">linkbrary</a>
+        <div class="signup">회원이 아니신가요? <a href="#" class="signup-link">회원 가입하기</a></div>
+        <div class="login-form">
+            <form id="login-form">
+                <div class="email-container">
+                    <p class="userEmail-text"><label for="userEmail">이메일</label></p>
+                    <input type="text" id="userEmail" name="userEmail" class="userEmail" placeholder="이메일">
+                </div>
+                <div class="password-container">
+                    <p class="userPassword-text"><label for="userPassword">비밀번호</label></p>
+                    <input type="password" id="userPassword" name="userPassword" class="userPassword" placeholder="비밀번호">
+                    <a href="#" class="toggle-password"><img src="img/pwvisible.png"></a>
+                </div>
+                <input type="submit" class="login" value="로그인">
+            </form>
+        </div>
+        <a href="#" class="findPassword">비밀번호 찾기</a>
+        <div class="snsLogin-container">
+            <div class="text">소셜 로그인</div>
+            <div class="icons">
+                <a class="snsLoginBtn btn-google" href="https://www.google.com/"><img src="img/google.png" alt="google"></a>
+                <a class="snsLoginBtn btn-kakao" href="https://www.kakaocorp.com/page/"><img src="img/kakao.png" alt="kakao"></a>
+            </div>
+        </div>
+    </div>
+    <script src="signin.js"></script>
 </body>
 </html>
