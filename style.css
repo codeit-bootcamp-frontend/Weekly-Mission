@@ -124,22 +124,33 @@ main .title .hidden-br-pc {
   display: none;
 }
 
-.content-imgs {
+article .content-imgs {
   width: 550px;
+  align-self: center;
+}
+
+article .content-imgs.left-sort {
+  grid-row: 1/3;
+
+  justify-self: end;
+}
+
+article .content-imgs.right-sort {
+  grid-row: 1/3;
+
+  justify-self: start;
 }
 
 section {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
   text-align: left;
-  flex-direction: column;
-  flex-grow: 1;
 }
 
 article {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template: repeat(2, auto) / repeat(2, auto);
   align-content: center;
-  justify-content: center;
-  flex-wrap: wrap;
   height: 620px;
   gap: 0 51px;
 }
@@ -149,6 +160,18 @@ article h2 {
   font-size: 4.8rem;
   line-height: 57px;
   letter-spacing: -0.3px;
+}
+
+article h2.left-sort {
+  grid-row: 1/2;
+  justify-self: end;
+  align-self: end;
+}
+
+article h2.right-sort {
+  grid-row: 1/2;
+  justify-self: start;
+  align-self: end;
 }
 
 article h2 .save-link-gradient {
@@ -190,6 +213,16 @@ article p {
   padding: 10px 0;
   margin: 0;
   color: #6b6b6b;
+}
+
+article p.left-sort {
+  justify-self: end;
+  align-self: start;
+}
+
+article p.right-sort {
+  justify-self: start;
+  align-self: start;
 }
 
 footer {
