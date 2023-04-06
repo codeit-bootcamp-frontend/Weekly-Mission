@@ -227,13 +227,13 @@ ul > li {
 }
 
 @media (max-width: 862px) {
-  .logo {
-    margin-right: 0;
-  }
-  
   .gnb {
     justify-content: space-between;
-    padding: 0 2rem;
+    padding: 0 3.2rem;
+  }
+
+  .gnb .linkbrary-logo {
+    margin-right: 0;
   }
 }
 
