@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
   max-width: 1920px;
   margin: 0 auto;
@@ -10,8 +14,8 @@ body {
 
 header {
   max-width: 1920px;
-  height: 5.88rem;
-  padding: 0 12.5rem;
+  height: 9.4rem;
+  padding: 0 20rem;
   margin: 0 auto;
 
   display: flex;
@@ -28,17 +32,17 @@ header > a {
 }
 
 .logo {
-  width: 8.31rem;
-  height: 1.5rem;
+  width: 13.3rem;
+  height: 2.4rem;
 }
 
 .button-login {
-  width: 8rem;
-  height: 3.31rem;
-  border-radius: 0.5rem;
-  font-size: 1.13rem;
+  width: 12.8rem;
+  height: 5.3rem;
+  border-radius: 0.8rem;
+  font-size: 1.8rem;
   font-weight: 600;
-  line-height: 3.31rem;
+  line-height: 5.3rem;
   text-align: center;
   background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
   color: #f5f5f5;
@@ -49,7 +53,7 @@ header > a {
 }
 
 .section-top {
-  margin-bottom: 7.5rem;
+  margin-bottom: 12rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,10 +61,10 @@ header > a {
 }
 
 .text-explain-linkbrary {
-  margin-top: 4.38rem;
-  font-size: 4rem;
+  margin-top: 7rem;
+  font-size: 6.4rem;
   font-weight: 700;
-  line-height: 5rem;
+  line-height: 8rem;
   text-align: center;
 }
 
@@ -76,13 +80,13 @@ header > a {
 }
 
 .button-add-link {
-  width: 21.88rem;
-  height: 3.31rem;
-  margin: 2.5rem auto;
-  border-radius: 0.5rem;
+  width: 35rem;
+  height: 5.3rem;
+  margin: 4rem auto;
+  border-radius: 0.8rem;
   font-weight: 600;
-  font-size: 1rem;
-  line-height: 3.31rem;
+  font-size: 1.8rem;
+  line-height: 5.3rem;
   text-align: center;
   color: #f5f5f5;
   background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
@@ -93,18 +97,18 @@ header > a {
 }
 
 .img-example-linkbrary {
-  width: 69.88rem;
-  height: 33.75rem;
-  border-radius: 1.56rem;
+  width: 111.8rem;
+  height: 54rem;
+  border-radius: 2.5rem;
   display: block;
   filter: drop-shadow(0px 4px 25px rgba(0, 0, 0, 0.08));
 }
 
 /* 중간 sections*/
 .section-feature {
-  width: 62.38rem;
-  height: 28.13rem;
-  margin: 6.25rem auto;
+  width: 99.8rem;
+  height: 45rem;
+  margin: 10rem auto;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -113,27 +117,27 @@ header > a {
 }
 
 .feature-title {
-  width: 18.19rem;
-  margin-bottom: 0.63rem;
-  font-size: 3rem;
+  width: 29.1rem;
+  margin-bottom: 1rem;
+  font-size: 4.8rem;
   font-weight: 700;
-  line-height: 3.56rem;
+  line-height: 5.728rem;
   letter-spacing: 0;
 }
 
 .feature-detail {
-  width: 18.19rem;
-  font-size: 1rem;
+  width: 29.1rem;
+  font-size: 1.6rem;
   font-weight: 500;
-  line-height: 1.5rem;
+  line-height: 2.4rem;
   letter-spacing: 0;
   color: #6b6b6b;
 }
 
 .img-feature {
-  width: 34.38rem;
-  height: 28.13rem;
-  border-radius: 0.94rem;
+  width: 55rem;
+  height: 45rem;
+  border-radius: 1.5rem;
   background-color: #f0f6ff;
   background-size: cover;
 }
@@ -169,15 +173,15 @@ span.gradation {
 }
 
 footer {
-  height: 10rem;
-  margin-top: 10.63rem;
-  padding: 2rem 6.5rem;
+  height: 16rem;
+  margin-top: 17rem;
+  padding: 3.2rem 10.4rem;
   display: flex;
   justify-content: space-between;
   font-family: "Arial", sans-serif;
-  font-size: 1rem;
+  font-size: 1.6rem;
   font-weight: 400;
-  line-height: 1.13rem;
+  line-height: 1.6rem;
   background-color: #111322;
 }
 
@@ -186,7 +190,7 @@ footer {
 }
 
 .box-privacy-and-faq {
-  width: 11.31rem;
+  width: 18.111rem;
   display: flex;
   justify-content: space-between;
 }
@@ -197,7 +201,7 @@ footer {
 }
 
 .box-sns {
-  width: 7.25rem;
+  width: 11.6rem;
   display: flex;
   justify-content: space-between;
 }
@@ -205,23 +209,23 @@ footer {
 /* Tablet 반응형 */
 @media (max-width: 1200px) {
   .logo {
-    margin-right: 33.63rem;
+    margin-right: 53.8rem;
   }
 
   header {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
     justify-content: center;
   }
 
   .img-example-linkbrary {
-    width: 40.64rem;
-    height: 19.62rem;
-    border-radius: 1.56rem;
+    width: 65.03rem;
+    height: 31.393rem;
+    border-radius: 2.5rem;
   }
 
   .text-explain-linkbrary {
-    margin-top: 2.5rem;
+    margin-top: 4rem;
   }
 
   .br-not-pc {
@@ -229,25 +233,25 @@ footer {
   }
 
   .section-top {
-    margin-bottom: 1.88rem;
+    margin-bottom: 3rem;
   }
 
   .section-feature {
-    width: 43.63rem;
-    height: 19.69rem;
+    width: 69.8rem;
+    height: 31.5rem;
   }
 
   .feature-title {
-    width: 16.38rem;
+    width: 26.2rem;
   }
 
   .feature-detail {
-    width: 16.38rem;
+    width: 26.2rem;
   }
 
   .img-feature {
-    width: 24.06rem;
-    height: 19.69rem;
+    width: 38.5rem;
+    height: 31.5rem;
   }
 }
 
@@ -265,40 +269,40 @@ footer {
 /* Mobile 반응형 */
 @media (max-width: 768px) {
   header {
-    height: 3.94rem;
+    height: 6.3rem;
   }
 
   .logo {
-    width: 4.85rem;
-    height: 0.88rem;
+    width: 7.758rem;
+    height: 1.4rem;
   }
 
   .button-login {
-    width: 5rem;
-    height: 2.31rem;
-    border-radius: 0.5rem;
-    font-size: 0.88rem;
+    width: 8rem;
+    height: 3.7rem;
+    border-radius: 0.8rem;
+    font-size: 1.4rem;
     font-weight: 600;
-    line-height: 2.31rem;
+    line-height: 3.7rem;
   }
 
   .section-top {
     margin-bottom: 0;
-    padding: 0 2rem;
+    padding: 0 3.2rem;
   }
 
   .text-explain-linkbrary {
-    margin-top: 1.75rem;
-    font-size: 2rem;
-    line-height: 2.63rem;
+    margin-top: 2.8rem;
+    font-size: 3.2rem;
+    line-height: 4.2rem;
   }
 
   .button-add-link {
-    width: 12.5rem;
-    height: 2.31rem;
-    margin: 1.5rem auto;
-    font-size: 0.88rem;
-    line-height: 2.31rem;
+    width: 20rem;
+    height: 3.7rem;
+    margin: 2.4rem auto;
+    font-size: 1.4rem;
+    line-height: 3.7rem;
   }
 
   .img-example-linkbrary {
@@ -309,14 +313,14 @@ footer {
   .section-feature {
     width: auto;
     height: auto;
-    padding: 2.5rem 2rem;
+    padding: 4rem 3.2rem;
     margin: 0;
   }
 
   .feature-title {
     width: auto;
-    font-size: 1.5rem;
-    line-height: 1.5rem;
+    font-size: 2.4rem;
+    line-height: 2.864rem;
   }
 
   .br-not-mobile {
@@ -326,8 +330,8 @@ footer {
   .img-feature {
     width: 100%;
     height: 100%;
-    margin-top: 1.25rem;
-    margin-bottom: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1.6rem;
   }
 
   .section-feature:nth-child(2n) .img-feature {
@@ -340,19 +344,19 @@ footer {
 
   .feature-detail {
     width: auto;
-    font-size: 0.94rem;
-    line-height: 1.41rem;
+    font-size: 1.5rem;
+    line-height: 2.25rem;
   }
 
   footer {
-    margin-top: 2.57rem;
-    padding: 2rem 2rem;
+    margin-top: 4rem;
+    padding: 3.2rem 3.2rem;
     position: relative;
   }
 
   .text-footer-logo {
     position: absolute;
-    bottom: 2rem;
-    left: 2rem;
+    bottom: 3.2rem;
+    left: 3.2rem;
   }
 }
