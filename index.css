@@ -117,6 +117,7 @@ header > a {
 
 .feature-title {
   width: 29.1rem;
+  margin: 0;
   margin-bottom: 1rem;
   font-size: 4.8rem;
   font-weight: 700;
@@ -126,6 +127,7 @@ header > a {
 
 .feature-detail {
   width: 29.1rem;
+  margin: 0;
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 2.4rem;
