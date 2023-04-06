@@ -75,7 +75,6 @@
     gap: 40px;
   }
   article.mobile {
-    /* align-items: center; */
     display: grid;
     grid-template: repeat(3, auto) / repeat(1, auto);
     height: auto;
