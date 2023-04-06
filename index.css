@@ -205,6 +205,11 @@ footer {
   justify-content: space-between;
 }
 
+.sns-logo {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
 /* Tablet 반응형 */
 @media (max-width: 1200px) {
   .logo {
