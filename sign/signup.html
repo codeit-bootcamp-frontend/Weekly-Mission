@@ -9,37 +9,42 @@
 
     <title>Document</title>
 </head>
-<main>
-    <div>
-        <img src="../imgs/Linkbrary.svg" />
-        <div>이미 회원이신가요? <a href="./signUp.html">로그인 하기</a></div>
-    </div>
-    <form>
-        <div>
-            <label for="signup-email">아이디</label>
-            <input id="signup-email">
-        </div>
-        <div>
-            <label for="signup-password">비밀번호</label>
-            <input id="signup-password">
-        </div>
-        <div>
-            <label for="signup-password-check">비밀번호 확인</label>
-            <input id="signup-password-check">
-        </div>
-        <button type="submit">회원가입</button>
-        <div>
-            <p>다른 방식으로 가입하기</p>
-            <div>
-                <img src="../imgs/google-icon.png">
-                <img src="../imgs/kakaotalk-icon.png">
-            </div>
-
-        </div>
-    </form>
-</main>
 
 <body>
+    <main>
+        <main class="signup-container">
+            <div>
+                <img class="linkbrary-logo" src="../imgs/Linkbrary.svg" />
+                <div class="sign-prompt">이미 회원이신가요?<a href="./signin.html">로그인하기</a></div>
+            </div>
+            <form>
+                <div class="input-field">
+                    <div>
+                        <label for="signup-email">아이디</label>
+                        <input id="signup-email">
+                    </div>
+                    <div>
+                        <label for="signup-password">비밀번호</label>
+                        <input id="signup-password">
+                    </div>
+                    <div>
+                        <label for="signup-password-check">비밀번호 확인</label>
+                        <input id="signup-password-check">
+                    </div>
+                </div>
+                <button class="submit-button" type="submit">회원가입</button>
+            </form>
+            <div class="social-container">
+                <p class="social-label">다른 방식으로 가입하기</p>
+                <div class="social-icons">
+                    <img class="social-icon" src="../imgs/google-icon.png">
+                    <img class="social-icon" src="../imgs/kakaotalk-icon.png">
+                </div>
+            </div>
+
+        </main>
+
+
 
 </body>
 
