@@ -5,5 +5,34 @@
 }
 
 body {
-  margin: 0 auto;
+  background-color: #f0f6ff;
+  margin: 12.3rem auto 0;
+}
+
+main {
+  max-width: 40rem;
+  text-align: center;
+}
+
+.linkbrary-logo {
+  height: 3.8rem;
+}
+
+.signup-prompt {
+  padding: 16px 0;
+}
+
+form label {
+  display: block;
+  text-align: left;
+}
+
+form input {
+  width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  main {
+    margin: 0 32px;
+  }
 }
