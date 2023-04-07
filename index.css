@@ -261,7 +261,7 @@ footer {
   }
 }
 
-/* Tablet 반응형(header 좌우 min margin 32px를 위함) */
+/* Tablet 반응형(768~863px) */
 @media (max-width: 863px) {
   header {
     justify-content: space-between;
