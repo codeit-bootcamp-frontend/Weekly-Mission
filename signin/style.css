@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -9,6 +11,7 @@ html {
 }
 
 body {
+  font-family: "Pretendard", sans-serif;
   background-color: #F0F6FF;
 }
 
@@ -46,9 +49,17 @@ body {
   margin-bottom: 1.6rem;
 }
 
+.login-form label {
+  font-size: 1.4rem;
+}
+
 .login-form input {
   width: 100%;
   margin-top: 1.2rem;
+  padding: 1.8rem 1.5rem;
+  border: 0.1rem solid #ccd5e3;
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
 }
 
 .login-form input#email {
