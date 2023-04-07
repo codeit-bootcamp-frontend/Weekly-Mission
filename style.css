@@ -328,18 +328,17 @@ ul > li {
     display: none;
   }
 
-  footer .corporation, footer .more-information, footer .sns-container {
-    position: absolute;
+  footer {
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(2, auto);
+    height: 16rem;
+    padding: 3.2rem;
+    align-items: initial;
   }
   
   footer .corporation {
-    left: 2rem;
-    bottom: 2rem;
-  }
-
-  footer .more-information {
-    left: 2rem;
-    top: 2rem;
+    order: 1;
+    align-self: flex-end;
   }
 
   footer .sns-container {
