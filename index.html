@@ -4,15 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--미리보기 메타태그-->
     <meta property="og:title" content="Linkbrary" />
     <meta
       property="og:description"
       content="세상의 모든 정보를 쉽게 저장하고 관리해보세요"
     />
     <meta property="og:image" content="preview.png" />
-    <meta property="og:url" content="https://noah-weekly.netlify.app/" />
+    <meta property="og:url" content="real-noah-weekly.netlify.app" />
     <meta property="og:type" content="website" />
+    <!--미리보기 메타태그 끝-->
 
+    <!-- 트위터 메타태그-->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="preview.png" />
     <meta name="twitter:title" content="Linkbrary" />
@@ -20,41 +24,43 @@
       name="twitter:description"
       content="세상의 모든 정보를 쉽게 저장하고 관리해보세요"
     />
-    <meta name="twitter:url" content="https://noah-weekly.netlify.app/" />
+    <meta name="twitter:url" content="real-noah-weekly.netlify.app" />
     <title>Linkbrary</title>
+    <!--트위터 메타태그 끝-->
+
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
   </head>
 
   <body>
     <div class="gnb">
       <div class="logo">
-        <a href="https://noah-weekly.netlify.app/">
+        <a href="real-noah-weekly.netlify.app">
           <img src="Linkbrary.png" alt="linkbrary" />
         </a>
       </div>
-
       <div>
-        <a class="login-btn" onclick="location.href='signin.html'"> 로그인 </a>
+        <a class="login-btn" href="./signin.html"> 로그인 </a>
       </div>
     </div>
 
     <header>
-      <h1 class="header-title">
+      <h1 class="header_title">
         세상의 모든 정보를<br />
         쉽게 저장하고 관리해보세요
       </h1>
-      <div class="button-wrapper">
-        <a href="#" class="button-link">링크 추가하기</a>
+      <div class="button_wrapper">
+        <a href="#" class="button_link">링크 추가하기</a>
       </div>
-      <img src="img1.png" alt="big_image" class="big_image" />
-      <link
-        href="https://cdn.jsdelivr.net/npm/prependard@latest/fonts/kr/prependard.css"
-        rel="stylesheet"
-      />
+      <img src="images.png" alt="images" class="images" />
     </header>
 
     <main>
-      <article class="box">
+      <div class="section">
         <div class="link_save">
           <h2>원하는 링크를<br />저장하세요</h2>
           <h3>
@@ -63,13 +69,11 @@
             공유해 보세요.
           </h3>
         </div>
+        <img src="img1.png" alt="image1" class="image1" />
+      </div>
 
-        <img src="img2.png" alt="image1" class="image1" />
-      </article>
-
-      <article class="box">
-        <img src="img3.png" alt="image2" class="image2" />
-
+      <div class="section">
+        <img src="img2.png" alt="image2" class="image2" />
         <div class="link_folder">
           <h2>
             링크를 폴더로<br />
@@ -80,9 +84,9 @@
             다양하게 활용할 수 있어요.
           </h3>
         </div>
-      </article>
+      </div>
 
-      <article class="box">
+      <div class="section">
         <div class="link_share">
           <h2>저장한 링크를<br />공유해 보세요.</h2>
           <h3>
@@ -91,41 +95,41 @@
             공유해 보세요.
           </h3>
         </div>
+        <img src="img3.png" alt="image3" class="image3" />
+      </div>
 
-        <img src="img4.png" alt="image3" class="image3" />
-      </article>
-
-      <article class="box">
-        <img src="img5.png" alt="image4" class="image4" />
-
+      <div class="section">
+        <img src="img4.png" alt="image4" class="image4" />
         <div class="link_search">
           <h2>저장한 링크를<br />검색해 보세요</h2>
           <h3>중요한 정보들을 검색으로 쉽게 찾아보세요.</h3>
         </div>
-      </article>
+      </div>
     </main>
 
     <footer>
-      <div class="footer-left">©codeit - 2023</div>
+      <div class="footer_items">
+        <div class="footer-left">©codeit - 2023</div>
 
-      <div class="footer-center">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="faq.html">FAQ</a>
-      </div>
+        <div class="footer-center">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="faq.html">FAQ</a>
+        </div>
 
-      <div class="footer-right">
-        <a href="https://ko-kr.facebook.com/"
-          ><img src="facebook.svg" alt="Facebook"
-        /></a>
-        <a href="https://twitter.com/?lang=ko"
-          ><img src="twitter.svg" alt="Twitter"
-        /></a>
-        <a href="https://www.youtube.com/"
-          ><img src="youtube.svg" alt="Youtube"
-        /></a>
-        <a href="https://www.instagram.com/"
-          ><img src="Vector.png" alt="Instagram"
-        /></a>
+        <div class="footer-right">
+          <a href="https://ko-kr.facebook.com/"
+            ><img src="facebook.svg" alt="Facebook"
+          /></a>
+          <a href="https://twitter.com/?lang=ko">
+            <img src="twitter.svg" alt="Twitter" />
+          </a>
+          <a href="https://www.youtube.com/">
+            <img src="youtube.svg" alt="Youtube" />
+          </a>
+          <a href="https://www.instagram.com/"
+            ><img src="Vector.png" alt="Instagram" />
+          </a>
+        </div>
       </div>
     </footer>
   </body>
