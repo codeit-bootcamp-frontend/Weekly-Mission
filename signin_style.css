@@ -8,12 +8,16 @@ body {
 }
 
 .login-wrapper {
+    box-sizing: content-box;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 238px;
+    padding: 238px 32px 0;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
+/*로고*/
 .login-title {
     display: block;
     width: 210px;
@@ -25,6 +29,7 @@ body {
     margin-bottom: 16px;
 }
 
+/*회원가입하러 가기*/
 .signup {
     font-size: 16px;
     margin-bottom: 30px;
@@ -47,27 +52,24 @@ body {
 
 /*로그인 폼*/
 .login-container {
-    margin: 0 auto;
+    width: 100%;
+}
+
+/*아이디,비밀번호 입력창*/
+.userEmail-text, .userPassword-text {
+    margin-bottom: 10px;
 }
 
 .userEmail, .userPassword {
-    display: block;
-    width: 400px;
     height: 55px;
     border-radius: 10px;
-    margin: 0 auto;
     border: 1px solid #CCD5E3;
-    background-color: white;
     padding: 15px;
 }
 
 .userEmail:focus, .userPassword:focus {
     outline: none;
     border: 1px solid #6D6AFE;
-}
-
-.userEmail-text, .userPassword-text {
-    margin-bottom: 10px;
 }
 
 .userEmail {
@@ -90,11 +92,10 @@ body {
     height: 15px;
 }
 
+/*로그인 버튼*/
 .login-btn {
-    width: 400px;
     height: 54px;
     border-radius: 10px;
-    margin: 0 auto;
     border: none;
     background-image: linear-gradient(to right, #6d6afe, #6ae3fe);
     color: #F5F5F5;
@@ -109,10 +110,9 @@ body {
 }
 
 /*소셜 로그인*/
-
 .snslogin-container {
     display: flex;  
-    width: 400px;
+    width: 100%;
     height: 66px;
     border-radius: 10px;
     background-color: #E7EFFB;
@@ -140,7 +140,11 @@ body {
 
 
 @media (max-width: 767px) {
-    .userEmail, .userPassword, .login, .snslogin-container {
-        width: 325px;
+    body {
+        height: 844px;
+    }
+    .login-wrapper {
+        padding-top: 120px;
+        min-width: 300px;
     }
 }
