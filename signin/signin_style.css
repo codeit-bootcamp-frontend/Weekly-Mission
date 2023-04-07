@@ -1,0 +1,152 @@
+@charset "UTF-8";
+@import url("../font.css");
+
+body {
+  background-color: #f0f6ff;
+  font-size: 14px;
+  height: 982px;
+}
+
+.login-wrapper {
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 238px 32px 0;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/*로고*/
+.login-title {
+  display: block;
+  width: 210px;
+  height: 38px;
+  background-image: url(../img/Linkbrary.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 16px;
+}
+
+/*회원가입하러 가기*/
+.signup {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.signup-link {
+  color: #6d6afe;
+  position: relative;
+}
+
+.signup-link:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #6d6afe;
+}
+
+/*로그인 폼*/
+.login-container {
+  width: 100%;
+}
+
+/*아이디,비밀번호 입력창*/
+.userEmail-text,
+.userPassword-text {
+  margin-bottom: 10px;
+}
+
+.userEmail,
+.userPassword {
+  height: 55px;
+  border-radius: 10px;
+  border: 1px solid #ccd5e3;
+  padding: 15px;
+}
+
+.userEmail:focus,
+.userPassword:focus {
+  outline: none;
+  border: 1px solid #6d6afe;
+}
+
+.userEmail {
+  margin-bottom: 24px;
+}
+
+.userPassword {
+  margin-bottom: 30px;
+}
+
+.password-container {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 47px;
+  right: 20px;
+  width: 16px;
+  height: 15px;
+}
+
+/*로그인 버튼*/
+.login-btn {
+  height: 54px;
+  border-radius: 10px;
+  border: none;
+  background-image: linear-gradient(to right, #6d6afe, #6ae3fe);
+  color: #f5f5f5;
+  font-size: 18px;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.findPassword {
+  color: #3e3e43;
+  margin-bottom: 32px;
+}
+
+/*소셜 로그인*/
+.snslogin-container {
+  display: flex;
+  width: 100%;
+  height: 66px;
+  border-radius: 10px;
+  background-color: #e7effb;
+  border: 1px solid #ccd5e3;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+}
+
+.snslogin-container .text {
+  font-size: 14px;
+  color: #3e3e43;
+}
+
+.snslogin-btn {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  margin-right: 16px;
+}
+
+.snslogin-btn:last-child {
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  body {
+    height: 844px;
+  }
+  .login-wrapper {
+    padding-top: 120px;
+    min-width: 300px;
+  }
+}
