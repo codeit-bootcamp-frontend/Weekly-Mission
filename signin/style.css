@@ -39,6 +39,11 @@ body {
   gap: 0.8rem;
   justify-content: center;
   margin-bottom: 3.1rem;
+  font-size: 1.6rem;
+}
+
+.signup-content a {
+  font-weight: 600;
 }
 
 .email-login-container {
@@ -70,6 +75,10 @@ body {
   margin-bottom: 3rem;
 }
 
+.login-form button {
+  font-size: 1.8rem;
+}
+
 .login-button {
   display: block;
   margin: 0 auto;
@@ -79,11 +88,16 @@ body {
   text-align: center;
 }
 
+.find-password-link {
+  font-size: 1.4rem;
+}
+
 .social-login-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.2rem 2.4rem;
+  font-size: 1.4rem;
 }
 
 .social-icons {
