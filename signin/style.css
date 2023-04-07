@@ -71,17 +71,18 @@ body {
   background-color: #ffffff;
 }
 
-.login-form input {
+input {
   border: none;
   width: 100%;
   margin-right: 1rem;
+  color: #9fa6b2;
 }
 
-.login-form input::placeholder {
-  color: #9FA6B2;
+input::placeholder {
+  color: #9fa6b2;
 }
 
-.login-form input:focus {
+input:focus {
   outline: none;
 }
 
@@ -139,6 +140,10 @@ body {
   display: block;
 }
 
-.focus {
+.focus-outline {
   outline: 1px solid #6D6AFE;
+}
+
+.focus-text-color {
+  color: #000000;
 }
