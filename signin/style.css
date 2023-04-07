@@ -11,3 +11,71 @@ html {
 body {
   background-color: #F0F6FF;
 }
+
+.login-container {
+  max-width: 40rem;
+  margin: 23.8rem auto 0;
+}
+
+.linkbrary-logo, .linkbrary-logo img {
+  display: block;
+}
+
+.linkbrary-logo {
+  margin-bottom: 1.6rem;
+}
+
+.linkbrary-logo img{
+  width: 21.058rem;
+  height: 3.8rem;
+  margin: 0 auto;
+}
+
+.signup-content {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-bottom: 3.1rem;
+}
+
+.email-login-container {
+  margin-bottom: 3.2rem;
+}
+
+.login-form {
+  margin-bottom: 1.6rem;
+}
+
+.login-form input {
+  width: 100%;
+  margin-top: 1.2rem;
+}
+
+.login-form input#email {
+  margin-bottom: 2.4rem;
+}
+
+.login-form input#password {
+  margin-bottom: 3rem;
+}
+
+.login-button {
+  display: block;
+  margin: 0 auto;
+}
+
+.find-password-content {
+  text-align: center;
+}
+
+.social-login-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2.4rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1.6rem;
+}
