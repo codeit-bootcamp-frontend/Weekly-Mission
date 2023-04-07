@@ -94,7 +94,7 @@ body {
   position: relative;
 }
 
-.toggle-password {
+.toggle-password, .toggle-password-verify {
   position: absolute;
   top: 47px;
   right: 20px;
