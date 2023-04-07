@@ -1,12 +1,52 @@
 <!DOCTYPE html>
 <html lang="kr">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Linkbrary | 회원 가입</title>
-</head>
-<body>
-  <h1>회원가입 페이지</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linkbrary | 회원 가입</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <a class="linkbrary-logo">
+        <img src="/images/Linkbrary.svg">
+      </a>
+      <div class="signin-content">
+        <p>이미 회원이신가요?</p>
+        <a href="/signin/">로그인 하기</a>
+      </div>
+      <div class="email-signup-container">
+        <form class="signup-form">
+          <label for="email">이메일</label>
+          <div class="email-input">
+            <input id="email" type="email" name="email" placeholder="이메일">
+          </div>
+          <label for="password">비밀번호</label>
+          <div class="password-input">
+            <input id="password" type="password" name="password" placeholder="비밀번호">
+            <img src="/images/eye.svg">
+          </div>
+          <label for="password-remind">비밀번호</label>
+          <div class="password-remind-input">
+            <input id="password-remind" type="password" name="password" placeholder="비밀번호 확인">
+            <img src="/images/eye.svg">
+          </div>
+          <button type="submit" class="signup-button">회원가입</button>
+        </form>
+      </div>
+      <div class="social-signup-container">
+        <p>다른 방식으로 가입하기</p>
+        <div class="social-icons">
+          <a class="google-link" href="https://www.google.com/">
+            <img src="/images/google.svg">
+          </a>
+          <a class="kakaotalk-link" href="https://www.kakaocorp.com/page/">
+            <img src="/images/kakaotalk.svg">
+          </a>
+        </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
 </html>
