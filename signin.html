@@ -4,9 +4,46 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Linkbrary-Signin</title>
+  <link rel="shortcut icon" type="image/x-icon" href="./images/title-logo.png">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="signin.css">
 </head>
 <body>
-  로그인 페이지입니다.
+  <div class="wrapper-container">
+    <form class="form-signin-and-up">
+      <div class="form-top">
+        <a href="/"><img class="logo" src="./images/logo.png" alt="로고"></a>
+        <div class="verify-member">
+          <div>회원이 아니신가요?</div>
+          <a href="/signup.html" class="change-form-signin-and-up">회원 가입하기</a>
+        </div>
+      </div>
+
+      <div class="form-main">
+        <div class="input-group">
+          <label for="email" class="label">이메일</label>
+          <input id="email" type="text" class="input">
+        </div>
+        <div class="input-group">
+          <label for="password" class="label">비밀번호</label>
+          <input id="password" type="password" class="input">
+        </div>
+      </div>
+
+      <div class="form-bottom">
+        <input type="submit" value ="로그인" class="button-signin-and-up">
+        <a href="/forgot-password.html" class="forgot-password">비밀번호 찾기</a>
+      </div>
+    </form>
+
+    <div class="social-signin-and-up">
+      <div>소셜 로그인</div>
+      <div class="box-sns">
+        <a href="https://www.google.com/" target="_blank"><img class="img-sns-logo" src="./images/sns-logo-google.png" alt="구글로고"></a>
+        <a href="https://www.kakaocorp.com/page/" target="_blank"><img class="img-sns-logo" src="./images/sns-logo-kakaotalk.png" alt="카카오톡로고"></a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
