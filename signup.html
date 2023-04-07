@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signup</title>
-</head>
-<body>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <link rel="stylesheet" href="signin.css" />
+  </head>
+  <body>
+    <main>
+      <div class="signin-header">
+        <a href="/"><img src="images/Linkbrary.svg" class="header-title" /></a>
+        <p class="signup">이미 회원이신가요?<a href="/signin.html" class="signup-link">로그인 하기</a></p>
+      </div>
+      <form name="login-form" class="login-form">
+        <label for="email">이메일</label>
+        <input type="email" name="email" placeholder="example@email.com" id="email" />
+        <label for="password">비밀번호</label>
+        <input type="password" name="password" placeholder="***************" id="password" />
+        <label for="password-check" class="password-check-label">비밀번호 확인</label>
+        <input type="password" name="password-check" placeholder="***************" id="password-check" />
+        <button>회원가입</button>
+      </form>
+
+      <div class="login-social register">
+        <p>다른 방식으로 가입하기</p>
+        <div class="icons">
+          <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer"><img src="images/icons/google-icon.png" /></a>
+          <a href="https://www.kakaocorp.com/page/" target="_blank" rel="noopener noreferrer"><img src="images/icons/kakao-icon.png" /></a>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
