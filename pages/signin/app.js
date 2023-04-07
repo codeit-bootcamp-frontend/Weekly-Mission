@@ -1,16 +1,28 @@
 (function () {
   const emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/g;
   const currentUser = {
-    id: "",
-    pw: "",
+    email: "",
+    password: "",
   };
 
   const getElem = (scope, target) => scope.querySelector(target);
 
-  const getUsers = () => {
-    const tempData = { id: "test@codeit.com", pw: "codeit101" };
-    if (!localStorage.getItem("test")) {
-      localStorage.setItem("test", JSON.stringify(tempData));
+  const gettingStarted = () => {
+    const tempData = { email: "test@codeit.com", password: "codeit101" };
+    let flag = false;
+    const users = JSON.parse(localStorage.getItem("users"));
+
+    users?.forEach((user) => {
+      if (tempData.email === user.email && tempData.pw === user.password) {
+        flag = true;
+        return;
+      }
+    });
+
+    if (!flag && users === null) {
+      localStorage.setItem("users", JSON.stringify([tempData]));
+    } else if (!flag) {
+      localStorage.setItem("users", JSON.stringify([...users, tempData]));
     }
   };
 
@@ -20,9 +32,8 @@
   const eyeIcon = getElem(form, ".input-field.password > .input i");
 
   const init = () => {
-    window.addEventListener("load", () => {
-      // get user data
-      getUsers();
+    window.addEventListener("DOMContentLoaded", () => {
+      gettingStarted();
     });
 
     // event handlers
@@ -41,7 +52,7 @@
       userInput.length == 0
         ? alert("이메일을 입력해주세요.")
         : emailRegex.test(userInput)
-        ? (currentUser.id = userInput)
+        ? (currentUser.email = userInput)
         : alert("올바른 이메일 주소가 아닙니다.");
 
       emailInput.style.color = "#3e3e43";
@@ -50,9 +61,21 @@
     form.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      const tempUser = JSON.parse(localStorage.getItem("test"));
+      let flag = false;
 
-      currentUser.id === tempUser.id && passwordInput.value === tempUser.pw
+      const users = JSON.parse(localStorage.getItem("users"));
+
+      users.forEach((user) => {
+        if (
+          currentUser.email === user.email &&
+          passwordInput.value === user.password
+        ) {
+          flag = true;
+          return;
+        }
+      });
+
+      flag
         ? (location.href = "/pages/my-link")
         : alert("이메일과 비밀번호를 확인해주세요.");
     });
