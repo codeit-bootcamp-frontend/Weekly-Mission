@@ -1,0 +1,102 @@
+/*=========================== global =====================*/
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Pretendard';
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 25rem;
+  height: 32rem;
+  margin-left: -12.5rem;
+  margin-top: -16rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.container .logo {
+  display: block;
+  margin: 0 auto;
+  width: 13.13rem;
+  height: 2.375rem;
+  margin-bottom: 1rem;
+}
+
+.container > p {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.container > p a {
+  font-weight: 600;
+  color: #6d6afe;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.container form label {
+  display: block;
+  width: 100%;
+  height: 1rem;
+  margin-bottom: 1rem;
+}
+
+.container form input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  height: 3.438rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+}
+
+.container form button {
+  width: 100%;
+  height: 3.375rem;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.container .to-forgot-password {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.container .social-login {
+  height: 4.125rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  border: 1px solid #e7effb;
+  border-radius: 0.3rem;
+  background-color: #e7effb;
+}
+
+.container .social-login p {
+  color: #3e3e43;
+  font-weight: 400;
+}
+
+.container .social-login .icon-box {
+  display: flex;
+  gap: 1rem;
+}
+
+.container .social-login .icon-box img {
+  width: 2.625rem;
+  height: 2.625rem;
+}

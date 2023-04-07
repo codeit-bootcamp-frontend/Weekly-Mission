@@ -145,6 +145,8 @@ main .main-container .container {
   height: 28.125rem;
   margin: 7.5rem 0 auto;
   display: flex;
+  /* grid-template-rows: 8.94rem 7.5;
+  grid-template-columns: 17.5rem 34.375rem; */
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;

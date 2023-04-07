@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./signin.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <img class="logo" src="../../pictures/Linkbrary.png" alt="logo" />
+      <p>회원이 아니신가요? <a href="./signup.html">회원 가입하기</a></p>
+      <form>
+        <label for="user-email">이메일</label>
+        <input id="user-email" type="email" />
+        <label for="user-password">비밀번호</label>
+        <input id="user-password" type="password" />
+        <button type="submit">로그인</button>
+      </form>
+      <a class="to-forgot-password">비밀번호 찾기</a>
+      <div class="social-login">
+        <p>소셜 로그인</p>
+        <div class="icon-box">
+          <a href="https://www.google.com/">
+            <img src="../../pictures/icons/google.png" alt="google" />
+          </a>
+          <a href="https://www.kakaocorp.com/page/">
+            <img src="../../pictures/icons/kakao.png" alt="kakao" />
+          </a>
+        </div>
+      </div>
+    </div>
+    <script src="./signin.js"></script>
+  </body>
+</html>
