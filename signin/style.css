@@ -61,21 +61,33 @@ body {
   font-size: 1.4rem;
 }
 
-.login-form input {
+.login-form div {
   width: 100%;
   margin-top: 1.2rem;
   padding: 1.8rem 1.5rem;
   border: 0.1rem solid #ccd5e3;
   border-radius: 0.8rem;
   font-size: 1.6rem;
+  background-color: #ffffff;
 }
 
-.login-form input#email {
+.login-form input {
+  border: none;
+  width: 100%;
+  margin-right: 1rem;
+}
+
+.login-form input::placeholder {
+  color: #9FA6B2;
+}
+
+.login-form .email-input {
   margin-bottom: 2.4rem;
 }
 
-.login-form input#password {
+.login-form .password-input {
   margin-bottom: 3rem;
+  display: flex;
 }
 
 .login-form button {
