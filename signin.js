@@ -5,7 +5,8 @@ const $loginForm = document.querySelector('#login-form')
 
 
 //비밀번호를 확인할 수 있는 아이콘 클릭시 비밀번호의 문자열이 보이기도 하고, 가려지기도 합니다.
-function tooglePassword() {
+function tooglePassword(e) {
+    e.preventDefault();
     if ($userPassword.type === "password") {
         $userPassword.type = "text";
     } else {
