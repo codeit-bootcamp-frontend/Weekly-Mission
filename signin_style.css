@@ -46,7 +46,7 @@ body {
 }
 
 /*로그인 폼*/
-.login-form {
+.login-container {
     margin: 0 auto;
 }
 
@@ -90,7 +90,7 @@ body {
     height: 15px;
 }
 
-.login {
+.login-btn {
     width: 400px;
     height: 54px;
     border-radius: 10px;
@@ -110,7 +110,7 @@ body {
 
 /*소셜 로그인*/
 
-.snsLogin-container {
+.snslogin-container {
     display: flex;  
     width: 400px;
     height: 66px;
@@ -122,23 +122,25 @@ body {
     padding: 12px 24px;
 }
 
-.snsLogin-container .text {
+.snslogin-container .text {
     font-size: 14px;
     color: #3E3E43
 }
 
-.snsLogin-container .btn-google {
-    margin-right: 16px;
-}
-
-.snsLoginBtn {
+.snslogin-btn {
     display: inline-block;
     width: 42px;
     height: 42px;
+    margin-right: 16px;
 }
 
+.snslogin-btn:last-child {
+    margin: 0;
+}
+
+
 @media (max-width: 767px) {
-    .userEmail, .userPassword, .login, .snsLogin-container {
+    .userEmail, .userPassword, .login, .snslogin-container {
         width: 325px;
     }
 }
