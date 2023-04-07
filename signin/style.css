@@ -81,6 +81,10 @@ body {
   color: #9FA6B2;
 }
 
+.login-form input:focus {
+  outline: none;
+}
+
 .login-form .email-input {
   margin-bottom: 2.4rem;
 }
@@ -133,4 +137,8 @@ body {
 
 .social-icons img {
   display: block;
+}
+
+.focus {
+  outline: 1px solid #6D6AFE;
 }
