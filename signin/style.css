@@ -44,6 +44,9 @@ body {
 
 .signup-content a {
   font-weight: 600;
+  text-decoration: none;
+  color: #6d6afe;
+  border-bottom: 1px solid;
 }
 
 .email-login-container {
