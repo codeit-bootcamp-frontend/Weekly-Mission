@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./signin.css" />
+    <link rel="stylesheet" href="./signup.css" />
     <link
       rel="stylesheet"
       type="text/css"
@@ -15,23 +15,32 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
     />
-    <script defer src="./signin.js"></script>
+    <script defer src="./signup.js"></script>
   </head>
   <body>
-    <div class="login-container">
+    <div class="container">
       <img class="logo" src="../../pictures/Linkbrary.png" alt="logo" />
-      <p>
-        회원이 아니신가요? <a href="../signup/signup.html">회원 가입하기</a>
-      </p>
+      <p>이미 회원이신가요? <a href="../signin/signin.html">로그인 하기</a></p>
       <form>
         <div>
           <label for="user-email">이메일</label>
-          <input id="user-email" type="email" />
+          <input name="enteredEmail" id="user-email" type="email" />
         </div>
         <div class="password-box">
-          <label for="user-password">비밀번호</label>
-          <input id="user-password" type="password" />
-          <i class="bi bi-eye-slash" id="togglePassword"></i>
+          <div>
+            <label for="user-password">비밀번호</label>
+            <input name="enteredPassword" id="user-password" type="password" />
+            <i class="bi bi-eye-slash" id="togglePassword"></i>
+          </div>
+          <div>
+            <label for="user-check-password">비밀번호 확인</label>
+            <input
+              name="enteredCheckPassword"
+              id="user-check-password"
+              type="password"
+            />
+            <i class="bi bi-eye-slash" id="togglePassword"></i>
+          </div>
         </div>
         <button type="submit">로그인</button>
       </form>
