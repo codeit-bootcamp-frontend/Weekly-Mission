@@ -99,6 +99,8 @@ body {
 
 .forgot-password-link {
   font-size: 1.4rem;
+  color: #3e3e43;
+  text-decoration: none;
 }
 
 .social-login-container {
@@ -107,9 +109,16 @@ body {
   align-items: center;
   padding: 1.2rem 2.4rem;
   font-size: 1.4rem;
+  background-color: #e7effb;
+  border: 1px solid #ccd5e3;
+  border-radius: 0.8rem;
 }
 
 .social-icons {
   display: flex;
   gap: 1.6rem;
+}
+
+.social-icons img {
+  display: block;
 }
