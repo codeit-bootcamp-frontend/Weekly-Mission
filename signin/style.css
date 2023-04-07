@@ -126,6 +126,7 @@ input:focus {
   align-items: center;
   padding: 1.2rem 2.4rem;
   font-size: 1.4rem;
+  color: #3E3E43;
   background-color: #e7effb;
   border: 1px solid #ccd5e3;
   border-radius: 0.8rem;
