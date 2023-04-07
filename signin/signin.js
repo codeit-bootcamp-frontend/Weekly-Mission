@@ -1,11 +1,11 @@
-const $tooglePassword = document.querySelector('.toggle-password')
+const $togglePassword = document.querySelector('.toggle-password')
 const $userEmail = document.querySelector('.userEmail')
 const $userPassword = document.querySelector('.userPassword')
 const $loginForm = document.querySelector('#login-form')
 
 
 //비밀번호를 확인할 수 있는 아이콘 클릭시 비밀번호의 문자열이 보이기도 하고, 가려지기도 합니다.
-function tooglePassword(e) {
+function togglePassword(e) {
     e.preventDefault();
     if ($userPassword.type === "password") {
         $userPassword.type = "text";
@@ -40,6 +40,6 @@ function verifyLogininfo(e){
     }
 };
 
-$tooglePassword.addEventListener('click', tooglePassword);
+$togglePassword.addEventListener('click', togglePassword);
 $userEmail.addEventListener('focusout', verifyEmail);
 $loginForm.addEventListener('submit', verifyLogininfo);
