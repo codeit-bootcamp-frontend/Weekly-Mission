@@ -5,8 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>여기는 로그인 페이지입니다.</h1>
+    <div class="login-container">
+      <div class="email-login-container">
+        <div>
+          <a>
+            <img src="/images/Linkbrary.png">
+          </a>
+          <div>
+            <p>회원이 아니신가요?</p>
+            <a>회원 가입하기</a>
+          </div>
+        </div>
+        <form>
+          <label for="email">이메일</label>
+          <input id="email" type="email" name="email">
+          <label for="password">비밀번호</label>
+          <input id="password" type="password" name="password">
+        </form>
+        <div>
+          <a>로그인</a>
+          <p>비밀번호 찾기</p>
+        </div>
+      </div>
+      <div class="social-login-container">
+        <p>소셜 로그인</p>
+        <div>
+          <a>
+            <img src="/images/google.png">
+          </a>
+          <a>
+            <img src="/images/kakaotalk.png">
+          </a>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
