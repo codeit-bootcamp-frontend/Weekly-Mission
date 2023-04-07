@@ -94,7 +94,8 @@ input {
   color: #3e3e43;
 }
 
-#password {
+#password,
+#check-password {
   color: #9fa6b2;
 }
 
