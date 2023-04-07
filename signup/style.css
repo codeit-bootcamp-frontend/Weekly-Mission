@@ -11,3 +11,47 @@ html {
 body {
   background-color: #F0F6FF;
 }
+
+.signup-container {
+  max-width: 40rem;
+  margin: 23.8rem auto 0;
+}
+
+.linkbrary-logo img {
+  display: block;
+  margin: 0 auto;
+  width: 21.058rem;
+  height: 3.8rem;
+}
+
+.signup-content {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+}
+
+.signup-form div {
+  padding: 1.8rem 1.5rem;
+  background-color: #ffffff;
+}
+
+input {
+  width: 100%;
+  border: none;
+  margin-right: 1rem;
+}
+
+.password-input, .password-remind-input {
+  display: flex;
+}
+
+.signup-form button {
+  width: 100%;
+  height: 5.4rem;
+}
+
+.social-signup-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
