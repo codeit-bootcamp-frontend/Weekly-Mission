@@ -1,0 +1,499 @@
+:root {
+  --body-background: #F0F6FF;
+  --site-body-background: #FFFFFF;
+  --navbar-background: rgba(240, 246, 255, 0.5);
+  --link-button-background-left: #6D6AFE;
+  --link-button-background-right: #6AE3FE;
+  --link-button-text: #F5F5F5;
+  --emphasis-1-left: #6D6AFE;
+  --emphasis-1-right: #FF9F9F;
+  --emphasis-2-left: #FE8A8A;
+  --emphasis-2-right: #A4CEFF;
+  --emphasis-3-left: #FFD88B;
+  --emphasis-3-right: #6FBAFF;
+  --emphasis-4-left: #6D7CCD;
+  --emphasis-4-right: #528885;
+  --emphasis-5-left: #3dd1eb;
+  --emphasis-5-right: #3ea5d0;
+  --description: #6B6B6B;
+  --footer-background: #111322;
+  --footer-text1: #676767;
+  --footer-text2: #CFCFCF;
+  --account-link:#6D6AFE;
+  --account-border: #CCD5E3;
+  --account-lb-input-text-focus-in: #3E3E43;
+  --account-lb-input-text-focus-out: #9FA6B2;
+  --account-login-button-text: #ffffff;
+  --account-social-login-background: #E7EFFB;
+  --account-social-login-text: #3E3E43;
+  --account-forgot-password-link-text: #3E3E43;
+  --account-password-hide: #4B5563;
+  --google-background: #FFFFFF;
+  --kakaotalk-background: #F5E14B;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--body-background);
+  word-break: keep-all;
+  font-family: 'Pretendard';
+}
+
+a {
+  text-decoration: none;
+}
+
+.link-button {
+  text-align: center;
+  line-height: 5.3rem;
+  border-radius: 0.8rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--link-button-text);
+  background: linear-gradient(90deg, var(--link-button-background-left), var(--link-button-background-right));
+}
+
+.emphasis-1 {
+  background: linear-gradient(90deg, var(--emphasis-1-left), var(--emphasis-1-right));
+}
+
+.emphasis-2 {
+  background: linear-gradient(90deg, var(--emphasis-2-left), var(--emphasis-2-right));
+}
+
+.emphasis-3 {
+  background: linear-gradient(90deg, var(--emphasis-3-left), var(--emphasis-3-right));
+}
+
+.emphasis-4 {
+  background: linear-gradient(90deg, var(--emphasis-4-left), var(--emphasis-4-right));
+}
+
+.emphasis-5 {
+  background: linear-gradient(90deg, var(--emphasis-5-left), var(--emphasis-5-right));
+}
+
+.emphasis {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.navbar {
+  position: sticky;
+  inset: 0;
+  height: 9.4rem;
+  background-color: var(--navbar-background);
+}
+
+.navbar .navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 2rem 20rem;
+  max-width: 1920px;
+}
+
+.navbar-container .logo img {
+  width: 13.3rem;
+}
+
+.navbar-container .link-button {
+  width: 12.8rem;
+}
+
+.site-header {
+  text-align: center;
+}
+
+.site-header .header-title {
+  display: inline-block;
+  margin: 7rem auto 4rem;
+  text-align: center;
+  font-size: 6.4rem;
+}
+
+.site-header .add-link {
+  display: block;
+  width: 35rem;
+  margin: 0 auto;
+}
+
+.site-header .header-content {
+  display: block;
+  width: 120rem;
+  margin: 4rem auto 0;
+}
+
+.site-body {
+  padding-top: 12rem;
+  padding-bottom: 17rem;
+  background-color: var(--site-body-background);
+}
+
+.site-body .content-frame {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-between;
+  gap: 1rem;
+  width: 100rem;
+  height: 45rem;
+  margin: 10rem auto;
+}
+
+.content-frame:first-child {
+  margin-top: 0;
+}
+
+.content-frame:last-child {
+  margin-bottom: 0;
+}
+
+.content-frame .title,
+.content-frame .description {
+  margin: 0;
+  width: 29rem;
+}
+
+.content-frame .title {
+  font-size: 4.8rem;
+  }
+
+.content-frame .description {
+  line-height: 150%;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--description);
+}
+
+.content-frame img {
+  width: 55rem;
+  height: 100%;
+}
+
+.content-frame:nth-child(2n) img{
+  order: -1;
+}
+
+.site-footer {
+  background: var(--footer-background);
+  padding: 3.2rem 10.4rem 3.2rem;
+  font-family: "Arial";
+  font-size: 1.6rem;
+}
+
+.site-footer .footer-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1920px;
+  height: 9.6rem;
+}
+
+.footer-container div:first-child {
+  color: var(--footer-text1);
+}
+
+.footer-container div:nth-child(2) {
+  display: flex;
+  justify-content: space-between;
+  width: 16.3rem;
+}
+
+.footer-container div:nth-child(2) a {
+  color: var(--footer-text2);
+}
+
+.footer-container .icon-box {
+  display: flex;
+  justify-content: space-between;
+  width: 11.6rem;
+}
+
+.account {
+  margin: 24rem auto;
+  max-width: 40rem;
+  text-align: center;
+}
+
+.account .account-header {
+  font-size: 1.6rem;
+}
+
+.account-header .logo {
+  width: 21rem;
+}
+
+.account-header p {
+  margin-bottom: 3.2rem;
+}
+
+.account-header .account-link {
+  text-decoration: underline;
+  font-weight: 600;
+  color: var(--account-link);
+}
+
+.account .description a {
+  text-decoration: underline;
+  margin-left: 0.8rem;
+}
+
+.account form {
+  display: flex;
+  flex-direction: column;
+}
+
+.account form > p {
+  text-align: left;
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.account .lb-input {
+  width: 100%;
+  margin: 1.2rem 0 2.4rem 0;
+  border: 0.1rem solid var(--account-border);
+  border-radius: 0.8rem;
+  padding: 1.8rem 1.5rem;
+  font-size: 1.6rem;
+  color: var(--account-lb-input-text-focus-out);
+}
+
+.account .lb-input:focus {
+  color: var(--account-lb-input-text-focus-in);
+}
+
+.account .password-input {
+  position: relative;
+}
+
+.account .password-input .prevent-focusout {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 3.5rem 1.5rem 0 0;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.account .password-input i{
+  position: absolute;
+  cursor: pointer;
+  right: 0;
+  color: var(--account-password-hide);
+}
+
+.account button[type="submit"] {
+  margin-top: 0.6rem;
+  margin-bottom: 1.6rem;
+  border: 0;
+  cursor: pointer;
+  color: var(--account-login-button-text);
+}
+
+.account .forgot-password a {
+  font-size: 1.4rem;
+  color: var(--account-forgot-password-link-text);
+}
+
+.account .social-login {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 3.2rem;
+  border: 0.1rem solid var(--account-border);
+  border-radius: 0.8rem;
+  padding: 1.2rem 2.4rem;
+  background-color: var(--account-social-login-background);
+  font-size: 1.4rem;
+  color: var(--account-social-login-text);
+}
+
+.social-login p {
+  margin: 0;
+}
+
+.social-login .icon-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 10rem;
+  line-height: 4.2rem;
+}
+
+.icon-box > * {
+  width: 4.2rem;
+  border-radius: 7rem;
+  overflow: hidden;
+}
+
+.icon-box img {
+  vertical-align:middle
+}
+
+.icon-box .google {
+  background-color: var(--google-background);
+}
+
+.icon-box .kakaotalk {
+  background-color: var(--kakaotalk-background);
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .navbar .navbar-container {
+    max-width: 86.4rem;
+    padding: 2rem 3.2rem;
+  }
+
+  .site-header .header-title {
+    width: 48rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .site-header .header-content {
+    width: 70rem;
+  }
+
+  .site-body {
+    padding-top: 8rem;
+  }
+
+  .site-body .content-frame {
+    width: 70rem;
+    height: 31.5rem;
+  }
+
+  .content-frame .title,
+  .content-frame .description {
+    width: 26.2rem;
+  }
+
+  .content-frame img {
+    width: 38.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .link-button:not(.account .link-button) {
+    font-size: 1.4rem;
+    line-height: 3.7rem;
+  }
+
+  body > *,
+  .navbar {
+    margin: 0;
+    padding: 0 3.2rem;
+  }
+
+  .navbar {
+    height: 6.3rem;
+  }
+
+  .navbar .navbar-container {
+    padding: 1.3rem 0;
+  }
+
+  .navbar-container .logo img {
+    width: 7.7rem;
+  }
+  
+  .navbar-container .link-button {
+    width: 8rem;
+  }
+
+  .site-header .header-title {
+    width: 24rem;
+    margin-top: 2.8rem;
+    margin-bottom: 2.4rem;
+    font-size: 3.2rem;
+  }
+
+  .site-header .add-link {
+    width: 20rem;
+  }
+
+  .site-header .header-content {
+    width: 100%;
+    margin: 0;
+    margin-top: 2.4rem;
+  }
+
+  .site-body {
+    padding-top: 4rem;
+    padding-bottom: 8rem;
+  }
+
+  .site-body .content-frame {
+    gap: 2rem;
+    width: 100%;
+    height: auto;
+    margin: 8rem 0;
+  }
+
+  .content-frame br {
+    display: none;
+  }
+
+  .content-frame:first-child {
+    margin-top: 0;
+  }
+
+  .content-frame:last-child {
+    margin-bottom: 0;
+  }
+
+  .content-frame .title,
+  .content-frame .description,
+  .content-frame img {
+    width: 100%;
+  }
+
+  .content-frame .title {
+    order: 0;
+    font-size: 2.4rem;
+  }
+
+  .content-frame .description {
+    order: 2;
+    font-size: 1.5rem;
+  }
+
+  .content-frame img,
+  .content-frame:nth-child(2n) img {
+    order: 1;
+  }
+
+  .site-footer {
+    padding: 3.2rem;
+  }
+  
+  .site-footer .footer-container {
+    flex-wrap: wrap;
+    align-content: space-between;
+  }
+
+  .footer-container div:first-child {
+    width: 100%;
+    order: 1;
+  }
+
+  .account {
+    max-width: 46.4rem;
+    margin: 0 auto;
+    padding: 12rem 3.2rem 10rem;
+  }
+}

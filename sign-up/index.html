@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <title>회원가입 | Linkbrary</title>
+  </head>
+  <body>
+    <main class="account">
+      <div class="account-header">
+        <a href="/">
+          <img class="logo" src="/static/Linkbrary.png" alt="Linkbrary Logo">
+        </a>
+        <p>
+          이미 회원이신가요?
+          <a class="account-link" href="/sign-in">로그인 하기</a>
+        </p>
+      </div>
+      <form method="post">
+        <p>이메일</p>
+        <div>
+          <input class="lb-input email" type="email" name="login" placeholder="이메일을 입력해주세요." autocomplete="email">
+        </div>
+        <p>비밀번호</p>
+        <div class="password-input">
+          <input class="lb-input password" type="password" name="password" placeholder="비밀번호" autocomplete="new-password">
+          <div class="prevent-focusout">
+            <i class="fa fa-eye fa-lg"></i>
+          </div>
+        </div>
+        <p>비밀번호 확인</p>
+        <div class="password-input">
+          <input class="lb-input password2" type="password" name="password" placeholder="비밀번호 확인">
+          <div class="prevent-focusout">
+            <i class="fa fa-eye fa-lg"></i>
+          </div>
+        </div>
+        <button class="link-button" type="submit">회원가입</button>
+      </form>
+      <div class="social-login">
+        <p>다른 방식으로 가입하기</p>
+        <div class="icon-box">
+          <a class="google" href="https://www.google.com/" target="_blank">
+            <img src="/static/google.png" alt="google icon" style="width: 22px;">
+          </a>
+          <a class="kakaotalk" href="https://www.kakaocorp.com/" target="_blank">
+            <img src="/static/kakaotalk.png" alt="kakaotalk icon" style="width: 26px;">
+          </a>
+        </div>
+      </div>
+    </main>
+    <script src="/static/js/sign-up-form.js"></script>
+  </body>
+</html>
