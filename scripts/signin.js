@@ -13,4 +13,12 @@ function checkSigninValue(e) {
   }
 }
 
+function enterKeyEvent(e) {
+  if (e.code === "Enter") {
+    checkSigninValue(e)
+  }
+}
+
 form.addEventListener('submit', checkSigninValue)
+
+window.addEventListener('keydown', enterKeyEvent)

@@ -14,7 +14,7 @@ function removeFocusStyle(e) {
 }
 
 function checkEmailFormat(e) {
-  if ((e.target.id === "email") && (e.sourceCapabilities) || (e.target.className === "form-signin-and-up")) {
+  if ((e.target.id === "email") && (e.sourceCapabilities) || (e.target.className === "form-signin-and-up") || (e.code === "Enter")) {
     const emailValue = form.email.value
     if (!emailValue) {
       alert("이메일을 입력해주세요.")
