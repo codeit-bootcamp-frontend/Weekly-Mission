@@ -61,7 +61,6 @@ for (let i = 0; i < togglers.length; i++) {
       togglers[i].previousElementSibling.setAttribute('type','password');
       togglers[i].classList.remove('fa-eye-slash');
     }
-    
   })
 }
 
