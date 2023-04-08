@@ -33,7 +33,7 @@ function verifyLogininfo(e){
     const trueEmail = 'test@codeit.com';
     const truePw = 'codeit101';
     if($userEmail.value===trueEmail && userPassword.value===truePw){
-        location.href = "./my-link.html";
+        location.href = "../my-link/my-link.html";
     }
     else{
         alert('이메일과 비밀번호를 확인해주세요.');
