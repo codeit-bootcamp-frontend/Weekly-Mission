@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/signin.css" />
     <link rel="icon" type="image/png" href="images/icon.png" />
     <title>Linkbrary</title>
   </head>
@@ -15,13 +16,20 @@
           <img src="images/logo.svg" alt="logo" />
         </section>
         <section class="create-account-text">
-          <p>회원이 아니세요? <a href="signup.html">회원 가입하기</a></p>
+          <p>회원이 아니신가요?<a href="signup.html">회원 가입하기</a></p>
         </section>
         <form class="signin-form">
           <label for="username">이메일</label><br />
-          <input id="username" type="email" name="username" /><br />
+          <input id="username" type="email" name="username" />
           <label for="password">비밀번호</label><br />
-          <input id="password" type="password" name="password" /><br />
+          <div class="password-field">
+            <input id="password" type="password" name="password" />
+            <img
+              id="show-password-icon"
+              src="/images/show-password-icon.svg"
+              alt="show password"
+            />
+          </div>
           <input class="login-btn" type="submit" value="로그인" />
         </form>
         <section class="find-password">
@@ -29,8 +37,12 @@
         </section>
         <section class="social-login-container">
           <p>소셜 로그인</p>
-          <div><img src="/images/google-icon.png" /></div>
-          <div><img src="/images/kakao-icon.png" /></div>
+          <div class="social-logo-box">
+            <img src="/images/google-icon.png" alt="google logo" />
+          </div>
+          <div class="social-logo-box">
+            <img src="/images/kakao-icon.png" alt="kakao logo" />
+          </div>
         </section>
       </article>
     </main>
