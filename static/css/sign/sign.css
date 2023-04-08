@@ -56,12 +56,16 @@ form input {
   border-radius: 0.8rem;
   padding: 1.8rem 1.5rem;
   font-size: 1.6rem;
-  color: #3e3e43;
+  color: #9fa6b2;
 }
 
 form input:focus {
   border: 0.1rem solid #6d6afe;
   outline: none;
+}
+
+.input-focus-text-color {
+  color: #3e3e43;
 }
 
 form .submit-button {
