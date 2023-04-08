@@ -1,6 +1,15 @@
 @charset "UTF-8";
 @import url("../font.css");
 
+/*인풋박스 자동완성 시 색상 변환*/
+input:autofill,
+input:autofill:hover,
+input:autofill:focus,
+input:autofill:active {
+    box-shadow: 0 0 0px 1000px #fff inset;
+}
+
+/*레이아웃*/
 body {
   background-color: #f0f6ff;
   font-size: 14px;
