@@ -2,6 +2,8 @@ const loginForm = document.querySelector('.login-form');
 const emailInput = document.querySelector('#email');
 const passwordInput = document.querySelector('#password');
 
+const reg = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+
 function goUrl() {
   let link = '../my-link.html';
   location.href = link;
@@ -19,11 +21,8 @@ loginForm.onsubmit = function (e) {
 function emailVerify() {
   if (!emailInput.value) {
     alert('이메일을 입력해주세요!');
-  } else {
-    const reg = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
-    if (!reg.test(emailInput.value)) {
-      alert('올바른 이메일 주소가 아닙니다!')
-    }
+  } else if (!reg.test(emailInput.value)) {
+      alert('올바른 이메일 주소가 아닙니다!');
   }
 }
 
