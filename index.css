@@ -15,13 +15,8 @@ h1 {
 header {
   width: 100%;
   background-color: #f0f6ff;
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-}
-
-main {
-  margin-top: 5.813rem;
 }
 
 #header-wrapper {
@@ -313,9 +308,7 @@ footer {
     padding: 0.813rem 2rem;
     display: flex;
   }
-  main {
-    margin-top: 3.938rem;
-  }
+
   nav > a:first-child img {
     width: 4.849rem;
     height: 0.875rem;
