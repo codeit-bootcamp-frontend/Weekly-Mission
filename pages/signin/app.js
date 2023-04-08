@@ -1,10 +1,5 @@
 (function () {
-  const emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/g;
-  const currentUser = {
-    email: "",
-    password: "",
-  };
-
+  // function
   const getElem = (scope, target) => scope.querySelector(target);
 
   const gettingStarted = () => {
@@ -13,7 +8,10 @@
     const users = JSON.parse(localStorage.getItem("users"));
 
     users?.forEach((user) => {
-      if (tempData.email === user.email && tempData.pw === user.password) {
+      if (
+        tempData.email === user.email &&
+        tempData.password === user.password
+      ) {
         flag = true;
         return;
       }
@@ -24,6 +22,13 @@
     } else if (!flag) {
       localStorage.setItem("users", JSON.stringify([...users, tempData]));
     }
+  };
+
+  // state & elements
+  const emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/g;
+  const currentUser = {
+    email: "",
+    password: "",
   };
 
   const form = getElem(document, ".form form");
