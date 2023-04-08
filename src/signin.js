@@ -21,6 +21,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  const tryLogin = () => {
+    const username = document.getElementById("username");
+    const password = passwordInput.value;
+    if (username.value === "test@codeit.com" && password === "codeit101") {
+      window.location = "/my-list";
+      return;
+    }
+    alert("이메일과 비밀번호를 확인해주세요.");
+  };
+
   usernameInput.addEventListener("focusout", (e) => {
     if (!e.target.value) {
       alert("이메일을 입력해주세요.");
@@ -34,5 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   showPasswordBtn.addEventListener("click", (e) => {
     togglePassword(passwordInput);
+  });
+
+  loginBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    tryLogin();
   });
 });
