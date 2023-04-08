@@ -1,4 +1,5 @@
 const form = document.querySelector("form")
+const icons = document.querySelectorAll(".view-password")
 const emailFormat = /^[\w\-\.\/]+\@[\w\-]+\.[\w]+$/;
 
 function addFocusStyle(e) {
@@ -31,6 +32,7 @@ function checkEmailFormat(e) {
 }
 
 function changePasswordType(e) {
+  e.preventDefault()
   if (e.target.className === "view-password") {
     const passwordElement = e.target.previousElementSibling
     if (passwordElement.type === "password") {
@@ -47,4 +49,6 @@ form.addEventListener('focusin', addFocusStyle)
 form.addEventListener('focusout', removeFocusStyle)
 form.addEventListener('focusout', checkEmailFormat)
 
-form.addEventListener('click', changePasswordType)
+for(let icon of icons) {
+  icon.addEventListener('pointerdown', changePasswordType)
+}
