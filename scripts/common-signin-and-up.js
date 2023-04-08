@@ -1,6 +1,5 @@
-const form = document.querySelector("form");
-const emailFormat = /[\w\-\.]+\@[\w\-]+\.\w/g;
-
+const form = document.querySelector("form")
+const emailFormat = /^[\w\-\.\/]+\@[\w\-]+\.[\w]+$/;
 
 function addFocusStyle(e) {
   if (e.target.classList.contains("input")) {
@@ -26,7 +25,7 @@ function checkEmailFormat(e) {
   }
 }
 
-form.addEventListener('focusin', addFocusStyle);
+form.addEventListener('focusin', addFocusStyle)
 
-form.addEventListener('focusout', removeFocusStyle);
-form.addEventListener('focusout', checkEmailFormat);
+form.addEventListener('focusout', removeFocusStyle)
+form.addEventListener('focusout', checkEmailFormat)
