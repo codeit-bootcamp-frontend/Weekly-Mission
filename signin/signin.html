@@ -11,15 +11,15 @@
   <body>
     <main>
       <div class="signin-header">
-        <a href="/"><img src="images/Linkbrary.svg" class="header-title" /></a>
-        <p class="signup">회원이 아니신가요?<a href="/signup.html" class="signup-link">회원 가입하기</a></p>
+        <a href="/"><img src="../images/Linkbrary.svg" class="header-title" /></a>
+        <p class="signup">회원이 아니신가요?<a href="../signup/signup.html" class="signup-link">회원 가입하기</a></p>
       </div>
-      <form class="login-form">
+      <form name="login-form" class="login-form">
         <label for="email">이메일</label>
         <input type="email" name="email" placeholder="example@email.com" id="email" />
         <label for="password">비밀번호</label>
         <input type="password" name="password" placeholder="***************" id="password" />
-        <button>로그인</button>
+        <button type="submit">로그인</button>
       </form>
       <div class="find-password">
         <a href="/forgot-password.html" class="find-password-link">비밀번호 찾기</a>
@@ -27,10 +27,11 @@
       <div class="login-social">
         <p>소셜 로그인</p>
         <div class="icons">
-          <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer"><img src="images/icons/google-icon.png" /></a>
-          <a href="https://www.kakaocorp.com/page/" target="_blank" rel="noopener noreferrer"><img src="images/icons/kakao-icon.png" /></a>
+          <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer"><img src="../images/icons/google-icon.png" /></a>
+          <a href="https://www.kakaocorp.com/page/" target="_blank" rel="noopener noreferrer"><img src="../images/icons/kakao-icon.png" /></a>
         </div>
       </div>
     </main>
+    <script src="signin.js"></script>
   </body>
 </html>

@@ -33,6 +33,11 @@ input {
   padding: 1.5rem;
   border: 0.1rem solid #ccd5e3;
   border-radius: 0.8rem;
+  background-color: #fff;
+}
+
+input::placeholder {
+  color: #9fa6b2;
 }
 
 input:first-of-type {
@@ -41,6 +46,10 @@ input:first-of-type {
 
 input:last-of-type {
   margin-bottom: 3rem;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #fff inset;
 }
 
 button {
@@ -117,4 +126,19 @@ button {
 
 .icons a {
   height: 4.4rem;
+}
+
+/* 회원가입 페이지용 css */
+
+.password-check-label {
+  margin-top: 2.4rem;
+}
+.register {
+  margin-top: 3.2rem;
+}
+
+@media (max-width: 464px) {
+  main {
+    width: calc(100% - 6.4rem);
+  }
 }
