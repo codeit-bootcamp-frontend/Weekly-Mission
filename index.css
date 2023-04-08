@@ -404,8 +404,8 @@ footer {
   }
 
   .text-area p {
-    font-size: 1.35vh;
-    line-height: 1.406rem;
+    font-size: clamp(0.938rem, 0.353rem + 2.4vw, 1.5rem);
+    line-height: 1.5;
   }
 
   .text-area br {
