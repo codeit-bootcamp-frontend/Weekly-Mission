@@ -1,6 +1,6 @@
 const email = document.querySelector("#signin-email");
-const signinPassword = document.querySelector("#signin-password");
-const signinBtn = document.querySelector(".submit-butoon");
+const password = document.querySelector("#signin-password");
+const signinForm = document.querySelector("form");
 
 function isValidEmail(e) {
   const emailRegex = "^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
@@ -12,4 +12,13 @@ function isValidEmail(e) {
   }
 }
 
+function isValidAccount(e) {
+  if (email.value === "test@codeit.com" && password.value === "codeit101") {
+    location.href = "../my-link/";
+  } else {
+    alert("이메일과 비밀번호를 확인해주세요.");
+  }
+}
+
 email.addEventListener("focusout", isValidEmail);
+signinForm.addEventListener("submit", isValidAccount);
