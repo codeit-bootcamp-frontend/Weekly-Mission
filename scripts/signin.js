@@ -2,7 +2,7 @@ function checkMemberAccount(e) {
   return (form.email.value === "test@codeit.com") && (form.password.value === "codeit101")
 }
 
-function checkSigninValue(e) {
+function checkSigninValidation(e) {
   e.preventDefault()
 
   if (checkMemberAccount(e)) {
@@ -15,10 +15,10 @@ function checkSigninValue(e) {
 
 function enterKeyEvent(e) {
   if (e.code === "Enter") {
-    checkSigninValue(e)
+    checkSigninValidation(e)
   }
 }
 
-form.addEventListener('submit', checkSigninValue)
+form.addEventListener('submit', checkSigninValidation)
 
 window.addEventListener('keydown', enterKeyEvent)

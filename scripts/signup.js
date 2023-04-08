@@ -38,7 +38,7 @@ function checkPasswordSame(e) {
   }
 }
 
-function checkSignupValue(e) {
+function checkSignupValidation(e) {
   e.preventDefault()
   const check1 = checkEmailFormat(e)
   const check2 = checkEmailExist(e)
@@ -52,7 +52,7 @@ function checkSignupValue(e) {
 
 function enterKeyEvent(e) {
   if (e.code === "Enter") {
-    checkSignupValue(e)
+    checkSignupValidation(e)
   }
 }
 
@@ -60,6 +60,6 @@ form.addEventListener('focusout', checkEmailExist)
 form.addEventListener('focusout', checkPasswordFormat)
 form.addEventListener('focusout', checkPasswordSame)
 
-form.addEventListener('submit', checkSignupValue)
+form.addEventListener('submit', checkSignupValidation)
 
 window.addEventListener('keydown', enterKeyEvent)
