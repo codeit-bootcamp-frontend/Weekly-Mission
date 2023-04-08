@@ -1,11 +1,10 @@
-const formSignin = document.querySelector("#form-signin")
-
 function checkMemberAccount(e) {
-  return (formSignin.email.value === "test@codeit.com") && (formSignin.password.value === "codeit101")
+  return (form.email.value === "test@codeit.com") && (form.password.value === "codeit101")
 }
 
 function checkSigninValue(e) {
   e.preventDefault()
+
   if (checkMemberAccount(e)) {
     location.href = "/my-link.html"
   }
@@ -14,4 +13,4 @@ function checkSigninValue(e) {
   }
 }
 
-formSignin.addEventListener('submit', checkSigninValue)
+form.addEventListener('submit', checkSigninValue)
