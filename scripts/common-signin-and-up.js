@@ -30,7 +30,21 @@ function checkEmailFormat(e) {
   }
 }
 
+function changePasswordType(e) {
+  if (e.target.className === "view-password") {
+    const passwordElement = e.target.previousElementSibling
+    if (passwordElement.type === "password") {
+      passwordElement.type = "text"
+    }
+    else {
+      passwordElement.type = "password"
+    }
+  }
+}
+
 form.addEventListener('focusin', addFocusStyle)
 
 form.addEventListener('focusout', removeFocusStyle)
 form.addEventListener('focusout', checkEmailFormat)
+
+form.addEventListener('click', changePasswordType)
