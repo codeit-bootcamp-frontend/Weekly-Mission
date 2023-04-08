@@ -1,6 +1,15 @@
 function focusIn(e) {
   e.target.classList.add("focus-text-color");
   e.target.parentElement.classList.add("focus-outline");
+
+  if (e.target.id === "password-remind") {
+    const passwordValue = document.querySelector("#password").value;
+
+    if (passwordValue === "") {
+      alert("비밀번호를 먼저 입력해주세요.");
+      e.target.blur();
+    }
+  }
 }
 
 function focusOut(e) {
