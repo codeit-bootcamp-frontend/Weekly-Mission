@@ -74,6 +74,11 @@ form .submit-button {
   padding: 1.6rem 2rem;
 }
 
+form .link-find-password {
+  text-decoration: none;
+  color: #3e3e43;
+}
+
 .social-container {
   display: flex;
   justify-content: space-between;
