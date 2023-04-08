@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-body:not(footer) {
+body {
   font-family: "Pretendard";
 }
 
