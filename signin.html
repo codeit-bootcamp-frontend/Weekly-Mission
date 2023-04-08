@@ -9,45 +9,30 @@
     <title>Linkbrary</title>
   </head>
   <body>
-    <header>
-      <div id="header-wrapper">
-        <nav>
-          <a href="/">
-            <img src="images/logo.svg" />
-          </a>
-          <a id="login-btn" href="signin.html">로그인</a>
-        </nav>
-      </div>
-    </header>
     <main>
-      로그인 페이지
+      <article class="login-form">
+        <section class="logo-container">
+          <img src="images/logo.svg" alt="logo" />
+        </section>
+        <section class="create-account-text">
+          <p>회원이 아니세요? <a href="signup.html">회원 가입하기</a></p>
+        </section>
+        <form class="signin-form">
+          <label for="username">이메일</label><br />
+          <input id="username" type="email" name="username" /><br />
+          <label for="password">비밀번호</label><br />
+          <input id="password" type="password" name="password" /><br />
+          <input class="login-btn" type="submit" value="로그인" />
+        </form>
+        <section class="find-password">
+          <a href="/forgot-password">비밀번호 찾기</a>
+        </section>
+        <section class="social-login-container">
+          <p>소셜 로그인</p>
+          <div><img src="/images/google-icon.png" /></div>
+          <div><img src="/images/kakao-icon.png" /></div>
+        </section>
+      </article>
     </main>
-    <footer>
-      <div id="footer-wrapper">
-        <div class="bottom-nav">
-          <div id="copyright">codeit - 2023</div>
-          <div id="internal-links">
-            <div><a href="/privacy.html">Privacy Policy</a><a id="faq-link" href="/faq.html"">FAQ</a></div>
-          </div>
-          <div id="external-links">
-            <div class="iconbox">
-              <a href="https://www.facebook.com/" target="_blank">
-                <img src="images/facebook.svg" />
-              </a>
-              <a href="https://twitter.com/" target="_blank">
-                <img src="images/twitter.svg" />
-              </a>
-              <a href="https://www.youtube.com/" target="_blank">
-                <img src="images/youtube.svg" />
-              </a>
-              <a href="https://www.instagram.com/" target="_blank">
-                <img src="images/instagram.svg" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
   </body>
-  
 </html>
