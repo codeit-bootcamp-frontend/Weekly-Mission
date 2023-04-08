@@ -74,4 +74,28 @@ inputs.forEach((input) => {
   input.addEventListener("focusin", addFocusOutEventListener);
 });
 
+const eyeIcons = document.querySelectorAll(".eye-icon");
+const passwordEyeIcon = eyeIcons[0];
+const passwordCheckEyeIcon = eyeIcons[0];
+
+eyeIcons.forEach((eyeIcon) => {
+  console.log(eyeIcon.previousElementSibling);
+
+  eyeIcon.addEventListener("click", (e) => {
+    const target = e.target.previousSibling;
+
+    if (eyeIcon.classList.contains("fa-eye-slash")) {
+      eyeIcon.classList.remove("fa-eye-slash");
+      eyeIcon.classList.add("fa-eye");
+      target.type = "text";
+    } else if (eyeIcon.classList.contains("fa-eye")) {
+      eyeIcon.classList.remove("fa-eye");
+      eyeIcon.classList.add("fa-eye-slash");
+      target.type = "password";
+    }
+  });
+});
+
+email.addEventListener("focusout", isValidEmail);
+
 signupForm.addEventListener("submit", isValidForm);

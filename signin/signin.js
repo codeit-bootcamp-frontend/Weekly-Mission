@@ -35,5 +35,21 @@ inputs.forEach((input) => {
   input.addEventListener("focusout", focusOut);
 });
 
+const eyeIcons = document.querySelector(".eye-icon");
+
+eyeIcons.addEventListener("click", (e) => {
+  const target = e.target.previousSibling;
+
+  if (eyeIcons.classList.contains("fa-eye-slash")) {
+    eyeIcons.classList.remove("fa-eye-slash");
+    eyeIcons.classList.add("fa-eye");
+    target.type = "text";
+  } else if (eyeIcons.classList.contains("fa-eye")) {
+    eyeIcons.classList.remove("fa-eye");
+    eyeIcons.classList.add("fa-eye-slash");
+    target.type = "password";
+  }
+});
+
 email.addEventListener("focusout", isValidEmail);
 signinForm.addEventListener("submit", isValidAccount);
