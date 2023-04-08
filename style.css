@@ -8,14 +8,23 @@ body {
   margin: 0 auto;
 }
 
-/* gnb 영역 */
+/*Header 시작*/
+header {
+  background-color: #f0f6ff;
+}
 
+/* gnb바 */
 .gnb {
   display: flex;
   justify-content: space-between;
-  padding: 0 200px;
+  width: 100%;
+  max-width: 1920px;
   height: 94px;
+  padding: 0 200px;
   align-items: center;
+  position: fixed;
+  top: 0;
+  margin: 0 auto;
   background-color: #f0f6ff;
 }
 
@@ -33,22 +42,15 @@ body {
   border-radius: 8px;
   text-decoration: none;
 }
-/*gnb 영역 끝*/
+/* gnb바 끝 */
 
-/*Header 영역*/
-
-header {
-  background-color: #f0f6ff;
-}
 .header_title {
   text-align: center;
-  padding-top: 70px;
-  padding-bottom: 40px;
   background-color: #f0f6ff;
   font-style: normal;
   font-weight: 700;
   font-size: 64px;
-  margin: 0;
+  padding-top: 166px;
 }
 
 .button_wrapper {
@@ -58,7 +60,7 @@ header {
   width: 350px;
   height: 53px;
   padding: 16px 20px;
-  margin: 0 auto 90px auto;
+  margin: 40px auto 90px auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,6 +79,10 @@ img.images {
   display: block;
   margin: 0 auto auto;
 }
+
+/* Header 끝 */
+
+/* main 영역 시작 */
 
 main {
   margin-top: 120px;
@@ -97,9 +103,6 @@ h3 {
   line-height: 150%;
   color: #6b6b6b;
 }
-/* Header 영역 끝 */
-
-/* 여기부터 이미지 4개 섹션 시작*/
 
 .section {
   display: flex;
@@ -166,10 +169,11 @@ h3 {
   height: 450px;
   flex-shrink: 0;
 }
+/* main 끝 */
 
-/* 여기부터 footer 시작 */
+/* footer 시작 */
 footer {
-  width: 1920px;
+  width: 100%;
   height: 160px;
   background-color: #111322;
   margin-top: 170px;
@@ -192,13 +196,18 @@ footer {
   line-height: 18px;
 }
 
-.footer-center > a {
+.footer-center a {
   color: #cfcfcf;
   font-family: Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 18px;
+  text-decoration: none;
+}
+
+.footer-center a:first-child {
+  margin-right: 30px;
 }
 
 /* footer 끝 */
