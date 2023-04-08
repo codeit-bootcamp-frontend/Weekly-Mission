@@ -82,6 +82,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   color: #f5f5f5;
   font-size: 1.125rem;
   margin-top: 1.875rem;
