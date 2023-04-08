@@ -165,7 +165,7 @@ input {
   }
 }
 
-/* JS 스타일 */
+/* JS 이벤트 스타일 */
 .focus-input {
   outline: none;
   border-color: #6d6afe;
