@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/signin.css" />
+    <link rel="stylesheet" href="/css/signup.css" />
+    <link rel="icon" type="image/png" href="/images/icon.png" />
+    <title>Linkbrary</title>
+    <script src="/src/signup.js"></script>
+  </head>
+  <body>
+    <main>
+      <article class="login-form">
+        <section class="logo-container">
+          <a href="/index.html">
+            <img src="images/logo.svg" alt="logo" />
+          </a>
+        </section>
+        <section class="create-account-text">
+          <p>이미 회원이신가요?<a href="/signin.html">로그인 하기</a></p>
+        </section>
+        <form class="signin-form">
+          <label for="username">이메일</label><br />
+          <input id="username" type="email" name="username" />
+          <label for="password">비밀번호</label><br />
+          <div class="password-field">
+            <input id="password" type="password" name="password" />
+            <img
+              id="show-password-icon"
+              src="/images/show-password-icon.svg"
+              alt="show password"
+            />
+          </div>
+          <label for="password-repeat">비밀번호 확인</label><br />
+          <div class="password-field">
+            <input
+              id="password-repeat"
+              type="password"
+              name="password-repeat"
+            />
+            <img
+              id="show-password-icon"
+              src="/images/show-password-icon.svg"
+              alt="show password"
+            />
+          </div>
+          <input
+            id="login-btn"
+            class="login-btn"
+            type="submit"
+            value="회원가입"
+          />
+        </form>
+        <section class="social-login-container">
+          <p>다른 방식으로 가입하기</p>
+          <div class="social-logo-box">
+            <a href="https://www.google.com/">
+              <img src="/images/google-icon.png" alt="google logo" />
+            </a>
+          </div>
+          <div class="social-logo-box">
+            <a href="https://www.kakaocorp.com/page/">
+              <img src="/images/kakao-icon.png" alt="kakao logo" />
+            </a>
+          </div>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
