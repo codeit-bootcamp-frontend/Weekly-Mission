@@ -33,6 +33,6 @@ function isValidForm(e) {
   isValidPassword(e);
   isValidPasswordCheck(e);
 }
-email.addEventListener("focusout", isValidEmail);
-password.addEventListener("focusout", isValidPassword);
+email.addEventListener("blur", isValidEmail);
+password.addEventListener("blur", isValidPassword);
 signupForm.addEventListener("submit", isValidForm);
