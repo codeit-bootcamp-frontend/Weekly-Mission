@@ -8,7 +8,7 @@ function focusOut(e) {
   e.target.parentElement.classList.remove("focus-outline");
   
   if (e.target.id === "email" && e.target.value === "") {
-    alert("이메일을 입력해주세요");
+    alert("이메일을 입력해주세요.");
   }
 }
 

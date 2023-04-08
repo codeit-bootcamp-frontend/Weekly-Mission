@@ -65,7 +65,7 @@ body {
   width: 100%;
   margin-top: 1.2rem;
   padding: 1.8rem 1.5rem;
-  border: 0.1rem solid #ccd5e3;
+  outline: 1px solid #ccd5e3;
   border-radius: 0.8rem;
   font-size: 1.6rem;
   background-color: #ffffff;
@@ -142,7 +142,7 @@ input:focus {
 }
 
 .focus-outline {
-  outline: 1px solid #6D6AFE;
+  outline: 1px solid #6D6AFE !important;
 }
 
 .focus-text-color {

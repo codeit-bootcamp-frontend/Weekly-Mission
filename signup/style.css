@@ -67,10 +67,23 @@ input {
   width: 100%;
   border: none;
   font-size: 1.6rem;
+  color: #9FA6B2;
 }
 
 input::placeholder {
   color: #CCD5E3;
+}
+
+input:focus {
+  outline: none;
+}
+
+.focus-outline {
+  outline: 1px solid #6D6AFE !important;
+}
+
+.focus-text-color {
+  color: #000000;
 }
 
 .password-input, .password-remind-input {
