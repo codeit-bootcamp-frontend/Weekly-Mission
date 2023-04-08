@@ -13,6 +13,7 @@ function isValidEmail(e) {
 }
 
 function isValidAccount(e) {
+  e.preventDefault();
   if (email.value === "test@codeit.com" && password.value === "codeit101") {
     location.href = "../my-link/";
   } else {
