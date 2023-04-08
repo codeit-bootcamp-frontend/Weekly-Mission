@@ -36,3 +36,19 @@ inputNode.forEach((element) => {
   element.addEventListener("focusin", focusIn);
   element.addEventListener("focusout", focusOut);
 })
+
+function checkValidAccount(e) {
+  e.preventDefault();
+
+  const email = document.querySelector("#email").value;
+  const password = document.querySelector("#password").value;
+  
+  if (email === "test@codeit.com" && password === "codeit101") {
+    location.href = "/my-link/";
+  } else {
+    alert("이메일과 비밀번호를 확인해주세요.");
+  }
+}
+
+const loginForm = document.querySelector(".login-form");
+loginForm.addEventListener("submit", checkValidAccount);
