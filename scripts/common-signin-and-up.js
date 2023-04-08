@@ -14,13 +14,18 @@ function removeFocusStyle(e) {
 }
 
 function checkEmailFormat(e) {
-  if (e.target.id === "email") {
-    const emailValue = e.target.value
-    if (emailValue == "") {
+  if ((e.target.id === "email") && (e.sourceCapabilities) || (e.target.id === "form-signup")) {
+    const emailValue = form.email.value
+    if (!emailValue) {
       alert("이메일을 입력해주세요.")
+      return false
     }
     else if (emailValue.search(emailFormat) === -1) {
       alert("올바른 이메일 주소가 아닙니다.")
+      return false
+    }
+    else {
+      return true
     }
   }
 }
