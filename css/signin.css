@@ -97,6 +97,7 @@ body {
 .signin-form .login-btn:focus {
   border: none;
   outline: none;
+  color: #f5f5f5;
 }
 
 .find-password a {
