@@ -27,7 +27,7 @@ function togglePassword(e) {
    3.이메일 input에서 focus out 일 때, input 값이 test@codeit.com 일 경우, alert으로 “이미 사용 중인 아이디입니다.” 메세지를 보입니다.*/
 function verifyEmail(e) {
   let target = e.target.value;
-  let regex = new RegExp("^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$");
+  let regex = new RegExp("^[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+$");
   if (!target) {
     alert("이메일을 입력해주세요.");
   } else if (target === "test@codeit.com") {
