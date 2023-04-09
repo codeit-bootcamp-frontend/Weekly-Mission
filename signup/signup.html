@@ -14,14 +14,14 @@
         <a href="../index.html" class="signup-title ir-pm">linkbrary</a>
         <div class="signin">이미 회원이신가요?<a href="../signin/signin.html" class="signin-link">로그인 하기</a></div>
         <div class="signup-container">
-            <form id="signup-form">
+            <form id="signup-form" method="post">
                 <div class="email-container">
                     <p class="userEmail-text"><label for="userEmail">이메일</label></p>
                     <input type="text" id="userEmail" name="userEmail" class="userEmail" placeholder="이메일">
                 </div>
                 <div class="password-container">
                     <p class="userPassword-text"><label for="userPassword">비밀번호</label></p>
-                    <input type="password" id="userPassword" name="userPassword" class="userPassword" placeholder="비밀번호">
+                    <input type="password" id="userPassword" name="userPassword" class="userPassword" placeholder="비밀번호" maxlength="16">
                     <a href="#" class="toggle-password">
                         <i class= "fi fi-rr-eye-crossed hide"></i>
                         <i class="fi fi-rr-eye"></i>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="password-verify-container">
                     <p class="userPassword-verify-text"><label for="userPassword-verify">비밀번호 확인</label></p>
-                    <input type="password" id="userPassword-verify" name="userPassword-verify" class="userPassword-verify" placeholder="비밀번호 확인">
+                    <input type="password" id="userPassword-verify" name="userPassword-verify" class="userPassword-verify" placeholder="비밀번호 확인" maxlength="16">
                     <a href="#" class="toggle-password-verify">
                         <i class= "fi fi-rr-eye-crossed hide"></i>
                         <i class="fi fi-rr-eye"></i>
