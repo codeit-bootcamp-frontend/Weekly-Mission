@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const usernameInput = document.getElementById("username");
-  const showPasswordBtn = document.getElementById("show-password-icon");
   const passwordInput = document.querySelector("#password");
   const loginBtn = document.getElementById("login-btn");
+  const showPasswordBtn = document.getElementById("show-password-icon");
 
   const validateEmail = (mail) => {
     const mailformat =
@@ -42,12 +42,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  showPasswordBtn.addEventListener("click", (e) => {
-    togglePassword(passwordInput);
-  });
-
   loginBtn.addEventListener("click", (e) => {
     e.preventDefault();
     tryLogin();
+  });
+
+  showPasswordBtn.addEventListener("pointerdown", (e) => {
+    e.preventDefault();
+    togglePassword(passwordInput);
   });
 });

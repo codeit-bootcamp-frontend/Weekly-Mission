@@ -70,7 +70,7 @@ body {
   margin-bottom: 0;
 }
 
-.password-field img {
+.show-password-icon {
   cursor: pointer;
   display: block;
   position: absolute;
