@@ -1,8 +1,8 @@
-const $togglePassword = document.querySelector(".toggle-password");
-const $togglePasswordVerify = document.querySelector(".toggle-password-verify");
-const $userEmail = document.querySelector(".userEmail");
-const $userPassword = document.querySelector(".userPassword");
-const $userPasswordVerify = document.querySelector(".userPassword-verify");
+const $togglePasswordIcon = document.querySelector(".toggle-password");
+const $togglePasswordVerifyIcon = document.querySelector(".toggle-password-verify");
+const $userEmailInput = document.querySelector(".userEmail");
+const $userPasswordInput = document.querySelector(".userPassword");
+const $userPasswordVerifyInput = document.querySelector(".userPassword-verify");
 const $signupForm = document.querySelector("#signup-form");
 
 //비밀번호를 확인할 수 있는 아이콘 클릭시 비밀번호의 문자열이 보이기도 하고, 가려지기도 합니다.
@@ -42,7 +42,7 @@ function verifyPassword(e) {
   let target = e.target.value;
   let regex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
 
-  if (!regex.test(target) && !$togglePassword.contains(e.relatedTarget)) {
+  if (!regex.test(target) && !$togglePasswordIcon.contains(e.relatedTarget)) {
     alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
   }
 }
@@ -51,9 +51,9 @@ function verifyPassword(e) {
 function verifysignupForm(e) {
   e.preventDefault();
 
-  let email = $userEmail.value;
-  let password = $userPassword.value;
-  let passwordVerify = $userPasswordVerify.value;
+  let email = $userEmailInput.value;
+  let password = $userPasswordInput.value;
+  let passwordVerify = $userPasswordVerifyInput.value;
 
   let regexEmail = new RegExp("^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$");
   let regexPassword = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
@@ -73,8 +73,8 @@ function verifysignupForm(e) {
   }
 }
 
-$togglePassword.addEventListener("click", togglePassword);
-$togglePasswordVerify.addEventListener("click", togglePassword);
-$userEmail.addEventListener("focusout", verifyEmail);
-$userPassword.addEventListener("focusout", verifyPassword);
+$togglePasswordIcon.addEventListener("click", togglePassword);
+$togglePasswordVerifyIcon.addEventListener("click", togglePassword);
+$userEmailInput.addEventListener("focusout", verifyEmail);
+$userPasswordInput.addEventListener("focusout", verifyPassword);
 $signupForm.addEventListener("submit", verifysignupForm);

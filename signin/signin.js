@@ -1,6 +1,6 @@
-const $togglePassword = document.querySelector('.toggle-password')
-const $userEmail = document.querySelector('.userEmail')
-const $userPassword = document.querySelector('.userPassword')
+const $togglePasswordIcon = document.querySelector('.toggle-password')
+const $userEmailInput = document.querySelector('.userEmail')
+const $userPasswordInput = document.querySelector('.userPassword')
 const $loginForm = document.querySelector('#login-form')
 
 
@@ -39,7 +39,7 @@ function verifyLogininfo(e){
     e.preventDefault();
     const trueEmail = 'test@codeit.com';
     const truePw = 'codeit101';
-    if($userEmail.value===trueEmail && userPassword.value===truePw){
+    if($userEmailInput.value===trueEmail && userPassword.value===truePw){
         location.href = "../my-link/my-link.html";
     }
     else{
@@ -47,6 +47,6 @@ function verifyLogininfo(e){
     }
 };
 
-$togglePassword.addEventListener('click', togglePassword);
-$userEmail.addEventListener('focusout', verifyEmail);
+$togglePasswordIcon.addEventListener('click', togglePassword);
+$userEmailInput.addEventListener('focusout', verifyEmail);
 $loginForm.addEventListener('submit', verifyLogininfo);
