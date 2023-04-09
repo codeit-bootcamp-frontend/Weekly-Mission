@@ -11,14 +11,14 @@
       property="og:description"
       content="세상의 모든 정보를 쉽게 저장하고 관리해보세요"
     />
-    <meta property="og:image" content="preview.png" />
+    <meta property="og:image" content="./public/preview.png" />
     <meta property="og:url" content="https://real-noah-weekly.netlify.app/" />
     <meta property="og:type" content="website" />
     <!--미리보기 메타태그 끝-->
 
     <!-- 트위터 메타태그-->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="preview.png" />
+    <meta name="twitter:image" content="./public/preview.png" />
     <meta name="twitter:title" content="Linkbrary" />
     <meta
       name="twitter:description"
@@ -40,8 +40,12 @@
     <header>
       <div class="gnb">
         <div class="logo">
-          <a href="https://real-noah-weekly.netlify.app/">
-            <img src="Linkbrary.png" alt="linkbrary" />
+          <a href="https://real-noah-weekly.netlify.app/" class="logo_link">
+            <img
+              src="./public/Linkbrary.png"
+              alt="linkbrary"
+              class="logo_img"
+            />
           </a>
         </div>
         <div>
@@ -50,66 +54,57 @@
       </div>
 
       <h1 class="header_title">
-        세상의 모든 정보를<br />
-        쉽게 저장하고 관리해보세요
+        세상의 모든 정보를 쉽게 저장하고 관리해보세요
       </h1>
       <div class="button_wrapper">
         <a href="#" class="button_link">링크 추가하기</a>
       </div>
-      <img src="images.png" alt="images" class="images" />
+      <img src="./public/images.png" alt="images" class="images" />
     </header>
 
     <main>
       <div class="section">
-        <div class="link_save">
-          <h2>원하는 링크를<br />저장하세요</h2>
+        <div class="link_item">
+          <h2>원하는 링크를 저장하세요</h2>
           <h3>
-            여러 링크를 폴더에 담고 공유할 수 있어요.<br />
-            가족, 친구, 동료들에게 쉽고 빠르게 링크를<br />
-            공유해 보세요.
+            여러 링크를 폴더에 담고 공유할 수 있어요. 가족, 친구, 동료들에게
+            쉽고 빠르게 링크를 공유해 보세요.
           </h3>
         </div>
-        <img src="img1.png" alt="image1" class="image1" />
+        <img src="./public/img1.png" alt="image1" class="image-item" />
+      </div>
+
+      <div class="section reverse">
+        <div class="link_item">
+          <h2>링크를 폴더로 관리하세요</h2>
+          <h3>나만의 폴더를 무제한으로 만들고 다양하게 활용할 수 있어요.</h3>
+        </div>
+        <img src="./public/img2.png" alt="image2" class="image-item" />
       </div>
 
       <div class="section">
-        <img src="img2.png" alt="image2" class="image2" />
-        <div class="link_folder">
-          <h2>
-            링크를 폴더로<br />
-            관리하세요
-          </h2>
+        <div class="link_item">
+          <h2>저장한 링크를 공유해 보세요.</h2>
           <h3>
-            나만의 폴더를 무제한으로 만들고 <br />
-            다양하게 활용할 수 있어요.
+            여러 링크를 폴더에 담고 공유할 수 있어요. 가족, 친구, 동료들에게
+            쉽고 빠르게 링크를 공유해 보세요.
           </h3>
         </div>
+        <img src="./public/img3.png" alt="image3" class="image-item" />
       </div>
 
-      <div class="section">
-        <div class="link_share">
-          <h2>저장한 링크를<br />공유해 보세요.</h2>
-          <h3>
-            여러 링크를 폴더에 담고 공유할 수 있어요.<br />
-            가족, 친구, 동료들에게 쉽고 빠르게 링크를<br />
-            공유해 보세요.
-          </h3>
-        </div>
-        <img src="img3.png" alt="image3" class="image3" />
-      </div>
-
-      <div class="section">
-        <img src="img4.png" alt="image4" class="image4" />
-        <div class="link_search">
-          <h2>저장한 링크를<br />검색해 보세요</h2>
+      <div class="section reverse">
+        <div class="link_item">
+          <h2>저장한 링크를 검색해 보세요</h2>
           <h3>중요한 정보들을 검색으로 쉽게 찾아보세요.</h3>
         </div>
+        <img src="./public/img4.png" alt="image4" class="image-item" />
       </div>
     </main>
 
     <footer>
-      <div class="footer_items">
-        <div class="footer-left">©codeit - 2023</div>
+      <div class="footer_items desktop">
+        <div class="company-name">©codeit - 2023</div>
 
         <div class="footer-center">
           <a href="privacy.html">Privacy Policy</a>
@@ -118,18 +113,43 @@
 
         <div class="footer-right">
           <a href="https://ko-kr.facebook.com/"
-            ><img src="facebook.svg" alt="Facebook"
+            ><img src="./public/facebook.svg" alt="Facebook"
           /></a>
           <a href="https://twitter.com/?lang=ko">
-            <img src="twitter.svg" alt="Twitter" />
+            <img src="./public/twitter.svg" alt="Twitter" />
           </a>
           <a href="https://www.youtube.com/">
-            <img src="youtube.svg" alt="Youtube" />
+            <img src="./public/youtube.svg" alt="Youtube" />
           </a>
           <a href="https://www.instagram.com/"
-            ><img src="Vector.png" alt="Instagram" />
+            ><img src="./public/Vector.png" alt="Instagram" />
           </a>
         </div>
+      </div>
+      <div class="footer_items mobile">
+        <div class="footer-top">
+          <div class="footer-center">
+            <a href="privacy.html">Privacy Policy</a>
+          </div>
+
+          <div class="footer-center"><a href="faq.html">FAQ</a>s</div>
+
+          <div class="footer-right">
+            <a href="https://ko-kr.facebook.com/"
+              ><img src="./public/facebook.svg" alt="Facebook"
+            /></a>
+            <a href="https://twitter.com/?lang=ko">
+              <img src="./public/twitter.svg" alt="Twitter" />
+            </a>
+            <a href="https://www.youtube.com/">
+              <img src="./public/youtube.svg" alt="Youtube" />
+            </a>
+            <a href="https://www.instagram.com/"
+              ><img src="./public/Vector.png" alt="Instagram" />
+            </a>
+          </div>
+        </div>
+        <div class="company-name">©codeit - 2023</div>
       </div>
     </footer>
   </body>
