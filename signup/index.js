@@ -74,6 +74,9 @@ function checkValidSignup(e) {
   } else {
     location.href = "/my-link/";
   }
+
+  passwordInput.removeEventListener("focusout", checkPasswordValid);
+  emailInput.removeEventListener("focusout", checkEmailValid);
 }
 
 signupForm.addEventListener("submit", checkValidSignup);
