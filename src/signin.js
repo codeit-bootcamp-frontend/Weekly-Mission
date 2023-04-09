@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const username = document.getElementById("username");
     const password = passwordInput.value;
     if (username.value === "test@codeit.com" && password === "codeit101") {
-      window.location = "/my-list";
+      window.location = "/my-list.html";
       return;
     }
     alert("이메일과 비밀번호를 확인해주세요.");

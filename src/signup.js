@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const usernameInput = document.getElementById("username");
   const passwordInput = document.querySelector("#password");
+  const passwordRepeatInput = document.querySelector("#password-repeat");
+  const registerBtn = document.querySelector("#register-btn");
 
   const validateEmail = (mail) => {
     const mailformat =
@@ -17,6 +19,38 @@ document.addEventListener("DOMContentLoaded", () => {
       return true;
     }
     return false;
+  };
+
+  const tryRegister = () => {
+    const username = usernameInput.value;
+    const password = passwordInput.value;
+    const passwordRepeat = passwordRepeatInput.value;
+    //아이디 공란 체크
+    if (!username) {
+      alert("이메일을 입력해주세요.");
+      return;
+    }
+    //아이디 포맷 체크
+    if (!validateEmail(username)) {
+      alert("올바른 이메일 주소가 아닙니다.");
+      return;
+    }
+    //아이디 중복 체크
+    if (username === "test@codeit.com") {
+      alert("이미 사용 중인 아이디입니다.");
+      return;
+    }
+    //비밀번호 확인 일치 여부 체크
+    if (password !== passwordRepeat) {
+      alert("비밀번호가 일치하지 않습니다.");
+      return;
+    }
+    //비밀번호 포맷 체크
+    if (!validatePassword(password)) {
+      alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
+      return;
+    }
+    window.location = "/my-list.html";
   };
 
   usernameInput.addEventListener("focusout", (e) => {
@@ -39,5 +73,10 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
       return;
     }
+  });
+
+  registerBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    tryRegister();
   });
 });
