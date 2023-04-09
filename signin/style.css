@@ -149,3 +149,13 @@ input:focus {
 .focus-text-color {
   color: #000000;
 }
+
+@media (max-width: 767px) {
+  body {
+    padding: 0 3.2rem;
+  }
+
+  .signin-container {
+    margin-top: 12rem;
+  }
+}

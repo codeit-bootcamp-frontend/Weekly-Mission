@@ -135,3 +135,13 @@ input:focus {
 .social-icons img {
   display: block;
 }
+
+@media (max-width: 767px) {
+  body {
+    padding: 0 3.2rem;
+  }
+
+  .signup-container {
+    margin-top: 12rem;
+  }
+}
