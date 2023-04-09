@@ -3,6 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const passwordInput = document.querySelector("#password");
   const passwordRepeatInput = document.querySelector("#password-repeat");
   const registerBtn = document.querySelector("#register-btn");
+  const showPasswordBtn = document.getElementById("show-password-icon");
+  const showPasswordBtnRepeat = document.getElementById(
+    "show-password-icon-repeat"
+  );
 
   const validateEmail = (mail) => {
     const mailformat =
@@ -19,6 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
       return true;
     }
     return false;
+  };
+
+  const togglePassword = (passwordInput) => {
+    if (passwordInput.getAttribute("type") === "password")
+      passwordInput.setAttribute("type", "text");
+    else {
+      passwordInput.setAttribute("type", "password");
+    }
   };
 
   const tryRegister = () => {
@@ -73,6 +85,14 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
       return;
     }
+  });
+
+  showPasswordBtn.addEventListener("click", () => {
+    togglePassword(passwordInput);
+  });
+
+  showPasswordBtnRepeat.addEventListener("click", () => {
+    togglePassword(passwordRepeatInput);
   });
 
   registerBtn.addEventListener("click", (e) => {
