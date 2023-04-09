@@ -122,3 +122,15 @@ body {
   height: 2.625rem;
   margin-left: 1rem;
 }
+
+@media only screen and (max-width: 767px) {
+  main {
+    padding: 0 2rem 0 2rem;
+  }
+
+  .login-form {
+    width: 100%;
+    max-width: 25rem;
+    margin-top: 7.5rem;
+  }
+}
