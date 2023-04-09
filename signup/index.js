@@ -10,9 +10,9 @@ function focusin(e) {
   e.target.parentElement.classList.add("focus-outline");
 
   if (e.target.id === "email") {
-    setTimeout(() => { emailInput.addEventListener("focusout", checkEmailValid), 50 });
+    setTimeout(() => { emailInput.addEventListener("focusout", checkEmailValid)}, 10);
   } else if (e.target.id === "password") {
-    setTimeout(() => { passwordInput.addEventListener("focusout", checkPasswordValid), 50 });
+    setTimeout(() => { passwordInput.addEventListener("focusout", checkPasswordValid)}, 10);
   }
 }
 
@@ -24,7 +24,6 @@ function focusout(e) {
 function checkEmailValid(e) {
   const emailValue = e.target.value;
 
-  console.log(emailValue);
   if (emailValue === "") {
     alert("이메일을 입력해주세요.");
   } else if (!validEmail.test(emailValue)) {
