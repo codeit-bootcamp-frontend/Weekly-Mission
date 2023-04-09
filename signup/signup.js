@@ -4,12 +4,10 @@ const signupForm = document.querySelector("form");
 const inputs = document.querySelectorAll(".input");
 let isAlertShown = false;
 
+// validation 함수
 function isValidEmail(e) {
   const emailRegex = "^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
-  console.log("isValidEmail");
-  console.log(e);
-  // alert로 인한 focusout event일 경우 sorceCapabilities가 null
-  // 원래는 요소가 InputDeviceCapabilities firesTouchEvents: false
+
   if (e.sourceCapabilities === null) {
     return;
   }
@@ -43,42 +41,31 @@ function isValidPasswordCheck(e) {
   }
 }
 
-function isValidForm(e) {
-  console.log(e.sourceCapabilities); // undefined
-  isValidEmail(e);
-  isValidPassword(e);
-  isValidPasswordCheck(e);
-}
-
 function addFocusOutEventListener(e) {
   if (e.target === email) {
-    console.log("addFocusoutemail");
-
     e.target.addEventListener("focusout", isValidEmail);
   } else if (e.target === password) {
-    console.log("addFocusoutpassword");
-
     e.target.addEventListener("focusout", isValidPassword);
   }
 }
 
 function removeFocusOutEventListener(e) {
   if (e.target === email) {
-    console.log("removeFocusoutemail");
     e.target.removeEventListener("focusout", isValidEmail);
     e.preventDefault();
   } else if (e.target === password) {
-    console.log("removeFocusoutpassword");
     e.target.removeEventListener("focusout", isValidPassword);
     e.preventDefault();
   }
 }
-//   else if (e.target === signupForm) {
-//     conso
-//     e.target.removeEventListener("submit", isValidForm);
-//   }
-// }
 
+function isValidForm(e) {
+  isValidEmail(e);
+  isValidPassword(e);
+  isValidPasswordCheck(e);
+}
+
+// inputbox focus text color 변경
 function focusInTextColor(e) {
   e.target.classList.add("input-focus-text-color");
 }
@@ -90,10 +77,13 @@ function focusOutTextColor(e) {
 inputs.forEach((input) => {
   input.addEventListener("focusin", focusInTextColor);
   input.addEventListener("focusout", focusOutTextColor);
-
+  // validation에 대한 event listener 등록
   input.addEventListener("focusin", addFocusOutEventListener);
 });
 
+signupForm.addEventListener("submit", isValidForm);
+
+// eye toggle
 const eyeIcons = document.querySelectorAll(".eye-icon");
 const passwordEyeIcon = eyeIcons[0];
 const passwordCheckEyeIcon = eyeIcons[0];
@@ -114,7 +104,3 @@ eyeIcons.forEach((eyeIcon) => {
     }
   });
 });
-
-// email.addEventListener("focusout", isValidEmail);
-
-signupForm.addEventListener("submit", isValidForm);

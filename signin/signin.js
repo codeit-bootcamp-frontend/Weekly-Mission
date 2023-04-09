@@ -22,11 +22,12 @@ function isValidAccount(e) {
   }
 }
 
-function focusIn(e) {
+// inputbox focus text color 변경
+function focusInTextColor(e) {
   e.target.classList.add("input-focus-text-color");
 }
 
-function focusOut(e) {
+function focusOutTextColor(e) {
   e.target.classList.remove("input-focus-text-color");
 }
 
@@ -35,6 +36,7 @@ inputs.forEach((input) => {
   input.addEventListener("focusout", focusOut);
 });
 
+// eys toggle
 const eyeIcons = document.querySelector(".eye-icon");
 
 eyeIcons.addEventListener("pointerdown", (e) => {
@@ -51,5 +53,6 @@ eyeIcons.addEventListener("pointerdown", (e) => {
   }
 });
 
+// validation에 대한 event listener 등록
 email.addEventListener("focusout", isValidEmail);
 signinForm.addEventListener("submit", isValidAccount);
