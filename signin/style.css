@@ -94,6 +94,13 @@ input:focus {
 .signin-form .password-input {
   margin-bottom: 3rem;
   display: flex;
+  align-items: center;
+}
+
+.eye-open {
+  width: 1.6rem;
+  height: 1.5rem;
+  display: none;
 }
 
 .signin-form button {
