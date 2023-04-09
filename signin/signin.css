@@ -34,6 +34,19 @@ input {
   border: 0.1rem solid #ccd5e3;
   border-radius: 0.8rem;
   background-color: #fff;
+  color: grey;
+}
+
+#email,
+#password,
+#password-check {
+  color: gray;
+}
+
+#email:focus,
+#password:focus,
+#password-check:focus {
+  color: black;
 }
 
 input::placeholder {
@@ -50,6 +63,10 @@ input:last-of-type {
 
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px #fff inset;
+}
+
+.gray {
+  color: gray;
 }
 
 button {
@@ -136,6 +153,8 @@ button {
 .register {
   margin-top: 3.2rem;
 }
+
+/* 모바일 사이즈 */
 
 @media (max-width: 464px) {
   main {
