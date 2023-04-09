@@ -5,7 +5,9 @@ const inputs = document.querySelectorAll(".input");
 
 function isValidEmail(e) {
   const emailRegex = "^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
-
+  if (e.sourceCapabilities === null) {
+    return;
+  }
   if (email.value === "") {
     alert("이메일을 입력해주세요.");
   } else if (!email.value.match(emailRegex)) {
@@ -15,6 +17,7 @@ function isValidEmail(e) {
 
 function isValidAccount(e) {
   e.preventDefault();
+
   if (email.value === "test@codeit.com" && password.value === "codeit101") {
     location.href = "../my-link/";
   } else {
