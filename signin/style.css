@@ -104,6 +104,11 @@ input:focus {
   background-image: linear-gradient(to right, #6d6afe, #6ae3fe);
   color: #f5f5f5;
   border-radius: 0.8rem;
+  cursor: pointer;
+}
+
+.signin-form button:focus {
+  outline: none;
 }
 
 .signin-button {

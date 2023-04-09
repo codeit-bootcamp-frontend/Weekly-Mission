@@ -112,6 +112,11 @@ input:focus {
   color: #F5F5F5;
   font-size: 1.8rem;
   font-weight: 600;
+  cursor: pointer;
+}
+
+.signup-form button:focus {
+  outline: none;
 }
 
 .social-signup-container {
