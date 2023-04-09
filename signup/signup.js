@@ -2,10 +2,17 @@ const email = document.querySelector("#signup-email");
 const password = document.querySelector("#signup-password");
 const signupForm = document.querySelector("form");
 const inputs = document.querySelectorAll(".input");
+let isAlertShown = false;
 
 function isValidEmail(e) {
   const emailRegex = "^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
   console.log("isValidEmail");
+  console.log(e);
+  // alert로 인한 focusout event일 경우 sorceCapabilities가 null
+  // 원래는 요소가 InputDeviceCapabilities firesTouchEvents: false
+  if (e.sourceCapabilities === null) {
+    return;
+  }
   if (email.value === "") {
     alert("이메일을 입력해주세요.");
     removeFocusOutEventListener(e);
@@ -19,6 +26,9 @@ function isValidEmail(e) {
 }
 
 function isValidPassword(e) {
+  if (e.sourceCapabilities === null) {
+    return;
+  }
   const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
   if (!password.value.match(passwordRegex)) {
     alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
@@ -34,6 +44,7 @@ function isValidPasswordCheck(e) {
 }
 
 function isValidForm(e) {
+  console.log(e.sourceCapabilities); // undefined
   isValidEmail(e);
   isValidPassword(e);
   isValidPasswordCheck(e);
@@ -60,10 +71,13 @@ function removeFocusOutEventListener(e) {
     console.log("removeFocusoutpassword");
     e.target.removeEventListener("focusout", isValidPassword);
     e.preventDefault();
-  } else if (e.target === signupForm) {
-    e.target.removeEventListener("submit", isValidForm);
   }
 }
+//   else if (e.target === signupForm) {
+//     conso
+//     e.target.removeEventListener("submit", isValidForm);
+//   }
+// }
 
 function focusInTextColor(e) {
   e.target.classList.add("input-focus-text-color");
@@ -77,7 +91,7 @@ inputs.forEach((input) => {
   input.addEventListener("focusin", focusInTextColor);
   input.addEventListener("focusout", focusOutTextColor);
 
-  input.addEventListener("focusout", addFocusOutEventListener);
+  input.addEventListener("focusin", addFocusOutEventListener);
 });
 
 const eyeIcons = document.querySelectorAll(".eye-icon");
