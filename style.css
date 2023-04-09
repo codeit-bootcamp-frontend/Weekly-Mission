@@ -175,6 +175,8 @@ footer {
 }
 
 /* footer 끝 */
+
+/*미디어 쿼리*/
 /* PC */
 @media screen and (min-width: 1200px) {
   .logo {
@@ -268,13 +270,12 @@ footer {
 @media screen and (min-width: 768px) and (max-width: 863px) {
   .gnb {
     height: 94px;
-    padding: 0 200px;
     padding: 0px 32px;
   }
 }
+
 /* Mobile */
 @media screen and (min-width: 375px) and (max-width: 767px) {
-  /* Mobile에 대한 스타일 작성 */
   header {
     padding: 0px 32px;
   }
