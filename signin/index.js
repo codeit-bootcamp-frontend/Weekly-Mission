@@ -1,12 +1,8 @@
-let flag = false;
+const validEmail = /^[a-z0-9]+\@[a-z]+\.[a-z]{2,3}$/;
 
 function focusIn(e) {
   e.target.classList.add("focus-text-color");
   e.target.parentElement.classList.add("focus-outline");
-
-  if (e.target.id === "email") {
-    e.target.addEventListener("focusout", focusOut);
-  }
 }
 
 function focusOut(e) {
@@ -26,11 +22,9 @@ function focusOut(e) {
   }
 }
 
-function focusEmailInput(e) {
-  e.target.focus();
-  e.target.removeEventListener("focusout", focusOut);
-}
-
+inputNodes.forEach((inputNode) => {
+  inputNode.addEventListener("focusin", focusin);
+  inputNode.addEventListener("focusout", focusout);
 let inputNode = document.querySelectorAll(".login-form input");
 inputNode.forEach((element) => {
   element.addEventListener("focusin", focusIn);
