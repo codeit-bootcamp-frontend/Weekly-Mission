@@ -103,12 +103,12 @@ body {
   position: relative;
 }
 
-.toggle-password, .toggle-password-verify {
+.toggle-password i, .toggle-password-verify i {
   position: absolute;
-  top: 47px;
+  top: 45px;
   right: 20px;
-  width: 16px;
-  height: 15px;
+  font-size: 16px;
+  color: #4B5563
 }
 
 /*회원가입 버튼*/

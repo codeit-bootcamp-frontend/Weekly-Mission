@@ -7,10 +7,17 @@ const $loginForm = document.querySelector('#login-form')
 //비밀번호를 확인할 수 있는 아이콘 클릭시 비밀번호의 문자열이 보이기도 하고, 가려지기도 합니다.
 function togglePassword(e) {
     e.preventDefault();
-    if ($userPassword.type === "password") {
-        $userPassword.type = "text";
+    const icons = e.target.parentNode.children;
+    const input = e.target.closest('div').querySelector('input');
+
+    for(let i = 0; i<icons.length; i++){
+        icons[i].classList.toggle('hide')
+    }
+
+    if (input.type === "password") {
+        input.type = "text";
     } else {
-        $userPassword.type = "password";
+        input.type = "password";
     }
   }
 

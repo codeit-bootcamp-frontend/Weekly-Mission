@@ -7,6 +7,7 @@
     <title>signup</title>
     <link rel="stylesheet" href="signup_style.css"></link>
     <link rel="stylesheet" href="../reset.css"></link>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 </head>
 <body>
     <div class="signup-wrapper">
@@ -21,12 +22,18 @@
                 <div class="password-container">
                     <p class="userPassword-text"><label for="userPassword">비밀번호</label></p>
                     <input type="password" id="userPassword" name="userPassword" class="userPassword" placeholder="비밀번호">
-                    <a href="#" class="toggle-password"><img src="../img/pwvisible.png"></a>
+                    <a href="#" class="toggle-password">
+                        <i class= "fi fi-rr-eye-crossed hide"></i>
+                        <i class="fi fi-rr-eye"></i>
+                    </a>
                 </div>
                 <div class="password-verify-container">
                     <p class="userPassword-verify-text"><label for="userPassword-verify">비밀번호 확인</label></p>
                     <input type="password" id="userPassword-verify" name="userPassword-verify" class="userPassword-verify" placeholder="비밀번호 확인">
-                    <a href="#" class="toggle-password-verify"><img src="../img/pwvisible.png"></a>
+                    <a href="#" class="toggle-password-verify">
+                        <i class= "fi fi-rr-eye-crossed hide"></i>
+                        <i class="fi fi-rr-eye"></i>
+                    </a>
                 </div>
                 <input type="submit" class="signup-btn" value="회원가입">
             </form>
