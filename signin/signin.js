@@ -32,8 +32,8 @@ function focusOutTextColor(e) {
 }
 
 inputs.forEach((input) => {
-  input.addEventListener("focusin", focusIn);
-  input.addEventListener("focusout", focusOut);
+  input.addEventListener("focusin", focusInTextColor);
+  input.addEventListener("focusout", focusOutTextColor);
 });
 
 // eys toggle
