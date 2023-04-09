@@ -37,9 +37,9 @@ inputs.forEach((input) => {
 
 const eyeIcons = document.querySelector(".eye-icon");
 
-eyeIcons.addEventListener("click", (e) => {
+eyeIcons.addEventListener("pointerdown", (e) => {
   const target = e.target.previousSibling;
-
+  e.preventDefault();
   if (eyeIcons.classList.contains("fa-eye-slash")) {
     eyeIcons.classList.remove("fa-eye-slash");
     eyeIcons.classList.add("fa-eye");

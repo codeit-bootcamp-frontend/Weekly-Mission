@@ -40,38 +40,44 @@ function isValidForm(e) {
 }
 
 function addFocusOutEventListener(e) {
-  console.log("addFocusout");
-  console.log(e.target);
   if (e.target === email) {
+    console.log("addFocusoutemail");
+
     e.target.addEventListener("focusout", isValidEmail);
   } else if (e.target === password) {
+    console.log("addFocusoutpassword");
+
     e.target.addEventListener("focusout", isValidPassword);
   }
 }
 
 function removeFocusOutEventListener(e) {
-  e.target.blur(); // bug 수정 필요
   if (e.target === email) {
+    console.log("removeFocusoutemail");
     e.target.removeEventListener("focusout", isValidEmail);
+    e.preventDefault();
   } else if (e.target === password) {
+    console.log("removeFocusoutpassword");
     e.target.removeEventListener("focusout", isValidPassword);
+    e.preventDefault();
   } else if (e.target === signupForm) {
     e.target.removeEventListener("submit", isValidForm);
   }
 }
 
-function focusIn(e) {
+function focusInTextColor(e) {
   e.target.classList.add("input-focus-text-color");
 }
 
-function focusOut(e) {
+function focusOutTextColor(e) {
   e.target.classList.remove("input-focus-text-color");
 }
 
 inputs.forEach((input) => {
-  input.addEventListener("focusin", focusIn);
-  input.addEventListener("focusout", focusOut);
-  input.addEventListener("focusin", addFocusOutEventListener);
+  input.addEventListener("focusin", focusInTextColor);
+  input.addEventListener("focusout", focusOutTextColor);
+
+  input.addEventListener("focusout", addFocusOutEventListener);
 });
 
 const eyeIcons = document.querySelectorAll(".eye-icon");
@@ -79,9 +85,8 @@ const passwordEyeIcon = eyeIcons[0];
 const passwordCheckEyeIcon = eyeIcons[0];
 
 eyeIcons.forEach((eyeIcon) => {
-  console.log(eyeIcon.previousElementSibling);
-
-  eyeIcon.addEventListener("click", (e) => {
+  eyeIcon.addEventListener("pointerdown", (e) => {
+    e.preventDefault();
     const target = e.target.previousSibling;
 
     if (eyeIcon.classList.contains("fa-eye-slash")) {
@@ -96,6 +101,6 @@ eyeIcons.forEach((eyeIcon) => {
   });
 });
 
-email.addEventListener("focusout", isValidEmail);
+// email.addEventListener("focusout", isValidEmail);
 
 signupForm.addEventListener("submit", isValidForm);
