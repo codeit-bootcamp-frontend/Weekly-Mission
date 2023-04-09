@@ -87,11 +87,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  showPasswordBtn.addEventListener("click", () => {
+  showPasswordBtn.addEventListener("pointerdown", (e) => {
+    e.preventDefault();
     togglePassword(passwordInput);
   });
 
-  showPasswordBtnRepeat.addEventListener("click", () => {
+  showPasswordBtnRepeat.addEventListener("pointerdown", (e) => {
+    e.preventDefault();
     togglePassword(passwordRepeatInput);
   });
 
