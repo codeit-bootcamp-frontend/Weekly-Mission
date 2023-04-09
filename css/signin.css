@@ -92,6 +92,11 @@ body {
   border: none;
 }
 
+.signin-form .login-btn:focus {
+  border: none;
+  outline: none;
+}
+
 .find-password a {
   text-decoration: none;
   font-size: 14px;
