@@ -104,6 +104,8 @@ function toggleVisibility(e) {
     eyeClose.classList.remove("eye-hidden");
     eyeOpen.classList.remove("eye-visible");
   }
+
+  passwordInput.focus();
 }
 
 passwordEyeClose.addEventListener("click", toggleVisibility);
