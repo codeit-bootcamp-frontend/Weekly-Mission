@@ -47,3 +47,23 @@ function checkValidSignin(e) {
 }
 
 signinForm.addEventListener("submit", checkValidSignin);
+
+const eyeCloseIcon = document.querySelector(".eye-close");
+const eyeOpenIcon = document.querySelector(".eye-open");
+
+function toggleVisibility(e) {
+  const passwordInput = e.target.parentElement.children[0];
+  
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    eyeCloseIcon.classList.add("eye-hidden");
+    eyeOpenIcon.classList.add("eye-visible");
+  } else {
+    passwordInput.type = "password";
+    eyeCloseIcon.classList.remove("eye-hidden");
+    eyeOpenIcon.classList.remove("eye-visible");
+  }
+}
+
+eyeCloseIcon.addEventListener("click", toggleVisibility);
+eyeOpenIcon.addEventListener("click", toggleVisibility);

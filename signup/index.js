@@ -80,3 +80,34 @@ function checkValidSignup(e) {
 }
 
 signupForm.addEventListener("submit", checkValidSignup);
+
+const eyeCloseIcons = document.querySelectorAll(".eye-close");
+const eyeOpenIcons = document.querySelectorAll(".eye-open");
+
+const passwordEyeClose = eyeCloseIcons[0];
+const passwordEyeOpen = eyeOpenIcons[0];
+
+const passwordRemindEyeClose = eyeCloseIcons[1];
+const passwordRemindEyeOpen = eyeOpenIcons[1];
+
+function toggleVisibility(e) {
+  const passwordInput = e.target.parentElement.children[0];
+  const eyeClose = e.target.parentElement.children[1];
+  const eyeOpen = e.target.parentElement.children[2];
+  
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    eyeClose.classList.add("eye-hidden");
+    eyeOpen.classList.add("eye-visible");
+  } else {
+    passwordInput.type = "password";
+    eyeClose.classList.remove("eye-hidden");
+    eyeOpen.classList.remove("eye-visible");
+  }
+}
+
+passwordEyeClose.addEventListener("click", toggleVisibility);
+passwordEyeOpen.addEventListener("click", toggleVisibility);
+
+passwordRemindEyeClose.addEventListener("click", toggleVisibility);
+passwordRemindEyeOpen.addEventListener("click", toggleVisibility);

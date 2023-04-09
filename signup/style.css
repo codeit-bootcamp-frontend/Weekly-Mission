@@ -92,11 +92,26 @@ input:focus {
 
 .password-input, .password-remind-input {
   display: flex;
+  align-items: center;
 }
 
 /* 비밀번호, 비밀번호 확인 input만 적용 */
 .signup-form div:not(:first-of-type) input {
   margin-right: 1rem;
+}
+
+.eye-open {
+  width: 1.6rem;
+  height: 1.5rem;
+  display: none;
+}
+
+.eye-visible {
+  display: initial;
+}
+
+.eye-hidden {
+  display: none;
 }
 
 .signup-form label {

@@ -103,6 +103,14 @@ input:focus {
   display: none;
 }
 
+.eye-visible {
+  display: initial;
+}
+
+.eye-hidden {
+  display: none;
+}
+
 .signin-form button {
   font-size: 1.8rem;
   width: 100%;
