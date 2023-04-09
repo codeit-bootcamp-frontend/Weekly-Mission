@@ -11,34 +11,45 @@ function isValidEmail(e) {
   if (e.sourceCapabilities === null) {
     return;
   }
+
   if (email.value === "") {
     alert("이메일을 입력해주세요.");
     removeFocusOutEventListener(e);
+    return false;
   } else if (!email.value.match(emailRegex)) {
     alert("올바른 이메일 주소가 아닙니다.");
     removeFocusOutEventListener(e);
+    return false;
   } else if (email.value === "test@codeit.com") {
     alert("이미 사용 중인 아이디입니다.");
     removeFocusOutEventListener(e);
+    return false;
   }
+  return true;
 }
 
 function isValidPassword(e) {
+  const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
+
   if (e.sourceCapabilities === null) {
     return;
   }
-  const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
+
   if (!password.value.match(passwordRegex)) {
     alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
     removeFocusOutEventListener(e);
+    return false;
   }
+  return true;
 }
 
 function isValidPasswordCheck(e) {
   const passwordCheck = document.getElementById("signup-password-check").value;
   if (password.value !== passwordCheck) {
     alert("비밀번호 확인이 일치하지 않습니다.");
+    return false;
   }
+  return true;
 }
 
 function addFocusOutEventListener(e) {
@@ -60,9 +71,10 @@ function removeFocusOutEventListener(e) {
 }
 
 function isValidForm(e) {
-  isValidEmail(e);
-  isValidPassword(e);
-  isValidPasswordCheck(e);
+  e.preventDefault();
+  if (isValidEmail(e) || isValidPassword(e) || isValidPasswordCheck(e)) {
+    location.href = "../my-link/";
+  }
 }
 
 // inputbox focus text color 변경
