@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Signin</title>
     <link rel="stylesheet" href="signin.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
   </head>
 
   <body>
@@ -18,7 +19,12 @@
         <label for="email">이메일</label>
         <input type="email" name="email" placeholder="example@email.com" id="email" />
         <label for="password">비밀번호</label>
-        <input type="password" name="password" placeholder="***************" id="password" />
+        <div class="input-wrapper">
+          <input type="password" name="password" placeholder="***************" id="password" />
+          <div id="showIcon">
+            <i class="btn fa fa-eye fa-lg"></i>
+          </div>
+        </div>
         <button type="submit">로그인</button>
       </form>
       <div class="find-password">
