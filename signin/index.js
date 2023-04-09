@@ -31,7 +31,7 @@ inputNodes.forEach((inputNode) => {
 
 emailInput.addEventListener("focusout", checkEmailValid);
 
-const loginForm = document.querySelector(".login-form");
+const signinForm = document.querySelector(".signin-form");
 
 function checkValidSignin(e) {
   e.preventDefault();
@@ -46,4 +46,4 @@ function checkValidSignin(e) {
   }
 }
 
-loginForm.addEventListener("submit", checkValidSignin);
+signinForm.addEventListener("submit", checkValidSignin);
