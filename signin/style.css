@@ -15,7 +15,7 @@ body {
   background-color: #F0F6FF;
 }
 
-.login-container {
+.signin-container {
   max-width: 40rem;
   margin: 23.8rem auto 0;
 }
@@ -49,19 +49,19 @@ body {
   border-bottom: 1px solid;
 }
 
-.email-login-container {
+.email-signin-container {
   margin-bottom: 3.2rem;
 }
 
-.login-form {
+.signin-form {
   margin-bottom: 1.6rem;
 }
 
-.login-form label {
+.signin-form label {
   font-size: 1.4rem;
 }
 
-.login-form div {
+.signin-form div {
   width: 100%;
   margin-top: 1.2rem;
   padding: 1.8rem 1.5rem;
@@ -76,6 +76,7 @@ input {
   width: 100%;
   margin-right: 1rem;
   color: #9fa6b2;
+  font-size: 1.6rem;
 }
 
 input::placeholder {
@@ -86,16 +87,16 @@ input:focus {
   outline: none;
 }
 
-.login-form .email-input {
+.signin-form .email-input {
   margin-bottom: 2.4rem;
 }
 
-.login-form .password-input {
+.signin-form .password-input {
   margin-bottom: 3rem;
   display: flex;
 }
 
-.login-form button {
+.signin-form button {
   font-size: 1.8rem;
   width: 100%;
   height: 5.4rem;
@@ -105,7 +106,7 @@ input:focus {
   border-radius: 0.8rem;
 }
 
-.login-button {
+.signin-button {
   display: block;
   margin: 0 auto;
 }
@@ -120,7 +121,7 @@ input:focus {
   text-decoration: none;
 }
 
-.social-login-container {
+.social-signin-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
