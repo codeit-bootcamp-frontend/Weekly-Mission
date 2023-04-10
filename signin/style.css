@@ -12,7 +12,7 @@ html {
 
 body {
   font-family: "Pretendard", sans-serif;
-  background-color: #F0F6FF;
+  background-color: #f0f6ff;
 }
 
 .signin-container {
@@ -20,7 +20,8 @@ body {
   margin: 23.8rem auto 0;
 }
 
-.linkbrary-logo, .linkbrary-logo img {
+.linkbrary-logo,
+.linkbrary-logo img {
   display: block;
 }
 
@@ -28,7 +29,7 @@ body {
   margin-bottom: 1.6rem;
 }
 
-.linkbrary-logo img{
+.linkbrary-logo img {
   width: 21.058rem;
   height: 3.8rem;
   margin: 0 auto;
@@ -147,7 +148,7 @@ input:focus {
   align-items: center;
   padding: 1.2rem 2.4rem;
   font-size: 1.4rem;
-  color: #3E3E43;
+  color: #3e3e43;
   background-color: #e7effb;
   border: 1px solid #ccd5e3;
   border-radius: 0.8rem;
@@ -163,7 +164,7 @@ input:focus {
 }
 
 .focus-outline {
-  outline: 1px solid #6D6AFE !important;
+  outline: 1px solid #6d6afe !important;
 }
 
 .focus-text-color {

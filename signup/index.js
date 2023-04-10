@@ -11,9 +11,13 @@ function focusin(e) {
   e.target.parentElement.classList.add("focus-outline");
 
   if (e.target.id === "email") {
-    setTimeout(() => { emailInput.addEventListener("focusout", checkEmailValid)}, 10);
+    setTimeout(() => {
+      emailInput.addEventListener("focusout", checkEmailValid);
+    }, 10);
   } else if (e.target.id === "password") {
-    setTimeout(() => { passwordInput.addEventListener("focusout", checkPasswordValid)}, 10);
+    setTimeout(() => {
+      passwordInput.addEventListener("focusout", checkPasswordValid);
+    }, 10);
   }
 }
 
@@ -47,7 +51,7 @@ function checkPasswordValid(e) {
 inputNodes.forEach((inputNode) => {
   inputNode.addEventListener("focusin", focusin);
   inputNode.addEventListener("focusout", focusout);
-})
+});
 
 emailInput.addEventListener("focusout", checkEmailValid);
 passwordInput.addEventListener("focusout", checkPasswordValid);
@@ -94,7 +98,7 @@ function toggleVisibility(e) {
   const passwordInput = e.target.parentElement.children[0];
   const eyeClose = e.target.parentElement.children[1];
   const eyeOpen = e.target.parentElement.children[2];
-  
+
   if (passwordInput.type === "password") {
     passwordInput.type = "text";
     eyeClose.classList.add("eye-hidden");

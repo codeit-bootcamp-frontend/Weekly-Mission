@@ -27,7 +27,7 @@ function checkEmailValid(e) {
 inputNodes.forEach((inputNode) => {
   inputNode.addEventListener("focusin", focusin);
   inputNode.addEventListener("focusout", focusout);
-})
+});
 
 emailInput.addEventListener("focusout", checkEmailValid);
 
@@ -38,7 +38,7 @@ function checkValidSignin(e) {
 
   const emailValue = emailInput.value;
   const passwordValue = passwordInput.value;
-  
+
   if (emailValue === "test@codeit.com" && passwordValue === "codeit101") {
     location.href = "/my-link/";
   } else {
@@ -53,7 +53,7 @@ const eyeOpenIcon = document.querySelector(".eye-open");
 
 function toggleVisibility(e) {
   const passwordInput = e.target.parentElement.children[0];
-  
+
   if (passwordInput.type === "password") {
     passwordInput.type = "text";
     eyeCloseIcon.classList.add("eye-hidden");

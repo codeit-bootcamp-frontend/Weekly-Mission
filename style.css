@@ -77,7 +77,7 @@ main {
 .login-button {
   flex-basis: 12.8rem;
   height: 5.3rem;
-  line-height: 5.3rem;  /* height와 동일하게 설정하여 세로 정렬 */
+  line-height: 5.3rem; /* height와 동일하게 설정하여 세로 정렬 */
   text-align: center;
   font-size: 1.8rem;
   font-weight: 600;
@@ -93,7 +93,8 @@ main {
   margin-bottom: 4rem;
 }
 
-.tablet-br, .tablet-mobile-br{
+.tablet-br,
+.tablet-mobile-br {
   display: none;
 }
 
@@ -199,8 +200,9 @@ ul > li {
   .tablet-br-none {
     display: none;
   }
-  
-  .tablet-br, .tablet-mobile-br {
+
+  .tablet-br,
+  .tablet-mobile-br {
     display: inline;
   }
 
@@ -259,17 +261,18 @@ ul > li {
     padding-top: 2.8rem;
   }
 
-  header, main {
+  header,
+  main {
     padding-left: 3.2rem;
     padding-right: 3.2rem;
   }
-  
+
   .header-title {
     font-size: 3.2rem;
     line-height: 4.2rem;
     margin-bottom: 2.4rem;
   }
-  
+
   .add-link-button {
     margin-bottom: 2.4rem;
     max-width: 20rem;
@@ -277,24 +280,24 @@ ul > li {
     line-height: 3.7rem;
     font-size: 1.4rem;
   }
-  
+
   .header-image {
     width: 100%;
     height: 100%;
   }
-  
+
   main {
     padding-left: 3.2rem;
     padding-right: 3.2rem;
     margin: 0;
   }
 
-  .card{
+  .card {
     margin: 8rem auto;
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
       "text"
       "image";
   }
@@ -321,7 +324,7 @@ ul > li {
   .card img {
     width: 100%;
     height: 100%;
-    grid-area: image; 
+    grid-area: image;
   }
 
   .card br {
@@ -335,7 +338,7 @@ ul > li {
     padding: 3.2rem;
     align-items: initial;
   }
-  
+
   footer .corporation {
     order: 1;
     align-self: flex-end;
@@ -346,4 +349,3 @@ ul > li {
     height: 2rem;
   }
 }
-
