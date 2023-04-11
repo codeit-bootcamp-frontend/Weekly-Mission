@@ -14,11 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const togglePassword = (passwordInput) => {
-    if (passwordInput.getAttribute("type") === "password")
-      passwordInput.setAttribute("type", "text");
-    else {
-      passwordInput.setAttribute("type", "password");
-    }
+    let visiblity = false;
+    visiblity = !visiblity;
+    passwordInput.setAttribute("type", visiblity ? "text" : "password");
   };
 
   const tryLogin = () => {
