@@ -1,4 +1,4 @@
-import { getElem, getElemAll } from "../../utils/getElement.js";
+import { getElem, getElemAll } from "../../hooks/getElement.js";
 import getUsers from "../../utils/getUsers.js";
 import { toggleButton } from "../../utils/toggleButton.js";
 import { validationUserEmail } from "../../utils/validationUserEmail.js";
@@ -78,6 +78,7 @@ import { validationUsers } from "../../utils/validationUsers.js";
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
+
       validationUsers(
         "signup",
         currentUser.email,

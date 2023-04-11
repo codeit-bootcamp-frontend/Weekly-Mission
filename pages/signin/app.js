@@ -1,4 +1,4 @@
-import { getElem } from "../../utils/getElement.js";
+import { getElem } from "../../hooks/getElement.js";
 import getUsers from "../../utils/getUsers.js";
 import { toggleButton } from "../../utils/toggleButton.js";
 import { validationUserEmail } from "../../utils/validationUserEmail.js";

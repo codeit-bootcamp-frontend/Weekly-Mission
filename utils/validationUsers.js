@@ -6,6 +6,10 @@ export const validationUsers = (
   inputPassword,
   inputConfirmPassword = ""
 ) => {
+  if (!inputEmail || !inputPassword) {
+    return;
+  }
+
   let flag = false;
   let errorIndex = -1;
 
