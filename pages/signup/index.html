@@ -23,7 +23,7 @@
   </head>
   <body>
     <section class="forms">
-      <div class="form signin">
+      <div class="form">
         <div class="form-content">
           <a class="form-logo" href="/">
             <svg
@@ -73,9 +73,9 @@
           </a>
 
           <form>
-            <div class="signup-link">
-              <span>회원이 아니신가요?</span>
-              <a href="/pages/signup">회원 가입하기</a>
+            <div class="signin-link">
+              <span>이미 회원이신가요?</span>
+              <a href="/pages/signin">로그인 하기</a>
             </div>
 
             <div class="input-field email">
@@ -101,17 +101,25 @@
               </div>
             </div>
 
-            <div class="btn-field">
-              <button>로그인</button>
-              <!-- <button>로그인</button> -->
-
-              <div class="password-link">
-                <a href="/pages/forgot-password"> 비밀번호 찾기 </a>
+            <div class="input-field password password-confirm">
+              <label for="confirm">비밀번호 확인</label>
+              <div class="input">
+                <input
+                  id="confirm"
+                  type="password"
+                  placeholder="비밀번호를 입력하세요."
+                  autocomplete="off"
+                />
+                <i class="bx bx-hide eye-icon"></i>
               </div>
             </div>
 
+            <div class="btn-field">
+              <button>회원가입</button>
+            </div>
+
             <div class="sns-field">
-              <span>소셜 로그인</span>
+              <span>다른 방식으로 가입하기</span>
               <div class="sns-link">
                 <a class="google" href="https://www.google.com/">
                   <svg

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -38,13 +38,13 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="styles.css" />
-    <title>Weekly Mission</title>
+    <title>Codeit Weekly Mission</title>
   </head>
   <body>
-    <header class="get-started">
+    <header>
       <div class="inner">
-        <nav class="get-started__header">
-          <a href="/" class="header--logo">
+        <nav>
+          <a href="/" class="logo">
             <svg
               width="133"
               height="25"
@@ -90,110 +90,92 @@
               />
             </svg>
           </a>
-          <a href="pages/signin" class="header--login">로그인</a>
+          <a href="pages/signin" class="signin">로그인</a>
         </nav>
-        <div class="get-started__content">
-          <h1 class="content--title">
+      </div>
+    </header>
+
+    <main>
+      <div class="hero">
+        <div class="inner">
+          <div class="title">
             <span>세상의 모든 정보</span>를<br />
             <div>
               <p>쉽게 저장하고</p>
               <p>관리해 보세요</p>
             </div>
-          </h1>
-          <div class="content--add-link">링크 추가하기</div>
-          <div class="content--example-image">
-            <img src="/public/img-info.png" alt="img-info" />
+          </div>
+          <div class="add">링크 추가하기</div>
+          <div class="img">
+            <img src="/public/img-info.png" alt="Hero Image" />
           </div>
         </div>
       </div>
-    </header>
-    <main class="detail">
-      <div class="inner">
-        <div class="detail__content">
-          <figure class="content__save divide">
-            <figcaption class="paragraph">
-              <h2>
-                <span><span class="gradient">원하는 링크</span>를</span>
-                <span>저장하세요</span>
-              </h2>
-              <p>
-                나중에 읽고 싶은 글, 다시 보고 싶은 영상, 사고 싶은 옷, 기억하고
-                싶은 모든 것을 한 공간에 저장하세요.
-              </p>
-            </figcaption>
-            <div>
-              <img src="/public/save-link.png" alt="save link" />
-            </div>
-            <p class="mobile-save">
+
+      <div class="contents">
+        <div class="inner">
+          <section class="save">
+            <h2>
+              <span><span class="gradient">원하는 링크</span>를</span>
+              <span>저장하세요</span>
+            </h2>
+            <p>
               나중에 읽고 싶은 글, 다시 보고 싶은 영상, 사고 싶은 옷, 기억하고
               싶은 모든 것을 한 공간에 저장하세요.
             </p>
-          </figure>
-
-          <figure class="content__manage divide">
-            <div>
-              <img src="/public/manage-link.png" alt="manage link" />
+            <div class="image">
+              <img src="/public/save-link.png" alt="Save Link" />
             </div>
-            <figcaption class="paragraph">
-              <h2>
-                <span>링크를 폴더로</span>
-                <span> <span class="gradient">관리</span>하세요 </span>
-              </h2>
-              <p>나만의 폴더를 무제한으로 만들고 다양하게 활용할 수 있어요.</p>
-            </figcaption>
-            <p class="mobile-manage">
-              나만의 폴더를 무제한으로 만들고 다양하게 활용할 수 있어요.
-            </p>
-          </figure>
+          </section>
 
-          <figure class="content__share divide">
-            <figcaption class="paragraph">
-              <h2>
-                <span>저장한 링크를</span>
-                <span> <span class="gradient">공유</span>해 보세요 </span>
-              </h2>
-              <p>
-                여러 링크를 폴더에 담고 공유할 수 있어요. 가족, 친구, 동료들에게
-                쉽고 빠르게 링크를 공유해보세요.
-              </p>
-            </figcaption>
-            <div>
-              <img src="/public/share-link.png" alt="share link" />
+          <section class="manage right">
+            <h2>
+              <span>링크를 폴더로</span>
+              <span><span class="gradient">관리</span>하세요</span>
+            </h2>
+            <p>나만의 폴더를 무제한으로 만들고 다양하게 활용할 수 있습니다.</p>
+            <div class="image">
+              <img src="/public/manage-link.png" alt="Manage Link" />
             </div>
-            <p class="mobile-share">
-              여러 링크를 폴더에 담고 공유할 수 있어요. 가족, 친구, 동료들에게
-              쉽고 빠르게 링크를 공유해보세요.
-            </p>
-          </figure>
+          </section>
 
-          <figure class="content__search divide">
-            <div>
-              <img src="/public/search-link.png" alt="search link" />
-            </div>
-            <figcaption class="paragraph">
-              <h2>
-                <span>저장한 링크를</span>
-                <span> <span class="gradient">검색</span>해 보세요 </span>
-              </h2>
-              <p>중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
-            </figcaption>
-            <p class="mobile-search">
-              중요한 정보들을 검색으로 쉽게 찾아보세요.
+          <section class="share">
+            <h2>
+              <span>저장한 링크를</span>
+              <span><span class="gradient">공유</span>해 보세요</span>
+            </h2>
+            <p>
+              여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구, 동료들에게
+              쉽고 빠르게 링크를 공유해 보세요.
             </p>
-          </figure>
+            <div class="image">
+              <img src="/public/share-link.png" alt="Share Link" />
+            </div>
+          </section>
+
+          <section class="search right">
+            <h2>
+              <span>저장한 링크를</span>
+              <span><span class="gradient">검색</span>해 보세요</span>
+            </h2>
+            <p>중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
+            <div class="image">
+              <img src="/public/search-link.png" alt="Search Link" />
+            </div>
+          </section>
         </div>
       </div>
     </main>
-    <footer class="footer">
+
+    <footer>
       <div class="inner">
-        <div class="footer__copyright">©codeit - 2023</div>
-        <div class="footer__policy">
-          <!-- <div class="policy__privacy">Privacy Policy</div> -->
-          <a href="pages/privacy" class="policy__privacy">Privacy Policy</a>
-          <a href="pages/faq" class="policy__faq">FAQ</a>
+        <div class="copyright">©codeit - 2023</div>
+        <div class="policy">
+          <a href="pages/privacy" class="privacy">Privacy Policy</a>
+          <a href="pages/faq" class="faq">FAQ</a>
         </div>
-        <div class="footer__sns">
-          <a href="https://www.facebook.com/" class="sns__facebook">
+        <div class="sns">
+          <a href="https://www.facebook.com/" class="facebook">
             <svg
               width="18"
               height="19"
@@ -209,7 +191,7 @@
               />
             </svg>
           </a>
-          <a href="https://twitter.com/?lang=ko" class="sns__twitter">
+          <a href="https://twitter.com/?lang=ko" class="twitter">
             <svg
               width="20"
               height="16"
@@ -223,7 +205,7 @@
               />
             </svg>
           </a>
-          <a href="https://www.youtube.com/" class="sns__youtube">
+          <a href="https://www.youtube.com/" class="youtube">
             <svg
               width="20"
               height="14"
@@ -237,7 +219,7 @@
               />
             </svg>
           </a>
-          <a href="https://www.instagram.com/" class="sns__instagram">
+          <a href="https://www.instagram.com/" class="instagram">
             <svg
               width="17"
               height="18"
