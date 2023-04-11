@@ -1,22 +1,3 @@
-/* ================================== common ================================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  text-decoration: none;
-}
-html {
-  width: 100%;
-  height: 100%;
-  font-size: 62.5%;
-}
-body {
-  width: 100%;
-  font-size: 1.6rem;
-  font-family: "Pretendard", "sans-serif";
-  background-color: #f0f6ff;
-}
 .inner {
   margin: 0 auto;
   width: calc(1920px - 40rem);
