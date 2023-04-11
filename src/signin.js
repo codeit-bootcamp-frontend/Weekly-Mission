@@ -4,10 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const showPasswordBtn = document.getElementById("show-password-icon");
   const loginForm = document.querySelector("form.signin-form");
 
-  const validateEmail = (mail) => {
+  const regexEmail = (mail) => {
     const mailformat =
       /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    if (mail.match(mailformat)) {
+    if (mailformat.test(mail)) {
       return true;
     }
     return false;
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("이메일을 입력해주세요.");
       return;
     }
-    if (!validateEmail(e.target.value)) {
+    if (!regexEmail(e.target.value)) {
       alert("올바른 이메일 주소가 아닙니다.");
       return;
     }
