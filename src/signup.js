@@ -8,18 +8,18 @@ document.addEventListener("DOMContentLoaded", () => {
     "show-password-icon-repeat"
   );
 
-  const validateEmail = (mail) => {
+  const regexEmail = (mail) => {
     const mailformat =
       /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    if (mail.match(mailformat)) {
+    if (mailformat.test(mail)) {
       return true;
     }
     return false;
   };
 
-  const validatePassword = (password) => {
+  const regexPassword = (password) => {
     const passwordFormat = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-    if (password.match(passwordFormat)) {
+    if (passwordFormat.test(password)) {
       return true;
     }
     return false;
@@ -29,10 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let visiblity = false;
     visiblity = !visiblity;
     passwordInput.setAttribute("type", visiblity ? "text" : "password");
-  };
-
-  const togglePassword = (passwordInput) => {
-    visibility = !visiblity;
   };
 
   const tryRegister = () => {
@@ -45,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     //아이디 포맷 체크
-    if (!validateEmail(username)) {
+    if (!regexEmail(username)) {
       alert("올바른 이메일 주소가 아닙니다.");
       return;
     }
@@ -60,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     //비밀번호 포맷 체크
-    if (!validatePassword(password)) {
+    if (!regexPassword(password)) {
       alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
       return;
     }
@@ -72,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("이메일을 입력해주세요.");
       return;
     }
-    if (!validateEmail(e.target.value)) {
+    if (!regexEmail(e.target.value)) {
       alert("올바른 이메일 주소가 아닙니다.");
       return;
     }
@@ -83,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   passwordInput.addEventListener("focusout", (e) => {
-    if (!validatePassword(e.target.value)) {
+    if (!regexPassword(e.target.value)) {
       alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
       return;
     }
