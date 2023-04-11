@@ -1,5 +1,6 @@
 import { getElem, getElemAll } from "../../utils/getElement.js";
 import getUsers from "../../utils/getUsers.js";
+import { validationUserEmail } from "../../utils/validationUserEmail.js";
 import { validationUserPassword } from "../../utils/validationUserPassword.js";
 import { validationUsers } from "../../utils/validationUsers.js";
 
@@ -48,24 +49,7 @@ import { validationUsers } from "../../utils/validationUsers.js";
 
     emailInput.addEventListener("focusout", () => {
       const userInput = emailInput.value.trim();
-      userInput.length == 0
-        ? alert("이메일을 입력해주세요.")
-        : emailRegex.test(userInput)
-        ? (currentUser.email = userInput)
-        : alert("올바른 이메일 주소가 아닙니다.");
-
-      let flag = false;
-      const users = JSON.parse(localStorage.getItem("users"));
-
-      users?.forEach((user) => {
-        if (userInput === user.email) {
-          flag = true;
-          return;
-        }
-      });
-
-      if (flag) alert("이미 사용 중인 아이디입니다.");
-
+      currentUser.email = validationUserEmail(userInput, "signup");
       emailInput.style.color = "#3e3e43";
     });
 

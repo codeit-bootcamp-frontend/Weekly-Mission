@@ -1,5 +1,6 @@
 import { getElem } from "../../utils/getElement.js";
 import getUsers from "../../utils/getUsers.js";
+import { validationUserEmail } from "../../utils/validationUserEmail.js";
 import { validationUsers } from "../../utils/validationUsers.js";
 
 (function () {
@@ -34,12 +35,7 @@ import { validationUsers } from "../../utils/validationUsers.js";
 
     emailInput.addEventListener("focusout", () => {
       const userInput = emailInput.value.trim();
-      userInput.length == 0
-        ? alert("이메일을 입력해주세요.")
-        : emailRegex.test(userInput)
-        ? (currentUser.email = userInput)
-        : alert("올바른 이메일 주소가 아닙니다.");
-
+      currentUser.email = validationUserEmail(userInput, "signin");
       emailInput.style.color = "#3e3e43";
     });
 
