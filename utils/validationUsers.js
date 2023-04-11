@@ -34,7 +34,19 @@ export const validationUsers = (
       }
     });
 
-    flag ? (location.href = "/pages/my-link") : alert(errorMessages[type][0]);
+    if (flag) {
+      sessionStorage.setItem(
+        "currentUser",
+        JSON.stringify({
+          email: compare.email,
+          password: compare.password,
+        })
+      );
+
+      location.href = "/pages/my-link";
+    } else {
+      alert(errorMessages[type][0]);
+    }
   } else if (type === "signup") {
     const compare = {
       email: inputEmail,
@@ -69,6 +81,14 @@ export const validationUsers = (
             password: compare.password,
           },
         ])
+      );
+
+      sessionStorage.setItem(
+        "currentUser",
+        JSON.stringify({
+          email: compare.email,
+          password: compare.password,
+        })
       );
 
       location.href = "/pages/my-link";
