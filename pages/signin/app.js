@@ -1,5 +1,6 @@
 import { getElem } from "../../utils/getElement.js";
-import { gettingStarted } from "../../utils/gettingStarted.js";
+import getUsers from "../../utils/getUsers.js";
+import { validationUsers } from "../../utils/validationUsers.js";
 
 (function () {
   // state & elements
@@ -17,7 +18,7 @@ import { gettingStarted } from "../../utils/gettingStarted.js";
   // load
   const init = () => {
     window.addEventListener("DOMContentLoaded", () => {
-      gettingStarted();
+      getUsers();
     });
 
     // event handlers
@@ -49,23 +50,7 @@ import { gettingStarted } from "../../utils/gettingStarted.js";
     form.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      let flag = false;
-
-      const users = JSON.parse(localStorage.getItem("users"));
-
-      users.forEach((user) => {
-        if (
-          currentUser.email === user.email &&
-          passwordInput.value === user.password
-        ) {
-          flag = true;
-          return;
-        }
-      });
-
-      flag
-        ? (location.href = "/pages/my-link")
-        : alert("이메일과 비밀번호를 확인해주세요.");
+      validationUsers("signin", currentUser.email, passwordInput.value);
     });
   };
 
