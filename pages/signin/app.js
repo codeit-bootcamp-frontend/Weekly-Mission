@@ -1,11 +1,11 @@
 import { getElem } from "../../utils/getElement.js";
 import getUsers from "../../utils/getUsers.js";
+import { toggleButton } from "../../utils/toggleButton.js";
 import { validationUserEmail } from "../../utils/validationUserEmail.js";
 import { validationUsers } from "../../utils/validationUsers.js";
 
 (function () {
   // state & elements
-  const emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
   const currentUser = {
     email: "",
     password: "",
@@ -24,18 +24,22 @@ import { validationUsers } from "../../utils/validationUsers.js";
 
     // event handlers
     eyeIcon.addEventListener("click", () => {
-      if (passwordInput.type === "password") {
-        passwordInput.type = "text";
-        eyeIcon.classList.replace("bx-hide", "bx-show");
-      } else {
-        passwordInput.type = "password";
-        eyeIcon.classList.replace("bx-show", "bx-hide");
-      }
+      toggleButton(
+        passwordInput,
+        "password",
+        "text",
+        eyeIcon,
+        "bx-hide",
+        "bx-show"
+      );
     });
 
     emailInput.addEventListener("focusout", () => {
-      const userInput = emailInput.value.trim();
-      currentUser.email = validationUserEmail(userInput, "signin");
+      // const userInput = emailInput.value.trim();
+      currentUser.email = validationUserEmail(
+        emailInput.value.trim(),
+        "signin"
+      );
       emailInput.style.color = "#3e3e43";
     });
 
@@ -45,7 +49,6 @@ import { validationUsers } from "../../utils/validationUsers.js";
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-
       validationUsers("signin", currentUser.email, passwordInput.value);
     });
   };

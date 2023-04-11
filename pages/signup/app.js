@@ -1,5 +1,6 @@
 import { getElem, getElemAll } from "../../utils/getElement.js";
 import getUsers from "../../utils/getUsers.js";
+import { toggleButton } from "../../utils/toggleButton.js";
 import { validationUserEmail } from "../../utils/validationUserEmail.js";
 import { validationUserPassword } from "../../utils/validationUserPassword.js";
 import { validationUsers } from "../../utils/validationUsers.js";
@@ -7,8 +8,6 @@ import { validationUsers } from "../../utils/validationUsers.js";
 (function () {
   // states & elements
   let passwordWithEyeIconsFlag = false;
-
-  const emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
 
   const currentUser = {
     email: "",
@@ -36,20 +35,16 @@ import { validationUsers } from "../../utils/validationUsers.js";
       eyeIcon.addEventListener("click", (e) => {
         const target = e.target.previousSibling.previousSibling;
         passwordWithEyeIconsFlag = true;
-
-        if (target.type === "password") {
-          target.type = "text";
-          eyeIcon.classList.replace("bx-hide", "bx-show");
-        } else {
-          target.type = "password";
-          eyeIcon.classList.replace("bx-show", "bx-hide");
-        }
+        toggleButton(target, "password", "text", eyeIcon, "bx-hide", "bx-show");
       });
     });
 
     emailInput.addEventListener("focusout", () => {
-      const userInput = emailInput.value.trim();
-      currentUser.email = validationUserEmail(userInput, "signup");
+      // const userInput = emailInput.value.trim();
+      currentUser.email = validationUserEmail(
+        emailInput.value.trim(),
+        "signup"
+      );
       emailInput.style.color = "#3e3e43";
     });
 
@@ -83,7 +78,6 @@ import { validationUsers } from "../../utils/validationUsers.js";
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-
       validationUsers(
         "signup",
         currentUser.email,
