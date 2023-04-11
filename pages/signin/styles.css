@@ -31,11 +31,11 @@ form .signup-link {
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.9rem;
-  color: #000;
+  color: var(--linkbrary-black);
 }
 form .signup-link a {
   font-weight: 600;
-  color: #6d6afe;
+  color: var(--linkbrary-primary);
   position: relative;
 }
 form .signup-link a::after {
@@ -45,7 +45,7 @@ form .signup-link a::after {
   bottom: 0;
   height: 0.1rem;
   width: 8.7rem;
-  background-color: #6d6afe;
+  background-color: var(--linkbrary-primary);
 }
 form .input-field {
   margin: 3.1rem auto 0;
@@ -61,8 +61,8 @@ form .input-field label {
 form .input-field input {
   width: 40rem;
   height: 5.5rem;
-  background-color: #fff;
-  border: 0.1rem solid #ccd5e3;
+  background-color: var(--linkbrary-white);
+  border: 0.1rem solid var(--linkbrary-gray-20);
   border-radius: 0.8rem;
   display: flex;
   justify-content: center;
@@ -74,8 +74,8 @@ form .input-field input {
   color: #3e3e43;
 }
 form .input-field input:focus {
-  color: #000;
-  border: 0.1rem solid #6d6afe;
+  color: var(--linkbrary-black);
+  border: 0.1rem solid var(--linkbrary-primary);
 }
 form .input-field.password {
   margin: 2.4rem auto 0;
@@ -110,7 +110,11 @@ form .btn-field > button {
   align-items: center;
   padding: 1.6rem 2rem;
   border-radius: 0.8rem;
-  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  background: linear-gradient(
+    90.99deg,
+    var(--linkbrary-primary) 0.12%,
+    #6ae3fe 101.84%
+  );
   font-weight: 600;
   font-size: 1.8rem;
   line-height: 2.2rem;
@@ -130,8 +134,8 @@ form .sns-field {
   justify-content: space-between;
   align-items: center;
   padding: 1.2rem 2.4rem;
-  background: #e7effb;
-  border: 0.1rem solid #ccd5e3;
+  background: var(--linkbrary-gray-10);
+  border: 0.1rem solid var(--linkbrary-gray-20);
   border-radius: 0.8rem;
 }
 form .sns-field span {

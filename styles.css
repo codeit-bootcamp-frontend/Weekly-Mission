@@ -22,7 +22,7 @@
 
 /* ================================== header ================================== */
 header {
-  background-color: #f0f6ff80;
+  background-color: var(--linkbrary-bg-50);
   height: 7.3rem;
   position: sticky;
   top: 0;
@@ -48,7 +48,11 @@ header nav .logo {
 header nav .signin {
   width: 12.8rem;
   height: 5.3rem;
-  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  background: linear-gradient(
+    90.99deg,
+    var(--linkbrary-primary) 0.12%,
+    #6ae3fe 101.84%
+  );
   border-radius: 0.8rem;
   display: flex;
   justify-content: center;
@@ -83,7 +87,7 @@ header nav .signin {
 }
 .hero {
   padding-top: 7rem;
-  background: #f0f6ff;
+  background: var(--linkbrary-bg);
   width: 100%;
   height: auto;
   overflow: hidden;
@@ -100,7 +104,11 @@ header nav .signin {
   line-height: 8rem;
 }
 .hero .title span {
-  background: linear-gradient(91.26deg, #6d6afe 17.28%, #ff9f9f 74.98%);
+  background: linear-gradient(
+    91.26deg,
+    var(--linkbrary-primary) 17.28%,
+    #ff9f9f 74.98%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -116,7 +124,11 @@ header nav .signin {
   justify-content: center;
   align-items: center;
   padding: 1.6rem 2rem;
-  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  background: linear-gradient(
+    90.99deg,
+    var(--linkbrary-primary) 0.12%,
+    #6ae3fe 101.84%
+  );
   border-radius: 0.8rem;
   font-weight: 600;
   font-size: 1.8rem;
@@ -218,7 +230,7 @@ header nav .signin {
 .contents {
   width: 100%;
   height: auto;
-  background: #fff;
+  background: var(--linkbrary-white);
   padding-top: 12rem;
   padding-bottom: 17rem;
 }
