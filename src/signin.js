@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const usernameInput = document.getElementById("username");
   const passwordInput = document.querySelector("#password");
-  const loginBtn = document.getElementById("login-btn");
   const showPasswordBtn = document.getElementById("show-password-icon");
+  const loginForm = document.querySelector("form.signin-form");
 
   const validateEmail = (mail) => {
     const mailformat =
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  loginBtn.addEventListener("click", (e) => {
+  loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
     tryLogin();
   });

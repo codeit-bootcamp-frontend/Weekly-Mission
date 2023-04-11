@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const usernameInput = document.getElementById("username");
   const passwordInput = document.querySelector("#password");
   const passwordRepeatInput = document.querySelector("#password-repeat");
-  const registerBtn = document.querySelector("#register-btn");
+  const registerForm = document.querySelector("form.signin-form");
   const showPasswordBtn = document.getElementById("show-password-icon");
   const showPasswordBtnRepeat = document.getElementById(
     "show-password-icon-repeat"
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
     togglePassword(passwordRepeatInput);
   });
 
-  registerBtn.addEventListener("click", (e) => {
+  registerForm.addEventListener("submit", (e) => {
     e.preventDefault();
     tryRegister();
   });
