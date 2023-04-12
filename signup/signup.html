@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+    <link rel="stylesheet" href="signup_style.css"></link>
+    <link rel="stylesheet" href="../reset.css"></link>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+</head>
+<body>
+    <div class="signup-wrapper">
+        <a href="../index.html" class="signup-title ir-pm">linkbrary</a>
+        <div class="signin">이미 회원이신가요?<a href="../signin/signin.html" class="signin-link">로그인 하기</a></div>
+        <div class="signup-container">
+            <form id="signup-form" method="post">
+                <div class="email-container">
+                    <p class="userEmail-text"><label for="userEmail">이메일</label></p>
+                    <input type="text" id="userEmail" name="userEmail" class="userEmail" placeholder="이메일">
+                </div>
+                <div class="password-container">
+                    <p class="userPassword-text"><label for="userPassword">비밀번호</label></p>
+                    <input type="password" id="userPassword" name="userPassword" class="userPassword" placeholder="비밀번호" maxlength="16">
+                    <a href="#" class="toggle-password">
+                        <i class= "fi fi-rr-eye-crossed hide"></i>
+                        <i class="fi fi-rr-eye"></i>
+                    </a>
+                </div>
+                <div class="password-verify-container">
+                    <p class="userPassword-verify-text"><label for="userPassword-verify">비밀번호 확인</label></p>
+                    <input type="password" id="userPassword-verify" name="userPassword-verify" class="userPassword-verify" placeholder="비밀번호 확인" maxlength="16">
+                    <a href="#" class="toggle-password-verify">
+                        <i class= "fi fi-rr-eye-crossed hide"></i>
+                        <i class="fi fi-rr-eye"></i>
+                    </a>
+                </div>
+                <input type="submit" class="signup-btn" value="회원가입">
+            </form>
+        </div>
+        <div class="snsSignup-container">
+            <div class="text">다른 방식으로 가입하기</div>
+            <div class="icons">
+                <a class="snsSignup-btn" href="https://www.google.com/"><img src="../img/google.png" alt="google"></a>
+                <a class="snsSignup-btn" href="https://www.kakaocorp.com/page/"><img src="../img/kakao.png" alt="kakao"></a>
+            </div>
+        </div>
+    </div>
+    <script src="signup.js"></script>
+</body>
+</html>
+
