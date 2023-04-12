@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Linkbrary-Signin</title>
+  <title>Linkbrary-Signup</title>
   <link rel="shortcut icon" type="image/x-icon" href="./images/title-logo.png">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
   <link rel="stylesheet" href="styles/signin-and-up.css">
@@ -15,8 +15,8 @@
       <div class="form-top">
         <a href="/"><img class="logo" src="./images/logo.png" alt="로고"></a>
         <div class="verify-member">
-          <div>회원이 아니신가요?</div>
-          <a href="/signup.html" class="change-form-signin-and-up">회원 가입하기</a>
+          <div>이미 회원이신가요?</div>
+          <a href="/signin.html" class="change-form-signin-and-up">로그인 하기</a>
         </div>
       </div>
 
@@ -30,16 +30,20 @@
           <input id="password" name="password" type="password" class="input">
           <img class="view-password" src="./images/view-password.png" alt="비밀번호 보기">
         </div>
+        <div class="input-group">
+          <label for="check-password" class="label">비밀번호 확인</label>
+          <input id="check-password" name="check-password" type="password" class="input">
+          <img class="view-password" src="./images/view-password.png" alt="비밀번호 보기">
+        </div>
       </div>
 
       <div class="form-bottom">
-        <input type="submit" value="로그인" class="button-signin-and-up">
-        <a href="/forgot-password.html" class="forgot-password">비밀번호 찾기</a>
+        <input type="submit" value="회원가입" class="button-signin-and-up">
       </div>
     </form>
 
     <div class="social-signin-and-up">
-      <div>소셜 로그인</div>
+      <div>다른 방식으로 가입하기</div>
       <div class="box-sns">
         <a href="https://www.google.com/" target="_blank"><img class="img-sns-logo" src="./images/sns-logo-google.png" alt="구글로고"></a>
         <a href="https://www.kakaocorp.com/page/" target="_blank"><img class="img-sns-logo" src="./images/sns-logo-kakaotalk.png" alt="카카오톡로고"></a>
@@ -47,6 +51,6 @@
     </div>
   </div>
   <script src="scripts/common-signin-and-up.js"></script>
-  <script src="scripts/signin.js"></script>
+  <script src="scripts/signup.js"></script>
 </body>
 </html>
