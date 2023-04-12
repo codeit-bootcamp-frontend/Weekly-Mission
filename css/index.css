@@ -1,27 +1,8 @@
-* {
-  box-sizing: border-box;
-}
-
-body:not(footer) {
-  font-family: "Pretendard";
-}
-
-body,
-h1 {
-  margin: 0;
-  padding: 0;
-}
-
 header {
   width: 100%;
   background-color: #f0f6ff;
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-}
-
-main {
-  margin-top: 5.813rem;
 }
 
 #header-wrapper {
@@ -313,9 +294,7 @@ footer {
     padding: 0.813rem 2rem;
     display: flex;
   }
-  main {
-    margin-top: 3.938rem;
-  }
+
   nav > a:first-child img {
     width: 4.849rem;
     height: 0.875rem;
@@ -404,8 +383,8 @@ footer {
   }
 
   .text-area p {
-    font-size: 1.35vh;
-    line-height: 1.406rem;
+    font-size: clamp(0.938rem, 0.353rem + 2.4vw, 1.5rem);
+    line-height: 1.5;
   }
 
   .text-area br {
