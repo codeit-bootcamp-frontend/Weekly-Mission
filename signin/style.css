@@ -88,11 +88,11 @@ input:focus {
   outline: none;
 }
 
-.signin-form .email-input {
+.signin-form .email-wrapper {
   margin-bottom: 2.4rem;
 }
 
-.signin-form .password-input {
+.signin-form .password-wrapper {
   margin-bottom: 3rem;
   display: flex;
   align-items: center;
