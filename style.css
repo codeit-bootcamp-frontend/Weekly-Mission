@@ -75,10 +75,7 @@ main {
 }
 
 .login-button {
-  flex-basis: 12.8rem;
-  height: 5.3rem;
-  line-height: 5.3rem; /* height와 동일하게 설정하여 세로 정렬 */
-  text-align: center;
+  padding: 1.6rem 4.05rem;
   font-size: 1.8rem;
   font-weight: 600;
   color: #f5f5f5;
@@ -99,12 +96,13 @@ main {
 }
 
 .add-link-button {
-  display: block;
-  width: 35rem;
-  height: 5.3rem;
-  line-height: 5.3rem;
   text-align: center;
-  margin: 0 auto 4rem;
+  margin-bottom: 4rem;
+}
+
+.add-link-button a {
+  display: inline-block;
+  padding: 1.6rem 12.6rem;
   background-image: linear-gradient(to right, #6d6afe, #6ae3fe);
   border-radius: 0.8rem;
   color: #f5f5f5;
@@ -251,9 +249,7 @@ ul > li {
   }
 
   .gnb .login-button {
-    flex-basis: 8rem;
-    height: 3.7rem;
-    line-height: 3.7rem;
+    padding: 1rem 2.15rem;
     font-size: 1.4rem;
   }
 
@@ -275,9 +271,10 @@ ul > li {
 
   .add-link-button {
     margin-bottom: 2.4rem;
-    max-width: 20rem;
-    height: 3.7rem;
-    line-height: 3.7rem;
+  }
+
+  .add-link-button a {
+    padding: 1rem 6.2rem;
     font-size: 1.4rem;
   }
 
