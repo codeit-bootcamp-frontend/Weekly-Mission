@@ -6,6 +6,7 @@ const emailInput = inputs[0];
 const passwordInput = inputs[1];
 const passwordRemindInput = inputs[2];
 
+/* alert 무한 루프를 해결하기 위해 setTimeout 함수로 focusout 이벤트 핸들러 등록 지연 */
 function addFocusoutHandler(e) {
   if (e.target.id === "email") {
     setTimeout(() => {
@@ -28,6 +29,7 @@ function verifyEmail(e) {
   } else if (emailValue === "test@codeit.com") {
     alert("이미 사용 중인 아이디입니다.");
   }
+  /* 무한 루프를 해결하기 위해 다른쪽 input 태그의 focusout 핸들러 삭제 */
   passwordInput.removeEventListener("focusout", verifyPassword);
 }
 
@@ -37,6 +39,7 @@ function verifyPassword(e) {
   if (!passwordRegExp.test(passwordValue)) {
     alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
   }
+  /* 무한 루프를 해결하기 위해 다른쪽 input 태그의 focusout 핸들러 삭제 */
   emailInput.removeEventListener("focusout", verifyEmail);
 }
 
