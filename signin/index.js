@@ -4,7 +4,7 @@ const inputNodes = document.querySelectorAll("input");
 const emailInput = inputNodes[0];
 const passwordInput = inputNodes[1];
 
-function checkEmailValid(e) {
+function verifyEmail(e) {
   const emailValue = e.target.value;
 
   if (emailValue === "") {
@@ -18,7 +18,7 @@ emailInput.addEventListener("focusout", checkEmailValid);
 
 const signinForm = document.querySelector(".signin-form");
 
-function checkValidSignin(e) {
+function verifyAccount(e) {
   e.preventDefault();
 
   const emailValue = emailInput.value;

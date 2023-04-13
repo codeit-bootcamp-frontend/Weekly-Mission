@@ -1,55 +1,55 @@
-const validEmail = /^[a-z0-9]+\@[a-z]+\.[a-z]{2,3}$/;
-const validPassword = /^(?=.*?[a-zA-Z])(?=.*?[0-9]).{8,}$/;
+const emailRegExp = /^[a-z0-9]+\@[a-z]+\.[a-z]{2,3}$/;
+const passwordRegExp = /^(?=.*?[a-zA-Z])(?=.*?[0-9]).{8,}$/;
 
-const inputNodes = document.querySelectorAll("input");
-const emailInput = inputNodes[0];
-const passwordInput = inputNodes[1];
-const passwordRemindInput = inputNodes[2];
+const inputs = document.querySelectorAll("input");
+const emailInput = inputs[0];
+const passwordInput = inputs[1];
+const passwordRemindInput = inputs[2];
 
-function focusin(e) {
+function addFocusoutHandler(e) {
   if (e.target.id === "email") {
     setTimeout(() => {
-      emailInput.addEventListener("focusout", checkEmailValid);
+      emailInput.addEventListener("focusout", verifyEmail);
     }, 10);
   } else if (e.target.id === "password") {
     setTimeout(() => {
-      passwordInput.addEventListener("focusout", checkPasswordValid);
+      passwordInput.addEventListener("focusout", verifyPassword);
     }, 10);
   }
 }
 
-function checkEmailValid(e) {
+function verifyEmail(e) {
   const emailValue = e.target.value;
 
   if (emailValue === "") {
     alert("이메일을 입력해주세요.");
-  } else if (!validEmail.test(emailValue)) {
+  } else if (!emailRegExp.test(emailValue)) {
     alert("올바른 이메일 주소가 아닙니다.");
   } else if (emailValue === "test@codeit.com") {
     alert("이미 사용 중인 아이디입니다.");
   }
-  passwordInput.removeEventListener("focusout", checkPasswordValid);
+  passwordInput.removeEventListener("focusout", verifyPassword);
 }
 
-function checkPasswordValid(e) {
+function verifyPassword(e) {
   const passwordValue = e.target.value;
 
-  if (!validPassword.test(passwordValue)) {
+  if (!passwordRegExp.test(passwordValue)) {
     alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
   }
-  emailInput.removeEventListener("focusout", checkEmailValid);
+  emailInput.removeEventListener("focusout", verifyEmail);
 }
 
-inputNodes.forEach((inputNode) => {
-  inputNode.addEventListener("focusin", focusin);
+inputs.forEach((input) => {
+  input.addEventListener("focusin", addFocusoutHandler);
 });
 
-emailInput.addEventListener("focusout", checkEmailValid);
-passwordInput.addEventListener("focusout", checkPasswordValid);
+emailInput.addEventListener("focusout", verifyEmail);
+passwordInput.addEventListener("focusout", verifyPassword);
 
 const signupForm = document.querySelector(".signup-form");
 
-function checkValidSignup(e) {
+function verifyAccount(e) {
   e.preventDefault();
 
   const emailValue = emailInput.value;
@@ -58,11 +58,11 @@ function checkValidSignup(e) {
 
   if (emailValue === "") {
     alert("이메일을 입력해주세요.");
-  } else if (!validEmail.test(emailValue)) {
+  } else if (!emailRegExp.test(emailValue)) {
     alert("올바른 이메일 주소가 아닙니다.");
   } else if (emailValue === "test@codeit.com") {
     alert("이미 사용 중인 아이디입니다.");
-  } else if (!validPassword.test(passwordValue)) {
+  } else if (!passwordRegExp.test(passwordValue)) {
     alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
   } else if (passwordValue !== passwordRemindValue) {
     alert("비밀번호 확인이 맞지 않습니다.");
@@ -70,11 +70,11 @@ function checkValidSignup(e) {
     location.href = "/my-link/";
   }
 
-  passwordInput.removeEventListener("focusout", checkPasswordValid);
-  emailInput.removeEventListener("focusout", checkEmailValid);
+  passwordInput.removeEventListener("focusout", verifyPassword);
+  emailInput.removeEventListener("focusout", verifyEmail);
 }
 
-signupForm.addEventListener("submit", checkValidSignup);
+signupForm.addEventListener("submit", verifyAccount);
 
 const eyeIcons = document.querySelectorAll(".eye-icon");
 
@@ -82,18 +82,18 @@ const passwordEyeIcon = eyeIcons[0];
 const passwordRemindEyeIcon = eyeIcons[1];
 
 function togglePasswordVisibility(e) {
-  const input = e.target.previousElementSibling;
+  const passwordInput = e.target.previousElementSibling;
   const eyeIcon = e.target;
 
-  if (input.type === "password") {
-    input.type = "text";
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
     eyeIcon.src = "/images/eye-open.svg";
   } else {
-    input.type = "password";
+    passwordInput.type = "password";
     eyeIcon.src = "/images/eye-close.svg";
   }
 
-  input.focus();
+  passwordInput.focus();
 }
 
 passwordEyeIcon.addEventListener("click", togglePasswordVisibility);
