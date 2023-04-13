@@ -1,0 +1,182 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Pretendard", sans-serif;
+  background-color: #f0f6ff;
+}
+
+.signin-container {
+  max-width: 40rem;
+  margin: 23.8rem auto 0;
+}
+
+.linkbrary-logo,
+.linkbrary-logo img {
+  display: block;
+}
+
+.linkbrary-logo {
+  margin-bottom: 1.6rem;
+}
+
+.linkbrary-logo img {
+  width: 21.058rem;
+  height: 3.8rem;
+  margin: 0 auto;
+}
+
+.signup-content {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-bottom: 3.1rem;
+  font-size: 1.6rem;
+}
+
+.signup-content a {
+  font-weight: 600;
+  text-decoration: none;
+  color: #6d6afe;
+  border-bottom: 1px solid;
+}
+
+.email-signin-container {
+  margin-bottom: 3.2rem;
+}
+
+.signin-form {
+  margin-bottom: 1.6rem;
+}
+
+.signin-form label {
+  font-size: 1.4rem;
+}
+
+.signin-form div {
+  width: 100%;
+  margin-top: 1.2rem;
+  padding: 1.8rem 1.5rem;
+  outline: 1px solid #ccd5e3;
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
+  background-color: #ffffff;
+}
+
+input {
+  border: none;
+  width: 100%;
+  margin-right: 1rem;
+  color: #9fa6b2;
+  font-size: 1.6rem;
+}
+
+input::placeholder {
+  color: #9fa6b2;
+}
+
+input:focus {
+  outline: none;
+}
+
+.signin-form .email-input {
+  margin-bottom: 2.4rem;
+}
+
+.signin-form .password-input {
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.eye-open {
+  width: 1.6rem;
+  height: 1.5rem;
+  display: none;
+}
+
+.eye-visible {
+  display: initial;
+}
+
+.eye-hidden {
+  display: none;
+}
+
+.signin-form button {
+  font-size: 1.8rem;
+  width: 100%;
+  height: 5.4rem;
+  border: none;
+  background-image: linear-gradient(to right, #6d6afe, #6ae3fe);
+  color: #f5f5f5;
+  border-radius: 0.8rem;
+  cursor: pointer;
+}
+
+.signin-form button:focus {
+  outline: none;
+}
+
+.signin-button {
+  display: block;
+  margin: 0 auto;
+}
+
+.forgot-password-content {
+  text-align: center;
+}
+
+.forgot-password-link {
+  font-size: 1.4rem;
+  color: #3e3e43;
+  text-decoration: none;
+}
+
+.social-signin-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2.4rem;
+  font-size: 1.4rem;
+  color: #3e3e43;
+  background-color: #e7effb;
+  border: 1px solid #ccd5e3;
+  border-radius: 0.8rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.social-icons img {
+  display: block;
+}
+
+.focus-outline {
+  outline: 1px solid #6d6afe !important;
+}
+
+.focus-text-color {
+  color: #000000;
+}
+
+@media (max-width: 767px) {
+  body {
+    padding: 0 3.2rem;
+  }
+
+  .signin-container {
+    margin-top: 12rem;
+  }
+}

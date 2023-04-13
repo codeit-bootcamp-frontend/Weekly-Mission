@@ -1,46 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="kr">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Linkbrary</title>
-    <link rel="icon" href="images/favicon.ico">
+    <link rel="icon" href="images/favicon.ico" />
     <link rel="stylesheet" href="style.css" />
-    <meta property="og:title" content="Linkbrary">
-    <meta property="og:description" content="원하는 링크들을 쉽고 빠르게 관리해보세요">
-    <meta property="og:url" content="https://alice-linkbrary.netlify.app/">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:url" content="https://alice-linkbrary.netlify.app/">
-    <meta name="twitter:title" content="Linkbrary">
-    <meta name="twitter:description" content="원하는 링크들을 쉽고 빠르게 관리해보세요">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80"> 
+    <meta property="og:title" content="Linkbrary" />
+    <meta property="og:description" content="원하는 링크들을 쉽고 빠르게 관리해보세요" />
+    <meta property="og:url" content="https://alice-linkbrary.netlify.app/" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content="https://alice-linkbrary.netlify.app/" />
+    <meta name="twitter:title" content="Linkbrary" />
+    <meta name="twitter:description" content="원하는 링크들을 쉽고 빠르게 관리해보세요" />
+    <meta
+      name="twitter:image"
+      content="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80"
+    />
   </head>
   <body>
+    <nav class="gnb">
+      <a class="linkbrary-logo" href="/">
+        <img src="images/Linkbrary.svg" />
+      </a>
+      <a class="login-button" href="/signin/">로그인</a>
+    </nav>
     <header>
-      <nav class="gnb">
-        <div class="logo">
-          <a href="/">
-            <img src="images/Linkbrary.png" />
-          </a>
-        </div>
-        <div class="login-button">
-          <a class="login-link" href="/signin/">로그인</a>
-        </div>
-      </nav>
-      <div class="header-content">
-        <h1 class="header-title">
-          <span class="text-gradient purple-to-pink">세상의 모든 정보</span>를 <br />
-          쉽게 저장하고 <br class="tablet-mobile-br" /> 
-          관리해 보세요
-        </h1>
-        <div class="add-button">
-          <a class="add-link" href="#">링크 추가하기</a>
-        </div> 
-        <img class="header-image" src="images/_img.png" />
-      </div>
+      <h1 class="header-title">
+        <span class="text-gradient purple-to-pink">세상의 모든 정보</span>를 <br />
+        쉽게 저장하고 <br class="tablet-mobile-br" />
+        관리해 보세요
+      </h1>
+      <a class="add-link-button" href="#">링크 추가하기</a>
+      <img class="header-image" src="images/_img.png" />
     </header>
     <main>
       <section class="card">
@@ -77,8 +75,10 @@
             <span class="text-gradient blue-to-sky">공유</span>해 보세요.
           </h1>
           <p class="description">
-            여러 링크를 폴더에 담고 공유할 수<br class="tablet-br" /> 있어요. <br class="tablet-br-none"/>
-            가족, 친구, 동료들에게 쉽고<br class="tablet-br" /> 빠르게 링크를 <br class="tablet-br-none"/>
+            여러 링크를 폴더에 담고 공유할 수<br class="tablet-br" />
+            있어요. <br class="tablet-br-none" />
+            가족, 친구, 동료들에게 쉽고<br class="tablet-br" />
+            빠르게 링크를 <br class="tablet-br-none" />
             공유해 보세요.
           </p>
         </div>
@@ -91,24 +91,30 @@
             저장한 링크를 <br />
             <span class="text-gradient mint-to-blue">검색</span>해 보세요
           </h1>
-          <p class="description">중요한 정보들을 검색으로 쉽게<br class="tablet-br" /> 찾아보세요.</p>
+          <p class="description">
+            중요한 정보들을 검색으로 쉽게<br class="tablet-br" />
+            찾아보세요.
+          </p>
         </div>
       </section>
     </main>
     <footer>
       <div class="corporation">©codeit - 2023</div>
       <ul class="more-information">
-        <li><a href="/privacy/">Privacy Policy</a>
-        </li><li><a href="/faq/">FAQ</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/faq/">FAQ</a></li>
       </ul>
       <ul class="sns-container">
         <li>
           <a href="https://facebook.com/" target="_blank"><img src="images/facebook.svg" /></a>
-        </li><li>
+        </li>
+        <li>
           <a href="https://twitter.com/" target="_blank"><img src="images/twitter.svg" /></a>
-        </li><li>
+        </li>
+        <li>
           <a href="https://www.youtube.com/" target="_blank"><img src="images/youtube.svg" /></a>
-        </li><li>
+        </li>
+        <li>
           <a href="https://www.instagram.com/" target="_blank"><img src="images/instagram.svg" /></a>
         </li>
       </ul>

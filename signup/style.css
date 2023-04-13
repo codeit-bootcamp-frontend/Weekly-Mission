@@ -1,0 +1,168 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Pretendard", sans-serif;
+  background-color: #f0f6ff;
+}
+
+.signup-container {
+  max-width: 40rem;
+  margin: 23.8rem auto 0;
+}
+
+.linkbrary-logo {
+  margin-bottom: 1.6rem;
+}
+
+.linkbrary-logo,
+.linkbrary-logo img {
+  display: block;
+}
+
+.linkbrary-logo img {
+  margin: 0 auto;
+  width: 21.058rem;
+  height: 3.8rem;
+}
+
+.signin-content {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 3.1rem;
+}
+
+.signin-content a {
+  text-decoration: none;
+  color: #6d6afe;
+  font-weight: 600;
+  border-bottom: 1px solid;
+}
+
+.email-signup-container {
+  margin-bottom: 3.2rem;
+}
+
+.signup-form div {
+  padding: 1.8rem 1.5rem;
+  background-color: #ffffff;
+  margin-top: 1.2rem;
+  margin-bottom: 2.4rem;
+  border-radius: 0.8rem;
+  outline: 1px solid #ccd5e3;
+}
+
+.signup-form div:last-of-type {
+  margin-bottom: 3rem;
+}
+
+input {
+  width: 100%;
+  border: none;
+  font-size: 1.6rem;
+  color: #9fa6b2;
+}
+
+input::placeholder {
+  color: #ccd5e3;
+}
+
+input:focus {
+  outline: none;
+}
+
+.focus-outline {
+  outline: 1px solid #6d6afe !important;
+}
+
+.focus-text-color {
+  color: #000000;
+}
+
+.password-input,
+.password-remind-input {
+  display: flex;
+  align-items: center;
+}
+
+/* 비밀번호, 비밀번호 확인 input만 적용 */
+.signup-form div:not(:first-of-type) input {
+  margin-right: 1rem;
+}
+
+.eye-open {
+  width: 1.6rem;
+  height: 1.5rem;
+  display: none;
+}
+
+.eye-visible {
+  display: initial;
+}
+
+.eye-hidden {
+  display: none;
+}
+
+.signup-form label {
+  font-size: 1.4rem;
+}
+
+.signup-form button {
+  width: 100%;
+  height: 5.4rem;
+  background-image: linear-gradient(to right, #6d6afe, #6ae3fe);
+  border-radius: 0.8rem;
+  border: none;
+  color: #f5f5f5;
+  font-size: 1.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.signup-form button:focus {
+  outline: none;
+}
+
+.social-signup-container {
+  display: flex;
+  height: 6.6rem;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.4rem;
+  color: #3e3e43;
+  background-color: #e7effb;
+  padding: 0 2.4rem;
+  border-radius: 0.8rem;
+  border: 1px solid #ccd5e3;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.social-icons img {
+  display: block;
+}
+
+@media (max-width: 767px) {
+  body {
+    padding: 0 3.2rem;
+  }
+
+  .signup-container {
+    margin-top: 12rem;
+  }
+}
