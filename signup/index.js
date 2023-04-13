@@ -76,35 +76,25 @@ function checkValidSignup(e) {
 
 signupForm.addEventListener("submit", checkValidSignup);
 
-const eyeCloseIcons = document.querySelectorAll(".eye-close");
-const eyeOpenIcons = document.querySelectorAll(".eye-open");
+const eyeIcons = document.querySelectorAll(".eye-icon");
 
-const passwordEyeClose = eyeCloseIcons[0];
-const passwordEyeOpen = eyeOpenIcons[0];
+const passwordEyeIcon = eyeIcons[0];
+const passwordRemindEyeIcon = eyeIcons[1];
 
-const passwordRemindEyeClose = eyeCloseIcons[1];
-const passwordRemindEyeOpen = eyeOpenIcons[1];
+function togglePasswordVisibility(e) {
+  const input = e.target.previousElementSibling;
+  const eyeIcon = e.target;
 
-function toggleVisibility(e) {
-  const passwordInput = e.target.parentElement.children[0];
-  const eyeClose = e.target.parentElement.children[1];
-  const eyeOpen = e.target.parentElement.children[2];
-
-  if (passwordInput.type === "password") {
-    passwordInput.type = "text";
-    eyeClose.classList.add("eye-hidden");
-    eyeOpen.classList.add("eye-visible");
+  if (input.type === "password") {
+    input.type = "text";
+    eyeIcon.src = "/images/eye-open.svg";
   } else {
-    passwordInput.type = "password";
-    eyeClose.classList.remove("eye-hidden");
-    eyeOpen.classList.remove("eye-visible");
+    input.type = "password";
+    eyeIcon.src = "/images/eye-close.svg";
   }
 
-  passwordInput.focus();
+  input.focus();
 }
 
-passwordEyeClose.addEventListener("click", toggleVisibility);
-passwordEyeOpen.addEventListener("click", toggleVisibility);
-
-passwordRemindEyeClose.addEventListener("click", toggleVisibility);
-passwordRemindEyeOpen.addEventListener("click", toggleVisibility);
+passwordEyeIcon.addEventListener("click", togglePasswordVisibility);
+passwordRemindEyeIcon.addEventListener("click", togglePasswordVisibility);

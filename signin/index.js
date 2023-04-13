@@ -33,24 +33,20 @@ function checkValidSignin(e) {
 
 signinForm.addEventListener("submit", checkValidSignin);
 
-const eyeCloseIcon = document.querySelector(".eye-close");
-const eyeOpenIcon = document.querySelector(".eye-open");
+const eyeIcon = document.querySelector(".eye-icon");
 
-function toggleVisibility(e) {
+function togglePasswordVisibility(e) {
   const passwordInput = e.target.parentElement.children[0];
 
   if (passwordInput.type === "password") {
     passwordInput.type = "text";
-    eyeCloseIcon.classList.add("eye-hidden");
-    eyeOpenIcon.classList.add("eye-visible");
+    eyeIcon.src = "/images/eye-open.svg";
   } else {
     passwordInput.type = "password";
-    eyeCloseIcon.classList.remove("eye-hidden");
-    eyeOpenIcon.classList.remove("eye-visible");
+    eyeIcon.src = "/images/eye-close.svg";
   }
 
   passwordInput.focus();
 }
 
-eyeCloseIcon.addEventListener("click", toggleVisibility);
-eyeOpenIcon.addEventListener("click", toggleVisibility);
+eyeIcon.addEventListener("click", togglePasswordVisibility);

@@ -98,18 +98,8 @@ input:focus {
   margin-right: 1rem;
 }
 
-.eye-open {
+.eye-icon {
   width: 1.6rem;
-  height: 1.5rem;
-  display: none;
-}
-
-.eye-visible {
-  display: initial;
-}
-
-.eye-hidden {
-  display: none;
 }
 
 .signup-form label {

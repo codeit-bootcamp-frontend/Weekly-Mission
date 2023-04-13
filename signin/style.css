@@ -103,18 +103,8 @@ input:focus {
   align-items: center;
 }
 
-.eye-open {
+.password-wrapper .eye-icon {
   width: 1.6rem;
-  height: 1.5rem;
-  display: none;
-}
-
-.eye-visible {
-  display: initial;
-}
-
-.eye-hidden {
-  display: none;
 }
 
 .signin-button {
