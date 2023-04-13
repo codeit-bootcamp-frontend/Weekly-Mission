@@ -25,12 +25,12 @@ body {
   width: 100%;
   font-size: 1.6rem;
   font-family: "Pretendard", "sans-serif";
-  background-color: #f0f6ff;
+  background-color: var(--linkbrary-bg);
 }
 a:link,
 a:visited,
 a:hover,
 a:active {
   text-decoration: none;
-  color: #000;
+  color: var(--linkbrary-black);
 }
