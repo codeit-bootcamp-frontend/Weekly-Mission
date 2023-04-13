@@ -67,6 +67,10 @@ body {
   margin-bottom: 3rem;
 }
 
+.signup-form div:focus-within {
+  outline: 1px solid #6d6afe;
+}
+
 input {
   width: 100%;
   border: none;
@@ -80,13 +84,6 @@ input::placeholder {
 
 input:focus {
   outline: none;
-}
-
-.focus-outline {
-  outline: 1px solid #6d6afe !important;
-}
-
-.focus-text-color {
   color: #000000;
 }
 

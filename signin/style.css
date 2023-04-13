@@ -72,6 +72,10 @@ body {
   background-color: #ffffff;
 }
 
+.signin-form div:focus-within {
+  outline: 1px solid #6d6afe;
+}
+
 input {
   border: none;
   width: 100%;
@@ -86,6 +90,7 @@ input::placeholder {
 
 input:focus {
   outline: none;
+  color: #000000;
 }
 
 .signin-form .email-wrapper {
@@ -158,14 +163,6 @@ input:focus {
 
 .social-icons img {
   display: block;
-}
-
-.focus-outline {
-  outline: 1px solid #6d6afe !important;
-}
-
-.focus-text-color {
-  color: #000000;
 }
 
 @media (max-width: 767px) {

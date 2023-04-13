@@ -7,9 +7,6 @@ const passwordInput = inputNodes[1];
 const passwordRemindInput = inputNodes[2];
 
 function focusin(e) {
-  e.target.classList.add("focus-text-color");
-  e.target.parentElement.classList.add("focus-outline");
-
   if (e.target.id === "email") {
     setTimeout(() => {
       emailInput.addEventListener("focusout", checkEmailValid);
@@ -19,11 +16,6 @@ function focusin(e) {
       passwordInput.addEventListener("focusout", checkPasswordValid);
     }, 10);
   }
-}
-
-function focusout(e) {
-  e.target.classList.remove("focus-text-color");
-  e.target.parentElement.classList.remove("focus-outline");
 }
 
 function checkEmailValid(e) {
@@ -50,7 +42,6 @@ function checkPasswordValid(e) {
 
 inputNodes.forEach((inputNode) => {
   inputNode.addEventListener("focusin", focusin);
-  inputNode.addEventListener("focusout", focusout);
 });
 
 emailInput.addEventListener("focusout", checkEmailValid);
