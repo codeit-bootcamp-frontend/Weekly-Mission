@@ -1,7 +1,7 @@
-const $togglePasswordIcon = document.querySelector(".toggle-password");
-const $userEmailInput = document.querySelector(".user-email");
-const $userPasswordInput = document.querySelector(".user-password");
-const $loginForm = document.querySelector("#login-form");
+const togglePasswordIcon = document.querySelector(".toggle-password");
+const userEmailInput = document.querySelector(".user-email");
+const userPasswordInput = document.querySelector(".user-password");
+const loginForm = document.querySelector("#login-form");
 
 //비밀번호를 확인할 수 있는 아이콘 클릭시 비밀번호의 문자열이 보이기도 하고, 가려지기도 합니다.
 function togglePassword(e) {
@@ -36,13 +36,13 @@ function verifyLogininfo(e) {
   e.preventDefault();
   const trueEmail = "test@codeit.com";
   const truePw = "codeit101";
-  if ($userEmailInput.value === trueEmail && userPassword.value === truePw) {
+  if (userEmailInput.value === trueEmail && userPasswordInput.value === truePw) {
     location.href = "../my-link/my-link.html";
   } else {
     alert("이메일과 비밀번호를 확인해주세요.");
   }
 }
 
-$togglePasswordIcon.addEventListener("click", togglePassword);
-$userEmailInput.addEventListener("focusout", verifyEmail);
-$loginForm.addEventListener("submit", verifyLogininfo);
+togglePasswordIcon.addEventListener("click", togglePassword);
+userEmailInput.addEventListener("focusout", verifyEmail);
+loginForm.addEventListener("submit", verifyLogininfo);
