@@ -58,6 +58,11 @@ export default class Header extends HTMLElement {
       </style>
     `;
   }
+
+  disconnectedCallback() {
+    this.attachShadow({ mode: "closed" });
+    this.shadowRoot.innerHTML = ``;
+  }
 }
 
 customElements.define("header-component", Header);

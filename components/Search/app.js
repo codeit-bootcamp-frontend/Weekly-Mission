@@ -60,6 +60,11 @@ export default class Search extends HTMLElement {
       </style>
     `;
   }
+
+  disconnectedCallback() {
+    this.attachShadow({ mode: "closed" });
+    this.shadowRoot.innerHTML = ``;
+  }
 }
 
 customElements.define("search-component", Search);

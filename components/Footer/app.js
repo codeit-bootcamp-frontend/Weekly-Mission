@@ -77,6 +77,11 @@ export default class Footer extends HTMLElement {
       </style>
     `;
   }
+
+  disconnectedCallback() {
+    this.attachShadow({ mode: "closed" });
+    this.shadowRoot.innerHTML = ``;
+  }
 }
 
 customElements.define("footer-component", Footer);
