@@ -10,11 +10,9 @@ function togglePassword(e) {
   e.preventDefault();
   const icons = e.target.parentNode.children;
   const input = e.target.closest('div').querySelector('input');
-
   for(let i = 0; i<icons.length; i++){
       icons[i].classList.toggle('hide')
   }
-
   if (input.type === "password") {
       input.type = "text";
   } else {
@@ -26,38 +24,38 @@ function togglePassword(e) {
    2.이메일 input에서 focus out 일 때, 값이 있고, 이메일 형식에 맞지 않을 경우 alert으로 “올바른 이메일 주소가 아닙니다.” 메세지를 보입니다. 
    3.이메일 input에서 focus out 일 때, input 값이 test@codeit.com 일 경우, alert으로 “이미 사용 중인 아이디입니다.” 메세지를 보입니다.*/
 function verifyEmail(e) {
-  let target = e.target.value;
-  let regex = new RegExp("^[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+$");
-  if (!target) {
-    alert("이메일을 입력해주세요.");
-  } else if (target === "test@codeit.com") {
-    alert("이미 사용 중인 아이디입니다.");
-  } else if (!regex.test(target)) {
-    alert("올바른 이메일 주소가 아닙니다.");
+  if(e.sourceCapabilities){
+    let target = e.target.value;
+    let regex = new RegExp("^[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+$");
+    if (!target) {
+      alert("이메일을 입력해주세요.");
+    } else if (target === "test@codeit.com") {
+      alert("이미 사용 중인 아이디입니다.");
+    } else if (!regex.test(target)) {
+      alert("올바른 이메일 주소가 아닙니다.");
+    }
   }
 }
 
 //비밀번호 input에서 focus out 일 때, 값이 없거나 문자열만 있거나 숫자만 있는 경우, alert으로 “비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.” 메세지를 보입니다.
 function verifyPassword(e) {
-  let target = e.target.value;
-  let regex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
-
-  if (!regex.test(target) && !$togglePasswordIcon.contains(e.relatedTarget)) {
-    alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
+  if(e.sourceCapabilities){
+    let target = e.target.value;
+    let regex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
+    if (!regex.test(target) && !$togglePasswordIcon.contains(e.relatedTarget)) {
+      alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
+    }
   }
 }
 
 //회원가입을 실행할 경우, 문제가 있는 경우 문제가 있는 부분을 alert 메세지로 알립니다.
 function verifysignupForm(e) {
   e.preventDefault();
-
   let email = $userEmailInput.value;
   let password = $userPasswordInput.value;
   let passwordVerify = $userPasswordVerifyInput.value;
-
   let regexEmail = new RegExp("^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$");
   let regexPassword = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
-
   if (!email) {
     alert("이메일을 입력해주세요.");
   } else if (email === "test@codeit.com") {
