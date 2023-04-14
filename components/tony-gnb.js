@@ -2,8 +2,13 @@ class GlobalNavigationBar extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
-    this.shadowRoot.innerHTML = `
+    if (!localStorage.getItem('token')) {
+      this.shadowRoot.innerHTML = `
     <style>
+      a {
+        text-decoration: none;
+      }
+
       header {
         box-sizing: border-box;
         width: 100vw;
@@ -75,6 +80,13 @@ class GlobalNavigationBar extends HTMLElement {
           height: 23.944rem;
         }
       }
+      @media (min-width: 375px) and (max-width: 767px) {
+        /*-------------------------header----------------------*/
+        header .header-container {
+          width: calc(100% - 4rem);
+          padding: 1rem 2rem 1.5rem;
+        }
+      }
     </style>
     <header>
     <div class="header-container">
@@ -87,7 +99,107 @@ class GlobalNavigationBar extends HTMLElement {
     </div>
   </header>
     `;
+    } else {
+      this.shadowRoot.innerHTML = `
+    <style>
+      header {
+        box-sizing: border-box;
+        width: 100vw;
+        background: #f0f6ff;
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+      }
+      
+      header .header-container {
+        width: calc(100% - 25rem);
+        max-width: 1920px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 12.5rem 1.5rem;
+        margin: 0 auto;
+      }
+      
+      .header-section header .logo {
+        width: 8.313rem;
+        height: 1.5rem;
+        cursor: pointer;
+      }
+      
+      header .user {
+        display: flex;
+        align-items: center;
+      }
+
+      header .user img {
+        margin-right: 6px;
+      }
+
+      @media (min-width: 863px) and (max-width: 1199px) {
+        /*----------------------- header ---------------------------*/
+        header .header-container {
+          min-width: 50rem;
+          padding: 1.5rem 2.67vw 1.5rem;
+        }
+        .header-section .header-content .p-box {
+          display: flex;
+          flex-direction: column;
+        }
+      
+        .header-section .header-content .img-box {
+          width: 40.644rem;
+          height: 23.944rem;
+        }
+      }
+      @media (min-width: 768px) and (max-width: 863px) {
+        /*-------------------- header ----------------------------*/
+        header .header-container {
+          width: calc(100% - 4rem);
+          padding: 1rem 2rem 1.5rem;
+        }
+      
+        .header-section .header-content .p-box {
+          display: flex;
+          flex-direction: column;
+        }
+      
+        .header-section .header-content .img-box {
+          width: 40.644rem;
+          height: 23.944rem;
+        }
+      }
+      @media (min-width: 375px) and (max-width: 767px) {
+        /*-------------------------header----------------------*/
+        header .header-container {
+          width: calc(100% - 4rem);
+          padding: 1rem 2rem 1.5rem;
+        }
+        
+        header .user span {
+          display:none
+        }
+      }
+    </style>
+  <header>
+    <div class="header-container">
+      <a href="/">
+        <img class="" src="/pictures/Linkbrary.png" alt="logo" />
+      </a>
+      <a href="/pages/signin/signin.html">
+        <div class="user">
+          <img src='/pictures/profile.png'/>
+          <span>Codeit@codeit.com</span>
+        </div>
+      </a>
+    </div>
+  </header>
+    `;
+    }
   }
+  connectedCallback() {}
 }
 
 customElements.define('tony-gnb', GlobalNavigationBar);

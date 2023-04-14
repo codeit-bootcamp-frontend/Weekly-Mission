@@ -4,6 +4,10 @@ class Footer extends HTMLElement {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = `
     <style>
+      a {
+        text-decoration: none;
+      }
+
       footer {
         font-family: Arial, Helvetica, sans-serif;
         width: 100vw;
@@ -79,7 +83,6 @@ class Footer extends HTMLElement {
         <a href="/pages/instagram.html">
           <img src="/pictures/icons/Vector-3.png" />
         </a>
-        <a href="./pages/shared/shared.html"> 공유버튼</a>
       </div>
     </div>
   </footer>

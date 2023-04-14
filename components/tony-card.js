@@ -20,6 +20,7 @@ class Card extends HTMLElement {
       }
       
       .card:hover .img-box {
+        weight: 100%;
         overflow: hidden;
         border-radius: 15px 15px 0 0;
       }

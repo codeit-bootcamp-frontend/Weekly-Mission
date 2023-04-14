@@ -5,12 +5,12 @@ class SearchBar extends HTMLElement {
     this.shadowRoot.innerHTML = `
       <style>
         input {
+          box-sizing:border-box;
           width: 100%;
           height: 54px;
-          color: #F5F5F5;
           border: none;
           background: url('/pictures/Search.png') #f5f5f5 no-repeat scroll 7px 20px;
-          padding-left:30px;
+          padding: 0 0 0 30px;
         }
      
       </style>
