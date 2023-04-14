@@ -10,14 +10,16 @@ body {
 }
 
 main {
-  margin: 12.3rem 0;
+  margin-top: 23.8rem;
   text-align: center;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-main > * {
-  max-width: 40rem;
-  margin: 0 auto;
-}
+/* main > * {
+
+} */
 
 .linkbrary-logo {
   height: 3.8rem;
@@ -110,9 +112,13 @@ form .link-find-password {
 }
 
 @media screen and (max-width: 767px) {
+  body {
+    margin-left: 3.2rem ;
+    margin-right: 3.2rem ;
+  }
   main {
-    margin-left: 3.2rem;
-    margin-right: 3.2rem;
+    margin-top: 12rem;
+
     text-align: center;
   }
 }
