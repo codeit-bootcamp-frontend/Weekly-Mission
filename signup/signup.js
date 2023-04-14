@@ -72,7 +72,7 @@ function removeFocusOutEventListener(e) {
 
 function isValidForm(e) {
   e.preventDefault();
-  if (isValidEmail(e) || isValidPassword(e) || isValidPasswordCheck(e)) {
+  if (isValidEmail(e) && isValidPassword(e) && isValidPasswordCheck(e)) {
     location.href = "../my-link/";
   }
 }
