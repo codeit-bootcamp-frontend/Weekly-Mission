@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css"
+    >
+    <link rel="stylesheet" href="/assets/stylesheets/signup.css">
+    <link rel="icon" href="/assets/images/favicon.ico">
+  </head>
+  <body>
+    <header>
+      <a href="/">
+        <img class="logo" src="/assets/images/logo.png" alt="Linkbrary">
+      </a>
+      <div class="header-menu">
+        이미 회원이신가요? <a href="/signin">로그인 하기</a>
+      </div>
+    </header>
+    <main>
+      <form>
+        <label for="signup-email">이메일</label>
+        <input id="signup-email" name="email" type="email" required>
+        <label for="signup-password">비밀번호</label>
+        <input id="signup-password" name="password" type="password" required>
+        <label for="signup-password-repeat">비밀번호 확인</label>
+        <input id="signup-password-repeat" name="password-repeat" type="password" required>
+        <button>회원가입</button>
+      </form>
+    </main>
+    <footer>
+      다른 방식으로 가입하기
+      <div class="sns-icons">
+        <a href="https://www.google.com/">
+          <img class="sns-icon" src="/assets/images/sns-icons/google.png" alt="구글">
+        </a>
+        <a href="https://www.kakaocorp.com/page/">
+          <img class="sns-icon" src="/assets/images/sns-icons/kakao.png" alt="카카오톡">
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>
