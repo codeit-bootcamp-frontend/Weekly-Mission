@@ -16,6 +16,8 @@ export default class Search extends HTMLElement {
       </div>
       <style>
         .search {
+          max-width: 1060px;
+          margin: 0 auto;
           width: 100%;
           height: 48px;
           box-sizing: border-box;
