@@ -10,7 +10,8 @@ class Card extends HTMLElement {
       .card {
         width: 340px;
         height: 334px;
-        box-shadow: 0px 5px 25px rgba(0,0,0,0.08)
+        box-shadow: 0px 5px 25px rgba(0,0,0,0.08);
+        cursor: pointer;
       }
 
       .card .img-box {
@@ -116,8 +117,12 @@ class Card extends HTMLElement {
       `;
   }
 
-  toggleStar() {
+  toggleStar(event) {
     this.starImg.classList.toggle('click');
+    event.stopPropagation();
+  }
+  goToCodeit() {
+    location.href = 'https://www.codeit.kr';
   }
 
   connectedCallback() {
@@ -129,6 +134,9 @@ class Card extends HTMLElement {
     this.starImg.addEventListener('click', this.toggleStar.bind(this));
     const imgbox = this.shadowRoot.querySelector('.img-box');
     imgbox.appendChild(this.starImg);
+    const card = this.shadowRoot.querySelector('.card');
+    console.log(card);
+    card.addEventListener('click', this.goToCodeit);
   }
 
   disconnectedCallback() {}
