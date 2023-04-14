@@ -116,7 +116,7 @@
   display: block;
 }
 
-.card .img {
+.card img {
   width: 550px;
 }
 
@@ -128,7 +128,7 @@
   order: 2;
 }
 
-.card:nth-child(2n) .img {
+.card:nth-child(2n) img {
   order: 0;
 }
 
@@ -237,7 +237,7 @@
     width: 250px;
   }
 
-  .card .img {
+  .card img {
     width: 385px;
   }
 
@@ -305,7 +305,7 @@
     margin-bottom: 0;
   }
 
-  .card .img:nth-child(1n) {
+  .card img:nth-child(1n) {
     width: 100%;
     margin-bottom: 20px;
     order: 1;
