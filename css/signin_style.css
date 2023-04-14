@@ -45,17 +45,8 @@ body {
 
 .signup-link {
   color: #6d6afe;
-  position: relative;
-}
-
-.signup-link:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background-color: #6d6afe;
+  text-decoration: underline 1px;
+  text-underline-offset: 3px;
 }
 
 /* 로그인 폼 */
@@ -105,9 +96,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.user-password-container i {
   font-size: 16px;
   color: #4B5563;
 }
