@@ -65,18 +65,16 @@ const passwordEyeIcon = eyeIcons[0];
 const passwordCheckEyeIcon = eyeIcons[0];
 
 eyeIcons.forEach((eyeIcon) => {
+  let visiblity = false;
+  
   eyeIcon.addEventListener("pointerdown", (e) => {
     e.preventDefault();
-    const target = e.target.previousSibling;
 
-    if (eyeIcon.classList.contains("fa-eye-slash")) {
-      eyeIcon.classList.remove("fa-eye-slash");
-      eyeIcon.classList.add("fa-eye");
-      target.type = "text";
-    } else if (eyeIcon.classList.contains("fa-eye")) {
-      eyeIcon.classList.remove("fa-eye");
-      eyeIcon.classList.add("fa-eye-slash");
-      target.type = "password";
-    }
+    const target = e.target.previousSibling;
+    visiblity = !visiblity
+
+    visiblity ? target.type = "text": target.type = "password"
+    eyeIcon.classList.toggle("fa-eye-slash");
+    eyeIcon.classList.toggle("fa-eye");
   });
 });
