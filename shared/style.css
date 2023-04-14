@@ -74,6 +74,7 @@ header {
 
 .input-container {
   padding: 1.5rem 1.6rem;
+  margin-bottom: 4rem;
   display: flex;
   align-items: center;
   gap: 1rem;
