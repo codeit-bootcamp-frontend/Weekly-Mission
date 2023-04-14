@@ -7,7 +7,7 @@ const userPasswordInput = document.querySelector(".user-password");
 const userPasswordVerifyInput = document.querySelector(".user-passwordverify");
 const signupForm = document.querySelector("#signup-form");
 
-//비밀번호를 확인할 수 있는 아이콘 클릭시 비밀번호의 문자열이 보이기도 하고, 가려지기도 합니다.
+// 비밀번호를 확인할 수 있는 아이콘 클릭시 비밀번호의 문자열이 보이기도 하고, 가려지기도 합니다.
 function togglePassword(e) {
   e.preventDefault();
   const icons = e.target.parentNode.children;
@@ -39,7 +39,7 @@ function verifyEmail(e) {
   }
 }
 
-//비밀번호 input에서 focus out 일 때, 값이 없거나 문자열만 있거나 숫자만 있는 경우, alert으로 “비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.” 메세지를 보입니다.
+// 비밀번호 input에서 focus out 일 때, 값이 없거나 문자열만 있거나 숫자만 있는 경우, alert으로 “비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.” 메세지를 보입니다.
 function verifyPassword(e) {
   if (e.sourceCapabilities) {
     let target = e.target.value;
@@ -50,7 +50,7 @@ function verifyPassword(e) {
   }
 }
 
-//회원가입을 실행할 경우, 문제가 있는 경우 문제가 있는 부분을 alert 메세지로 알립니다.
+// 회원가입을 실행할 경우, 문제가 있는 경우 문제가 있는 부분을 alert 메세지로 알립니다.
 function verifysignupForm(e) {
   e.preventDefault();
   let email = userEmailInput.value;

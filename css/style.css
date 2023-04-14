@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @import url("/css/font.css");
 
-/*header*/
+/* header */
 .header {
   position: sticky;
   top: 0;
@@ -36,7 +36,7 @@
   text-align: center;
 }
 
-/*banner*/
+/* banner */
 .banner {
   background-color: #f0f6ff;
 }
@@ -76,7 +76,7 @@
   margin-bottom: 60px;
 }
 
-/*content*/
+/* content */
 .content .container {
   padding-top: 120px;
   width: fit-content;
@@ -156,7 +156,7 @@
   -webkit-background-clip: text;
 }
 
-/*footer*/
+/* footer */
 .footer {
   background-color: #111322;
 }
@@ -189,7 +189,7 @@
   align-items: center;
 }
 
-/*타블렛*/
+/* 타블렛 */
 @media (max-width: 1199px) {
   .container {
     padding: 0 32px;
@@ -252,7 +252,7 @@
   }
 }
 
-/*모바일*/
+/* 모바일 */
 @media (max-width: 767px) {
   .header .container {
     height: 64px;
