@@ -37,17 +37,17 @@
     />
   </head>
   <body>
-    <div class="header-section">
-      <div class="header-background">
-        <header>
-          <a href="/">
-            <img src="/pictures/Linkbrary.png" alt="logo" />
-          </a>
-          <a href="/pages/signin.html">
-            <button>로그인</button>
-          </a>
-        </header>
+    <header>
+      <div class="header-container">
+        <a href="/">
+          <img class="" src="/pictures/Linkbrary.png" alt="logo" />
+        </a>
+        <a href="/pages/signin/signin.html">
+          <button>로그인</button>
+        </a>
       </div>
+    </header>
+    <div class="header-section">
       <section class="header-content">
         <p>세상의 모든 정보<span>를</span></p>
         <div class="p-box">
@@ -55,75 +55,62 @@
           <span>관리해 보세요.</span>
         </div>
         <button>링크 추가하기</button>
-        <img src="/pictures/image 25.png" alt="dim" />
+        <div class="img-box">
+          <img src="/pictures/image 25.png" alt="dim" />
+        </div>
       </section>
     </div>
     <main>
       <div class="main-container">
-        <section class="save-link">
-          <div class="p-box">
-            <p>원하는 링크<span>를</span></p>
-            <p>저장하세요</p>
-            <p class="desktop-version">
-              나중에 읽고 싶은 글, 다시 보고싶은 영상, <br />사고 싶은 옷,
-              기억하고 싶은 모든 것을<br />한 공간에 저장하세요.
-            </p>
-          </div>
+        <section class="save-link container">
+          <p class="title-box"><span>원하는 링크</span>를 <br />저장하세요</p>
+          <p class="additional-explanation">
+            나중에 읽고 싶은 글, 다시 보고싶은 영상, <br />사고 싶은 옷,
+            기억하고 싶은 모든 것을<br />한 공간에 저장하세요.
+          </p>
           <div class="img-box">
             <img src="/pictures/_img 1.png" />
           </div>
-          <p class="mobile-version">
-            나중에 읽고 싶은 글, 다시 보고싶은 영상, 사고 싶은 옷, 기억하고 싶은
-            모든 것을 한 공간에 저장하세요.
-          </p>
         </section>
-        <section class="folder">
-          <p class="mobile-version">링크를 폴더로<span>관리</span>하세요</p>
+        <section class="folder container">
           <div class="img-box">
             <img src="/pictures/img 4.png" />
           </div>
-          <div class="folder-p">
-            <p class="desktop-version">
-              링크를 폴더로 <br /><span>관리</span>하세요
-            </p>
-            <p>나만의 폴더를 무제한으로 만들고 다양하게 활용할 수 있어요.</p>
-          </div>
-        </section>
-        <section class="share">
-          <div class="share-p">
-            <p>저장한 링크를<br /><span>공유</span>해 보세요.</p>
-            <p class="desktop-version">
-              여러 링크를 폴더에 담고 공유할 수 있습니다. <br />가족, 친구,
-              동료들에게 쉽고 빠르게 링크를<br />
-              공유해 보세요.
-            </p>
-          </div>
-          <div class="share-img">
-            <img src="/pictures/img3 1.png" />
-          </div>
-          <p class="mobile-version">
-            여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구, 동료들에게
-            쉽고 빠르게 링크를 공유해 보세요.
+          <p class="title-box">링크를 폴더로 <br /><span>관리</span>하세요</p>
+          <p class="additional-explanation">
+            나만의 폴더를 무제한으로 만들고 다양하게 활용할 수 있어요.
           </p>
         </section>
-        <section class="search">
-          <p class="mobile-version">저장한 링크를<span>검색</span>해 보세요.</p>
-          <div class="search-img">
+        <section class="share container">
+          <p class="title-box">
+            저장한 링크를 <br /><span>공유</span>해 보세요.
+          </p>
+          <p class="additional-explanation">
+            여러 링크를 폴더에 담고 공유할 수 있습니다. <br />가족, 친구,
+            동료들에게 쉽고 빠르게 링크를<br />
+            공유해 보세요.
+          </p>
+          <div class="img-box">
+            <img src="/pictures/img3 1.png" />
+          </div>
+        </section>
+        <section class="search container">
+          <div class="img-box">
             <img src="/pictures/_img4 1.png" />
           </div>
-          <div class="search-p">
-            <p class="desktop-version">
-              저장한 링크를<br /><span>검색</span>해 보세요.
-            </p>
-            <p>중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
-          </div>
+          <p class="title-box">
+            저장한 링크를 <br /><span>검색</span>해 보세요.
+          </p>
+          <p class="additional-explanation">
+            중요한 정보들을 검색으로 쉽게 찾아보세요.
+          </p>
         </section>
       </div>
     </main>
     <footer>
       <div class="footer-container">
         <div class="codeit">@codeit - 2023</div>
-        <div>
+        <div class="privacy">
           <a href="/pages/privacy.html">Privacy Policy</a>
           <a href="/pages/faq.html">FAQ</a>
         </div>
