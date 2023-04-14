@@ -92,6 +92,14 @@ main {
 }
 
 /* ================================== main > card-container ================================== */
+.contents {
+  width: 100%;
+  height: auto;
+  background: var(--linkbrary-white);
+}
+.contents .search-bar {
+  padding: 4rem 0 4rem;
+}
 
 card-component {
   display: block;
