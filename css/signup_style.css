@@ -66,44 +66,44 @@ body {
 }
 
 /*아이디,비밀번호 입력창*/
-.userEmail-text,
-.userPassword-text,
-.userPassword-verify-text {
+.user-email-text,
+.user-password-text,
+.user-passwordverify-text {
   margin-bottom: 10px;
 }
 
-.userEmail,
-.userPassword,
-.userPassword-verify {
+.user-email,
+.user-password,
+.user-passwordverify {
   height: 55px;
   border-radius: 10px;
   border: 1px solid #ccd5e3;
   padding: 15px;
 }
 
-.userEmail:focus,
-.userPassword:focus,
-.userPassword-verify:focus {
+.user-email:focus,
+.user-password:focus,
+.user-passwordverify:focus {
   outline: none;
   border: 1px solid #6d6afe;
 }
 
-.userEmail {
+.user-email {
   margin-bottom: 24px;
 }
 
-.userPassword,
-.userPassword-verify {
+.user-password,
+.user-passwordverify {
   margin-bottom: 30px;
 }
 
 /*패스워드 가시성 버튼*/
-.password-container,
-.password-verify-container {
+.user-password-container,
+.user-passwordverify-container {
   position: relative;
 }
 
-.toggle-password i, .toggle-password-verify i {
+.toggle-password i, .toggle-passwordverify i {
   position: absolute;
   top: 45px;
   right: 20px;

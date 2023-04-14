@@ -1,8 +1,8 @@
 const $togglePasswordIcon = document.querySelector(".toggle-password");
-const $togglePasswordVerifyIcon = document.querySelector(".toggle-password-verify");
-const $userEmailInput = document.querySelector(".userEmail");
-const $userPasswordInput = document.querySelector(".userPassword");
-const $userPasswordVerifyInput = document.querySelector(".userPassword-verify");
+const $togglePasswordVerifyIcon = document.querySelector(".toggle-passwordverify");
+const $userEmailInput = document.querySelector(".user-email");
+const $userPasswordInput = document.querySelector(".user-password");
+const $userPasswordVerifyInput = document.querySelector(".user-passwordverify");
 const $signupForm = document.querySelector("#signup-form");
 
 //비밀번호를 확인할 수 있는 아이콘 클릭시 비밀번호의 문자열이 보이기도 하고, 가려지기도 합니다.

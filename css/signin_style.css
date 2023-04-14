@@ -65,38 +65,38 @@ body {
 }
 
 /*아이디,비밀번호 입력창*/
-.userEmail-text,
-.userPassword-text {
+.user-email-text,
+.user-password-text {
   margin-bottom: 10px;
 }
 
-.userEmail,
-.userPassword {
+.user-email,
+.user-password {
   height: 55px;
   border-radius: 10px;
   border: 1px solid #ccd5e3;
   padding: 15px;
 }
 
-.userEmail:focus,
-.userPassword:focus {
+.user-email:focus,
+.user-password:focus {
   outline: none;
   border: 1px solid #6d6afe;
 }
 
-.userEmail {
+.user-email {
   margin-bottom: 24px;
 }
 
-.userPassword {
+.user-password {
   margin-bottom: 30px;
 }
 
-.password-container {
+.user-password-container {
   position: relative;
 }
 
-.password-container i {
+.user-password-container i {
   position: absolute;
   top: 45px;
   right: 20px;
