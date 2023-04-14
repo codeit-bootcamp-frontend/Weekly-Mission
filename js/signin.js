@@ -2,6 +2,7 @@ const togglePasswordIcon = document.querySelector(".toggle-password");
 const userEmailInput = document.querySelector(".user-email");
 const userPasswordInput = document.querySelector(".user-password");
 const loginForm = document.querySelector("#login-form");
+const regexEmail = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$/;
 
 // 비밀번호를 확인할 수 있는 아이콘 클릭시 비밀번호의 문자열이 보이기도 하고, 가려지기도 합니다.
 function togglePassword(e) {
@@ -23,10 +24,9 @@ function togglePassword(e) {
 function verifyEmail(e) {
   if (e.sourceCapabilities) {
     let target = e.target.value;
-    let regex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+$/
     if (!target) {
       alert("이메일을 입력해주세요.");
-    } else if (!regex.test(target)) {
+    } else if (!regexEmail.test(target)) {
       alert("올바른 이메일 주소가 아닙니다.");
     }
   }
