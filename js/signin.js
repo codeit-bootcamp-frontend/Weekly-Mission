@@ -23,10 +23,10 @@ function togglePassword(e) {
    2.이메일 input에서 focus out 일 때, 값이 있고, 이메일 형식에 맞지 않을 경우 alert으로 “올바른 이메일 주소가 아닙니다.” 메세지를 보입니다. */
 function verifyEmail(e) {
   if (e.sourceCapabilities) {
-    let target = e.target.value;
-    if (!target) {
+    const email = e.target.value;
+    if (!email) {
       alert("이메일을 입력해주세요.");
-    } else if (!regexEmail.test(target)) {
+    } else if (!regexEmail.test(email)) {
       alert("올바른 이메일 주소가 아닙니다.");
     }
   }
