@@ -8,7 +8,7 @@ export default class Search extends HTMLElement {
     this.shadowRoot.innerHTML = /* html */ `
       <div class="search">
         <div class="search-icon">
-          <img src="../../static/public/search-icon.svg" alt="Search Icon" />
+          <img src="/static/public/search-icon.svg" alt="Search Icon" />
         </div>
         <div class="search-input">
           <input class="input" type="text" placeholder="원하는 링크를 검색해 보세요." />

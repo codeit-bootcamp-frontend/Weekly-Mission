@@ -1,8 +1,8 @@
-import Footer from "../../components/Footer/app.js";
-import Header from "../../components/Header/app.js";
-import Search from "../../components/Search/app.js";
-import Card from "../../components/Card/app.js";
-import { getElem } from "../../hooks/getElement.js";
+import Footer from "/components/Footer/app.js";
+import Header from "/components/Header/app.js";
+import Search from "/components/Search/app.js";
+import Card from "/components/Card/app.js";
+import { getElem } from "/hooks/getElement.js";
 
 (function () {
   const cardContainer = getElem(document, "main .contents .card-container");

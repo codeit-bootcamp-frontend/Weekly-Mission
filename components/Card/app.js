@@ -9,10 +9,10 @@ export default class Card extends HTMLElement {
     this.attachShadow({ mode: "open" });
     this.shadowRoot.innerHTML = /* html */ `
       <div class="card-asterisk">
-        <img src="../../static/public/card-asterisk.svg" alt="Card Asterisk" />
+        <img src="/static/public/card-asterisk.svg" alt="Card Asterisk" />
       </div>
       <div class="card-img-top">
-        <img src="../../static/public/card-img-${this.imgNumber}.svg" alt="Card Image" />
+        <img src="/static/public/card-img-${this.imgNumber}.svg" alt="Card Image" />
       </div>
       <div class="card-caption">
         <div class="info">

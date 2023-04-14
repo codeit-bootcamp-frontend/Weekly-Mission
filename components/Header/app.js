@@ -7,10 +7,10 @@ export default class Header extends HTMLElement {
     this.shadowRoot.innerHTML = /* html */ `
         <nav>
           <a href="/" class="logo">
-            <img src="../../static/public/linkbrary-logo.svg" alt="Linkbrary Logo" />
+            <img src="/static/public/linkbrary-logo.svg" alt="Linkbrary Logo" />
           </a>
           <a class="user">
-            <img src="../../static/public/codeit-profile.svg" alt="User Icon" />
+            <img src="/static/public/codeit-profile.svg" alt="User Icon" />
             <span>Codeit@codeit.com</span>
           </a>
         </nav>
