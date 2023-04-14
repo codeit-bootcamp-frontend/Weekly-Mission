@@ -1,3 +1,40 @@
+.inner {
+  margin: 0 auto;
+  width: calc(1920px - 40rem);
+  height: 100%;
+}
+@media (max-width: 1920px) {
+  .inner {
+    max-width: calc(100% - 40rem);
+  }
+}
+@media (max-width: 1100px) {
+  .inner {
+    max-width: calc(100% - 6.4rem);
+  }
+}
+
+/* ================================== header ================================== */
+header {
+  background-color: var(--linkbrary-bg-50);
+  height: 9.3rem;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  display: block;
+}
+header-component {
+  height: 9.3rem;
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  header-component {
+    height: 6.3rem;
+  }
+}
+
 card-component {
   display: block;
   background: white;

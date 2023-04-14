@@ -1,4 +1,4 @@
-export class Card extends HTMLElement {
+export default class Card extends HTMLElement {
   constructor(imgNumber) {
     super();
 
