@@ -13,7 +13,6 @@ input:autofill:active {
 body {
   background-color: #f0f6ff;
   font-size: 14px;
-  height: 982px;
 }
 
 .signup-wrapper {
@@ -21,7 +20,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 238px 32px 0;
+  padding: 238px 32px 158px;
   max-width: 400px;
   margin: 0 auto;
 }
@@ -161,11 +160,9 @@ body {
 }
 
 @media (max-width: 767px) {
-  body {
-    height: 844px;
-  }
   .signup-wrapper {
     padding-top: 120px;
+    padding-bottom: 138px;
     min-width: 300px;
   }
 }
