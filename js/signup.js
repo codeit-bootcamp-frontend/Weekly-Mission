@@ -71,7 +71,7 @@ function verifysignupForm(e) {
   } else if (password !== passwordVerify) {
     alert("비밀번호 확인이 일치하지 않습니다.");
   } else {
-    location.href = "../my-link/my-link.html";
+    location.replace("../my-link/my-link.html")
   }
 }
 
