@@ -45,6 +45,11 @@ header nav .logo {
   display: flex;
   width: 133px;
 }
+header nav .logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 header nav .signin {
   width: 12.8rem;
   height: 5.3rem;
@@ -77,6 +82,24 @@ header nav .signin {
 @media (max-width: 863px) {
   header .inner {
     max-width: calc(100% - 6.4rem);
+  }
+  header nav .logo {
+    width: 10rem;
+  }
+  header nav .signin {
+    width: 10rem;
+  }
+}
+@media (max-width: 767px) {
+  header nav .logo {
+    width: 7.758rem;
+  }
+  header nav .signin {
+    width: 8rem;
+    height: 3.7rem;
+    font-size: 1.4rem;
+    line-height: 1.671rem;
+    padding: 1rem 1.6rem;
   }
 }
 
@@ -166,12 +189,6 @@ header nav .signin {
   }
 }
 @media (max-width: 863px) {
-  header nav .logo {
-    width: 10rem;
-  }
-  header nav .signin {
-    width: 10rem;
-  }
   .hero {
     padding-top: 3.4rem;
   }
@@ -192,16 +209,6 @@ header nav .signin {
   }
 }
 @media (max-width: 767px) {
-  header nav .logo {
-    width: 7.758rem;
-  }
-  header nav .signin {
-    width: 8rem;
-    height: 3.7rem;
-    font-size: 1.4rem;
-    line-height: 1.671rem;
-    padding: 1rem 1.6rem;
-  }
   .hero {
     padding-top: 2.8rem;
   }
