@@ -26,7 +26,7 @@ button {border: none;}
 * {box-sizing: border-box;}
 
 /* 반응형 */
-video,img,input {width: 100%;}
+video,img,input,button {width: 100%;}
 
 /* IR 효과 */
 .ir-pm {display:block; overflow:hidden; font-size:0; line-height:0; text-indent:-9999px;} /* 의미있는 이미지의 대체 텍스트를 제공하는 경우(Phark Method) */
