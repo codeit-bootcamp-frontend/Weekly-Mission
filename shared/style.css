@@ -72,6 +72,97 @@ header {
   font-weight: 600;
 }
 
+.input-container {
+  padding: 1.5rem 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #f5f5f5;
+  border-radius: 1rem;
+}
+
+.input-container input {
+  width: 100%;
+  font-size: 1.6rem;
+  background-color: inherit;
+  border: none;
+}
+
+.input-container input::placeholder {
+  color: #666666;
+}
+
+.input-container input:focus {
+  outline: none;
+}
+
+main {
+  padding: 4rem 0 10rem;
+  margin: 0 auto;
+  max-width: 106rem;
+}
+
+.card {
+  width: 34rem;
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.08);
+}
+
+.card-image {
+  display: block;
+}
+
+.card .star-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+}
+
+.text-content {
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-info .added-time {
+  color: #666666;
+  font-size: 1.3rem;
+}
+
+.card-info .kebab-button {
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+
+.card-description {
+  /* text-overflow: ellipsis; */
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 2.4rem;
+}
+
+.datetime {
+  color: #333333;
+  font-size: 1.5rem;
+}
+
 footer {
   height: 16rem;
   padding: 3.2rem 10.4rem 10.8rem;
