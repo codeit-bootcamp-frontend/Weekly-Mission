@@ -145,3 +145,32 @@ card-component {
     padding-bottom: 6rem;
   }
 }
+
+/* ================================== footer ================================== */
+footer {
+  width: 100%;
+  height: 16rem;
+  background: #111322;
+}
+footer footer-component {
+  height: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(3.2rem);
+}
+
+@media (max-width: 1920px) {
+  footer .inner {
+    max-width: calc(100% - 20.8rem);
+  }
+}
+@media (max-width: 863px) {
+  footer .inner {
+    max-width: calc(100% - 6.4rem);
+  }
+}
+@media (max-width: 767px) {
+  footer .inner {
+    position: relative;
+  }
+}
