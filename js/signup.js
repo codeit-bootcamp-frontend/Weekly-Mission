@@ -27,7 +27,7 @@ function togglePassword(e) {
    3.이메일 input에서 focus out 일 때, input 값이 test@codeit.com 일 경우, alert으로 “이미 사용 중인 아이디입니다.” 메세지를 보입니다.*/
 function verifyEmail(e) {
   if (e.sourceCapabilities) {
-    let email = e.target.value;
+    const email = e.target.value;
     if (!email) {
       alert("이메일을 입력해주세요.");
     } else if (email === "test@codeit.com") {
@@ -41,7 +41,7 @@ function verifyEmail(e) {
 // 비밀번호 input에서 focus out 일 때, 값이 없거나 문자열만 있거나 숫자만 있는 경우, alert으로 “비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.” 메세지를 보입니다.
 function verifyPassword(e) {
   if (e.sourceCapabilities) {
-    let password = e.target.value;
+    const password = e.target.value;
     if (!regexPassword.test(password) && !togglePasswordIcon.contains(e.relatedTarget)) {
       alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
     }
@@ -51,9 +51,9 @@ function verifyPassword(e) {
 // 회원가입을 실행할 경우, 문제가 있는 경우 문제가 있는 부분을 alert 메세지로 알립니다.
 function verifysignupForm(e) {
   e.preventDefault();
-  let email = userEmailInput.value;
-  let password = userPasswordInput.value;
-  let passwordVerify = userPasswordVerifyInput.value;
+  const email = userEmailInput.value;
+  const password = userPasswordInput.value;
+  const passwordVerify = userPasswordVerifyInput.value;
   if (!email) {
     alert("이메일을 입력해주세요.");
   } else if (email === "test@codeit.com") {
