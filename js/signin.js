@@ -23,7 +23,7 @@ function togglePassword(e) {
 function verifyEmail(e) {
   if (e.sourceCapabilities) {
     let target = e.target.value;
-    let regex = new RegExp("^[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+$");
+    let regex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+$/
     if (!target) {
       alert("이메일을 입력해주세요.");
     } else if (!regex.test(target)) {

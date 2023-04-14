@@ -28,7 +28,7 @@ function togglePassword(e) {
 function verifyEmail(e) {
   if (e.sourceCapabilities) {
     let target = e.target.value;
-    let regex = new RegExp("^[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+$");
+    let regex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+$/;
     if (!target) {
       alert("이메일을 입력해주세요.");
     } else if (target === "test@codeit.com") {
@@ -56,9 +56,7 @@ function verifysignupForm(e) {
   let email = userEmailInput.value;
   let password = userPasswordInput.value;
   let passwordVerify = userPasswordVerifyInput.value;
-  let regexEmail = new RegExp(
-    "^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
-  );
+  let regexEmail = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
   let regexPassword = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
   if (!email) {
     alert("이메일을 입력해주세요.");
