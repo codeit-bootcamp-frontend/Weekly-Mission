@@ -103,6 +103,10 @@ body {
   position: relative;
 }
 
+.toggle-password, .toggle-passwordverify {
+  cursor: pointer;
+}
+
 .toggle-password i, .toggle-passwordverify i {
   position: absolute;
   top: 45px;

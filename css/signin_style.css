@@ -104,6 +104,10 @@ body {
   color: #4B5563;
 }
 
+.toggle-password {
+  cursor: pointer;
+}
+
 /*로그인 버튼*/
 .login-btn {
   height: 54px;
