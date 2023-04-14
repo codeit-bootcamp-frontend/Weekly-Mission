@@ -11,33 +11,26 @@
 </head>
 <body>
   <div class="wrapper-container">
+    <a href="/" class="linkbrary-logo"><img src="./images/logo.png" alt="로고"></a>
+    <div class="verify-member">
+      <div>회원이 아니신가요?</div>
+      <a href="/signup.html" class="change-form-signin-and-up">회원 가입하기</a>
+    </div>
     <form class="form-signin-and-up">
-      <div class="form-top">
-        <a href="/"><img class="logo" src="./images/logo.png" alt="로고"></a>
-        <div class="verify-member">
-          <div>회원이 아니신가요?</div>
-          <a href="/signup.html" class="change-form-signin-and-up">회원 가입하기</a>
-        </div>
+      <div class="input-container">
+        <label for="email" class="label">이메일</label>
+        <input id="email" name="email" type="text" class="input">
       </div>
-
-      <div class="form-main">
-        <div class="input-group">
-          <label for="email" class="label">이메일</label>
-          <input id="email" name="email" type="text" class="input">
-        </div>
-        <div class="input-group">
-          <label for="password" class="label">비밀번호</label>
+      <div class="input-container">
+        <label for="password" class="label">비밀번호</label>
+        <div class="input-password-container">
           <input id="password" name="password" type="password" class="input">
           <img class="view-password" src="./images/view-password.png" alt="비밀번호 보기">
         </div>
       </div>
-
-      <div class="form-bottom">
-        <input type="submit" value="로그인" class="button-signin-and-up">
-        <a href="/forgot-password.html" class="forgot-password">비밀번호 찾기</a>
-      </div>
+      <button type="submit" class="button-signin-and-up">로그인</button>
     </form>
-
+    <a href="/forgot-password.html" class="forgot-password">비밀번호 찾기</a>
     <div class="social-signin-and-up">
       <div>소셜 로그인</div>
       <div class="box-sns">
