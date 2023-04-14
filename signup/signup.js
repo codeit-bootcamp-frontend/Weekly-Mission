@@ -46,7 +46,6 @@ function isValidPasswordCheck(e) {
   return true;
 }
 
-
 function isValidForm(e) {
   e.preventDefault();
   if (isValidEmail(e) && isValidPassword(e) && isValidPasswordCheck(e)) {
@@ -66,14 +65,14 @@ const passwordCheckEyeIcon = eyeIcons[0];
 
 eyeIcons.forEach((eyeIcon) => {
   let visiblity = false;
-  
+
   eyeIcon.addEventListener("pointerdown", (e) => {
     e.preventDefault();
 
     const target = e.target.previousSibling;
-    visiblity = !visiblity
+    visiblity = !visiblity;
 
-    visiblity ? target.type = "text": target.type = "password"
+    visiblity ? (target.type = "text") : (target.type = "password");
     eyeIcon.classList.toggle("fa-eye-slash");
     eyeIcon.classList.toggle("fa-eye");
   });
