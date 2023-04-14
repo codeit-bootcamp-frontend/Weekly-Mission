@@ -1,7 +1,5 @@
 const togglePasswordIcon = document.querySelector(".toggle-password");
-const togglePasswordVerifyIcon = document.querySelector(
-  ".toggle-passwordverify"
-);
+const togglePasswordVerifyIcon = document.querySelector(".toggle-passwordverify");
 const userEmailInput = document.querySelector(".user-email");
 const userPasswordInput = document.querySelector(".user-password");
 const userPasswordVerifyInput = document.querySelector(".user-passwordverify");
@@ -71,7 +69,7 @@ function verifysignupForm(e) {
   } else if (password !== passwordVerify) {
     alert("비밀번호 확인이 일치하지 않습니다.");
   } else {
-    location.replace("../my-link/my-link.html");
+    location.replace("../my-link.html");
   }
 }
 
