@@ -129,6 +129,7 @@ card-component {
   filter: drop-shadow(0px 5px 25px rgba(0, 0, 0, 0.08));
   border-radius: 15px;
   overflow: hidden;
+  cursor: pointer;
 }
 @media (max-width: 1465px) {
   .contents .card-container .inner {

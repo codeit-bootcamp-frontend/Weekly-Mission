@@ -3,6 +3,38 @@ export default class Card extends HTMLElement {
     super();
 
     this.imgNumber = imgNumber;
+
+    this.openCodeit = () => {
+      window.open("https://www.codeit.kr");
+    };
+    this.cardHoverInteraction = (event, card, cardTopImg) => {
+      if (event.type === "mouseover") {
+        card.style.background = "#F0F6FF";
+        cardTopImg.style.transform = "scale(1.2)";
+      } else if (event.type === "mouseout") {
+        card.style.background = "white";
+        cardTopImg.style.transform = "scale(1)";
+      }
+    };
+
+    this.cardClickInteraction = (current, target) => {
+      if (
+        current === target &&
+        target.getAttribute("src") === "/static/public/card-asterisk.svg"
+      ) {
+        target.setAttribute("src", "/static/public/card-asterisk-check.svg");
+        return;
+      }
+      if (
+        current === target &&
+        target.getAttribute("src") === "/static/public/card-asterisk-check.svg"
+      ) {
+        target.setAttribute("src", "/static/public/card-asterisk.svg");
+        return;
+      }
+
+      this.openCodeit();
+    };
   }
 
   connectedCallback() {
@@ -28,13 +60,21 @@ export default class Card extends HTMLElement {
       </div>
       <style>
         .card-asterisk {
+          width: 32px;
           position: absolute;
           top: 16px;
           right: 16px;
+          z-index: 1;
+        }
+        .card-asterisk img {
+          width: 100%;
+          height: auto;
+          display: block;
         }
         .card-img-top {
           width: 100%;
           height: 200px;
+          overflow: hidden;
         }
         .card-img-top img {
           width: 100%; 
@@ -94,6 +134,26 @@ export default class Card extends HTMLElement {
         }
       </style>
     `;
+
+    const cardAsterisk = this.shadowRoot.querySelector(".card-asterisk");
+    const cardAsteriskImg = cardAsterisk.querySelector("img");
+    const cardTop = this.shadowRoot.querySelector(".card-img-top");
+    const cardTopImg = cardTop.querySelector("img");
+
+    this.addEventListener("mouseover", (e) => {
+      this.cardHoverInteraction(e, this, cardTopImg);
+    });
+    this.addEventListener("mouseout", (e) => {
+      this.cardHoverInteraction(e, this, cardTopImg);
+    });
+    this.shadowRoot.addEventListener("click", (e) => {
+      this.cardClickInteraction(e.target, cardAsteriskImg);
+    });
+  }
+
+  disconnectedCallback() {
+    this.attachShadow({ mode: "closed" });
+    this.shadowRoot.innerHTML = ``;
   }
 }
 
