@@ -1,15 +1,7 @@
-* {
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 62.5%;
-}
+@import url("./global-style.css");
 
 body {
   margin: 0;
-  font-family: "Pretendard", sans-serif;
-  font-size: 1.6rem;
   word-break: keep-all;
 }
 
@@ -176,7 +168,6 @@ footer {
   display: flex;
   justify-content: space-between;
   font-family: "Arial", sans-serif;
-  font-weight: 400;
   line-height: 1.6rem;
   background-color: #111322;
 }

@@ -1,17 +1,9 @@
-* {
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 62.5%;
-}
+@import url("./global-style.css");
 
 body {
   height: 98.2rem;
   margin: 0;
   padding-top: 23.8rem;
-  font-family: "Pretendard", sans-serif;
-  font-size: 1.6rem;
   background-color: #f0f6ff;
 }
 
@@ -22,7 +14,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-weight: 400;
 }
 
 .linkbrary-logo img {
@@ -94,8 +85,9 @@ input,
   width: 1.6rem;
   height: 1.6rem;
   position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   right: 1.5rem;
-  bottom: 1.95rem;
 }
 
 .button-signin-and-up {
