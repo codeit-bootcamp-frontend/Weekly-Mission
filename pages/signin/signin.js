@@ -54,7 +54,7 @@ function enterEmail(event) {
 
 // 비밀번호 유효성 검시
 function enterPassword(event) {
-  enteredPassword = userPassword.value();
+  enteredPassword = userPassword.value;
   if (
     passValidationEmail &&
     (!passwordRegexp.test(enteredPassword) || !enteredPassword.length)
