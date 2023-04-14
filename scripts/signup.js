@@ -2,7 +2,7 @@ const signupForm = document.querySelector("form");
 const signupEmail = document.querySelector("#email");
 const signupPassword = document.querySelector("#password");
 const signupPasswordRepeat = document.querySelector("#check-password");
-const icons = document.querySelectorAll(".view-password");
+const eyeIcons = document.querySelectorAll(".toggle-password");
 
 const emailFormat = /^[\w\-\.\/]+\@[\w\-]+\.[\w]+$/;
 const passwordFormat = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
@@ -81,13 +81,15 @@ function checkSignup(e) {
   }
 }
 
-function changePasswordType(e) {
+function toggleVisibility(e) {
   e.preventDefault();
-  const passwordInput = e.target.previousElementSibling;
-  if (passwordInput.type === "password") {
-    passwordInput.type = "text";
-  } else {
+  const passwordInput = e.target.previousSibling;
+  if (passwordInput.type === "text") {
     passwordInput.type = "password";
+    this.setAttribute("src", "./images/eye-close.svg");
+  } else {
+    passwordInput.type = "text";
+    this.setAttribute("src", "./images/eye-open.svg");
   }
 }
 
@@ -96,6 +98,6 @@ signupPassword.addEventListener("focusout", checkPassword);
 signupPasswordRepeat.addEventListener("focusout", checkPasswordRepeat);
 signupForm.addEventListener("submit", checkSignup);
 
-for (let icon of icons) {
-  icon.addEventListener("mousedown", changePasswordType);
+for (let eyeIcon of eyeIcons) {
+  eyeIcon.addEventListener("mousedown", toggleVisibility);
 }

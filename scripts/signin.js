@@ -1,7 +1,7 @@
 const signinForm = document.querySelector("form");
 const signinEmail = document.querySelector("#email");
 const signinPassword = document.querySelector("#password");
-const icon = document.querySelector(".view-password");
+const eyeIcon = document.querySelector(".toggle-password");
 
 const emailFormat = /^[\w\-\.\/]+\@[\w\-]+\.[\w]+$/;
 const passwordFormat = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
@@ -38,15 +38,17 @@ function checkSignin(e) {
   }
 }
 
-function changePasswordType(e) {
+function toggleVisibility(e) {
   e.preventDefault();
-  if (signinPassword.type === "password") {
-    signinPassword.type = "text";
-  } else {
+  if (signinPassword.type === "text") {
     signinPassword.type = "password";
+    this.setAttribute("src", "./images/eye-close.svg");
+  } else {
+    signinPassword.type = "text";
+    this.setAttribute("src", "./images/eye-open.svg");
   }
 }
 
 signinEmail.addEventListener("focusout", checkEmail);
 signinForm.addEventListener("submit", checkSignin);
-icon.addEventListener("mousedown", changePasswordType);
+eyeIcon.addEventListener("mousedown", toggleVisibility);

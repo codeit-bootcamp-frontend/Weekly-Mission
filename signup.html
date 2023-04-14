@@ -1,51 +1,79 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Linkbrary-Signup</title>
-  <link rel="shortcut icon" type="image/x-icon" href="./images/title-logo.png">
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-  <link rel="stylesheet" href="styles/signin-and-up.css">
-</head>
-<body>
-  <div class="wrapper-container">
-    <a href="/" class="linkbrary-logo"><img src="./images/logo.png" alt="로고"></a>
-    <div class="verify-member">
-      <div>이미 회원이신가요?</div>
-      <a href="/signin.html" class="change-form-signin-and-up">로그인 하기</a>
-    </div>
-    <form class="form-signin-and-up">
-      <div class="input-container">
-        <label for="email">이메일</label>
-        <input id="email" type="text">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linkbrary-Signup</title>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="./images/title-logo.png"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="styles/signin-and-up.css" />
+  </head>
+  <body>
+    <div class="wrapper-container">
+      <a href="/" class="linkbrary-logo"
+        ><img src="./images/logo.png" alt="로고"
+      /></a>
+      <div class="verify-member">
+        <div>이미 회원이신가요?</div>
+        <a href="/signin.html" class="change-form-signin-and-up">로그인 하기</a>
       </div>
-      <div class="input-container">
-        <label for="password">비밀번호</label>
-        <div class="input-password-container">
-          <input id="password" type="password">
-          <img class="view-password" src="./images/view-password.png" alt="비밀번호 보기">
+      <form class="form-signin-and-up">
+        <div class="input-container">
+          <label for="email">이메일</label>
+          <input id="email" type="text" />
+        </div>
+        <div class="input-container">
+          <label for="password">비밀번호</label>
+          <div class="input-password-container">
+            <input id="password" type="password" />
+            <img
+              class="toggle-password"
+              src="./images/eye-close.svg"
+              alt="비밀번호 보기"
+            />
+          </div>
+        </div>
+        <div class="input-container">
+          <label for="check-password">비밀번호 확인</label>
+          <div class="input-password-container">
+            <input id="check-password" type="password" />
+            <img
+              class="toggle-password"
+              src="./images/eye-close.svg"
+              alt="비밀번호 보기"
+            />
+          </div>
+        </div>
+        <button type="submit" class="button-signin-and-up">회원가입</button>
+      </form>
+      <a href="/forgot-password.html" class="forgot-password">비밀번호 찾기</a>
+      <div class="social-signin-and-up">
+        <div>다른 방식으로 가입하기</div>
+        <div class="box-sns">
+          <a href="https://www.google.com/" target="_blank"
+            ><img
+              class="img-sns-logo"
+              src="./images/sns-logo-google.png"
+              alt="구글로고"
+          /></a>
+          <a href="https://www.kakaocorp.com/page/" target="_blank"
+            ><img
+              class="img-sns-logo"
+              src="./images/sns-logo-kakaotalk.png"
+              alt="카카오톡로고"
+          /></a>
         </div>
       </div>
-      <div class="input-container">
-        <label for="check-password">비밀번호 확인</label>
-        <div class="input-password-container">
-          <input id="check-password" type="password">
-          <img class="view-password" src="./images/view-password.png" alt="비밀번호 보기">
-        </div>
-      </div>
-      <button type="submit" class="button-signin-and-up">회원가입</button>
-    </form>
-    <a href="/forgot-password.html" class="forgot-password">비밀번호 찾기</a>
-    <div class="social-signin-and-up">
-      <div>다른 방식으로 가입하기</div>
-      <div class="box-sns">
-        <a href="https://www.google.com/" target="_blank"><img class="img-sns-logo" src="./images/sns-logo-google.png" alt="구글로고"></a>
-        <a href="https://www.kakaocorp.com/page/" target="_blank"><img class="img-sns-logo" src="./images/sns-logo-kakaotalk.png" alt="카카오톡로고"></a>
-      </div>
     </div>
-  </div>
-  <script src="scripts/signup.js"></script>
-</body>
+    <script src="scripts/signup.js"></script>
+  </body>
 </html>
