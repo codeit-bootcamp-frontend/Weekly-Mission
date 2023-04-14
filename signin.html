@@ -1,45 +1,71 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>signin</title>
-    <link rel="stylesheet" href="css/reset.css"></link>
-    <link rel="stylesheet" href="css/signin_style.css"></link>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-</head>
-<body>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/signin_style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+  </head>
+  <body>
     <div class="login-wrapper">
-        <a href="/index.html" class="login-title ir-pm">linkbrary</a>
-        <div class="signup">회원이 아니신가요? <a href="/signup.html" class="signup-link">회원 가입하기</a></div>
-        <div class="login-container">
-            <form id="login-form" method="post">
-                <div class="user-email-container">
-                    <p class="user-email-text"><label for="user-email">이메일</label></p>
-                    <input type="text" id="user-email" name="user-email" class="user-email" placeholder="이메일">
-                </div>
-                <div class="user-password-container">
-                    <p class="user-password-text"><label for="user-password">비밀번호</label></p>
-                    <input type="password" id="user-password" name="user-password" class="user-password" placeholder="비밀번호" maxlength="16">
-                    <div class="toggle-password">
-                        <i class= "fi fi-rr-eye-crossed hide"></i>
-                        <i class="fi fi-rr-eye"></i>
-                    </div>
-                </div>
-                <input type="submit" class="login-btn" value="로그인">
-            </form>
-        </div>
-        <a href="/forgot-password.html" class="findPassword">비밀번호 찾기</a>
-        <div class="snslogin-container">
-            <div class="text">소셜 로그인</div>
-            <div class="icons">
-                <a class="snslogin-btn" href="https://www.google.com/"><img src="../img/google.png" alt="google"></a>
-                <a class="snslogin-btn" href="https://www.kakaocorp.com/page/"><img src="../img/kakao.png" alt="kakao"></a>
+      <a href="/index.html" class="login-title ir-pm">linkbrary</a>
+      <div class="signup">
+        회원이 아니신가요?
+        <a href="/signup.html" class="signup-link">회원 가입하기</a>
+      </div>
+      <div class="login-container">
+        <form id="login-form" method="post">
+          <div class="user-email-container">
+            <p class="user-email-text">
+              <label for="user-email">이메일</label>
+            </p>
+            <input
+              type="text"
+              id="user-email"
+              name="user-email"
+              class="user-email"
+              placeholder="이메일"
+            />
+          </div>
+          <div class="user-password-container">
+            <p class="user-password-text">
+              <label for="user-password">비밀번호</label>
+            </p>
+            <input
+              type="password"
+              id="user-password"
+              name="user-password"
+              class="user-password"
+              placeholder="비밀번호"
+              maxlength="16"
+            />
+            <div class="toggle-password">
+              <i class="fi fi-rr-eye-crossed hide"></i>
+              <i class="fi fi-rr-eye"></i>
             </div>
+          </div>
+          <input type="submit" class="login-btn" value="로그인" />
+        </form>
+      </div>
+      <a href="/forgot-password.html" class="findPassword">비밀번호 찾기</a>
+      <div class="snslogin-container">
+        <div class="text">소셜 로그인</div>
+        <div class="icons">
+          <a class="snslogin-btn" href="https://www.google.com/"
+            ><img src="../img/google.png" alt="google"
+          /></a>
+          <a class="snslogin-btn" href="https://www.kakaocorp.com/page/"
+            ><img src="../img/kakao.png" alt="kakao"
+          /></a>
         </div>
+      </div>
     </div>
     <script src="./js/signin.js"></script>
-</body>
+  </body>
 </html>
-
