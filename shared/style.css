@@ -1,7 +1,111 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 html {
   font-size: 62.5%;
 }
 
 body {
-  box-sizing: border-box;
+  font-family: "Pretendard", sans-serif;
+}
+
+.gnb {
+  display: flex;
+  padding: 3.3rem 0 3.2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.linkbrary-logo {
+  margin-right: 74.9rem;
+}
+
+.linkbrary-logo-image {
+  display: block;
+}
+
+.account-container {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.account-email {
+  font-size: 1.4rem;
+}
+
+.gnb,
+header {
+  background-color: #f0f6ff;
+}
+
+header {
+  text-align: center;
+  padding: 2rem 0 6rem;
+}
+
+.user-content {
+  margin-bottom: 2rem;
+}
+
+.user-avartar {
+  width: 6rem;
+  height: 6rem;
+}
+
+.user-nickname {
+  margin-top: 1.2rem;
+  font-size: 1.6rem;
+}
+
+.favorites {
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+@media (max-width: 1099px) {
+  .gnb {
+    padding: 3.3rem 3.25rem 3.2rem;
+    justify-content: space-between;
+  }
+
+  .linkbrary-logo {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .gnb {
+    padding: 1.8rem 3.2rem 1.7rem;
+  }
+
+  .linkbrary-logo-image {
+    width: 8.867rem;
+  }
+
+  .account-email {
+    display: none;
+  }
+
+  header {
+    padding: 1rem 0 4rem;
+  }
+
+  .user-avartar {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .user-nickname {
+    font-size: 1.4rem;
+  }
+
+  .favorites {
+    font-size: 3.2rem;
+  }
 }
