@@ -7,10 +7,14 @@ const regexEmail = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$/;
 // 비밀번호를 확인할 수 있는 아이콘 클릭시 비밀번호의 문자열이 보이기도 하고, 가려지기도 합니다.
 function togglePassword(e) {
   e.preventDefault();
-  const icons = e.target.parentNode.children;
-  const input = e.target.closest("div").querySelector("input");
-  for (let i = 0; i < icons.length; i++) {
-    icons[i].classList.toggle("hide");
+  const icon = e.target;
+  const input = icon.previousElementSibling;
+  if (icon.classList.contains("fi-rr-eye")) {
+    icon.classList.remove("fi-rr-eye");
+    icon.classList.add("fi-rr-eye-crossed");
+  } else {
+    icon.classList.remove("fi-rr-eye-crossed");
+    icon.classList.add("fi-rr-eye");
   }
   if (input.type === "password") {
     input.type = "text";
@@ -36,13 +40,16 @@ function verifyLogininfo(e) {
   e.preventDefault();
   const trueEmail = "test@codeit.com";
   const truePw = "codeit101";
-  if (userEmailInput.value === trueEmail && userPasswordInput.value === truePw) {
-    location.replace("../my-link/my-link.html")
+  if (
+    userEmailInput.value === trueEmail &&
+    userPasswordInput.value === truePw
+  ) {
+    location.replace("../my-link/my-link.html");
   } else {
     alert("이메일과 비밀번호를 확인해주세요.");
   }
 }
 
-togglePasswordIcon.addEventListener("click", togglePassword);
+togglePasswordIcon.addEventListener("mousedown", togglePassword);
 userEmailInput.addEventListener("focusout", verifyEmail);
 loginForm.addEventListener("submit", verifyLogininfo);

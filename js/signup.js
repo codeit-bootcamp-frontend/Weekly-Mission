@@ -1,5 +1,7 @@
 const togglePasswordIcon = document.querySelector(".toggle-password");
-const togglePasswordVerifyIcon = document.querySelector(".toggle-passwordverify");
+const togglePasswordVerifyIcon = document.querySelector(
+  ".toggle-passwordverify"
+);
 const userEmailInput = document.querySelector(".user-email");
 const userPasswordInput = document.querySelector(".user-password");
 const userPasswordVerifyInput = document.querySelector(".user-passwordverify");
@@ -10,10 +12,14 @@ const regexPassword = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
 // 비밀번호를 확인할 수 있는 아이콘 클릭시 비밀번호의 문자열이 보이기도 하고, 가려지기도 합니다.
 function togglePassword(e) {
   e.preventDefault();
-  const icons = e.target.parentNode.children;
-  const input = e.target.closest("div").querySelector("input");
-  for (let i = 0; i < icons.length; i++) {
-    icons[i].classList.toggle("hide");
+  const icon = e.target;
+  const input = icon.previousElementSibling;
+  if (icon.classList.contains("fi-rr-eye")) {
+    icon.classList.remove("fi-rr-eye");
+    icon.classList.add("fi-rr-eye-crossed");
+  } else {
+    icon.classList.remove("fi-rr-eye-crossed");
+    icon.classList.add("fi-rr-eye");
   }
   if (input.type === "password") {
     input.type = "text";
@@ -42,7 +48,7 @@ function verifyEmail(e) {
 function verifyPassword(e) {
   if (e.sourceCapabilities) {
     const password = e.target.value;
-    if (!regexPassword.test(password) && !togglePasswordIcon.contains(e.relatedTarget)) {
+    if (!regexPassword.test(password)) {
       alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
     }
   }
@@ -65,12 +71,12 @@ function verifysignupForm(e) {
   } else if (password !== passwordVerify) {
     alert("비밀번호 확인이 일치하지 않습니다.");
   } else {
-    location.replace("../my-link/my-link.html")
+    location.replace("../my-link/my-link.html");
   }
 }
 
-togglePasswordIcon.addEventListener("click", togglePassword);
-togglePasswordVerifyIcon.addEventListener("click", togglePassword);
+togglePasswordIcon.addEventListener("mousedown", togglePassword);
+togglePasswordVerifyIcon.addEventListener("mousedown", togglePassword);
 userEmailInput.addEventListener("focusout", verifyEmail);
 userPasswordInput.addEventListener("focusout", verifyPassword);
 signupForm.addEventListener("submit", verifysignupForm);

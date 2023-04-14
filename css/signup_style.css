@@ -103,15 +103,17 @@ body {
 }
 
 .toggle-password, .toggle-passwordverify {
-  cursor: pointer;
-}
-
-.toggle-password i, .toggle-passwordverify i {
   position: absolute;
-  top: 45px;
-  right: 20px;
+  top: 33px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 16px;
-  color: #4B5563
+  color: #4B5563;
 }
 
 /* 회원가입 버튼 */
