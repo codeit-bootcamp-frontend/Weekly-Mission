@@ -18,6 +18,11 @@ a {
   text-decoration: none;
 }
 
+/* a:link,
+a:visited {
+  color: inherit;
+} */
+
 .gnb {
   display: flex;
   padding: 3.3rem 0 3.2rem;
@@ -109,6 +114,7 @@ main {
   border-radius: 1.5rem;
   overflow: hidden;
   box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
 }
 
 .card-image {
