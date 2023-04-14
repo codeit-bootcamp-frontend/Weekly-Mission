@@ -18,11 +18,6 @@ a {
   text-decoration: none;
 }
 
-/* a:link,
-a:visited {
-  color: inherit;
-} */
-
 .gnb {
   display: flex;
   padding: 3.3rem 0 3.2rem;
@@ -117,8 +112,17 @@ main {
   cursor: pointer;
 }
 
+.card-image-container {
+  overflow: hidden;
+}
+
 .card-image {
   display: block;
+  transition: all 0.3s linear;
+}
+
+.card-image:hover {
+  transform: scale(1.2);
 }
 
 .card .star-button {
