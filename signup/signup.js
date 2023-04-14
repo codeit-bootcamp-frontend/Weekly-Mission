@@ -77,19 +77,10 @@ function isValidForm(e) {
   }
 }
 
-// inputbox focus text color 변경
-function focusInTextColor(e) {
-  e.target.classList.add("input-focus-text-color");
-}
 
-function focusOutTextColor(e) {
-  e.target.classList.remove("input-focus-text-color");
-}
-
+// validation에 대한 event listener 등록
 inputs.forEach((input) => {
-  input.addEventListener("focusin", focusInTextColor);
-  input.addEventListener("focusout", focusOutTextColor);
-  // validation에 대한 event listener 등록
+
   input.addEventListener("focusin", addFocusOutEventListener);
 });
 

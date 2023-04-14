@@ -25,20 +25,6 @@ function isValidAccount(e) {
   }
 }
 
-// inputbox focus text color 변경
-function focusInTextColor(e) {
-  e.target.classList.add("input-focus-text-color");
-}
-
-function focusOutTextColor(e) {
-  e.target.classList.remove("input-focus-text-color");
-}
-
-inputs.forEach((input) => {
-  input.addEventListener("focusin", focusInTextColor);
-  input.addEventListener("focusout", focusOutTextColor);
-});
-
 // eys toggle
 const eyeIcons = document.querySelector(".eye-icon");
 

@@ -62,9 +62,6 @@ form input {
 form input:focus {
   border: 0.1rem solid #6d6afe;
   outline: none;
-}
-
-.input-focus-text-color {
   color: #3e3e43;
 }
 
