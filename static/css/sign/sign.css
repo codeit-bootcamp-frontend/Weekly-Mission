@@ -67,16 +67,17 @@ form input:focus {
   color: #3e3e43;
 }
 
-.password-field {
+.password-input-wrap {
   position: relative;
 }
 
-.password-field > i {
+.password-input-wrap > i {
   font-size: 1.6rem;
   color: #4b5563;
   position: absolute;
   right: 1.5rem;
-  bottom: 1.85rem;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 form .submit-button {
@@ -118,7 +119,6 @@ form .link-find-password {
   }
   main {
     margin-top: 12rem;
-
     text-align: center;
   }
 }
