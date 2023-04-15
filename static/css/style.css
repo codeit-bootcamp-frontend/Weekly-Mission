@@ -1,11 +1,22 @@
 :root {
-  --body-background: #F0F6FF;
-  --site-body-background: #FFFFFF;
+  --primary: #6D6AFE;
+  --red: #FF5B56;
+  --black: #111322;
+  --white: #FFFFFF;
+  --gray1: #3E3E43;
+  --gray2: #9FA6B2;
+  --gray3: #CCD5E3;
+  --gray4: #E7EFFB;
+  --gray5: #F0F6FF;
   --navbar-background: rgba(240, 246, 255, 0.5);
-  --link-button-background-left: #6D6AFE;
   --link-button-background-right: #6AE3FE;
   --link-button-text: #F5F5F5;
-  --emphasis-1-left: #6D6AFE;
+  --description: #6B6B6B;
+  --footer-text1: #676767;
+  --footer-text2: #CFCFCF;
+  --account-password-hide: #4B5563;
+  --kakaotalk-background: #F5E14B;
+  --emphasis-1-left: var(--primary);
   --emphasis-1-right: #FF9F9F;
   --emphasis-2-left: #FE8A8A;
   --emphasis-2-right: #A4CEFF;
@@ -15,21 +26,6 @@
   --emphasis-4-right: #528885;
   --emphasis-5-left: #3dd1eb;
   --emphasis-5-right: #3ea5d0;
-  --description: #6B6B6B;
-  --footer-background: #111322;
-  --footer-text1: #676767;
-  --footer-text2: #CFCFCF;
-  --account-link:#6D6AFE;
-  --account-border: #CCD5E3;
-  --account-lb-input-text-focus-in: #3E3E43;
-  --account-lb-input-text-focus-out: #9FA6B2;
-  --account-login-button-text: #ffffff;
-  --account-social-login-background: #E7EFFB;
-  --account-social-login-text: #3E3E43;
-  --account-forgot-password-link-text: #3E3E43;
-  --account-password-hide: #4B5563;
-  --google-background: #FFFFFF;
-  --kakaotalk-background: #F5E14B;
 }
 
 * {
@@ -42,7 +38,7 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--body-background);
+  background-color: var(--gray5);
   word-break: keep-all;
   font-family: 'Pretendard';
   font-size: 1.6rem;
@@ -64,7 +60,7 @@ a {
   font-size: 1.8rem;
   font-weight: 600;
   color: var(--link-button-text);
-  background: linear-gradient(90deg, var(--link-button-background-left), var(--link-button-background-right));
+  background: linear-gradient(90deg, var(--primary), var(--link-button-background-right));
 }
 
 .emphasis-1 {
@@ -140,7 +136,7 @@ a {
 .site-body {
   padding-top: 12rem;
   padding-bottom: 17rem;
-  background-color: var(--site-body-background);
+  background-color: var(--white);
 }
 
 .site-body .content-frame {
@@ -189,7 +185,7 @@ a {
 }
 
 .site-footer {
-  background: var(--footer-background);
+  background: var(--black);
   font-family: "Arial";
   height: 16rem;
 }
@@ -241,7 +237,7 @@ a {
 .account-header .account-link {
   text-decoration: underline;
   font-weight: 600;
-  color: var(--account-link);
+  color: var(--primary);
 }
 
 .account form {
@@ -258,14 +254,14 @@ a {
 .account .lb-input {
   width: 100%;
   margin: 1.2rem 0 2.4rem 0;
-  border: 0.1rem solid var(--account-border);
+  border: 0.1rem solid var(--gray3);
   border-radius: 0.8rem;
   padding: 1.8rem 1.5rem;
-  color: var(--account-lb-input-text-focus-out);
+  color: var(--gray2);
 }
 
 .account .lb-input:focus {
-  color: var(--account-lb-input-text-focus-in);
+  color: var(--gray1);
 }
 
 .account .input-container {
@@ -294,12 +290,12 @@ a {
   margin-bottom: 1.6rem;
   border: 0;
   cursor: pointer;
-  color: var(--account-login-button-text);
+  color: var(--white);
 }
 
 .account .forgot-password a {
   font-size: 1.4rem;
-  color: var(--account-forgot-password-link-text);
+  color: var(--gray1);
 }
 
 .account .social-login {
@@ -308,12 +304,12 @@ a {
   justify-content: space-between;
   width: 100%;
   margin-top: 3.2rem;
-  border: 0.1rem solid var(--account-border);
+  border: 0.1rem solid var(--gray3);
   border-radius: 0.8rem;
   padding: 1.2rem 2.4rem;
-  background-color: var(--account-social-login-background);
+  background-color: var(--gray4);
   font-size: 1.4rem;
-  color: var(--account-social-login-text);
+  color: var(--gray1);
 }
 
 .social-login p {
@@ -325,6 +321,7 @@ a {
   justify-content: space-between;
   align-items: center;
   width: 10rem;
+  line-height: 4.2rem;
 }
 
 .icon-box > * {
@@ -338,7 +335,7 @@ a {
 }
 
 .icon-box .google {
-  background-color: var(--google-background);
+  background-color: var(--white);
 }
 
 .icon-box .kakaotalk {
