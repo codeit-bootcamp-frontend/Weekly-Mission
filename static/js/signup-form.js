@@ -11,23 +11,17 @@ form.onsubmit = function(e) {
   e.preventDefault();
   if (emailInput.value === "") {
     alert("이메일을 입력해주세요.");
-  }
-  else if (!emailRegex.test(emailInput.value)) {
+  } else if (!emailRegex.test(emailInput.value)) {
     alert("올바른 이메일 주소가 아닙니다.");
-  }
-  else if (emailInput.value === "test@codeit.com") {
+  } else if (emailInput.value === "test@codeit.com") {
     alert("이미 사용 중인 아이디입니다.");
-  }
-  else if (!passwordRegex.test(passwordInput.value)) {
+  } else if (!passwordRegex.test(passwordInput.value)) {
     alert("비밀번호는 영문, 숫자 조합 8자 이상을 입력해 주세요.");
-  }
-  else if (!passwordRegex.test(passwordInput2.value)) {
+  } else if (!passwordRegex.test(passwordInput2.value)) {
     alert("비밀번호는 영문, 숫자 조합 8자 이상을 입력해 주세요.");
-  }
-  else if (passwordInput.value !== passwordInput2.value) {
+  } else if (passwordInput.value !== passwordInput2.value) {
     alert("비밀번호가 일치하지 않습니다.");
-  }
-  else {
+  } else {
     location.replace("/my-link");
   }
 }
@@ -35,11 +29,9 @@ form.onsubmit = function(e) {
 function isValidEmail(e) {
   if (emailInput.value === "") {
     alert("이메일을 입력해주세요.");
-  }
-  else if (!emailRegex.test(emailInput.value)) {
+  } else if (!emailRegex.test(emailInput.value)) {
     alert("올바른 이메일 주소가 아닙니다.");
-  }
-  else if (emailInput.value === "test@codeit.com") {
+  } else if (emailInput.value === "test@codeit.com") {
     alert("이미 사용 중인 아이디입니다.");
   }
 }
@@ -65,8 +57,7 @@ togglers.forEach(element => {
     if (element.parentElement.previousElementSibling.type == 'password') {
       element.parentElement.previousElementSibling.setAttribute('type','text');
       element.classList.remove('fa-eye-slash');
-    }
-    else {
+    } else {
       element.parentElement.previousElementSibling.setAttribute('type','password');
       element.classList.add('fa-eye-slash');
     }
