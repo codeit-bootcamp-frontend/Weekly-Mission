@@ -15,18 +15,18 @@
         </a>
         <p>
           회원이 아니신가요?
-          <a class="account-link" href="/sign-up">회원 가입하기</a>
+          <a class="account-link" href="/signup">회원 가입하기</a>
         </p>
       </div>
       <form method="post">
         <p>이메일</p>
-        <div>
-          <input class="lb-input email" type="email" name="login" placeholder="이메일을 입력해주세요." autocomplete="email">
+        <div class="input-container">
+          <input class="lb-input email-input" type="email" name="login" placeholder="이메일을 입력해주세요." autocomplete="email">
         </div>
         <p>비밀번호</p>
-        <div class="password-input">
-          <input class="lb-input password" type="password" name="password" placeholder="비밀번호" autocomplete="current-password">
-          <div class="prevent-focusout">
+        <div class="input-container">
+          <input class="lb-input password-input" type="password" name="password" placeholder="비밀번호" autocomplete="current-password">
+          <div class="eye-container">
             <i class="fa fa-eye fa-eye-slash fa-lg"></i>
           </div>
         </div>
@@ -47,6 +47,6 @@
         </div>
       </div>
     </main>
-    <script src="/static/js/sign-in-form.js"></script>
+    <script src="/static/js/signin-form.js"></script>
   </body>
 </html>

@@ -276,11 +276,11 @@ a {
   color: var(--account-lb-input-text-focus-in);
 }
 
-.account .password-input {
+.account .input-container {
   position: relative;
 }
 
-.account .password-input .prevent-focusout {
+.account .input-container .eye-container {
   position: absolute;
   top: 0;
   right: 0;
@@ -289,7 +289,7 @@ a {
   height: 1.4rem;
 }
 
-.account .password-input i{
+.account .input-container i{
   position: absolute;
   cursor: pointer;
   right: 0;

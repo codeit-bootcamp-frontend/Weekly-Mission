@@ -1,9 +1,9 @@
 const form = document.querySelector('form');
-const email = document.querySelector('input.email');
-const password = document.querySelector('input.password');
-const password2 = document.querySelector('input.password2');
-const togglers = document.querySelectorAll('.password-input i');
-const fo_preventor = document.querySelector('.prevent-focusout');
+const email = document.querySelector('.email-input');
+const password = document.querySelector('.password-input');
+const password2 = document.querySelector('.password2-input');
+const togglers = document.querySelectorAll('.input-container i');
+const eye_container = document.querySelector('.eye-container');
 const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
@@ -12,13 +12,16 @@ form.onsubmit = function(e) {
   if (email.value === "") {
     alert("이메일을 입력해주세요.");
   }
-  else if (!emailRegex.match(email.value)) {
+  else if (!emailRegex.test(email.value)) {
     alert("올바른 이메일 주소가 아닙니다.");
   }
   else if (email.value === "test@codeit.com") {
     alert("이미 사용 중인 아이디입니다.");
   }
   else if (!passwordRegex.test(password.value)) {
+    alert("비밀번호는 영문, 숫자 조합 8자 이상을 입력해 주세요.");
+  }
+  else if (!passwordRegex.test(password2.value)) {
     alert("비밀번호는 영문, 숫자 조합 8자 이상을 입력해 주세요.");
   }
   else if (password.value !== password2.value) {
@@ -33,7 +36,7 @@ function isValidEmail(e) {
   if (email.value === "") {
     alert("이메일을 입력해주세요.");
   }
-  else if (!email.value.match(emailRegex)) {
+  else if (!emailRegex.test(email.value)) {
     alert("올바른 이메일 주소가 아닙니다.");
   }
   else if (email.value === "test@codeit.com") {
@@ -53,7 +56,7 @@ function isValidPassword2(e) {
   }
 }
 
-fo_preventor.addEventListener("mousedown", function(e){
+eye_container.addEventListener("mousedown", function(e){
   e.preventDefault();
 })
 

@@ -15,25 +15,25 @@
         </a>
         <p>
           이미 회원이신가요?
-          <a class="account-link" href="/sign-in">로그인 하기</a>
+          <a class="account-link" href="/signin">로그인 하기</a>
         </p>
       </div>
       <form method="post">
         <p>이메일</p>
-        <div>
-          <input class="lb-input email" type="email" name="login" placeholder="이메일을 입력해주세요." autocomplete="email">
+        <div class="input-container">
+          <input class="lb-input email-input" type="email" name="login" placeholder="이메일을 입력해주세요." autocomplete="email">
         </div>
         <p>비밀번호</p>
-        <div class="password-input">
-          <input class="lb-input password" type="password" name="password" placeholder="비밀번호" autocomplete="new-password">
-          <div class="prevent-focusout">
+        <div class="input-container">
+          <input class="lb-input password-input" type="password" name="password" placeholder="비밀번호" autocomplete="new-password">
+          <div class="eye-container">
             <i class="fa fa-eye fa-eye-slash fa-lg"></i>
           </div>
         </div>
         <p>비밀번호 확인</p>
-        <div class="password-input">
-          <input class="lb-input password2" type="password" name="password" placeholder="비밀번호 확인">
-          <div class="prevent-focusout">
+        <div class="input-container">
+          <input class="lb-input password2-input" type="password" name="password" placeholder="비밀번호 확인">
+          <div class="eye-container">
             <i class="fa fa-eye fa-eye-slash fa-lg"></i>
           </div>
         </div>
@@ -51,6 +51,6 @@
         </div>
       </div>
     </main>
-    <script src="/static/js/sign-up-form.js"></script>
+    <script src="/static/js/signup-form.js"></script>
   </body>
 </html>
