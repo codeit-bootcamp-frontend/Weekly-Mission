@@ -145,3 +145,16 @@ a.sns-icon img {
   width: 100px;
   height: 42px;
 }
+
+/* Mobile */
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  body {
+    max-width: 400px;
+    padding: 120px 32px 213px;
+  }
+
+  form {
+    width: 100%;
+  }
+}
