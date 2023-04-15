@@ -3,7 +3,7 @@ const email = document.querySelector('input.email');
 const password = document.querySelector('input.password');
 const togglers = document.querySelectorAll('.password-input i');
 const fo_preventor = document.querySelector('.prevent-focusout');
-const emailRegex = "[a-z0-9]+@[a-z]+\.[a-z]{2,3}";
+const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 form.onsubmit = function(e) {
   e.preventDefault();
@@ -19,7 +19,7 @@ function isValidEmail(e) {
   if (email.value === "") {
     alert("이메일을 입력해주세요.");
   }
-  else if (!email.value.match(emailRegex)) {
+  else if (!emailRegex.test(email.value)) {
     alert("올바른 이메일 주소가 아닙니다.");
   }
 }
