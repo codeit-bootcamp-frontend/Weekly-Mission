@@ -162,47 +162,6 @@ main {
   font-size: 1.5rem;
 }
 
-footer {
-  height: 16rem;
-  padding: 3.2rem 10.4rem 10.8rem;
-  background-color: var(--black);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.footer-container {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.corporation {
-  font-size: 1.6rem;
-  color: #676767;
-  font-weight: 400;
-  flex-basis: 11.6rem;
-}
-
-.more-information li:first-child {
-  margin-right: 3rem;
-}
-
-.more-information li a {
-  font-weight: 400;
-  font-size: 1.6rem;
-  color: #cfcfcf;
-}
-
-ul > li {
-  display: inline-block;
-}
-
-.sns-container {
-  flex-basis: 11.6rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 @media (max-width: 1099px) {
   .gnb {
     padding: 3.3rem 3.25rem 3.2rem;
@@ -265,23 +224,5 @@ ul > li {
 
   .card {
     max-width: 32.5rem;
-  }
-
-  footer {
-    display: grid;
-    grid-template: repeat(2, 1fr) / repeat(2, auto);
-    height: 16rem;
-    padding: 3.2rem;
-    align-items: initial;
-  }
-
-  footer .corporation {
-    order: 1;
-    align-self: flex-end;
-  }
-
-  footer .sns-container {
-    width: 11.6rem;
-    height: 2rem;
   }
 }
