@@ -190,6 +190,11 @@ footer {
     height: 94px;
     padding: 0 200px;
   }
+
+  .num0 {
+    display: none;
+  }
+
   footer {
     padding: 32px 104px 108px;
   }
@@ -199,7 +204,6 @@ footer {
   }
   .header_title {
     margin: 0px auto 0px;
-    width: 708px;
     padding-top: 70px;
   }
   a.button_link {
@@ -243,7 +247,6 @@ footer {
     gap: 100px;
   }
   .header_title {
-    width: 472px;
     padding-top: 40px;
     margin: 0px auto 0px;
   }
@@ -288,12 +291,12 @@ footer {
 
   main {
     padding: 40px 32px 80px;
+    gap: 80px;
   }
   footer {
     padding: 32px;
   }
   .header_title {
-    width: 236px;
     padding-top: 28px;
     margin: 0px auto 0px;
     font-size: 32px;
