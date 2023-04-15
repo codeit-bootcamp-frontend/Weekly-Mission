@@ -8,7 +8,7 @@ const emailRegex = "[a-z0-9]+@[a-z]+\.[a-z]{2,3}";
 form.onsubmit = function(e) {
   e.preventDefault();
   if (email.value === "test@codeit.com" && password.value === "codeit101") {
-    location.href = "/my-link"
+    location.replace("/my-link");
   }
   else {
     alert("이메일과 비밀번호를 확인해주세요.");

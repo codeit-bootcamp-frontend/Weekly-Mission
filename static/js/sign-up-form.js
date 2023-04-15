@@ -25,7 +25,7 @@ form.onsubmit = function(e) {
     alert("비밀번호가 일치하지 않습니다.");
   }
   else {
-    location.href = "/my-link";
+    location.replace("/my-link");
   }
 }
 
