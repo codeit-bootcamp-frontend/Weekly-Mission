@@ -8,7 +8,6 @@ body {
 header {
   height: 9.4rem;
   padding: 0 20rem;
-  margin: 0 auto;
 
   display: flex;
   justify-content: space-between;
