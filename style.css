@@ -59,6 +59,7 @@ header {
   justify-content: center;
   align-items: center;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 a.button_link {
