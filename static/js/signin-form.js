@@ -31,7 +31,7 @@ eyeContainer.addEventListener("mousedown", function(e){
 })
 
 function passwordToggle(e) {
-  if (e.target.parentElement.previousElementSibling.type == 'password') {
+  if (e.target.parentElement.previousElementSibling.type === 'password') {
     e.target.parentElement.previousElementSibling.setAttribute('type','text');
     e.target.classList.remove('fa-eye-slash');
   } else {

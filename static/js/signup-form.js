@@ -53,15 +53,15 @@ eyeContainer.addEventListener("mousedown", function(e){
   e.preventDefault();
 })
 
-togglers.forEach(element => {
-  element.addEventListener("mousedown", function(e) {
-    if (element.parentElement.previousElementSibling.type == 'password') {
-      element.parentElement.previousElementSibling.setAttribute('type','text');
-      element.classList.remove('fa-eye-slash');
-    } else {
-      element.parentElement.previousElementSibling.setAttribute('type','password');
-      element.classList.add('fa-eye-slash');
-    }
-    e.preventDefault();
-  })
-});
+function passwordToggle(e) {
+  if (e.target.parentElement.previousElementSibling.type === 'password') {
+    e.target.parentElement.previousElementSibling.setAttribute('type','text');
+    e.target.classList.remove('fa-eye-slash');
+  } else {
+    e.target.parentElement.previousElementSibling.setAttribute('type','password');
+    e.target.classList.add('fa-eye-slash');
+  }
+  e.preventDefault();
+}
+
+togglers.forEach(element => element.addEventListener("mousedown", passwordToggle));
