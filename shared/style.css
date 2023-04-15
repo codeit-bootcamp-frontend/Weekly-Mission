@@ -103,6 +103,12 @@ main {
   max-width: 106rem;
 }
 
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 2.4rem 2rem;
+}
+
 .card {
   width: 34rem;
   position: relative;
@@ -224,6 +230,15 @@ ul > li {
   .linkbrary-logo {
     margin-right: 0;
   }
+
+  main {
+    max-width: 70.4rem;
+  }
+
+  .card-list {
+    grid-template-columns: repeat(2, auto);
+    gap: 2.4rem;
+  }
 }
 
 @media (max-width: 767px) {
@@ -254,6 +269,20 @@ ul > li {
 
   .favorites {
     font-size: 3.2rem;
+  }
+
+  main {
+    max-width: 32.5rem;
+    padding: 2rem 0 6rem;
+  }
+
+  .card-list {
+    grid-template-columns: auto;
+    gap: 2rem;
+  }
+
+  .card {
+    max-width: 32.5rem;
   }
 
   footer {
