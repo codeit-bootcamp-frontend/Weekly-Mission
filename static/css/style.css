@@ -63,8 +63,8 @@ a {
 
 .link-button {
   text-align: center;
-  line-height: 5.3rem;
   border-radius: 0.8rem;
+  padding: 1.6rem 0;
   font-size: 1.8rem;
   font-weight: 600;
   color: var(--link-button-text);
@@ -336,7 +336,6 @@ a {
   justify-content: space-between;
   align-items: center;
   width: 10rem;
-  line-height: 4.2rem;
 }
 
 .icon-box > * {
@@ -395,7 +394,7 @@ a {
 @media (max-width: 767px) {
   .link-button:not(.account .link-button) {
     font-size: 1.4rem;
-    line-height: 3.7rem;
+    padding: 1rem 0;
   }
 
   body > *,
