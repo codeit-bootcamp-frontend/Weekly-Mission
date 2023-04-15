@@ -19,15 +19,21 @@ a {
   text-decoration: none;
 }
 
-/* 네비게이션 바를 header로 지정 */
-header {
+.header-container {
   background-color: #f0f6ff;
-  width: 100%;
-  height: 9.4rem;
-  padding: 0 20rem;
   position: sticky;
   top: 0;
   left: 0;
+}
+
+/* 네비게이션 바를 header로 지정 */
+header {
+  max-width: 1920px;
+  margin: 0 auto;
+  background-color: #f0f6ff;
+  height: 9.4rem;
+  padding: 0 20rem;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -133,9 +139,15 @@ header {
   margin-top: 2.4rem;
 }
 
+.footer-container {
+  background-color: black;
+  height: 16rem;
+}
 
 /* footer 영역 */
 footer {
+  max-width: 1920px;
+  margin: 0 auto;
   background-color: black;
   height: 16rem;
   display: flex;
@@ -152,9 +164,8 @@ footer {
 }
 
 .bottomLinks {
-  display: flex;
-  gap: 3rem;
-  align-items: flex-start;
+  flex-grow: 1;
+  text-align: center;
 }
 
 .bottomLink {
@@ -162,6 +173,10 @@ footer {
   font-size: 1.6rem;
   font-weight: 400;
   color: #cfcfcf;
+}
+
+.privacy-policy {
+  margin-right: 3rem;
 }
 
 .snsIcons {
@@ -209,20 +224,6 @@ footer {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-
-@media (min-width: 1920px) {
-  header {
-    justify-content: center;
-    gap: 1259px;
-  }
-
-  footer {
-    justify-content: center;
-    gap: 668px;
-  }
-  
 }
 
 /* 1199px부터 Tablet 사이즈*/
@@ -370,6 +371,10 @@ footer {
     padding: 3.2rem;
     margin-top: 4rem;
     position: relative;
+  }
+
+  .bottomLinks {
+    text-align: left;
   }
 
   #copyright {

@@ -39,14 +39,16 @@
   </head>
   <body>
     <!--네비게이션 바-->
-    <header>
-      <a id="home" href="/">
-        <img class="logo" src="/assets/images/logo.png" alt="Linkbrary">
-      </a>
-      <a class="button" id="signin" href="/signin">
-        로그인
-      </a>
-    </header>
+    <div class="header-container">
+      <header>
+        <a id="home" href="/">
+          <img class="logo" src="/assets/images/logo.png" alt="Linkbrary">
+        </a>
+        <a class="button" id="signin" href="/signin">
+          로그인
+        </a>
+      </header>
+    </div>
     <main>
       <!--첫 번째 영역-->
       <section class="introducePage">
@@ -115,26 +117,28 @@
         </div>
       </section>
     </main>
-    <footer>
-      <div id="copyright">©codeit-2023</div>
-      <div class="bottomLinks">
-        <a class="bottomLink" href="/privacy">Privacy Policy</a>
-        <a class="bottomLink" href="/faq">FAQ</a>
-      </div>
-      <div class="snsIcons">
-        <a href="https://www.facebook.com">
-          <img class="snsIcon" src="/assets/images/sns-icons/facebook.png" alt="페이스북">
-        </a>
-        <a href="https://twitter.com">
-          <img  class="snsIcon"src="/assets/images/sns-icons/twitter.png" alt="트위터">
-        </a>
-        <a href="https://www.youtube.com">
-          <img class="snsIcon" src="/assets/images/sns-icons/youtube.png" alt="유튜브">
-        </a>
-        <a href="https://www.instagram.com">
-          <img class="snsIcon" src="/assets/images/sns-icons/instagram.png" alt="인스타그램">
-        </a>
-      </div>
-    </footer>
+    <div class="footer-container">
+      <footer>
+        <div id="copyright">©codeit-2023</div>
+        <div class="bottomLinks">
+          <a class="bottomLink privacy-policy" href="/privacy">Privacy Policy</a>
+          <a class="bottomLink" href="/faq">FAQ</a>
+        </div>
+        <div class="snsIcons">
+          <a href="https://www.facebook.com">
+            <img class="snsIcon" src="/assets/images/sns-icons/facebook.png" alt="페이스북">
+          </a>
+          <a href="https://twitter.com">
+            <img  class="snsIcon"src="/assets/images/sns-icons/twitter.png" alt="트위터">
+          </a>
+          <a href="https://www.youtube.com">
+            <img class="snsIcon" src="/assets/images/sns-icons/youtube.png" alt="유튜브">
+          </a>
+          <a href="https://www.instagram.com">
+            <img class="snsIcon" src="/assets/images/sns-icons/instagram.png" alt="인스타그램">
+          </a>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
