@@ -2,8 +2,6 @@ const form = document.querySelector('form');
 const emailInput = document.querySelector('#email-input');
 const passwordInput = document.querySelector('#password-input');
 const passwordInput2 = document.querySelector('#password2-input');
-const togglers = document.querySelectorAll('.input-container i');
-const eyeContainer = document.querySelector('.eye-container');
 const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
@@ -48,20 +46,3 @@ function isValidPassword(e) {
 
 passwordInput.addEventListener('focusout', isValidPassword);
 passwordInput2.addEventListener('focusout', isValidPassword);
-
-eyeContainer.addEventListener("mousedown", function(e){
-  e.preventDefault();
-})
-
-function passwordToggle(e) {
-  if (e.target.parentElement.previousElementSibling.type === 'password') {
-    e.target.parentElement.previousElementSibling.setAttribute('type','text');
-    e.target.classList.remove('fa-eye-slash');
-  } else {
-    e.target.parentElement.previousElementSibling.setAttribute('type','password');
-    e.target.classList.add('fa-eye-slash');
-  }
-  e.preventDefault();
-}
-
-togglers.forEach(element => element.addEventListener("mousedown", passwordToggle));
