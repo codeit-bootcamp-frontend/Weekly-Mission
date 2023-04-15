@@ -10,7 +10,7 @@ class CardListComponent extends HTMLElement {
     // CSS 파일 적용
     const linkElem = document.createElement("link");
     linkElem.setAttribute("rel", "stylesheet");
-    linkElem.setAttribute("href", "./card-list-component.css");
+    linkElem.setAttribute("href", "/components/card/card-list-component.css");
     shadow.appendChild(linkElem);
 
     // 카드 리스트 데이터 가져오기
@@ -25,17 +25,13 @@ class CardListComponent extends HTMLElement {
 
         // 카드 리스트 생성
         cards.forEach((card, index) => {
-          // console.log(CardComponent);
-          console.log(card);
           const cardComponent = new CardComponent(
             card.imageSrc,
             card.updateTime,
             card.description,
             card.date
           );
-          console.log("신예진", CardComponent);
 
-          // cardComponent.setAttribute("index", index);
           cardListContainer.appendChild(cardComponent);
         });
 
