@@ -14,7 +14,7 @@ function verifyEmail(e) {
   }
 }
 
-emailInput.addEventListener("focusout", checkEmailValid);
+emailInput.addEventListener("focusout", verifyEmail);
 
 const signinForm = document.querySelector(".signin-form");
 
@@ -31,7 +31,7 @@ function verifyAccount(e) {
   }
 }
 
-signinForm.addEventListener("submit", checkValidSignin);
+signinForm.addEventListener("submit", verifyAccount);
 
 const eyeIcon = document.querySelector(".eye-icon");
 
