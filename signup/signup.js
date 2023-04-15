@@ -3,7 +3,7 @@ const password = document.querySelector("#signup-password");
 const signupForm = document.querySelector("form");
 
 // validation 함수
-function isValidEmail(e) {
+const isValidEmail = (e) => {
   const emailRegex = "^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
 
   if (e.sourceCapabilities === null) {
@@ -21,9 +21,9 @@ function isValidEmail(e) {
     return false;
   }
   return true;
-}
+};
 
-function isValidPassword(e) {
+const isValidPassword = (e) => {
   const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
 
   if (e.sourceCapabilities === null) {
@@ -35,23 +35,23 @@ function isValidPassword(e) {
     return false;
   }
   return true;
-}
+};
 
-function isValidPasswordCheck(e) {
+const isValidPasswordCheck = (e) => {
   const passwordCheck = document.getElementById("signup-password-check").value;
   if (password.value !== passwordCheck) {
     alert("비밀번호 확인이 일치하지 않습니다.");
     return false;
   }
   return true;
-}
+};
 
-function isValidForm(e) {
+const isValidForm = (e) => {
   e.preventDefault();
   if (isValidEmail(e) && isValidPassword(e) && isValidPasswordCheck(e)) {
     location.href = "../my-link/";
   }
-}
+};
 
 // validation에 대한 event listener 등록
 email.addEventListener("focusout", isValidEmail);

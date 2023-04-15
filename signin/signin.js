@@ -3,7 +3,7 @@ const password = document.querySelector("#signin-password");
 const signinForm = document.querySelector("form");
 const inputs = document.querySelectorAll(".input");
 
-function isValidEmail(e) {
+const isValidEmail = (e) => {
   const emailRegex = "^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
   if (e.sourceCapabilities === null) {
     return;
@@ -13,9 +13,9 @@ function isValidEmail(e) {
   } else if (!email.value.match(emailRegex)) {
     alert("올바른 이메일 주소가 아닙니다.");
   }
-}
+};
 
-function isValidAccount(e) {
+const isValidAccount = (e) => {
   e.preventDefault();
 
   if (email.value === "test@codeit.com" && password.value === "codeit101") {
@@ -23,23 +23,26 @@ function isValidAccount(e) {
   } else {
     alert("이메일과 비밀번호를 확인해주세요.");
   }
-}
+};
 
 // eys toggle
-const eyeIcons = document.querySelector(".eye-icon");
+const eyeIcons = document.querySelectorAll(".eye-icon");
+const passwordEyeIcon = eyeIcons[0];
+const passwordCheckEyeIcon = eyeIcons[0];
 
-eyeIcons.addEventListener("pointerdown", (e) => {
-  const target = e.target.previousSibling;
-  e.preventDefault();
-  if (eyeIcons.classList.contains("fa-eye-slash")) {
-    eyeIcons.classList.remove("fa-eye-slash");
-    eyeIcons.classList.add("fa-eye");
-    target.type = "text";
-  } else if (eyeIcons.classList.contains("fa-eye")) {
-    eyeIcons.classList.remove("fa-eye");
-    eyeIcons.classList.add("fa-eye-slash");
-    target.type = "password";
-  }
+eyeIcons.forEach((eyeIcon) => {
+  let visiblity = false;
+
+  eyeIcon.addEventListener("pointerdown", (e) => {
+    e.preventDefault();
+
+    const target = e.target.previousSibling;
+    visiblity = !visiblity;
+
+    visiblity ? (target.type = "text") : (target.type = "password");
+    eyeIcon.classList.toggle("fa-eye-slash");
+    eyeIcon.classList.toggle("fa-eye");
+  });
 });
 
 // validation에 대한 event listener 등록
