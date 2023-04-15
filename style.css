@@ -26,8 +26,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 128px;
-  height: 52px;
+  padding: 16px 40px;
   font-size: 18px;
   background: linear-gradient(to right, #6d6afe 0%, #6ae3fe 100%);
   color: #fff;
@@ -294,8 +293,7 @@ footer {
     line-height: 42px;
   }
   .login-btn {
-    width: 80px;
-    height: 36px;
+    padding: 10px 22px;
     font-size: 14px;
   }
   .gnb {
