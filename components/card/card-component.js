@@ -7,7 +7,7 @@ export class CardComponent extends HTMLElement {
     // CSS
     const linkElem = document.createElement("link");
     linkElem.setAttribute("rel", "stylesheet");
-    linkElem.setAttribute("href", "./card-component.css");
+    linkElem.setAttribute("href", "/components/card/card-component.css");
     shadow.appendChild(linkElem);
 
     // 카드 데이터
@@ -29,9 +29,9 @@ export class CardComponent extends HTMLElement {
     const cardInfoHead = document.createElement("div");
     cardInfoHead.classList.add("card-info-head");
 
-    const cardDate = document.createElement("div");
-    cardDate.classList.add("card-date");
-    cardDate.textContent = this._date;
+    const cardUpdateTime = document.createElement("div");
+    cardUpdateTime.classList.add("card-update-time");
+    cardUpdateTime.textContent = this._updateTime;
 
     const kebabIcon = document.createElement("img");
     kebabIcon.classList.add("kebab-icon");
@@ -41,16 +41,16 @@ export class CardComponent extends HTMLElement {
     cardDescription.classList.add("card-description");
     cardDescription.textContent = this._description;
 
-    const cardUpdateTime = document.createElement("div");
-    cardUpdateTime.classList.add("card-update-time");
-    cardUpdateTime.textContent = this._updateTime;
+    const cardDate = document.createElement("div");
+    cardDate.classList.add("card-date");
+    cardDate.textContent = this._date;
 
-    cardInfoHead.appendChild(cardDate);
+    cardInfoHead.appendChild(cardUpdateTime);
     cardInfoHead.appendChild(kebabIcon);
 
     cardInfo.appendChild(cardInfoHead);
     cardInfo.appendChild(cardDescription);
-    cardInfo.appendChild(cardUpdateTime);
+    cardInfo.appendChild(cardDate);
 
     cardContainer.appendChild(cardImage);
     cardContainer.appendChild(cardInfo);
