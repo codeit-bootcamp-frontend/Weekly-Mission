@@ -116,6 +116,16 @@ main {
   overflow: hidden;
   box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.08);
   cursor: pointer;
+  transition: all 0.3s linear; /* card 배경색 애니메이션 */
+}
+
+.card:hover {
+  background-color: #f0f6ff;
+}
+
+/* card hover시 card image 1.2배 확대 */
+.card:hover .card-image {
+  transform: scale(1.2);
 }
 
 .card-image-container {
@@ -124,11 +134,8 @@ main {
 
 .card-image {
   display: block;
-  transition: all 0.3s linear;
-}
-
-.card-image:hover {
-  transform: scale(1.2);
+  width: 100%;
+  transition: all 0.5s linear; /* card image 애니메이션 */
 }
 
 .card .star-button {
