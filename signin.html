@@ -4,14 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Sign in</title>
+    <link rel="stylesheet" href="signin.css" />
   </head>
   <body>
-    <div>
-      <div class="title-wrap"></div>
-      <div class="input-wrap"></div>
-      <div class="button-wrap"></div>
-      <div class="sso-wrap"></div>
-    </div>
+    <form>
+      <div class="logo">
+        <a href="/" class="logo_link">
+          <img src="./public/Linkbrary.png" alt="linkbrary" class="logo_img" />
+        </a>
+      </div>
+      <div class="switch-signup">
+        <h5 class="not-member">회원이 아니신가요?</h5>
+        <a href="signup.html">회원 가입하기</a>
+      </div>
+      <div class="input-area">
+        <div class="id-area">
+          <label for="id" class="label-id">아이디</label><br />
+          <input id="id" name="id" />
+        </div>
+        <div>
+          <label for="password">비밀번호</label><br />
+          <input id="password" name="password" type="password" />
+        </div>
+        <button>로그인</button>
+      </div>
+    </form>
   </body>
 </html>
