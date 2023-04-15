@@ -74,8 +74,8 @@ input {
 }
 
 input:focus {
-  border-style: none;
-  outline: 1px solid #6d6afe;
+  border: 1px solid #6d6afe;
+  outline-style: none;
   color: #000000;
 }
 
@@ -92,6 +92,7 @@ button {
   color: #f5f5f5;
   text-align: center;
   margin-top: 3rem;
+  cursor: pointer;
 }
 
 footer {
