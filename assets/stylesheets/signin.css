@@ -65,8 +65,19 @@ input {
   width: 100%;
   height: 5.5rem;
   background-color: #ffffff;
+  border: 1px solid #ccd5e3;
   border-radius: 0.8rem;
   margin-top: 1.2rem;
+  padding: 0 1.5rem;
+  font-size: 16px;
+  font-weight: 400;
+  color: #9fa6b2;
+}
+
+input:focus {
+  border-style: none;
+  outline: 1px solid #6d6afe;
+  color: #000000;
 }
 
 button {
