@@ -23,7 +23,7 @@
         <h5 class="not-member">회원이 아니신가요?</h5>
         <a href="signup.html" class="signup-link">회원 가입하기</a>
       </div>
-      <div class="input-area">
+      <article class="input-area">
         <div class="id-area">
           <label for="id" class="label-id">아이디</label><br />
           <input id="id" name="id" />
@@ -32,7 +32,21 @@
           <label for="password" class="label-pw">비밀번호</label><br />
           <input id="password" name="password" type="password" />
         </div>
-        <button>로그인</button>
+        <div>
+          <button class="signin">로그인</button>
+        </div>
+        <label class="find-pw">비밀번호 찾기</label>
+      </article>
+      <div class="sns-login">
+        <label>소셜 로그인</label>
+        <div class="sns">
+          <a href="https://www.google.com/" class="sns-icon">
+            <img src="./public/icon-google.png" alt="google" />
+          </a>
+          <a href="https://www.kakaocorp.com/page/" class="sns-icon">
+            <img src="./public/icon-kakao.png" alt="kakaotalk" />
+          </a>
+        </div>
       </div>
     </form>
   </body>
