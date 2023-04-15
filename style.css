@@ -8,11 +8,6 @@ body {
   margin: 0 auto;
 }
 
-/*Header 시작*/
-header {
-  background-color: #f0f6ff;
-}
-
 /* gnb바 */
 .gnb {
   display: flex;
@@ -20,7 +15,7 @@ header {
   width: 100%;
   max-width: 1920px;
   align-items: center;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   margin: 0 auto;
@@ -40,6 +35,11 @@ header {
   text-decoration: none;
 }
 /* gnb바 끝 */
+
+/*Header 시작*/
+header {
+  background-color: #f0f6ff;
+}
 
 .header_title {
   margin: 0px;
@@ -197,7 +197,7 @@ footer {
     gap: 100px;
   }
   .header_title {
-    margin: 94px auto 0px;
+    margin: 0px auto 0px;
     width: 708px;
     padding-top: 70px;
   }
@@ -244,7 +244,7 @@ footer {
   .header_title {
     width: 472px;
     padding-top: 40px;
-    margin: 94px auto 0px;
+    margin: 0px auto 0px;
   }
   .button_wrapper {
     margin: 40px auto 68px auto;
@@ -289,7 +289,7 @@ footer {
   .header_title {
     width: 236px;
     padding-top: 28px;
-    margin: 64px auto 0px;
+    margin: 0px auto 0px;
     font-size: 32px;
     line-height: 42px;
   }
