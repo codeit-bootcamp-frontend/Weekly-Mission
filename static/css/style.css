@@ -188,17 +188,18 @@ a {
 
 .site-footer {
   background: var(--footer-background);
-  padding: 3.2rem 10.4rem 3.2rem;
   font-family: "Arial";
   font-size: 1.6rem;
+  height: 16rem;
 }
 
 .site-footer .footer-container {
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
+  padding: 3.2rem 10.4rem 3.2rem;
   max-width: 1920px;
-  height: 9.6rem;
+  height: 16rem;
 }
 
 .footer-container .footer-contents:first-child {
@@ -476,14 +477,11 @@ a {
   .content-frame:nth-child(2n) img {
     order: 1;
   }
-
-  .site-footer {
-    padding: 3.2rem;
-  }
   
   .site-footer .footer-container {
     flex-wrap: wrap;
     align-content: space-between;
+    padding: 3.2rem 0;
   }
 
   .footer-container div:first-child {
