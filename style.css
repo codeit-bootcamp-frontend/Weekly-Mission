@@ -50,15 +50,10 @@ header {
   line-height: 80px;
 }
 
-.button_wrapper {
-  background: linear-gradient(to right, #6d6afe 0%, #6ae3fe 100%);
-  width: 350px;
-  height: 53px;
+.button wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
-  cursor: pointer;
 }
 
 a.button_link {
@@ -68,6 +63,13 @@ a.button_link {
   font-size: 18px;
   color: #f5f5f5;
   line-height: 20px;
+  background: linear-gradient(to right, #6d6afe 0%, #6ae3fe 100%);
+  width: 350px;
+  height: 53px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
 }
 
 img.images {
@@ -200,8 +202,8 @@ footer {
     width: 708px;
     padding-top: 70px;
   }
-  .button_wrapper {
-    margin: 40px auto 90px auto;
+  a.button_link {
+    margin: 40px auto 40px auto;
   }
   .images {
     width: 1200px;
@@ -245,8 +247,8 @@ footer {
     padding-top: 40px;
     margin: 0px auto 0px;
   }
-  .button_wrapper {
-    margin: 40px auto 68px auto;
+  a.button_link {
+    margin: 40px auto 40px auto;
   }
   .images {
     width: 698px;
@@ -279,6 +281,11 @@ footer {
   header {
     padding: 0px 32px;
   }
+
+  .button_wrapper {
+    padding: 24px 62px;
+  }
+
   main {
     padding: 40px 32px 80px;
   }
@@ -315,12 +322,9 @@ footer {
     height: auto;
     flex-shrink: 0;
   }
-  .button_wrapper {
+  a.button_link {
     width: 100%;
     height: 36px;
-    margin: 24px auto;
-  }
-  a.button_link {
     font-size: 14px;
     line-height: 16px;
   }
