@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #f0f6ff;
+  max-width: 1920px;
+}
+
+.not-member {
+  margin: 0;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 238px auto 233px;
+  width: 400px;
+}
+
+div.logo {
+  margin: 0 0 16px 0;
+  height: 38px;
+  width: 210px;
+}
+
+a.logo_link,
+img.logo_img {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.switch-signup {
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+div.input-area {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+input {
+  width: 100%;
+}
