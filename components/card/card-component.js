@@ -7,7 +7,7 @@ export class CardComponent extends HTMLElement {
     // CSS
     const linkElem = document.createElement("link");
     linkElem.setAttribute("rel", "stylesheet");
-    linkElem.setAttribute("href", "card-component.css");
+    linkElem.setAttribute("href", "./card-component.css");
     shadow.appendChild(linkElem);
 
     // 카드 데이터
@@ -35,7 +35,7 @@ export class CardComponent extends HTMLElement {
 
     const kebabIcon = document.createElement("img");
     kebabIcon.classList.add("kebab-icon");
-    kebabIcon.src = "kebab.svg";
+    kebabIcon.src = "/static/imgs/kebab.svg";
 
     const cardDescription = document.createElement("div");
     cardDescription.classList.add("card-description");
