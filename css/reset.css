@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import url('/css/font.css');
 
 /* 여백 초기화 */
 body, div, ul, li, dl, dd, dt, ol, h1, h2, h3, h4, h5, h6, input, fieldset, legend, p, select, table, th, td, tr, textarea, button, form, figure, figcaption {margin:0; padding:0;}
@@ -7,7 +8,7 @@ body, div, ul, li, dl, dd, dt, ol, h1, h2, h3, h4, h5, h6, input, fieldset, lege
 a {color: inherit; text-decoration: inherit;}
 
 /* 폰트 초기화 */
-body, input, textarea, select, button, table {  font-family: "Pretendard"; font-weight: 500;}
+body, input, textarea, select, button, table {font-family: "Pretendard"; font-weight: 500;}
 input {font-size: 16px; color: #3E3E43}
 
 /* 폰트 스타일 초기화 (기울임) */
@@ -20,7 +21,7 @@ ul, li, ol {list-style: none;}
 h1, h2, h3, h4, h5, h6 {font-size: inherit; font-weight: inherit;}
 
 /* 버튼 초기화 */
-button {border: none;}
+button, input {border: none;}
 
 /* box-sizing 초기화 */
 * {box-sizing: border-box;}
