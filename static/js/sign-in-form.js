@@ -24,21 +24,22 @@ function isValidEmail(e) {
   }
 }
 
-fo_preventor.addEventListener("pointerdown", function(e){
+fo_preventor.addEventListener("mousedown", function(e){
   e.preventDefault();
 })
 
-for (let i = 0; i < togglers.length; i++) {
-  togglers[i].addEventListener("pointerdown", function(e) {
-    if (togglers[i].parentElement.previousElementSibling.type == 'password') {
-      togglers[i].parentElement.previousElementSibling.setAttribute('type','text');
-      togglers[i].classList.add('fa-eye-slash');
-    } else {
-      togglers[i].parentElement.previousElementSibling.setAttribute('type','password');
-      togglers[i].classList.remove('fa-eye-slash');
+togglers.forEach(element => {
+  element.addEventListener("mousedown", function(e) {
+    if (element.parentElement.previousElementSibling.type == 'password') {
+      element.parentElement.previousElementSibling.setAttribute('type','text');
+      element.classList.remove('fa-eye-slash');
+    }
+    else {
+      element.parentElement.previousElementSibling.setAttribute('type','password');
+      element.classList.add('fa-eye-slash');
     }
     e.preventDefault();
   })
-}
+});
 
 email.addEventListener('focusout', isValidEmail);
