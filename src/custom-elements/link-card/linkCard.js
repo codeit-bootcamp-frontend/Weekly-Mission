@@ -1,6 +1,7 @@
 export class LinkCard extends HTMLElement {
   // 컴포넌트 정보를 담고 있는 프로퍼티
   #prop = {
+    id: 0,
     href: "https://www.codeit.kr",
     thumbnailSrc: "/images/default-thumbnail.svg",
     isLiked: false,
@@ -44,46 +45,46 @@ export class LinkCard extends HTMLElement {
     return `
       * {
         box-sizing: border-box;
-		text-decoration: none;
+		    text-decoration: none;
       }
 
-	  div, p {
-		margin: 0;
-	  }
+      div, p {
+        margin: 0;
+      }
 
       :host {
         display: inline-block;
       }
 
       .card-container {
-		position: relative;
+		    position: relative;
         width: 21.25rem;
         height: 20.875rem;
         box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.08);
-		border-radius: 0.9375rem;
-		overflow: hidden;
-		transition: all 0.2s linear;
+		    border-radius: 0.9375rem;
+		    overflow: hidden;
+		    transition: all 0.2s linear;
       }
 
-	  .card-container:hover {
-		background-color: #f0f6ff;
-	  }
+      .card-container:hover {
+        background-color: #f0f6ff;
+      }
 
-	  .card-container:hover .thumbnail-img {
-		transform: scale(1.2);
-	  }
+      .card-container:hover .thumbnail-img {
+        transform: scale(1.2);
+      }
 
       .thumbnail-box {
         width: 100%;
         height: 12.5rem;
-		overflow: hidden;
+		    overflow: hidden;
       }
 
       .thumbnail-img {
         display: block;
         width: 100%;
         height: 100%;
-		transition: all 0.2s linear;
+		    transition: all 0.2s linear;
       }
 
       .like-btn {
@@ -94,60 +95,60 @@ export class LinkCard extends HTMLElement {
         cursor: pointer;
       }
 
-	  .metadata-container {
-		position: relative;
-		height: 8.4375rem;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		padding: 0.9375rem 1.25rem;
-	  }
+      .metadata-container {
+        position: relative;
+        height: 8.4375rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0.9375rem 1.25rem;
+      }
 
-	  .kebab {
-		width: 1.3125rem;
-		height: 1.0625rem;
-		position: absolute;
-		top: 0.9375rem;
-		right: 1.25rem;
-		cursor: pointer;
-	  }
+      .kebab {
+        width: 1.3125rem;
+        height: 1.0625rem;
+        position: absolute;
+        top: 0.9375rem;
+        right: 1.25rem;
+        cursor: pointer;
+      }
 
-	  .updated-time {
-		font-size: 0.8125rem;
-		color: #666666;
-	  }
+      .updated-time {
+        font-size: 0.8125rem;
+        color: #666666;
+      }
 
-	  .description-container {
-		height: 3.0625rem;
-		font-size: 1rem;
-		line-height: 1.5rem;
-		text-overflow: ellipsis;
-		overflow: hidden;
-		display: -webkit-box;
-		-webkit-line-clamp: 2;
+      .description-container {
+        height: 3.0625rem;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         word-wrap:break-word; 
-	  }
+      }
 
-	  .date {
-		font-size: 0.875rem;
-		color: #333333;
-	  }
+      .date {
+        font-size: 0.875rem;
+        color: #333333;
+      }
 
-	  @media only screen and (max-width: 767px) {
-		.card-container {
-		  width: 20.3125rem;
-	      height: 20.4375rem;
-		}
-		
-		.thumbnail-box {
-		  height: 12rem;
-		}
+      @media only screen and (max-width: 767px) {
+        .card-container {
+          width: 20.3125rem;
+            height: 20.4375rem;
+        }
+        
+        .thumbnail-box {
+          height: 12rem;
+        }
 
-		.like-btn {
-		  transform: scale(0.8825);
-		}
-	  }
+        .like-btn {
+          transform: scale(0.8825);
+        }
+      }
     `;
   }
 
