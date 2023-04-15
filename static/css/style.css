@@ -122,26 +122,23 @@ a {
 }
 
 .site-header {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center
 }
 
 .site-header .header-title {
-  display: inline-block;
-  margin: 7rem auto 4rem;
   text-align: center;
   font-size: 6.4rem;
 }
 
 .site-header .add-link {
-  display: block;
   width: 35rem;
-  margin: 0 auto;
 }
 
 .site-header .header-content {
-  display: block;
   width: 120rem;
-  margin: 4rem auto 0;
+  margin-top: 4rem;
 }
 
 .site-body {
