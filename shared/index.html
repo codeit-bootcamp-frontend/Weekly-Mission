@@ -7,6 +7,7 @@
     <title>Shared</title>
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="/static/css/color.css" />
+    <script src="/components/search-bar.js"></script>
   </head>
   <body>
     <div class="gnb">
@@ -26,10 +27,7 @@
       <h1 class="favorites">⭐️ 즐겨찾기</h1>
     </header>
     <main>
-      <div class="input-container">
-        <img src="/images/search.svg" />
-        <input type="text" placeholder="원하는 링크를 검색해 보세요" />
-      </div>
+      <search-bar data-placeholder="원하는 링크를 검색해 보세요"></search-bar>
       <div class="card-list">
         <div class="card">
           <div class="card-image-container">
