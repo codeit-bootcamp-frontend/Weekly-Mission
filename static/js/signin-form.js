@@ -1,5 +1,5 @@
 const form = document.querySelector('form');
-const email = document.querySelector('.email-input');
+const emailInput = document.querySelector('.email-input');
 const password = document.querySelector('input.password-input');
 const togglers = document.querySelectorAll('.input-container i');
 const eye_container = document.querySelector('.eye-container');
@@ -7,7 +7,7 @@ const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 form.onsubmit = function(e) {
   e.preventDefault();
-  if (email.value === "test@codeit.com" && password.value === "codeit101") {
+  if (emailInput.value === "test@codeit.com" && password.value === "codeit101") {
     location.replace("/my-link");
   }
   else {
@@ -16,10 +16,10 @@ form.onsubmit = function(e) {
 }
 
 function isValidEmail(e) {
-  if (email.value === "") {
+  if (emailInput.value === "") {
     alert("이메일을 입력해주세요.");
   }
-  else if (!emailRegex.test(email.value)) {
+  else if (!emailRegex.test(emailInput.value)) {
     alert("올바른 이메일 주소가 아닙니다.");
   }
 }
@@ -42,4 +42,4 @@ togglers.forEach(element => {
   })
 });
 
-email.addEventListener('focusout', isValidEmail);
+emailInput.addEventListener('focusout', isValidEmail);

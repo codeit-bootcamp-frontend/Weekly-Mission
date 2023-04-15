@@ -48,6 +48,15 @@ body {
   font-size: 1.6rem;
 }
 
+input {
+  font-family: 'Pretendard';
+  font-size: 1.6rem;
+}
+
+input[type="password"] {
+  font-family: Arial;
+}
+
 a {
   text-decoration: none;
 }
@@ -281,9 +290,10 @@ a {
   margin: 3.5rem 1.5rem 0 0;
   width: 1.4rem;
   height: 1.4rem;
+  font-size: 1rem;
 }
 
-.account .input-container i{
+.account .input-container i {
   position: absolute;
   cursor: pointer;
   right: 0;
