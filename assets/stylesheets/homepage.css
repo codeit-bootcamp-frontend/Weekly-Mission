@@ -192,14 +192,14 @@ footer {
 
 /* font 그라데이션 */
 #gradient1 {
-  background: linear-gradient(91.26deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
+  background: -webkit-linear-gradient(1.26deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 #gradient2 {
-  background: linear-gradient(95.63deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
+  background: -webkit-linear-gradient(5.63deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
