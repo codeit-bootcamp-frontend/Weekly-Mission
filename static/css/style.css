@@ -45,6 +45,7 @@ body {
   background-color: var(--body-background);
   word-break: keep-all;
   font-family: 'Pretendard';
+  font-size: 1.6rem;
 }
 
 a {
@@ -172,7 +173,6 @@ a {
 
 .content-frame .description {
   line-height: 150%;
-  font-size: 1.6rem;
   font-weight: 500;
   color: var(--description);
 }
@@ -189,7 +189,6 @@ a {
 .site-footer {
   background: var(--footer-background);
   font-family: "Arial";
-  font-size: 1.6rem;
   height: 16rem;
 }
 
@@ -228,10 +227,6 @@ a {
   text-align: center;
 }
 
-.account .account-header {
-  font-size: 1.6rem;
-}
-
 .account-header .logo {
   width: 21rem;
 }
@@ -268,7 +263,6 @@ a {
   border: 0.1rem solid var(--account-border);
   border-radius: 0.8rem;
   padding: 1.8rem 1.5rem;
-  font-size: 1.6rem;
   color: var(--account-lb-input-text-focus-out);
 }
 
