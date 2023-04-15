@@ -7,7 +7,6 @@ body {
 .header-logo-profile {
   height: 9.3rem;
   padding: 0 20rem;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -108,7 +107,6 @@ header > a {
 .card-container {
   width: 106rem;
   margin: 4rem auto;
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 2.4rem;
@@ -253,4 +251,114 @@ footer {
 .img-sns-logo {
   width: 1.8rem;
   height: 1.8rem;
+}
+
+/* 반응형(1100px 미만) */
+@media (max-width: 1100px) {
+  .header-logo-profile {
+    padding: 0 3.25rem;
+  }
+
+  .header-avatar-title {
+    height: 24.4rem;
+  }
+
+  /* main 영역 */
+  .search-container {
+    width: 70.4rem;
+    height: 5.4rem;
+  }
+
+  .card-container {
+    width: 70.4rem;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2.4rem;
+  }
+}
+
+/* 반응형(768px 미만) */
+@media (max-width: 768px) {
+  .header-logo-profile {
+    height: 6.3rem;
+    padding: 0 3.2rem;
+  }
+
+  .logo {
+    width: 8.867rem;
+    height: 1.6rem;
+  }
+
+  .profile-email {
+    display: none;
+  }
+
+  .header-avatar-title {
+    height: 16.1rem;
+    padding-top: 1rem;
+    gap: 1rem;
+  }
+
+  .avatar-container {
+    gap: 0.6rem;
+    font-size: 1.4rem;
+  }
+
+  .avatar {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .header-title {
+    font-size: 3.2rem;
+  }
+
+  .content {
+    font-weight: 400;
+  }
+
+  .publish-date {
+    font-size: 1.4rem;
+  }
+
+  /* main 영역 */
+  .search-container {
+    width: 32.5rem;
+    height: 4.3rem;
+    margin: 2rem auto;
+    gap: 0.6rem;
+  }
+
+  .card-container {
+    width: 32.5rem;
+    margin: 3.2rem auto;
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+
+  .card-image {
+    width: 32.5rem;
+    height: 24.36rem;
+  }
+
+  .star {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .card-information {
+    width: 32.5rem;
+  }
+
+  /* footer 영역 */
+  footer {
+    margin-top: 6rem;
+    padding: 3.2rem 3.2rem;
+    position: relative;
+  }
+
+  .footer-logo {
+    position: absolute;
+    bottom: 3.2rem;
+    left: 3.2rem;
+  }
 }
