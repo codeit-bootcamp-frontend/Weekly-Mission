@@ -53,10 +53,6 @@ input {
   font-size: 1.6rem;
 }
 
-input[type="password"] {
-  font-family: Arial;
-}
-
 a {
   text-decoration: none;
 }

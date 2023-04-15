@@ -5,7 +5,7 @@ const togglers = document.querySelectorAll('.input-container i');
 const eyeContainer = document.querySelector('.eye-container');
 const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-form.onsubmit = function(e) {
+function signinSubmit(e) {
   e.preventDefault();
   if (emailInput.value === "test@codeit.com" && password.value === "codeit101") {
     location.replace("/my-link");
@@ -13,6 +13,8 @@ form.onsubmit = function(e) {
     alert("이메일과 비밀번호를 확인해주세요.");
   }
 }
+
+form.addEventListener('submit', signinSubmit)
 
 function isValidEmail(e) {
   if (emailInput.value === "") {
@@ -22,21 +24,21 @@ function isValidEmail(e) {
   }
 }
 
+emailInput.addEventListener('focusout', isValidEmail);
+
 eyeContainer.addEventListener("mousedown", function(e){
   e.preventDefault();
 })
 
-togglers.forEach(element => {
-  element.addEventListener("mousedown", function(e) {
-    if (element.parentElement.previousElementSibling.type == 'password') {
-      element.parentElement.previousElementSibling.setAttribute('type','text');
-      element.classList.remove('fa-eye-slash');
-    } else {
-      element.parentElement.previousElementSibling.setAttribute('type','password');
-      element.classList.add('fa-eye-slash');
-    }
-    e.preventDefault();
-  })
-});
+function passwordToggle(e) {
+  if (e.target.parentElement.previousElementSibling.type == 'password') {
+    e.target.parentElement.previousElementSibling.setAttribute('type','text');
+    e.target.classList.remove('fa-eye-slash');
+  } else {
+    e.target.parentElement.previousElementSibling.setAttribute('type','password');
+    e.target.classList.add('fa-eye-slash');
+  }
+  e.preventDefault();
+}
 
-emailInput.addEventListener('focusout', isValidEmail);
+togglers.forEach(element => element.addEventListener('mousedown', passwordToggle));

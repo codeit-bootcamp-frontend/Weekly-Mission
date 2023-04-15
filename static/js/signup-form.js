@@ -7,7 +7,7 @@ const eyeContainer = document.querySelector('.eye-container');
 const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
-form.onsubmit = function(e) {
+function signupSubmit(e) {
   e.preventDefault();
   if (emailInput.value === "") {
     alert("이메일을 입력해주세요.");
@@ -26,6 +26,8 @@ form.onsubmit = function(e) {
   }
 }
 
+form.addEventListener('submit', signupSubmit)
+
 function isValidEmail(e) {
   if (emailInput.value === "") {
     alert("이메일을 입력해주세요.");
@@ -36,17 +38,16 @@ function isValidEmail(e) {
   }
 }
 
+emailInput.addEventListener('focusout', isValidEmail);
+
 function isValidPassword(e) {
-  if (!passwordRegex.test(passwordInput.value)) {
+  if (!passwordRegex.test(e.target.value)) {
     alert("비밀번호는 영문, 숫자 조합 8자 이상을 입력해 주세요.");
   }
 }
 
-function isValidPassword2(e) {
-  if (!passwordRegex.test(passwordInput2.value)) {
-    alert("비밀번호는 영문, 숫자 조합 8자 이상을 입력해 주세요.");
-  }
-}
+passwordInput.addEventListener('focusout', isValidPassword);
+passwordInput2.addEventListener('focusout', isValidPassword);
 
 eyeContainer.addEventListener("mousedown", function(e){
   e.preventDefault();
@@ -64,7 +65,3 @@ togglers.forEach(element => {
     e.preventDefault();
   })
 });
-
-emailInput.addEventListener('focusout', isValidEmail);
-passwordInput.addEventListener('focusout', isValidPassword);
-passwordInput2.addEventListener('focusout', isValidPassword2);
