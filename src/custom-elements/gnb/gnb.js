@@ -61,7 +61,6 @@ export class Gnb extends HTMLElement {
 
       nav {
         display: flex;
-        height: 3.313rem;
         justify-content: space-between;
         align-items: center;
       }
