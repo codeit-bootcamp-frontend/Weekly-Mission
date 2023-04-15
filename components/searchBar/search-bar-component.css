@@ -21,3 +21,9 @@
   transform: translate(0%, -50%);
   left: 16px;
 }
+
+@media screen and (max-width: 767px) {
+  .search-bar-input {
+    margin: 20px auto 32px;
+  }
+}

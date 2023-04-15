@@ -58,3 +58,10 @@
 
   color: #333333;
 }
+
+@media screen and (max-width: 767px) {
+  .card-container {
+    width: 325px;
+    height: 327px;
+  }
+}

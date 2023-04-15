@@ -2,13 +2,16 @@ body {
   margin: 0;
 }
 
+header {
+  background-color: #f0f6ff;
+}
+
 main {
   margin: 0 auto;
   max-width: 1060px;
 }
 
 .hero-section {
-  background-color: #f0f6ff;
   text-align: center;
   padding: 20px 0 60px;
 }
@@ -26,4 +29,40 @@ main {
   font-size: 16px;
   line-height: 19px;
   margin: 12px 0 0;
+}
+
+.page-heading {
+  margin: 0;
+}
+
+@media screen and (max-width: 1100px) {
+  main {
+    max-width: 704px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  main {
+    max-width: 325px;
+  }
+
+  .hero-section {
+    text-align: center;
+    padding: 10px 0 40px;
+  }
+  .user {
+    margin: 10px auto;
+  }
+
+  .codeit-avatar {
+    width: 64px;
+    height: 64px;
+  }
+
+  .user-name {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    margin: 12px 0 0;
+  }
 }
