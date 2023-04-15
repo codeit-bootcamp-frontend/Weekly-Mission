@@ -85,6 +85,7 @@ header {
 .input-container input {
   width: 100%;
   font-size: 1.6rem;
+  line-height: 1.8rem;
   background-color: inherit;
   border: none;
 }
@@ -242,6 +243,10 @@ ul > li {
     max-width: 70.4rem;
   }
 
+  .input-container input {
+    line-height: 2.4rem;
+  }
+
   .card-list {
     grid-template-columns: repeat(2, auto);
     gap: 2.4rem;
@@ -281,6 +286,15 @@ ul > li {
   main {
     max-width: 32.5rem;
     padding: 2rem 0 6rem;
+  }
+
+  .input-container {
+    padding: 1.3rem 1.6rem;
+  }
+
+  .input-container input {
+    font-size: 1.4rem;
+    line-height: 1.671rem;
   }
 
   .card-list {
