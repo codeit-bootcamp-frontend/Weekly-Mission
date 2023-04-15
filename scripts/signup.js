@@ -83,7 +83,7 @@ function checkSignup(e) {
 
 function toggleVisibility(e) {
   e.preventDefault();
-  const passwordInput = e.target.previousSibling;
+  const passwordInput = e.target.previousElementSibling;
   if (passwordInput.type === "text") {
     passwordInput.type = "password";
     this.setAttribute("src", "./images/eye-close.svg");
