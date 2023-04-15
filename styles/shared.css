@@ -116,50 +116,26 @@ header > a {
 .card {
   box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.08);
   border-radius: 1.5rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card:hover .card-image {
+  transform: scale(1.2);
+}
+
+.card:hover .content-container {
+  background-color: #f0f6ff;
+}
+
+.image-container {
+  position: relative;
 }
 
 .card-image {
   width: 34rem;
   height: 20rem;
-  border-radius: 1.5rem 1.5rem 0 0;
-  background-size: cover;
-  position: relative;
-}
-
-.card-image1 {
-  background-image: url("/images/card-1.png");
-}
-
-.card-image2 {
-  background-image: url("/images/card-2.png");
-}
-
-.card-image3 {
-  background-image: url("/images/card-3.png");
-}
-
-.card-image4 {
-  background-image: url("/images/card-4.png");
-}
-
-.card-image5 {
-  background-image: url("/images/card-5.png");
-}
-
-.card-image6 {
-  background-image: url("/images/card-6.png");
-}
-
-.card-image7 {
-  background-image: url("/images/card-7.png");
-}
-
-.card-image8 {
-  background-image: url("/images/card-8.png");
-}
-
-.card-image9 {
-  background-image: url("/images/card-9.png");
+  transition: all 1s;
 }
 
 .star {
@@ -170,7 +146,7 @@ header > a {
   top: 1.5rem;
 }
 
-.card-information {
+.content-container {
   width: 34rem;
   padding: 1.5rem 2rem;
   display: flex;
@@ -195,6 +171,7 @@ header > a {
   position: absolute;
   top: 1.5rem;
   right: 2rem;
+  cursor: pointer;
 }
 
 .content {
@@ -337,7 +314,7 @@ footer {
 
   .card-image {
     width: 32.5rem;
-    height: 24.36rem;
+    height: 19.2rem;
   }
 
   .star {
@@ -345,7 +322,7 @@ footer {
     height: 3rem;
   }
 
-  .card-information {
+  .content-container {
     width: 32.5rem;
   }
 
