@@ -1,6 +1,6 @@
 const form = document.querySelector('form');
-const emailInput = document.querySelector('.email-input');
-const password = document.querySelector('input.password-input');
+const emailInput = document.querySelector('#email-input');
+const password = document.querySelector('input#password-input');
 const togglers = document.querySelectorAll('.input-container i');
 const eye_container = document.querySelector('.eye-container');
 const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;

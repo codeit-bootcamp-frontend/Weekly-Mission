@@ -188,7 +188,7 @@ a {
   height: 100%;
 }
 
-.content-frame:nth-child(2n) img{
+.content-frame:nth-child(2n) img {
   order: -1;
 }
 
@@ -227,18 +227,19 @@ a {
   width: 11.6rem;
 }
 
+/* signup, signin */
 .account {
   margin: 24rem auto;
   max-width: 40rem;
   text-align: center;
 }
 
-.account-header .logo {
-  width: 21rem;
+.account-header {
+  margin-bottom: 3.2rem;
 }
 
-.account-header p {
-  margin-bottom: 3.2rem;
+.account-header .logo {
+  width: 21rem;
 }
 
 .account-header .account-link {
@@ -247,17 +248,12 @@ a {
   color: var(--account-link);
 }
 
-.account .description a {
-  text-decoration: underline;
-  margin-left: 0.8rem;
-}
-
 .account form {
   display: flex;
   flex-direction: column;
 }
 
-.account form > p {
+.account form > label {
   text-align: left;
   margin: 0;
   font-size: 1.4rem;
@@ -489,6 +485,7 @@ a {
     order: 1;
   }
 
+  /* signup, signin */
   .account {
     max-width: 46.4rem;
     margin: 0 auto;
