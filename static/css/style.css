@@ -201,17 +201,17 @@ a {
   height: 9.6rem;
 }
 
-.footer-container div:first-child {
+.footer-container .footer-contents:first-child {
   color: var(--footer-text1);
 }
 
-.footer-container div:nth-child(2) {
+.footer-container .footer-contents:nth-child(2) {
   display: flex;
   justify-content: space-between;
   width: 16.3rem;
 }
 
-.footer-container div:nth-child(2) a {
+.footer-container .footer-contents:nth-child(2) a {
   color: var(--footer-text2);
 }
 
