@@ -1,5 +1,6 @@
 :root {
   --primary: #6D6AFE;
+  --light-primary: #6AE3FE;
   --red: #FF5B56;
   --black: #111322;
   --white: #FFFFFF;
@@ -9,9 +10,8 @@
   --gray4: #E7EFFB;
   --gray5: #F0F6FF;
   --navbar-background: rgba(240, 246, 255, 0.5);
-  --link-button-background-right: #6AE3FE;
   --link-button-text: #F5F5F5;
-  --description: #6B6B6B;
+  --content-frame-description: #6B6B6B;
   --footer-text1: #676767;
   --footer-text2: #CFCFCF;
   --account-password-hide: #4B5563;
@@ -60,7 +60,7 @@ a {
   font-size: 1.8rem;
   font-weight: 600;
   color: var(--link-button-text);
-  background: linear-gradient(90deg, var(--primary), var(--link-button-background-right));
+  background: linear-gradient(90deg, var(--primary), var(--light-primary));
 }
 
 .emphasis-1 {
@@ -172,7 +172,7 @@ a {
 .content-frame .description {
   line-height: 150%;
   font-weight: 500;
-  color: var(--description);
+  color: var(--content-frame-description);
 }
 
 .content-frame img {
