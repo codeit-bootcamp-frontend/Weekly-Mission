@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="icon" type="image/png" href="images/icon.png" />
+    <title>shared - Linkbrary</title>
+  </head>
+  <body>
+    <header>
+      <custom-gnb></custom-gnb>
+    </header>
+    <main>
+      <section class="intro-section">
+        <div class="user-info-container">
+          <div class="profile-container">
+            <div class="profile-img-box">
+              <img src="/images/avatar.png" alt="avatar" />
+            </div>
+            <p class="">@코드잇</p>
+          </div>
+        </div>
+        <h1 class="title">⭐️즐겨찾기</h1>
+      </section>
+      <section class="card-section">
+        <custom-search-bar></custom-search-bar>
+        <div class="card-list-wrapper">
+          <custom-link-card-list></custom-link-card-list>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <custom-footer></custom-footer>
+    </footer>
+    <script src="/src/app.js" type="module"></script>
+  </body>
+</html>

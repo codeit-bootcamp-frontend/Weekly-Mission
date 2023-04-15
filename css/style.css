@@ -11,3 +11,17 @@ h1 {
   margin: 0;
   padding: 0;
 }
+
+header {
+  width: 100%;
+  background-color: #f0f6ff;
+  position: sticky;
+  z-index: 1;
+  top: 0;
+}
+
+footer {
+  width: 100%;
+  background-color: #111322;
+  font-family: Arial, Helvetica, sans-serif;
+}
