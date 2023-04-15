@@ -2,7 +2,7 @@ const form = document.querySelector('form');
 const emailInput = document.querySelector('#email-input');
 const password = document.querySelector('input#password-input');
 const togglers = document.querySelectorAll('.input-container i');
-const eye_container = document.querySelector('.eye-container');
+const eyeContainer = document.querySelector('.eye-container');
 const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 form.onsubmit = function(e) {
@@ -24,7 +24,7 @@ function isValidEmail(e) {
   }
 }
 
-eye_container.addEventListener("mousedown", function(e){
+eyeContainer.addEventListener("mousedown", function(e){
   e.preventDefault();
 })
 
