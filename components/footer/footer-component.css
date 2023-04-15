@@ -1,0 +1,62 @@
+@import url("/static/css/global_style.css");
+
+footer {
+  background-color: #111322;
+  font-family: "Arial";
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+
+.footer-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 192rem;
+  margin: 0 auto;
+  padding: 3.2rem 3.2rem 10.4rem;
+}
+
+.copyright {
+  width: 10.5rem;
+  height: 1.8rem;
+  color: #676767;
+  margin: 0;
+}
+.privacy-policy-faq {
+  display: flex;
+  justify-content: space-between;
+  gap: 30;
+}
+
+.privacy-policy-faq a {
+  color: #cfcfcf;
+}
+
+.privacy-policy-faq a:first-child {
+  margin-right: 3rem;
+}
+
+footer img {
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-right: 1.3rem;
+}
+
+@media screen and (max-width: 767px) {
+  .footer-wrap {
+    display: grid;
+    padding: 3.2rem;
+    align-items: start;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6rem 0;
+  }
+
+  .copyright {
+    order: 1;
+  }
+
+  footer .imgs {
+    justify-self: end;
+  }
+}
