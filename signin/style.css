@@ -12,7 +12,7 @@ html {
 
 body {
   font-family: "Pretendard", sans-serif;
-  background-color: #f0f6ff;
+  background-color: var(--gray-f);
 }
 
 .signin-container {
@@ -46,7 +46,7 @@ body {
 .signup-content a {
   font-weight: 600;
   text-decoration: none;
-  color: #6d6afe;
+  color: var(--primary);
   border-bottom: 1px solid;
 }
 
@@ -66,21 +66,21 @@ body {
   width: 100%;
   margin-top: 1.2rem;
   padding: 1.8rem 1.5rem;
-  outline: 1px solid #ccd5e3;
+  outline: 1px solid var(--gray-c);
   border-radius: 0.8rem;
   font-size: 1.6rem;
-  background-color: #ffffff;
+  background-color: var(--white);
 }
 
 .signin-form div:focus-within {
-  outline: 1px solid #6d6afe;
+  outline: 1px solid var(--primary);
 }
 
 input {
   border: none;
   width: 100%;
   margin-right: 1rem;
-  color: #9fa6b2;
+  color: var(--gray-9);
   font-size: 1.6rem;
 }
 
@@ -112,7 +112,7 @@ input:focus {
   width: 100%;
   padding: 1.6rem 0 1.6rem;
   border: none;
-  background-image: linear-gradient(to right, #6d6afe, #6ae3fe);
+  background-image: linear-gradient(to right, var(--primary), #6ae3fe);
   color: #f5f5f5;
   border-radius: 0.8rem;
   cursor: pointer;
@@ -130,7 +130,7 @@ input:focus {
 
 .forgot-password-link {
   font-size: 1.4rem;
-  color: #3e3e43;
+  color: var(--gray-3);
   text-decoration: none;
 }
 
@@ -140,9 +140,9 @@ input:focus {
   align-items: center;
   padding: 1.2rem 2.4rem;
   font-size: 1.4rem;
-  color: #3e3e43;
-  background-color: #e7effb;
-  border: 1px solid #ccd5e3;
+  color: var(--gray-3);
+  background-color: var(--gray-e);
+  border: 1px solid var(--gray-c);
   border-radius: 0.8rem;
 }
 

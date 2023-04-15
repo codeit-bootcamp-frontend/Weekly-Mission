@@ -18,7 +18,7 @@ body {
 }
 
 header {
-  background-color: #f0f6ff;
+  background-color: var(--gray-f);
   padding-top: 7rem;
 }
 
@@ -38,7 +38,7 @@ main {
 }
 
 .purple-to-pink {
-  background-image: linear-gradient(to right, #6d6afe, #ff9f9f);
+  background-image: linear-gradient(to right, var(--primary), #ff9f9f);
 }
 
 .red-to-blue {
@@ -54,7 +54,12 @@ main {
 }
 
 .mint-to-blue {
-  background-image: linear-gradient(to left, rgba(183, 156, 193, 1) 0%, rgba(146, 192, 219, 1) 62%, rgba(104, 232, 249, 1) 100%);
+  background-image: linear-gradient(
+    to left,
+    rgba(183, 156, 193, 1) 0%,
+    rgba(146, 192, 219, 1) 62%,
+    rgba(104, 232, 249, 1) 100%
+  );
 }
 
 .gnb {
@@ -65,7 +70,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f0f6ff;
+  background-color: var(--gray-f);
   position: sticky;
   top: 0;
 }
@@ -80,7 +85,7 @@ main {
   font-weight: 600;
   color: #f5f5f5;
   border-radius: 0.8rem;
-  background-image: linear-gradient(to right, #6d6afe 20%, #6ae3fe);
+  background-image: linear-gradient(to right, var(--primary) 20%, #6ae3fe);
 }
 
 .header-title {
@@ -103,7 +108,7 @@ main {
 .add-link-button a {
   display: inline-block;
   padding: 1.6rem 12.6rem;
-  background-image: linear-gradient(to right, #6d6afe, #6ae3fe);
+  background-image: linear-gradient(to right, var(--primary), #6ae3fe);
   border-radius: 0.8rem;
   color: #f5f5f5;
   font-size: 1.8rem;
@@ -143,7 +148,7 @@ main {
 footer {
   height: 16rem;
   padding: 3.2rem 10.4rem 10.8rem;
-  background-color: #111322;
+  background-color: var(--black);
   display: flex;
   align-items: center;
   justify-content: space-between;

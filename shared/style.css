@@ -45,7 +45,7 @@ a {
 
 .gnb,
 header {
-  background-color: #f0f6ff;
+  background-color: var(--gray-f);
 }
 
 header {
@@ -120,7 +120,7 @@ main {
 }
 
 .card:hover {
-  background-color: #f0f6ff;
+  background-color: var(--gray-f);
 }
 
 /* card hover시 card image 1.2배 확대 */
@@ -190,7 +190,7 @@ main {
 footer {
   height: 16rem;
   padding: 3.2rem 10.4rem 10.8rem;
-  background-color: #111322;
+  background-color: var(--black);
   display: flex;
   align-items: center;
   justify-content: space-between;
