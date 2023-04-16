@@ -29,7 +29,8 @@ export class StarComponent extends HTMLElement {
       `;
     shadow.appendChild(starIcon);
 
-    this.addEventListener("click", () => {
+    this.addEventListener("click", (event) => {
+      event.stopPropagation();
       this.toggleStar();
     });
   }
