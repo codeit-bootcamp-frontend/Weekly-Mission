@@ -12,17 +12,20 @@
       <global-nav login="on"></global-nav>
     </header>
     <main>
-      <div class="card-container">
-        <link-card
-          image="/static/card-img1.png"
-          bookmark="false"
-          since="10 minutes ago"
-          description="Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat."
-          date="2023. 3. 15"
-        ></link-card>
+      <div class="cards">
+        <div class="card-container">
+          <link-card
+            image="/static/card-img1.png"
+            since="10 minutes ago"
+            description="Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat."
+            date="2023. 3. 15"
+          ></link-card>
+          <bookmark-icon bookmark="false"></bookmark-icon>
+        </div>
       </div>
     </main>
-    <script type="module" src="/static/js/link-card.js"></script>
     <script type="module" src="/static/js/global-nav.js"></script>
+    <script type="module" src="/static/js/link-card.js"></script>
+    <script type="module" src="/static/js/bookmark-icon.js"></script>
   </body>
 </html>

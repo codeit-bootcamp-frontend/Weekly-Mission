@@ -201,6 +201,13 @@ a {
   width: 11.6rem;
 }
 
+/* shared */
+.cards .card-container {
+  display: inline-block;
+  position: relative;
+  width: 34rem;
+}
+
 
 @media (min-width: 768px) and (max-width: 1199px) {
   .site-header .header-title {
