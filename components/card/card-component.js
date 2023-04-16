@@ -70,6 +70,10 @@ export class CardComponent extends HTMLElement {
       this.handleMouseOver.bind(this)
     );
     cardContainer.addEventListener("mouseout", this.handleMouseOut.bind(this));
+
+    cardContainer.addEventListener("click", (e) =>
+      window.open("https://www.codeit.kr")
+    );
   }
 
   handleMouseOver() {
