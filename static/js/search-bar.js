@@ -45,7 +45,7 @@ template.innerHTML = `
     }
 
     #search-bar #search-icon {
-      top: 1.1rem;
+      top: 1.3rem;
     }
 
   } 
