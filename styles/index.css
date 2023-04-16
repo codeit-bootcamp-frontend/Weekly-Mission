@@ -1,4 +1,4 @@
-@import url("./global-style.css");
+@import url("/styles/global-style.css");
 
 body {
   word-break: keep-all;
@@ -7,7 +7,6 @@ body {
 header {
   height: 9.4rem;
   padding: 0 20rem;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -165,14 +164,10 @@ span.gradation {
 
 /* Tablet 반응형 */
 @media (max-width: 1200px) {
-  .logo {
-    margin-right: 53.8rem;
-  }
-
   header {
-    padding-left: 3.2rem;
-    padding-right: 3.2rem;
+    padding: 0;
     justify-content: center;
+    gap: 53.8rem;
   }
 
   .img-homehero {
@@ -215,7 +210,10 @@ span.gradation {
 /* Tablet 반응형(768~863px) */
 @media (max-width: 863px) {
   header {
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
     justify-content: space-between;
+    gap: 0;
   }
 
   .logo {
