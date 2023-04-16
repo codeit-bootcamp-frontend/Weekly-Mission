@@ -1,47 +1,48 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shared</title>
-  <link rel="stylesheet" href="./css/reset.css" />
-  <link rel="stylesheet" href="./css/shared.css" />
-</head>
-<body>
-  <logged-in-header></logged-in-header>
-  <main>
-    <section class="banner">
-      <div class="banner-container">
-        <div class="user">
-          <img class="avatar" src="/img/Avatar.png">
-          <div class="user-name">@코드잇</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shared</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/shared.css" />
+  </head>
+  <body>
+    <logged-out-header></logged-out-header>
+    <main>
+      <section class="banner">
+        <div class="banner-container">
+          <div class="user">
+            <img class="avatar" src="/img/Avatar.png" />
+            <div class="user-name">@코드잇</div>
+          </div>
+          <div class="bookmark">
+            <img class="star" src="./img/star-yellow.png" />
+            <h2>즐겨찾기</h2>
+          </div>
         </div>
-        <div class="bookmark">
-          <img class="star" src="./img/star-yellow.png">
-          <h2>즐겨찾기</h2>
+      </section>
+      <section class="contents">
+        <search-bar></search-bar>
+        <div class="cards">
+          <card-component image-url="./img/card-image-1.png"></card-component>
+          <card-component image-url="./img/card-image-2.png"></card-component>
+          <card-component image-url="./img/card-image-3.png"></card-component>
+          <card-component image-url="./img/card-image-4.png"></card-component>
+          <card-component image-url="./img/card-image-5.png"></card-component>
+          <card-component image-url="./img/card-image-6.png"></card-component>
+          <card-component image-url="./img/card-image-7.png"></card-component>
+          <card-component image-url="./img/card-image-8.png"></card-component>
+          <card-component image-url="./img/card-image-9.png"></card-component>
         </div>
-      </div>
-    </section>
-    <section class="contents">
-      <search-bar></search-bar>
-      <div class="cards">
-        <card-component image-url="./img/card-image-1.png"></card-component>
-        <card-component image-url="./img/card-image-2.png"></card-component>
-        <card-component image-url="./img/card-image-3.png"></card-component>
-        <card-component image-url="./img/card-image-4.png"></card-component>
-        <card-component image-url="./img/card-image-5.png"></card-component>
-        <card-component image-url="./img/card-image-6.png"></card-component>
-        <card-component image-url="./img/card-image-7.png"></card-component>
-        <card-component image-url="./img/card-image-8.png"></card-component>
-        <card-component image-url="./img/card-image-9.png"></card-component>
-      </div>
-    </section> 
-  </main>
-  <footer-component></footer-component>
-  <script src="./js/gnb.js"></script>
-  <script src="./js/search-bar.js"></script>
-  <script src="./js/card.js"></script>
-  <script src="./js/footer.js"></script>
-</body>
+      </section>
+    </main>
+    <footer-component></footer-component>
+    <script src="./js/gnb.js"></script>
+    <script src="./js/search-bar.js"></script>
+    <script src="./js/card.js"></script>
+    <script src="./js/footer.js"></script>
+    <script src="./js/star.js"></script>
+  </body>
 </html>
