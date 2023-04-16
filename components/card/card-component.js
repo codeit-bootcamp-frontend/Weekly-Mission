@@ -1,3 +1,4 @@
+import { StarComponent } from "../star/star-component.js";
 export class CardComponent extends HTMLElement {
   constructor(imageSrc, updateTime, description, date) {
     super();
@@ -24,6 +25,9 @@ export class CardComponent extends HTMLElement {
     const cardImage = document.createElement("img");
     cardImage.classList.add("card-image");
     cardImage.src = this._imageSrc;
+
+    const starIcon = new StarComponent();
+    starIcon.classList.add("star-icon");
 
     const cardInfo = document.createElement("div");
     cardInfo.classList.add("card-info");
@@ -54,6 +58,7 @@ export class CardComponent extends HTMLElement {
     cardInfo.appendChild(cardDescription);
     cardInfo.appendChild(cardDate);
 
+    cardContainer.appendChild(starIcon);
     cardContainer.appendChild(cardImage);
     cardContainer.appendChild(cardInfo);
 
