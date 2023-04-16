@@ -49,6 +49,10 @@ const isValidPasswordCheck = (e) => {
 const isValidForm = (e) => {
   e.preventDefault();
   if (isValidEmail(e) && isValidPassword(e) && isValidPasswordCheck(e)) {
+    sessionStorage.clear();
+    sessionStorage.setItem("isLoggedIn", "true");
+    sessionStorage.setItem("email", email.value);
+    sessionStorage.setItem("password", password.value);
     location.href = "../my-link/";
   }
 };

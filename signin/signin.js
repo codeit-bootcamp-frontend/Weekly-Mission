@@ -19,6 +19,10 @@ const isValidAccount = (e) => {
   e.preventDefault();
 
   if (email.value === "test@codeit.com" && password.value === "codeit101") {
+    sessionStorage.clear();
+    sessionStorage.setItem("isLoggedIn", "true");
+    sessionStorage.setItem("email", email.value);
+    sessionStorage.setItem("password", password.value);
     location.href = "../my-link/";
   } else {
     alert("이메일과 비밀번호를 확인해주세요.");
