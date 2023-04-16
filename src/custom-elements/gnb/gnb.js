@@ -56,7 +56,7 @@ export class Gnb extends HTMLElement {
         height: 5.813rem;
         padding: 1.25rem 12.5rem;
         margin: 0 auto;
-        background-color: #f0f6ff;
+        background-color: var(--gray-1);
       }
 
       nav {
