@@ -1,7 +1,7 @@
 @import url("/static/css/global_style.css");
 
 footer {
-  background-color: #111322;
+  background-color: var(--linkbrary-black);
   font-family: "Arial";
   font-weight: 400;
   font-size: 1.6rem;

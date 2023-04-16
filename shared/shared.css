@@ -3,7 +3,7 @@ body {
 }
 
 header {
-  background-color: #f0f6ff;
+  background-color: var(--library-white-smoke);
 }
 
 main {

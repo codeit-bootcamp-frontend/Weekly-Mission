@@ -18,7 +18,7 @@ header {
 
 header,
 main {
-  background-color: #f0f6ff;
+  background-color: var(--library-white-smoke);
 }
 
 nav,
@@ -55,7 +55,11 @@ nav .login {
   width: 12.8rem;
   height: 5.3rem;
   color: #f5f5f5;
-  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  background: linear-gradient(
+    90.99deg,
+    var(--linkbrary-primary) 0.12%,
+    #6ae3fe 101.84%
+  );
   border: 0;
   border-radius: 0.8rem;
   padding: 1.6rem 2rem;
@@ -72,7 +76,11 @@ main .title {
 }
 
 main .title-gradient {
-  background: linear-gradient(91.26deg, #6d6afe 17.28%, #ff9f9f 74.98%);
+  background: linear-gradient(
+    91.26deg,
+    var(--linkbrary-primary) 17.28%,
+    #ff9f9f 74.98%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -84,7 +92,11 @@ main .add-link {
   margin: 0 auto;
   height: 5.3rem;
   color: #f5f5f5;
-  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  background: linear-gradient(
+    90.99deg,
+    var(--linkbrary-primary) 0.12%,
+    #6ae3fe 101.84%
+  );
   border-radius: 0.8rem;
   padding: 1.6rem 2rem;
   font-weight: 600;
@@ -206,7 +218,7 @@ article p.right {
 }
 
 footer {
-  background-color: #111322;
+  background-color: var(--linkbrary-black);
   font-family: "Arial";
   font-weight: 400;
   font-size: 1.6rem;
