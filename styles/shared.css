@@ -71,38 +71,10 @@ header > a {
 }
 
 /* main 영역 */
-/* .search-container {
-  width: 106rem;
-  height: 4.8rem;
-  margin: 4rem auto;
-  padding-left: 1.6rem;
-  padding-right: 1.6rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  border-radius: 1rem;
-  background-color: #f5f5f5;
-}
-
-.search-icon {
-  width: 1.6rem;
-  height: 1.6rem;
-}
-
-.search-input {
-  width: 100%;
-  padding: 0;
-  color: #666666;
-  font-family: "Pretendard", sans-serif;
-  font-weight: 400;
-  border-style: none;
-  outline: none;
-  background-color: transparent;
-} */
-
 .card-container {
   width: 106rem;
   margin: 4rem auto;
+  margin-bottom: 10rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 2.4rem;
@@ -188,46 +160,6 @@ header > a {
   color: #333333;
 }
 
-/* footer 영역 */
-footer {
-  height: 16rem;
-  margin-top: 10rem;
-  padding: 3.2rem 10.4rem;
-  display: flex;
-  justify-content: space-between;
-  font-family: "Arial", sans-serif;
-  line-height: 1.6rem;
-  background-color: var(--black);
-}
-
-.footer-logo {
-  color: #676767;
-}
-
-.box-privacy-and-faq {
-  width: 18.111rem;
-  height: 1.8rem;
-  display: flex;
-  justify-content: space-between;
-}
-
-.box-privacy-and-faq > a {
-  color: #cfcfcf;
-  text-decoration: none;
-}
-
-.box-sns {
-  width: 11.6rem;
-  height: 1.8rem;
-  display: flex;
-  justify-content: space-between;
-}
-
-.img-sns-logo {
-  width: 1.8rem;
-  height: 1.8rem;
-}
-
 /* 반응형(1100px 미만) */
 @media (max-width: 1100px) {
   .header-logo-profile {
@@ -239,11 +171,6 @@ footer {
   }
 
   /* main 영역 */
-  /* .search-container {
-    width: 70.4rem;
-    height: 5.4rem;
-  } */
-
   .card-container {
     width: 70.4rem;
     grid-template-columns: repeat(2, 1fr);
@@ -296,16 +223,10 @@ footer {
   }
 
   /* main 영역 */
-  /* .search-container {
-    width: 32.5rem;
-    height: 4.3rem;
-    margin: 2rem auto;
-    gap: 0.6rem;
-  } */
-
   .card-container {
     width: 32.5rem;
     margin: 3.2rem auto;
+    margin-bottom: 6rem;
     grid-template-columns: 1fr;
     row-gap: 2rem;
   }
@@ -322,18 +243,5 @@ footer {
 
   .content-container {
     width: 32.5rem;
-  }
-
-  /* footer 영역 */
-  footer {
-    margin-top: 6rem;
-    padding: 3.2rem 3.2rem;
-    position: relative;
-  }
-
-  .footer-logo {
-    position: absolute;
-    bottom: 3.2rem;
-    left: 3.2rem;
   }
 }

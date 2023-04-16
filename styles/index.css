@@ -42,6 +42,10 @@ header > a {
   cursor: pointer;
 }
 
+main {
+  margin-bottom: 17rem;
+}
+
 .section-top {
   margin-bottom: 12rem;
   display: flex;
@@ -159,45 +163,6 @@ span.gradation {
   background-clip: text;
 }
 
-footer {
-  height: 16rem;
-  margin-top: 17rem;
-  padding: 3.2rem 10.4rem;
-  display: flex;
-  justify-content: space-between;
-  font-family: "Arial", sans-serif;
-  line-height: 1.6rem;
-  background-color: var(--black);
-}
-
-.footer-logo {
-  color: #676767;
-}
-
-.box-privacy-and-faq {
-  width: 18.111rem;
-  height: 1.8rem;
-  display: flex;
-  justify-content: space-between;
-}
-
-.box-privacy-and-faq > a {
-  color: #cfcfcf;
-  text-decoration: none;
-}
-
-.box-sns {
-  width: 11.6rem;
-  height: 1.8rem;
-  display: flex;
-  justify-content: space-between;
-}
-
-.img-sns-logo {
-  width: 1.8rem;
-  height: 1.8rem;
-}
-
 /* Tablet 반응형 */
 @media (max-width: 1200px) {
   .logo {
@@ -278,6 +243,10 @@ footer {
     line-height: 3.7rem;
   }
 
+  main {
+    margin-bottom: 4rem;
+  }
+
   .section-top {
     margin-bottom: 0;
     padding: 0 3.2rem;
@@ -332,17 +301,5 @@ footer {
 
   .br-not-mobile {
     display: none;
-  }
-
-  footer {
-    margin-top: 4rem;
-    padding: 3.2rem 3.2rem;
-    position: relative;
-  }
-
-  .footer-logo {
-    position: absolute;
-    bottom: 3.2rem;
-    left: 3.2rem;
   }
 }
