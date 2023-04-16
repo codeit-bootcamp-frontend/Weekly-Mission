@@ -1,4 +1,3 @@
-
 const template = document.createElement("template");
 template.innerHTML = `
   <style>
@@ -98,7 +97,6 @@ template.innerHTML = `
         display: none;
       }
     }
-
   </style>
   <nav id="navbar">
     <div id="navbar-container">
