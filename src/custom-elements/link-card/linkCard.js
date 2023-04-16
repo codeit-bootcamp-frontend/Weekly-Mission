@@ -9,7 +9,7 @@ export class LinkCard extends HTMLElement {
       updatedTime: new Date(),
       description:
         "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-      date: new Date(2023, 3, 13).toLocaleDateString().slice(0, -1),
+      date: new Date(2023, 3, 13),
     },
   };
 
@@ -38,7 +38,27 @@ export class LinkCard extends HTMLElement {
 
     this.thumbnailImg.setAttribute("src", value.thumbnailSrc);
     this.descriptionDiv.textContent = value.metadata.description;
-    this.dateP.textContent = value.metadata.date;
+    this.dateP.textContent = this.parseDate(value.metadata.date);
+    const likeBtnSrc = this.#prop.isLiked
+      ? "/images/like-btn-liked.svg"
+      : "/images/like-btn-unliked.svg";
+    this.likeBtn.setAttribute("src", likeBtnSrc);
+  }
+
+  parseDate(date) {
+    const leftPad = (value) => {
+      if (value >= 10) {
+        return value;
+      }
+
+      return `0${value}`;
+    };
+
+    const year = date.getFullYear();
+    const month = leftPad(date.getMonth() + 1);
+    const day = leftPad(date.getDate());
+
+    return [year, month, day].join("-");
   }
 
   get styles() {
@@ -197,7 +217,9 @@ export class LinkCard extends HTMLElement {
           <div id="description" class="description-container">
             ${this.prop.metadata.description}
           </div>
-          <p id="date" class="date">${this.prop.metadata.date}</p>
+          <p id="date" class="date">${this.parseDate(
+            this.prop.metadata.date
+          )}</p>
         </div>
       </div>
 	</a>
