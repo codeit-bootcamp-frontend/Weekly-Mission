@@ -6,6 +6,10 @@ template.innerHTML = `
       box-sizing: border-box;
     }
 
+    p {
+      margin: 0;
+    }
+
     #navbar {
       position: fixed;
       inset: 0;
@@ -40,6 +44,22 @@ template.innerHTML = `
 
     #gnb-profile {
       display: none;
+      justify-content: space-between;
+      text-align: center;
+      width: 15.8rem;
+      line-height: 2.8rem;
+      font-size: 1.4rem;
+    }
+
+    #gnb-profile #icon-container {
+      cursor: pointer;
+      width: 2.8rem;
+      border-radius: 7rem;
+      background-color: var(--primary);
+    }
+
+    #gnb-profile #profile-email {
+      color: var(--profile-email);
     }
 
     @media (min-width: 768px) and (max-width: 1199px) {
@@ -83,7 +103,10 @@ template.innerHTML = `
         로그인
       </div>
       <div id="gnb-profile">
-        프로필
+        <div id="icon-container">
+          <img src="/static/default-profile.png" alt="Default profile icon" alt="" width="10">
+        </div>
+        <p id="profile-email">Codeit@codeit.com</p>
       </div>
     </div>
   </nav>
@@ -97,16 +120,19 @@ class Gnb extends HTMLElement {
     const login = this.getAttribute("login");
     const loginButton = this.shadowRoot.getElementById("gnb-login-button");
     const profile = this.shadowRoot.getElementById("gnb-profile");
+    const profileButton = this.shadowRoot.getElementById("icon-container");
 
-    loginButton.addEventListener('click', () => location.href= '/signin');
-
+    loginButton.addEventListener('click', () => location.href='/signin');
+    
     if (login === "on") {
-      profile.style.display = "block";
+      profile.style.display = "flex";
       loginButton.style.display = "none";
     } else {
       profile.style.display = "none";
       loginButton.style.display = "block";
     }
+
+    profileButton.addEventListener('click', () => location.href='/my-link');
   }
 }
 

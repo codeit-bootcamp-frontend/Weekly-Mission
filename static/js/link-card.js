@@ -91,17 +91,16 @@ template.innerHTML = `
   </style>
   <div id="card">
     <div id="card-image">
-      <img id="image">
-      <img id="unmarked" class="star" src="/static/star1.png">
-      <img id="marked" class="star" src="/static/star2.png">
+      <img id="unmarked" class="star" src="/static/star1.png" alt="Unmarked icon">
+      <img id="marked" class="star" src="/static/star2.png" alt="Marked icon">
     </div>
     <div id="card-text">
       <div id="first-line">
         <p id="since">10분 전</span>
         <div id="eclipse-container">
-          <img class="eclipse" src="/static/eclipse.png" width="3">
-          <img class="eclipse" src="/static/eclipse.png" width="3">
-          <img class="eclipse" src="/static/eclipse.png" width="3">
+          <img class="eclipse" src="/static/eclipse.png" alt="eclipse" width="3">
+          <img class="eclipse" src="/static/eclipse.png" alt="eclipse" width="3">
+          <img class="eclipse" src="/static/eclipse.png" alt="eclipse" width="3">
         </div>
       </div>
       <p id="description">Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.
@@ -122,7 +121,7 @@ class Card extends HTMLElement {
     const marked = this.shadowRoot.getElementById("marked");
     const unmarked = this.shadowRoot.getElementById("unmarked");
 
-    this.shadowRoot.getElementById("card-image").style.backgroundImage = "url(" + backgroundImg +")";
+    this.shadowRoot.getElementById("card-image").style.backgroundImage = `url(${backgroundImg})`;
     this.shadowRoot.getElementById("since").innerText = this.getAttribute("since");
     this.shadowRoot.getElementById("description").innerText = this.getAttribute("description");
     this.shadowRoot.getElementById("date").innerText = this.getAttribute("date");
