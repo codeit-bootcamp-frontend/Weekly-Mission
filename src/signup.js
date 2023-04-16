@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const togglePassword = (passwordInput) => {
-    let visiblity = false;
+    let visiblity = passwordInput.getAttribute("type") === "text";
     visiblity = !visiblity;
     passwordInput.setAttribute("type", visiblity ? "text" : "password");
   };
