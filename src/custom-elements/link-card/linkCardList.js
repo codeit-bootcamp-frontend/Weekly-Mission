@@ -2,109 +2,109 @@ const MOCK_CARD_LIST = [
   {
     id: 1,
     href: "https://www.codeit.kr",
-    thumbnailSrc: "/images/default-thumbnail.svg",
+    thumbnailSrc: "/images/card-thumbnails/img1.png",
     isLiked: false,
     metadata: {
       updatedTime: new Date(),
       description:
         "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-      date: new Date(2023, 3, 13).toLocaleDateString().slice(0, -1),
+      date: new Date(2023, 3, 13),
     },
   },
   {
     id: 2,
     href: "https://www.codeit.kr",
-    thumbnailSrc: "/images/default-thumbnail.svg",
-    isLiked: false,
+    thumbnailSrc: "/images/card-thumbnails/img2.png",
+    isLiked: true,
     metadata: {
       updatedTime: new Date(),
       description:
         "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-      date: new Date(2023, 3, 13).toLocaleDateString().slice(0, -1),
+      date: new Date(2023, 3, 13),
     },
   },
   {
     id: 3,
     href: "https://www.codeit.kr",
-    thumbnailSrc: "/images/default-thumbnail.svg",
+    thumbnailSrc: "/images/card-thumbnails/img3.png",
     isLiked: false,
     metadata: {
       updatedTime: new Date(),
       description:
         "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-      date: new Date(2023, 3, 13).toLocaleDateString().slice(0, -1),
+      date: new Date(2023, 3, 13),
     },
   },
   {
     id: 4,
     href: "https://www.codeit.kr",
-    thumbnailSrc: "/images/default-thumbnail.svg",
+    thumbnailSrc: "/images/card-thumbnails/img4.png",
     isLiked: false,
     metadata: {
       updatedTime: new Date(),
       description:
         "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-      date: new Date(2023, 3, 13).toLocaleDateString().slice(0, -1),
+      date: new Date(2023, 3, 13),
     },
   },
   {
     id: 5,
     href: "https://www.codeit.kr",
-    thumbnailSrc: "/images/default-thumbnail.svg",
+    thumbnailSrc: "/images/card-thumbnails/img5.png",
     isLiked: false,
     metadata: {
       updatedTime: new Date(),
       description:
         "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-      date: new Date(2023, 3, 13).toLocaleDateString().slice(0, -1),
+      date: new Date(2023, 3, 13),
     },
   },
   {
     id: 6,
     href: "https://www.codeit.kr",
-    thumbnailSrc: "/images/default-thumbnail.svg",
+    thumbnailSrc: "/images/card-thumbnails/img6.png",
     isLiked: false,
     metadata: {
       updatedTime: new Date(),
       description:
         "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-      date: new Date(2023, 3, 13).toLocaleDateString().slice(0, -1),
+      date: new Date(2023, 3, 13),
     },
   },
   {
     id: 7,
     href: "https://www.codeit.kr",
-    thumbnailSrc: "/images/default-thumbnail.svg",
+    thumbnailSrc: "/images/card-thumbnails/img7.png",
     isLiked: false,
     metadata: {
       updatedTime: new Date(),
       description:
         "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-      date: new Date(2023, 3, 13).toLocaleDateString().slice(0, -1),
+      date: new Date(2023, 3, 13),
     },
   },
   {
     id: 8,
     href: "https://www.codeit.kr",
-    thumbnailSrc: "/images/default-thumbnail.svg",
+    thumbnailSrc: "/images/card-thumbnails/img8.png",
     isLiked: false,
     metadata: {
       updatedTime: new Date(),
       description:
         "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-      date: new Date(2023, 3, 13).toLocaleDateString().slice(0, -1),
+      date: new Date(2023, 3, 13),
     },
   },
   {
     id: 9,
     href: "https://www.codeit.kr",
-    thumbnailSrc: "/images/default-thumbnail.svg",
-    isLiked: false,
+    thumbnailSrc: "/images/card-thumbnails/img9.png",
+    isLiked: true,
     metadata: {
       updatedTime: new Date(),
       description:
         "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-      date: new Date(2023, 3, 13).toLocaleDateString().slice(0, -1),
+      date: new Date(2023, 3, 13),
     },
   },
 ];
