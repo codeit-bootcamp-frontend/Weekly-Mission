@@ -34,12 +34,7 @@
 
   <body>
     <header>
-      <nav>
-        <a href="/"
-          ><img alt="logo" src="./static/imgs/Linkbrary.svg" class="logo"
-        /></a>
-        <a class="login" href="./signin/">로그인</a>
-      </nav>
+      <gnb-header></gnb-header>
     </header>
 
     <main>
@@ -134,28 +129,8 @@
         <p class="right mobile">중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
       </article>
     </section>
-    <footer>
-      <div class="footer-wrap">
-        <p class="copyright">©codeit - 2023</p>
-        <div class="privacy-policy-faq">
-          <a href="./privacy" class="privacy-policy">Privacy Policy</a>
-          <a href="./faq" class="faq">FAQ</a>
-        </div>
-        <div class="footer-imgs">
-          <a href="https://ko-kr.facebook.com/"
-            ><img alt="facebook" src="./static/imgs/facebook.svg"
-          /></a>
-          <a href="https://twitter.com/?lang=ko"
-            ><img alt="twitter" src="./static/imgs/twitter.svg"
-          /></a>
-          <a href="https://www.youtube.com/?gl=KR"
-            ><img alt="youtube" src="./static/imgs/youtube.svg"
-          /></a>
-          <a href="https://www.instagram.com/">
-            <img alt="insta" src="./static/imgs/insta.svg"
-          /></a>
-        </div>
-      </div>
-    </footer>
+    <footer-component></footer-component>
+    <script type="module" src="/components/gnb/gnb-component.js"></script>
+    <script type="module" src="/components/footer/footer-component.js"></script>
   </body>
 </html>

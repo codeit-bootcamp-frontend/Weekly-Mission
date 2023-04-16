@@ -56,7 +56,7 @@ footer img {
     order: 1;
   }
 
-  footer .imgs {
+  .footer-imgs {
     justify-self: end;
   }
 }
