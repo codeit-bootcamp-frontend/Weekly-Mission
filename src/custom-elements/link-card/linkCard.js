@@ -52,6 +52,24 @@ export class LinkCard extends HTMLElement {
         margin: 0;
       }
 
+      a:visited {
+        color: inherit;
+        background-color: transparent;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: inherit;
+        background-color: transparent;
+        text-decoration: none;
+      }
+
+      a:active {
+        color: inherit;
+        background-color: transparent;
+        text-decoration: none;
+      }
+
       :host {
         display: inline-block;
       }
