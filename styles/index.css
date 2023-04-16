@@ -15,7 +15,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 1;
-  background-color: #f0f6ff;
+  background-color: var(--gray-brt5);
 }
 
 header > a {
@@ -35,7 +35,7 @@ header > a {
   font-weight: 600;
   line-height: 5.3rem;
   text-align: center;
-  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  background: linear-gradient(90.99deg, var(--primary) 0.12%, #6ae3fe 101.84%);
   color: #f5f5f5;
 }
 
@@ -48,7 +48,7 @@ header > a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f0f6ff;
+  background-color: var(--gray-brt5);
 }
 
 .explain-linkbrary {
@@ -64,7 +64,7 @@ header > a {
 }
 
 .text-explain-linkbrary span {
-  background: linear-gradient(91.26deg, #6d6afe 17.28%, #ff9f9f 74.98%);
+  background: linear-gradient(91.26deg, var(--primary) 17.28%, #ff9f9f 74.98%);
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
@@ -80,7 +80,7 @@ header > a {
   line-height: 5.3rem;
   text-align: center;
   color: #f5f5f5;
-  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  background: linear-gradient(90.99deg, var(--primary) 0.12%, #6ae3fe 101.84%);
 }
 
 .button-add-link:hover {
@@ -130,12 +130,12 @@ header > a {
   width: 55rem;
   height: 45rem;
   border-radius: 1.5rem;
-  background-color: #f0f6ff;
+  background-color: var(--gray-brt5);
   background-size: cover;
 }
 
 span.grad-1 {
-  background: linear-gradient(91.26deg, #6d6afe 17.28%, #ff9f9f 74.98%);
+  background: linear-gradient(91.26deg, var(--primary) 17.28%, #ff9f9f 74.98%);
 }
 
 span.grad-2 {
@@ -168,7 +168,7 @@ footer {
   justify-content: space-between;
   font-family: "Arial", sans-serif;
   line-height: 1.6rem;
-  background-color: #111322;
+  background-color: var(--black);
 }
 
 .footer-logo {
@@ -177,6 +177,7 @@ footer {
 
 .box-privacy-and-faq {
   width: 18.111rem;
+  height: 1.8rem;
   display: flex;
   justify-content: space-between;
 }
@@ -188,6 +189,7 @@ footer {
 
 .box-sns {
   width: 11.6rem;
+  height: 1.8rem;
   display: flex;
   justify-content: space-between;
 }

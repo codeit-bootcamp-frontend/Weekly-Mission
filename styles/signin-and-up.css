@@ -4,7 +4,7 @@ body {
   height: 98.2rem;
   margin: 0;
   padding-top: 23.8rem;
-  background-color: #f0f6ff;
+  background-color: var(--gray-brt5);
 }
 
 .wrapper-container {
@@ -31,7 +31,7 @@ body {
 
 .change-form-signin-and-up {
   font-weight: 600;
-  color: #6d6afe;
+  color: var(--primary);
 }
 
 .form-signin-and-up {
@@ -58,15 +58,15 @@ input {
   width: 100%;
   height: 5.5rem;
   padding: 1.8rem 1.5rem;
-  color: #9fa6b2;
+  color: var(--gray-brt2);
   font-family: "Pretendard", sans-serif;
   font-weight: 400;
 }
 
 input:focus {
   outline: none;
-  border-color: #6d6afe;
-  color: #3e3e43;
+  border-color: var(--primary);
+  color: var(--gray-brt1);
 }
 
 input,
@@ -74,7 +74,7 @@ input,
   border-width: 0.1rem;
   border-radius: 0.8rem;
   border-style: solid;
-  border-color: #ccd5e3;
+  border-color: var(--gray-brt3);
 }
 
 .input-password-container {
@@ -101,13 +101,13 @@ input,
   font-weight: 600;
   font-size: 1.8rem;
   color: #f5f5f5;
-  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  background: linear-gradient(90.99deg, var(--primary) 0.12%, #6ae3fe 101.84%);
 }
 
 .forgot-password {
   font-size: 1.4rem;
   margin-bottom: 3.2rem;
-  color: #3e3e43;
+  color: var(--gray-brt1);
   text-decoration: none;
 }
 
@@ -118,8 +118,8 @@ input,
   justify-content: space-between;
   align-items: center;
   font-size: 1.4rem;
-  background-color: #e7effb;
-  color: #3e3e43;
+  background-color: var(--gray-brt4);
+  color: var(--gray-brt1);
 }
 
 .box-sns {

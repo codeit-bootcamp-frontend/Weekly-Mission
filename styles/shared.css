@@ -13,7 +13,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 1;
-  background-color: #f0f6ff;
+  background-color: var(--gray-brt5);
 }
 
 header > a {
@@ -29,7 +29,7 @@ header > a {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  color: #3e3e43;
+  color: var(--gray-brt1);
 }
 
 .profile {
@@ -48,7 +48,7 @@ header > a {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  background-color: #f0f6ff;
+  background-color: var(--gray-brt5);
 }
 
 .avatar-container {
@@ -125,7 +125,7 @@ header > a {
 }
 
 .card:hover .content-container {
-  background-color: #f0f6ff;
+  background-color: var(--gray-brt5);
 }
 
 .image-container {
@@ -201,7 +201,7 @@ footer {
   justify-content: space-between;
   font-family: "Arial", sans-serif;
   line-height: 1.6rem;
-  background-color: #111322;
+  background-color: var(--black);
 }
 
 .footer-logo {
@@ -210,6 +210,7 @@ footer {
 
 .box-privacy-and-faq {
   width: 18.111rem;
+  height: 1.8rem;
   display: flex;
   justify-content: space-between;
 }
@@ -221,6 +222,7 @@ footer {
 
 .box-sns {
   width: 11.6rem;
+  height: 1.8rem;
   display: flex;
   justify-content: space-between;
 }
