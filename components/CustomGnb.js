@@ -9,7 +9,7 @@ class CustomGnb extends HTMLElement {
     this.shadowRoot.innerHTML = this.getTemplate();
     const linkElem = document.createElement("link");
     linkElem.setAttribute("rel", "stylesheet");
-    linkElem.setAttribute("href", "./styles/CustomGnb.css");
+    linkElem.setAttribute("href", "/components/styles/CustomGnb.css");
     this.shadowRoot.appendChild(linkElem);
   }
 

@@ -8,7 +8,7 @@ class SearchBar extends HTMLElement {
     this.shadowRoot.innerHTML = this.getTemplate();
     const linkElem = document.createElement("link");
     linkElem.setAttribute("rel", "stylesheet");
-    linkElem.setAttribute("href", "./styles/SearchBar.css");
+    linkElem.setAttribute("href", "/components/styles/SearchBar.css");
     this.shadowRoot.appendChild(linkElem);
   }
 

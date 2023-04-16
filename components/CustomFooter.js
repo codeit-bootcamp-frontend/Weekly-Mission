@@ -8,7 +8,7 @@ class CustomFooter extends HTMLElement {
     this.shadowRoot.innerHTML = this.getTemplate();
     const linkElem = document.createElement("link");
     linkElem.setAttribute("rel", "stylesheet");
-    linkElem.setAttribute("href", "./styles/CustomFooter.css");
+    linkElem.setAttribute("href", "/components/styles/CustomFooter.css");
     this.shadowRoot.appendChild(linkElem);
   }
 
