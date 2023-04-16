@@ -83,8 +83,13 @@ input {
   height: 55px;
   margin-bottom: 24px;
   background: #ffffff;
-  border: 1px solid #6d6afe;
+  border: 1px solid #ccd5e3;
   border-radius: 8px;
+  color: #ccd5e3;
+}
+input:focus {
+  outline: 1px solid #6d6afe;
+  color: #3e3e43;
 }
 
 button.signup {
