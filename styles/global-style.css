@@ -25,6 +25,7 @@ html {
 }
 
 body {
+  margin: 0;
   font-family: "Pretendard-Regular";
   font-size: 1.6rem;
   font-weight: 400;

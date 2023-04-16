@@ -1,9 +1,5 @@
 @import url("./global-style.css");
 
-body {
-  margin: 0;
-}
-
 .header-logo-profile {
   height: 9.3rem;
   padding: 0 20rem;
@@ -75,7 +71,7 @@ header > a {
 }
 
 /* main 영역 */
-.search-container {
+/* .search-container {
   width: 106rem;
   height: 4.8rem;
   margin: 4rem auto;
@@ -102,7 +98,7 @@ header > a {
   border-style: none;
   outline: none;
   background-color: transparent;
-}
+} */
 
 .card-container {
   width: 106rem;
@@ -243,10 +239,10 @@ footer {
   }
 
   /* main 영역 */
-  .search-container {
+  /* .search-container {
     width: 70.4rem;
     height: 5.4rem;
-  }
+  } */
 
   .card-container {
     width: 70.4rem;
@@ -300,12 +296,12 @@ footer {
   }
 
   /* main 영역 */
-  .search-container {
+  /* .search-container {
     width: 32.5rem;
     height: 4.3rem;
     margin: 2rem auto;
     gap: 0.6rem;
-  }
+  } */
 
   .card-container {
     width: 32.5rem;

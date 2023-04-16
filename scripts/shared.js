@@ -11,7 +11,7 @@ function handelClickCard(e) {
       e.target.alt = "별(일반)";
     }
   } else if (!classLi.contains("card-container")) {
-    window.open("https://www.codeit.kr");
+    open("https://www.codeit.kr");
   }
 }
 
