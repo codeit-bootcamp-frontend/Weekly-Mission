@@ -85,7 +85,7 @@ export class LinkCard extends HTMLElement {
       }
 
       .card-container:hover {
-        background-color: #f0f6ff;
+        background-color: var(--gray-1);
       }
 
       .card-container:hover .thumbnail-img {

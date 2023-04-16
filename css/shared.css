@@ -1,6 +1,6 @@
 .intro-section {
   text-align: center;
-  background: #f0f6ff;
+  background: var(--gray-1);
   padding-top: 1.25rem;
   padding-bottom: 3.75rem;
 }
