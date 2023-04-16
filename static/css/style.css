@@ -159,12 +159,12 @@ a {
   color: var(--content-frame-description);
 }
 
-.content-frame img {
+.content-frame .thumb {
   width: 55rem;
   height: 100%;
 }
 
-.content-frame:nth-child(2n) img {
+.content-frame:nth-child(2n) .thumb {
   order: -1;
 }
 
@@ -196,7 +196,7 @@ global-footer {
     width: 26.2rem;
   }
 
-  .content-frame img {
+  .content-frame .thumb {
     width: 38.5rem;
   }
 }
@@ -254,7 +254,7 @@ global-footer {
 
   .content-frame .title,
   .content-frame .description,
-  .content-frame img {
+  .content-frame .thumb {
     width: 100%;
   }
 
@@ -268,8 +268,8 @@ global-footer {
     font-size: 1.5rem;
   }
 
-  .content-frame img,
-  .content-frame:nth-child(2n) img {
+  .content-frame .thumb,
+  .content-frame:nth-child(2n) .thumb {
     order: 1;
   }
 }
