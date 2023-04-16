@@ -205,7 +205,7 @@ export class LinkCard extends HTMLElement {
   }
 
   handleClickLike(e) {
-    e.stopPropagation();
+    e.preventDefault();
     const likeBtnSrc = this.#prop.isLiked
       ? "/images/like-btn-unliked.svg"
       : "/images/like-btn-liked.svg";
