@@ -105,6 +105,7 @@ button.signup {
   font-size: 18px;
   line-height: 22px;
   color: #f5f5f5;
+  cursor: pointer;
 }
 
 .sns-signup {

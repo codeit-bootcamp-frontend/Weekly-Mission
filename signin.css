@@ -106,12 +106,14 @@ button.signin {
   font-size: 18px;
   line-height: 22px;
   color: #f5f5f5;
+  cursor: pointer;
 }
 
 label.find-pw {
   align-self: center;
   margin-bottom: 32px;
   color: #3e3e43;
+  cursor: pointer;
 }
 
 .sns-login {

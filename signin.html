@@ -33,9 +33,11 @@
           <input id="password" name="password" type="password" />
         </div>
         <div>
-          <button class="signin">로그인</button>
+          <button type="submit" class="signin">로그인</button>
         </div>
-        <label class="find-pw">비밀번호 찾기</label>
+        <label class="find-pw" onclick="location.href='/forgot-password/'"
+          >비밀번호 찾기</label
+        >
       </article>
       <div class="sns-login">
         <label>소셜 로그인</label>
@@ -49,5 +51,6 @@
         </div>
       </div>
     </form>
+    <script src="signin.js"></script>
   </body>
 </html>
