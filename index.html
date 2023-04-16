@@ -18,21 +18,8 @@
     <title>Linkbrary</title>
   </head>
   <body>
-    <nav class="navbar">
-      <div class="navbar-container">
-        <div class="logo">
-          <a href="/">
-            <img src="/static/Linkbrary.png" alt="Linkbrary Logo">
-          </a>
-        </div>
-        <a href="/signin">
-          <div class="link-button">
-            로그인
-          </div>
-        </a>
-      </div>
-    </nav>
     <header class="site-header">
+      <global-nav login="off"></global-nav>
       <h1 class="header-title">
         <span class="emphasis emphasis-1">세상의 모든 정보</span>를<br>쉽게 저장하고 관리해 보세요
       </h1>
@@ -110,5 +97,6 @@
         </div>
       </div>
     </footer>
+    <script type="module" src="/static/js/global-nav.js"></script>
   </body>
 </html>
