@@ -11,6 +11,7 @@ template.innerHTML = `
     }
 
     #navbar {
+      z-index: 1;
       position: fixed;
       inset: 0;
       height: 9.4rem;
@@ -38,7 +39,7 @@ template.innerHTML = `
       padding: 1.6rem 0;
       font-size: 1.8rem;
       font-weight: 600;
-      color: var(--link-button-text);
+      color: var(--gray6);
       background: linear-gradient(90deg, var(--primary), var(--light-primary));
     }
 

@@ -9,9 +9,9 @@
   --gray3: #CCD5E3;
   --gray4: #E7EFFB;
   --gray5: #F0F6FF;
+  --gray6: #F5F5F5;
   --navbar-background: rgba(240, 246, 255, 0.5);
   --profile-email: #373740;
-  --link-button-text: #F5F5F5;
   --content-frame-description: #6B6B6B;
   --footer-text1: #676767;
   --footer-text2: #CFCFCF;
@@ -19,6 +19,7 @@
   --kakaotalk-background: #F5E14B;
   --card-since: #666666;
   --card-date: #333333;
+  --search-bar-text: #666666;
   --emphasis-1-left: var(--primary);
   --emphasis-1-right: #FF9F9F;
   --emphasis-2-left: #FE8A8A;
@@ -50,6 +51,7 @@ body {
 input {
   font-family: 'Pretendard';
   font-size: 1.6rem;
+  outline-color: var(--primary);
 }
 
 a {
@@ -63,7 +65,7 @@ a {
   padding: 1.6rem 0;
   font-size: 1.8rem;
   font-weight: 600;
-  color: var(--link-button-text);
+  color: var(--gray6);
   background: linear-gradient(90deg, var(--primary), var(--light-primary));
 }
 
@@ -354,7 +356,7 @@ a {
   color: var(--gray2);
 }
 
-.account .lb-input:focus {
+.account form .lb-input:focus {
   color: var(--gray1);
 }
 
@@ -460,10 +462,9 @@ a {
   font-weight: 600;
 }
 
-.bookmark-body {
+.site-body.bookmark-page {
   padding-top: 4rem;
   padding-bottom: 10rem;
-  background-color: var(--white);
 }
 
 .cards {
@@ -474,7 +475,7 @@ a {
   max-width: 106rem;
   max-height: 106rem;
   overflow: hidden;
-  margin: 0 auto;
+  margin: 4rem auto 0;
 }
 
 .cards .card-container {
@@ -484,8 +485,21 @@ a {
   height: 33.4rem;
 }
 
-@media (max-width: 767px) {
+@media (min-width: 768px) and (max-width: 1099px) {
   .cards {
+    column-gap: 2.4rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .site-body.bookmark-page {
+    padding-top: 2rem;
+    padding-bottom: 6rem;
+  }
+  
+  .cards {
+    row-gap: 2rem;
     max-height: 320rem;
+    margin-top: 3.2rem;
   }
 }
