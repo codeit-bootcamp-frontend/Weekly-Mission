@@ -1,5 +1,8 @@
+@import url("/static/css/global_style.css");
+
 .card-container {
   position: relative;
+  display: flex;
   flex-direction: column;
   filter: drop-shadow(0rem 0.5rem 2.5rem rgba(0, 0, 0, 0.08));
   border-radius: 2.5rem;
@@ -10,7 +13,6 @@
 }
 
 .card-image {
-  width: 100%;
   height: 20rem;
   object-fit: cover;
   overflow: hidden;
@@ -28,6 +30,7 @@
   padding: 1.5rem 2rem;
   position: relative;
   z-index: 1;
+  height: 13.4rem;
 }
 
 .card-info-head {
@@ -75,5 +78,14 @@
   .card-container {
     width: 32.5rem;
     height: 32.7rem;
+  }
+
+  .card-image {
+    width: 32.5rem;
+  }
+
+  .card-info {
+    height: 13.5rem;
+    padding: 1.5rem 2rem;
   }
 }
