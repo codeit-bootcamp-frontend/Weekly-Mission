@@ -40,6 +40,25 @@ nav .login {
   font-size: 1.8rem;
 }
 
+nav .profile-icon {
+  width: 28px;
+  height: 28px;
+  margin-right: 10px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.user-email {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  color: var(--library-dark-slate-gray);
+  font-size: 14px;
+  line-height: 17px;
+}
 @media screen and (max-width: 1199px) {
   nav {
     padding: 0;
@@ -73,5 +92,9 @@ nav .login {
     height: 3.7rem;
     padding: 1rem 1.6rem;
     font-size: 1.4rem;
+  }
+
+  .user-email {
+    display: none;
   }
 }

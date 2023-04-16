@@ -22,10 +22,24 @@ class GnbComponent extends HTMLElement {
     logoImage.alt = "logo";
     logoImage.src = "/static/imgs/Linkbrary.svg";
 
-    const loginButton = document.createElement("a");
-    loginButton.classList.add("login");
-    loginButton.href = "/signin/";
-    loginButton.textContent = "로그인";
+    let loginButton;
+    const isLoggedIn = sessionStorage.getItem("isLoggedIn");
+    if (isLoggedIn) {
+      const loggedInText = document.createElement("div");
+      loggedInText.classList.add("user-profile");
+
+      const email = sessionStorage.getItem("email");
+      loggedInText.innerHTML = `
+        <img class = "profile-icon" src = "/static/imgs/users/profile.svg"><p class="user-email">${email}</p>
+        `;
+      // loggedInText.textContent = "로그인됨";
+      loginButton = loggedInText;
+    } else {
+      loginButton = document.createElement("a");
+      loginButton.classList.add("login");
+      loginButton.href = "/signin/";
+      loginButton.textContent = "로그인";
+    }
 
     // 자식 추가
     logoLinkAnchor.appendChild(logoImage);
