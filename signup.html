@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up</title>
+    <link rel="stylesheet" href="signup.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+  </head>
+  <body>
+    <form name="loginForm">
+      <div class="logo">
+        <a href="/" class="logo-link">
+          <img src="./public/Linkbrary.png" alt="linkbrary" class="logo-img" />
+        </a>
+      </div>
+      <div class="switch-signin">
+        <h5 class="already-member">이미 회원이신가요?</h5>
+        <a href="signin.html" class="signin-link">로그인 하기</a>
+      </div>
+      <article class="input-area">
+        <div class="id-area">
+          <label for="id" class="label-id">아이디</label><br />
+          <input id="id" name="id" />
+        </div>
+        <div>
+          <label for="password" class="label-pw">비밀번호</label><br />
+          <input id="password" name="password" type="password" />
+        </div>
+        <div>
+          <label for="confirm-pw" class="confirm-pw">비밀번호 확인</label>
+          <input id="confirm_pw" name="confirm_pw" type="password" />
+        </div>
+        <div>
+          <button class="signup">회원가입</button>
+        </div>
+      </article>
+      <div class="sns-signup">
+        <label>다른 방식으로 가입하기</label>
+        <div class="sns">
+          <a href="https://www.google.com/" class="sns-icon">
+            <img src="./public/icon-google.png" alt="google" />
+          </a>
+          <a href="https://www.kakaocorp.com/page/" class="sns-icon">
+            <img src="./public/icon-kakao.png" alt="kakaotalk" />
+          </a>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
