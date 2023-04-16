@@ -12,6 +12,9 @@ html {
 
 body {
   font-family: "Pretendard", sans-serif;
+  max-width: 192rem;
+  min-width: 37.5rem;
+  margin: 0 auto;
 }
 
 a {
