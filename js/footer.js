@@ -2,14 +2,14 @@ class FooterComponent extends HTMLElement {
   constructor() {
     super();
     // Shadow DOM 생성
-    const shadowRoot = this.attachShadow({ mode: 'open' });
+    const shadowRoot = this.attachShadow({ mode: "open" });
     // 템플릿 생성
-    const template = document.createElement('template');
+    const template = document.createElement("template");
     template.innerHTML = `
       <style>
         @import url("./css/reset.css");
         .footer {
-          background-color: #111322;
+          background-color: var(--black);
         }
         .footer .container {
           display: flex;
@@ -33,6 +33,29 @@ class FooterComponent extends HTMLElement {
           margin-left: 13px;
           display: flex;
           align-items: center;
+        }
+        @media (max-width: 767px) {
+          .footer .container {
+            position: relative;
+            padding: 32px;
+          }
+          .copyright {
+            position: absolute;
+            bottom: 32px;
+            left: 32px;
+          }
+          .info {
+            width: 100%;
+            display: flex;
+          }
+          .FAQ {
+            margin: 0 auto;
+          }
+        }
+        @media (max-width: 375px){
+          .footer {
+            width: 375px;
+          }
         }
       </style>
       <footer class="footer">
@@ -65,4 +88,4 @@ class FooterComponent extends HTMLElement {
 }
 
 // Custom Element 등록
-window.customElements.define('footer-component', FooterComponent);
+window.customElements.define("footer-component", FooterComponent);

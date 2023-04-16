@@ -16,7 +16,6 @@ class CardComponent extends HTMLElement {
           box-shadow: 0px 5px 25px rgba(0,0,0,0.1);
           overflow: hidden;
           width: 340px;
-          height: 334px:
         }
         .like-btn {
           cursor: pointer;
@@ -87,11 +86,19 @@ class CardComponent extends HTMLElement {
         .card:hover {
           cursor: pointer;
         }
-        .card:hover .card-image{
+        .card:hover .card-image {
           background-size: 120%;
         }
-        .card:hover .card-body{
-          background-color: #F0F6FF;
+        .card:hover .card-body {
+          background-color: var(--gray-5);
+        }
+        @media (max-width: 767px) {
+          .card {
+            width: 325px;
+          }
+          .card-image {
+            height: 190px;
+          }
         }
       </style>
       <article class="card">
