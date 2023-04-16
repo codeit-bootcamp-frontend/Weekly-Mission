@@ -63,6 +63,29 @@ export class CardComponent extends HTMLElement {
     cardContainer.appendChild(cardInfo);
 
     this.shadow.appendChild(cardContainer);
+
+    //hover 이벤트 핸들러 등록
+    cardContainer.addEventListener(
+      "mouseover",
+      this.handleMouseOver.bind(this)
+    );
+    cardContainer.addEventListener("mouseout", this.handleMouseOut.bind(this));
+  }
+
+  handleMouseOver() {
+    const cardImage = this.shadow.querySelector(".card-image");
+    const cardInfo = this.shadow.querySelector(".card-info");
+
+    cardImage.style.transform = "scale(1.2)";
+    cardInfo.style.backgroundColor = "var(--library-white-smoke)";
+  }
+
+  handleMouseOut() {
+    const cardImage = this.shadow.querySelector(".card-image");
+    const cardInfo = this.shadow.querySelector(".card-info");
+    // 마우스 아웃 이벤트를 처리하는 로직
+    cardImage.style.transform = "";
+    cardInfo.style.backgroundColor = "";
   }
 }
 customElements.define("card-component", CardComponent);
