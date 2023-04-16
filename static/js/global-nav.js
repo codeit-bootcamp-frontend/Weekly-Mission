@@ -44,9 +44,9 @@ template.innerHTML = `
 
     #gnb-profile {
       display: none;
-      justify-content: space-between;
+      justify-content: end;
+      gap: 0.6rem;
       text-align: center;
-      width: 15.8rem;
       line-height: 2.8rem;
       font-size: 1.4rem;
     }
@@ -88,6 +88,13 @@ template.innerHTML = `
         width: 8rem;
         padding: 1rem 0;
         font-size: 1.4rem;
+      }
+
+      #gnb-profile {
+      }
+
+      #gnb-profile #profile-email {
+        display: none;
       }
     }
 
