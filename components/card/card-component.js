@@ -2,20 +2,22 @@ export class CardComponent extends HTMLElement {
   constructor(imageSrc, updateTime, description, date) {
     super();
 
-    const shadow = this.attachShadow({ mode: "open" });
+    this.shadow = this.attachShadow({ mode: "open" });
 
     // CSS
     const linkElem = document.createElement("link");
     linkElem.setAttribute("rel", "stylesheet");
     linkElem.setAttribute("href", "/components/card/card-component.css");
-    shadow.appendChild(linkElem);
+    this.shadow.appendChild(linkElem);
 
-    // 카드 데이터
     this._imageSrc = imageSrc;
     this._updateTime = updateTime;
     this._description = description;
     this._date = date;
+  }
 
+  connectedCallback() {
+    // 카드 데이터
     const cardContainer = document.createElement("div");
     cardContainer.classList.add("card-container");
 
@@ -55,7 +57,7 @@ export class CardComponent extends HTMLElement {
     cardContainer.appendChild(cardImage);
     cardContainer.appendChild(cardInfo);
 
-    shadow.appendChild(cardContainer);
+    this.shadow.appendChild(cardContainer);
   }
 }
 customElements.define("card-component", CardComponent);
