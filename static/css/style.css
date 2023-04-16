@@ -444,8 +444,40 @@ a {
 }
 
 /* shared */
+.site-header .user-avatar {
+  width: 6rem;
+  margin-top: 11.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.site-header .username {
+  margin: 0;
+}
+
+.site-header .bookmark-title {
+  margin: 2rem 0 6rem;
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+.bookmark-body {
+  padding-top: 4rem;
+  padding-bottom: 10rem;
+  background-color: var(--white);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.4rem 2rem;
+  max-width: 106rem;
+  margin: 0 auto;
+}
+
 .cards .card-container {
   display: inline-block;
   position: relative;
   width: 34rem;
+  height: 33.4rem;
 }
