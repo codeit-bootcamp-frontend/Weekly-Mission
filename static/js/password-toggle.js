@@ -6,12 +6,14 @@ eyeContainer.addEventListener("mousedown", function(e){
 })
 
 function passwordToggle(e) {
-  if (e.target.parentElement.previousElementSibling.type === 'password') {
-    e.target.parentElement.previousElementSibling.setAttribute('type','text');
-    e.target.classList.remove('fa-eye-slash');
+  const toggleIcon = e.target;
+  const inputTag = e.target.parentElement.previousElementSibling;
+  if (inputTag.type === 'password') {
+    inputTag.setAttribute('type','text');
+    toggleIcon.classList.remove('fa-eye-slash');
   } else {
-    e.target.parentElement.previousElementSibling.setAttribute('type','password');
-    e.target.classList.add('fa-eye-slash');
+    inputTag.setAttribute('type','password');
+    toggleIcon.classList.add('fa-eye-slash');
   }
   e.preventDefault();
 }

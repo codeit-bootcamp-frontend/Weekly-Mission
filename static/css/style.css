@@ -341,9 +341,9 @@ global-footer {
 }
 
 .account button[type="submit"] {
+  cursor: pointer;
   margin-top: 0.6rem;
   border: 0;
-  cursor: pointer;
   color: var(--white);
 }
 
