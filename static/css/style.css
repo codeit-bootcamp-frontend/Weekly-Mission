@@ -311,7 +311,7 @@ a {
   color: var(--gray1);
 }
 
-.social-login p {
+.social-login .description {
   margin: 0;
 }
 
