@@ -1,23 +1,13 @@
 @charset "UTF-8";
 @import url("/css/font.css");
-
-:root {
-  --primary: #6D6AFE;
-  --red: #FF5B56;
-  --black: #111322;
-  --white: #FFFFFF;
-  --gray-1: #373740;
-  --gray-2: #9FA6B2;
-  --gray-3: #CCD5E3;
-  --gray-4: #E7EFFB;
-  --gray-5: #F0F6FF;
-}
+@import url("/css/reset.css");
 
 /* 메인배너 */
 .banner {
-  background-color: #F0F6FF;
+  background-color: var(--gray-5);
   display: flex;
   justify-content: center;
+  margin-bottom: 40px;
 }
 
 .banner-container {
@@ -29,6 +19,9 @@
 
 .banner .user {
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .banner .avatar {
@@ -59,13 +52,68 @@
 }
 
 search-bar {
-  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .cards {
   display: flex;
   flex-wrap: wrap;
   width: 1060px;
-  margin: 40px 0 100px;
+  margin-bottom: 100px;
   gap: 24px 20px;
+}
+
+/* 타블렛 */
+@media (max-width: 1199px) {
+  .cards {
+    width: 705px;
+  }
+}
+
+/* 모바일 */
+@media (max-width: 767px) {
+  .banner {
+    margin-bottom: 25px;
+  }
+
+  .banner-container {
+    margin-top: 10px;
+  }
+
+  .banner .user {
+    margin-bottom: 10px;
+  }
+
+  .banner .avatar {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+
+  .banner .bookmark {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+
+  .banner .star {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+  }
+
+  search-bar {
+    margin-bottom: 32px;
+  }
+
+  .cards {
+    width: 325px;
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 375px) {
+  .banner, .contents {
+    width: 375px;
+  }
 }
