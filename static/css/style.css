@@ -472,6 +472,8 @@ a {
   justify-content: center;
   gap: 2.4rem 2rem;
   max-width: 106rem;
+  max-height: 106rem;
+  overflow: hidden;
   margin: 0 auto;
 }
 
@@ -480,4 +482,10 @@ a {
   position: relative;
   width: 34rem;
   height: 33.4rem;
+}
+
+@media (max-width: 767px) {
+  .cards {
+    max-height: 320rem;
+  }
 }
