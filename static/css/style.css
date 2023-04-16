@@ -92,7 +92,6 @@ a {
 .navbar {
   position: sticky;
   inset: 0;
-  height: 9.4rem;
   background-color: var(--navbar-background);
 }
 
@@ -245,13 +244,13 @@ a {
   flex-direction: column;
 }
 
-.account form > label {
+.account form .lb-label {
   text-align: left;
   margin: 0;
   font-size: 1.4rem;
 }
 
-.account .lb-input {
+.account form .lb-input {
   width: 100%;
   margin: 1.2rem 0 2.4rem 0;
   border: 0.1rem solid var(--gray3);
@@ -278,7 +277,7 @@ a {
   font-size: 1rem;
 }
 
-.account .input-container i {
+.account .eye-container .fa {
   position: absolute;
   cursor: pointer;
   right: 0;
@@ -324,14 +323,13 @@ a {
   line-height: 4.2rem;
 }
 
-.icon-box > * {
+.icon-box a {
   width: 4.2rem;
   border-radius: 7rem;
-  overflow: hidden;
 }
 
 .icon-box img {
-  vertical-align:middle
+  vertical-align: middle;
 }
 
 .icon-box .google {
@@ -407,8 +405,7 @@ a {
 
   .site-header .header-title {
     width: 24rem;
-    margin-top: 2.8rem;
-    margin-bottom: 2.4rem;
+    margin: 2.8rem 0 2.4rem;
     font-size: 3.2rem;
   }
 
@@ -418,7 +415,6 @@ a {
 
   .site-header .header-content {
     width: 100%;
-    margin: 0;
     margin-top: 2.4rem;
   }
 
@@ -473,7 +469,7 @@ a {
     padding: 3.2rem 0;
   }
 
-  .footer-container div:first-child {
+  .footer-container .footer-contents:first-child {
     width: 100%;
     order: 1;
   }
