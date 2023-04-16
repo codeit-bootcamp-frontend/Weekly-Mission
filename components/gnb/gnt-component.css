@@ -41,9 +41,9 @@ nav .login {
 }
 
 nav .profile-icon {
-  width: 28px;
-  height: 28px;
-  margin-right: 10px;
+  width: 2.8rem;
+  height: 2.8rem;
+  margin-right: 1rem;
 }
 
 .user-profile {
@@ -56,8 +56,8 @@ nav .profile-icon {
   vertical-align: middle;
   margin: 0;
   color: var(--library-dark-slate-gray);
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
 }
 @media screen and (max-width: 1199px) {
   nav {
