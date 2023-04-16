@@ -426,7 +426,7 @@ global-footer {
   padding-bottom: 10rem;
 }
 
-.cards {
+.site-body .cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
