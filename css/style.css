@@ -1,11 +1,12 @@
 @charset "UTF-8";
 @import url("/css/font.css");
+@import url("/css/reset.css");
 
 /* header */
 .header {
   position: sticky;
   top: 0;
-  background-color: #f0f6ff;
+  background-color: var(--gray-5);
 }
 
 .header .container {
@@ -38,7 +39,7 @@
 
 /* banner */
 .banner {
-  background-color: #f0f6ff;
+  background-color: var(--gray-5);
 }
 
 .banner .container {
@@ -59,7 +60,7 @@
 }
 
 .banner .highlight {
-  background: linear-gradient(to right, #6d6afe, #ff9f9f);
+  background: linear-gradient(to right, var(--primary), #ff9f9f);
   color: transparent;
   -webkit-background-clip: text;
 }
@@ -68,7 +69,7 @@
   display: block;
   margin: 0 auto;
   width: 351px;
-  background-image: linear-gradient(to right, #6d6afe, #6ae3fe);
+  background-image: linear-gradient(to right, var(--primary), #6ae3fe);
   border-radius: 8px;
   color: white;
   line-height: 55px;
@@ -158,7 +159,7 @@
 
 /* footer */
 .footer {
-  background-color: #111322;
+  background-color: var(--black);
 }
 
 .footer .container {
@@ -259,7 +260,7 @@
   }
 
   .header .logo {
-    width: 80px;
+    width: 88px;
   }
 
   .header .login-btn {
@@ -329,16 +330,16 @@
   .card .desc .line-break {
     display: inline;
   }
+  
+  .footer .container {
+    position: relative;
+    padding: 32px;
+  }
 
   .copyright {
     position: absolute;
     bottom: 32px;
     left: 32px;
-  }
-
-  .footer .container {
-    position: relative;
-    padding: 32px;
   }
 
   .info {
