@@ -7,19 +7,12 @@
     <title>Shared</title>
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="/static/css/color.css" />
+    <script src="/components/custom-gnb.js"></script>
     <script src="/components/search-bar.js"></script>
     <script src="/components/custom-footer.js"></script>
   </head>
   <body>
-    <div class="gnb">
-      <a class="linkbrary-logo" href="/">
-        <img class="linkbrary-logo-image" src="/images/Linkbrary.svg" />
-      </a>
-      <div class="account-container">
-        <img src="/images/profile-img.svg" />
-        <span class="account-email">Codeit@codeit.com</span>
-      </div>
-    </div>
+    <custom-gnb data-userEmail="Codeit@codeit.com"></custom-gnb>
     <header>
       <div class="user-content">
         <img class="user-avatar" src="/images/user-avatar.svg" />
