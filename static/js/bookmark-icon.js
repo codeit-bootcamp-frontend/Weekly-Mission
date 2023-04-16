@@ -2,7 +2,7 @@ const template = document.createElement("template");
 template.innerHTML = `
   <style>
   .star {
-    cursor: pointer;
+      cursor: pointer;
     position: absolute;
     top: 1.6rem;
     right: 1.6rem;
