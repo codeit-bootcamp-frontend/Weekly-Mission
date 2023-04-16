@@ -17,6 +17,7 @@
   .card-list-container {
     grid-template-columns: repeat(1, 1fr);
     gap: 25px;
+    margin-top: 12px;
     margin-bottom: 60px;
   }
 }

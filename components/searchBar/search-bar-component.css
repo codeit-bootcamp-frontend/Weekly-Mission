@@ -24,6 +24,6 @@
 
 @media screen and (max-width: 767px) {
   .search-bar-input {
-    margin: 20px auto 32px;
+    margin: 20px auto;
   }
 }
