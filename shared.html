@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/shared.css" />
     <link rel="icon" type="image/png" href="images/icon.png" />
     <title>shared - Linkbrary</title>
   </head>
@@ -19,13 +20,15 @@
             <div class="profile-img-box">
               <img src="/images/avatar.png" alt="avatar" />
             </div>
-            <p class="">@코드잇</p>
+            <p class="username">@코드잇</p>
           </div>
+          <h1 class="title">⭐️즐겨찾기</h1>
         </div>
-        <h1 class="title">⭐️즐겨찾기</h1>
       </section>
       <section class="card-section">
-        <custom-search-bar></custom-search-bar>
+        <div class="search-bar-wrapper">
+          <custom-search-bar></custom-search-bar>
+        </div>
         <div class="card-list-wrapper">
           <custom-link-card-list></custom-link-card-list>
         </div>
