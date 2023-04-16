@@ -1,4 +1,4 @@
-class SearchBar extends HTMLElement {
+class CustomSearchBar extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -8,7 +8,7 @@ class SearchBar extends HTMLElement {
     this.shadowRoot.innerHTML = this.getTemplate();
     const linkElem = document.createElement("link");
     linkElem.setAttribute("rel", "stylesheet");
-    linkElem.setAttribute("href", "/components/styles/SearchBar.css");
+    linkElem.setAttribute("href", "/components/styles/CustomSearchBar.css");
     this.shadowRoot.appendChild(linkElem);
   }
 
@@ -29,4 +29,4 @@ class SearchBar extends HTMLElement {
   }
 }
 
-customElements.define("search-bar", SearchBar);
+customElements.define("custom-search-bar", CustomSearchBar);

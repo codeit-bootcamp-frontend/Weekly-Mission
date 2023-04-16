@@ -81,85 +81,6 @@ header > a {
   column-gap: 2rem;
 }
 
-.card {
-  box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.08);
-  border-radius: 1.5rem;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.card:hover .card-image {
-  transform: scale(1.2);
-}
-
-.card:hover .content-container {
-  background-color: var(--gray-brt5);
-}
-
-.image-container {
-  position: relative;
-}
-
-.card-image {
-  width: 34rem;
-  height: 20rem;
-  transition: all 1s;
-}
-
-.star {
-  width: 3.4rem;
-  height: 3.4rem;
-  position: absolute;
-  right: 1.5rem;
-  top: 1.5rem;
-}
-
-.content-container {
-  width: 34rem;
-  padding: 1.5rem 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  position: relative;
-}
-
-.publish-time {
-  font-size: 1.3rem;
-  color: #666666;
-}
-
-.btn-overflow-menu {
-  width: 2.1rem;
-  height: 1.7rem;
-  padding: 0;
-  border-style: none;
-  background-color: transparent;
-  background-image: url("/images/show-more.png");
-  background-size: cover;
-  position: absolute;
-  top: 1.5rem;
-  right: 2rem;
-  cursor: pointer;
-}
-
-.content {
-  margin: 0;
-  font-size: 1.6rem;
-  font-weight: 500;
-  line-height: 2.4rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  height: 4.9rem;
-}
-
-.publish-date {
-  font-size: 1.5rem;
-  color: #333333;
-}
-
 /* 반응형(1100px 미만) */
 @media (max-width: 1100px) {
   .header-logo-profile {
@@ -170,7 +91,6 @@ header > a {
     height: 24.4rem;
   }
 
-  /* main 영역 */
   .card-container {
     width: 70.4rem;
     grid-template-columns: repeat(2, 1fr);
@@ -229,19 +149,5 @@ header > a {
     margin-bottom: 6rem;
     grid-template-columns: 1fr;
     row-gap: 2rem;
-  }
-
-  .card-image {
-    width: 32.5rem;
-    height: 19.2rem;
-  }
-
-  .star {
-    width: 3rem;
-    height: 3rem;
-  }
-
-  .content-container {
-    width: 32.5rem;
   }
 }

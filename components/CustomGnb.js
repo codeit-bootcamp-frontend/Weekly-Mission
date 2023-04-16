@@ -2,7 +2,7 @@ class CustomGnb extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    this.isLogin = true;
+    this.isLogin = false;
   }
 
   render() {
