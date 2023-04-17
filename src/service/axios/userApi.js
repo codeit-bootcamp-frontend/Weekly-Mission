@@ -1,4 +1,4 @@
-import { getRequest } from "./common";
+import { getRequest } from "./common.js";
 
 export const getUserRequest = async () => {
   const response = await getRequest(`/user`);
