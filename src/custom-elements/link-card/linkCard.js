@@ -2,14 +2,13 @@ export class LinkCard extends HTMLElement {
   // 컴포넌트 정보를 담고 있는 프로퍼티
   #prop = {
     id: 0,
-    href: "https://www.codeit.kr",
+    href: "#",
     thumbnailSrc: "/images/default-thumbnail.svg",
     isLiked: false,
     metadata: {
-      updatedTime: new Date(),
       description:
         "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-      date: new Date(2023, 3, 13),
+      createdDate: "1995-12-17T03:24:00",
     },
   };
 
@@ -36,16 +35,17 @@ export class LinkCard extends HTMLElement {
   set prop(value) {
     this.#prop = value;
 
+    this.anchor.href = value.href;
     this.thumbnailImg.setAttribute("src", value.thumbnailSrc);
     this.descriptionDiv.textContent = value.metadata.description;
-    this.dateP.textContent = this.parseDate(value.metadata.date);
+    this.dateP.textContent = this.parseDate(value.metadata.createdDate);
     const likeBtnSrc = this.#prop.isLiked
       ? "/images/like-btn-liked.svg"
       : "/images/like-btn-unliked.svg";
     this.likeBtn.setAttribute("src", likeBtnSrc);
   }
 
-  parseDate(date) {
+  parseDate(dateString) {
     const leftPad = (value) => {
       if (value >= 10) {
         return value;
@@ -53,12 +53,12 @@ export class LinkCard extends HTMLElement {
 
       return `0${value}`;
     };
-
+    const date = new Date(dateString);
     const year = date.getFullYear();
     const month = leftPad(date.getMonth() + 1);
     const day = leftPad(date.getDate());
 
-    return [year, month, day].join("-");
+    return [year, month, day].join(".");
   }
 
   get styles() {
@@ -70,6 +70,10 @@ export class LinkCard extends HTMLElement {
 
       div, p {
         margin: 0;
+      }
+
+      #card-link {
+        color: inherit;
       }
 
       a:visited {
@@ -195,34 +199,35 @@ export class LinkCard extends HTMLElement {
    */
   get template() {
     return `
-	<a href=${this.prop.href}>
-      <div class="card-container">
-        <div class="thumbnail-box">
-          <img
-		    id="thumbnail"
-            class="thumbnail-img"
-            src=${this.prop.thumbnailSrc}
-            alt="thumbnail"
-          />
-          <img
-            id="like-btn"
-            class="like-btn"
-            src="/images/like-btn-unliked.svg"
-            alt="like button"
-          />
-        </div>
-        <div class="metadata-container">
-		  <img id="kebab" class="kebab" src="/images/kebab.svg" alt="kebab" />
-          <p class="updated-time">10 minutes ago</p>
-          <div id="description" class="description-container">
-            ${this.prop.metadata.description}
+      <a id="card-link" href=${this.prop.href}>
+        <div class="card-container">
+          <div class="thumbnail-box">
+            <img
+              id="thumbnail"
+              class="thumbnail-img"
+              src=${this.prop.thumbnailSrc}
+              onerror="this.onerror=null; this.src='/images/default-thumbnail.svg'"
+              alt="thumbnail"
+            />
+            <img
+              id="like-btn"
+              class="like-btn"
+              src="/images/like-btn-unliked.svg"
+              alt="like button"
+            />
           </div>
-          <p id="date" class="date">${this.parseDate(
-            this.prop.metadata.date
-          )}</p>
+          <div class="metadata-container">
+            <img id="kebab" class="kebab" src="/images/kebab.svg" alt="kebab" />
+            <p class="updated-time">10 minutes ago</p>
+            <div id="description" class="description-container">
+              ${this.prop.metadata.description}
+            </div>
+            <p id="date" class="date">
+              ${this.parseDate(this.prop.metadata.date)}
+            </p>
+          </div>
         </div>
-      </div>
-	</a>
+      </a>
     `;
   }
 
@@ -246,6 +251,7 @@ export class LinkCard extends HTMLElement {
     template.innerHTML = this.template;
     this.shadowRoot.appendChild(template.content.cloneNode(true));
 
+    this.anchor = this.shadowRoot.querySelector("#card-link");
     this.thumbnailImg = this.shadowRoot.querySelector("#thumbnail");
     this.likeBtn = this.shadowRoot.querySelector("#like-btn");
     this.descriptionDiv = this.shadowRoot.querySelector("#description");
