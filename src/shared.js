@@ -21,11 +21,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   };
 
+  const getGnbProp = (userData) => {
+    return {
+      isLoggedIn: true,
+      profileImgSrc: userData.profileImageSource ?? "/images/profile_img.png",
+      username: userData.name,
+      email: userData.email,
+    };
+  };
+
   const { data: folderData } = await getFolderRequest();
   const cardListProp = getCardListProp(folderData.folder.links);
 
   const { data: userData } = await getUserRequest();
-  const gnbProp = { userData };
+  const gnbProp = getGnbProp(userData);
 
   const cardListElem = document.querySelector("custom-link-card-list");
   const gnbElem = document.querySelector("custom-gnb");
