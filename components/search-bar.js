@@ -16,13 +16,13 @@ class SearchBar extends HTMLElement {
     const input = document.createElement("input");
     input.setAttribute("type", "text");
 
-    const placeholder = this.hasAttribute("data-placeholder")
-      ? this.getAttribute("data-placeholder")
-      : "원하는 정보를 검색하세요";
+    const placeholder = this.hasAttribute("data-placeholder") ? this.getAttribute("data-placeholder") : "원하는 정보를 검색하세요";
     input.setAttribute("placeholder", placeholder);
 
     const style = document.createElement("style");
     style.textContent = `
+      @import "/static/css/main.css";
+      
       .input-container {
         padding: 1.5rem 1.6rem;
         margin-bottom: 4rem;

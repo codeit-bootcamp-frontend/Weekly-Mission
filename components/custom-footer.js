@@ -5,11 +5,6 @@ class CustomFooter extends HTMLElement {
     // Create a shadow root
     const shadowRoot = this.attachShadow({ mode: "open" });
 
-    /* 공통 css 스타일을 외부에서 가져오기 */
-    const linkElem = document.createElement("link");
-    linkElem.setAttribute("rel", "stylesheet");
-    linkElem.setAttribute("href", "./style.css");
-
     const footer = document.createElement("footer");
 
     // 1. 기업 정보
@@ -40,18 +35,8 @@ class CustomFooter extends HTMLElement {
     const snsWrapper = document.createElement("ul");
     snsWrapper.setAttribute("class", "sns-container");
 
-    const links = [
-      "https://facebook.com/",
-      "https://twitter.com/",
-      "https://www.youtube.com/",
-      "https://www.instagram.com/",
-    ];
-    const sources = [
-      "facebook.svg",
-      "twitter.svg",
-      "youtube.svg",
-      "instagram.svg",
-    ];
+    const links = ["https://facebook.com/", "https://twitter.com/", "https://www.youtube.com/", "https://www.instagram.com/"];
+    const sources = ["facebook.svg", "twitter.svg", "youtube.svg", "instagram.svg"];
 
     for (let i = 0; i < 4; i++) {
       const li = document.createElement("li");
@@ -70,6 +55,8 @@ class CustomFooter extends HTMLElement {
 
     const style = document.createElement("style");
     style.textContent = `
+      @import "/static/css/main.css";
+      
       footer {
         box-sizing: border-box;
         height: 16rem;
@@ -130,7 +117,6 @@ class CustomFooter extends HTMLElement {
       }
     `;
 
-    shadowRoot.appendChild(linkElem);
     shadowRoot.appendChild(style);
     shadowRoot.appendChild(footer);
     footer.appendChild(corporationWrapper);

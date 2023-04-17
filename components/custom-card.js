@@ -8,8 +8,9 @@ class CustomCard extends HTMLElement {
     const shadowRoot = this.attachShadow({ mode: "open" });
 
     shadowRoot.innerHTML = `
-    <link rel="stylesheet" href="./style.css">
     <style>
+      @import "/static/css/main.css";
+      
       .card {
         width: 34rem;
         position: relative;

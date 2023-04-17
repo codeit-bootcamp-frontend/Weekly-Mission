@@ -1,24 +1,9 @@
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-html {
-  font-size: 62.5%;
-}
+@import "/static/css/main.css";
 
 body {
-  font-family: "Pretendard", sans-serif;
   max-width: 192rem;
   min-width: 37.5rem;
   margin: 0 auto;
-}
-
-a {
-  text-decoration: none;
 }
 
 header {
