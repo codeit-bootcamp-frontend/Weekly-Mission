@@ -7,19 +7,14 @@ class CustomGNB extends HTMLElement {
     // Create a shadow root
     const shadowRoot = this.attachShadow({ mode: "open" });
 
+    /* 공통 css 스타일을 외부에서 가져오기 */
+    const linkElem = document.createElement("link");
+    linkElem.setAttribute("rel", "stylesheet");
+    linkElem.setAttribute("href", "./style.css");
+
     const style = document.createElement("style");
 
     style.textContent = `
-      * {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
-      }
-
-      a {
-        text-decoration: none;
-      }
-
       .gnb {
         width: 100%;
         max-width: 192rem;
@@ -99,6 +94,7 @@ class CustomGNB extends HTMLElement {
       }
     `;
 
+    shadowRoot.appendChild(linkElem);
     shadowRoot.appendChild(style);
 
     /* data-userEmail 속성이 존재하면 로그인되었다는 뜻 */
@@ -110,7 +106,9 @@ class CustomGNB extends HTMLElement {
           </a>
           <div class="profile-container">
             <img src="/images/profile-img.svg" />
-            <span class="profile-email">${this.getAttribute("data-userEmail")}</span>
+            <span class="profile-email">${this.getAttribute(
+              "data-userEmail"
+            )}</span>
           </div>
         </nav>
       `;

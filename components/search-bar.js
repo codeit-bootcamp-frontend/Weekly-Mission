@@ -4,6 +4,8 @@ class SearchBar extends HTMLElement {
   }
 
   connectedCallback() {
+    console.log("Custom square element added to page.");
+
     // Create a shadow root
     const shadowRoot = this.attachShadow({ mode: "open" });
 
@@ -16,7 +18,9 @@ class SearchBar extends HTMLElement {
     const input = document.createElement("input");
     input.setAttribute("type", "text");
 
-    const placeholder = this.hasAttribute("data-placeholder") ? this.getAttribute("data-placeholder") : "원하는 정보를 검색하세요";
+    const placeholder = this.hasAttribute("data-placeholder")
+      ? this.getAttribute("data-placeholder")
+      : "원하는 정보를 검색하세요";
     input.setAttribute("placeholder", placeholder);
 
     const style = document.createElement("style");
