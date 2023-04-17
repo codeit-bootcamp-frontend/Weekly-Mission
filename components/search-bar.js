@@ -4,8 +4,6 @@ class SearchBar extends HTMLElement {
   }
 
   connectedCallback() {
-    console.log("Custom square element added to page.");
-
     // Create a shadow root
     const shadowRoot = this.attachShadow({ mode: "open" });
 
