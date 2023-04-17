@@ -39,9 +39,12 @@ export class LinkCard extends HTMLElement {
     this.thumbnailImg.setAttribute("src", value.thumbnailSrc);
     this.descriptionDiv.textContent = value.metadata.description;
     this.dateP.textContent = this.parseDate(value.metadata.createdDate);
+<<<<<<< HEAD
     this.updatedTimeP.textContent = this.getTimeSinceCreation(
       value.metadata.createdDate
     );
+=======
+>>>>>>> 4d90a00 (feat: shared.js에서 서버에서 받은 데이터를 가공하여 컴포넌트에 전달하도록 조치)
     const likeBtnSrc = this.#prop.isLiked
       ? "/images/like-btn-liked.svg"
       : "/images/like-btn-unliked.svg";
@@ -62,6 +65,7 @@ export class LinkCard extends HTMLElement {
     const day = leftPad(date.getDate());
 
     return [year, month, day].join(".");
+<<<<<<< HEAD
   }
 
   getTimeSinceCreation(dateString) {
@@ -94,6 +98,8 @@ export class LinkCard extends HTMLElement {
 
     const years = Math.floor(timeDiff / (MONTH * 12));
     return years + " years ago";
+=======
+>>>>>>> 4d90a00 (feat: shared.js에서 서버에서 받은 데이터를 가공하여 컴포넌트에 전달하도록 조치)
   }
 
   get styles() {
@@ -253,14 +259,22 @@ export class LinkCard extends HTMLElement {
           </div>
           <div class="metadata-container">
             <img id="kebab" class="kebab" src="/images/kebab.svg" alt="kebab" />
+<<<<<<< HEAD
             <p id="updated-time" class="updated-time">${this.getTimeSinceCreation(
               this.prop.metadata.createdDate
             )}</p>
+=======
+            <p class="updated-time">10 minutes ago</p>
+>>>>>>> 4d90a00 (feat: shared.js에서 서버에서 받은 데이터를 가공하여 컴포넌트에 전달하도록 조치)
             <div id="description" class="description-container">
               ${this.prop.metadata.description}
             </div>
             <p id="date" class="date">
+<<<<<<< HEAD
               ${this.parseDate(this.prop.metadata.createdDate)}
+=======
+              ${this.parseDate(this.prop.metadata.date)}
+>>>>>>> 4d90a00 (feat: shared.js에서 서버에서 받은 데이터를 가공하여 컴포넌트에 전달하도록 조치)
             </p>
           </div>
         </div>
