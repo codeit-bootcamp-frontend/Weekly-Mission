@@ -1,6 +1,6 @@
 export class Gnb extends HTMLElement {
   // 컴포넌트 정보를 담고 있는 프로퍼티
-  #prop = { isLoggedIn: false, profileImgSrc: "", username: "" };
+  #prop = { isLoggedIn: false, profileImgSrc: "", username: "", email: "" };
 
   constructor() {
     super();
@@ -20,28 +20,9 @@ export class Gnb extends HTMLElement {
 
   set prop(value) {
     this.#prop = value;
-    this.setAttribute("isloggedin", `${value.isLoggedIn}`);
-  }
-
-  /**
-   * 변화를 감지할 attribute 이름이 담긴 배열을 리턴
-   */
-  static get observedAttributes() {
-    return ["isloggedin"];
-  }
-
-  /**
-   * 변화를 감지하는 중인 attribute들의 변화가 있을 시 호출되는 콜백함수
-   */
-  attributeChangedCallback(name, oldValue, newValue) {
-    switch (name) {
-      case "isloggedin":
-        this._isLoggedIn = newValue;
-        break;
-      default:
-        break;
+    if (value.isLoggedIn) {
+      this.showUserInfo();
     }
-    this.render();
   }
 
   get styles() {
@@ -167,13 +148,13 @@ export class Gnb extends HTMLElement {
 
     const profileImg = document.createElement("img");
     profileImg.classList.add("profile-img");
-    profileImg.setAttribute("src", this.#prop.profileImgSrc);
+    profileImg.setAttribute("src", this.prop.profileImgSrc);
     profileDiv.append(profileImg);
 
-    const usernameDiv = document.createElement("div");
-    usernameDiv.classList.add("username-container");
-    usernameDiv.textContent = this.#prop.username;
-    myAccountDiv.append(usernameDiv);
+    const emailDiv = document.createElement("div");
+    emailDiv.classList.add("email-container");
+    emailDiv.textContent = this.prop.email;
+    myAccountDiv.append(emailDiv);
 
     this.shadowRoot.querySelector("nav").append(myAccountDiv);
   }
@@ -191,11 +172,6 @@ export class Gnb extends HTMLElement {
     const template = document.createElement("template");
     template.innerHTML = this.template;
     this.shadowRoot.appendChild(template.content.cloneNode(true));
-
-    /* prop을 읽어 로그인된 상태라면 showUserInfo 호출 */
-    if (this.prop.isLoggedIn) {
-      this.showUserInfo();
-    }
   }
 
   /**
@@ -216,14 +192,3 @@ export class Gnb extends HTMLElement {
 }
 
 customElements.define("custom-gnb", Gnb);
-
-{
-  const gnb = document.querySelector("custom-gnb");
-  let isLoggedIn = false; // 로그인 구현 후 업데이트 예정
-
-  gnb.prop = {
-    isLoggedIn,
-    profileImgSrc: isLoggedIn ? "/images/profile_img.png" : "",
-    username: isLoggedIn ? "Codeit@codeit.com" : "",
-  };
-}
