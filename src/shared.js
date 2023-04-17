@@ -6,8 +6,23 @@ document.addEventListener("DOMContentLoaded", async () => {
     elem.prop = data;
   };
 
+  const getCardListProp = (dataList) => {
+    return dataList.map((data) => {
+      return {
+        id: data.id,
+        href: data.url,
+        thumbnailSrc: data.imageSource ?? "/images/default-thumbnail.svg",
+        isLiked: false,
+        metadata: {
+          description: data.description,
+          createdDate: data.createdAt,
+        },
+      };
+    });
+  };
+
   const { data: folderData } = await getFolderRequest();
-  const cardListProp = [...folderData.folder.links];
+  const cardListProp = getCardListProp(folderData.folder.links);
 
   const { data: userData } = await getUserRequest();
   const gnbProp = { userData };

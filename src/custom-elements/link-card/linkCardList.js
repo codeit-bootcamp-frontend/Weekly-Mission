@@ -1,117 +1,6 @@
-const MOCK_CARD_LIST = [
-  {
-    id: 1,
-    href: "https://www.codeit.kr",
-    thumbnailSrc: "/images/card-thumbnails/img1.png",
-    isLiked: false,
-    metadata: {
-      updatedTime: new Date(),
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-      date: new Date(2023, 3, 13),
-    },
-  },
-  {
-    id: 2,
-    href: "https://www.codeit.kr",
-    thumbnailSrc: "/images/card-thumbnails/img2.png",
-    isLiked: true,
-    metadata: {
-      updatedTime: new Date(),
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-      date: new Date(2023, 3, 13),
-    },
-  },
-  {
-    id: 3,
-    href: "https://www.codeit.kr",
-    thumbnailSrc: "/images/card-thumbnails/img3.png",
-    isLiked: false,
-    metadata: {
-      updatedTime: new Date(),
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-      date: new Date(2023, 3, 13),
-    },
-  },
-  {
-    id: 4,
-    href: "https://www.codeit.kr",
-    thumbnailSrc: "/images/card-thumbnails/img4.png",
-    isLiked: false,
-    metadata: {
-      updatedTime: new Date(),
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-      date: new Date(2023, 3, 13),
-    },
-  },
-  {
-    id: 5,
-    href: "https://www.codeit.kr",
-    thumbnailSrc: "/images/card-thumbnails/img5.png",
-    isLiked: false,
-    metadata: {
-      updatedTime: new Date(),
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-      date: new Date(2023, 3, 13),
-    },
-  },
-  {
-    id: 6,
-    href: "https://www.codeit.kr",
-    thumbnailSrc: "/images/card-thumbnails/img6.png",
-    isLiked: false,
-    metadata: {
-      updatedTime: new Date(),
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-      date: new Date(2023, 3, 13),
-    },
-  },
-  {
-    id: 7,
-    href: "https://www.codeit.kr",
-    thumbnailSrc: "/images/card-thumbnails/img7.png",
-    isLiked: false,
-    metadata: {
-      updatedTime: new Date(),
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-      date: new Date(2023, 3, 13),
-    },
-  },
-  {
-    id: 8,
-    href: "https://www.codeit.kr",
-    thumbnailSrc: "/images/card-thumbnails/img8.png",
-    isLiked: false,
-    metadata: {
-      updatedTime: new Date(),
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-      date: new Date(2023, 3, 13),
-    },
-  },
-  {
-    id: 9,
-    href: "https://www.codeit.kr",
-    thumbnailSrc: "/images/card-thumbnails/img9.png",
-    isLiked: true,
-    metadata: {
-      updatedTime: new Date(),
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-      date: new Date(2023, 3, 13),
-    },
-  },
-];
-
 export class LinkCardList extends HTMLElement {
   #prop = {
-    cardPropList: MOCK_CARD_LIST,
+    cardPropList: undefined,
   };
 
   constructor() {
@@ -124,6 +13,15 @@ export class LinkCardList extends HTMLElement {
   }
 
   disconnectedCallback() {}
+
+  get prop() {
+    return this.#prop;
+  }
+
+  set prop(value) {
+    this.#prop.cardPropList = value;
+    this.renderCardList();
+  }
 
   renderCardList() {
     this.#prop.cardPropList.forEach((cardProp) => {
@@ -145,7 +43,9 @@ export class LinkCardList extends HTMLElement {
     template.innerHTML = this.template;
     this.shadowRoot.appendChild(template.content.cloneNode(true));
 
-    this.renderCardList();
+    if (this.#prop.cardPropList) {
+      this.renderCardList();
+    }
   }
 
   get styles() {
