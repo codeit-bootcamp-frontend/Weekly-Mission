@@ -1,4 +1,4 @@
-import { wrapRequest, instance } from "./instance";
+import { wrapRequest, instance } from "./instance.js";
 
 // 기본 post 요청
 export const postRequest = wrapRequest(async (url, data) => {
