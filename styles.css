@@ -28,9 +28,10 @@ header {
   top: 0;
   left: 0;
   z-index: 99;
-}
-header .inner {
   padding-top: 2rem;
+}
+header header-component {
+  display: block;
 }
 
 @media (max-width: 1920px) {
