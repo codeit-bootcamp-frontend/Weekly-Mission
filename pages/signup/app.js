@@ -40,7 +40,6 @@ import { validationUsers } from "../../utils/validationUsers.js";
     });
 
     emailInput.addEventListener("focusout", () => {
-      // const userInput = emailInput.value.trim();
       currentUser.email = validationUserEmail(
         emailInput.value.trim(),
         "signup"
