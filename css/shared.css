@@ -1,0 +1,119 @@
+@charset "UTF-8";
+@import url("/css/font.css");
+@import url("/css/reset.css");
+
+/* 메인배너 */
+.banner {
+  background-color: var(--gray-5);
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.banner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.banner .user {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner .avatar {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.banner .bookmark {
+  display: flex;
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 60px;
+}
+
+.banner .star {
+  display: block;
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+}
+
+/* 컨텐츠 */
+.contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+search-bar {
+  margin-bottom: 40px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1060px;
+  margin-bottom: 100px;
+  gap: 24px 20px;
+}
+
+/* 타블렛 */
+@media (max-width: 1199px) {
+  .cards {
+    width: 705px;
+  }
+}
+
+/* 모바일 */
+@media (max-width: 767px) {
+  .banner {
+    margin-bottom: 25px;
+  }
+
+  .banner-container {
+    margin-top: 10px;
+  }
+
+  .banner .user {
+    margin-bottom: 10px;
+  }
+
+  .banner .avatar {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+
+  .banner .bookmark {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+
+  .banner .star {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+  }
+
+  search-bar {
+    margin-bottom: 32px;
+  }
+
+  .cards {
+    width: 325px;
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 375px) {
+  .banner, .contents {
+    width: 375px;
+  }
+}

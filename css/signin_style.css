@@ -1,7 +1,7 @@
 @charset "UTF-8";
-@import url("../font.css");
+@import url("font.css");
 
-/*인풋박스 자동완성 시 색상 변환*/
+/* 인풋박스 자동완성 시 색상 변환 */
 input:autofill,
 input:autofill:hover,
 input:autofill:focus,
@@ -9,11 +9,10 @@ input:autofill:active {
     box-shadow: 0 0 0px 1000px #fff inset;
 }
 
-/*레이아웃*/
+/* 레이아웃 */
 body {
   background-color: #f0f6ff;
   font-size: 14px;
-  height: 982px;
 }
 
 .login-wrapper {
@@ -21,12 +20,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 238px 32px 0;
+  padding: 238px 32px 233px;
   max-width: 400px;
   margin: 0 auto;
 }
 
-/*로고*/
+/* 로고 */
 .login-title {
   display: block;
   width: 210px;
@@ -38,7 +37,7 @@ body {
   margin-bottom: 16px;
 }
 
-/*회원가입하러 가기*/
+/* 회원가입하러 가기 */
 .signup {
   font-size: 16px;
   margin-bottom: 30px;
@@ -46,69 +45,66 @@ body {
 
 .signup-link {
   color: #6d6afe;
-  position: relative;
+  text-decoration: underline 1px;
+  text-underline-offset: 3px;
 }
 
-.signup-link:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background-color: #6d6afe;
-}
-
-/*로그인 폼*/
+/* 로그인 폼 */
 .login-container {
   width: 100%;
 }
 
-/*아이디,비밀번호 입력창*/
-.userEmail-text,
-.userPassword-text {
+/* 아이디,비밀번호 입력창 */
+.user-email-text,
+.user-password-text {
   margin-bottom: 10px;
 }
 
-.userEmail,
-.userPassword {
+.user-email,
+.user-password {
   height: 55px;
   border-radius: 10px;
   border: 1px solid #ccd5e3;
   padding: 15px;
 }
 
-.userEmail:focus,
-.userPassword:focus {
+.user-email:focus,
+.user-password:focus {
   outline: none;
   border: 1px solid #6d6afe;
 }
 
-.userEmail {
+.user-email {
   margin-bottom: 24px;
 }
 
-.userPassword {
+.user-password {
   margin-bottom: 30px;
 }
 
-.password-container {
+.user-password-container {
   position: relative;
 }
 
-.password-container i {
+.toggle-password {
   position: absolute;
-  top: 45px;
-  right: 20px;
+  top: 33px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 16px;
-  color: #4B5563
+  color: #4B5563;
 }
 
-/*로그인 버튼*/
+
+/* 로그인 버튼 */
 .login-btn {
   height: 54px;
   border-radius: 10px;
-  border: none;
   background-image: linear-gradient(to right, #6d6afe, #6ae3fe);
   color: #f5f5f5;
   font-size: 18px;
@@ -121,7 +117,7 @@ body {
   margin-bottom: 32px;
 }
 
-/*소셜 로그인*/
+/* 소셜 로그인 */
 .snslogin-container {
   display: flex;
   width: 100%;
@@ -151,11 +147,9 @@ body {
 }
 
 @media (max-width: 767px) {
-  body {
-    height: 844px;
-  }
   .login-wrapper {
     padding-top: 120px;
+    padding-bottom: 213px;
     min-width: 300px;
   }
 }
