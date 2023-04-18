@@ -4,37 +4,49 @@ export default class Card extends HTMLElement {
 
     this.imgNumber = imgNumber;
 
+    this.eventListenerController = new AbortController();
+
     this.openCodeit = () => {
       window.open("https://www.codeit.kr");
     };
 
-    this.cardHoverInteraction = (event, card, cardTopImg) => {
-      if (event.type === "mouseover") {
-        card.style.background = "#F0F6FF";
-        cardTopImg.style.transform = "scale(1.2)";
-      } else if (event.type === "mouseout") {
-        card.style.background = "white";
-        cardTopImg.style.transform = "scale(1)";
-      }
+    this.cardHoverInteraction = (card, cardTopImg) => {
+      return function (event) {
+        if (event.type === "mouseover") {
+          card.style.background = "#F0F6FF";
+          cardTopImg.style.transform = "scale(1.2)";
+        } else if (event.type === "mouseout") {
+          card.style.background = "white";
+          cardTopImg.style.transform = "scale(1)";
+        }
+      };
     };
 
-    this.cardClickInteraction = (current, target) => {
-      if (
-        current === target &&
-        target.getAttribute("src") === "/static/public/card-asterisk.svg"
-      ) {
-        target.setAttribute("src", "/static/public/card-asterisk-check.svg");
-        return;
-      }
-      if (
-        current === target &&
-        target.getAttribute("src") === "/static/public/card-asterisk-check.svg"
-      ) {
-        target.setAttribute("src", "/static/public/card-asterisk.svg");
-        return;
-      }
+    this.cardClickInteraction = (targetElement, openCodeit) => {
+      return function (event) {
+        if (
+          event.target === targetElement &&
+          targetElement.getAttribute("src") ===
+            "/static/public/card-asterisk.svg"
+        ) {
+          targetElement.setAttribute(
+            "src",
+            "/static/public/card-asterisk-check.svg"
+          );
+          return;
+        }
 
-      this.openCodeit();
+        if (
+          event.target === targetElement &&
+          targetElement.getAttribute("src") ===
+            "/static/public/card-asterisk-check.svg"
+        ) {
+          targetElement.setAttribute("src", "/static/public/card-asterisk.svg");
+          return;
+        }
+
+        openCodeit();
+      };
     };
   }
 
@@ -141,20 +153,29 @@ export default class Card extends HTMLElement {
     const cardTop = this.shadowRoot.querySelector(".card-img-top");
     const cardTopImg = cardTop.querySelector("img");
 
-    this.addEventListener("mouseover", (e) => {
-      this.cardHoverInteraction(e, this, cardTopImg);
-    });
-    this.addEventListener("mouseout", (e) => {
-      this.cardHoverInteraction(e, this, cardTopImg);
-    });
-    this.shadowRoot.addEventListener("click", (e) => {
-      this.cardClickInteraction(e.target, cardAsteriskImg);
-    });
+    const { signal } = this.eventListenerController;
+
+    this.addEventListener(
+      "mouseover",
+      this.cardHoverInteraction(this, cardTopImg),
+      { signal }
+    );
+    this.addEventListener(
+      "mouseout",
+      this.cardHoverInteraction(this, cardTopImg),
+      { signal }
+    );
+    this.shadowRoot.addEventListener(
+      "click",
+      this.cardClickInteraction(cardAsteriskImg, this.openCodeit),
+      { signal }
+    );
   }
 
   disconnectedCallback() {
-    this.attachShadow({ mode: "closed" });
+    this.eventListenerController.abort();
     this.shadowRoot.innerHTML = ``;
+    this.attachShadow({ mode: "closed" });
   }
 }
 
