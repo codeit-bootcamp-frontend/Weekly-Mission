@@ -1,9 +1,11 @@
-import { getElem } from "../../utils/getElement.js";
-import { gettingStarted } from "../../utils/gettingStarted.js";
+import { getElem } from "../../hooks/getElement.js";
+import getUsers from "../../utils/getUsers.js";
+import { toggleButton } from "../../utils/toggleButton.js";
+import { validationUserEmail } from "../../utils/validationUserEmail.js";
+import { validationUsers } from "../../utils/validationUsers.js";
 
 (function () {
   // state & elements
-  const emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
   const currentUser = {
     email: "",
     password: "",
@@ -17,28 +19,27 @@ import { gettingStarted } from "../../utils/gettingStarted.js";
   // load
   const init = () => {
     window.addEventListener("DOMContentLoaded", () => {
-      gettingStarted();
+      getUsers();
     });
 
     // event handlers
     eyeIcon.addEventListener("click", () => {
-      if (passwordInput.type === "password") {
-        passwordInput.type = "text";
-        eyeIcon.classList.replace("bx-hide", "bx-show");
-      } else {
-        passwordInput.type = "password";
-        eyeIcon.classList.replace("bx-show", "bx-hide");
-      }
+      toggleButton(
+        passwordInput,
+        "password",
+        "text",
+        eyeIcon,
+        "bx-hide",
+        "bx-show"
+      );
     });
 
     emailInput.addEventListener("focusout", () => {
-      const userInput = emailInput.value.trim();
-      userInput.length == 0
-        ? alert("이메일을 입력해주세요.")
-        : emailRegex.test(userInput)
-        ? (currentUser.email = userInput)
-        : alert("올바른 이메일 주소가 아닙니다.");
-
+      // const userInput = emailInput.value.trim();
+      currentUser.email = validationUserEmail(
+        emailInput.value.trim(),
+        "signin"
+      );
       emailInput.style.color = "#3e3e43";
     });
 
@@ -48,24 +49,7 @@ import { gettingStarted } from "../../utils/gettingStarted.js";
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-
-      let flag = false;
-
-      const users = JSON.parse(localStorage.getItem("users"));
-
-      users.forEach((user) => {
-        if (
-          currentUser.email === user.email &&
-          passwordInput.value === user.password
-        ) {
-          flag = true;
-          return;
-        }
-      });
-
-      flag
-        ? (location.href = "/pages/my-link")
-        : alert("이메일과 비밀번호를 확인해주세요.");
+      validationUsers("signin", currentUser.email, passwordInput.value);
     });
   };
 
