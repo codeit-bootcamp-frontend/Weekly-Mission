@@ -1,17 +1,9 @@
-* {
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 62.5%;
-}
+@import url("/styles/global-style.css");
 
 body {
   height: 98.2rem;
-  margin: 0;
   padding-top: 23.8rem;
-  font-family: "Pretendard", sans-serif;
-  background-color: #f0f6ff;
+  background-color: var(--gray-brt5);
 }
 
 .wrapper-container {
@@ -21,113 +13,100 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3.2rem;
-  font-weight: 400;
 }
 
-.form-signin-and-up {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3rem;
-}
-
-.form-top {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.6rem;
-}
-
-.logo {
+.linkbrary-logo img {
   width: 21.058rem;
   height: 3.8rem;
+  margin-bottom: 1.6rem;
 }
 
 .verify-member {
+  margin-bottom: 3rem;
   display: flex;
   align-items: flex-start;
   gap: 0.8rem;
-  font-size: 1.6rem;
 }
 
 .change-form-signin-and-up {
   font-weight: 600;
-  color: #6d6afe;
+  color: var(--primary);
 }
 
-.form-main {
+.form-signin-and-up {
   width: 100%;
+  margin-bottom: 1.6rem;
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  align-items: center;
 }
 
-.input-group {
+.input-container {
+  margin-bottom: 2.4rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  position: relative;
 }
 
-.label {
+.input-container label {
   font-size: 1.4rem;
 }
 
 input {
-  font-family: "Pretendard", sans-serif;
-  font-weight: 400;
-  font-size: 1.6rem;
-}
-
-.input {
   width: 100%;
   height: 5.5rem;
   padding: 1.8rem 1.5rem;
-  color: #9fa6b2;
+  color: var(--gray-brt2);
+  font-family: "Pretendard", sans-serif;
+  font-weight: 400;
 }
 
-.input,
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+  color: var(--gray-brt1);
+}
+
+input,
 .social-signin-and-up {
   border-width: 0.1rem;
   border-radius: 0.8rem;
   border-style: solid;
-  border-color: #ccd5e3;
+  border-color: var(--gray-brt3);
 }
 
-.view-password {
+.input-password-container {
+  position: relative;
+}
+
+.toggle-password {
   width: 1.6rem;
   height: 1.6rem;
   position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   right: 1.5rem;
-  bottom: 1.95rem;
-}
-
-.form-bottom {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.6rem;
 }
 
 .button-signin-and-up {
   width: 100%;
   height: 5.4rem;
+  margin-top: 3rem;
   padding: 0;
   border-width: 0;
   border-radius: 0.8rem;
+  font-family: "Pretendard", sans-serif;
   font-weight: 600;
   font-size: 1.8rem;
   color: #f5f5f5;
-  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  background: linear-gradient(90.99deg, var(--primary) 0.12%, #6ae3fe 101.84%);
 }
 
 .forgot-password {
   font-size: 1.4rem;
-  color: #3e3e43;
+  margin-bottom: 3.2rem;
+  color: var(--gray-brt1);
   text-decoration: none;
 }
 
@@ -138,8 +117,8 @@ input {
   justify-content: space-between;
   align-items: center;
   font-size: 1.4rem;
-  background-color: #e7effb;
-  color: #3e3e43;
+  background-color: var(--gray-brt4);
+  color: var(--gray-brt1);
 }
 
 .box-sns {
@@ -163,11 +142,4 @@ input {
   .forgot-password {
     color: #444444;
   }
-}
-
-/* JS 이벤트 스타일 */
-.focus-input {
-  outline: none;
-  border-color: #6d6afe;
-  color: #3e3e43;
 }

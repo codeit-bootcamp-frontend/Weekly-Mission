@@ -1,65 +1,103 @@
-const passwordFormat = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+const signupForm = document.querySelector("form");
+const signupEmail = document.querySelector("#email");
+const signupPassword = document.querySelector("#password");
+const signupPasswordRepeat = document.querySelector("#check-password");
+const eyeIcons = document.querySelectorAll(".toggle-password");
 
-function checkEmailExist(e) {
-  if ((e.target.id === "email") && (e.sourceCapabilities) || (e.target.className === "form-signin-and-up") || (e.code === "Enter")) {
-    const emailValue = form.email.value
-    if (emailValue === "test@codeit.com") {
-      alert("이미 사용 중인 아이디입니다.")
-      return false
-    }
-    else {
-      return true
-    }
+const emailFormat = /^[\w\-\.\/]+\@[\w\-]+\.[\w]+$/;
+const passwordFormat = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+function checkEmailFormat(email) {
+  if (!email) {
+    alert("이메일을 입력해주세요.");
+    return false;
+  } else if (!emailFormat.test(email)) {
+    alert("올바른 이메일 주소가 아닙니다.");
+    return false;
+  }
+  return true;
+}
+
+function checkEmailExist(email) {
+  if (email === "test@codeit.com") {
+    alert("이미 사용 중인 아이디입니다.");
+    return false;
+  }
+  return true;
+}
+
+function checkPasswordFormat(password) {
+  if (!passwordFormat.test(password)) {
+    alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
+    return false;
+  }
+  return true;
+}
+
+function checkPasswordRepeatSame(password, passwordRepeat) {
+  if (password !== passwordRepeat) {
+    alert("비밀번호가 동일하지 않습니다.");
+    return false;
+  }
+  return true;
+}
+
+function checkEmail(e) {
+  if (e.sourceCapabilities) {
+    const email = signupEmail.value;
+    checkEmailFormat(email);
+    checkEmailExist(email);
   }
 }
 
-function checkPasswordFormat(e) {
-  if ((e.target.id === "password") && (e.sourceCapabilities) || (e.target.className === "form-signin-and-up") || (e.code === "Enter")) {
-    const passwordValue = form.password.value
-    if (passwordValue.search(passwordFormat) === -1) {
-      alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.")
-      return false
-    }
-    else {
-      return true
-    }
+function checkPassword(e) {
+  if (e.sourceCapabilities) {
+    const password = signupPassword.value;
+    checkPasswordFormat(password);
   }
 }
 
-function checkPasswordSame(e) {
-  if ((e.target.id === "check-password") && (e.sourceCapabilities) || (e.target.className === "form-signin-and-up") || (e.code === "Enter")) {
-    if (!(form.password.value === form.querySelector("#check-password").value)) {
-      alert("비밀번호가 동일하지 않습니다.")
-      return false
-    }
-    else {
-      return true
-    }
+function checkPasswordRepeat(e) {
+  if (e.sourceCapabilities) {
+    const password = signupPassword.value;
+    const passwordRepeat = signupPasswordRepeat.value;
+    checkPasswordRepeatSame(password, passwordRepeat);
   }
 }
 
-function checkSignupValidation(e) {
-  e.preventDefault()
-  const check1 = checkEmailFormat(e)
-  const check2 = checkEmailExist(e)
-  const check3 = checkPasswordFormat(e)
-  const check4 = checkPasswordSame(e)
+function checkSignup(e) {
+  e.preventDefault();
+  const email = signupEmail.value;
+  const password = signupPassword.value;
+  const passwordRepeat = signupPasswordRepeat.value;
 
-  if (check1 && check2 && check3 && check4) {
-    location.href = "/my-link.html"
+  if (
+    checkEmailFormat(email) &&
+    checkEmailExist(email) &&
+    checkPasswordFormat(password) &&
+    checkPasswordRepeatSame(password, passwordRepeat)
+  ) {
+    location.href = "/my-link.html";
   }
 }
 
-function enterKeyEvent(e) {
-  if (e.code === "Enter") {
-    checkSignupValidation(e)
+function toggleVisibility(e) {
+  e.preventDefault();
+  const passwordInput = e.target.previousElementSibling;
+  if (passwordInput.type === "text") {
+    passwordInput.type = "password";
+    this.setAttribute("src", "./images/eye-close.svg");
+  } else {
+    passwordInput.type = "text";
+    this.setAttribute("src", "./images/eye-open.svg");
   }
 }
 
-form.addEventListener('focusout', checkEmailExist)
-form.addEventListener('focusout', checkPasswordFormat)
-form.addEventListener('focusout', checkPasswordSame)
+signupEmail.addEventListener("focusout", checkEmail);
+signupPassword.addEventListener("focusout", checkPassword);
+signupPasswordRepeat.addEventListener("focusout", checkPasswordRepeat);
+signupForm.addEventListener("submit", checkSignup);
 
-form.addEventListener('submit', checkSignupValidation)
-
-window.addEventListener('keydown', enterKeyEvent)
+for (let eyeIcon of eyeIcons) {
+  eyeIcon.addEventListener("mousedown", toggleVisibility);
+}
