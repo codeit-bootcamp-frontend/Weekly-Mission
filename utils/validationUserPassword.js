@@ -1,12 +1,12 @@
-export const validationUserPassword = (userPassword, flag = false) => {
-  const numRegex = /[0-9]/;
-  const strRegex = /[a-zA-Z]/;
+const NUM_REGEX = /[0-9]/;
+const STR_REGEX = /[a-zA-Z]/;
 
+export const validationUserPassword = (userPassword, flag = false) => {
   if (
     !flag &&
     userPassword &&
-    (!numRegex.test(userPassword) ||
-      !strRegex.test(userPassword) ||
+    (!NUM_REGEX.test(userPassword) ||
+      !STR_REGEX.test(userPassword) ||
       userPassword.length < 8)
   ) {
     return false;

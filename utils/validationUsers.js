@@ -1,5 +1,14 @@
 import { validationUserPassword } from "./validationUserPassword.js";
 
+const ERROR_MESSAGES = {
+  signin: ["이메일과 비밀번호를 확인해주세요."],
+  signup: [
+    "이미 사용 중인 아이디입니다.",
+    "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.",
+    "비밀번호 확인이 올바르지 않습니다.",
+  ],
+};
+
 export const validationUsers = (
   type,
   inputEmail,
@@ -13,22 +22,16 @@ export const validationUsers = (
   let flag = false;
   let errorIndex = -1;
 
-  const errorMessages = {
-    signin: ["이메일과 비밀번호를 확인해주세요."],
-    signup: [
-      "이미 사용 중인 아이디입니다.",
-      "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.",
-      "비밀번호 확인이 올바르지 않습니다.",
-    ],
-  };
-
-  const users = JSON.parse(localStorage.getItem("users"));
+  const USERS = JSON.parse(localStorage.getItem("users"));
 
   if (type === "signin") {
-    const compare = { email: inputEmail, password: inputPassword };
+    const CURRENT_INPUT = { email: inputEmail, password: inputPassword };
 
-    users.forEach((user) => {
-      if (compare.email === user.email && compare.password === user.password) {
+    USERS.forEach((user) => {
+      if (
+        CURRENT_INPUT.email === user.email &&
+        CURRENT_INPUT.password === user.password
+      ) {
         flag = true;
         return;
       }
@@ -38,34 +41,32 @@ export const validationUsers = (
       sessionStorage.setItem(
         "currentUser",
         JSON.stringify({
-          email: compare.email,
-          password: compare.password,
+          email: CURRENT_INPUT.email,
+          password: CURRENT_INPUT.password,
         })
       );
 
       location.href = "/pages/my-link";
     } else {
-      alert(errorMessages[type][0]);
+      alert(ERROR_MESSAGES[type][0]);
     }
   } else if (type === "signup") {
-    const compare = {
+    const CURRENT_INPUT = {
       email: inputEmail,
       password: inputPassword,
       confirmPassword: inputConfirmPassword,
     };
 
-    for (let i = 0; i < users.length; i++) {
-      const user = users[i];
-
+    for (let i = 0; i < USERS.length; i++) {
       if (flag) break;
 
-      if (compare.email === user.email) {
+      if (CURRENT_INPUT.email === USERS[i].email) {
         errorIndex = 0;
         flag = true;
-      } else if (!validationUserPassword(compare.password)) {
+      } else if (!validationUserPassword(CURRENT_INPUT.password)) {
         errorIndex = 1;
         flag = true;
-      } else if (compare.password !== compare.confirmPassword) {
+      } else if (CURRENT_INPUT.password !== CURRENT_INPUT.confirmPassword) {
         errorIndex = 2;
         flag = true;
       }
@@ -75,10 +76,10 @@ export const validationUsers = (
       localStorage.setItem(
         "users",
         JSON.stringify([
-          ...users,
+          ...USERS,
           {
-            email: compare.email,
-            password: compare.password,
+            email: CURRENT_INPUT.email,
+            password: CURRENT_INPUT.password,
           },
         ])
       );
@@ -86,14 +87,14 @@ export const validationUsers = (
       sessionStorage.setItem(
         "currentUser",
         JSON.stringify({
-          email: compare.email,
-          password: compare.password,
+          email: CURRENT_INPUT.email,
+          password: CURRENT_INPUT.password,
         })
       );
 
       location.href = "/pages/my-link";
     } else {
-      alert(errorMessages[type][errorIndex]);
+      alert(ERROR_MESSAGES[type][errorIndex]);
     }
   }
 };

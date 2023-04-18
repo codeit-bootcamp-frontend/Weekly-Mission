@@ -6,7 +6,7 @@ import { validationUsers } from "../../utils/validationUsers.js";
 
 (function () {
   // state & elements
-  const currentUser = {
+  const CURRENT_INPUT = {
     email: "",
     password: "",
   };
@@ -35,7 +35,7 @@ import { validationUsers } from "../../utils/validationUsers.js";
     });
 
     emailInput.addEventListener("focusout", () => {
-      currentUser.email = validationUserEmail(
+      CURRENT_INPUT.email = validationUserEmail(
         emailInput.value.trim(),
         "signin"
       );
@@ -48,7 +48,7 @@ import { validationUsers } from "../../utils/validationUsers.js";
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      validationUsers("signin", currentUser.email, passwordInput.value);
+      validationUsers("signin", CURRENT_INPUT.email, passwordInput.value);
     });
   };
 
