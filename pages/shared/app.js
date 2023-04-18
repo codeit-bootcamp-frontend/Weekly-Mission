@@ -1,7 +1,7 @@
-import Footer from "/components/Footer/app.js";
-import Header from "/components/Header/app.js";
-import Search from "/components/Search/app.js";
-import Card from "/components/Card/app.js";
+import Footer from "/components/Footer.js";
+import Header from "/components/Header.js";
+import Search from "/components/Search.js";
+import Card from "/components/Card.js";
 import { getElem } from "/hooks/getElement.js";
 
 (function () {
