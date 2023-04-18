@@ -12,9 +12,9 @@
 }
 
 body {
-  font-family: 'pretendard';
+  font-family: "pretendard";
   width: 100%;
-  background-color: #F0F6FF;
+  background-color: #f0f6ff;
   padding-top: 20px;
 }
 
@@ -42,7 +42,7 @@ footer {
   position: sticky;
   top: 0px;
   z-index: 1;
-  background-color: #F0F6FF;
+  background-color: #f0f6ff;
   margin: 0 auto 91px;
 }
 
@@ -63,13 +63,12 @@ footer {
   color: #f5f5f5;
   text-align: center;
   line-height: 53px;
-  background-image: linear-gradient(to right, #6D6AFE, #6AE3FE);
+  background-image: linear-gradient(to right, #6d6afe, #6ae3fe);
 }
 
 .login {
   display: inline-block;
   width: 128px;
-  
 }
 
 .in-blck {
@@ -117,7 +116,7 @@ footer {
   font-size: 1rem;
   font-weight: 500;
   line-height: 24px;
-  color: #6B6B6B;
+  color: #6b6b6b;
 }
 
 .main-image {
@@ -139,7 +138,7 @@ footer {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: 400;
-  color: #CFCFCF;
+  color: #cfcfcf;
 }
 
 .copyright {
@@ -154,7 +153,7 @@ footer {
 
 .footer-link {
   display: inline-block;
-  color: #CFCFCF;
+  color: #cfcfcf;
   text-decoration: none;
   height: 18px;
 }
@@ -174,7 +173,7 @@ footer {
   gap: 13px;
   width: 116px;
   height: 20px;
-} 
+}
 
 .fb {
   width: 18px;
@@ -197,31 +196,31 @@ footer {
 }
 
 .grad1 {
-  background: linear-gradient(to right, #6D6AFE, #FF9F9F);
+  background: linear-gradient(to right, #6d6afe, #ff9f9f);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .grad2 {
-  background: linear-gradient(to right, #FE8A8A, #A4CEFF);
+  background: linear-gradient(to right, #fe8a8a, #a4ceff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .grad3 {
-  background: linear-gradient(to right, #6FBAFF, #FFD88B);
+  background: linear-gradient(to right, #6fbaff, #ffd88b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .grad4 {
-  background: linear-gradient(to right, #6D7CCD, #52888538);
+  background: linear-gradient(to right, #6d7ccd, #52888538);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .grad5 {
-  background: linear-gradient(to right, #FE578F, #68E8F9);
+  background: linear-gradient(to right, #fe578f, #68e8f9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -253,7 +252,7 @@ footer {
     gap: 3.188rem;
   }
 
-  .main-image{
+  .main-image {
     width: 24.063rem;
   }
 }
@@ -271,13 +270,16 @@ footer {
     gap: 3.188rem;
   }
 
-  .main-image{
+  .main-image {
     width: 24.063rem;
   }
 }
 
 @media (max-width: 767px) {
-  header, main, footer, nav {
+  header,
+  main,
+  footer,
+  nav {
     padding: 0 32px;
   }
 
