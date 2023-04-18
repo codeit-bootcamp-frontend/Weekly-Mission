@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <title>회원가입 | Linkbrary</title>
+  </head>
+  <body>
+    <main class="account">
+      <div class="account-header">
+        <a href="/">
+          <img class="logo" src="/static/Linkbrary.png" alt="Linkbrary Logo">
+        </a>
+        <p>
+          이미 회원이신가요?
+          <a class="account-link" href="/signin">로그인 하기</a>
+        </p>
+      </div>
+      <form method="post">
+        <label class="lb-label" for="email-input">이메일</label>
+        <div class="input-container">
+          <input type="email" id="email-input" class="lb-input" name="login" placeholder="이메일을 입력해주세요." autocomplete="email">
+        </div>
+        <label class="lb-label" for="password-input">비밀번호</label>
+        <div class="input-container">
+          <input type="password" id="password-input" class="lb-input" name="password" placeholder="비밀번호" autocomplete="new-password">
+          <div class="eye-container">
+            <i class="fa fa-eye fa-eye-slash fa-lg"></i>
+          </div>
+        </div>
+        <label class="lb-label" for="password2-input">비밀번호 확인</label>
+        <div class="input-container">
+          <input type="password" id="password2-input" class="lb-input" name="password" placeholder="비밀번호 확인">
+          <div class="eye-container">
+            <i class="fa fa-eye fa-eye-slash fa-lg"></i>
+          </div>
+        </div>
+        <button type="submit" class="link-button">회원가입</button>
+      </form>
+      <div class="social-login">
+        <p class="description">다른 방식으로 가입하기</p>
+        <div class="icon-box">
+          <a class="google social-link" href="https://www.google.com/" target="_blank">
+            <img class="social-icon" src="/static/google.png" alt="google icon" width="22">
+          </a>
+          <a class="kakaotalk social-link" href="https://www.kakaocorp.com/" target="_blank">
+            <img class="social-icon" src="/static/kakaotalk.png" alt="kakaotalk icon" width="26">
+          </a>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="/static/js/signup-form.js"></script>
+    <script type="module" src="/static/js/password-toggle.js"></script>
+  </body>
+</html>

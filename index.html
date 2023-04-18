@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ko" dir="ltr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,25 +13,13 @@
     <meta name="twitter:image" content="https://jeris-weekly-mission.netlify.app/static/og.png">
     <meta name="twitter:title" content="Linkbrary">
     <meta name="twitter:description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
     <link rel="stylesheet" type="text/css" href="/static/css/style.css">
     <title>Linkbrary</title>
   </head>
   <body>
-    <nav class="navbar">
-      <div class="navbar-container">
-        <div class="logo">
-          <a href="/">
-            <img src="/static/Linkbrary.png" alt="Linkbrary Logo">
-          </a>
-        </div>
-        <a href="/sign-in">
-          <div class="link-button">
-            로그인
-          </div>
-        </a>
-      </div>
-    </nav>
     <header class="site-header">
+      <global-nav login="off"></global-nav>
       <h1 class="header-title">
         <span class="emphasis emphasis-1">세상의 모든 정보</span>를<br>쉽게 저장하고 관리해 보세요
       </h1>
@@ -51,7 +39,7 @@
         <p class="description">
           나중에 읽고 싶은 글, 다시 보고 싶은 영상, 사고 싶은 옷, 기억하고 싶은 모든 것을 <br>한 공간에 저장하세요.
         </p>
-        <img src="/static/img1.png" alt="Image 1">
+        <img class="thumb" src="/static/img1.png" alt="Thumbnail">
       </div>
       <div class="content-frame">
         <h2 class="title">
@@ -61,7 +49,7 @@
         <p class="description">
           나만의 폴더를 무제한으로 만들고 <br>다양하게 활용할 수 있습니다.
         </p>
-        <img src="/static/img2.png" alt="Image 2">
+        <img class="thumb" src="/static/img2.png" alt="Thumbnail">
       </div>
       <div class="content-frame">
         <h2 class="title">
@@ -71,7 +59,7 @@
         <p class="description">
           여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구, 동료들에게 쉽고 빠르게 링크를 공유해 보세요.
         </p>
-        <img src="/static/img3.png" alt="Image 3">
+        <img class="thumb" src="/static/img3.png" alt="Thumbnail">
       </div>
       <div class="content-frame">
         <h2 class="title">
@@ -81,33 +69,11 @@
         <p class="description">
           중요한 정보들을 검색으로 쉽게 찾아보세요.
         </p>
-        <img src="/static/img4.png" alt="Image 4">
+        <img class="thumb" src="/static/img4.png" alt="Thumbnail">
       </div>
     </main>
-    <footer class="site-footer">
-      <div class="footer-container">
-        <div>
-          @codeit-2023
-        </div>
-        <div>
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/faq">FAQ</a>
-        </div>
-        <div class="icon-box">
-          <a href="https://facebook.com" target="blank">
-            <img src="/static/facebook.png" alt="Facebook Icon" style="width: 18px;">
-          </a>
-          <a href="https://twitter.com" target="blank">
-            <img src="/static/twitter.png" alt="Twitter Icon" style="width: 19px;">
-          </a>
-          <a href="https://youtube.com" target="blank">
-            <img src="/static/youtube.png" alt="Youtube Icon" style="width: 20px;">
-          </a>
-          <a href="https://Melon.com" target="blank">
-            <img src="/static/Instagram.png" alt="Instagram Icon" style="width: 17px;">
-          </a>
-        </div>
-      </div>
-    </footer>
+    <global-footer></global-footer>
+    <script type="module" src="/static/js/global-nav.js"></script>
+    <script type="module" src="/static/js/global-footer.js"></script>
   </body>
 </html>
