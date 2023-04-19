@@ -63,6 +63,11 @@ class Gnb extends HTMLElement {
             .header .logo {
               width: 133px;
             }
+            .header .login-btn {
+              width: 128px;
+              height: 53px;
+            }
+          }  
           @media (max-width: 868px) {
             .header .container {
               width: 100%;
@@ -76,6 +81,12 @@ class Gnb extends HTMLElement {
             }
             .user-email {
               display: none;
+            }
+            .header .login-btn {
+              width: 80px;
+              height: 37px;
+              font-size: 14px;
+              line-height: 37px;
             }
           }
           @media (max-width: 375px) {
