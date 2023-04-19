@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign in</title>
-    <link rel="stylesheet" href="signin.css" />
+    <title>Sign up</title>
+    <link rel="stylesheet" href="signup.css" />
     <link
       rel="stylesheet"
       type="text/css"
@@ -19,9 +19,9 @@
           <img src="./public/Linkbrary.png" alt="linkbrary" class="logo-img" />
         </a>
       </div>
-      <div class="switch-signup">
-        <h5 class="not-member">회원이 아니신가요?</h5>
-        <a href="signup.html" class="signup-link">회원 가입하기</a>
+      <div class="switch-signin">
+        <h5 class="already-member">이미 회원이신가요?</h5>
+        <a href="signin.html" class="signin-link">로그인 하기</a>
       </div>
       <article class="input-area">
         <div class="email-area">
@@ -33,14 +33,15 @@
           <input id="password" name="password" type="password" />
         </div>
         <div>
-          <button type="submit" class="signin">로그인</button>
+          <label for="confirmPw" class="confirmPw">비밀번호 확인</label>
+          <input id="confirmPw" name="confirmPw" type="password" />
         </div>
-        <label class="find-pw" onclick="location.href='/forgot-password/'"
-          >비밀번호 찾기</label
-        >
+        <div>
+          <button type="submit" class="signup">회원가입</button>
+        </div>
       </article>
-      <div class="sns-login">
-        <label>소셜 로그인</label>
+      <div class="sns-signup">
+        <label>다른 방식으로 가입하기</label>
         <div class="sns">
           <a href="https://www.google.com/" class="sns-icon">
             <img src="./public/icon-google.png" alt="google" />
@@ -51,6 +52,6 @@
         </div>
       </div>
     </form>
-    <script src="signin.js"></script>
+    <script src="signup.js"></script>
   </body>
 </html>

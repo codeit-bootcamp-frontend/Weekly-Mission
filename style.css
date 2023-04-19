@@ -8,11 +8,6 @@ body {
   margin: 0 auto;
 }
 
-/*Header 시작*/
-header {
-  background-color: #f0f6ff;
-}
-
 /* gnb바 */
 .gnb {
   display: flex;
@@ -20,7 +15,7 @@ header {
   width: 100%;
   max-width: 1920px;
   align-items: center;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   margin: 0 auto;
@@ -31,8 +26,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 128px;
-  height: 52px;
+  padding: 16px 40px;
   font-size: 18px;
   background: linear-gradient(to right, #6d6afe 0%, #6ae3fe 100%);
   color: #fff;
@@ -40,6 +34,11 @@ header {
   text-decoration: none;
 }
 /* gnb바 끝 */
+
+/*Header 시작*/
+header {
+  background-color: #f0f6ff;
+}
 
 .header_title {
   margin: 0px;
@@ -51,14 +50,10 @@ header {
   line-height: 80px;
 }
 
-.button_wrapper {
-  background: linear-gradient(to right, #6d6afe 0%, #6ae3fe 100%);
-  width: 350px;
-  height: 53px;
+.button wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
 }
 
 a.button_link {
@@ -68,6 +63,13 @@ a.button_link {
   font-size: 18px;
   color: #f5f5f5;
   line-height: 20px;
+  background: linear-gradient(to right, #6d6afe 0%, #6ae3fe 100%);
+  width: 350px;
+  height: 53px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
 }
 
 img.images {
@@ -137,7 +139,7 @@ footer {
   background-color: #111322;
 }
 
-.footer_items {
+.footer-items {
   display: flex;
   height: 20px;
   justify-content: space-between;
@@ -188,6 +190,11 @@ footer {
     height: 94px;
     padding: 0 200px;
   }
+
+  .num0 {
+    display: none;
+  }
+
   footer {
     padding: 32px 104px 108px;
   }
@@ -196,12 +203,11 @@ footer {
     gap: 100px;
   }
   .header_title {
-    margin: 94px auto 0px;
-    width: 708px;
+    margin: 0px auto 0px;
     padding-top: 70px;
   }
-  .button_wrapper {
-    margin: 40px auto 90px auto;
+  a.button_link {
+    margin: 40px auto 40px auto;
   }
   .images {
     width: 1200px;
@@ -241,12 +247,11 @@ footer {
     gap: 100px;
   }
   .header_title {
-    width: 472px;
     padding-top: 40px;
-    margin: 94px auto 0px;
+    margin: 0px auto 0px;
   }
-  .button_wrapper {
-    margin: 40px auto 68px auto;
+  a.button_link {
+    margin: 40px auto 40px auto;
   }
   .images {
     width: 698px;
@@ -279,22 +284,26 @@ footer {
   header {
     padding: 0px 32px;
   }
+
+  .button_wrapper {
+    padding: 24px 62px;
+  }
+
   main {
     padding: 40px 32px 80px;
+    gap: 80px;
   }
   footer {
     padding: 32px;
   }
   .header_title {
-    width: 236px;
     padding-top: 28px;
-    margin: 64px auto 0px;
+    margin: 0px auto 0px;
     font-size: 32px;
     line-height: 42px;
   }
   .login-btn {
-    width: 80px;
-    height: 36px;
+    padding: 10px 22px;
     font-size: 14px;
   }
   .gnb {
@@ -316,12 +325,9 @@ footer {
     height: auto;
     flex-shrink: 0;
   }
-  .button_wrapper {
+  a.button_link {
     width: 100%;
     height: 36px;
-    margin: 24px auto;
-  }
-  a.button_link {
     font-size: 14px;
     line-height: 16px;
   }
@@ -352,7 +358,7 @@ footer {
   .mobile {
     display: flex;
   }
-  .footer_items.mobile {
+  .footer-items.mobile {
     flex-direction: column;
     align-items: flex-start;
     gap: 60px;
