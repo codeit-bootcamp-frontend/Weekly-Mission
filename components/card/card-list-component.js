@@ -1,50 +1,46 @@
 import { CardComponent } from "./card-component.js";
-
+import { fetchCardsData } from "./fetchCardsData.js";
 class CardListComponent extends HTMLElement {
   constructor() {
     super();
+    this.url = this.getAttribute("url");
+    this.attachShadow({ mode: "open" });
+  }
 
-    // Shadow DOM 생성
-    this.shadow = this.attachShadow({ mode: "open" });
+  async connectedCallback() {
+    try {
+      this.cards = await fetchCardsData(this.url);
+      this.render();
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-    // CSS 파일 적용
+  createCards(card) {
+    const cardComponent = new CardComponent(
+      card.imageSrc,
+      card.updateTime,
+      card.description,
+      card.date
+    );
+    return cardComponent;
+  }
+
+  render() {
     const linkElem = document.createElement("link");
     linkElem.setAttribute("rel", "stylesheet");
     linkElem.setAttribute("href", "/components/card/card-list-component.css");
-    this.shadow.appendChild(linkElem);
+    this.shadowRoot.appendChild(linkElem);
 
-    // 카드 리스트 데이터 가져오기
-    this.fetchCardsData();
-  }
-
-  connectedCallback() {
-    // 카드 컨테이너 생성
     const cardListContainer = document.createElement("div");
     cardListContainer.classList.add("card-list-container");
 
-    // 카드 리스트 생성
-    this.cards.forEach((card, index) => {
-      const cardComponent = new CardComponent(
-        card.imageSrc,
-        card.updateTime,
-        card.description,
-        card.date
-      );
-
+    this.cards.forEach((card) => {
+      const cardComponent = this.createCards(card);
       cardListContainer.appendChild(cardComponent);
     });
 
-    this.shadow.appendChild(cardListContainer);
-  }
-
-  fetchCardsData() {
-    fetch("/static/data/card/cards.json")
-      .then((response) => response.json())
-      .then((data) => {
-        this.cards = data.cards;
-        this.connectedCallback();
-      })
-      .catch((error) => console.log(error));
+    this.shadowRoot.appendChild(cardListContainer);
   }
 }
 
