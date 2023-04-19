@@ -1,4 +1,4 @@
-class FooterComponent extends HTMLElement {
+class Footer extends HTMLElement {
   constructor() {
     super();
     // Shadow DOM 생성
@@ -90,4 +90,4 @@ class FooterComponent extends HTMLElement {
 }
 
 // Custom Element 등록
-window.customElements.define("footer-component", FooterComponent);
+window.customElements.define("footer-component", Footer);

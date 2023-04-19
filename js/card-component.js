@@ -1,4 +1,4 @@
-class CardComponent extends HTMLElement {
+class Card extends HTMLElement {
   constructor() {
     super();
     // 인자로 전달된 속성값을 가져와서 사용
@@ -138,4 +138,4 @@ class CardComponent extends HTMLElement {
 }
 
 // Custom Element 등록
-window.customElements.define("card-component", CardComponent);
+window.customElements.define("card-component", Card);

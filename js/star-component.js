@@ -1,4 +1,4 @@
-class StarComponent extends HTMLElement {
+class Star extends HTMLElement {
   constructor() {
     super();
     // Shadow DOM 생성
@@ -52,4 +52,4 @@ class StarComponent extends HTMLElement {
 }
 
 // Custom Element 등록
-window.customElements.define("star-component", StarComponent);
+window.customElements.define("star-component", Star);
