@@ -7,11 +7,11 @@
     <title>Shared</title>
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="/static/css/color.css" />
-    <script src="/components/custom-gnb.js"></script>
     <script src="/components/custom-card.js"></script>
+    <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <custom-gnb data-userEmail="Codeit@codeit.com"></custom-gnb>
+    <custom-gnb></custom-gnb>
     <header>
       <div class="user-content">
         <img class="user-avatar" src="/images/user-avatar.svg" />
@@ -97,6 +97,7 @@
       </div>
     </main>
     <custom-footer></custom-footer>
+    <script src="/components/GNB/custom-gnb.js"></script>
     <script src="/components/SearchBar/search-bar.js"></script>
     <script src="/components/Footer/custom-footer.js"></script>
   </body>

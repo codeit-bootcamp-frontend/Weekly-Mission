@@ -2,9 +2,9 @@ class CustomFooter extends HTMLElement {
   constructor() {
     super();
 
-    const shadow = this.attachShadow({ mode: "open" });
+    this.attachShadow({ mode: "open" });
 
-    shadow.innerHTML = `
+    this.shadowRoot.innerHTML = `
       <link rel="stylesheet" href="/components/footer/style.css" />
       <footer>
         <div class="corporation">©codeit - 2023</div>
