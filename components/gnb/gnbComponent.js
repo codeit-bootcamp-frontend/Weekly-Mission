@@ -1,5 +1,5 @@
 class GnbComponent extends HTMLElement {
-  #isLoggedIn;
+  #prop = null;
   constructor() {
     super();
 
@@ -10,17 +10,25 @@ class GnbComponent extends HTMLElement {
     this.render();
   }
 
-  get isLoggedIn() {
-    return this.#isLoggedIn;
+  get prop() {
+    return this.#prop;
   }
 
-  set isLoggedIn(newIsLoggedIn) {
-    this.#isLoggedIn = newIsLoggedIn;
+  set prop(newProp) {
+    this.#prop = newProp;
+    console.log(this.loginButton);
+    this.gnbContainer.removeChild(this.loginButton);
+
+    const loginButton = this.checkLoginStatus();
+    this.loginButton = loginButton;
+
+    this.gnbContainer.appendChild(loginButton);
+
+    this.shadowRoot.appendChild(this.gnbContainer);
   }
 
   checkLoginStatus() {
-    this.isLoggedIn = sessionStorage.getItem("isLoggedIn");
-    const loginStatusElement = this.isLoggedIn
+    const loginStatusElement = this.prop
       ? this.createLoggedInText()
       : this.createLoginButton();
     return loginStatusElement;
@@ -37,10 +45,9 @@ class GnbComponent extends HTMLElement {
   createLoggedInText() {
     const loggedInText = document.createElement("div");
     loggedInText.classList.add("user-profile");
-    const email = sessionStorage.getItem("email");
     loggedInText.innerHTML = `
-      <img class="profile-icon" src="/static/imgs/users/profile.svg">
-      <p class="user-email">${email}</p>
+      <img class="profile-icon" src="${this.prop.profileSrc}"/>
+      <p class="user-email">${this.prop.email}</p>
     `;
     return loggedInText;
   }
@@ -53,7 +60,7 @@ class GnbComponent extends HTMLElement {
 
     const gnbContainer = document.createElement("nav");
     gnbContainer.classList.add("gnb-container");
-
+    this.gnbContainer = gnbContainer;
     const logoLinkAnchor = document.createElement("a");
     logoLinkAnchor.href = "/";
 
@@ -63,7 +70,7 @@ class GnbComponent extends HTMLElement {
     logoImage.src = "/static/imgs/Linkbrary.svg";
 
     const loginButton = this.checkLoginStatus();
-
+    this.loginButton = loginButton;
     logoLinkAnchor.appendChild(logoImage);
 
     gnbContainer.appendChild(logoLinkAnchor);
@@ -72,5 +79,4 @@ class GnbComponent extends HTMLElement {
     this.shadowRoot.appendChild(gnbContainer);
   }
 }
-
 customElements.define("gnb-header", GnbComponent);
