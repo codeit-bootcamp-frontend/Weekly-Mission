@@ -99,31 +99,30 @@ class CardComponent extends HTMLElement {
           }
         }
       </style>
-      <article class="card">
-        <button class="like-btn inactive"></button>
-        <div class="card-image"></div> 
-        <div class="card-body">
-          <button class="menu-btn">
-            <img src="./img/kebab.png">
-          </button>  
-          <div class="card-time">10 minutes ago</div>
-          <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque nesciunt recusandae quas doloribus laboriosam possimus labore vitae nostrum voluptas exercitationem, sint nemo ab dolor, ut harum quis repellendus iusto! Esse?</p>
-          <div class="card-date">2023.3.15</div>
-        </div> 
-      </article>
+      <a href="https://www.codeit.kr">
+        <article class="card">
+          <button class="like-btn inactive"></button>
+          <div class="card-image"></div> 
+          <div class="card-body">
+            <button class="menu-btn">
+              <img src="./img/kebab.png">
+            </button>  
+            <div class="card-time">10 minutes ago</div>
+            <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque nesciunt recusandae quas doloribus laboriosam possimus labore vitae nostrum voluptas exercitationem, sint nemo ab dolor, ut harum quis repellendus iusto! Esse?</p>
+            <div class="card-date">2023.3.15</div>
+          </div> 
+        </article>
+      </a>
     `;
     // Shadow DOM에 템플릿 추가
     shadowRoot.appendChild(template.content.cloneNode(true));
 
-    // 1.카드 컴포넌트 클릭시 코드잇 페이지로 링크 이동 2.별 아이콘 클릭시 활성 기능 추가
+    // 별 아이콘 클릭시 활성 기능 추가
     const card = shadowRoot.querySelector(".card");
     const likeBtn = shadowRoot.querySelector(".like-btn");
 
-    function goToPage(e) {
-      location.href = "https://www.codeit.kr";
-    }
     function toggleLikeIcon(e) {
-      e.stopPropagation();
+      e.preventDefault();
       const icon = e.target;
       if (icon.classList.contains("inactive")) {
         icon.classList.remove("inactive");
@@ -134,7 +133,6 @@ class CardComponent extends HTMLElement {
       }
     }
 
-    card.addEventListener("click", goToPage);
     likeBtn.addEventListener("click", toggleLikeIcon);
   }
 }
