@@ -1,38 +1,41 @@
 import { CardComponent } from "./cardComponent.js";
 import { fetchCardsData } from "./fetchCardsData.js";
 class CardListComponent extends HTMLElement {
-  #url;
+  #prop = null;
+
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    this.url = this.getAttribute("url");
   }
 
-  async connectedCallback() {
-    try {
-      this.cards = await fetchCardsData(this.url);
-      this.render();
-    } catch (error) {
-      console.log(error);
-    }
+  connectedCallback() {
+    this.render();
+  }
+
+  get prop() {
+    return this.#prop;
+  }
+
+  set prop(newProp) {
+    // type checking 추후 구현
+    this.#prop = newProp;
+    this.renderCards();
   }
 
   createCards(card) {
     const cardComponent = new CardComponent(
-      card.imageSrc,
-      card.updateTime,
+      card.imageSource ?? "/static/imgs/default-card-img.png",
       card.description,
-      card.date
+      card.createdAt
     );
     return cardComponent;
   }
 
-  get url() {
-    return this.#url;
-  }
-
-  set url(newUrl) {
-    this.#url = newUrl;
+  renderCards() {
+    this.prop.forEach((card) => {
+      const cardComponent = this.createCards(card);
+      this.cardListContainer.appendChild(cardComponent);
+    });
   }
 
   render() {
@@ -43,13 +46,8 @@ class CardListComponent extends HTMLElement {
 
     const cardListContainer = document.createElement("div");
     cardListContainer.classList.add("card-list-container");
-
-    this.cards.forEach((card) => {
-      const cardComponent = this.createCards(card);
-      cardListContainer.appendChild(cardComponent);
-    });
-
     this.shadowRoot.appendChild(cardListContainer);
+    this.cardListContainer = cardListContainer;
   }
 }
 

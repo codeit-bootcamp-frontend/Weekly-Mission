@@ -3,13 +3,16 @@ import { fetchUserData } from "../api/user.api.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const folderInfoComponent = document.querySelector("folder-info-component");
+  const cardListComponent = document.querySelector("card-list-component");
   fetchFolderData()
     .then((data) => {
       const {
         owner: { name: ownerName, profileImageSource: profileSrc },
         name: folderName,
+        links,
       } = data.folder;
       folderInfoComponent.prop = { profileSrc, ownerName, folderName };
+      cardListComponent.prop = links;
     })
     .catch((err) => {
       console.error(err);

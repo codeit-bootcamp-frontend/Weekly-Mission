@@ -1,6 +1,6 @@
 import { StarComponent } from "../star/starComponent.js";
 export class CardComponent extends HTMLElement {
-  constructor(imageSrc, updateTime, description, date) {
+  constructor(imageSrc, description, date) {
     super();
 
     this.shadow = this.attachShadow({ mode: "open" });
@@ -12,7 +12,7 @@ export class CardComponent extends HTMLElement {
     this.shadow.appendChild(linkElem);
 
     this._imageSrc = imageSrc;
-    this._updateTime = updateTime;
+    this._updateTime = "10 minutes ago";
     this._description = description;
     this._date = date;
   }

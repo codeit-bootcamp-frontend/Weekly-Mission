@@ -1,7 +1,7 @@
 # Weekly-Mission
 ## Week 5
 ### 필수 요구사항
-- [ ] https://bootcamp-api.codeit.kr/docs 에 명세된 “/api/sample/folder”에서 받은 데이터가 카드 컴포넌트에 들어가게 수정해 주세요.
+- [x] https://bootcamp-api.codeit.kr/docs 에 명세된 “/api/sample/folder”에서 받은 데이터가 카드 컴포넌트에 들어가게 수정해 주세요.
 - [x] folder.owner, folder.name 의 데이터도 반영될 수 있도록 수정해 주세요.
 - [x] 상단 네비게이션바에는 “/api/sample/user”에서 받은 데이터를 반영하도록 수정해 주세요.
 
