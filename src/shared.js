@@ -21,6 +21,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   };
 
+  const getFolderInfoContainerProp = (folder) => {
+    return {
+      folderName: folder.name,
+      ownerName: folder.owner.name,
+      profileImgSrc: folder.owner.profileImageSource ?? "/images/avatar.png",
+    };
+  };
+
   const getGnbProp = (userData) => {
     return {
       isLoggedIn: true,
@@ -32,13 +40,18 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const { data: folderData } = await getFolderRequest();
   const cardListProp = getCardListProp(folderData.folder.links);
+  const folderInfoContainerProp = getFolderInfoContainerProp(folderData.folder);
 
   const { data: userData } = await getUserRequest();
   const gnbProp = getGnbProp(userData);
 
   const cardListElem = document.querySelector("custom-link-card-list");
   const gnbElem = document.querySelector("custom-gnb");
+  const folderInfoContainerElem = document.querySelector(
+    "custom-folder-info-container"
+  );
 
   sendPropToElem(cardListElem, cardListProp);
   sendPropToElem(gnbElem, gnbProp);
+  sendPropToElem(folderInfoContainerElem, folderInfoContainerProp);
 });
