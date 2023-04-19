@@ -1,10 +1,11 @@
 import { CardComponent } from "./card-component.js";
 import { fetchCardsData } from "./fetchCardsData.js";
 class CardListComponent extends HTMLElement {
+  #url;
   constructor() {
     super();
-    this.url = this.getAttribute("url");
     this.attachShadow({ mode: "open" });
+    this.url = this.getAttribute("url");
   }
 
   async connectedCallback() {
@@ -24,6 +25,14 @@ class CardListComponent extends HTMLElement {
       card.date
     );
     return cardComponent;
+  }
+
+  get url() {
+    return this.#url;
+  }
+
+  set url(newUrl) {
+    this.#url = newUrl;
   }
 
   render() {
