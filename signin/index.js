@@ -4,17 +4,7 @@ const inputNodes = document.querySelectorAll("input");
 const emailInput = inputNodes[0];
 const passwordInput = inputNodes[1];
 
-function focusin(e) {
-  e.target.classList.add("focus-text-color");
-  e.target.parentElement.classList.add("focus-outline");
-}
-
-function focusout(e) {
-  e.target.classList.remove("focus-text-color");
-  e.target.parentElement.classList.remove("focus-outline");
-}
-
-function checkEmailValid(e) {
+function verifyEmail(e) {
   const emailValue = e.target.value;
 
   if (emailValue === "") {
@@ -24,16 +14,11 @@ function checkEmailValid(e) {
   }
 }
 
-inputNodes.forEach((inputNode) => {
-  inputNode.addEventListener("focusin", focusin);
-  inputNode.addEventListener("focusout", focusout);
-});
-
-emailInput.addEventListener("focusout", checkEmailValid);
+emailInput.addEventListener("focusout", verifyEmail);
 
 const signinForm = document.querySelector(".signin-form");
 
-function checkValidSignin(e) {
+function verifyAccount(e) {
   e.preventDefault();
 
   const emailValue = emailInput.value;
@@ -46,26 +31,22 @@ function checkValidSignin(e) {
   }
 }
 
-signinForm.addEventListener("submit", checkValidSignin);
+signinForm.addEventListener("submit", verifyAccount);
 
-const eyeCloseIcon = document.querySelector(".eye-close");
-const eyeOpenIcon = document.querySelector(".eye-open");
+const eyeIcon = document.querySelector(".eye-icon");
 
-function toggleVisibility(e) {
+function togglePasswordVisibility(e) {
   const passwordInput = e.target.parentElement.children[0];
 
   if (passwordInput.type === "password") {
     passwordInput.type = "text";
-    eyeCloseIcon.classList.add("eye-hidden");
-    eyeOpenIcon.classList.add("eye-visible");
+    eyeIcon.src = "/images/eye-open.svg";
   } else {
     passwordInput.type = "password";
-    eyeCloseIcon.classList.remove("eye-hidden");
-    eyeOpenIcon.classList.remove("eye-visible");
+    eyeIcon.src = "/images/eye-close.svg";
   }
 
   passwordInput.focus();
 }
 
-eyeCloseIcon.addEventListener("click", toggleVisibility);
-eyeOpenIcon.addEventListener("click", toggleVisibility);
+eyeIcon.addEventListener("click", togglePasswordVisibility);

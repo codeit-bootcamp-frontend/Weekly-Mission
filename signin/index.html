@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Linkbrary | 로그인</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/static/css/color.css" />
   </head>
   <body>
     <div class="signin-container">
@@ -19,19 +20,25 @@
       <div class="email-signin-container">
         <form class="signin-form">
           <label for="email">이메일</label>
-          <div class="email-input">
+          <div class="email-wrapper">
             <input id="email" type="text" name="email" placeholder="이메일" />
           </div>
           <label for="password">비밀번호</label>
-          <div class="password-input">
-            <input id="password" type="password" name="password" placeholder="비밀번호" />
-            <img class="eye-close" src="/images/eye-close.svg" />
-            <img class="eye-open" src="/images/eye-open.svg" />
+          <div class="password-wrapper">
+            <input
+              id="password"
+              type="password"
+              name="password"
+              placeholder="비밀번호"
+            />
+            <img class="eye-icon" src="/images/eye-close.svg" />
           </div>
           <button type="submit" class="signin-button">로그인</button>
         </form>
         <div class="forgot-password-content">
-          <a class="forgot-password-link" href="/forgot-password/">비밀번호 찾기</a>
+          <a class="forgot-password-link" href="/forgot-password/"
+            >비밀번호 찾기</a
+          >
         </div>
       </div>
       <div class="social-signin-container">

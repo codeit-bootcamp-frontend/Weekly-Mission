@@ -1,64 +1,58 @@
-const validEmail = /^[a-z0-9]+\@[a-z]+\.[a-z]{2,3}$/;
-const validPassword = /^(?=.*?[a-zA-Z])(?=.*?[0-9]).{8,}$/;
+const emailRegExp = /^[a-z0-9]+\@[a-z]+\.[a-z]{2,3}$/;
+const passwordRegExp = /^(?=.*?[a-zA-Z])(?=.*?[0-9]).{8,}$/;
 
-const inputNodes = document.querySelectorAll("input");
-const emailInput = inputNodes[0];
-const passwordInput = inputNodes[1];
-const passwordRemindInput = inputNodes[2];
+const inputs = document.querySelectorAll("input");
+const emailInput = inputs[0];
+const passwordInput = inputs[1];
+const passwordRemindInput = inputs[2];
 
-function focusin(e) {
-  e.target.classList.add("focus-text-color");
-  e.target.parentElement.classList.add("focus-outline");
-
+/* alert 무한 루프를 해결하기 위해 setTimeout 함수로 focusout 이벤트 핸들러 등록 지연 */
+function addFocusoutHandler(e) {
   if (e.target.id === "email") {
     setTimeout(() => {
-      emailInput.addEventListener("focusout", checkEmailValid);
+      emailInput.addEventListener("focusout", verifyEmail);
     }, 10);
   } else if (e.target.id === "password") {
     setTimeout(() => {
-      passwordInput.addEventListener("focusout", checkPasswordValid);
+      passwordInput.addEventListener("focusout", verifyPassword);
     }, 10);
   }
 }
 
-function focusout(e) {
-  e.target.classList.remove("focus-text-color");
-  e.target.parentElement.classList.remove("focus-outline");
-}
-
-function checkEmailValid(e) {
+function verifyEmail(e) {
   const emailValue = e.target.value;
 
   if (emailValue === "") {
     alert("이메일을 입력해주세요.");
-  } else if (!validEmail.test(emailValue)) {
+  } else if (!emailRegExp.test(emailValue)) {
     alert("올바른 이메일 주소가 아닙니다.");
   } else if (emailValue === "test@codeit.com") {
     alert("이미 사용 중인 아이디입니다.");
   }
-  passwordInput.removeEventListener("focusout", checkPasswordValid);
+  /* 무한 루프를 해결하기 위해 다른쪽 input 태그의 focusout 핸들러 삭제 */
+  passwordInput.removeEventListener("focusout", verifyPassword);
 }
 
-function checkPasswordValid(e) {
+function verifyPassword(e) {
   const passwordValue = e.target.value;
 
-  if (!validPassword.test(passwordValue)) {
+  if (!passwordRegExp.test(passwordValue)) {
     alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
   }
-  emailInput.removeEventListener("focusout", checkEmailValid);
+  /* 무한 루프를 해결하기 위해 다른쪽 input 태그의 focusout 핸들러 삭제 */
+  emailInput.removeEventListener("focusout", verifyEmail);
 }
 
-inputNodes.forEach((inputNode) => {
-  inputNode.addEventListener("focusin", focusin);
-  inputNode.addEventListener("focusout", focusout);
+inputs.forEach((input) => {
+  input.addEventListener("focusin", addFocusoutHandler);
 });
 
-emailInput.addEventListener("focusout", checkEmailValid);
-passwordInput.addEventListener("focusout", checkPasswordValid);
+emailInput.addEventListener("focusout", verifyEmail);
+passwordInput.addEventListener("focusout", verifyPassword);
 
 const signupForm = document.querySelector(".signup-form");
 
-function checkValidSignup(e) {
+function verifyAccount(e) {
   e.preventDefault();
 
   const emailValue = emailInput.value;
@@ -67,11 +61,11 @@ function checkValidSignup(e) {
 
   if (emailValue === "") {
     alert("이메일을 입력해주세요.");
-  } else if (!validEmail.test(emailValue)) {
+  } else if (!emailRegExp.test(emailValue)) {
     alert("올바른 이메일 주소가 아닙니다.");
   } else if (emailValue === "test@codeit.com") {
     alert("이미 사용 중인 아이디입니다.");
-  } else if (!validPassword.test(passwordValue)) {
+  } else if (!passwordRegExp.test(passwordValue)) {
     alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
   } else if (passwordValue !== passwordRemindValue) {
     alert("비밀번호 확인이 맞지 않습니다.");
@@ -79,41 +73,31 @@ function checkValidSignup(e) {
     location.href = "/my-link/";
   }
 
-  passwordInput.removeEventListener("focusout", checkPasswordValid);
-  emailInput.removeEventListener("focusout", checkEmailValid);
+  passwordInput.removeEventListener("focusout", verifyPassword);
+  emailInput.removeEventListener("focusout", verifyEmail);
 }
 
-signupForm.addEventListener("submit", checkValidSignup);
+signupForm.addEventListener("submit", verifyAccount);
 
-const eyeCloseIcons = document.querySelectorAll(".eye-close");
-const eyeOpenIcons = document.querySelectorAll(".eye-open");
+const eyeIcons = document.querySelectorAll(".eye-icon");
 
-const passwordEyeClose = eyeCloseIcons[0];
-const passwordEyeOpen = eyeOpenIcons[0];
+const passwordEyeIcon = eyeIcons[0];
+const passwordRemindEyeIcon = eyeIcons[1];
 
-const passwordRemindEyeClose = eyeCloseIcons[1];
-const passwordRemindEyeOpen = eyeOpenIcons[1];
-
-function toggleVisibility(e) {
-  const passwordInput = e.target.parentElement.children[0];
-  const eyeClose = e.target.parentElement.children[1];
-  const eyeOpen = e.target.parentElement.children[2];
+function togglePasswordVisibility(e) {
+  const passwordInput = e.target.previousElementSibling;
+  const eyeIcon = e.target;
 
   if (passwordInput.type === "password") {
     passwordInput.type = "text";
-    eyeClose.classList.add("eye-hidden");
-    eyeOpen.classList.add("eye-visible");
+    eyeIcon.src = "/images/eye-open.svg";
   } else {
     passwordInput.type = "password";
-    eyeClose.classList.remove("eye-hidden");
-    eyeOpen.classList.remove("eye-visible");
+    eyeIcon.src = "/images/eye-close.svg";
   }
 
   passwordInput.focus();
 }
 
-passwordEyeClose.addEventListener("click", toggleVisibility);
-passwordEyeOpen.addEventListener("click", toggleVisibility);
-
-passwordRemindEyeClose.addEventListener("click", toggleVisibility);
-passwordRemindEyeOpen.addEventListener("click", toggleVisibility);
+passwordEyeIcon.addEventListener("click", togglePasswordVisibility);
+passwordRemindEyeIcon.addEventListener("click", togglePasswordVisibility);
