@@ -49,7 +49,7 @@ export class CardComponent extends HTMLElement {
 
     const cardDate = document.createElement("div");
     cardDate.classList.add("card-date");
-    cardDate.textContent = this._date;
+    cardDate.textContent = this.parseDate(this._date);
 
     cardInfoHead.appendChild(cardUpdateTime);
     cardInfoHead.appendChild(kebabIcon);
@@ -74,6 +74,14 @@ export class CardComponent extends HTMLElement {
     cardContainer.addEventListener("click", (e) =>
       window.open("https://www.codeit.kr")
     );
+  }
+
+  parseDate(dateString) {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    return [year, month, day].join(". ");
   }
 
   handleMouseOver() {
