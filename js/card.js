@@ -16,6 +16,7 @@ class CardComponent extends HTMLElement {
           box-shadow: 0px 5px 25px rgba(0,0,0,0.1);
           overflow: hidden;
           width: 340px;
+          cursor: pointer;
         }
         .like-btn {
           cursor: pointer;
@@ -82,9 +83,6 @@ class CardComponent extends HTMLElement {
         .card-date {
           font-size: 14px;
           color: #333333;
-        }
-        .card:hover {
-          cursor: pointer;
         }
         .card:hover .card-image {
           background-size: 120%;
