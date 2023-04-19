@@ -42,6 +42,7 @@ export class FolderInfo extends HTMLElement {
       return;
     }
     this.#prop = newProp;
+    this.showFolderInfo();
   }
 
   showFolderInfo() {
