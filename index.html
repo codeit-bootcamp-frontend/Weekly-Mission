@@ -4,38 +4,59 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요!" />
+    <meta
+      name="description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요!"
+    />
     <meta property="og:image" content="images/og_image.png" />
-    <meta property="og:title" content="링크브러리 | 세상의 모든 링크를 한 곳에" />
-    <meta property="og:description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요!" />
-    <meta property="og:url" content="linkbrary.com">
+    <meta
+      property="og:title"
+      content="링크브러리 | 세상의 모든 링크를 한 곳에"
+    />
+    <meta
+      property="og:description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요!"
+    />
+    <meta property="og:url" content="linkbrary.com" />
     <meta property="og:site_name" content="링크브러리" />
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://kennylinkbrary.netlify.app/images/og_image.png">
-    <meta name="twitter:title" content="링크브러리 | 세상의 모든 링크를 한 곳에" />
-    <meta name="twitter:description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요!" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://kennylinkbrary.netlify.app/images/og_image.png"
+    />
+    <meta
+      name="twitter:title"
+      content="링크브러리 | 세상의 모든 링크를 한 곳에"
+    />
+    <meta
+      name="twitter:description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요!"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/index.css" />
     <link rel="icon" type="image/png" href="images/icon.png" />
     <title>Linkbrary</title>
+    <script src="/src/navScroll.js"></script>
   </head>
   <body>
     <header>
-      <div id="header-wrapper">
-        <nav>
-          <a href="/">
-            <img src="images/logo.svg" />
-          </a>
-          <a id="login-btn" href="signin.html">로그인</a>
-        </nav>
+      <div id="nav-wrapper">
+        <custom-gnb></custom-gnb>
       </div>
     </header>
     <main>
       <div id="intro-wrapper">
         <div class="intro-section">
           <h1>
-            <span>세상의 모든 정보</span>를 <br /><span class="tablet-nl">쉽게 저장하고</span> 관리해 보세요
+            <span>세상의 모든 정보</span>를 <br /><span class="tablet-nl"
+              >쉽게 저장하고</span
+            >
+            관리해 보세요
           </h1>
           <a href="#">링크 추가하기</a>
           <div id="landing-img-container">
@@ -121,30 +142,8 @@
       </div>
     </main>
     <footer>
-      <div id="footer-wrapper">
-        <div class="bottom-nav">
-          <div id="copyright">codeit - 2023</div>
-          <div id="internal-links">
-            <div><a href="/privacy.html">Privacy Policy</a><a id="faq-link" href="/faq.html"">FAQ</a></div>
-          </div>
-          <div id="external-links">
-            <div class="iconbox">
-              <a href="https://www.facebook.com/" target="_blank">
-                <img src="images/facebook.svg" />
-              </a>
-              <a href="https://twitter.com/" target="_blank">
-                <img src="images/twitter.svg" />
-              </a>
-              <a href="https://www.youtube.com/" target="_blank">
-                <img src="images/youtube.svg" />
-              </a>
-              <a href="https://www.instagram.com/" target="_blank">
-                <img src="images/instagram.svg" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <custom-footer></custom-footer>
     </footer>
+    <script src="/src/app.js" type="module"></script>
   </body>
 </html>

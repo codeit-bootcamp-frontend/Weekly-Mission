@@ -10,8 +10,9 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
     />
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/shared.css" />
     <link rel="icon" type="image/png" href="images/icon.png" />
-    <title>나의 링크 - Linkbrary</title>
+    <title>shared - Linkbrary</title>
     <script src="/src/navScroll.js"></script>
   </head>
   <body>
@@ -20,7 +21,27 @@
         <custom-gnb></custom-gnb>
       </div>
     </header>
-    <main>나의 링크</main>
+    <main>
+      <section class="intro-section">
+        <div class="user-info-container">
+          <div class="profile-container">
+            <div class="profile-img-box">
+              <img src="/images/avatar.png" alt="avatar" />
+            </div>
+            <p class="username">@코드잇</p>
+          </div>
+          <h1 class="title">⭐️즐겨찾기</h1>
+        </div>
+      </section>
+      <section class="card-section">
+        <div class="search-bar-wrapper">
+          <custom-search-bar></custom-search-bar>
+        </div>
+        <div class="card-list-wrapper">
+          <custom-link-card-list></custom-link-card-list>
+        </div>
+      </section>
+    </main>
     <footer>
       <custom-footer></custom-footer>
     </footer>
