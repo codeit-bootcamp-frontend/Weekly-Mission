@@ -1,0 +1,57 @@
+{
+  "cards": [
+    {
+      "imageSrc": "/static/data/card/card-mockup-img1.png",
+      "updateTime": "10 minutes ago",
+      "description": "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
+      "date": "2023. 3. 15"
+    },    
+    {
+      "imageSrc": "/static/data/card/card-mockup-img2.png",
+      "updateTime": "10 minutes ago",
+      "description": "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
+      "date": "2023. 3. 15"
+    },
+    {
+      "imageSrc": "/static/data/card/card-mockup-img3.png",
+      "updateTime": "10 minutes ago",
+      "description": "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
+      "date": "2023. 3. 15"
+    },   
+    {
+      "imageSrc": "/static/data/card/card-mockup-img4.png",
+      "updateTime": "10 minutes ago",
+      "description": "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
+      "date": "2023. 3. 15"
+    },    {
+      "imageSrc": "/static/data/card/card-mockup-img5.png",
+      "updateTime": "10 minutes ago",
+      "description": "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
+      "date": "2023. 3. 15"
+    },    
+    {
+      "imageSrc": "/static/data/card/card-mockup-img6.png",
+      "updateTime": "10 minutes ago",
+      "description": "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
+      "date": "2023. 3. 15"
+    },
+    {
+      "imageSrc": "/static/data/card/card-mockup-img7.png",
+      "updateTime": "10 minutes ago",
+      "description": "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
+      "date": "2023. 3. 15"
+    },   
+    {
+      "imageSrc": "/static/data/card/card-mockup-img8.png",
+      "updateTime": "10 minutes ago",
+      "description": "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
+      "date": "2023. 3. 15"
+    },
+    {
+      "imageSrc": "/static/data/card/card-mockup-img9.png",
+      "updateTime": "10 minutes ago",
+      "description": "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
+      "date": "2023. 3. 15"
+    }
+  ]
+}

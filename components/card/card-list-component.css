@@ -1,0 +1,25 @@
+@import url("/static/css/global_style.css");
+
+.card-list-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  gap: 2rem;
+
+  margin-bottom: 10rem;
+}
+
+@media screen and (max-width: 1100px) {
+  .card-list-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card-list-container {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2.5rem;
+    margin-top: 1.2rem;
+    margin-bottom: 6rem;
+  }
+}

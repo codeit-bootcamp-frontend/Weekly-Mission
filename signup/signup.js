@@ -1,11 +1,9 @@
 const email = document.querySelector("#signup-email");
 const password = document.querySelector("#signup-password");
 const signupForm = document.querySelector("form");
-const inputs = document.querySelectorAll(".input");
-let isAlertShown = false;
 
 // validation 함수
-function isValidEmail(e) {
+const isValidEmail = (e) => {
   const emailRegex = "^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
 
   if (e.sourceCapabilities === null) {
@@ -14,7 +12,6 @@ function isValidEmail(e) {
 
   if (email.value === "") {
     alert("이메일을 입력해주세요.");
-    // removeFocusOutEventListener(e);
     return false;
   } else if (!email.value.match(emailRegex)) {
     alert("올바른 이메일 주소가 아닙니다.");
@@ -24,9 +21,9 @@ function isValidEmail(e) {
     return false;
   }
   return true;
-}
+};
 
-function isValidPassword(e) {
+const isValidPassword = (e) => {
   const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
 
   if (e.sourceCapabilities === null) {
@@ -38,48 +35,31 @@ function isValidPassword(e) {
     return false;
   }
   return true;
-}
+};
 
-function isValidPasswordCheck(e) {
+const isValidPasswordCheck = (e) => {
   const passwordCheck = document.getElementById("signup-password-check").value;
   if (password.value !== passwordCheck) {
     alert("비밀번호 확인이 일치하지 않습니다.");
     return false;
   }
   return true;
-}
+};
 
-function addFocusOutEventListener(e) {
-  if (e.target === email) {
-    e.target.addEventListener("focusout", isValidEmail);
-  } else if (e.target === password) {
-    e.target.addEventListener("focusout", isValidPassword);
-  }
-}
-
-function isValidForm(e) {
+const isValidForm = (e) => {
   e.preventDefault();
-  if (isValidEmail(e) || isValidPassword(e) || isValidPasswordCheck(e)) {
+  if (isValidEmail(e) && isValidPassword(e) && isValidPasswordCheck(e)) {
+    sessionStorage.clear();
+    sessionStorage.setItem("isLoggedIn", "true");
+    sessionStorage.setItem("email", email.value);
+    sessionStorage.setItem("password", password.value);
     location.href = "../my-link/";
   }
-}
+};
 
-// inputbox focus text color 변경
-function focusInTextColor(e) {
-  e.target.classList.add("input-focus-text-color");
-}
-
-function focusOutTextColor(e) {
-  e.target.classList.remove("input-focus-text-color");
-}
-
-inputs.forEach((input) => {
-  input.addEventListener("focusin", focusInTextColor);
-  input.addEventListener("focusout", focusOutTextColor);
-  // validation에 대한 event listener 등록
-  input.addEventListener("focusin", addFocusOutEventListener);
-});
-
+// validation에 대한 event listener 등록
+email.addEventListener("focusout", isValidEmail);
+password.addEventListener("focusout", isValidPassword);
 signupForm.addEventListener("submit", isValidForm);
 
 // eye toggle
@@ -88,18 +68,16 @@ const passwordEyeIcon = eyeIcons[0];
 const passwordCheckEyeIcon = eyeIcons[0];
 
 eyeIcons.forEach((eyeIcon) => {
+  let visiblity = false;
+
   eyeIcon.addEventListener("pointerdown", (e) => {
     e.preventDefault();
-    const target = e.target.previousSibling;
 
-    if (eyeIcon.classList.contains("fa-eye-slash")) {
-      eyeIcon.classList.remove("fa-eye-slash");
-      eyeIcon.classList.add("fa-eye");
-      target.type = "text";
-    } else if (eyeIcon.classList.contains("fa-eye")) {
-      eyeIcon.classList.remove("fa-eye");
-      eyeIcon.classList.add("fa-eye-slash");
-      target.type = "password";
-    }
+    const target = e.target.previousSibling;
+    visiblity = !visiblity;
+
+    visiblity ? (target.type = "text") : (target.type = "password");
+    eyeIcon.classList.toggle("fa-eye-slash");
+    eyeIcon.classList.toggle("fa-eye");
   });
 });
