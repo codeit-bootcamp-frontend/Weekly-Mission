@@ -1,8 +1,9 @@
 export class StarComponent extends HTMLElement {
+  #isStarred;
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    this._isStarred = false;
+    this.isStarred = false;
   }
 
   static get observedAttributes() {
@@ -18,6 +19,14 @@ export class StarComponent extends HTMLElement {
       this._isStarred = newValue === "true";
       this.handleStarIcon();
     }
+  }
+
+  get isStarred() {
+    return this.#isStarred;
+  }
+
+  set isStarred(newIsStarred) {
+    this.#isStarred = newIsStarred;
   }
 
   handleStarIcon() {
@@ -50,6 +59,12 @@ export class StarComponent extends HTMLElement {
         `;
   }
 
+  handleStarClick(event) {
+    event.stopPropagation();
+    this.isStarred = !this.isStarred;
+    this.setAttribute("isStarred", this.isStarred);
+  }
+
   render() {
     const linkElem = document.createElement("link");
     linkElem.setAttribute("rel", "stylesheet");
@@ -60,12 +75,9 @@ export class StarComponent extends HTMLElement {
     starIcon.innerHTML = this.template;
     this.shadowRoot.appendChild(starIcon.content.cloneNode(true));
 
-    this.setAttribute("isStarred", this._isStarred);
+    this.setAttribute("isStarred", this.isStarred);
 
-    this.addEventListener("click", (event) => {
-      event.stopPropagation();
-      this.setAttribute("isStarred", !this._isStarred);
-    });
+    this.addEventListener("click", this.handleStarClick.bind(this));
   }
 }
 customElements.define("star-icon", StarComponent);
