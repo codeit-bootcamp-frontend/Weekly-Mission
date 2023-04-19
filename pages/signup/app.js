@@ -8,6 +8,8 @@ import { validationUsers } from "../../utils/validationUsers.js";
 (function () {
   // states & elements
   let passwordWithEyeIconsFlag = false;
+  let alreadyEmailValidation = false;
+  let alreadyPasswordValidation = false;
 
   const CURRENT_INPUT = {
     email: "",
@@ -39,7 +41,13 @@ import { validationUsers } from "../../utils/validationUsers.js";
       });
     });
 
+    emailInput.addEventListener("focusin", () => {
+      alreadyEmailValidation = false;
+    });
+
     emailInput.addEventListener("focusout", () => {
+      if (alreadyEmailValidation) return;
+
       CURRENT_INPUT.email = validationUserEmail(
         emailInput.value.trim(),
         "signup"
@@ -47,19 +55,30 @@ import { validationUsers } from "../../utils/validationUsers.js";
       emailInput.style.color = "#3e3e43";
     });
 
+    passwordInput.addEventListener("focusin", () => {
+      alreadyPasswordValidation = false;
+    });
+
     passwordInput.addEventListener("focusout", () => {
       if (passwordWithEyeIconsFlag) return;
+      if (alreadyPasswordValidation) return;
 
       const userPassword = passwordInput.value;
 
       let timer = setTimeout(() => {
-        validationUserPassword(userPassword)
-          ? (CURRENT_INPUT.password = userPassword)
-          : alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
+        if (validationUserPassword(userPassword)) {
+          CURRENT_INPUT.password = userPassword;
+        } else {
+          alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
+          alreadyPasswordValidation = true;
+        }
 
         passwordInput.style.color = "#3e3e43";
         clearTimeout(timer);
       }, 500);
+
+      alreadyEmailValidation = true;
+      alreadyPasswordValidation = true;
     });
 
     confirmPasswordInput.addEventListener("click", () => {
@@ -68,6 +87,8 @@ import { validationUsers } from "../../utils/validationUsers.js";
       validationUserPassword(userPassword)
         ? (CURRENT_INPUT.password = userPassword)
         : alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
+
+      alreadyEmailValidation = true;
     });
 
     confirmPasswordInput.addEventListener("focusout", () => {
