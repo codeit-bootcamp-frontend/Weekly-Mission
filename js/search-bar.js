@@ -12,7 +12,6 @@ class SearchBar extends HTMLElement {
           display: flex;
           align-items: center;
           position: relative;
-          width: 1060px;
         }
         .search-bar input {
           width: 100%;
@@ -28,16 +27,6 @@ class SearchBar extends HTMLElement {
           width: 12px;
           position: absolute;
           left: 15px;
-        }
-        @media (max-width: 1199px) {
-          .search-bar {
-            width: 704px;
-          }
-        }
-        @media (max-width: 767px) {
-          .search-bar {
-            width: 325px;
-          }
         }
       </style>
       <div class="search-bar">
