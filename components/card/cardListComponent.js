@@ -1,4 +1,4 @@
-import { CardComponent } from "./card-component.js";
+import { CardComponent } from "./cardComponent.js";
 import { fetchCardsData } from "./fetchCardsData.js";
 class CardListComponent extends HTMLElement {
   #url;

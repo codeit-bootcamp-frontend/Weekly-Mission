@@ -1,4 +1,4 @@
-import { StarComponent } from "../star/star-component.js";
+import { StarComponent } from "../star/starComponent.js";
 export class CardComponent extends HTMLElement {
   constructor(imageSrc, updateTime, description, date) {
     super();
