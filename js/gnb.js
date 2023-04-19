@@ -98,7 +98,7 @@ class LoggedOutHeader extends HTMLElement {
       <style>
         @import url("./css/reset.css");
         .header {
-          z-index: 9999;
+          z-index: 1;
           position: sticky;
           top: 0;
           background-color: var(--gray-5);
