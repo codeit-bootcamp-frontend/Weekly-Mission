@@ -36,7 +36,7 @@ class Star extends HTMLElement {
     const likeBtn = shadowRoot.querySelector(".like-btn");
 
     function toggleLikeIcon(e) {
-      e.stopPropagation();
+      e.preventDefault();
       const icon = e.target;
       if (icon.classList.contains("inactive")) {
         icon.classList.remove("inactive");
@@ -46,7 +46,6 @@ class Star extends HTMLElement {
         icon.classList.add("inactive");
       }
     }
-
     likeBtn.addEventListener("click", toggleLikeIcon);
   }
 }
