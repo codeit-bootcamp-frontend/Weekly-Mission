@@ -96,6 +96,13 @@ class Card extends HTMLElement {
       .p-box .post-date {
         font-weight: 400;
       }
+
+      @media (min-width: 375px) and (max-width: 767px) {
+        .card {
+          width: 325px;
+        }
+      }
+
     </style>
     <div class="card">
       <div class='img-box'>
@@ -135,7 +142,6 @@ class Card extends HTMLElement {
     const imgbox = this.shadowRoot.querySelector('.img-box');
     imgbox.appendChild(this.starImg);
     const card = this.shadowRoot.querySelector('.card');
-    console.log(card);
     card.addEventListener('click', this.goToCodeit);
   }
 
