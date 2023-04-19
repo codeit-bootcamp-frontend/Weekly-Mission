@@ -55,6 +55,7 @@ export class FolderInfo extends HTMLElement {
   render() {
     const styles = document.createElement("link");
     styles.href = "/components/folder-info/folder-info.css";
+    styles.rel = "stylesheet";
 
     this.shadow.appendChild(styles);
     this.shadow.innerHTML += this.template;
