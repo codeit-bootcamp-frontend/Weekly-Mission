@@ -1,3 +1,8 @@
+import {
+  getItemLocalStorage,
+  setItemLocalStorage,
+  setItemSessiontorage,
+} from "../hooks/browserStorage.js";
 import { validationUserPassword } from "./validationUserPassword.js";
 
 const ERROR_MESSAGES = {
@@ -9,94 +14,118 @@ const ERROR_MESSAGES = {
   ],
 };
 
+const simpleValidationPassword = (comparePassword1, comparePassword2) => {
+  if (comparePassword1 !== comparePassword2) return false;
+  return true;
+};
+const simpleValidationEmail = (compareEmail1, compareEmail2) => {
+  if (compareEmail1 !== compareEmail2) return false;
+  return true;
+};
+
+const signupValidation = (
+  simpleCheckEmail,
+  checkValidationPassword,
+  simpleCheckPassword
+) => {
+  let errorIndex = -1;
+  let flag = false;
+
+  if (simpleCheckEmail) {
+    errorIndex = 0;
+    flag = true;
+  } else if (checkValidationPassword) {
+    errorIndex = 1;
+    flag = true;
+  } else if (simpleCheckPassword) {
+    errorIndex = 2;
+    flag = true;
+  }
+
+  if (flag && errorIndex >= 0) return { errorIndex, flag };
+  else return false;
+};
+
+const signinValidation = (simpleValidationEmail, simpleValidationPassword) => {
+  if (simpleValidationEmail && simpleValidationPassword) return true;
+  return false;
+};
+
 export const validationUsers = (
   type,
   inputEmail,
   inputPassword,
   inputConfirmPassword = ""
 ) => {
-  if (!inputEmail || !inputPassword) {
-    return;
-  }
+  if (!inputEmail || !inputPassword) return;
 
   let flag = false;
   let errorIndex = -1;
 
-  const USERS = JSON.parse(localStorage.getItem("users"));
+  const USERS = getItemLocalStorage("users", {});
 
-  if (type === "signin") {
-    const CURRENT_INPUT = { email: inputEmail, password: inputPassword };
+  switch (type) {
+    case "signin":
+      {
+        Object.keys(USERS).length &&
+          USERS.forEach((user) => {
+            if (signinValidation) {
+              flag = true;
+              return;
+            }
+          });
 
-    USERS.forEach((user) => {
-      if (
-        CURRENT_INPUT.email === user.email &&
-        CURRENT_INPUT.password === user.password
-      ) {
-        flag = true;
-        return;
+        if (flag) {
+          setItemSessiontorage("currentUser", {
+            email: inputEmail,
+            password: inputPassword,
+          });
+
+          location.href = "/pages/my-link";
+        } else {
+          alert(ERROR_MESSAGES[type][0]);
+        }
       }
-    });
+      break;
+    case "signup":
+      {
+        Object.keys(USERS).length &&
+          USERS.forEach((user) => {
+            if (flag) return;
 
-    if (flag) {
-      sessionStorage.setItem(
-        "currentUser",
-        JSON.stringify({
-          email: CURRENT_INPUT.email,
-          password: CURRENT_INPUT.password,
-        })
-      );
+            const check = signupValidation(
+              simpleValidationEmail(inputEmail, user.email),
+              !validationUserPassword(inputPassword),
+              !simpleValidationPassword(inputPassword, inputConfirmPassword)
+            );
 
-      location.href = "/pages/my-link";
-    } else {
-      alert(ERROR_MESSAGES[type][0]);
-    }
-  } else if (type === "signup") {
-    const CURRENT_INPUT = {
-      email: inputEmail,
-      password: inputPassword,
-      confirmPassword: inputConfirmPassword,
-    };
+            if (check) {
+              errorIndex = check.errorIndex;
+              flag = check.flag;
+            }
+          });
 
-    console.log(222);
+        if (!flag) {
+          setItemLocalStorage("users", [
+            ...USERS,
+            {
+              email: inputEmail,
+              password: inputPassword,
+            },
+          ]);
 
-    for (let i = 0; i < USERS.length; i++) {
-      if (flag) break;
+          setItemSessiontorage("currentUser", {
+            email: inputEmail,
+            password: inputPassword,
+          });
 
-      if (CURRENT_INPUT.email === USERS[i].email) {
-        errorIndex = 0;
-        flag = true;
-      } else if (!validationUserPassword(CURRENT_INPUT.password)) {
-        errorIndex = 1;
-        flag = true;
-      } else if (CURRENT_INPUT.password !== CURRENT_INPUT.confirmPassword) {
-        errorIndex = 2;
-        flag = true;
+          location.href = "/pages/my-link";
+        } else {
+          alert(ERROR_MESSAGES[type][errorIndex]);
+        }
       }
-    }
-
-    if (!flag) {
-      localStorage.setItem(
-        "users",
-        JSON.stringify([
-          ...USERS,
-          {
-            email: CURRENT_INPUT.email,
-            password: CURRENT_INPUT.password,
-          },
-        ])
-      );
-
-      sessionStorage.setItem(
-        "currentUser",
-        JSON.stringify({
-          email: CURRENT_INPUT.email,
-          password: CURRENT_INPUT.password,
-        })
-      );
-
-      location.href = "/pages/my-link";
-    } else {
-      alert(ERROR_MESSAGES[type][errorIndex]);
-    }
+      break;
+    default:
+      return;
   }
 };
