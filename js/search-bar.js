@@ -1,4 +1,4 @@
-class searchBar extends HTMLElement {
+class SearchBar extends HTMLElement {
   constructor() {
     super();
     // Shadow DOM 생성
@@ -51,4 +51,4 @@ class searchBar extends HTMLElement {
 }
 
 // Custom Element 등록
-window.customElements.define("search-bar", searchBar);
+window.customElements.define("search-bar", SearchBar);
