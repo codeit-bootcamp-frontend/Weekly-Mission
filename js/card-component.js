@@ -18,26 +18,11 @@ class Card extends HTMLElement {
           width: 340px;
           cursor: pointer;
         }
-        .like-btn {
+        star-component {
           cursor: pointer;
-          width: 45px;
-          height: 45px;
           position: absolute; 
           top: 10px;
           right: 10px;
-          background-color: transparent;
-        }
-        .inactive {
-          background-image: url(./img/star-inactive.png);
-          background-size: 30px;
-          background-position: center;
-          background-repeat: no-repeat;
-        }
-        .active {
-          background-image: url(./img/star-active.png);
-          background-size: 30px;
-          background-position: center;
-          background-repeat: no-repeat;
         }
         .card-image {
           height: 200px;
@@ -101,7 +86,7 @@ class Card extends HTMLElement {
       </style>
       <a href="https://www.codeit.kr">
         <article class="card">
-          <button class="like-btn inactive"></button>
+          <star-component></star-component>
           <div class="card-image"></div> 
           <div class="card-body">
             <button class="menu-btn">
@@ -113,6 +98,7 @@ class Card extends HTMLElement {
           </div> 
         </article>
       </a>
+      <script type="module" src="./js/star-component.js"></script>
     `;
     // Shadow DOM에 템플릿 추가
     shadowRoot.appendChild(template.content.cloneNode(true));
