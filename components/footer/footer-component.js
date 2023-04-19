@@ -2,22 +2,27 @@ class FooterComponent extends HTMLElement {
   constructor() {
     super();
 
-    const shadow = this.attachShadow({ mode: "open" });
+    this.attachShadow({ mode: "open" });
+  }
 
+  connectedCallback() {
+    this.render();
+  }
+  createLinkElement() {
     const linkElem = document.createElement("link");
     linkElem.setAttribute("rel", "stylesheet");
     linkElem.setAttribute("href", "/components/footer/footer-component.css");
-    shadow.appendChild(linkElem);
+    return linkElem;
+  }
 
-    const footerContainer = document.createElement("footer");
-
-    const footerWrap = document.createElement("div");
-    footerWrap.classList.add("footer-wrap");
-
+  createCopyRightElement() {
     const copyRight = document.createElement("p");
-    copyRight.classList.add("copyright");
     copyRight.textContent = "©codeit - 2023";
+    copyRight.classList.add("copyright");
+    return copyRight;
+  }
 
+  createPrivacyPolicyFaqElement() {
     const privacyPolicyFaq = document.createElement("div");
     privacyPolicyFaq.classList.add("privacy-policy-faq");
 
@@ -34,53 +39,65 @@ class FooterComponent extends HTMLElement {
     privacyPolicyFaq.appendChild(privacyPolicy);
     privacyPolicyFaq.appendChild(faq);
 
+    return privacyPolicyFaq;
+  }
+
+  createFooterImgsElement() {
     const footerImgs = document.createElement("div");
     footerImgs.classList.add("footer-imgs");
+    const socialMediaLinks = [
+      {
+        href: "https://ko-kr.facebook.com/",
+        alt: "facebook",
+        src: "/static/imgs/facebook.svg",
+      },
+      {
+        href: "https://twitter.com/?lang=ko",
+        alt: "twitter",
+        src: "/static/imgs/twitter.svg",
+      },
+      {
+        href: "https://www.youtube.com/?gl=KR",
+        alt: "youtube",
+        src: "/static/imgs/youtube.svg",
+      },
+      {
+        href: "https://www.instagram.com/",
+        alt: "insta",
+        src: "/static/imgs/insta.svg",
+      },
+    ];
 
-    const facebook = document.createElement("a");
-    facebook.href = "https://ko-kr.facebook.com/";
+    for (let i = 0; i < socialMediaLinks.length; i++) {
+      const socialMediaLink = document.createElement("a");
+      socialMediaLink.href = socialMediaLinks[i].href;
 
-    const facebookImg = document.createElement("img");
-    facebookImg.alt = "facebook";
-    facebookImg.src = "/static/imgs/facebook.svg";
-    facebook.appendChild(facebookImg);
+      const socialMediaImg = document.createElement("img");
+      socialMediaImg.alt = socialMediaLinks[i].alt;
+      socialMediaImg.src = socialMediaLinks[i].src;
+      socialMediaLink.appendChild(socialMediaImg);
+      footerImgs.appendChild(socialMediaLink);
+    }
+    return footerImgs;
+  }
 
-    const twitter = document.createElement("a");
-    twitter.href = "https://twitter.com/?lang=ko";
+  createFooterWrapElement() {
+    const footerWrap = document.createElement("div");
+    footerWrap.classList.add("footer-wrap");
 
-    const twitterImg = document.createElement("img");
-    twitterImg.alt = "twitter";
-    twitterImg.src = "/static/imgs/twitter.svg";
-    twitter.appendChild(twitterImg);
+    footerWrap.appendChild(this.createCopyRightElement());
+    footerWrap.appendChild(this.createPrivacyPolicyFaqElement());
+    footerWrap.appendChild(this.createFooterImgsElement());
 
-    const youtube = document.createElement("a");
-    youtube.href = "https://www.youtube.com/?gl=KR";
+    return footerWrap;
+  }
 
-    const youtubeImg = document.createElement("img");
-    youtubeImg.alt = "youtube";
-    youtubeImg.src = "/static/imgs/youtube.svg";
-    youtube.appendChild(youtubeImg);
+  render() {
+    const footerContainer = document.createElement("footer");
+    footerContainer.appendChild(this.createLinkElement());
+    footerContainer.appendChild(this.createFooterWrapElement());
 
-    const instagram = document.createElement("a");
-    instagram.href = "https://www.instagram.com/";
-
-    const instaImg = document.createElement("img");
-    instaImg.alt = "insta";
-    instaImg.src = "/static/imgs/insta.svg";
-    instagram.appendChild(instaImg);
-
-    footerImgs.appendChild(facebook);
-    footerImgs.appendChild(twitter);
-    footerImgs.appendChild(youtube);
-    footerImgs.appendChild(instagram);
-
-    footerWrap.appendChild(copyRight);
-    footerWrap.appendChild(privacyPolicyFaq);
-    footerWrap.appendChild(footerImgs);
-
-    footerContainer.appendChild(footerWrap);
-
-    shadow.appendChild(footerContainer);
+    this.shadowRoot.appendChild(footerContainer);
   }
 }
 
