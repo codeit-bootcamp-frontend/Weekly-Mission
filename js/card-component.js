@@ -102,24 +102,6 @@ class Card extends HTMLElement {
     `;
     // Shadow DOM에 템플릿 추가
     shadowRoot.appendChild(template.content.cloneNode(true));
-
-    // 별 아이콘 클릭시 활성 기능 추가
-    const card = shadowRoot.querySelector(".card");
-    const likeBtn = shadowRoot.querySelector(".like-btn");
-
-    function toggleLikeIcon(e) {
-      e.preventDefault();
-      const icon = e.target;
-      if (icon.classList.contains("inactive")) {
-        icon.classList.remove("inactive");
-        icon.classList.add("active");
-      } else {
-        icon.classList.remove("active");
-        icon.classList.add("inactive");
-      }
-    }
-
-    likeBtn.addEventListener("click", toggleLikeIcon);
   }
 }
 
