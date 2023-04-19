@@ -16,7 +16,6 @@ class GnbComponent extends HTMLElement {
 
   set prop(newProp) {
     this.#prop = newProp;
-    console.log(this.loginButton);
     this.gnbContainer.removeChild(this.loginButton);
 
     const loginButton = this.checkLoginStatus();
