@@ -1,4 +1,5 @@
 class GnbComponent extends HTMLElement {
+  #isLoggedIn;
   constructor() {
     super();
 
@@ -9,9 +10,17 @@ class GnbComponent extends HTMLElement {
     this.render();
   }
 
+  get isLoggedIn() {
+    return this.#isLoggedIn;
+  }
+
+  set isLoggedIn(newIsLoggedIn) {
+    this.#isLoggedIn = newIsLoggedIn;
+  }
+
   checkLoginStatus() {
-    const isLoggedIn = sessionStorage.getItem("isLoggedIn");
-    const loginStatusElement = isLoggedIn
+    this.isLoggedIn = sessionStorage.getItem("isLoggedIn");
+    const loginStatusElement = this.isLoggedIn
       ? this.createLoggedInText()
       : this.createLoginButton();
     return loginStatusElement;
