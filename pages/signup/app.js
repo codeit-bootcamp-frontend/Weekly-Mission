@@ -48,10 +48,12 @@ import { validationUsers } from "../../utils/validationUsers.js";
     });
 
     passwordInput.addEventListener("focusout", () => {
+      if (passwordWithEyeIconsFlag) return;
+
       const userPassword = passwordInput.value;
 
       let timer = setTimeout(() => {
-        validationUserPassword(userPassword, passwordWithEyeIconsFlag)
+        validationUserPassword(userPassword)
           ? (CURRENT_INPUT.password = userPassword)
           : alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
 
@@ -61,13 +63,11 @@ import { validationUsers } from "../../utils/validationUsers.js";
     });
 
     confirmPasswordInput.addEventListener("click", () => {
-      passwordWithEyeIconsFlag = false;
+      const userPassword = passwordInput.value;
 
-      validationUserPassword(passwordInput.value, passwordWithEyeIconsFlag)
-        ? (CURRENT_INPUT.password = passwordInput.value)
+      validationUserPassword(userPassword)
+        ? (CURRENT_INPUT.password = userPassword)
         : alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
-
-      passwordWithEyeIconsFlag = true;
     });
 
     confirmPasswordInput.addEventListener("focusout", () => {
@@ -81,7 +81,7 @@ import { validationUsers } from "../../utils/validationUsers.js";
       validationUsers(
         "signup",
         CURRENT_INPUT.email,
-        CURRENT_INPUT.password,
+        passwordInput.value,
         confirmPasswordInput.value
       );
     });

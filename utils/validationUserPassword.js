@@ -1,14 +1,16 @@
 const NUM_REGEX = /[0-9]/;
 const STR_REGEX = /[a-zA-Z]/;
 
-export const validationUserPassword = (userPassword, flag = false) => {
-  if (
-    !flag &&
-    userPassword &&
-    (!NUM_REGEX.test(userPassword) ||
-      !STR_REGEX.test(userPassword) ||
-      userPassword.length < 8)
-  ) {
-    return false;
-  } else return true;
+const checkREGEX = (targetString) => {
+  if (!NUM_REGEX.test(targetString)) return false;
+  if (!STR_REGEX.test(targetString)) return false;
+
+  return true;
+};
+
+export const validationUserPassword = (userPassword) => {
+  if (!userPassword || userPassword.length < 8) return false;
+  if (!checkREGEX(userPassword)) return false;
+
+  return true;
 };

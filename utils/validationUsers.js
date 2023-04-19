@@ -57,6 +57,8 @@ export const validationUsers = (
       confirmPassword: inputConfirmPassword,
     };
 
+    console.log(222);
+
     for (let i = 0; i < USERS.length; i++) {
       if (flag) break;
 
