@@ -3,7 +3,12 @@ class Card extends HTMLElement {
     super();
     this.starImg = document.createElement('div');
     this.starImg.classList.add('star');
+    // 디폴트 값
     this._cardImageSource = '/pictures/default.png';
+    this._cardDefaultTitle =
+      'Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. ';
+    this._cardDefaultPostTime = '';
+    this._cardDefaultPostDate = '';
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = /* html */ `
     <style>
@@ -84,7 +89,7 @@ class Card extends HTMLElement {
         align-items: center;
       }
 
-      .p-box .content {
+      .p-box .description {
         width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -110,15 +115,15 @@ class Card extends HTMLElement {
       </div>
       <div class='p-box'>
         <div class='post-time'>
-          <p>10 minutes ago</p>
+          <p class="postTimeComparison">10 minutes ago</p>
           <div class="dot-box">
             <img src="/pictures/Ellipse 8.png" />
             <img src="/pictures/Ellipse 8.png" />
             <img src="/pictures/Ellipse 8.png" />
           </div>
         </div>
-        <p class='content'>Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. </p>
-        <p class='post-date'>2023. 3. 15</p>
+        <p class='description'></p>
+        <p class='post-date'></p>
       </div>
     </div>
       `;
@@ -133,8 +138,18 @@ class Card extends HTMLElement {
   }
 
   connectedCallback() {
-    if (this.hasAttribute('src')) {
+    if (this.hasAttribute('src') && this.getAttribute('src') !== 'undefined') {
       this._cardImageSource = this.getAttribute('src');
+    }
+    if (this.hasAttribute('description')) {
+      this._cardDefaultDescription = this.getAttribute('description');
+    }
+    if (this.hasAttribute('postTimeComparison')) {
+      this._cardDefaultPostTime = this.getAttribute('postTimeComparison');
+    }
+    if (this.hasAttribute('post-date')) {
+      this._cardDefaultPostDate = this.getAttribute('post-date');
+      console.log(this._cardDefaultPostDate);
     }
     const img = this.shadowRoot.querySelector('img');
     img.setAttribute('src', this._cardImageSource);
@@ -143,6 +158,17 @@ class Card extends HTMLElement {
     imgbox.appendChild(this.starImg);
     const card = this.shadowRoot.querySelector('.card');
     card.addEventListener('click', this.goToCodeit);
+
+    const description = this.shadowRoot.querySelector('.description');
+    description.textContent = this._cardDefaultDescription;
+
+    const postTimeComparison = this.shadowRoot.querySelector(
+      '.postTimeComparison'
+    );
+    postTimeComparison.textContent = this._cardDefaultPostTime;
+
+    const postDate = this.shadowRoot.querySelector('.post-date');
+    postDate.textContent = this._cardDefaultPostDate;
   }
 
   disconnectedCallback() {}
