@@ -15,6 +15,7 @@ class searchBar extends HTMLElement {
           width: 1060px;
         }
         .search-bar input {
+          width: 100%;
           height: 48px;
           background-color: #F5F5F5;
           border-radius: 10px;

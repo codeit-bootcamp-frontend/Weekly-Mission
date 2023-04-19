@@ -28,11 +28,13 @@ class FooterComponent extends HTMLElement {
           display: flex;
         }
         .icon {
-          width: 18px;
-          height: 18px;
           margin-left: 13px;
           display: flex;
           align-items: center;
+        }
+        .icon img {
+          width: 18px;
+          height: 18px;
         }
         @media (max-width: 767px) {
           .footer .container {
