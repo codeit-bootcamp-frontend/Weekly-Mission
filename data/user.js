@@ -1,8 +1,13 @@
-const user = {
-  id: 1,
-  name: "코드잇",
-  email: "codeit@codeit.com",
-  profileImageSource: "https://codeit-front.s3.ap-northeast-2.amazonaws.com/images/default_profile.png",
-};
+async function getUserData() {
+  try {
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sample/user");
+    const result = await response.json();
+    return result;
+  } catch {
+    console.log("잘못된 url이거나 json 데이터가 아닙니다.");
+    const result = null;
+    return result;
+  }
+}
 
-export default user;
+export default getUserData;
