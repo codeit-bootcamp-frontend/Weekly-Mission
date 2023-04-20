@@ -21,7 +21,7 @@ async function renderHeader() {
     const header = document.querySelector("header");
     header.dataset.pid = id;
 
-    const headerTitle = document.querySelector(".favorites");
+    const headerTitle = document.querySelector(".header-title");
     headerTitle.textContent = name;
 
     const profileImage = document.querySelector(".user-avatar");

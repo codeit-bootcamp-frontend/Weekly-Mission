@@ -16,7 +16,7 @@ header {
   margin-bottom: 2rem;
 }
 
-.user-avartar {
+.user-avatar {
   width: 6rem;
   height: 6rem;
 }
@@ -26,7 +26,7 @@ header {
   font-size: 1.6rem;
 }
 
-.favorites {
+.header-title {
   font-size: 4rem;
   font-weight: 600;
 }
@@ -73,7 +73,7 @@ main {
     font-size: 1.4rem;
   }
 
-  .favorites {
+  .header-title {
     font-size: 3.2rem;
   }
 
