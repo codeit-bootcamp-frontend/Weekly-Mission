@@ -1,5 +1,11 @@
 @import url("./global.css");
 
+global-nav,
+global-footer,
+link-card {
+  display: block;
+}
+
 /* root */
 .link-button {
   text-align: center;
@@ -108,10 +114,6 @@
 
 .content-frame:nth-child(2n) .thumb {
   order: -1;
-}
-
-global-footer {
-  display: inline-block;
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
