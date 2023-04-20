@@ -44,6 +44,7 @@ class Bookmark extends HTMLElement {
         marked.style.display = "none";
         unmarked.style.display = "block";
       }
+      e.stopPropagation();
     }
 
     marked.addEventListener('click', bookmarkToggle);

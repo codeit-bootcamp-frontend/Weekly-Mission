@@ -5,8 +5,6 @@ template.innerHTML = `
       position: relative;
       width: 106rem;
       margin: 0 auto;
-      font-family: 'Pretendard';
-      font-size: 1.6rem;
     }
     
     #search-bar #search-input {

@@ -65,7 +65,7 @@ template.innerHTML = `
       font-size: 1.4rem;
       color: var(--card-date);
     }
-
+    
     @media (hover: hover) {
       #card:hover {
         background-color: var(--gray5);
@@ -91,6 +91,7 @@ template.innerHTML = `
       </p>
       <p id="date">2023. 4. 16</p>
     </div>
+    <bookmark-icon bookmark="false"></bookmark-icon>
   </div>
 `;
 

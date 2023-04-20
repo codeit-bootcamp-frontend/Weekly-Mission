@@ -382,13 +382,6 @@ link-card {
   margin: 4rem auto 0;
 }
 
-.cards .card-container {
-  display: inline-block;
-  position: relative;
-  width: 34rem;
-  height: 33.4rem;
-}
-
 @media (min-width: 768px) and (max-width: 1099px) {
   .site-body .cards {
     column-gap: 2.4rem;
