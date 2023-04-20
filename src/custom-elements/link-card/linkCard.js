@@ -42,6 +42,7 @@ export class LinkCard extends HTMLElement {
     this.updatedTimeP.textContent = this.getTimeSinceCreation(
       value.metadata.createdDate
     );
+
     const likeBtnSrc = this.#prop.isLiked
       ? "/images/like-btn-liked.svg"
       : "/images/like-btn-unliked.svg";
@@ -253,6 +254,7 @@ export class LinkCard extends HTMLElement {
           </div>
           <div class="metadata-container">
             <img id="kebab" class="kebab" src="/images/kebab.svg" alt="kebab" />
+
             <p id="updated-time" class="updated-time">${this.getTimeSinceCreation(
               this.prop.metadata.createdDate
             )}</p>
