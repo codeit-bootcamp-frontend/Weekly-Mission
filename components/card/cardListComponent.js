@@ -22,18 +22,20 @@ class CardListComponent extends HTMLElement {
     this.renderCards();
   }
 
-  createCards(card) {
-    const cardComponent = new CardComponent(
-      card.imageSource ?? "/static/imgs/default-card-img.png",
-      card.description,
-      card.createdAt
-    );
+  createCards() {
+    const cardComponent = new CardComponent();
     return cardComponent;
   }
 
   renderCards() {
     this.prop.forEach((card) => {
-      const cardComponent = this.createCards(card);
+      const cardComponent = this.createCards();
+      cardComponent.prop = {
+        imageSrc: card.imageSource ?? "/static/imgs/default-card-img.png",
+        description: card.description,
+        date: card.createdAt,
+        url: card.url,
+      };
       this.cardListContainer.appendChild(cardComponent);
     });
   }

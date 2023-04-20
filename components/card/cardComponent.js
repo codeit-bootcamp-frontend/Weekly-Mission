@@ -1,6 +1,7 @@
 import { StarComponent } from "../star/starComponent.js";
 export class CardComponent extends HTMLElement {
-  constructor(imageSrc, description, date) {
+  #prop = null;
+  constructor() {
     super();
 
     this.shadow = this.attachShadow({ mode: "open" });
@@ -10,11 +11,28 @@ export class CardComponent extends HTMLElement {
     linkElem.setAttribute("rel", "stylesheet");
     linkElem.setAttribute("href", "/components/card/card-component.css");
     this.shadow.appendChild(linkElem);
+  }
 
-    this._imageSrc = imageSrc;
-    this._updateTime = "10 minutes ago";
-    this._description = description;
-    this._date = date;
+  get prop() {
+    return this.#prop;
+  }
+
+  set prop(newProp) {
+    // 타입체킹 로직 추후 추가
+    if (typeof newProp !== "object" && newProp !== null) {
+      console.warn("올바르지 않은 형식의 데이터가 들어왔습니다.");
+      return;
+    }
+    if (
+      typeof newProp.imageSrc !== "string" ||
+      typeof newProp.description !== "string" ||
+      typeof newProp.date !== "string" ||
+      typeof newProp.url !== "string"
+    ) {
+      console.warn("올바르지 않은 형식의 데이터가 들어왔습니다.");
+      return;
+    }
+    this.#prop = newProp;
   }
 
   connectedCallback() {
@@ -24,7 +42,7 @@ export class CardComponent extends HTMLElement {
 
     const cardImage = document.createElement("img");
     cardImage.classList.add("card-image");
-    cardImage.src = this._imageSrc;
+    cardImage.src = this.prop.imageSrc;
 
     const starIcon = new StarComponent();
     starIcon.classList.add("star-icon");
@@ -45,11 +63,11 @@ export class CardComponent extends HTMLElement {
 
     const cardDescription = document.createElement("div");
     cardDescription.classList.add("card-description");
-    cardDescription.textContent = this._description;
+    cardDescription.textContent = this.prop.description;
 
     const cardDate = document.createElement("div");
     cardDate.classList.add("card-date");
-    cardDate.textContent = this.parseDate(this._date);
+    cardDate.textContent = this.parseDate(this.prop.date);
 
     cardInfoHead.appendChild(cardUpdateTime);
     cardInfoHead.appendChild(kebabIcon);
@@ -71,9 +89,7 @@ export class CardComponent extends HTMLElement {
     );
     cardContainer.addEventListener("mouseout", this.handleMouseOut.bind(this));
 
-    cardContainer.addEventListener("click", (e) =>
-      window.open("https://www.codeit.kr")
-    );
+    cardContainer.addEventListener("click", (e) => window.open(this.prop.url));
   }
 
   parseDate(dateString) {
