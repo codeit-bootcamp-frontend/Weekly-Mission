@@ -87,9 +87,8 @@ template.innerHTML = `
           <img class="eclipse" src="/static/eclipse.png" alt="eclipse" width="3">
         </div>
       </div>
-      <p id="description">Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.
-      </p>
-      <p id="date">2023. 4. 16</p>
+      <p id="description"></p>
+      <p id="createdAt"></p>
     </div>
     <bookmark-icon bookmark="false"></bookmark-icon>
   </div>
@@ -104,7 +103,7 @@ class Card extends HTMLElement {
     this.shadowRoot.getElementById("card-image").style.backgroundImage = `url(${backgroundImg})`;
     this.shadowRoot.getElementById("since").innerText = this.getAttribute("since");
     this.shadowRoot.getElementById("description").innerText = this.getAttribute("description");
-    this.shadowRoot.getElementById("date").innerText = this.getAttribute("date");
+    this.shadowRoot.getElementById("createdAt").innerText = this.getAttribute("createdAt");
 
     const card = this.shadowRoot.getElementById("card");
     card.addEventListener('click', () => window.open('https://www.codeit.kr'));

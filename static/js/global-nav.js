@@ -137,13 +137,6 @@ class Gnb extends HTMLElement {
     }
 
     profileButton.addEventListener('click', () => location.href='/my-link');
-
-    // fetch('https://bootcamp-api.codeit.kr/api/sample/folder')
-    //   .then((response) => response.json())
-    //   .then((result) => result.data.folder)
-    //   .then((result) => {
-    //     const { links } = result
-    //   })
     
     const profileEmail = this.shadowRoot.getElementById("profile-email")
     const profileImage = this.shadowRoot.getElementById("abc")
