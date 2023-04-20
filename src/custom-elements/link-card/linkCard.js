@@ -39,6 +39,9 @@ export class LinkCard extends HTMLElement {
     this.thumbnailImg.setAttribute("src", value.thumbnailSrc);
     this.descriptionDiv.textContent = value.metadata.description;
     this.dateP.textContent = this.parseDate(value.metadata.createdDate);
+    this.updatedTimeP.textContent = this.getTimeSinceCreation(
+      value.metadata.createdDate
+    );
     const likeBtnSrc = this.#prop.isLiked
       ? "/images/like-btn-liked.svg"
       : "/images/like-btn-unliked.svg";
@@ -59,6 +62,38 @@ export class LinkCard extends HTMLElement {
     const day = leftPad(date.getDate());
 
     return [year, month, day].join(".");
+  }
+
+  getTimeSinceCreation(dateString) {
+    const updatedDate = new Date(dateString);
+    const today = new Date();
+    const timeDiff = today - updatedDate;
+
+    const MINUTE = 60 * 1000;
+    const HOUR = MINUTE * 60;
+    const DAY = HOUR * 24;
+    const MONTH = DAY * 31;
+
+    const timeMap = {
+      [MINUTE * 2]: () => "1 minute ago",
+      [MINUTE * 59]: (diff) => Math.floor(diff / MINUTE) + " minutes ago",
+      [HOUR * 2]: () => "1 hour ago",
+      [HOUR * 23]: (diff) => Math.floor(diff / HOUR) + " hours ago",
+      [DAY * 2]: () => "1 day ago",
+      [DAY * 30]: (diff) => Math.floor(diff / DAY) + " days ago",
+      [MONTH * 2]: () => "1 month ago",
+      [MONTH * 12]: (diff) => Math.floor(diff / MONTH) + " months ago",
+      [MONTH * 12 * 2]: () => "1 year ago",
+    };
+
+    const diff = Object.keys(timeMap).find((key) => timeDiff < Number(key));
+
+    if (diff) {
+      return timeMap[diff](timeDiff);
+    }
+
+    const years = Math.floor(timeDiff / (MONTH * 12));
+    return years + " years ago";
   }
 
   get styles() {
@@ -218,12 +253,14 @@ export class LinkCard extends HTMLElement {
           </div>
           <div class="metadata-container">
             <img id="kebab" class="kebab" src="/images/kebab.svg" alt="kebab" />
-            <p class="updated-time">10 minutes ago</p>
+            <p id="updated-time" class="updated-time">${this.getTimeSinceCreation(
+              this.prop.metadata.createdDate
+            )}</p>
             <div id="description" class="description-container">
               ${this.prop.metadata.description}
             </div>
             <p id="date" class="date">
-              ${this.parseDate(this.prop.metadata.date)}
+              ${this.parseDate(this.prop.metadata.createdDate)}
             </p>
           </div>
         </div>
@@ -256,6 +293,7 @@ export class LinkCard extends HTMLElement {
     this.likeBtn = this.shadowRoot.querySelector("#like-btn");
     this.descriptionDiv = this.shadowRoot.querySelector("#description");
     this.dateP = this.shadowRoot.querySelector("#date");
+    this.updatedTimeP = this.shadowRoot.querySelector("#updated-time");
 
     this.likeBtn.addEventListener("click", this.handleClickLike.bind(this));
   }
