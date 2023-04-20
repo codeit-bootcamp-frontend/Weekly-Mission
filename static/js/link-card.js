@@ -1,6 +1,8 @@
 const template = document.createElement("template");
 template.innerHTML = `
   <style>
+    @import url("/static/css/global.css");
+
     p {
       margin: 0;
     }

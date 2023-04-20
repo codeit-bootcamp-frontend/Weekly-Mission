@@ -1,9 +1,7 @@
 const template = document.createElement("template");
 template.innerHTML = `
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    @import url("/static/css/global.css");
 
     p {
       margin: 0;

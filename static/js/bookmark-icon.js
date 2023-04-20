@@ -1,18 +1,19 @@
 const template = document.createElement("template");
 template.innerHTML = `
   <style>
-  .star {
-    cursor: pointer;
-    position: absolute;
-    top: 1.6rem;
-    right: 1.6rem;
-    width: 3.2rem;
-  }
-    
-  .star #marked {
-    display: none;
-  }
+    @import url("/static/css/global.css");
 
+    .star {
+      cursor: pointer;
+      position: absolute;
+      top: 1.6rem;
+      right: 1.6rem;
+      width: 3.2rem;
+    }
+      
+    .star #marked {
+      display: none;
+    }
   </style>
   <img id="unmarked" class="star" src="/static/star1.png" alt="Unmarked icon">
   <img id="marked" class="star" src="/static/star2.png" alt="Marked icon">
