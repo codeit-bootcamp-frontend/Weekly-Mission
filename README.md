@@ -5,7 +5,7 @@
 - [x] folder.owner, folder.name 의 데이터도 반영될 수 있도록 수정해 주세요.
 - [x] 상단 네비게이션바에는 “/api/sample/user”에서 받은 데이터를 반영하도록 수정해 주세요.
 
-- [ ] 카드 컴포넌트에서 createdAt 데이터 기준으로 현재 Date와 차이가
+- [x] 카드 컴포넌트에서 createdAt 데이터 기준으로 현재 Date와 차이가
   - 2분 미만은 “1 minute ago”
   - 59분 이하는 “OO minutes ago”
   - 60분 이상은 “1 hour ago”
