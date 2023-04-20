@@ -35,6 +35,54 @@ export class CardComponent extends HTMLElement {
     this.#prop = newProp;
   }
 
+  calculateTimeDiff(dateString) {
+    const updatedDate = new Date(dateString);
+    const today = new Date();
+
+    const timeDiff = today - updatedDate;
+    const MINUTE = 60 * 1000;
+    const HOUR = MINUTE * 60;
+    const DAY = HOUR * 24;
+    const MONTH = DAY * 31;
+    const YEAR = MONTH * 12;
+
+    let formattedTimeDiff = "";
+    let unit = "";
+    if (timeDiff < MINUTE * 2) {
+      formattedTimeDiff = 1;
+      unit = "minute";
+    } else if (timeDiff < HOUR) {
+      formattedTimeDiff = Math.floor(timeDiff / MINUTE);
+      unit = "minutes";
+    } else if (timeDiff < HOUR * 2) {
+      formattedTimeDiff = 1;
+      unit = "hour";
+    } else if (timeDiff < DAY) {
+      formattedTimeDiff = Math.floor(timeDiff / HOUR);
+      unit = "hours";
+    } else if (timeDiff < DAY * 2) {
+      formattedTimeDiff = 1;
+      unit = "day";
+    } else if (timeDiff < MONTH) {
+      formattedTimeDiff = Math.floor(timeDiff / DAY);
+      unit = "days";
+    } else if (timeDiff < MONTH * 2) {
+      formattedTimeDiff = 1;
+      unit = "month";
+    } else if (timeDiff < YEAR) {
+      formattedTimeDiff = Math.floor(timeDiff / MONTH);
+      unit = "months";
+    } else if (timeDiff < YEAR * 2) {
+      formattedTimeDiff = 1;
+      unit = "year";
+    } else {
+      formattedTimeDiff = Math.floor(timeDiff / YEAR);
+      unit = "years";
+    }
+
+    return formattedTimeDiff + " " + unit + " ago";
+  }
+
   connectedCallback() {
     // 카드 데이터
     const cardContainer = document.createElement("div");
@@ -55,7 +103,7 @@ export class CardComponent extends HTMLElement {
 
     const cardUpdateTime = document.createElement("div");
     cardUpdateTime.classList.add("card-update-time");
-    cardUpdateTime.textContent = this._updateTime;
+    cardUpdateTime.textContent = this.calculateTimeDiff(this.prop.date);
 
     const kebabIcon = document.createElement("img");
     kebabIcon.classList.add("kebab-icon");
