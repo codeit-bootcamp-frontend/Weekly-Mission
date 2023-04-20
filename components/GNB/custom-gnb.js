@@ -24,9 +24,11 @@ class CustomGNB extends HTMLElement {
   }
 
   set user(data) {
-    this.#user = data;
-    /* user 데이터가 변경되면 rerendering */
-    this.render();
+    if (data) {
+      this.#user = data;
+      /* user 데이터가 변경되면 rerendering */
+      this.render();
+    }
   }
 
   connectedCallback() {
