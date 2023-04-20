@@ -108,9 +108,9 @@ template.innerHTML = `
       </div>
       <div id="gnb-profile">
         <div id="icon-container">
-          <img src="/static/default-profile.png" alt="Default profile icon" alt="" width="10">
+          <img id="abc" alt="Default profile icon" width="10">
         </div>
-        <p id="profile-email">Codeit@codeit.com</p>
+        <p id="profile-email"></p>
       </div>
     </div>
   </nav>
@@ -137,6 +137,27 @@ class Gnb extends HTMLElement {
     }
 
     profileButton.addEventListener('click', () => location.href='/my-link');
+
+    // fetch('https://bootcamp-api.codeit.kr/api/sample/folder')
+    //   .then((response) => response.json())
+    //   .then((result) => result.data.folder)
+    //   .then((result) => {
+    //     const { links } = result
+    //   })
+    
+    const profileEmail = this.shadowRoot.getElementById("profile-email")
+    const profileImage = this.shadowRoot.getElementById("abc")
+
+    fetch('https://bootcamp-api.codeit.kr/api/sample/user')
+      .then((response) => response.json())
+      .then((result) => result.data)
+      .then((user) => {
+        const { email, profileImageSource } = user
+        console.log(email, profileImageSource)
+        profileEmail.innerText = email
+        profileImage.src = profileImageSource
+      })
+      
   }
 }
 

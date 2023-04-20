@@ -80,7 +80,7 @@ template.innerHTML = `
     <div id="card-image"></div>
     <div id="card-text">
       <div id="first-line">
-        <p id="since">10분 전</span>
+        <p id="since">10분 전</p>
         <div id="eclipse-container">
           <img class="eclipse" src="/static/eclipse.png" alt="eclipse" width="3">
           <img class="eclipse" src="/static/eclipse.png" alt="eclipse" width="3">
