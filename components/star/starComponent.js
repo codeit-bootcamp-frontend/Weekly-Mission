@@ -1,13 +1,12 @@
 export class StarComponent extends HTMLElement {
-  #isStarred;
+  #prop;
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    this.isStarred = false;
   }
 
   static get observedAttributes() {
-    return ["isstarred"];
+    return ["is_starred"];
   }
 
   connectedCallback() {
@@ -15,24 +14,30 @@ export class StarComponent extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    if (name === "isstarred" && oldValue !== newValue) {
-      this._isStarred = newValue === "true";
-      this.handleStarIcon();
+    if (name === "is_starred" && oldValue !== newValue) {
+      this.prop = newValue === "true";
+      this.renderStarIcon();
     }
   }
 
-  get isStarred() {
-    return this.#isStarred;
+  get prop() {
+    return this.#prop;
   }
 
-  set isStarred(newIsStarred) {
-    this.#isStarred = newIsStarred;
+  set prop(newProp) {
+    //추후 즐겨찾기(=starred 여부)에 대한 데이터 주고받기 할 경우 추가
+    if (typeof newProp !== "boolean") {
+      console.warn("옳바르지 않은 형식의 데이터가 들어왔습니다.");
+      return;
+    }
+    this.#prop = newProp;
+    this.setAttribute("is_starred", this.prop);
   }
 
-  handleStarIcon() {
+  renderStarIcon() {
     const pathColor = this.shadowRoot.querySelector("path");
-    const fillOpacity = this._isStarred ? "1" : "0.2";
-    const fillColor = this._isStarred
+    const fillOpacity = this.prop ? "1" : "0.2";
+    const fillColor = this.prop
       ? "var(--linkbrary-primary)"
       : "var(--linkbrary-black)";
 
@@ -42,6 +47,7 @@ export class StarComponent extends HTMLElement {
 
   get template() {
     return `
+        <link rel="stylesheet" href="/static/css/global_style.css">
         <svg
         width="30"
         height="31"
@@ -59,25 +65,19 @@ export class StarComponent extends HTMLElement {
         `;
   }
 
-  handleStarClick(event) {
+  toggleStarredStatus(event) {
     event.stopPropagation();
-    this.isStarred = !this.isStarred;
-    this.setAttribute("isStarred", this.isStarred);
+    this.prop = !this.prop;
+    this.setAttribute("is_starred", this.prop);
   }
 
   render() {
-    const linkElem = document.createElement("link");
-    linkElem.setAttribute("rel", "stylesheet");
-    linkElem.setAttribute("href", "/static/css/global_style.css");
-    this.shadowRoot.appendChild(linkElem);
-
     const starIcon = document.createElement("template");
     starIcon.innerHTML = this.template;
     this.shadowRoot.appendChild(starIcon.content.cloneNode(true));
 
-    this.setAttribute("isStarred", this.isStarred);
-
-    this.addEventListener("click", this.handleStarClick.bind(this));
+    this.setAttribute("is_starred", this.prop);
+    this.addEventListener("click", this.toggleStarredStatus.bind(this));
   }
 }
 customElements.define("star-icon", StarComponent);
