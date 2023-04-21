@@ -4,13 +4,13 @@ template.innerHTML = `
     @import url("/static/css/global.css");
     @import url("/static/module/link-card/link-card.css");
   </style>
-  <div id="card">
+  <div class="card">
     <a id="card-url" target="_blank">
       <div id="card-image"></div>
-      <div id="card-text">
-        <div id="first-line">
+      <div class="card-text">
+        <div class="first-line">
           <p id="since"></p>
-          <div id="eclipse-container">
+          <div class="eclipse-container">
             <img class="eclipse" src="/static/img/eclipse.png" alt="eclipse" width="3">
             <img class="eclipse" src="/static/img/eclipse.png" alt="eclipse" width="3">
             <img class="eclipse" src="/static/img/eclipse.png" alt="eclipse" width="3">
@@ -30,11 +30,11 @@ class Card extends HTMLElement {
     this.shadowRoot.append(template.content.cloneNode(true));
     
     const backgroundImg = this.getAttribute("imageSource");
+    this.shadowRoot.getElementById("card-url").href = this.getAttribute("card-url");
     this.shadowRoot.getElementById("card-image").style.backgroundImage = `url(${backgroundImg})`;
     this.shadowRoot.getElementById("since").innerText = this.getAttribute("since");
     this.shadowRoot.getElementById("description").innerText = this.getAttribute("description");
     this.shadowRoot.getElementById("createdAt").innerText = this.getAttribute("createdAt");
-    this.shadowRoot.getElementById("card-url").href = this.getAttribute("card-url");
   }
 }
 

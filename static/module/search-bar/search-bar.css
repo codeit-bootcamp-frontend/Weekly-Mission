@@ -1,10 +1,10 @@
-#search-bar {
+.search-bar {
   position: relative;
   width: 106rem;
   margin: 0 auto;
 }
 
-#search-bar #search-input {
+.search-bar .search-input {
   width: 100%;
   border: 0;
   border-radius: 1rem;
@@ -15,7 +15,7 @@
   background-color: var(--gray6);
 }
 
-#search-bar #search-icon {
+.search-bar .search-icon {
   position: absolute;
   top: 1.4rem;
   left: 1.6rem;
@@ -23,24 +23,24 @@
 }
 
 @media (min-width: 768px) and (max-width: 1099px) {
-  #search-bar {
+  .search-bar {
     width: 70.4rem;
   }
 }
 
 @media (max-width: 767px) {
-  #search-bar {
+  .search-bar {
     max-width: 32.5rem;
     width: 100%;
   }
 
-  #search-bar #search-input {
+  .search-bar .search-input {
     padding: 1.3rem;
     padding-left: 3.8rem;
     font-size: 1.4rem;
   }
 
-  #search-bar #search-icon {
+  .search-bar .search-icon {
     top: 1.3rem;
   }
 }

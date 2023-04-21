@@ -4,9 +4,9 @@ template.innerHTML = `
     @import url("/static/css/global.css");
     @import url("/static/module/search-bar/search-bar.css");
   </style>
-  <div id="search-bar">
-    <input type="search" id="search-input" placeholder="원하는 링크를 검색해 보세요">
-    <img id="search-icon" src="/static/img/search-icon.png">
+  <div class="search-bar">
+    <input type="search" class="search-input" placeholder="원하는 링크를 검색해 보세요">
+    <img class="search-icon" src="/static/img/search-icon.png">
   </div>
 `;
 

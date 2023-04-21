@@ -29,7 +29,6 @@ class Bookmark extends HTMLElement {
         star.src = "/static/img/star2.png"
         bookmark = "true"
       }
-      e.stopPropagation();
     }
 
     star.addEventListener('click', bookmarkToggle);

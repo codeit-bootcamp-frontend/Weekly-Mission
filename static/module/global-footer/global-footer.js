@@ -4,8 +4,8 @@ template.innerHTML = `
     @import url("/static/css/global.css");
     @import url("/static/module/global-footer/global-footer.css");
   </style>
-  <footer id="site-footer">
-    <div id="footer-container">
+  <footer class="site-footer">
+    <div class="footer-container">
       <div class="footer-contents">
         @codeit-2023
       </div>

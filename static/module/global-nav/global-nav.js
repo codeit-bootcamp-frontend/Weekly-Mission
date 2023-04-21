@@ -4,9 +4,9 @@ template.innerHTML = `
     @import url("/static/css/global.css");
     @import url("/static/module/global-nav/global-nav.css");
   </style>
-  <nav id="navbar">
-    <div id="navbar-container">
-      <div id="logo">
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="logo">
         <a href="/">
           <img src="/static/img/Linkbrary.png" alt="Linkbrary Logo">
         </a>
@@ -15,7 +15,7 @@ template.innerHTML = `
         로그인
       </div>
       <div id="gnb-profile">
-        <div id="img-container">
+        <div class="img-container">
           <img id="profile-img" alt="Default profile icon" width="10">
         </div>
         <p id="profile-email"></p>
