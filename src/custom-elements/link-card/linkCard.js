@@ -50,17 +50,10 @@ export class LinkCard extends HTMLElement {
   }
 
   parseDate(dateString) {
-    const leftPad = (value) => {
-      if (value >= 10) {
-        return value;
-      }
-
-      return `0${value}`;
-    };
     const date = new Date(dateString);
     const year = date.getFullYear();
-    const month = leftPad(date.getMonth() + 1);
-    const day = leftPad(date.getDate());
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
 
     return [year, month, day].join(".");
   }
