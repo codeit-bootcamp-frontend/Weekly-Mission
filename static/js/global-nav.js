@@ -100,7 +100,7 @@ template.innerHTML = `
     <div id="navbar-container">
       <div id="logo">
         <a href="/">
-          <img src="/static/Linkbrary.png" alt="Linkbrary Logo">
+          <img src="/static/img/Linkbrary.png" alt="Linkbrary Logo">
         </a>
       </div>
       <div id="gnb-login-button">

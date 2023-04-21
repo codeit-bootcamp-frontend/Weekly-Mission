@@ -48,7 +48,7 @@ template.innerHTML = `
   </style>
   <div id="search-bar">
     <input type="search" id="search-input" placeholder="원하는 링크를 검색해 보세요">
-    <img id="search-icon" src="/static/search-icon.png">
+    <img id="search-icon" src="/static/img/search-icon.png">
   </div>
 `;
 

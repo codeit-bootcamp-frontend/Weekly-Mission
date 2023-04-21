@@ -15,8 +15,8 @@ template.innerHTML = `
       display: none;
     }
   </style>
-  <img id="unmarked" class="star" src="/static/star1.png" alt="Unmarked icon">
-  <img id="marked" class="star" src="/static/star2.png" alt="Marked icon">
+  <img id="unmarked" class="star" src="/static/img/star1.png" alt="Unmarked icon">
+  <img id="marked" class="star" src="/static/img/star2.png" alt="Marked icon">
 `;
 
 class Bookmark extends HTMLElement {

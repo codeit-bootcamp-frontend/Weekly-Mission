@@ -66,16 +66,16 @@ template.innerHTML = `
       </div>
       <div class="footer-contents icon-box">
         <a href="https://facebook.com" target="blank">
-          <img src="/static/facebook.png" alt="Facebook Icon" width="18">
+          <img src="/static/img/facebook.png" alt="Facebook Icon" width="18">
         </a>
         <a href="https://twitter.com" target="blank">
-          <img src="/static/twitter.png" alt="Twitter Icon" width="19">
+          <img src="/static/img/twitter.png" alt="Twitter Icon" width="19">
         </a>
         <a href="https://youtube.com" target="blank">
-          <img src="/static/youtube.png" alt="Youtube Icon" width="20">
+          <img src="/static/img/youtube.png" alt="Youtube Icon" width="20">
         </a>
         <a href="https://Melon.com" target="blank">
-          <img src="/static/Instagram.png" alt="Instagram Icon" width="17">
+          <img src="/static/img/Instagram.png" alt="Instagram Icon" width="17">
         </a>
       </div>
     </div>

@@ -82,9 +82,9 @@ template.innerHTML = `
       <div id="first-line">
         <p id="since">10분 전</p>
         <div id="eclipse-container">
-          <img class="eclipse" src="/static/eclipse.png" alt="eclipse" width="3">
-          <img class="eclipse" src="/static/eclipse.png" alt="eclipse" width="3">
-          <img class="eclipse" src="/static/eclipse.png" alt="eclipse" width="3">
+          <img class="eclipse" src="/static/img/eclipse.png" alt="eclipse" width="3">
+          <img class="eclipse" src="/static/img/eclipse.png" alt="eclipse" width="3">
+          <img class="eclipse" src="/static/img/eclipse.png" alt="eclipse" width="3">
         </div>
       </div>
       <p id="description"></p>
