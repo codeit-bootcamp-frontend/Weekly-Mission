@@ -11,9 +11,9 @@ template.innerHTML = `
           <img src="/static/img/Linkbrary.png" alt="Linkbrary Logo">
         </a>
       </div>
-      <div id="gnb-login-button">
+      <a id="gnb-login-button">
         로그인
-      </div>
+      </a>
       <div id="gnb-profile">
         <div class="img-container">
           <img id="profile-img" alt="Default profile icon" width="10">
@@ -32,9 +32,6 @@ class Gnb extends HTMLElement {
     const login = this.getAttribute("login");
     const loginButton = this.shadowRoot.getElementById("gnb-login-button");
     const profile = this.shadowRoot.getElementById("gnb-profile");
-    const profileButton = this.shadowRoot.getElementById("profile-img");
-
-    loginButton.addEventListener('click', () => location.href='/signin');
     
     if (login === "on") {
       profile.style.display = "flex";
@@ -43,8 +40,6 @@ class Gnb extends HTMLElement {
       profile.style.display = "none";
       loginButton.style.display = "block";
     }
-
-    profileButton.addEventListener('click', () => location.href='/my-link');
     
     const profileEmail = this.shadowRoot.getElementById("profile-email")
     const profileImage = this.shadowRoot.getElementById("profile-img")
