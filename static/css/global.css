@@ -49,8 +49,8 @@ body {
 }
 
 input {
-  font-family: 'Pretendard';
-  font-size: 1.6rem;
+  font-family: inherit;
+  font-size: inherit;
   outline-color: var(--primary);
 }
 
