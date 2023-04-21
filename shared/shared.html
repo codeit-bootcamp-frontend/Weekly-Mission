@@ -4,11 +4,124 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Shared</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="shared.css" />
   </head>
   <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+    <div class="gnb">
+      <div class="logo">
+        <a href="/" class="logo_link">
+          <img src="public/logo.png" alt="linkbrary" class="logo_img" />
+        </a>
+      </div>
+      <div class="account">
+        <img src="public/profile.png" />
+        <span class="email">Codeit@codeit.com</span>
+      </div>
+    </div>
+
+    <header>
+      <div class="header-box">
+        <img src="public/Avatar.png" />
+        <p class="corporate">@코드잇</p>
+        <h1 class="bookmark">⭐️즐겨찾기</h1>
+      </div>
+    </header>
+
+    <main>
+      <form class="search-box">
+        <img src="public/search.png" alt="lens" />
+        <input
+          type="text"
+          class="search"
+          name="search"
+          placeholder="원하는 링크를 검색해 보세요"
+        />
+      </form>
+      <!--첫번째 카드-->
+      <div class="card-container">
+        <div class="card first">
+          <img class="card-img" src="public/img1.png" />
+          <div class="star-marks">
+            <img class="star default" src="public/Star-off.png" />
+            <img class="star hidden off" src="public/Star-on.png" />
+          </div>
+          <div class="text-content">
+            <div class="upper">
+              <span>10 minutes ago</span>
+              <img src="public/kebab.png" />
+            </div>
+            <div class="middle">
+              <span
+                >Lorem ipsum dolor sit amet consectetur. Metus amet habitant
+                nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus
+                amet habitant nunc consequat.</span
+              >
+            </div>
+            <div class="time">
+              <span>2023. 3. 15</span>
+            </div>
+          </div>
+        </div>
+
+        <!--두번째 카드-->
+        <div class="card second">
+          <img class="card-img" src="public/img2.png" />
+          <img class="star" src="public/Star-off.png" />
+          <div class="text-content">
+            <div class="upper">
+              <span>10 minutes ago</span>
+              <img src="public/kebab.png" />
+            </div>
+            <div class="middle">
+              <span
+                >Lorem ipsum dolor sit amet consectetur. Metus amet habitant
+                nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus
+                amet habitant nunc consequat.</span
+              >
+            </div>
+            <div class="time">
+              <span>2023. 3. 15</span>
+            </div>
+          </div>
+        </div>
+
+        <!--세번째 카드-->
+        <div class="card thirdcard">
+          <img class="card-img" src="public/img3.png" />
+          <div class="text-content">
+            <div class="upper">
+              <span>10 minutes ago</span>
+              <img src="public/kebab.png" />
+            </div>
+            <div class="middle">
+              <span
+                >Lorem ipsum dolor sit amet consectetur. Metus amet habitant
+                nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus
+                amet habitant nunc consequat.</span
+              >
+            </div>
+            <div class="time">
+              <span>2023. 3. 15</span>
+            </div>
+          </div>
+        </div>
+        <div class="card">Card 4</div>
+        <div class="card">Card 5</div>
+        <div class="card">Card 6</div>
+        <div class="card">Card 7</div>
+        <div class="card">Card 8</div>
+        <div class="card">Card 9</div>
+      </div>
+    </main>
+
+    <my-footer id="foot"></my-footer>
+    <script src="shared.js"></script>
+    <script src="/component/footer.js"></script>
   </body>
 </html>
