@@ -44,20 +44,21 @@ class Gnb extends HTMLElement {
     const profileEmail = this.shadowRoot.getElementById("profile-email")
     const profileImage = this.shadowRoot.getElementById("profile-img")
 
-      async function getProfile() {
-        const response = await fetch('https://bootcamp-api.codeit.kr/api/sample/user')
-        const { data } = await response.json()
-        const { email, profileImageSource } = data
-        if (email !== undefined) {
-          profileEmail.innerText = email
-        }
-        if (profileImageSource !== undefined) {
-          profileImage.src = profileImageSource
-        } else {
-          profileImage.src = "/static/img/default-profile-img.png"
-        }
+    async function getProfile() {
+      const response = await fetch('https://bootcamp-api.codeit.kr/api/sample/user')
+      const { data } = await response.json()
+      const { email, profileImageSource } = data
+      if (email !== undefined) {
+        profileEmail.innerText = email
       }
-      getProfile()
+      if (profileImageSource !== undefined) {
+        profileImage.src = profileImageSource
+      } else {
+        profileImage.src = "/static/img/default-profile-img.png"
+      }
+    }
+    
+    getProfile()
   }
 }
 

@@ -80,4 +80,5 @@ async function getFolder() {
   cardContainer.appendChild(linkCardElement)
   })
 }
+
 getFolder();
