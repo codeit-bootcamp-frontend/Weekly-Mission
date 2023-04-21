@@ -1,13 +1,11 @@
 const cardContainer = document.querySelector('.card-container')
 
-async function folderFetch() {
+async function getFolder() {
   const response = await fetch(
     "https://bootcamp-api.codeit.kr/api/sample/folder"
   );
-  const result = await response.text();
-  const { data } = JSON.parse(result);
-  const { folder } = data
-  const { links } = folder
+  const { data }  = await response.json();
+  const { links } = data.folder
   links.forEach((link) => {
   const { imageSource, description, createdAt, url } = link
   const linkCardElement = document.createElement("link-card")
@@ -65,4 +63,4 @@ async function folderFetch() {
   cardContainer.appendChild(linkCardElement)
   })
 }
-folderFetch();
+getFolder();
