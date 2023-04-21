@@ -56,6 +56,7 @@ class GlobalNavigationBar extends HTMLElement {
         border-radius: 10px;
         font-size: 1rem;
         font-family: 600;
+        cursor: pointer;
       }
 
       header .user {
