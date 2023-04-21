@@ -1,11 +1,5 @@
 @import url("./global.css");
 
-global-nav,
-global-footer,
-link-card {
-  display: block;
-}
-
 /* root */
 .link-button {
   text-align: center;
@@ -46,7 +40,7 @@ link-card {
 .site-header {
   display: flex;
   flex-direction: column;
-  align-items: center
+  align-items: center;
 }
 
 .site-header .header-title {
@@ -384,7 +378,7 @@ link-card {
 
 @media (min-width: 768px) and (max-width: 1099px) {
   .site-body .cards {
-    column-gap: 2.4rem;
+    gap: 2.4rem;
   }
 }
 
@@ -395,7 +389,7 @@ link-card {
   }
   
   .site-body .cards {
-    row-gap: 2rem;
+    gap: 2rem;
     max-height: 320rem;
     margin-top: 3.2rem;
   }

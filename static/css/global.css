@@ -57,3 +57,9 @@ input {
 a {
   text-decoration: none;
 }
+
+global-nav,
+global-footer,
+link-card {
+  display: block;
+}

@@ -16,7 +16,7 @@ template.innerHTML = `
       overflow: hidden;
       width: 34rem;
       background-color: var(--white);
-      box-shadow: 0 0.5rem 2.5rem rgba(0, 0, 0, 0.08);
+      filter: drop-shadow(0px 5px 25px rgba(0, 0, 0, 0.08));
     }
 
     #card #card-image {
