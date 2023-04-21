@@ -1,4 +1,7 @@
-const cardContainer = document.querySelector('.card-container')
+const cardContainer = document.querySelector('.card-container');
+const userAvatar = document.querySelector('.user-avatar');
+const username = document.querySelector('.username');
+const bookmarkTitle = document.querySelector('.bookmark-title');
 
 async function getFolder() {
   const response = await fetch(
@@ -6,8 +9,21 @@ async function getFolder() {
   );
   const { data }  = await response.json();
   const { folder } = data
-  const { owner } = folder
-  const { links } = folder
+  const { name, owner, links } = folder
+
+  if (name !== undefined) {
+    bookmarkTitle.innerText = name
+  }
+  if (owner.profileImageSource !== undefined) {
+    userAvatar.src = owner.profileImageSource
+  } else {
+    userAvatar.src = "/static/img/default-avatar.png"
+  }
+
+  if (owner.name !== undefined) {
+    username.innerText = `@${owner.name}`
+  }
+
   links.forEach((link) => {
   const { imageSource, description, createdAt, url } = link
   const linkCardElement = document.createElement("link-card")
@@ -21,7 +37,6 @@ async function getFolder() {
   if (description !== undefined) {
     linkCardElement.setAttribute("description", description)
   }
-
 
   if (url !== undefined) {
     linkCardElement.setAttribute("card-url", url)
