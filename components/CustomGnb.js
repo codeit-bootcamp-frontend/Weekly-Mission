@@ -37,8 +37,6 @@ class CustomGnb extends HTMLElement {
   async applyLoginTemplate() {
     const processor = new ProcessData();
     const userData = await processor.fetchUserData();
-    console.log(userData);
-
     this.shadowRoot.innerHTML = `
       <style>
         @import url("/components/styles/CustomGnb.css");

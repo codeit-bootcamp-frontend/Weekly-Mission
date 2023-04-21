@@ -30,7 +30,10 @@
 .card-image {
   width: 100%;
   height: 100%;
-  transition: all 0.5s;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform 0.5s;
 }
 
 .star {

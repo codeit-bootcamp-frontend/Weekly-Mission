@@ -5,11 +5,14 @@ class CustomSearchBar extends HTMLElement {
   }
 
   render() {
-    this.shadowRoot.innerHTML = this.getTemplate();
-    const linkElem = document.createElement("link");
-    linkElem.setAttribute("rel", "stylesheet");
-    linkElem.setAttribute("href", "/components/styles/CustomSearchBar.css");
-    this.shadowRoot.appendChild(linkElem);
+    this.shadowRoot.innerHTML = `
+      <style>
+        @import url("/components/styles/CustomSearchBar.css");
+      </style>
+      <div class="search-container">
+        <img class="search-icon" src="images/search.png" alt="검색 아이콘" />
+        <input class="search-input" placeholder="원하는 링크를 검색해 보세요" />
+      </div>`;
   }
 
   connectedCallback() {
@@ -17,15 +20,6 @@ class CustomSearchBar extends HTMLElement {
       this.render();
       this.rendered = true;
     }
-  }
-
-  getTemplate() {
-    return `
-      <div class="search-container">
-        <img class="search-icon" src="images/search.png" alt="검색 아이콘" />
-        <input class="search-input" placeholder="원하는 링크를 검색해 보세요" />
-      </div>
-    `;
   }
 }
 

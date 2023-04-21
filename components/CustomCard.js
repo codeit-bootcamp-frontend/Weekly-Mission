@@ -43,18 +43,21 @@ class CustomCard extends HTMLElement {
   async applyTemplate() {
     const cardsData = await linksData;
     const cardData = await cardsData[CustomCard.cardNum++];
+    const cardImage = cardData.imageSource
+      ? cardData.imageSource
+      : "/images/logo.png";
+
     this.shadowRoot.innerHTML = `
       <style>
         @import url("/components/styles/CustomCard.css");
+        .card-image {
+          background-image: url("${cardImage}")
+        }
       </style>
       <article class="card">
         <a href="${cardData.url}" target="_blank">
           <div class="image-container">
-            <img
-              class="card-image"
-              src="${cardData.imageSource}"
-              alt="${cardData.title}"
-            />
+            <div class="card-image"></div>
             <img class="star" src="images/gray-star.png" alt="별(일반)" />
           </div>
           <div class="content-container">
