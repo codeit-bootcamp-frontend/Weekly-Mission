@@ -1,42 +1,5 @@
 @import url("/styles/global-style.css");
 
-.header-logo-profile {
-  height: 9.3rem;
-  padding: 0 20rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  background-color: var(--gray-brt5);
-}
-
-header > a {
-  text-decoration: none;
-}
-
-.logo {
-  width: 13.3rem;
-  height: 2.4rem;
-}
-
-.profile-container {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  color: var(--gray-brt1);
-}
-
-.profile {
-  width: 2.8rem;
-  height: 2.8rem;
-}
-
-.profile-email {
-  font-size: 1.4rem;
-}
-
 .header-avatar-title {
   height: 23.9rem;
   padding-top: 2rem;
@@ -64,7 +27,7 @@ header > a {
   font-weight: 600;
 }
 
-.profile-email,
+/* .profile-email, */
 .avatar-tag,
 .header-title {
   margin: 0;
@@ -83,10 +46,6 @@ header > a {
 
 /* 반응형(1100px 미만) */
 @media (max-width: 1100px) {
-  .header-logo-profile {
-    padding: 0 3.25rem;
-  }
-
   .header-avatar-title {
     height: 24.4rem;
   }
@@ -100,20 +59,6 @@ header > a {
 
 /* 반응형(768px 미만) */
 @media (max-width: 768px) {
-  .header-logo-profile {
-    height: 6.3rem;
-    padding: 0 3.2rem;
-  }
-
-  .logo {
-    width: 8.867rem;
-    height: 1.6rem;
-  }
-
-  .profile-email {
-    display: none;
-  }
-
   .header-avatar-title {
     height: 16.1rem;
     padding-top: 1rem;
