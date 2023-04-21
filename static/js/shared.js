@@ -5,7 +5,9 @@ async function getFolder() {
     "https://bootcamp-api.codeit.kr/api/sample/folder"
   );
   const { data }  = await response.json();
-  const { links } = data.folder
+  const { folder } = data
+  const { owner } = folder
+  const { links } = folder
   links.forEach((link) => {
   const { imageSource, description, createdAt, url } = link
   const linkCardElement = document.createElement("link-card")
