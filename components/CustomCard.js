@@ -1,8 +1,8 @@
-import ProcessFolderData from "/scripts/ProcessFolderData.js";
+import ProcessData from "/scripts/ProcessData.js";
 
 async function getData() {
-  const processorData = await new ProcessFolderData();
-  const folderData = await processorData.data;
+  const processor = new ProcessData();
+  const folderData = await processor.fetchFolderData();
   const linksData = await folderData.links;
   return linksData;
 }
@@ -48,7 +48,7 @@ class CustomCard extends HTMLElement {
         @import url("/components/styles/CustomCard.css");
       </style>
       <article class="card">
-        <a href="https://www.codeit.kr" target="_blank">
+        <a href="${cardData.url}" target="_blank">
           <div class="image-container">
             <img
               class="card-image"

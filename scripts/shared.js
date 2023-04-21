@@ -1,10 +1,10 @@
-import ProcessFolderData from "/scripts/ProcessFolderData.js";
+import ProcessData from "/scripts/ProcessData.js";
 
 const cardContainer = document.querySelector(".card-container");
 // 1. data fetch
 async function getData() {
-  const processorData = await new ProcessFolderData();
-  return await processorData.data;
+  const processor = new ProcessData();
+  return await processor.fetchFolderData();
 }
 // 2. header 내용 넣어주기
 async function applyHeaderData() {
@@ -13,8 +13,6 @@ async function applyHeaderData() {
   const avatarTag = document.querySelector(".avatar-tag");
   const avatar = document.querySelector(".avatar"); //이미지
   const headerTitle = document.querySelector(".header-title");
-
-  console.log(folderData.owner.profileImageSource);
 
   avatarTag.textContent = folderData.owner.name;
   avatar.setAttribute("src", folderData.owner.profileImageSource);
