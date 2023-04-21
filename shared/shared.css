@@ -19,6 +19,7 @@ body {
   margin: 0 auto;
   padding: 0 200px;
   background-color: #f0f6ff;
+  z-index: 10;
 }
 
 .email {
@@ -98,23 +99,28 @@ main {
   filter: drop-shadow(0px 5px 25px rgba(0, 0, 0, 0.08));
 }
 
-.card > .card-img {
+a.link {
+  display: block;
   width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+  cursor: pointer;
+}
+
+a.transfer {
+  cursor: pointer;
+}
+.card-img {
+  display: inline-block;
+  width: 100%;
+  height: auto;
   overflow: hidden;
 }
 
-.first,
-.second,
-.third,
-.fourth,
-.fifth,
-.sixth,
-.seventh,
-.eighth,
-.ninth {
+.card {
   position: relative;
 }
-
 .star {
   position: absolute;
   top: 16px;
@@ -168,4 +174,66 @@ main {
   line-height: 18px;
   letter-spacing: 0em;
   color: #333333;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1099px) {
+  .card-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  main {
+    width: 100%;
+    padding: 40px 32px 0;
+    align-items: center;
+  }
+}
+
+.search-box {
+  width: 100%;
+}
+
+@media screen and (min-width: 1100px) and (max-width: 1199px) {
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  main {
+    width: 100%;
+    padding: 40px 32px 0;
+    align-items: center;
+  }
+}
+
+.search-box {
+  width: 100%;
+}
+
+/* Mobile */
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .gnb {
+    padding: 0 32px;
+    width: 100%;
+  }
+  .card-container {
+    width: 325px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0px 5px 25px rgba(0, 0, 0, 0.08));
+  }
+
+  main {
+    width: 100%;
+    padding: 20px 32px 0;
+    align-items: center;
+  }
+
+  .search-box {
+    width: 325px;
+  }
 }

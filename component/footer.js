@@ -62,8 +62,9 @@ class Myfooter extends HTMLElement {
     /* Mobile */
     @media screen and (min-width: 375px) and (max-width: 767px) {
       footer {
-        
+        height: 160px;
         padding: 32px;
+        box-sizing: border-box;
       }
 
       .desktop {
@@ -72,21 +73,36 @@ class Myfooter extends HTMLElement {
 
       .mobile {
         display: flex;
+        flex-direction: column;
+        gap: 60px;
 
       .footer-items.mobile {
+        display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 60px;
-        height: auto;
+        height: 96px;
+      
       }
+
       .footer-top {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
+        
       }
       .footer-center a:first-child {
         margin: 0px;
+      }
+
+      .footer-right {
+        align-items: center;
+      }
+
+      .company-name {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
       }
     }
   </style>

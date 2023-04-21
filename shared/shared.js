@@ -1,25 +1,38 @@
 const cardList = document.querySelectorAll(".card");
 
-// 1. 카드에 mouseover시 배경색 바꾸고 이미지 확대//
+// 카드 영역 누르면 코드잇 페이지로 이동 //
+const aTags = document.querySelectorAll(".transfer");
+
+function goToCodeit() {
+  window.location.href = "https://www.codeit.kr";
+}
+
+aTags.forEach((aTag) => {
+  aTag.addEventListener("click", goToCodeit);
+});
+
+// 끝 //
+
+// 카드에 mouseover시 배경색 바꾸고 이미지 확대//
 function changeBackground(event) {
-  const txtContent = event.currentTarget.children[2];
+  const txtContent = event.currentTarget.children[2].children[0];
   txtContent.style.backgroundColor = "#F0F6FF";
 }
 
 function resetBackground(event) {
-  const txtContent = event.currentTarget.children[2];
+  const txtContent = event.currentTarget.children[2].children[0];
   txtContent.style.backgroundColor = "#FFFFFF";
 }
 
 function zoomIn(event) {
-  const imgContent = event.currentTarget.children[0];
+  const imgContent = event.currentTarget.children[0].firstElementChild;
   imgContent.style.transform = "scale(1.2)";
   imgContent.style.transition = "all  0.2s linear";
   imgContent.style.objectFit = "cover";
 }
 
 function zoomOut(event) {
-  const imgContent = event.currentTarget.children[0];
+  const imgContent = event.currentTarget.children[0].children[0];
   imgContent.style.transform = "scale(1)";
 }
 
@@ -34,9 +47,9 @@ for (let i = 0; i < cardList.length; i++) {
   currentCard.addEventListener("mouseout", zoomOut);
 }
 
-//1 끝//
+//끝//
 
-//2. 별 클릭시 바뀌기//
+// 별 클릭시 바뀌기//
 
 const starDefault = document.querySelectorAll(".star.default");
 
@@ -47,11 +60,11 @@ function onoff(e) {
 }
 
 function blue(e) {
-  e.target.nextElementSibling.classList.toggle("off");
+  e.currentTarget.nextElementSibling.classList.toggle("off");
 }
 
 function noColor(e) {
-  e.target.previousElementSibling.classList.toggle("off");
+  e.currentTarget.previousElementSibling.classList.toggle("off");
 }
 
 for (let i = 0; i < cardList.length; i++) {
@@ -64,4 +77,4 @@ for (let i = 0; i < cardList.length; i++) {
   blueStar.addEventListener("click", noColor);
 }
 
-// 2 끝 //
+// 끝 //
