@@ -22,7 +22,9 @@
       <h1 class="header-title">⭐️ 즐겨찾기</h1>
     </header>
     <main>
-      <custom-search-bar></custom-search-bar>
+      <section class="search-bar-container">
+        <custom-search-bar></custom-search-bar>
+      </section>
       <section class="card-container">
         <custom-card></custom-card>
         <custom-card></custom-card>
@@ -36,9 +38,10 @@
       </section>
     </main>
     <custom-footer></custom-footer>
-    <script src="/components/CustomGnb.js"></script>
-    <script src="/components/CustomSearchBar.js"></script>
+    <script type="module" src="/components/CustomGnb.js"></script>
+    <script type="module" src="/components/CustomSearchBar.js"></script>
     <script type="module" src="/components/CustomCard.js"></script>
-    <script src="/components/CustomFooter.js"></script>
+    <script type="module" src="/components/CustomFooter.js"></script>
+    <script src="/scripts/shared.js"></script>
   </body>
 </html>

@@ -22,18 +22,16 @@ class CustomCard extends HTMLElement {
       CustomCard.cardNum++;
     }
 
-    this.shadowRoot.firstElementChild.addEventListener("click", (e) => {
-      const classLi = e.target.classList;
-      if (classLi.contains("star")) {
-        if (classLi.toggle("star-favor")) {
-          e.target.src = "./images/purple-star.png";
-          e.target.alt = "별(즐겨찾기)";
-        } else {
-          e.target.src = "./images/gray-star.png";
-          e.target.alt = "별(일반)";
-        }
+    const starElement = this.shadowRoot.querySelector(".star");
+    starElement.addEventListener("click", (e) => {
+      e.preventDefault();
+      const classList = e.target.classList;
+      if (classList.toggle("star-favor")) {
+        e.target.src = "./images/purple-star.png";
+        e.target.alt = "별(즐겨찾기)";
       } else {
-        open("https://www.codeit.kr");
+        e.target.src = "./images/gray-star.png";
+        e.target.alt = "별(일반)";
       }
     });
   }
@@ -46,22 +44,24 @@ class CustomCard extends HTMLElement {
     const cardData = this.getData();
     return `
       <article class="card">
-        <div class="image-container">
-          <img
-            class="card-image"
-            src="${cardData.src}"
-            alt="${cardData.alt}"
-          />
-          <img class="star" src="images/gray-star.png" alt="별(일반)" />
-        </div>
-        <div class="content-container">
-          <div class="publish-time">${cardData.publishTime}</div>
-          <button class="btn-overflow-menu"></button>
-          <h2 class="content">
-            ${cardData.content}
-          </h2>
-          <div class="publish-date">${cardData.publishDate}</div>
-        </div>
+        <a href="https://www.codeit.kr" target="_blank">
+          <div class="image-container">
+            <img
+              class="card-image"
+              src="${cardData.src}"
+              alt="${cardData.alt}"
+            />
+            <img class="star" src="images/gray-star.png" alt="별(일반)" />
+          </div>
+          <div class="content-container">
+            <div class="publish-time">${cardData.publishTime}</div>
+            <button class="btn-overflow-menu"></button>
+            <h2 class="content">
+              ${cardData.content}
+            </h2>
+            <div class="publish-date">${cardData.publishDate}</div>
+          </div>
+        </a>
       </article>
     `;
   }

@@ -21,10 +21,10 @@ class CustomSearchBar extends HTMLElement {
 
   getTemplate() {
     return `
-      <section class="search-container">
+      <div class="search-container">
         <img class="search-icon" src="images/search.png" alt="검색 아이콘" />
         <input class="search-input" placeholder="원하는 링크를 검색해 보세요" />
-      </section>
+      </div>
     `;
   }
 }

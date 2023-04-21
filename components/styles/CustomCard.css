@@ -4,8 +4,12 @@
   box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.08);
   border-radius: 1.5rem;
   overflow: hidden;
-  cursor: pointer;
   transition: all 0.5s;
+}
+
+.card a {
+  text-decoration: none;
+  color: #000000;
 }
 
 .card:hover {
@@ -87,11 +91,6 @@
 /* 반응형(768px 미만) */
 @media (max-width: 768px) {
   .image-container {
-    width: 32.5rem;
-    height: 19.2rem;
-  }
-
-  .card-image {
     width: 32.5rem;
     height: 19.2rem;
   }

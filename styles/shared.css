@@ -27,13 +27,18 @@
   font-weight: 600;
 }
 
-/* .profile-email, */
 .avatar-tag,
 .header-title {
   margin: 0;
 }
 
 /* main 영역 */
+.search-bar-container {
+  width: 106rem;
+  height: 4.8rem;
+  margin: 4rem auto;
+}
+
 .card-container {
   width: 106rem;
   margin: 4rem auto;
@@ -48,6 +53,11 @@
 @media (max-width: 1100px) {
   .header-avatar-title {
     height: 24.4rem;
+  }
+
+  .search-bar-container {
+    width: 70.4rem;
+    height: 5.4rem;
   }
 
   .card-container {
@@ -88,6 +98,12 @@
   }
 
   /* main 영역 */
+  .search-bar-container {
+    width: 32.5rem;
+    height: 4.3rem;
+    margin: 2rem auto;
+  }
+
   .card-container {
     width: 32.5rem;
     margin: 3.2rem auto;
