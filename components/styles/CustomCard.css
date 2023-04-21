@@ -31,17 +31,17 @@
   width: 100%;
   height: 100%;
   background-position: center center;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   transition: transform 0.5s;
 }
 
-.star {
+custom-star {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
   width: 3.4rem;
   height: 3.4rem;
-  position: absolute;
-  right: 1.5rem;
-  top: 1.5rem;
 }
 
 .content-container {
@@ -98,7 +98,7 @@
     height: 19.2rem;
   }
 
-  .star {
+  custom-star {
     width: 3rem;
     height: 3rem;
   }

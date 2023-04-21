@@ -1,4 +1,5 @@
 import ProcessData from "/scripts/ProcessData.js";
+import CustomStar from "/components/CustomStar.js";
 
 async function getData() {
   const processor = new ProcessData();
@@ -25,19 +26,6 @@ class CustomCard extends HTMLElement {
       this.render();
       this.rendered = true;
     }
-    // card 갯수가 0개일 때 에러가 뜸
-    // const starElement = this.shadowRoot.querySelector(".star");
-    // starElement.addEventListener("click", (e) => {
-    //   e.preventDefault();
-    //   const classList = e.target.classList;
-    //   if (classList.toggle("star-favor")) {
-    //     e.target.src = "./images/purple-star.png";
-    //     e.target.alt = "별(즐겨찾기)";
-    //   } else {
-    //     e.target.src = "./images/gray-star.png";
-    //     e.target.alt = "별(일반)";
-    //   }
-    // });
   }
 
   async applyTemplate() {
@@ -58,7 +46,7 @@ class CustomCard extends HTMLElement {
         <a href="${cardData.url}" target="_blank">
           <div class="image-container">
             <div class="card-image"></div>
-            <img class="star" src="images/gray-star.png" alt="별(일반)" />
+            <custom-star></custom-star>
           </div>
           <div class="content-container">
             <div class="publish-time">${cardData.createdAt}</div>
