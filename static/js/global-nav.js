@@ -22,6 +22,7 @@ template.innerHTML = `
       margin: 0 auto;
       padding: 2rem 20rem;
       max-width: 1920px;
+      height: 9.4rem;;
     }
   
     #navbar-container #logo img {
@@ -49,11 +50,18 @@ template.innerHTML = `
       font-size: 1.4rem;
     }
 
-    #gnb-profile #icon-container {
+    #gnb-profile #img-container {
       cursor: pointer;
       width: 2.8rem;
-      border-radius: 7rem;
-      background-color: var(--primary);
+      height: 2.8rem;
+      border-radius: 70%;
+      overflow: hidden;
+    }
+    
+    #img-container #profile-img {
+      width: 2.8rem;
+      height: 2.8rem;
+      object-fit: cover;
     }
 
     #gnb-profile #profile-email {
@@ -107,8 +115,8 @@ template.innerHTML = `
         로그인
       </div>
       <div id="gnb-profile">
-        <div id="icon-container">
-          <img id="abc" alt="Default profile icon" width="10">
+        <div id="img-container">
+          <img id="profile-img" alt="Default profile icon" width="10">
         </div>
         <p id="profile-email"></p>
       </div>
@@ -124,7 +132,7 @@ class Gnb extends HTMLElement {
     const login = this.getAttribute("login");
     const loginButton = this.shadowRoot.getElementById("gnb-login-button");
     const profile = this.shadowRoot.getElementById("gnb-profile");
-    const profileButton = this.shadowRoot.getElementById("icon-container");
+    const profileButton = this.shadowRoot.getElementById("profile-img");
 
     loginButton.addEventListener('click', () => location.href='/signin');
     
@@ -139,7 +147,7 @@ class Gnb extends HTMLElement {
     profileButton.addEventListener('click', () => location.href='/my-link');
     
     const profileEmail = this.shadowRoot.getElementById("profile-email")
-    const profileImage = this.shadowRoot.getElementById("abc")
+    const profileImage = this.shadowRoot.getElementById("profile-img")
 
     fetch('https://bootcamp-api.codeit.kr/api/sample/user')
       .then((response) => response.json())
