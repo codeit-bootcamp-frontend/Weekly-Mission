@@ -62,9 +62,7 @@ class Gnb extends HTMLElement {
           profileImage.src = "/static/img/default-profile-img.png"
         }
       }
-
       getProfile()
-      
   }
 }
 

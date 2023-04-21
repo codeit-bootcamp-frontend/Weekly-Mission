@@ -4,8 +4,7 @@ template.innerHTML = `
     @import url("/static/css/global.css");
     @import url("/static/module/bookmark-icon/bookmark-icon.css");
   </style>
-  <img id="unmarked" class="star" src="/static/img/star1.png" alt="Unmarked icon">
-  <img id="marked" class="star" src="/static/img/star2.png" alt="Marked icon">
+  <img id="star" src="/static/img/star1.png" alt="Bookmark icon">
 `;
 
 class Bookmark extends HTMLElement {
@@ -13,31 +12,27 @@ class Bookmark extends HTMLElement {
     this.attachShadow({mode: 'open'});
     this.shadowRoot.append(template.content.cloneNode(true));
     
-    const bookmark = this.getAttribute("bookmark");
-    const marked = this.shadowRoot.getElementById("marked");
-    const unmarked = this.shadowRoot.getElementById("unmarked");
+    let bookmark = this.getAttribute("bookmark");
+    const star = this.shadowRoot.getElementById("star");
 
     if (bookmark === "true") {
-      marked.style.display = "block";
-      unmarked.style.display = "none";
+      star.src = "/static/img/star2.png"
     } else {
-      marked.style.display = "none";
-      unmarked.style.display = "block";
+      star.src = "/static/img/star1.png"
     }
 
     function bookmarkToggle(e) {
-      if (marked.style.display === "none") {
-        marked.style.display = "block";
-        unmarked.style.display = "none";
+      if (bookmark === "true") {
+        star.src = "/static/img/star1.png"
+        bookmark = "false"
       } else {
-        marked.style.display = "none";
-        unmarked.style.display = "block";
+        star.src = "/static/img/star2.png"
+        bookmark = "true"
       }
       e.stopPropagation();
     }
 
-    marked.addEventListener('click', bookmarkToggle);
-    unmarked.addEventListener('click', bookmarkToggle);
+    star.addEventListener('click', bookmarkToggle);
   }
 }
 
