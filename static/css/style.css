@@ -365,21 +365,28 @@
   padding-bottom: 10rem;
 }
 
-.site-body .card-container {
+.bookmark-page .bookmark-contents {
+  width: 106rem;
+  margin: 0 auto;
+}
+
+.bookmark-contents .card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2.4rem 2rem;
-  max-width: 140rem;
   max-height: 106rem;
   overflow: hidden;
-  margin: 4rem auto 0;
+  margin-top: 4rem
 }
 
 @media (min-width: 768px) and (max-width: 1099px) {
+  .bookmark-page .bookmark-contents {
+    width: 70.4rem;
+  }
+  
   .site-body .card-container {
     gap: 2.4rem;
-    max-width: 100rem;
   }
 }
 
@@ -387,6 +394,11 @@
   .site-body.bookmark-page {
     padding-top: 2rem;
     padding-bottom: 6rem;
+  }
+  
+  .bookmark-page .bookmark-contents {
+    max-width: 32.5rem;
+    width: 100%;
   }
   
   .site-body .card-container {

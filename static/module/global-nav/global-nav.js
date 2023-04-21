@@ -11,7 +11,7 @@ template.innerHTML = `
           <img src="/static/img/Linkbrary.png" alt="Linkbrary Logo">
         </a>
       </div>
-      <a id="gnb-login-button">
+      <a id="gnb-login-button" href="/signin">
         로그인
       </a>
       <div id="gnb-profile">
@@ -32,7 +32,7 @@ class Gnb extends HTMLElement {
     const login = this.getAttribute("login");
     const loginButton = this.shadowRoot.getElementById("gnb-login-button");
     const profile = this.shadowRoot.getElementById("gnb-profile");
-    
+
     if (login === "on") {
       profile.style.display = "flex";
       loginButton.style.display = "none";
