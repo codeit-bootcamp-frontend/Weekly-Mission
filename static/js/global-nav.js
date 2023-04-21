@@ -146,9 +146,12 @@ class Gnb extends HTMLElement {
       .then((result) => result.data)
       .then((user) => {
         const { email, profileImageSource } = user
-        console.log(email, profileImageSource)
         profileEmail.innerText = email
-        profileImage.src = profileImageSource
+        if (profileImageSource !== undefined) {
+          profileImage.src = profileImageSource
+        } else {
+          profileImage.src = "/static/img/default-profile-img.png"
+        }
       })
       
   }

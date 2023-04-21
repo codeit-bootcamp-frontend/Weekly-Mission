@@ -74,7 +74,7 @@ template.innerHTML = `
         <a href="https://youtube.com" target="blank">
           <img src="/static/img/youtube.png" alt="Youtube Icon" width="20">
         </a>
-        <a href="https://Melon.com" target="blank">
+        <a href="https://instagram.com" target="blank">
           <img src="/static/img/Instagram.png" alt="Instagram Icon" width="17">
         </a>
       </div>

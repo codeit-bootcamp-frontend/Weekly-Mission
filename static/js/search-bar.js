@@ -12,7 +12,8 @@ template.innerHTML = `
       border: 0;
       border-radius: 1rem;
       outline-color: var(--primary);
-      padding: 1.5rem 4.2rem;
+      padding: 1.5rem;
+      padding-left: 4.2rem;
       color: var(--search-bar-text);
       background-color: var(--gray6);
     }
@@ -37,7 +38,8 @@ template.innerHTML = `
       }
 
       #search-bar #search-input {
-        padding: 1.3rem 3.8rem;
+        padding: 1.3rem;
+        padding-left: 3.8rem;
         font-size: 1.4rem;
       }
 

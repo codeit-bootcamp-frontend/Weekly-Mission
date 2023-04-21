@@ -15,6 +15,7 @@ template.innerHTML = `
       border-radius: 1.5rem;
       overflow: hidden;
       width: 34rem;
+      height: 33.4rem;
       background-color: var(--white);
       filter: drop-shadow(0px 5px 25px rgba(0, 0, 0, 0.08));
     }
@@ -59,9 +60,10 @@ template.innerHTML = `
       width: 29.5rem;
       line-height: 150%;
       font-weight: 500;
+      color: black;
     }
 
-    #card-text #date {
+    #card-text #createdAt {
       font-size: 1.4rem;
       color: var(--card-date);
     }
@@ -77,19 +79,21 @@ template.innerHTML = `
     }
   </style>
   <div id="card">
-    <div id="card-image"></div>
-    <div id="card-text">
-      <div id="first-line">
-        <p id="since">10분 전</p>
-        <div id="eclipse-container">
-          <img class="eclipse" src="/static/img/eclipse.png" alt="eclipse" width="3">
-          <img class="eclipse" src="/static/img/eclipse.png" alt="eclipse" width="3">
-          <img class="eclipse" src="/static/img/eclipse.png" alt="eclipse" width="3">
+    <a id="card-url" target="_blank">
+      <div id="card-image"></div>
+      <div id="card-text">
+        <div id="first-line">
+          <p id="since"></p>
+          <div id="eclipse-container">
+            <img class="eclipse" src="/static/img/eclipse.png" alt="eclipse" width="3">
+            <img class="eclipse" src="/static/img/eclipse.png" alt="eclipse" width="3">
+            <img class="eclipse" src="/static/img/eclipse.png" alt="eclipse" width="3">
+          </div>
         </div>
+        <p id="description"></p>
+        <p id="createdAt"></p>
       </div>
-      <p id="description"></p>
-      <p id="createdAt"></p>
-    </div>
+    </a>
     <bookmark-icon bookmark="false"></bookmark-icon>
   </div>
 `;
@@ -99,14 +103,12 @@ class Card extends HTMLElement {
     this.attachShadow({mode: 'open'});
     this.shadowRoot.append(template.content.cloneNode(true));
     
-    const backgroundImg = this.getAttribute("image");
+    const backgroundImg = this.getAttribute("imageSource");
     this.shadowRoot.getElementById("card-image").style.backgroundImage = `url(${backgroundImg})`;
     this.shadowRoot.getElementById("since").innerText = this.getAttribute("since");
     this.shadowRoot.getElementById("description").innerText = this.getAttribute("description");
     this.shadowRoot.getElementById("createdAt").innerText = this.getAttribute("createdAt");
-
-    const card = this.shadowRoot.getElementById("card");
-    card.addEventListener('click', () => window.open('https://www.codeit.kr'));
+    this.shadowRoot.getElementById("card-url").href = this.getAttribute("card-url");
   }
 }
 
