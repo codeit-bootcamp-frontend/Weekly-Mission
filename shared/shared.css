@@ -139,6 +139,11 @@ a.transfer {
   width: 100%;
   height: auto;
   overflow: hidden;
+  transition: all 0.2s linear;
+}
+
+.card-img:hover {
+  transform: scale(1.2);
 }
 
 .card {
@@ -166,6 +171,11 @@ a.transfer {
   background: #ffffff;
   border-radius: 0px 0px 15px 15px;
   margin-top: -4px;
+  transition: background 0.2s linear;
+}
+
+.text-content:hover {
+  background-color: #f0f6ff;
 }
 
 .upper {

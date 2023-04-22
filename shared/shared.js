@@ -3,85 +3,6 @@ import getUserData from "/api/user.js";
 
 const cardList = document.querySelectorAll(".card");
 
-// 카드 영역 누르면 코드잇 페이지로 이동 //
-const aTags = document.querySelectorAll(".transfer");
-
-function goToCodeit() {
-  window.location.href = "https://www.codeit.kr";
-}
-
-aTags.forEach((aTag) => {
-  aTag.addEventListener("click", goToCodeit);
-});
-
-// 끝 //
-
-// 카드에 mouseover시 배경색 바꾸고 이미지 확대//
-function changeBackground(event) {
-  const txtContent = event.currentTarget.children[2].children[0];
-  txtContent.style.backgroundColor = "#F0F6FF";
-}
-
-function resetBackground(event) {
-  const txtContent = event.currentTarget.children[2].children[0];
-  txtContent.style.backgroundColor = "#FFFFFF";
-}
-
-function zoomIn(event) {
-  const imgContent = event.currentTarget.children[0].firstElementChild;
-  imgContent.style.transform = "scale(1.2)";
-  imgContent.style.transition = "all  0.2s linear";
-  imgContent.style.objectFit = "cover";
-}
-
-function zoomOut(event) {
-  const imgContent = event.currentTarget.children[0].children[0];
-  imgContent.style.transform = "scale(1)";
-}
-
-for (let i = 0; i < cardList.length; i++) {
-  const currentCard = cardList[i];
-  currentCard.addEventListener("mouseover", changeBackground);
-
-  currentCard.addEventListener("mouseover", zoomIn);
-
-  currentCard.addEventListener("mouseout", resetBackground);
-
-  currentCard.addEventListener("mouseout", zoomOut);
-}
-
-//끝//
-
-// 별 클릭시 바뀌기//
-
-const starDefault = document.querySelectorAll(".star.default");
-
-const starHidden = document.querySelectorAll(".star.hidden");
-
-function onoff(e) {
-  e.target.classList.toggle("off");
-}
-
-function blue(e) {
-  e.currentTarget.nextElementSibling.classList.toggle("off");
-}
-
-function noColor(e) {
-  e.currentTarget.previousElementSibling.classList.toggle("off");
-}
-
-for (let i = 0; i < cardList.length; i++) {
-  const currentStar = starDefault[i];
-  currentStar.addEventListener("click", onoff);
-  currentStar.addEventListener("click", blue);
-
-  const blueStar = starHidden[i];
-  blueStar.addEventListener("click", onoff);
-  blueStar.addEventListener("click", noColor);
-}
-
-// 끝 //
-
 //gnb api 데이터 적용//
 
 async function renderGnb() {
@@ -141,8 +62,125 @@ async function renderCards() {
   const { links } = folder;
 
   links.forEach((link) => {
-    const { id, createdAt, url, title, description, imageSource } = link;
+    const id = link.id ? link.id : null;
+    const createdAt = link.createdAt ? link.createdAt : null;
+    const url = link.url ? link.url : "https://www.codeit.kr";
+    const description = link.description
+      ? link.description
+      : `Lorem ipsum dolor sit amet consectetur. Metus amet habitant
+    nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus
+    amet habitant nunc consequat.`;
+    const imageSource = link.imageSource
+      ? link.imageSource
+      : "/shared/public/img1.png";
+
+    const card = document.createElement("div");
+    card.classList.add("card");
+    card.dataset.pid = id;
+
+    card.innerHTML = `
+      <a class="link transfer">
+        <img class="card-img" src="${imageSource}" />
+      </a>
+      <div class="star-marks">
+        <img class="star" src="public/Star-off.png" />
+      </div>
+      <a class="transfer">
+        <div class="text-content">
+          <div class="upper">
+            <span>${getTimeDiffFormat(createdAt)}</span>
+            <img src="public/kebab.png" />
+          </div>
+          <div class="middle">
+            <span>${description}</span>
+          </div>
+          <div class="time">
+            <span>${getDateFormat(createdAt)}</span>
+          </div>
+        </div>
+      </a>
+      `;
+
+    const cardContainer = document.querySelector(".card-container");
+    cardContainer.appendChild(card);
+
+    card.addEventListener("click", () => {
+      openURL(url);
+    });
+
+    const star = card.querySelector(".star");
+    star.addEventListener("click", toggleStar);
   });
+}
+
+function openURL(url) {
+  window.open(url);
+}
+
+function getTimeDiffFormat(createdAt) {
+  if (!createdAt) {
+    return "10 minute ago";
+  } else {
+    const year = createdAt.slice(0, 4);
+    const month =
+      createdAt[5] === "0" ? createdAt.slice(6, 7) : createdAt.slice(5, 7);
+    const day = createdAt.slice(8, 10);
+
+    const now = new Date();
+    const createdDate = new Date(year, month - "1", day);
+
+    const diffMSec = now.getTime() - createdDate.getTime();
+    const diffMin = diffMSec / (60 * 1000);
+    const diffHour = diffMin / 60;
+    const diffDay = diffHour / 24;
+    const diffMonth = diffDay / 30;
+    const diffYear = diffMonth / 12;
+
+    if (diffYear >= 2) {
+      return `${Math.floor(diffYear)} years ago`;
+    } else if (diffYear >= 1) {
+      return `1 year ago`;
+    } else if (diffMonth >= 2) {
+      return `${Math.floor(diffMonth)} months ago`;
+    } else if (diffMonth >= 1) {
+      return `1 month ago`;
+    } else if (diffDay >= 2) {
+      return `${Math.floor(diffDay)} days ago`;
+    } else if (diffDay >= 1) {
+      return `1 day ago`;
+    } else if (diffHour >= 2) {
+      return `${Math.floor(diffHour)} hours ago`;
+    } else if (diffHour >= 1) {
+      return `1 hour ago`;
+    } else if (diffMin >= 2) {
+      return `${Math.floor(diffMin)} minutes ago`;
+    } else {
+      return `1 minute ago`;
+    }
+  }
+}
+
+function getDateFormat(createdAt) {
+  if (!createdAt) {
+    return "2023. 3. 15";
+  } else {
+    const year = createdAt.slice(0, 4);
+    const month =
+      createdAt[5] === "0" ? createdAt.slice(6, 7) : createdAt.slice(5, 7);
+    const day = createdAt.slice(8, 10);
+    return `${year}. ${month}. ${day}`;
+  }
+}
+
+function toggleStar(e) {
+  e.stopPropagation();
+  if (e.target.classList.contains("selected")) {
+    e.target.src = "/shared/public/Star-off.png";
+    e.target.classList.remove("selected");
+  } else {
+    e.target.src = "/shared/public/Star-on.png";
+    e.target.classList.add("selected");
+  }
 }
 
 renderCards();
