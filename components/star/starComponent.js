@@ -47,7 +47,6 @@ export class StarComponent extends HTMLElement {
 
   get template() {
     return `
-        <link rel="stylesheet" href="/static/css/global_style.css">
         <svg
         width="30"
         height="31"
@@ -72,6 +71,12 @@ export class StarComponent extends HTMLElement {
   }
 
   render() {
+    // CSS
+    const linkElem = document.createElement("link");
+    linkElem.setAttribute("rel", "stylesheet");
+    linkElem.setAttribute("href", "/static/css/global_style.css");
+    this.shadowRoot.appendChild(linkElem);
+
     const starIcon = document.createElement("template");
     starIcon.innerHTML = this.template;
     this.shadowRoot.appendChild(starIcon.content.cloneNode(true));
