@@ -15,7 +15,6 @@ class CustomSearchBar extends HTMLElement {
   connectedCallback() {
     const placeholder = this.hasAttribute("data-placeholder") ? this.getAttribute("data-placeholder") : "원하는 정보를 검색하세요";
     const input = this.shadowRoot.querySelector("input");
-    console.log(this);
 
     input.setAttribute("placeholder", placeholder);
   }
