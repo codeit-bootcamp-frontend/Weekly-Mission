@@ -5,6 +5,12 @@ export class Gnb extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
+    this.prevScrollPos = window.scrollY;
+    this.documentHeader = document.querySelector("header");
+    this.handleScroll = this.handleScroll.bind(this);
+    // media query 경계선 지정 (헤더 높이가 767px을 기준으로 바뀌기 때문)
+    this.mq = window.matchMedia("(max-width: 767px)");
+    this.handleMediaChange = this.handleMediaChange.bind(this);
   }
 
   /**
@@ -12,6 +18,15 @@ export class Gnb extends HTMLElement {
    */
   connectedCallback() {
     this.render();
+    this.navHeight = this.documentHeader.offsetHeight;
+    window.addEventListener("scroll", this.handleScroll);
+    // media query가 width경계를 건나는 시점에만 header의 높이를 다시 계산하기 위한 핸들러 등록
+    this.mq.addEventListener("change", this.handleMediaChange);
+  }
+
+  disconnectedCallback() {
+    window.removeEventListener("scroll", this.handleScroll);
+    this.mq.removeEventListener("change", this.handleMediaChange);
   }
 
   get prop() {
@@ -159,6 +174,25 @@ export class Gnb extends HTMLElement {
     this.shadowRoot.querySelector("nav").append(myAccountDiv);
   }
 
+  handleScroll() {
+    let currentScrollPos = window.scrollY;
+    if (this.prevScrollPos > currentScrollPos) {
+      this.documentHeader.style.top = "0";
+      this.documentHeader.classList.add("shadow");
+    } else {
+      this.documentHeader.style.top = "-" + this.navHeight + "px";
+      this.documentHeader.classList.remove("shadow");
+    }
+
+    if (currentScrollPos == 0) {
+      this.documentHeader.classList.remove("shadow");
+    }
+    this.prevScrollPos = currentScrollPos;
+  }
+
+  handleMediaChange() {
+    this.navHeight = this.documentHeader.offsetHeight;
+  }
   /**
    * shadow root 노드에 자식 노드들을 추가하여 화면에 렌더링하는 함수
    */
