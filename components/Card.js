@@ -1,13 +1,42 @@
 export default class Card extends HTMLElement {
-  constructor(imgNumber) {
+  constructor(props) {
     super();
 
-    this.imgNumber = imgNumber;
+    this.props = props;
+    this.dummyLink = "/static/public/image-dummy.png";
+    this.originalDate = new Date(props.createdAt);
+    this.createDate = this.originalDate.toLocaleDateString().slice(0, -1);
+    this.currentDate = new Date();
+    this.timeDiffMinutes = (this.currentDate - this.originalDate) / 1000 / 60;
+
+    this.prettyTimeDiff = (timeDiffMinutes) => {
+      const r = (t) => Math.round(t);
+
+      if (r(timeDiffMinutes) < 2) {
+        return "1 minute ago";
+      } else if (r(timeDiffMinutes) <= 59) {
+        return `${r(timeDiffMinutes)} minutes ago`;
+      } else if (r(timeDiffMinutes) <= 119) {
+        return "1 hour ago";
+      } else if (r(timeDiffMinutes / 60) <= 23) {
+        return `${r(timeDiffMinutes / 60)} hours ago`;
+      } else if (r(timeDiffMinutes / 60) <= 47) {
+        return "1 day ago";
+      } else if (r(timeDiffMinutes / 60 / 24) <= 30) {
+        return `${r(timeDiffMinutes / 60 / 24)} days ago`;
+      } else if (r(timeDiffMinutes / 60 / 24) <= 61) {
+        return "1 month ago";
+      } else if (r(timeDiffMinutes / 60 / 24 / 31) <= 11) {
+        return `${r(timeDiffMinutes / 60 / 24 / 31)} months ago`;
+      } else {
+        return `${Math.floor(timeDiffMinutes / 60 / 24 / 31 / 12)} years ago`;
+      }
+    };
 
     this.eventListenerController = new AbortController();
 
-    this.openCodeit = () => {
-      window.open("https://www.codeit.kr");
+    this.openUrl = () => {
+      window.open(`${this.props.url}`);
     };
 
     this.cardHoverInteraction = (card, cardTopImg) => {
@@ -22,7 +51,7 @@ export default class Card extends HTMLElement {
       };
     };
 
-    this.cardClickInteraction = (targetElement, openCodeit) => {
+    this.cardClickInteraction = (targetElement, openUrl) => {
       return function (event) {
         if (
           event.target === targetElement &&
@@ -45,7 +74,7 @@ export default class Card extends HTMLElement {
           return;
         }
 
-        openCodeit();
+        openUrl();
       };
     };
   }
@@ -57,19 +86,23 @@ export default class Card extends HTMLElement {
           <img src="/static/public/card-asterisk.svg" alt="Card Asterisk" />
         </div>
         <div class="card-img-top">
-          <img src="/static/public/card-img-${this.imgNumber}.svg" alt="Card Image" />
+          <img src="${
+            this.props.imageSource ? this.props.imageSource : this.dummyLink
+          }" alt="${this.props.title}" />
         </div>
         <div class="card-caption">
           <div class="info">
-            <span class="time">10 minutes ago</span>
+            <span class="time">${this.prettyTimeDiff(
+              this.timeDiffMinutes
+            )}</span>
             <div class="more">
               <span></span>
               <span></span>
               <span></span>
             </div>
           </div>
-          <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, aut eum provident porro vel beatae consequatur qui laboriosam labore. Odio tempora dolores reprehenderit quis vel corrupti aut laudantium reiciendis. Exercitationem?</p>
-          <div class="creation">2023. 3. 15</div>
+          <p class="text">${this.props.description}</p>
+          <div class="creation">${this.createDate}</div>
         </div>
         <style>
           .card-asterisk {
@@ -91,7 +124,8 @@ export default class Card extends HTMLElement {
           }
           .card-img-top img {
             width: 100%; 
-            height: auto;
+            height: 100%;
+            object-fit: cover;
           }
           .card-caption {
             box-sizing: border-box;
@@ -167,7 +201,7 @@ export default class Card extends HTMLElement {
     );
     this.shadowRoot.addEventListener(
       "click",
-      this.cardClickInteraction(cardAsteriskImg, this.openCodeit),
+      this.cardClickInteraction(cardAsteriskImg, this.openUrl),
       { signal }
     );
   }
