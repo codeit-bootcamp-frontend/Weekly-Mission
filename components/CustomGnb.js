@@ -7,15 +7,15 @@ class CustomGnb extends HTMLElement {
     this.isLogin = true;
   }
 
-  render() {
-    this.isLogin ? this.applyLoginTemplate() : this.applyDefaultTemplate();
-  }
-
   connectedCallback() {
     if (!this.rendered) {
       this.render();
       this.rendered = true;
     }
+  }
+
+  render() {
+    this.isLogin ? this.applyLoginTemplate() : this.applyDefaultTemplate();
   }
 
   applyDefaultTemplate() {

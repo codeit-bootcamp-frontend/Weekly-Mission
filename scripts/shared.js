@@ -10,13 +10,13 @@ async function getData() {
 async function applyHeaderData() {
   const folderData = await getData();
 
-  const avatarTag = document.querySelector(".avatar-tag");
-  const avatar = document.querySelector(".avatar");
-  const headerTitle = document.querySelector(".header-title");
+  const ownerName = document.querySelector(".owner-name");
+  const imgOwner = document.querySelector(".img-owner");
+  const folderName = document.querySelector(".folder-name");
 
-  avatarTag.textContent = "@" + folderData.owner.name;
-  avatar.setAttribute("src", folderData.owner.profileImageSource);
-  headerTitle.textContent = folderData.name;
+  ownerName.textContent = "@" + folderData.owner.name;
+  imgOwner.setAttribute("src", folderData.owner.profileImageSource);
+  folderName.textContent = folderData.name;
 }
 applyHeaderData();
 

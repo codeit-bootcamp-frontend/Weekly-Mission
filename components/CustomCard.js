@@ -17,15 +17,15 @@ class CustomCard extends HTMLElement {
     this.attachShadow({ mode: "open" });
   }
 
-  render() {
-    this.applyTemplate();
-  }
-
   connectedCallback() {
     if (!this.rendered) {
       this.render();
       this.rendered = true;
     }
+  }
+
+  render() {
+    this.applyTemplate();
   }
 
   async applyTemplate() {

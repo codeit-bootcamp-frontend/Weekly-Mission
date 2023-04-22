@@ -4,6 +4,13 @@ class CustomFooter extends HTMLElement {
     this.attachShadow({ mode: "open" });
   }
 
+  connectedCallback() {
+    if (!this.rendered) {
+      this.render();
+      this.rendered = true;
+    }
+  }
+
   render() {
     this.shadowRoot.innerHTML = `
       <style>
@@ -43,13 +50,6 @@ class CustomFooter extends HTMLElement {
         </div>
       </footer>
     `;
-  }
-
-  connectedCallback() {
-    if (!this.rendered) {
-      this.render();
-      this.rendered = true;
-    }
   }
 }
 

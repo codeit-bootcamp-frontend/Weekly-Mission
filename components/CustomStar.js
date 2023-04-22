@@ -4,6 +4,13 @@ export default class CustomStar extends HTMLElement {
     this.attachShadow({ mode: "open" });
   }
 
+  connectedCallback() {
+    if (!this.rendered) {
+      this.render();
+      this.rendered = true;
+    }
+  }
+
   render() {
     this.shadowRoot.innerHTML = `
       <style>
@@ -28,13 +35,6 @@ export default class CustomStar extends HTMLElement {
         e.target.alt = "별(일반)";
       }
     });
-  }
-
-  connectedCallback() {
-    if (!this.rendered) {
-      this.render();
-      this.rendered = true;
-    }
   }
 }
 
