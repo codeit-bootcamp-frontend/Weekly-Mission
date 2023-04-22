@@ -9,6 +9,7 @@ header {
   top: 0;
   z-index: 1;
   background-color: var(--gray-brt5);
+  opacity: 0.9;
 }
 
 .header-container {
