@@ -22,14 +22,14 @@ class CardListComponent extends HTMLElement {
     this.renderCards();
   }
 
-  createCards() {
+  createCard() {
     const cardComponent = new CardComponent();
     return cardComponent;
   }
 
   renderCards() {
     this.prop.forEach((card) => {
-      const cardComponent = this.createCards();
+      const cardComponent = this.createCard();
       cardComponent.prop = {
         imageSrc: card.imageSource ?? "/static/imgs/default-card-img.png",
         description: card.description,

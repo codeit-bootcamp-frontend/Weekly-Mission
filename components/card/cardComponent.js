@@ -79,14 +79,6 @@ export class CardComponent extends HTMLElement {
     return [year, month, day].join(". ");
   }
 
-  handleMouseOver() {
-    const cardImage = this.shadow.querySelector(".card-image");
-    const cardInfo = this.shadow.querySelector(".card-info");
-
-    cardImage.style.transform = "scale(1.2)";
-    cardInfo.style.backgroundColor = "var(--library-white-smoke)";
-  }
-
   get template() {
     return `
       <div class="card-container">

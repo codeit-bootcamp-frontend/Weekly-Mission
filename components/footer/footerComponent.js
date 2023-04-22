@@ -7,8 +7,9 @@ class FooterComponent extends HTMLElement {
 
   connectedCallback() {
     this.render();
-  }
-  createLinkElement() {
+   }
+  
+  createLinkElement() {{
     const linkElem = document.createElement("link");
     linkElem.setAttribute("rel", "stylesheet");
     linkElem.setAttribute("href", "/components/footer/footer-component.css");

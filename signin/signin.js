@@ -43,7 +43,7 @@ eyeIcons.forEach((eyeIcon) => {
     const target = e.target.previousSibling;
     visiblity = !visiblity;
 
-    visiblity ? (target.type = "text") : (target.type = "password");
+    target.type = visibility ? "text" : "password";
     eyeIcon.classList.toggle("fa-eye-slash");
     eyeIcon.classList.toggle("fa-eye");
   });
