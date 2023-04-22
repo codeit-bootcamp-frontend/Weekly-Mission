@@ -39,8 +39,7 @@ async function render() {
       const cardList = document.querySelector(".card-list");
       cardList.appendChild(card);
     });
-  } catch (err) {
-    console.log(err);
+  } catch {
     console.log("folder의 데이터가 존재하지 않습니다.");
   }
 }

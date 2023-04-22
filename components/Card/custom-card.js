@@ -62,6 +62,7 @@ class CustomCard extends HTMLElement {
     const description = this.#cardData.description
       ? this.#cardData.description
       : "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.";
+    const url = this.#cardData.url ? this.#cardData.url : "https://www.codeit.kr/";
 
     this.shadowRoot.innerHTML = `
       <link rel="stylesheet" href="/components/Card/style.css" />
@@ -91,7 +92,9 @@ class CustomCard extends HTMLElement {
     starButton.addEventListener("click", this.toggleStarIcon);
 
     const card = this.shadowRoot.querySelector(".card");
-    card.addEventListener("click", this.openURL);
+    card.addEventListener("click", () => {
+      this.openURL();
+    });
   }
 
   addedTimeFormat() {
