@@ -35,7 +35,7 @@ main {
   background-clip: text;
 }
 
-.button-add-link {
+.btn-add-link {
   width: 35rem;
   height: 5.3rem;
   margin: 4rem auto;
@@ -48,7 +48,7 @@ main {
   background: linear-gradient(90.99deg, var(--primary) 0.12%, #6ae3fe 101.84%);
 }
 
-.button-add-link:hover {
+.btn-add-link:hover {
   cursor: pointer;
 }
 
@@ -181,7 +181,7 @@ span.gradation {
     line-height: 4.2rem;
   }
 
-  .button-add-link {
+  .btn-add-link {
     width: 20rem;
     height: 3.7rem;
     margin: 2.4rem auto;

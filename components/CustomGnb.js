@@ -28,7 +28,7 @@ class CustomGnb extends HTMLElement {
           <a href="/">
             <img class="logo" src="./images/logo.png" alt="로고" />
           </a>
-          <a href="/signin.html" class="button-login">로그인</a>
+          <a href="/signin.html" class="btn-login">로그인</a>
         </div>
       </header>
     `;
@@ -46,9 +46,9 @@ class CustomGnb extends HTMLElement {
           <a href="/">
             <img class="logo" src="./images/logo.png" alt="로고" />
           </a>
-          <div class="profile-container">
-            <img class="profile" src="${userData.profileImageSource}" alt="${userData.name}" />
-            <p class="profile-email">${userData.email}</p>
+          <div class="user-container">
+            <img class="img-user" src="${userData.profileImageSource}" alt="${userData.name}" />
+            <p class="user-email">${userData.email}</p>
           </div>
         </div>
       </header>
