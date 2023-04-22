@@ -57,8 +57,8 @@ class CustomCard extends HTMLElement {
   render() {
     /* #cardData 프로퍼티에 원하는 데이터들이 있는지 확인 */
     const imageSrc = this.#cardData.imageSource ? this.#cardData.imageSource : "/images/shared-card-images/yellow-dog.png";
-    const date = this.createdDate();
-    const diffDate = this.addedTimeFormat();
+    const date = this.getDateFormat();
+    const diffDate = this.getTimeDiffFormat();
     const description = this.#cardData.description
       ? this.#cardData.description
       : "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.";
@@ -97,7 +97,7 @@ class CustomCard extends HTMLElement {
     });
   }
 
-  addedTimeFormat() {
+  getTimeDiffFormat() {
     const createdAt = this.#cardData?.createdAt;
 
     if (!createdAt) {
@@ -111,48 +111,37 @@ class CustomCard extends HTMLElement {
       const createdDate = new Date(year, month - "1", day);
 
       const diffMSec = now.getTime() - createdDate.getTime();
-
-      /* 1. 분 단위로 나누기 */
       const diffMin = diffMSec / (60 * 1000);
-      if (diffMin < 2) {
-        return `1 minute ago`;
-      } else if (diffMin <= 59) {
-        return `${Math.floor(diffMin)} minute ago`;
+      const diffHour = diffMin / 60;
+      const diffDay = diffHour / 24;
+      const diffMonth = diffDay / 30;
+      const diffYear = diffMonth / 12;
+
+      if (diffYear >= 2) {
+        return `${Math.floor(diffYear)} years ago`;
+      } else if (diffYear >= 1) {
+        return `1 year ago`;
+      } else if (diffMonth >= 2) {
+        return `${Math.floor(diffMonth)} months ago`;
+      } else if (diffMonth >= 1) {
+        return `1 month ago`;
+      } else if (diffDay >= 2) {
+        return `${Math.floor(diffDay)} days ago`;
+      } else if (diffDay >= 1) {
+        return `1 day ago`;
+      } else if (diffHour >= 2) {
+        return `${Math.floor(diffHour)} hours ago`;
+      } else if (diffHour >= 1) {
+        return `1 hour ago`;
+      } else if (diffMin >= 2) {
+        return `${Math.floor(diffMin)} minutes ago`;
       } else {
-        /* 2. hour 단위 */
-        const diffHour = diffMin / 60;
-        if (Math.floor(diffHour) === 1) {
-          return `1 hour ago`;
-        } else if (diffHour < 24) {
-          return `${Math.floor(diffHour)} hours ago`;
-        } else if (diffHour < 48) {
-          return `1 day ago`;
-        } else {
-          /* 3. days 단위 */
-          const diffDay = diffHour / 24;
-          if (diffDay <= 30) {
-            return `${Math.floor(diffDay)} days ago`;
-          } else if (diffDay < 60) {
-            return `1 month ago`;
-          } else {
-            /* 4. 월 단위 */
-            const diffMonth = diffDay / 30;
-            if (diffMonth <= 11) {
-              return `${Math.floor(diffMonth)} months ago`;
-            } else if (diffMonth < 24) {
-              return `1 year ago`;
-            } else {
-              /* 5. 연 단위 */
-              const diffYear = diffMonth / 12;
-              return `${Math.floor(diffYear)} years ago`;
-            }
-          }
-        }
+        return `1 minute ago`;
       }
     }
   }
 
-  createdDate() {
+  getDateFormat() {
     const createdAt = this.#cardData.createdAt;
     if (!createdAt) {
       return "2023. 3. 15";

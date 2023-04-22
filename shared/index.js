@@ -44,5 +44,4 @@ async function render() {
   }
 }
 
-//호출
 render();
