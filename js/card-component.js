@@ -1,11 +1,18 @@
+import { getFolderData } from "./data.js";
+
 class Card extends HTMLElement {
+  static cardNum = 0; // 1. 카드 데이터의 인덱스 값
   constructor() {
     super();
-    // 인자로 전달된 속성값을 가져와서 사용
-    const imageUrl = this.getAttribute("image-url");
-    // Shadow DOM 생성
+  }
+  async connectedCallback() {
+    // 2. 컴포넌트가 렌더링 될때마다 카드 데이터의 인덱스 값 증가 -> 각 인덱스 값에 해당 되는 데이터 내에 필요한 데이터 추출
+    const folderData = await getFolderData();
+    const cardData = folderData.links[Card.cardNum++];
+    const { createdAt, url, description, imageSource } = cardData;
+
+    // 3. shadowroot와 template 생성
     const shadowRoot = this.attachShadow({ mode: "open" });
-    // 템플릿 생성
     const template = document.createElement("template");
     template.innerHTML = `
       <style>
@@ -26,7 +33,7 @@ class Card extends HTMLElement {
         }
         .card-image {
           height: 200px;
-          background-image: url(${imageUrl});
+          background-image: ${setBackgroundImage()};
           background-size: 100%;
           background-position: center;
           transition: background-size 0.3s ease-in;
@@ -84,26 +91,67 @@ class Card extends HTMLElement {
           }
         }
       </style>
-      <a href="https://www.codeit.kr">
+      <a href="${url}">
         <article class="card">
           <star-component></star-component>
           <div class="card-image"></div> 
           <div class="card-body">
             <button class="menu-btn">
               <img src="./img/kebab.png">
-            </button>  
-            <div class="card-time">10 minutes ago</div>
-            <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque nesciunt recusandae quas doloribus laboriosam possimus labore vitae nostrum voluptas exercitationem, sint nemo ab dolor, ut harum quis repellendus iusto! Esse?</p>
-            <div class="card-date">2023.3.15</div>
+            </button>
+            <div class="card-time">${calcElapsedTime()}</div>
+            <p class="card-description">${description}</p>
+            <div class="card-date">${fomattedCurrentDate()}</div>
           </div> 
         </article>
       </a>
       <script type="module" src="./js/star-component.js"></script>
     `;
-    // Shadow DOM에 템플릿 추가
     shadowRoot.appendChild(template.content.cloneNode(true));
+
+    // 4. imageSource에 따라 카드 이미지 다르게 보여짐 (null: 받은 데이터가 없을때(기본값), 'undefined': 이미지 데이터를 받았으나 값이 없을때 )
+    function setBackgroundImage() {
+      return imageSource
+        ? `url(${imageSource})`
+        : "url(../img/card-default.png)";
+    }
+
+    // 5. 현재 시간 계산
+    function fomattedCurrentDate() {
+      let createdTime = new Date(createdAt);
+      return new Intl.DateTimeFormat("ko-KR")
+        .format(new Date(createdTime))
+        .slice(0, -1);
+    }
+
+     // 6. 경과 시간 계산
+    function calcElapsedTime() {
+      let createdTime = new Date(createdAt);
+      let currentTime = new Date();
+      let diffMSec = currentTime.getTime() - createdTime.getTime();
+      let diffMin = Math.round(diffMSec / (60 * 1000)); // 현재 시간과 생성 시간과의 분 차이
+      if (diffMin < 60) {
+        return diffMin < 2 ? `1 minute ago` : `${diffMin} minutes ago`;
+      } else if (diffMin < 24 * 60) {
+        return (diffMin = 60
+          ? `1 hour ago`
+          : `${Math.floor(diffMin / 60)} hours ago`);
+      } else if (diffMin < 24 * 60 * 31) {
+        return diffMin < 24 * 60 * 2
+          ? `1 day ago`
+          : `${Math.floor(diffMin / 60 / 24)} days ago`;
+      } else if (diffMin < 24 * 60 * 31 * 12) {
+        return diffMin < 24 * 60 * 31 * 2
+          ? `1 month ago`
+          : `${Math.floor(diffMin / 60 / 24 / 31)} months ago`;
+      } else {
+        return diffMin < 24 * 60 * 31 * 12 * 2
+          ? `1 year ago`
+          : `${Math.floor(diffMin / 60 / 24 / 31 / 12)} years ago`;
+      }
+    }
   }
 }
 
-// Custom Element 등록
+// 8. Custom Element 등록
 window.customElements.define("card-component", Card);

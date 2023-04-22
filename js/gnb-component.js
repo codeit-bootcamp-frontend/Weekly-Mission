@@ -1,8 +1,12 @@
-let isLoggedIn = false; // 유저가 로그인 되었는지 확인, 상태에 따라 gnb 다르게 보여짐
+import { getUserData } from "./data.js"; // 1. 유저 데이터 받아오기
+
+let isLoggedIn = true; // 2. 유저가 로그인되었는지 확인(true:로그인된 상태)
 
 class Gnb extends HTMLElement {
   constructor() {
     super();
+  }
+  async connectedCallback() {
     const shadowRoot = this.attachShadow({ mode: "open" });
     const template = document.createElement("template");
     template.innerHTML = `
@@ -35,6 +39,7 @@ class Gnb extends HTMLElement {
           }
           .user-icon {
             width: 28px;
+            border-radius: 50%;
             cursor: pointer;
           }
           .user-email {
@@ -98,26 +103,29 @@ class Gnb extends HTMLElement {
         <header class="header">
           <div class="container">
             <h1><a href="/" class="logo ir-pm">logo</a></h1>
-            ${this.loginprofile()}
+            ${await this.renderGnb()}
           </div>
         </header>
       `;
-    // Shadow DOM에 템플릿 추가
+    
     shadowRoot.appendChild(template.content.cloneNode(true));
   }
 
-  loginprofile() {
-    return isLoggedIn ?
-      `
+  // 3. 로그인 데이터에 따라 gnb 렌더
+  async renderGnb() {
+    const user = await getUserData();
+    return isLoggedIn
+      ? `
       <div class="user">
-        <img class="user-icon" src="./img/profile.png">
-        <span class="user-email">Codeit@codeit.com</span>
+        <img class="user-icon" src="${user.profileImageSource}">
+        <span class="user-email">${user.email}</span>
       </div>
       `
-    : `
+      : `
       <a href="/signin.html" class="login-btn">로그인</a>
     `;
   }
 }
-// Custom Element 등록
+
+// 4. Custom Element 등록
 window.customElements.define("gnb-component", Gnb);
