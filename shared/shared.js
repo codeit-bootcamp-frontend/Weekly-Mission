@@ -1,3 +1,6 @@
+import getFolderData from "/api/folder.js";
+import getUserData from "/api/user.js";
+
 const cardList = document.querySelectorAll(".card");
 
 // 카드 영역 누르면 코드잇 페이지로 이동 //
@@ -78,3 +81,68 @@ for (let i = 0; i < cardList.length; i++) {
 }
 
 // 끝 //
+
+//gnb api 데이터 적용//
+
+async function renderGnb() {
+  try {
+    const { data } = await getUserData();
+    const { email, profileImageSource } = data;
+    const account = document.querySelector(".email");
+    account.textContent = email;
+
+    const img = document.querySelector(".profile-img");
+    img.src = profileImageSource;
+  } catch {
+    console.log("user데이터를 불러올 수 없습니다.");
+    const account = document.querySelector(".account");
+    account.outerHTML = `
+      <div>
+        <a class="login-btn" href="signin.html"> 로그인 </a>
+      </div>
+    `;
+  }
+}
+
+renderGnb();
+
+// 끝 //
+
+// Header api 데이터 적용 //
+async function renderHeader() {
+  try {
+    const { data } = await getFolderData();
+    const { folder } = data;
+    const { name, owner } = folder;
+    const { name: profileName, profileImageSource } = owner;
+
+    const headerImg = document.querySelector(".header-img");
+    headerImg.src = profileImageSource;
+
+    const user = document.querySelector(".user");
+    user.textContent = `@${profileName}`;
+
+    const headerTitle = document.querySelector(".header-title");
+    headerTitle.textContent = name;
+  } catch {
+    console.log("folder의 데이터를 불러올 수 없습니다.");
+  }
+}
+
+renderHeader();
+
+// 끝 //
+
+//card api 데이터 적용 //
+
+async function renderCards() {
+  const { data } = await getFolderData();
+  const { folder } = data;
+  const { links } = folder;
+
+  links.forEach((link) => {
+    const { id, createdAt, url, title, description, imageSource } = link;
+  });
+}
+
+renderCards();
