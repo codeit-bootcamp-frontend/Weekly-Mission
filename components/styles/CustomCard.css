@@ -54,7 +54,7 @@ custom-star {
   position: relative;
 }
 
-.publish-time {
+.passed-time {
   font-size: 1.3rem;
   color: #666666;
 }
@@ -86,7 +86,7 @@ custom-star {
   height: 4.9rem;
 }
 
-.publish-date {
+.created-date {
   font-size: 1.5rem;
   color: #333333;
 }
