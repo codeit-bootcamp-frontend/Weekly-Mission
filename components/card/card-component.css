@@ -12,6 +12,14 @@
   background-color: var(--linkbrary-white);
 }
 
+.card-container:hover .card-image {
+  transform: scale(1.2);
+}
+
+.card-container:hover .card-info {
+  background-color: var(--library-white-smoke);
+}
+
 .card-image {
   height: 20rem;
   object-fit: cover;

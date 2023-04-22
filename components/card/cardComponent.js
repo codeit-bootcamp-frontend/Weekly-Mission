@@ -5,12 +5,10 @@ export class CardComponent extends HTMLElement {
     super();
 
     this.shadow = this.attachShadow({ mode: "open" });
+  }
 
-    // CSS
-    const linkElem = document.createElement("link");
-    linkElem.setAttribute("rel", "stylesheet");
-    linkElem.setAttribute("href", "/components/card/card-component.css");
-    this.shadow.appendChild(linkElem);
+  connectedCallback() {
+    this.render();
   }
 
   get prop() {
@@ -38,106 +36,39 @@ export class CardComponent extends HTMLElement {
   calculateTimeDiff(dateString) {
     const updatedDate = new Date(dateString);
     const today = new Date();
-
     const timeDiff = today - updatedDate;
+
     const MINUTE = 60 * 1000;
     const HOUR = MINUTE * 60;
     const DAY = HOUR * 24;
     const MONTH = DAY * 31;
-    const YEAR = MONTH * 12;
+    const YEAR = DAY * 365;
 
-    let formattedTimeDiff = "";
-    let unit = "";
-    if (timeDiff < MINUTE * 2) {
-      formattedTimeDiff = 1;
-      unit = "minute";
-    } else if (timeDiff < HOUR) {
-      formattedTimeDiff = Math.floor(timeDiff / MINUTE);
-      unit = "minutes";
-    } else if (timeDiff < HOUR * 2) {
-      formattedTimeDiff = 1;
-      unit = "hour";
-    } else if (timeDiff < DAY) {
-      formattedTimeDiff = Math.floor(timeDiff / HOUR);
-      unit = "hours";
-    } else if (timeDiff < DAY * 2) {
-      formattedTimeDiff = 1;
-      unit = "day";
-    } else if (timeDiff < MONTH) {
-      formattedTimeDiff = Math.floor(timeDiff / DAY);
-      unit = "days";
-    } else if (timeDiff < MONTH * 2) {
-      formattedTimeDiff = 1;
-      unit = "month";
-    } else if (timeDiff < YEAR) {
-      formattedTimeDiff = Math.floor(timeDiff / MONTH);
-      unit = "months";
-    } else if (timeDiff < YEAR * 2) {
-      formattedTimeDiff = 1;
-      unit = "year";
-    } else {
-      formattedTimeDiff = Math.floor(timeDiff / YEAR);
-      unit = "years";
+    const timeUnits = [
+      { value: YEAR, label: "year" },
+      { value: MONTH, label: "month" },
+      { value: DAY, label: "day" },
+      { value: HOUR, label: "hour" },
+      { value: MINUTE, label: "minute" },
+    ];
+
+    for (let i = 0; i < timeUnits.length; i++) {
+      const { value, label } = timeUnits[i];
+
+      if (timeDiff < value) {
+        continue;
+      }
+
+      const formattedTimeDiff = Math.floor(timeDiff / value);
+
+      return (
+        formattedTimeDiff +
+        " " +
+        label +
+        (formattedTimeDiff > 1 ? "s" : "") +
+        " ago"
+      );
     }
-
-    return formattedTimeDiff + " " + unit + " ago";
-  }
-
-  connectedCallback() {
-    // 카드 데이터
-    const cardContainer = document.createElement("div");
-    cardContainer.classList.add("card-container");
-
-    const cardImage = document.createElement("img");
-    cardImage.classList.add("card-image");
-    cardImage.src = this.prop.imageSrc;
-
-    const starIcon = new StarComponent();
-    starIcon.classList.add("star-icon");
-
-    const cardInfo = document.createElement("div");
-    cardInfo.classList.add("card-info");
-
-    const cardInfoHead = document.createElement("div");
-    cardInfoHead.classList.add("card-info-head");
-
-    const cardUpdateTime = document.createElement("div");
-    cardUpdateTime.classList.add("card-update-time");
-    cardUpdateTime.textContent = this.calculateTimeDiff(this.prop.date);
-
-    const kebabIcon = document.createElement("img");
-    kebabIcon.classList.add("kebab-icon");
-    kebabIcon.src = "/static/imgs/kebab.svg";
-
-    const cardDescription = document.createElement("div");
-    cardDescription.classList.add("card-description");
-    cardDescription.textContent = this.prop.description;
-
-    const cardDate = document.createElement("div");
-    cardDate.classList.add("card-date");
-    cardDate.textContent = this.parseDate(this.prop.date);
-
-    cardInfoHead.appendChild(cardUpdateTime);
-    cardInfoHead.appendChild(kebabIcon);
-
-    cardInfo.appendChild(cardInfoHead);
-    cardInfo.appendChild(cardDescription);
-    cardInfo.appendChild(cardDate);
-
-    cardContainer.appendChild(starIcon);
-    cardContainer.appendChild(cardImage);
-    cardContainer.appendChild(cardInfo);
-
-    this.shadow.appendChild(cardContainer);
-
-    //hover 이벤트 핸들러 등록
-    cardContainer.addEventListener(
-      "mouseover",
-      this.handleMouseOver.bind(this)
-    );
-    cardContainer.addEventListener("mouseout", this.handleMouseOut.bind(this));
-
-    cardContainer.addEventListener("click", (e) => window.open(this.prop.url));
   }
 
   parseDate(dateString) {
@@ -156,12 +87,36 @@ export class CardComponent extends HTMLElement {
     cardInfo.style.backgroundColor = "var(--library-white-smoke)";
   }
 
-  handleMouseOut() {
-    const cardImage = this.shadow.querySelector(".card-image");
-    const cardInfo = this.shadow.querySelector(".card-info");
-    // 마우스 아웃 이벤트를 처리하는 로직
-    cardImage.style.transform = "";
-    cardInfo.style.backgroundColor = "";
+  get template() {
+    return `
+      <div class="card-container">
+        <img class="card-image" src="${this.prop.imageSrc}" />
+        <span class="star-icon"></span>
+        <div class="card-info">
+          <div class="card-info-head">
+            <div class="card-update-time">${this.calculateTimeDiff(
+              this.prop.date
+            )}</div>
+            <img class="kebab-icon" src="/static/imgs/kebab.svg" />
+          </div>
+          <div class="card-description">${this.prop.description}</div>
+          <div class="card-date">${this.parseDate(this.prop.date)}</div>
+        </div>
+      </div>
+      `;
+  }
+  render() {
+    // CSS
+    const linkElem = document.createElement("link");
+    linkElem.setAttribute("rel", "stylesheet");
+    linkElem.setAttribute("href", "/components/card/card-component.css");
+    this.shadow.appendChild(linkElem);
+    const cardComponent = document.createElement("template");
+    cardComponent.innerHTML = this.template;
+    this.shadow.appendChild(cardComponent.content.cloneNode(true));
+
+    const starIcon = new StarComponent();
+    this.shadow.querySelector(".star-icon").appendChild(starIcon);
   }
 }
 customElements.define("card-component", CardComponent);
