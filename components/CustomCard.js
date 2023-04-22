@@ -31,15 +31,14 @@ class CustomCard extends HTMLElement {
   async applyTemplate() {
     const cardsData = await linksData;
     const cardData = await cardsData[CustomCard.cardNum++];
-    const cardImage = cardData.imageSource
-      ? cardData.imageSource
-      : "/images/logo.png";
 
     const createdDate = Intl.DateTimeFormat("kr").format(
       new Date(cardData.createdAt)
     );
-
     const passedTime = this.calculatePassedTime(new Date(cardData.createdAt));
+    const cardImage = cardData.imageSource
+      ? cardData.imageSource
+      : "/images/default-background.png";
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -71,7 +70,7 @@ class CustomCard extends HTMLElement {
     const MINUTE = 60 * 1000;
     const HOUR = 60 * MINUTE;
     const DAY = 24 * HOUR;
-    const MONTH = 30 * DAY;
+    const MONTH = 31 * DAY;
     const YEAR = 12 * MONTH;
 
     const currentTime = new Date();
@@ -79,21 +78,21 @@ class CustomCard extends HTMLElement {
 
     if (timeDiff < 2 * MINUTE) {
       return "1 minute ago";
-    } else if (timeDiff <= 59 * MINUTE) {
+    } else if (timeDiff < HOUR) {
       return `${Math.floor(timeDiff / MINUTE)} minutes ago`;
-    } else if (timeDiff <= HOUR + 59 * MINUTE) {
+    } else if (timeDiff < 2 * HOUR) {
       return "1 hour ago";
-    } else if (timeDiff <= 23 * HOUR) {
+    } else if (timeDiff < DAY) {
       return `${Math.floor(timeDiff / HOUR)} hours ago`;
-    } else if (timeDiff <= DAY + 23 * HOUR) {
+    } else if (timeDiff < 2 * DAY) {
       return "1 day ago";
-    } else if (timeDiff <= 30 * DAY) {
+    } else if (timeDiff < MONTH) {
       return `${Math.floor(timeDiff / DAY)} days ago`;
-    } else if (timeDiff <= 31 * DAY + 12 * HOUR) {
+    } else if (timeDiff < 2 * MONTH) {
       return "1 month ago";
-    } else if (timeDiff <= 11 * MONTH) {
+    } else if (timeDiff < YEAR) {
       return `${Math.floor(timeDiff / MONTH)} months ago`;
-    } else if (timeDiff <= 12 * MONTH + 15 * DAY) {
+    } else if (timeDiff < 2 * YEAR) {
       return "1 year ago";
     } else {
       return `${Math.floor(timeDiff / YEAR)} years ago`;
