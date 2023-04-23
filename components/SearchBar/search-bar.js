@@ -13,7 +13,7 @@ class CustomSearchBar extends HTMLElement {
   }
 
   connectedCallback() {
-    const placeholder = this.hasAttribute("data-placeholder") ? this.getAttribute("data-placeholder") : "원하는 정보를 검색하세요";
+    const placeholder = this.hasAttribute("placeholder") ? this.getAttribute("placeholder") : "원하는 정보를 검색하세요";
     const input = this.shadowRoot.querySelector("input");
 
     input.setAttribute("placeholder", placeholder);
