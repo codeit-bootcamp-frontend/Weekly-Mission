@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로그인</title>
+    <title>회원가입</title>
     <link
       rel="stylesheet"
       type="text/css"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css"
     >
-    <link rel="stylesheet" href="/assets/stylesheets/signin.css">
+    <link rel="stylesheet" href="/assets/stylesheets/signup.css">
     <link rel="icon" href="/assets/images/favicon.ico">
   </head>
   <body>
@@ -19,26 +19,28 @@
         <img class="logo" src="/assets/images/logo.png" alt="Linkbrary">
       </a>
       <div class="header-menu">
-        회원이 아니신가요? <a href="/signup">회원 가입하기</a>
+        이미 회원이신가요? <a href="/signin">로그인 하기</a>
       </div>
     </header>
     <main>
-      <form id="signin-form" name="signin-form">
-        <label for="signin-email">이메일</label>
-        <input id="signin-email" name="email" type="email" placeholder="이메일을 입력해주세요">
-        <label for="signin-password">비밀번호</label>
-        <div class="signin-password-container">
-          <input id="signin-password" name="password" type="password" placeholder="비밀번호를 입력해주세요">
+      <form>
+        <label for="signup-email">이메일</label>
+        <input id="signup-email" name="email" type="email" placeholder="이메일을 입력해주세요">
+        <label for="signup-password">비밀번호</label>
+        <div class="signup-password-container">
+          <input id="signup-password" name="password" type="password" placeholder="영문, 숫자 조합 8자 이상 입력해주세요">
           <img class="eye-icon" src="/assets/images/eye-slash.svg">
         </div>
-        <button id="submit-button">로그인</button>
+        <label for="signup-password-repeat">비밀번호 확인</label>
+        <div class="signup-password-container">
+          <input id="signup-password-repeat" name="password-repeat" type="password" placeholder="비밀번호를 확인해주세요">
+          <img class="eye-icon-repeat" src="/assets/images/eye-slash.svg">
+        </div>
+        <button id="submit-button">회원가입</button>
       </form>
-      <div class="forgot-password">
-        <a href="/forgot-password">비밀번호 찾기</a>
-      </div>
     </main>
     <footer>
-      소셜 로그인
+      다른 방식으로 가입하기
       <div class="sns-icons">
         <a href="https://www.google.com/">
           <img class="sns-icon" src="/assets/images/sns-icons/google.png" alt="구글">
@@ -48,6 +50,6 @@
         </a>
       </div>
     </footer>
-    <script src="/signin/index.js"></script>
+    <script src="/signup/index.js"></script>
   </body>
 </html>
