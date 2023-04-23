@@ -21,10 +21,11 @@ async function getSharedInfo() {
   );
   const result = await response.json();
   const data = result.data.folder;
+  console.log(data);
 
   user.innerHTML = `
   <img class="icon" src="/pictures/Avatar.png" />
-  <p class="user-name">@코드잇</p>
+  <p class="user-name">${data.owner.name}</p>
   <p class="favorite">${data.name}</p>
   `;
 
