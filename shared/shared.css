@@ -85,14 +85,17 @@ header {
 /* 메인 시작 */
 
 main {
-  padding: 40px 190px 100px;
+  width: 100%;
+  padding: 40px 0 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .search-box {
   position: relative;
+  width: 1060px;
 }
 
 .search {
@@ -120,24 +123,22 @@ main {
   grid-row-gap: 24px;
   grid-column-gap: 20px;
   filter: drop-shadow(0px 5px 25px rgba(0, 0, 0, 0.08));
+  place-items: center;
 }
 
 a.link {
   display: block;
-  width: 100%;
-  height: auto;
+  width: 340px;
+  height: 200px;
   overflow: hidden;
   border-radius: 15px 15px 0 0;
   cursor: pointer;
 }
 
-a.transfer {
-  cursor: pointer;
-}
 .card-img {
-  display: inline-block;
-  width: 100%;
-  height: auto;
+  display: block;
+  width: 340px;
+  height: 200px;
   overflow: hidden;
   transition: all 0.2s linear;
 }
@@ -148,6 +149,8 @@ a.transfer {
 
 .card {
   position: relative;
+  cursor: pointer;
+  width: 340px;
 }
 .star {
   position: absolute;
@@ -170,7 +173,6 @@ a.transfer {
   height: auto;
   background: #ffffff;
   border-radius: 0px 0px 15px 15px;
-  margin-top: -4px;
   transition: background 0.2s linear;
 }
 
@@ -212,6 +214,7 @@ a.transfer {
 /* Tablet */
 @media screen and (min-width: 768px) and (max-width: 1099px) {
   .card-container {
+    max-width: 704px;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -219,13 +222,29 @@ a.transfer {
 
   main {
     width: 100%;
-    padding: 40px 32px 0;
     align-items: center;
+    justify-content: center;
+    padding: 40px 32px 100px;
   }
-}
 
-.search-box {
-  width: 100%;
+  .search-box {
+    display: flex;
+    max-width: 704px;
+    justify-content: center;
+    position: relative;
+  }
+
+  .search {
+    width: 704px;
+    position: relative;
+  }
+
+  .lens {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 30;
+  }
 }
 
 @media screen and (min-width: 1100px) and (max-width: 1199px) {
@@ -239,10 +258,14 @@ a.transfer {
     padding: 40px 32px 0;
     align-items: center;
   }
-}
 
-.search-box {
-  width: 100%;
+  .search-box {
+    width: 1060px;
+  }
+
+  .search {
+    width: 1060px;
+  }
 }
 
 /* Mobile */
@@ -262,11 +285,25 @@ a.transfer {
 
   main {
     width: 100%;
-    padding: 20px 32px 0;
+    padding: 20px 32px 60px;
     align-items: center;
   }
 
   .search-box {
+    width: 325px;
+  }
+
+  .card-img {
+    width: 325px;
+    height: 192px;
+  }
+
+  a.link {
+    width: 325px;
+    height: 192px;
+  }
+
+  .card {
     width: 325px;
   }
 }

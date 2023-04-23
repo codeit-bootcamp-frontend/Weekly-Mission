@@ -85,20 +85,18 @@ async function renderCards() {
       <div class="star-marks">
         <img class="star" src="public/Star-off.png" />
       </div>
-      <a class="transfer">
-        <div class="text-content">
-          <div class="upper">
-            <span>${getTimeDiffFormat(createdAt)}</span>
-            <img src="public/kebab.png" />
-          </div>
-          <div class="middle">
-            <span>${description}</span>
-          </div>
-          <div class="time">
-            <span>${getDateFormat(createdAt)}</span>
-          </div>
+      <div class="text-content">
+        <div class="upper">
+          <span>${getTimeDiffFormat(createdAt)}</span>
+          <img src="public/kebab.png" />
         </div>
-      </a>
+        <div class="middle">
+          <span>${description}</span>
+        </div>
+        <div class="time">
+          <span>${getDateFormat(createdAt)}</span>
+        </div>
+      </div>
       `;
 
     const cardContainer = document.querySelector(".card-container");
@@ -167,7 +165,8 @@ function getDateFormat(createdAt) {
     const year = createdAt.slice(0, 4);
     const month =
       createdAt[5] === "0" ? createdAt.slice(6, 7) : createdAt.slice(5, 7);
-    const day = createdAt.slice(8, 10);
+    const day =
+      createdAt[8] === "0" ? createdAt.slice(9, 10) : createdAt.slice(8, 10);
     return `${year}. ${month}. ${day}`;
   }
 }
