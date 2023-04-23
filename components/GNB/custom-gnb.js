@@ -7,6 +7,7 @@ class CustomGNB extends HTMLElement {
 
     this.attachShadow({ mode: "open" });
     this.shadowRoot.innerHTML = `
+      <link rel="stylesheet" href="/static/css/reset.css" />
       <link rel="stylesheet" href="/components/GNB/style.css" />
       <nav class="gnb">
         <a class="linkbrary-logo" href="/">
@@ -38,6 +39,7 @@ class CustomGNB extends HTMLElement {
   render() {
     const { profileImageSource, email } = this.#user;
     this.shadowRoot.innerHTML = `
+      <link rel="stylesheet" href="/static/css/reset.css" />
       <link rel="stylesheet" href="/components/GNB/style.css" />
       <nav class="gnb">
         <a class="linkbrary-logo" href="/">

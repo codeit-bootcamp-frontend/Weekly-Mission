@@ -7,6 +7,7 @@ class CustomCard extends HTMLElement {
     this.attachShadow({ mode: "open" });
 
     this.shadowRoot.innerHTML = `
+      <link rel="stylesheet" href="/static/css/reset.css" />
       <link rel="stylesheet" href="/components/Card/style.css" />
       <div class="card">
         <div class="card-image-container">
@@ -65,6 +66,7 @@ class CustomCard extends HTMLElement {
     const url = this.#cardData.url ? this.#cardData.url : "https://www.codeit.kr/";
 
     this.shadowRoot.innerHTML = `
+      <link rel="stylesheet" href="/static/css/reset.css" />
       <link rel="stylesheet" href="/components/Card/style.css" />
       <div class="card">
         <div class="card-image-container">

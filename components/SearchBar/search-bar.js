@@ -4,6 +4,7 @@ class CustomSearchBar extends HTMLElement {
 
     this.attachShadow({ mode: "open" });
     this.shadowRoot.innerHTML = `
+      <link rel="stylesheet" href="/static/css/reset.css" />
       <link rel="stylesheet" href="/components/SearchBar/style.css" />
       <div class="input-container">
         <img src="/images/search.svg" />

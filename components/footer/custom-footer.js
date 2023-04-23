@@ -5,6 +5,7 @@ class CustomFooter extends HTMLElement {
     this.attachShadow({ mode: "open" });
 
     this.shadowRoot.innerHTML = `
+      <link rel="stylesheet" href="/static/css/reset.css" />
       <link rel="stylesheet" href="/components/footer/style.css" />
       <footer>
         <div class="corporation">©codeit - 2023</div>
