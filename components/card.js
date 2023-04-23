@@ -1,6 +1,9 @@
-class Card extends HTMLElement {
-  constructor() {
+import { getUserData } from "/api/common.js";
+
+export class Card extends HTMLElement {
+  constructor(props) {
     super();
+    this.props = props
 
     const template = document.createElement('template');
     template.innerHTML = `
@@ -34,6 +37,7 @@ class Card extends HTMLElement {
         }
 
         .image-box {
+          display: flex;
           width: 340px;
           height: 200px;
           overflow: hidden;
@@ -42,6 +46,9 @@ class Card extends HTMLElement {
 
         .card .card-image {
           transition: transform 1s ease;
+          width: 100%;
+          display: block;
+          object-fit: cover;
         }
 
         .card:hover .card-image {
@@ -99,10 +106,10 @@ class Card extends HTMLElement {
         }
       </style>
       
-      <a href="https://www.codeit.kr" target = "_blank" noopener noreferrer>
+      <a id="card" target = "_blank" noopener noreferrer>
         <div class="card">
           <div class="image-box">
-            <img src="card-default.png" alt="card-image" class="card-image">
+            <img src="${this.props.imageSource}" class="card-image">
           </div>
           <div class= 'favorite'>
             <img src="../images/components/star-blank.png" class= "star">
@@ -140,18 +147,27 @@ class Card extends HTMLElement {
   }
 
   connectedCallback() {
+    const card = this.shadowRoot.querySelector("#card");
+    
     const title = this.getAttribute('title') || '10 minutes ago';
-    const content = this.getAttribute('content') || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas leo metus, tempor eu consectetur et, rutrum ut purus. Ut pellentesque semper mi. Vivamus eget aliquet nibh.';
-    const date = this.getAttribute('date') || '2023. 3. 15';
+    const content = this.props.description || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas leo metus, tempor eu consectetur et, rutrum ut purus. Ut pellentesque semper mi. Vivamus eget aliquet nibh.';
+    
+    const createTime = new Date(this.props.createdAt);
+    const year = createTime.getFullYear();
+    const month = (createTime.getMonth() + 1);
+    const day = createTime.getDate();
+    const date = `${year}-${month}-${day}` || '2023. 3. 15';
 
     const uploadTime = this.shadowRoot.querySelector('.upload-time');
     const contentElem = this.shadowRoot.querySelector('.content');
     const dateElem = this.shadowRoot.querySelector('.date');
 
+    card.setAttribute("href", `${this.props.url}`)
     uploadTime.textContent = title;
     contentElem.textContent = content;
     dateElem.textContent = date;
-    this.cardImage.src = this.getAttribute('image');
+    this.cardImage.src = this.props.imageSource || "/images/components/card_default.png";
+    
   }
   
 }
