@@ -1,10 +1,11 @@
 // (randomString)@(randomString2).(2-3 charaters)
 const emailRegex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
 
-// 필요한 form, email, pasword 가져오기
+// 필요한 것들 가져오기
 const signinEmail = document.querySelector(`#signin-email`);
 const signinPassword = document.querySelector(`#signin-password`);
 const submitButton = document.querySelector('#submit-button');
+const eyeIcon = document.querySelector('.eye-icon');
 
 // email input 이벤트 핸들러
 function correctInputEmail() {
@@ -28,6 +29,20 @@ function validSignin(e) {
   }
 };
 
+// 비밀번호 보이기
+function togglePassword(e) {
+  if (signinPassword.type === "password") {
+    signinPassword.type = "text";
+    eyeIcon.src = "/assets/images/eye.svg";
+    signinPassword.focus();
+  } else {
+    signinPassword.type = "password";
+    eyeIcon.src = "/assets/images/eye-slash.svg";
+    signinPassword.focus();
+  }
+};
+
 // 이벤트핸들러 등록
 signinEmail.addEventListener('focusout', correctInputEmail);
 submitButton.addEventListener('click', validSignin);
+eyeIcon.addEventListener('click', togglePassword);

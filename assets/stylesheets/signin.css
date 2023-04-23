@@ -86,6 +86,19 @@ input:-internal-autofill-selected {
   color: #9fa6b2 !important;
 }
 
+.signin-password-container {
+  position: relative;
+}
+
+.eye-icon {
+  height: 2rem;
+  width: auto;
+  position: absolute;
+  top: 2.95rem;
+  right: 1.5rem;
+  cursor: pointer;
+}
+
 button {
   display: block;
   width: 100%;
