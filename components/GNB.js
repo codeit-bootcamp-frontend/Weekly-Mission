@@ -1,3 +1,4 @@
+import { getUserData } from "/api/common.js";
 class Navbar extends HTMLElement {
   constructor() {
     super();
@@ -40,6 +41,11 @@ class Navbar extends HTMLElement {
           gap: 6px;
         }
 
+        .userImage {
+          width: 28px;
+          height: 28px
+        }
+
         .login {
           display: inline-block;
           width: 128px;
@@ -69,8 +75,8 @@ class Navbar extends HTMLElement {
           <img src="/images/Linkbrary.svg" class="logo">
         </a>
         <div class="user">
-          <img src="/images/components/profile-img.svg">
-          <p>Codeit@codeit.com</p>
+          <img class="userImage">
+          <p class="userId"></p>
         </div>
         </div>
       </nav>
@@ -79,6 +85,16 @@ class Navbar extends HTMLElement {
     const shadowRoot = this.attachShadow({mode: 'open'});
     shadowRoot.appendChild(template.content.cloneNode(true));
 
+  }
+
+  connectedCallback() {
+    getUserData().then((res) => {
+      const userImage = this.shadowRoot.querySelector(".userImage");
+      const userId = this.shadowRoot.querySelector(".userId");
+
+      userImage.setAttribute("src", `${res.profileImageSource}`);
+      userId.textContent = res.email;
+    })
   }
 }
 
