@@ -1,5 +1,3 @@
-import { getUserData } from "/api/common.js";
-
 export class Card extends HTMLElement {
   constructor(props) {
     super();
@@ -109,7 +107,7 @@ export class Card extends HTMLElement {
       <a id="card" target = "_blank" noopener noreferrer>
         <div class="card">
           <div class="image-box">
-            <img src="${this.props.imageSource}" class="card-image">
+            <img class="card-image">
           </div>
           <div class= 'favorite'>
             <img src="../images/components/star-blank.png" class= "star">
@@ -149,21 +147,47 @@ export class Card extends HTMLElement {
   connectedCallback() {
     const card = this.shadowRoot.querySelector("#card");
     
-    const title = this.getAttribute('title') || '10 minutes ago';
-    const content = this.props.description || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas leo metus, tempor eu consectetur et, rutrum ut purus. Ut pellentesque semper mi. Vivamus eget aliquet nibh.';
-    
     const createTime = new Date(this.props.createdAt);
+    const currentTime = new Date();
+    const minuteDiff = Math.round((currentTime - createTime) / 1000 / 60);
+
     const year = createTime.getFullYear();
     const month = (createTime.getMonth() + 1);
     const day = createTime.getDate();
-    const date = `${year}-${month}-${day}` || '2023. 3. 15';
+    const date = `${year}. ${month}. ${day}` || '2023. 3. 15';
 
+    const title = (timeDiff) => {
+      const round = (time) => Math.round(time);
+
+      if (timeDiff < 2) {
+        return "1 minute ago";
+      } else if (timeDiff <= 59) {
+        return `${timeDiff} minutes ago`;
+      } else if (timeDiff < 120) {
+        return "1 hour ago";
+      } else if (round(timeDiff / 60) <= 23) {
+        return `${Math.round(timeDiff / 60)} hours ago`;
+      } else if (round(timeDiff / 60) < 48) {
+        return `1 day ago`;
+      } else if (round(timeDiff / 60 / 24) <= 30) {
+        return `${round(timeDiff / 60 / 24)} days ago`
+      } else if (round(timeDiff / 60 / 24) < 62) {
+        return "1 month ago";
+      } else if (round(timeDiff / 60 / 24 / 31) < 12) {
+        return `${round(timeDiff / 60 / 24 / 31)} months ago`
+      } else {
+        return `${Math.floor(timeDiff / 60 / 24 / 31 / 12)} years ago`
+      }
+    };
+
+    const content = this.props.description || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas leo metus, tempor eu consectetur et, rutrum ut purus. Ut pellentesque semper mi. Vivamus eget aliquet nibh.';
+    
     const uploadTime = this.shadowRoot.querySelector('.upload-time');
     const contentElem = this.shadowRoot.querySelector('.content');
     const dateElem = this.shadowRoot.querySelector('.date');
 
     card.setAttribute("href", `${this.props.url}`)
-    uploadTime.textContent = title;
+    uploadTime.textContent = title(minuteDiff);
     contentElem.textContent = content;
     dateElem.textContent = date;
     this.cardImage.src = this.props.imageSource || "/images/components/card_default.png";
@@ -171,6 +195,5 @@ export class Card extends HTMLElement {
   }
   
 }
-
 
 customElements.define('card-component', Card);
