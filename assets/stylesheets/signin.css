@@ -81,6 +81,11 @@ input:focus {
   color: #000000;
 }
 
+input:-internal-autofill-selected {
+  background-color: #ffffff !important;
+  color: #9fa6b2 !important;
+}
+
 button {
   display: block;
   width: 100%;
