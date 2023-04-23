@@ -12,10 +12,11 @@
 
 .user .icon {
   padding-top: 20px;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
 }
 
 .user .favorite {
+  font-size: 40px;
   margin-top: 20px;
   margin-bottom: 60px;
 }

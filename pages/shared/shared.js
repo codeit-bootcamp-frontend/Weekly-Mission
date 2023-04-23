@@ -1,27 +1,37 @@
-import { timeForToday } from '../../lib/calculatedTime.js';
-
+import { GlobalNavigationBar } from '../../components/tony-gnb.js';
+import { Card } from '/components/tony-card.js';
+const user = document.querySelector('.user');
 const container = document.querySelector('.container');
-console.log(container);
-async function getInfo() {
+const body = document.querySelector('body');
+
+// 유저 정보 요청
+async function getUser() {
+  const response = await fetch(
+    'https://bootcamp-api.codeit.kr/api/sample/user'
+  );
+  const result = await response.json();
+  const data = result.data;
+  body.prepend(new GlobalNavigationBar(data));
+}
+
+// 카드 정보 요청
+async function getSharedInfo() {
   const response = await fetch(
     'https://bootcamp-api.codeit.kr/api/sample/folder'
   );
   const result = await response.json();
-  result.data.folder.links.forEach((item) => {
-    const card = document.createElement('tony-card');
-    // 작성 시간
-    const postTimeComparison = timeForToday(item.createdAt);
+  const data = result.data.folder;
 
-    card.setAttribute('src', item.imageSource);
-    card.setAttribute('description', item.description);
-    card.setAttribute('postTimeComparison', postTimeComparison);
-    card.setAttribute(
-      'post-date',
-      new Intl.DateTimeFormat('kr').format(new Date(item.createdAt))
-    );
+  user.innerHTML = `
+  <img class="icon" src="/pictures/Avatar.png" />
+  <p class="user-name">@코드잇</p>
+  <p class="favorite">${data.name}</p>
+  `;
 
-    container.appendChild(card);
+  data.links.forEach((link) => {
+    container.appendChild(new Card(link));
   });
 }
 
-getInfo();
+getUser();
+getSharedInfo();

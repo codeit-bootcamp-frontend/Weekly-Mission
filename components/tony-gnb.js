@@ -1,6 +1,7 @@
-class GlobalNavigationBar extends HTMLElement {
-  constructor() {
+export class GlobalNavigationBar extends HTMLElement {
+  constructor(data) {
     super();
+    localStorage.setItem('token', data.email);
     this.attachShadow({ mode: 'open' });
     this.isLogin = localStorage.getItem('token')
       ? `
