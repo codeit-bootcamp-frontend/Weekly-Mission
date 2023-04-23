@@ -56,10 +56,10 @@ class CustomCard extends HTMLElement {
   }
 
   render() {
-    /* #cardData 프로퍼티에 원하는 데이터들이 있는지 확인 */
+    /* 받은 데이터가 없으면 기본값으로 설정 */
     const imageSrc = this.#cardData.imageSource ? this.#cardData.imageSource : "/images/shared-card-images/yellow-dog.png";
-    const date = this.getDateFormat();
-    const diffDate = this.getTimeDiffFormat();
+    const date = this.#cardData.createdAt ? this.getDateFormat(this.#cardData.createdAt) : "2023. 3. 15";
+    const diffDate = this.#cardData.createdAt ? this.getTimeDiffFormat(this.#cardData.createdAt) : "10 minutes ago";
     const description = this.#cardData.description
       ? this.#cardData.description
       : "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.";
@@ -95,67 +95,62 @@ class CustomCard extends HTMLElement {
 
     const card = this.shadowRoot.querySelector(".card");
     card.addEventListener("click", () => {
-      this.openURL();
+      this.openURL(url);
     });
   }
 
-  getTimeDiffFormat() {
-    const createdAt = this.#cardData?.createdAt;
+  getTimeDiffFormat(dateString) {
+    const year = dateString.slice(0, 4);
+    const month = dateString.slice(5, 7);
+    const day = dateString.slice(8, 10);
 
-    if (!createdAt) {
-      return "10 minute ago";
-    } else {
-      const year = createdAt.slice(0, 4);
-      const month = createdAt[5] === "0" ? createdAt.slice(6, 7) : createdAt.slice(5, 7);
-      const day = createdAt.slice(8, 10);
+    const now = new Date();
+    const createdDate = new Date(year, month - "1", day);
 
-      const now = new Date();
-      const createdDate = new Date(year, month - "1", day);
+    const diffMSec = now.getTime() - createdDate.getTime();
+    const diffMin = diffMSec / (60 * 1000);
+    const diffHour = diffMin / 60;
+    const diffDay = diffHour / 24;
+    const diffMonth = diffDay / 30;
+    const diffYear = diffMonth / 12;
 
-      const diffMSec = now.getTime() - createdDate.getTime();
-      const diffMin = diffMSec / (60 * 1000);
-      const diffHour = diffMin / 60;
-      const diffDay = diffHour / 24;
-      const diffMonth = diffDay / 30;
-      const diffYear = diffMonth / 12;
+    if (diffYear >= 1) {
+      const diffDate = Math.floor(diffYear);
+      return diffYear >= 2 ? diffDate + ` years ago` : diffDate + ` year ago`;
+    }
 
-      if (diffYear >= 2) {
-        return `${Math.floor(diffYear)} years ago`;
-      } else if (diffYear >= 1) {
-        return `1 year ago`;
-      } else if (diffMonth >= 2) {
-        return `${Math.floor(diffMonth)} months ago`;
-      } else if (diffMonth >= 1) {
-        return `1 month ago`;
-      } else if (diffDay >= 2) {
-        return `${Math.floor(diffDay)} days ago`;
-      } else if (diffDay >= 1) {
-        return `1 day ago`;
-      } else if (diffHour >= 2) {
-        return `${Math.floor(diffHour)} hours ago`;
-      } else if (diffHour >= 1) {
-        return `1 hour ago`;
-      } else if (diffMin >= 2) {
-        return `${Math.floor(diffMin)} minutes ago`;
-      } else {
-        return `1 minute ago`;
-      }
+    if (diffMonth >= 1) {
+      const diffDate = Math.floor(diffMonth);
+      return diffMonth >= 2 ? diffDate + ` months ago` : diffDate + ` month ago`;
+    }
+
+    if (diffDay >= 1) {
+      const diffDate = Math.floor(diffDay);
+      return diffDate >= 2 ? diffDate + ` days ago` : diffDate + ` day ago`;
+    }
+
+    if (diffHour >= 1) {
+      const diffDate = Math.floor(diffHour);
+      return diffHour >= 2 ? diffDate + ` hours ago` : diffDate + ` hour ago`;
+    }
+
+    if (diffMin >= 1) {
+      const diffDate = Math.floor(diffMin);
+      return diffMin >= 2 ? diffDate + ` minutes ago` : diffDate + ` minute ago`;
     }
   }
 
-  getDateFormat() {
-    const createdAt = this.#cardData.createdAt;
-    if (!createdAt) {
-      return "2023. 3. 15";
-    } else {
-      const year = createdAt.slice(0, 4);
-      const month = createdAt[5] === "0" ? createdAt.slice(6, 7) : createdAt.slice(5, 7);
-      const day = createdAt.slice(8, 10);
-      return `${year}. ${month}. ${day}`;
-    }
+  getDateFormat(dateString) {
+    const year = dateString.slice(0, 4);
+    const month = dateString[5] === "0" ? dateString.slice(6, 7) : dateString.slice(5, 7);
+    const day = dateString[8] === "0" ? dateString.slice(9, 10) : dateString.slice(8, 10);
+    return `${year}. ${month}. ${day}`;
   }
 
-  /* 이벤트 핸들러 */
+  openURL(url) {
+    window.open(url);
+  }
+
   toggleStarIcon(e) {
     e.stopPropagation();
     if (e.target.classList.contains("selected-star")) {
@@ -165,11 +160,6 @@ class CustomCard extends HTMLElement {
       e.target.classList.add("selected-star");
       e.target.src = "/images/selected-star.svg";
     }
-  }
-
-  openURL() {
-    const url = this.#cardData.url ? this.#cardData.url : "https://www.codeit.kr";
-    window.open(url);
   }
 }
 
