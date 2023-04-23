@@ -80,6 +80,19 @@ input:focus {
   color: #000000;
 }
 
+.signup-password-container {
+  position: relative;
+}
+
+.eye-icon, .eye-icon-repeat {
+  height: 2rem;
+  width: auto;
+  position: absolute;
+  top: 2.95rem;
+  right: 1.5rem;
+  cursor: pointer;
+}
+
 button {
   display: block;
   width: 100%;

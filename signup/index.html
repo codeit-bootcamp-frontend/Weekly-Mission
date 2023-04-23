@@ -27,10 +27,16 @@
         <label for="signup-email">이메일</label>
         <input id="signup-email" name="email" type="email" placeholder="이메일을 입력해주세요">
         <label for="signup-password">비밀번호</label>
-        <input id="signup-password" name="password" type="password" placeholder="영문, 숫자 조합 8자 이상 입력해주세요">
+        <div class="signup-password-container">
+          <input id="signup-password" name="password" type="password" placeholder="영문, 숫자 조합 8자 이상 입력해주세요">
+          <img class="eye-icon" src="/assets/images/eye-slash.svg">
+        </div>
         <label for="signup-password-repeat">비밀번호 확인</label>
-        <input id="signup-password-repeat" name="password-repeat" type="password" placeholder="비밀번호를 확인해주세요">
-        <button>회원가입</button>
+        <div class="signup-password-container">
+          <input id="signup-password-repeat" name="password-repeat" type="password" placeholder="비밀번호를 확인해주세요">
+          <img class="eye-icon-repeat" src="/assets/images/eye-slash.svg">
+        </div>
+        <button id="submit-button">회원가입</button>
       </form>
     </main>
     <footer>
