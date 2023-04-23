@@ -140,7 +140,7 @@
 
 - palette에 있는 color값들을 css 변수로 등록
 
-- 반복되는 요소들을 웹 컴포넌트로 만들어 재사용 (card, star 미구현)
+- 반복되는 요소들을 웹 컴포넌트로 만들어 재사용 (star 미구현)
 
 ## 필수 요구사항
 
@@ -163,3 +163,24 @@
 - card 컴포넌트 크기, 열 간의 간격은 고정되어 있고, card 컴포넌트들을 감싸는 영역의 좌우 여백이 커지도록 설정
 
 - mobile 크기에서 card컴포넌트는 하나의 열로 배치
+
+# Weekly-Mission 5
+
+## 필수 요구사항
+
+- https://bootcamp-api.codeit.kr/docs 에 명세된 “/api/sample/folder”에서 받은 데이터가 카드 컴포넌트에 들어가게 수정
+
+- folder.owner, folder.name 의 데이터도 반영될 수 있도록 수정
+
+- 카드 컴포넌트에서 createdAt 데이터 기준으로 현재 Date와 차이가
+  - 2분 미만은 “1 minute ago”
+  - 59분 이하는 “OO minutes ago”
+  - 60분 이상은 “1 hour ago”
+  - 23시간 이하는 “OO hours ago”
+  - 24시간 이상은 “1 day ago”
+  - 30일 이하는 “OO days ago”
+  - 31일 이상은 “1 month ago”
+  - 11달 이하는 “OO months ago”
+  - 12달 이상은 “1 year ago”
+  - OO달 이상은 “{OO/12(소수점 버린 정수)} years ago”
+- 상단 네비게이션바에는 “/api/sample/user”에서 받은 데이터를 반영하도록 수정
