@@ -1,6 +1,7 @@
-class Card extends HTMLElement {
-  constructor() {
+export class Card extends HTMLElement {
+  constructor(props) {
     super();
+    this.props = props
 
     const template = document.createElement('template');
     template.innerHTML = `
@@ -34,6 +35,7 @@ class Card extends HTMLElement {
         }
 
         .image-box {
+          display: flex;
           width: 340px;
           height: 200px;
           overflow: hidden;
@@ -42,6 +44,9 @@ class Card extends HTMLElement {
 
         .card .card-image {
           transition: transform 1s ease;
+          width: 100%;
+          display: block;
+          object-fit: cover;
         }
 
         .card:hover .card-image {
@@ -99,10 +104,10 @@ class Card extends HTMLElement {
         }
       </style>
       
-      <a href="https://www.codeit.kr" target = "_blank" noopener noreferrer>
+      <a id="card" target = "_blank" noopener noreferrer>
         <div class="card">
           <div class="image-box">
-            <img src="card-default.png" alt="card-image" class="card-image">
+            <img class="card-image">
           </div>
           <div class= 'favorite'>
             <img src="../images/components/star-blank.png" class= "star">
@@ -140,21 +145,55 @@ class Card extends HTMLElement {
   }
 
   connectedCallback() {
-    const title = this.getAttribute('title') || '10 minutes ago';
-    const content = this.getAttribute('content') || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas leo metus, tempor eu consectetur et, rutrum ut purus. Ut pellentesque semper mi. Vivamus eget aliquet nibh.';
-    const date = this.getAttribute('date') || '2023. 3. 15';
+    const card = this.shadowRoot.querySelector("#card");
+    
+    const createTime = new Date(this.props.createdAt);
+    const currentTime = new Date();
+    const minuteDiff = Math.round((currentTime - createTime) / 1000 / 60);
 
+    const year = createTime.getFullYear();
+    const month = (createTime.getMonth() + 1);
+    const day = createTime.getDate();
+    const date = `${year}. ${month}. ${day}` || '2023. 3. 15';
+
+    const title = (timeDiff) => {
+      const round = (time) => Math.round(time);
+
+      if (timeDiff < 2) {
+        return "1 minute ago";
+      } else if (timeDiff <= 59) {
+        return `${timeDiff} minutes ago`;
+      } else if (timeDiff < 120) {
+        return "1 hour ago";
+      } else if (round(timeDiff / 60) <= 23) {
+        return `${Math.round(timeDiff / 60)} hours ago`;
+      } else if (round(timeDiff / 60) < 48) {
+        return `1 day ago`;
+      } else if (round(timeDiff / 60 / 24) <= 30) {
+        return `${round(timeDiff / 60 / 24)} days ago`
+      } else if (round(timeDiff / 60 / 24) < 62) {
+        return "1 month ago";
+      } else if (round(timeDiff / 60 / 24 / 31) < 12) {
+        return `${round(timeDiff / 60 / 24 / 31)} months ago`
+      } else {
+        return `${Math.floor(timeDiff / 60 / 24 / 31 / 12)} years ago`
+      }
+    };
+
+    const content = this.props.description || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas leo metus, tempor eu consectetur et, rutrum ut purus. Ut pellentesque semper mi. Vivamus eget aliquet nibh.';
+    
     const uploadTime = this.shadowRoot.querySelector('.upload-time');
     const contentElem = this.shadowRoot.querySelector('.content');
     const dateElem = this.shadowRoot.querySelector('.date');
 
-    uploadTime.textContent = title;
+    card.setAttribute("href", `${this.props.url}`)
+    uploadTime.textContent = title(minuteDiff);
     contentElem.textContent = content;
     dateElem.textContent = date;
-    this.cardImage.src = this.getAttribute('image');
+    this.cardImage.src = this.props.imageSource || "/images/components/card_default.png";
+    
   }
   
 }
-
 
 customElements.define('card-component', Card);
