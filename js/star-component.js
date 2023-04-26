@@ -1,4 +1,4 @@
-class StarComponent extends HTMLElement {
+class Star extends HTMLElement {
   constructor() {
     super();
     // Shadow DOM 생성
@@ -36,7 +36,7 @@ class StarComponent extends HTMLElement {
     const likeBtn = shadowRoot.querySelector(".like-btn");
 
     function toggleLikeIcon(e) {
-      e.stopPropagation();
+      e.preventDefault();
       const icon = e.target;
       if (icon.classList.contains("inactive")) {
         icon.classList.remove("inactive");
@@ -46,10 +46,9 @@ class StarComponent extends HTMLElement {
         icon.classList.add("inactive");
       }
     }
-
     likeBtn.addEventListener("click", toggleLikeIcon);
   }
 }
 
 // Custom Element 등록
-window.customElements.define("star-component", StarComponent);
+window.customElements.define("star-component", Star);

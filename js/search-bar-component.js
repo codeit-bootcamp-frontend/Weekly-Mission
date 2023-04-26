@@ -1,4 +1,4 @@
-class searchBar extends HTMLElement {
+class SearchBar extends HTMLElement {
   constructor() {
     super();
     // Shadow DOM 생성
@@ -12,9 +12,9 @@ class searchBar extends HTMLElement {
           display: flex;
           align-items: center;
           position: relative;
-          width: 1060px;
         }
         .search-bar input {
+          width: 100%;
           height: 48px;
           background-color: #F5F5F5;
           border-radius: 10px;
@@ -28,16 +28,6 @@ class searchBar extends HTMLElement {
           position: absolute;
           left: 15px;
         }
-        @media (max-width: 1199px) {
-          .search-bar {
-            width: 704px;
-          }
-        }
-        @media (max-width: 767px) {
-          .search-bar {
-            width: 325px;
-          }
-        }
       </style>
       <div class="search-bar">
         <img src="./img/Search.png" alt="search" class="search-icon">
@@ -50,4 +40,4 @@ class searchBar extends HTMLElement {
 }
 
 // Custom Element 등록
-window.customElements.define("search-bar", searchBar);
+window.customElements.define("search-bar", SearchBar);

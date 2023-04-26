@@ -3,7 +3,7 @@ const togglePasswordVerifyIcon = document.querySelector(".toggle-passwordverify"
 const userEmailInput = document.querySelector(".user-email");
 const userPasswordInput = document.querySelector(".user-password");
 const userPasswordVerifyInput = document.querySelector(".user-passwordverify");
-const signupForm = document.querySelector("#signup-form");
+const signupForm = document.querySelector("#signin-up-form");
 const regexEmail = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$/;
 const regexPassword = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
 

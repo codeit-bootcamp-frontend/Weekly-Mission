@@ -24,7 +24,7 @@
   align-items: center;
 }
 
-.banner .avatar {
+.banner .user-profile-image {
   width: 60px;
   height: 60px;
   margin-bottom: 10px;
@@ -37,13 +37,6 @@
   margin-bottom: 60px;
 }
 
-.banner .star {
-  display: block;
-  width: 45px;
-  height: 45px;
-  margin-right: 10px;
-}
-
 /* 컨텐츠 */
 .contents {
   display: flex;
@@ -52,10 +45,11 @@
 }
 
 search-bar {
+  width: 1060px;
   margin-bottom: 40px;
 }
 
-.cards {
+.card-container {
   display: flex;
   flex-wrap: wrap;
   width: 1060px;
@@ -65,8 +59,12 @@ search-bar {
 
 /* 타블렛 */
 @media (max-width: 1199px) {
-  .cards {
+  .card-container {
     width: 705px;
+  }
+  search-bar {
+    width: 704px;
+    margin-bottom: 40px;
   }
 }
 
@@ -103,10 +101,11 @@ search-bar {
   }
 
   search-bar {
+    width: 325px;
     margin-bottom: 32px;
   }
 
-  .cards {
+  .card-container {
     width: 325px;
     margin-bottom: 60px;
   }

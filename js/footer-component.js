@@ -1,4 +1,4 @@
-class FooterComponent extends HTMLElement {
+class Footer extends HTMLElement {
   constructor() {
     super();
     // Shadow DOM 생성
@@ -28,11 +28,13 @@ class FooterComponent extends HTMLElement {
           display: flex;
         }
         .icon {
-          width: 18px;
-          height: 18px;
           margin-left: 13px;
           display: flex;
           align-items: center;
+        }
+        .icon img {
+          width: 18px;
+          height: 18px;
         }
         @media (max-width: 767px) {
           .footer .container {
@@ -88,4 +90,4 @@ class FooterComponent extends HTMLElement {
 }
 
 // Custom Element 등록
-window.customElements.define("footer-component", FooterComponent);
+window.customElements.define("footer-component", Footer);
