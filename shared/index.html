@@ -9,103 +9,24 @@
     <title>즐겨찾기 | Linkbrary</title>
   </head>
   <body>
+    <global-nav login="on"></global-nav>
     <header class="site-header">
-      <global-nav login="on"></global-nav>
-      <img class="user-avatar" src="/static/default-avatar.png" alt="default-avatar">
-      <p class="username">@코드잇</p>
-      <h2 class="bookmark-title">⭐️ 즐겨찾기</h2>
+      <img class="user-avatar" alt="User Avatar">
+      <p class="username"></p>
+      <h2 class="bookmark-title"></h2>
     </header>
     <main class="site-body bookmark-page">
-      <search-bar></search-bar>
-      <div class="cards">
-        <div class="card-container">
-          <link-card
-            image="/static/card-img1.png"
-            since="10 minutes ago"
-            description="Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat."
-            date="2023. 3. 15"
-          ></link-card>
-          <bookmark-icon bookmark="false"></bookmark-icon>
-        </div>
-        <div class="card-container">
-          <link-card
-            image="/static/card-img2.png"
-            since="10 minutes ago"
-            description="Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat."
-            date="2023. 3. 15"
-          ></link-card>
-          <bookmark-icon bookmark="false"></bookmark-icon>
-        </div>
-        <div class="card-container">
-          <link-card
-            image="/static/card-img3.png"
-            since="10 minutes ago"
-            description="Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat."
-            date="2023. 3. 15"
-          ></link-card>
-          <bookmark-icon bookmark="false"></bookmark-icon>
-        </div>
-        <div class="card-container">
-          <link-card
-            image="/static/card-img4.png"
-            since="10 minutes ago"
-            description="Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat."
-            date="2023. 3. 15"
-          ></link-card>
-          <bookmark-icon bookmark="false"></bookmark-icon>
-        </div>
-        <div class="card-container">
-          <link-card
-            image="/static/card-img5.png"
-            since="10 minutes ago"
-            description="Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat."
-            date="2023. 3. 15"
-          ></link-card>
-          <bookmark-icon bookmark="false"></bookmark-icon>
-        </div>
-        <div class="card-container">
-          <link-card
-            image="/static/card-img6.png"
-            since="10 minutes ago"
-            description="Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat."
-            date="2023. 3. 15"
-          ></link-card>
-          <bookmark-icon bookmark="false"></bookmark-icon>
-        </div>
-        <div class="card-container">
-          <link-card
-            image="/static/card-img7.png"
-            since="10 minutes ago"
-            description="Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat."
-            date="2023. 3. 15"
-          ></link-card>
-          <bookmark-icon bookmark="false"></bookmark-icon>
-        </div>
-        <div class="card-container">
-          <link-card
-            image="/static/card-img8.png"
-            since="10 minutes ago"
-            description="Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat."
-            date="2023. 3. 15"
-          ></link-card>
-          <bookmark-icon bookmark="false"></bookmark-icon>
-        </div>
-        <div class="card-container">
-          <link-card
-            image="/static/card-img9.png"
-            since="10 minutes ago"
-            description="Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat."
-            date="2023. 3. 15"
-          ></link-card>
-          <bookmark-icon bookmark="false"></bookmark-icon>
-        </div>
+      <div class="bookmark-contents">
+        <search-bar></search-bar>
+        <div class="card-container"></div>
       </div>
     </main>
     <global-footer></global-footer>
-    <script type="module" src="/static/js/global-nav.js"></script>
-    <script type="module" src="/static/js/global-footer.js"></script>
-    <script type="module" src="/static/js/search-bar.js"></script>
-    <script type="module" src="/static/js/link-card.js"></script>
-    <script type="module" src="/static/js/bookmark-icon.js"></script>
+    <script type="module" src="/static/module/global-nav/global-nav.js"></script>
+    <script type="module" src="/static/module/global-footer/global-footer.js"></script>
+    <script type="module" src="/static/module/search-bar/search-bar.js"></script>
+    <script type="module" src="/static/module/bookmark-icon/bookmark-icon.js"></script>
+    <script type="module" src="/static/module/link-card/link-card.js"></script>
+    <script type="module" src="/static/js/shared.js"></script>
   </body>
 </html>

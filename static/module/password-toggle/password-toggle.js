@@ -1,9 +1,4 @@
-const eyeContainer = document.querySelector('.eye-container');
 const togglers = document.querySelectorAll('.input-container i');
-
-eyeContainer.addEventListener("mousedown", function(e){
-  e.preventDefault();
-})
 
 function passwordToggle(e) {
   const toggleIcon = e.target;
