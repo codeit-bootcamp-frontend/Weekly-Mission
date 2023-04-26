@@ -289,6 +289,10 @@ footer {
     padding: 24px 62px;
   }
 
+  .search {
+    min-width: 325px;
+  }
+
   main {
     padding: 40px 32px 80px;
     gap: 80px;

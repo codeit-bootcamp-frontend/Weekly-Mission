@@ -4,11 +4,51 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Shared</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="shared.css" />
   </head>
   <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+    <div class="gnb">
+      <div class="logo">
+        <a href="/" class="logo_link">
+          <img src="public/logo.png" alt="linkbrary" class="logo_img" />
+        </a>
+      </div>
+      <div class="account">
+        <img class="profile-img" src="public/profile.png" />
+        <span class="email">Codeit@codeit.com</span>
+      </div>
+    </div>
+
+    <header>
+      <div class="header-box">
+        <img class="header-img" src="public/Avatar.png" />
+        <p class="user">user</p>
+        <h1 class="header-title">Title</h1>
+      </div>
+    </header>
+
+    <main>
+      <form class="search-box">
+        <img class="lens" src="public/search.png" alt="lens" />
+        <input
+          type="text"
+          class="search"
+          name="search"
+          placeholder="원하는 링크를 검색해 보세요"
+        />
+      </form>
+
+      <div class="card-container"></div>
+    </main>
+
+    <my-footer id="foot"></my-footer>
+    <script type="module" src="shared.js"></script>
+    <script src="/component/footer.js"></script>
   </body>
 </html>
