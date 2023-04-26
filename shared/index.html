@@ -6,40 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/static/css/global_style.css" />
     <link rel="stylesheet" href="./shared.css" />
-
+    <script src="./shared.js" type="module" defer></script>
     <title>Linkbrary</title>
   </head>
   <body>
     <header>
       <gnb-header></gnb-header>
       <div class="hero-section">
-        <div class="user">
-          <img
-            class="codeit-avatar"
-            src="/static/imgs/users/codeit-avatar.png"
-          />
-          <p class="user-name">@코드잇</p>
-        </div>
-        <h1 class="page-heading">⭐️ 즐겨찾기</h1>
+        <folder-info-component></folder-info-component>
       </div>
     </header>
     <main>
       <search-bar></search-bar>
-      <card-list-component
-        url="/static/data/card/cards.json"
-      ></card-list-component>
+      <card-list-component></card-list-component>
     </main>
     <footer-component></footer-component>
 
-    <script type="module" src="/components/gnb/gnb-component.js"></script>
+    <script type="module" src="/components/gnb/gnbComponent.js"></script>
     <script
       type="module"
       src="/components/searchBar/searchBarComponent.js"
     ></script>
-    <script
-      type="module"
-      src="/components/card/card-list-component.js"
-    ></script>
-    <script type="module" src="/components/footer/footer-component.js"></script>
+    <script type="module" src="/components/card/cardListComponent.js"></script>
+    <script type="module" src="/components/footer/footerComponent.js"></script>
+    <script type="module" src="/components/folder-info/folderInfo.js"></script>
   </body>
 </html>

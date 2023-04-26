@@ -8,6 +8,7 @@ class FooterComponent extends HTMLElement {
   connectedCallback() {
     this.render();
   }
+
   createLinkElement() {
     const linkElem = document.createElement("link");
     linkElem.setAttribute("rel", "stylesheet");

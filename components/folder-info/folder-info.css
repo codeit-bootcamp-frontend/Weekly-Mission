@@ -1,0 +1,35 @@
+@import url("/static/css/global_style.css");
+
+.user {
+  margin: 2rem auto;
+}
+
+.user-name {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  margin: 1.2rem 0 0;
+}
+.codeit-avatar {
+  width: 6.4rem;
+  height: 6.4rem;
+}
+.page-heading {
+  margin: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .user {
+    margin: 1rem auto;
+  }
+  .codeit-avatar {
+    width: 6.4rem;
+    height: 6.4rem;
+  }
+  .user-name {
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    margin: 1.2rem 0 0;
+  }
+}
