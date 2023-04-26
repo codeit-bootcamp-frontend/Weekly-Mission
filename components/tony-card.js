@@ -1,9 +1,13 @@
-class Card extends HTMLElement {
-  constructor() {
+import { timeForToday } from '../lib/calculatedTime.js';
+import { getToday } from '../lib/createdAt.js';
+export class Card extends HTMLElement {
+  constructor(link) {
     super();
+    this.url = link.url;
+    // 디폴트 값
+    this.imageSource = link.imageSource || '/pictures/default.png';
     this.starImg = document.createElement('div');
     this.starImg.classList.add('star');
-    this._cardImageSource = '/pictures/default.png';
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = /* html */ `
     <style>
@@ -84,7 +88,7 @@ class Card extends HTMLElement {
         align-items: center;
       }
 
-      .p-box .content {
+      .p-box .description {
         width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -96,22 +100,29 @@ class Card extends HTMLElement {
       .p-box .post-date {
         font-weight: 400;
       }
+
+      @media (min-width: 375px) and (max-width: 767px) {
+        .card {
+          width: 325px;
+        }
+      }
+
     </style>
     <div class="card">
       <div class='img-box'>
-        <img class='card-img' />
+        <img class='card-img' src=${this.imageSource} />
       </div>
       <div class='p-box'>
         <div class='post-time'>
-          <p>10 minutes ago</p>
+          <p class="postTimeComparison">${timeForToday(link.createdAt)}</p>
           <div class="dot-box">
             <img src="/pictures/Ellipse 8.png" />
             <img src="/pictures/Ellipse 8.png" />
             <img src="/pictures/Ellipse 8.png" />
           </div>
         </div>
-        <p class='content'>Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. </p>
-        <p class='post-date'>2023. 3. 15</p>
+        <p class='description'>${link.description}</p>
+        <p class='post-date'>${getToday(link.createdAt)}</p>
       </div>
     </div>
       `;
@@ -121,22 +132,17 @@ class Card extends HTMLElement {
     this.starImg.classList.toggle('click');
     event.stopPropagation();
   }
+
   goToCodeit() {
-    location.href = 'https://www.codeit.kr';
+    location.href = this.url;
   }
 
   connectedCallback() {
-    if (this.hasAttribute('src')) {
-      this._cardImageSource = this.getAttribute('src');
-    }
-    const img = this.shadowRoot.querySelector('img');
-    img.setAttribute('src', this._cardImageSource);
-    this.starImg.addEventListener('click', this.toggleStar.bind(this));
-    const imgbox = this.shadowRoot.querySelector('.img-box');
-    imgbox.appendChild(this.starImg);
     const card = this.shadowRoot.querySelector('.card');
-    console.log(card);
-    card.addEventListener('click', this.goToCodeit);
+    card.addEventListener('click', this.goToCodeit.bind(this));
+    const imageBox = this.shadowRoot.querySelector('.img-box');
+    imageBox.appendChild(this.starImg);
+    this.starImg.addEventListener('click', this.toggleStar.bind(this));
   }
 
   disconnectedCallback() {}
