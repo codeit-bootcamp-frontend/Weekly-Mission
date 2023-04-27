@@ -1,69 +1,102 @@
-import cardInfo from "/components/CardInfo.js";
+import ProcessData from "/scripts/ProcessData.js";
+import CustomStar from "/components/CustomStar.js";
+
+async function getData() {
+  const processor = new ProcessData();
+  const folderData = await processor.fetchFolderData();
+  const linksData = await folderData.links;
+  return linksData;
+}
+const linksData = getData();
 
 class CustomCard extends HTMLElement {
   static cardNum = 0;
+
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-  }
-
-  render() {
-    this.shadowRoot.innerHTML = this.getTemplate();
-    const linkElem = document.createElement("link");
-    linkElem.setAttribute("rel", "stylesheet");
-    linkElem.setAttribute("href", "/components/styles/CustomCard.css");
-    this.shadowRoot.appendChild(linkElem);
   }
 
   connectedCallback() {
     if (!this.rendered) {
       this.render();
       this.rendered = true;
-      CustomCard.cardNum++;
     }
+  }
 
-    this.shadowRoot.firstElementChild.addEventListener("click", (e) => {
-      const classLi = e.target.classList;
-      if (classLi.contains("star")) {
-        if (classLi.toggle("star-favor")) {
-          e.target.src = "./images/purple-star.png";
-          e.target.alt = "별(즐겨찾기)";
-        } else {
-          e.target.src = "./images/gray-star.png";
-          e.target.alt = "별(일반)";
+  render() {
+    this.applyTemplate();
+  }
+
+  async applyTemplate() {
+    const cardsData = await linksData;
+    const cardData = await cardsData[CustomCard.cardNum++];
+
+    const createdDate = Intl.DateTimeFormat("kr").format(
+      new Date(cardData.createdAt)
+    );
+    const passedTime = this.calculatePassedTime(new Date(cardData.createdAt));
+    const cardImage = cardData.imageSource
+      ? cardData.imageSource
+      : "/images/default-background.png";
+
+    this.shadowRoot.innerHTML = `
+      <style>
+        @import url("/components/styles/CustomCard.css");
+        .card-image {
+          background-image: url("${cardImage}")
         }
-      } else {
-        open("https://www.codeit.kr");
-      }
-    });
-  }
-
-  getData() {
-    return cardInfo[CustomCard.cardNum];
-  }
-
-  getTemplate() {
-    const cardData = this.getData();
-    return `
+      </style>
       <article class="card">
-        <div class="image-container">
-          <img
-            class="card-image"
-            src="${cardData.src}"
-            alt="${cardData.alt}"
-          />
-          <img class="star" src="images/gray-star.png" alt="별(일반)" />
-        </div>
-        <div class="content-container">
-          <div class="publish-time">${cardData.publishTime}</div>
-          <button class="btn-overflow-menu"></button>
-          <h2 class="content">
-            ${cardData.content}
-          </h2>
-          <div class="publish-date">${cardData.publishDate}</div>
-        </div>
+        <a href="${cardData.url}" target="_blank">
+          <div class="image-container">
+            <div class="card-image"></div>
+            <custom-star></custom-star>
+          </div>
+          <div class="content-container">
+            <div class="passed-time">${passedTime}</div>
+            <button class="btn-overflow-menu"></button>
+            <h2 class="content">
+              ${cardData.description}
+            </h2>
+            <div class="created-date">${createdDate}</div>
+          </div>
+        </a>
       </article>
     `;
+  }
+
+  calculatePassedTime(createdTime) {
+    const MINUTE = 60 * 1000;
+    const HOUR = 60 * MINUTE;
+    const DAY = 24 * HOUR;
+    const MONTH = 31 * DAY;
+    const YEAR = 12 * MONTH;
+
+    const currentTime = new Date();
+    const timeDiff = currentTime - createdTime;
+
+    if (timeDiff < 2 * MINUTE) {
+      return "1 minute ago";
+    } else if (timeDiff < HOUR) {
+      return `${Math.floor(timeDiff / MINUTE)} minutes ago`;
+    } else if (timeDiff < 2 * HOUR) {
+      return "1 hour ago";
+    } else if (timeDiff < DAY) {
+      return `${Math.floor(timeDiff / HOUR)} hours ago`;
+    } else if (timeDiff < 2 * DAY) {
+      return "1 day ago";
+    } else if (timeDiff < MONTH) {
+      return `${Math.floor(timeDiff / DAY)} days ago`;
+    } else if (timeDiff < 2 * MONTH) {
+      return "1 month ago";
+    } else if (timeDiff < YEAR) {
+      return `${Math.floor(timeDiff / MONTH)} months ago`;
+    } else if (timeDiff < 2 * YEAR) {
+      return "1 year ago";
+    } else {
+      return `${Math.floor(timeDiff / YEAR)} years ago`;
+    }
   }
 }
 

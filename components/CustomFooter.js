@@ -4,14 +4,6 @@ class CustomFooter extends HTMLElement {
     this.attachShadow({ mode: "open" });
   }
 
-  render() {
-    this.shadowRoot.innerHTML = this.getTemplate();
-    const linkElem = document.createElement("link");
-    linkElem.setAttribute("rel", "stylesheet");
-    linkElem.setAttribute("href", "/components/styles/CustomFooter.css");
-    this.shadowRoot.appendChild(linkElem);
-  }
-
   connectedCallback() {
     if (!this.rendered) {
       this.render();
@@ -19,8 +11,11 @@ class CustomFooter extends HTMLElement {
     }
   }
 
-  getTemplate() {
-    return `
+  render() {
+    this.shadowRoot.innerHTML = `
+      <style>
+        @import url("/components/styles/CustomFooter.css");
+      </style>
       <footer>
         <div class="footer-logo">©codeit - 2023</div>
         <div class="box-privacy-and-faq">

@@ -9,6 +9,7 @@ header {
   top: 0;
   z-index: 1;
   background-color: var(--gray-brt5);
+  opacity: 0.9;
 }
 
 .header-container {
@@ -29,7 +30,7 @@ header {
 }
 
 /* 로그인 전 */
-.button-login {
+.btn-login {
   width: 12.8rem;
   height: 5.3rem;
   border-radius: 0.8rem;
@@ -41,24 +42,25 @@ header {
   color: #f5f5f5;
 }
 
-.button-login:hover {
+.btn-login:hover {
   cursor: pointer;
 }
 
 /* 로그인 후 */
-.profile-container {
+.user-container {
   display: flex;
   align-items: center;
   gap: 0.6rem;
   color: var(--gray-brt1);
 }
 
-.profile {
+.img-user {
   width: 2.8rem;
   height: 2.8rem;
+  border-radius: 100%;
 }
 
-.profile-email {
+.user-email {
   font-size: 1.4rem;
 }
 
@@ -92,7 +94,7 @@ header {
     height: 1.6rem;
   }
 
-  .button-login {
+  .btn-login {
     width: 8rem;
     height: 3.7rem;
     border-radius: 0.8rem;
@@ -101,7 +103,7 @@ header {
     line-height: 3.7rem;
   }
 
-  .profile-email {
+  .user-email {
     display: none;
   }
 }

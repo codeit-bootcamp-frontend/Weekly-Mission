@@ -1,16 +1,10 @@
+import ProcessData from "/scripts/ProcessData.js";
+
 class CustomGnb extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    this.isLogin = false;
-  }
-
-  render() {
-    this.shadowRoot.innerHTML = this.getTemplate();
-    const linkElem = document.createElement("link");
-    linkElem.setAttribute("rel", "stylesheet");
-    linkElem.setAttribute("href", "/components/styles/CustomGnb.css");
-    this.shadowRoot.appendChild(linkElem);
+    this.isLogin = true;
   }
 
   connectedCallback() {
@@ -20,26 +14,45 @@ class CustomGnb extends HTMLElement {
     }
   }
 
-  getTemplate() {
-    return `
+  render() {
+    this.isLogin ? this.applyLoginTemplate() : this.applyDefaultTemplate();
+  }
+
+  applyDefaultTemplate() {
+    this.shadowRoot.innerHTML = `
+      <style>
+        @import url("/components/styles/CustomGnb.css");
+      </style>
       <header>
         <div class="header-container">
           <a href="/">
             <img class="logo" src="./images/logo.png" alt="로고" />
           </a>
-          ${this.getLoginTemplate()}
+          <a href="/signin.html" class="btn-login">로그인</a>
         </div>
       </header>
     `;
   }
 
-  getLoginTemplate() {
-    return this.isLogin
-      ? `<div class="profile-container">
-        <img class="profile" src="images/profile.png" alt="프로필" />
-        <p class="profile-email">Codeit@codeit.com</p>
-      </div>`
-      : `<a href="/signin.html" class="button-login">로그인</a>`;
+  async applyLoginTemplate() {
+    const processor = new ProcessData();
+    const userData = await processor.fetchUserData();
+    this.shadowRoot.innerHTML = `
+      <style>
+        @import url("/components/styles/CustomGnb.css");
+      </style>
+      <header>
+        <div class="header-container">
+          <a href="/">
+            <img class="logo" src="./images/logo.png" alt="로고" />
+          </a>
+          <div class="user-container">
+            <img class="img-user" src="${userData.profileImageSource}" alt="${userData.name}" />
+            <p class="user-email">${userData.email}</p>
+          </div>
+        </div>
+      </header>
+    `;
   }
 }
 

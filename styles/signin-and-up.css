@@ -15,7 +15,7 @@ body {
   align-items: center;
 }
 
-.linkbrary-logo img {
+.logo img {
   width: 21.058rem;
   height: 3.8rem;
   margin-bottom: 1.6rem;
@@ -89,7 +89,7 @@ input,
   right: 1.5rem;
 }
 
-.button-signin-and-up {
+.btn-signin-and-up {
   width: 100%;
   height: 5.4rem;
   margin-top: 3rem;
