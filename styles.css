@@ -28,9 +28,10 @@ header {
   top: 0;
   left: 0;
   z-index: 99;
-}
-header .inner {
   padding-top: 2rem;
+}
+header header-component {
+  display: block;
 }
 
 @media (max-width: 1920px) {
@@ -135,26 +136,6 @@ header .inner {
   }
 }
 @media (max-width: 863px) {
-  .hero {
-    padding-top: 3.4rem;
-  }
-  .hero .title {
-    font-size: 4.4rem;
-    line-height: 6rem;
-  }
-  .hero .add {
-    width: 28rem;
-    height: 4.5rem;
-  }
-  .hero .add,
-  .hero .img {
-    padding: 0 3rem 0;
-  }
-  .hero .img {
-    margin: 5.6rem auto 0;
-  }
-}
-@media (max-width: 767px) {
   .hero {
     padding-top: 2.8rem;
   }
@@ -303,23 +284,6 @@ section .image img {
 }
 @media (max-width: 863px) {
   .contents {
-    padding-top: 6rem;
-    padding-bottom: 11rem;
-  }
-  .contents .inner {
-    max-width: calc(100% - 10rem);
-  }
-  section p {
-    font-size: 1.55rem;
-  }
-  .contents .manage,
-  .contents .share,
-  .contents .search {
-    margin: 9rem auto 0;
-  }
-}
-@media (max-width: 767px) {
-  .contents {
     padding-top: 4rem;
     padding-bottom: 8rem;
   }
@@ -391,10 +355,6 @@ footer footer-component {
 @media (max-width: 863px) {
   footer .inner {
     max-width: calc(100% - 6.4rem);
-  }
-}
-@media (max-width: 767px) {
-  footer .inner {
     position: relative;
   }
 }

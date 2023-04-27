@@ -8,8 +8,10 @@ import { validationUsers } from "../../utils/validationUsers.js";
 (function () {
   // states & elements
   let passwordWithEyeIconsFlag = false;
+  let alreadyEmailValidation = false;
+  let alreadyPasswordValidation = false;
 
-  const currentUser = {
+  const CURRENT_INPUT = {
     email: "",
     password: "",
     confirmPassword: "",
@@ -39,40 +41,58 @@ import { validationUsers } from "../../utils/validationUsers.js";
       });
     });
 
+    emailInput.addEventListener("focusin", () => {
+      alreadyEmailValidation = false;
+    });
+
     emailInput.addEventListener("focusout", () => {
-      // const userInput = emailInput.value.trim();
-      currentUser.email = validationUserEmail(
+      if (alreadyEmailValidation) return;
+
+      CURRENT_INPUT.email = validationUserEmail(
         emailInput.value.trim(),
         "signup"
       );
       emailInput.style.color = "#3e3e43";
     });
 
+    passwordInput.addEventListener("focusin", () => {
+      alreadyPasswordValidation = false;
+    });
+
     passwordInput.addEventListener("focusout", () => {
+      if (passwordWithEyeIconsFlag) return;
+      if (alreadyPasswordValidation) return;
+
       const userPassword = passwordInput.value;
 
       let timer = setTimeout(() => {
-        validationUserPassword(userPassword, passwordWithEyeIconsFlag)
-          ? (currentUser.password = userPassword)
-          : alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
+        if (validationUserPassword(userPassword)) {
+          CURRENT_INPUT.password = userPassword;
+        } else {
+          alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
+          alreadyPasswordValidation = true;
+        }
 
         passwordInput.style.color = "#3e3e43";
         clearTimeout(timer);
       }, 500);
+
+      alreadyEmailValidation = true;
+      alreadyPasswordValidation = true;
     });
 
     confirmPasswordInput.addEventListener("click", () => {
-      passwordWithEyeIconsFlag = false;
+      const userPassword = passwordInput.value;
 
-      validationUserPassword(passwordInput.value, passwordWithEyeIconsFlag)
-        ? (currentUser.password = passwordInput.value)
+      validationUserPassword(userPassword)
+        ? (CURRENT_INPUT.password = userPassword)
         : alert("비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
 
-      passwordWithEyeIconsFlag = true;
+      alreadyEmailValidation = true;
     });
 
     confirmPasswordInput.addEventListener("focusout", () => {
-      currentUser.confirmPassword = confirmPasswordInput.value;
+      CURRENT_INPUT.confirmPassword = confirmPasswordInput.value;
       confirmPasswordInput.style.color = "#3e3e43";
     });
 
@@ -81,8 +101,8 @@ import { validationUsers } from "../../utils/validationUsers.js";
 
       validationUsers(
         "signup",
-        currentUser.email,
-        currentUser.password,
+        CURRENT_INPUT.email,
+        passwordInput.value,
         confirmPasswordInput.value
       );
     });

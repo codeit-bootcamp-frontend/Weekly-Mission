@@ -1,22 +1,21 @@
 const getUsers = (flag = false) => {
-  const dummyData = { email: "test@codeit.com", password: "codeit101" };
+  const TEST_USER = { email: "test@codeit.com", password: "codeit101" };
+  const USERS = JSON.parse(localStorage.getItem("users"));
 
-  const users = JSON.parse(localStorage.getItem("users"));
-
-  users?.forEach((user) => {
+  USERS?.forEach((user) => {
     if (
-      dummyData.email === user.email &&
-      dummyData.password === user.password
+      TEST_USER.email === user.email &&
+      TEST_USER.password === user.password
     ) {
       flag = true;
       return;
     }
   });
 
-  if (!flag && users === null) {
-    localStorage.setItem("users", JSON.stringify([dummyData]));
+  if (!flag && USERS === null) {
+    localStorage.setItem("users", JSON.stringify([TEST_USER]));
   } else if (!flag) {
-    localStorage.setItem("users", JSON.stringify([...users, dummyData]));
+    localStorage.setItem("users", JSON.stringify([...USERS, TEST_USER]));
   }
 };
 
