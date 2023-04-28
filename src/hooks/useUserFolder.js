@@ -9,8 +9,8 @@ const useUserFolder = () => {
         const res = await fetch(import.meta.env.VITE_FOLDER_URL);
         const result = await res.json();
         setUserFolder(result.data.folder);
-      } catch (e) {
-        console.dir(e);
+      } catch (error) {
+        console.dir(error);
       }
     };
     fetchUser();

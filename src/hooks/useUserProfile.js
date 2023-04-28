@@ -9,8 +9,8 @@ const useUserProfile = () => {
         const res = await fetch(import.meta.env.VITE_USER_URL);
         const result = await res.json();
         setUserProfile(result.data);
-      } catch (e) {
-        console.dir(e);
+      } catch (error) {
+        console.dir(error);
       }
     };
     fetchUser();
