@@ -12,7 +12,7 @@ const GlobalFooter = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles['footer-container']}>
-        <div className="codeit">@codeit - 2023</div>
+        <div className={styles.codeit}>@codeit - 2023</div>
         <div className="privacy">
           <a href="/pages/privacy.html">Privacy Policy</a>
           <a href="/pages/faq.html">FAQ</a>

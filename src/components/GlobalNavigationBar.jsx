@@ -49,7 +49,7 @@ const GlobalNavigationBar = () => {
   return (
     <header className={styles.header}>
       <div className={styles['header-container']}>
-        <div className="logo">
+        <div className={styles.logo}>
           <img onClick={goToHome} src={logo} alt="logo" />
         </div>
         <div>{loginStatus}</div>

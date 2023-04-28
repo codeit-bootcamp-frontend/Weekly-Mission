@@ -1,13 +1,9 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 .user {
   background-color: #f0f6ff;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 40px;
 }
 
 .user .icon {
@@ -28,9 +24,6 @@
 }
 
 .container {
-  max-width: 1060px;
-  width: cal(100% - 380px);
-  margin: 40px auto 99px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
@@ -47,7 +40,7 @@
   }
 }
 
-@media (min-width: 375px) and (max-width: 767px) {
+@media (max-width: 767px) {
   /*-------------------------header----------------------*/
   .main-container {
     max-width: 325px;

@@ -1,7 +1,4 @@
-a {
-  text-decoration: none;
-}
-header {
+.header {
   box-sizing: border-box;
   width: 100vw;
   background: #f0f6ff;
@@ -12,7 +9,7 @@ header {
   z-index: 1;
 }
 
-header .header-container {
+.header-container {
   width: calc(100% - 25rem);
   max-width: 1920px;
   display: flex;
@@ -22,13 +19,13 @@ header .header-container {
   margin: 0 auto;
 }
 
-.header-section header .logo {
+.logo {
   width: 8.313rem;
   height: 1.5rem;
   cursor: pointer;
 }
 
-header button {
+.header button {
   width: 8rem;
   height: 3.375rem;
   padding: 1rem 1.25rem 1rem 1.25rem;
@@ -40,20 +37,41 @@ header button {
   font-family: 600;
   cursor: pointer;
 }
-header .user {
+
+.header .user {
   display: flex;
   align-items: center;
 }
-header .user img {
+
+.header .user img {
   margin-right: 6px;
 }
-@media (min-width: 375px) and (max-width: 767px) {
-  /*-------------------------header----------------------*/
-  header .header-container {
-    width: calc(100% - 4rem);
-    padding: 1rem 2rem 1.5rem;
+
+/*태블릿 디바이스 (가로 해상도가 768px보다 크고 991px 보다 작은 화면에 적용)  */
+@media (min-width: 863px) and (max-width: 1199px) {
+  /*----------------------- header ---------------------------*/
+  .header-container {
+    min-width: 50rem;
+    padding: 1.5rem 2.67vw 1.5rem;
   }
-  header .user span {
+}
+
+@media (min-width: 768px) and (max-width: 863px) {
+  /*-------------------- header ----------------------------*/
+  .header-container {
+    width: calc(100% - 4rem);
+    padding: 1.5rem 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  /*-------------------------header----------------------*/
+  .header-container {
+    width: calc(100% - 4rem);
+    padding: 1.5rem 2rem 1.5rem;
+  }
+
+  .user span {
     display: none;
   }
 }
