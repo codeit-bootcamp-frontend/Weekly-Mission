@@ -1,99 +1,54 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import FolderInfo from "../components/FolderInfo/FolderInfo";
+import { getFolderRequest } from "../api/folderApi";
+import FolderInfo, {
+  folderInfoProps,
+} from "../components/FolderInfo/FolderInfo";
+import { linkCardProp } from "../components/LinkCard/LinkCardItem";
 import LinkCardList from "../components/LinkCard/LinkCardList";
 import SearchBar from "../components/SearchBar/SearchBar";
-const FOLDER_INFO_PROPS = {
-  ownerName: "Kenny",
-  folderName: "즐겨찾기",
-};
 
-const LINKCARD_LIST_PROPS = {
-  cardProps: [
-    {
-      id: 1,
-      href: "#",
-      createdDate: "1995-12-17T03:24:00",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-    },
-    {
-      id: 2,
-      href: "#",
-      createdDate: "1995-12-17T03:24:00",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-    },
-    {
-      id: 3,
-      href: "#",
-      createdDate: "1995-12-17T03:24:00",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-    },
-    {
-      id: 4,
-      href: "#",
-      createdDate: "1995-12-17T03:24:00",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-    },
-    {
-      id: 5,
-      href: "#",
-      createdDate: "1995-12-17T03:24:00",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-    },
-    {
-      id: 6,
-      href: "#",
-      createdDate: "1995-12-17T03:24:00",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-    },
-    {
-      id: 7,
-      href: "#",
-      createdDate: "1995-12-17T03:24:00",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-    },
-    {
-      id: 8,
-      href: "#",
-      createdDate: "1995-12-17T03:24:00",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-    },
-    {
-      id: 9,
-      href: "#",
-      createdDate: "1995-12-17T03:24:00",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-    },
-    {
-      id: 10,
-      href: "#",
-      createdDate: "1995-12-17T03:24:00",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-    },
-    {
-      id: 11,
-      href: "#",
-      createdDate: "1995-12-17T03:24:00",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-    },
-  ],
-};
 const SharedPage = () => {
+  const [folderData, setFolderData] = useState<folderInfoProps>();
+  const [cardDataList, setCardDataList] = useState<linkCardProp[]>();
+
+  const getCardListProp = (dataList) => {
+    return dataList.map((data) => {
+      return {
+        id: data.id,
+        href: data.url,
+        thumbnailSrc: data.imageSource,
+        description: data.description,
+        createdDate: data.createdAt,
+      };
+    });
+  };
+
+  const getFolderInfoProp = (folder) => {
+    return {
+      folderName: folder.name,
+      ownerName: folder.owner.name,
+      profileImgSrc: folder.owner.profileImageSource,
+    };
+  };
+
+  useEffect(() => {
+    getFolderRequest()
+      .then((res) => res.data)
+      .then((data) => {
+        const { folder } = data;
+        setFolderData(getFolderInfoProp(folder));
+        setCardDataList(getCardListProp(folder.links));
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
+
   return (
     <SMain>
       <section className="intro-section">
-        <FolderInfo {...FOLDER_INFO_PROPS}></FolderInfo>
+        {folderData && <FolderInfo {...folderData}></FolderInfo>}
       </section>
       <section className="card-section">
         <div className="search-bar-wrapper">
@@ -103,7 +58,7 @@ const SharedPage = () => {
           />
         </div>
         <div className="card-list-wrapper">
-          <LinkCardList {...LINKCARD_LIST_PROPS} />
+          {cardDataList && <LinkCardList cardProps={cardDataList} />}
         </div>
       </section>
     </SMain>

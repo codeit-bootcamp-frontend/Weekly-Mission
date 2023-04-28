@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-interface folderInfoProps {
+export interface folderInfoProps {
   ownerName: string;
   folderName: string;
   profileImgSrc?: string;
@@ -21,7 +21,7 @@ const FolderInfo: React.FC<folderInfoProps> = ({
           <img id="profile-img" src={profileImgSrc} alt="avatar" />
         </div>
         <p id="username" className="username">
-          {ownerName}
+          {"@" + ownerName}
         </p>
       </div>
       <h1 id="folder-name" className="title">
