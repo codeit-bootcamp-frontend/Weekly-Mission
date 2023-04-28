@@ -20,10 +20,16 @@ The application can be accessed at [https://jeris-weekly-mission.netlify.app/](h
 
 ### Frontend
 
-- [react](https://react.dev/) 18.2.0
-- [vite](https://vitejs.dev/) 4.3.2
-- [styled-components](https://styled-components.com/) 5.3.10
-- [react-router-dom](https://reactrouter.com/en/6.10.0) 6.10.0
+- [React](https://react.dev/) v18.2.0
+- [React Router Dom](https://reactrouter.com/en/6.10.0) v6.10.0
+- [Vite](https://vitejs.dev/) v4.3.2
+- [Storybook](https://storybook.js.org/) v7.0.7
+- [Styled Components](https://styled-components.com/) v5.3.10
+
+### State Management
+
+- [React Query](https://tanstack.com/query/v3/) v3.39.3
+- [Recoil](https://recoiljs.org/) v0.7.7
 
 ## License
 
