@@ -18,8 +18,8 @@ function App() {
     <Router>
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/shared" element={<SharedPage />} />
           <Route path="/" element={<HomePage />} />
+          <Route path="/shared" element={<SharedPage />} />
         </Route>
         <Route path="/signin" element={<SiginPage />} />
         <Route path="/signup" element={<SignupPage />} />
