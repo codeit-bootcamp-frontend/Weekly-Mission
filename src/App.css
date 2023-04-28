@@ -63,6 +63,28 @@ p {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: inherit;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:active {
+  color: inherit;
+  background-color: transparent;
+  text-decoration: none;
+}
+
 header {
   width: 100%;
   background-color: var(--gray-1);
