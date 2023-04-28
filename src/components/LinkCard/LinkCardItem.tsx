@@ -63,7 +63,7 @@ const LinkCardItem = ({
   };
 
   return (
-    <Link id="card-link" to={href}>
+    <a id="card-link" href={href} target="_blank">
       <SCardContainer className="card-container">
         <div className="thumbnail-box">
           <img
@@ -104,7 +104,7 @@ const LinkCardItem = ({
           </p>
         </div>
       </SCardContainer>
-    </Link>
+    </a>
   );
 };
 
