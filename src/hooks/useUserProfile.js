@@ -7,7 +7,7 @@ const useUserProfile = () => {
     const fetchUser = async () => {
       try {
         const res = await fetch(
-          import.meta.env.VITE_USER_URL ?? process.env.VITE_USER_URL
+          "https://bootcamp-api.codeit.kr/api/sample/user"
         );
         const result = await res.json();
         setUserProfile(result.data);
