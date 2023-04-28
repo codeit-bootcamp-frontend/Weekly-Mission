@@ -8,7 +8,7 @@ interface searchBarProps {
 
 const SearchBar = ({ action, placeholder = "검색하세요" }: searchBarProps) => {
   return (
-    <SSearchForm className="search-form" action="/search/links?q=null">
+    <SSearchForm className="search-form" action={action}>
       <label>
         <div className="search-icon-box">
           <img src="/src/assets/images/search-icon.png" alt="search icon" />
@@ -17,7 +17,7 @@ const SearchBar = ({ action, placeholder = "검색하세요" }: searchBarProps) 
           className="search-input"
           type="search"
           name="q"
-          placeholder="원하는 링크를 검색해 보세요"
+          placeholder={placeholder}
         />
       </label>
     </SSearchForm>
