@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import getUser from '../api/getUser';
+import getUser from '@api/getUser';
 
 // 로고 이미지
 import logo from '@assets/Linkbrary.png';
 // 프로파일 이미지
 import profile from '@assets/profile.png';
-import styles from '@/components/GlobalNavigationBar.module.css';
+import styles from '@components/GlobalNavigationBar.module.css';
 
 const GlobalNavigationBar = () => {
   const navigate = useNavigate();

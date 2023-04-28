@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import getCardData from '../../api/getCardData';
-import avatar from '../../assets/Avatar.png';
-import SharedCard from './SharedCard';
-import styles from './SharedContainer.module.css';
+import getCardData from '@api/getCardData';
+import avatar from '@assets/Avatar.png';
+import SharedCard from '@pages/shared/SharedCard.jsx';
+import styles from '@pages/shared/SharedContainer.module.css';
 
 const SharedContainer = () => {
   const [cardList, setCardList] = useState([]);
