@@ -6,10 +6,7 @@ const useUserProfile = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await fetch(
-          // "https://bootcamp-api.codeit.kr/api/sample/user"
-          import.meta.env.VITE_USER_URL
-        );
+        const res = await fetch(import.meta.env.VITE_USER_URL);
         const result = await res.json();
         setUserProfile(result.data);
       } catch (error) {
