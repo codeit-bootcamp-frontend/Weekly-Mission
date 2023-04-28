@@ -6,6 +6,7 @@ import vector from '@assets/Vector.png';
 import vector1 from '@assets/Vector-1.png';
 import vector2 from '@assets/Vector-2.png';
 import vector3 from '@assets/Vector-3.png';
+import { Link } from 'react-router-dom';
 
 const GlobalFooter = () => {
   return (
@@ -17,18 +18,18 @@ const GlobalFooter = () => {
           <a href="/pages/faq.html">FAQ</a>
         </div>
         <div className="icons">
-          <a href="/pages/facebook.html">
+          <Link to="https://www.facebook.com/" href="/pages/facebook.html">
             <img src={vector} />
-          </a>
-          <a href="/pages/twitter.html">
+          </Link>
+          <Link to="https://twitter.com/?lang=ko">
             <img src={vector1} />
-          </a>
-          <a href="/pages/youtube.html">
+          </Link>
+          <Link to="https://www.youtube.com/">
             <img src={vector2} />
-          </a>
-          <a href="/pages/instagram.html">
+          </Link>
+          <Link to="https://www.instagram.com">
             <img src={vector3} />
-          </a>
+          </Link>
         </div>
       </div>
     </footer>
