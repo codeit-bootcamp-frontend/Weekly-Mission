@@ -21,6 +21,12 @@
   margin-bottom: 60px;
 }
 
+.main-container {
+  max-width: 1060px;
+  width: cal(100% - 380px);
+  margin: 40px auto 99px;
+}
+
 .container {
   max-width: 1060px;
   width: cal(100% - 380px);
@@ -33,7 +39,7 @@
 
 @media (min-width: 768px) and (max-width: 1199px) {
   /*----------------------- header ---------------------------*/
-  main {
+  .main-container {
     max-width: 704px;
   }
   .container {
@@ -43,10 +49,10 @@
 
 @media (min-width: 375px) and (max-width: 767px) {
   /*-------------------------header----------------------*/
-  main {
+  .main-container {
     max-width: 325px;
   }
-  main .container {
+  .main-container .container {
     grid-template-columns: 1fr;
   }
 }

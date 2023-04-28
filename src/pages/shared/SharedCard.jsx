@@ -1,30 +1,43 @@
 import React from 'react';
-import kebab from '../../assets/kebab.png';
+import kebab from '@assets/kebab.png';
 import styles from './SharedCard.module.css';
-import { timeForToday } from '../../lib/timeForToday';
-import { Link, useNavigate } from 'react-router-dom';
+import defaultCardImage from '@assets/defaultImage.png';
+import { timeForToday } from '@lib/timeForToday';
+import { getToday } from '@lib/createdAt';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
-const SharedCard = (props) => {
-  const navigate = useNavigate();
-  const { createdAt, url, title, description, imageSource } = props.link;
+const SharedCard = ({ link }) => {
+  const { createdAt, url, description, imageSource } = link;
+  const [isClick, setIsClick] = useState(false);
 
-  const goToPage = () => {
-    navigate(url);
+  const handleIsClick = (e) => {
+    e.preventDefault();
+    setIsClick(!isClick);
   };
+
   return (
     <Link to={url} className={styles.card}>
       <div className={styles['img-box']}>
-        <img className={styles['card-img']} src={imageSource} alt="card" />
+        <img
+          className={styles['card-img']}
+          src={imageSource || defaultCardImage}
+          alt="card"
+        />
+        <div
+          onClick={handleIsClick}
+          className={isClick ? styles.click : styles.star}
+        ></div>
       </div>
       <div className={styles['p-box']}>
-        <div className="post-time">
+        <div className={styles['post-time']}>
           <p className="postTimeComparison">{timeForToday(createdAt)}</p>
-          <div className="dot-box">
+          <div className="kabab-box">
             <img src={kebab} alt="kabab" />
           </div>
         </div>
         <p className={styles.description}>{description}</p>
-        <p className="post-date">{timeForToday(createdAt)}</p>
+        <p className={styles['post-date']}>{getToday(createdAt)}</p>
       </div>
     </Link>
   );

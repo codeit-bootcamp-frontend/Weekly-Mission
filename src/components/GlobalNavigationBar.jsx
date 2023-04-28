@@ -12,19 +12,14 @@ const GlobalNavigationBar = () => {
   const navigate = useNavigate();
   const [isLogin, setIslogin] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [loadingError, setLoadingError] = useState(false);
 
   const handleGetUsers = async () => {
     try {
-      setIsLoading(true);
       const { data } = await getUser();
       setUserInfo(data);
       setIslogin(true);
     } catch (error) {
       console.log(error);
-    } finally {
-      setIsLoading(false);
     }
   };
   // Home 이동
