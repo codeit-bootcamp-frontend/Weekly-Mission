@@ -7,7 +7,8 @@ const useUserFolder = () => {
     const fetchUser = async () => {
       try {
         const res = await fetch(
-          "https://bootcamp-api.codeit.kr/api/sample/folder"
+          // "https://bootcamp-api.codeit.kr/api/sample/folder"
+          import.meta.env.VITE_FOLDER_URL
         );
         const result = await res.json();
         setUserFolder(result.data.folder);
