@@ -1,0 +1,16 @@
+version: "3"
+services:
+  vite_docker:
+    image: node:16-alpine
+    container_name: weekly-react
+    entrypoint: /bin/sh
+
+    ports:
+      - 8000:8080
+    working_dir: /src/app
+    volumes:
+      - type: bind
+        source: ./
+        target: /src/app
+    tty: true
+    stdin_open: true
