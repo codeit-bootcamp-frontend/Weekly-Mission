@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- open graph -->
+    <meta property="og:title" content="Linkbrary" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://weekly-codeit-henry.netlify.app/"
+    />
+    <meta property="og:image" content="/public/img-info.png" />
+    <meta
+      property="og:description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요."
+    />
+    <meta property="og:site_name" content="linkbrary" />
+    <!-- twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:url"
+      content="https://weekly-codeit-henry.netlify.app/"
+    />
+    <meta name="twitter:image" content="/public/img-info.png" />
+    <meta name="twitter:title" content="Linkbrary" />
+    <meta
+      name="twitter:description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요."
+    />
+    <!-- pretendard.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.6/static/pretendard.css"
+      integrity="sha512-IjPRngqxme31T3qawYHBWWWg6X+UXc8xNdNqYf1eVDuxHoFGELPYvxld4wBu+2uM716XiTS72VIoGB0ywrYoTg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Codeit Weekly Mission</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+        text-decoration: none;
+        border: none;
+      }
+      html {
+        width: 100%;
+        height: 100%;
+        font-size: 62.5%;
+        --linkbrary-primary: #6d6afe;
+        --linkbrary-red: #ff5b56;
+        --linkbrary-black: #111322;
+        --linkbrary-white: #ffffff;
+        --linkbrary-gray-100: #373740;
+        --linkbrary-gray-60: #9fa6b2;
+        --linkbrary-gray-20: #ccd5e3;
+        --linkbrary-gray-10: #e7effb;
+        --linkbrary-bg: #f0f6ff;
+        --linkbrary-bg-50: #f0f6ff80;
+      }
+      body {
+        width: 100%;
+        font-size: 1.6rem;
+        font-family: "Pretendard", "sans-serif";
+        background-color: var(--linkbrary-bg);
+      }
+      a:link,
+      a:visited,
+      a:hover,
+      a:active {
+        text-decoration: none;
+        color: var(--linkbrary-black);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
