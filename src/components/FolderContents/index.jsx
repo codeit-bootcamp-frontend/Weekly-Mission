@@ -5,7 +5,7 @@ import Card from '@/components/Card';
 import useUserLibrary from '@/hooks/useUserLibrary';
 
 const FolderContents = () => {
-  const [userFolder] = useUserLibrary('folder', import.meta.env.VITE_FOLDER_URL);
+  const [userFolder] = useUserLibrary('folder', `${import.meta.env.VITE_BASE_URL}/api/sample/folder`);
 
   const handleToggleCardAsterisk = useCallback((e) => {
     const cardAsterisk = e.target.closest('.cardAsterisk');

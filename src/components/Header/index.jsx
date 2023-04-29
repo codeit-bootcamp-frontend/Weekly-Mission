@@ -3,7 +3,7 @@ import styles from './header.module.css';
 import useUserLibrary from '@/hooks/useUserLibrary';
 
 const Header = () => {
-  const [userProfile] = useUserLibrary('profile', import.meta.env.VITE_USER_URL);
+  const [userProfile] = useUserLibrary('profile', `${import.meta.env.VITE_BASE_URL}/api/sample/user`);
 
   return (
     <header className={`${styles.header}`}>
