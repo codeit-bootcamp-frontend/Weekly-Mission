@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
 const useUserLibrary = (type, url) => {
   const [userType, setUserType] = useState({});
+  const location = useLocation();
+
+  if (location.pathname !== '/shared') return [undefined];
 
   useEffect(() => {
     (async () => {
@@ -24,7 +28,7 @@ const useUserLibrary = (type, url) => {
     })();
   }, [type, url]);
 
-  return [userType, setUserType];
+  return [userType];
 };
 
 export default useUserLibrary;
