@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const useUserLibrary = (type, url) => {
   const [userType, setUserType] = useState({});
@@ -6,8 +7,8 @@ const useUserLibrary = (type, url) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await fetch(url);
-        const result = await res.json();
+        const res = await axios.get(url);
+        const result = res.data;
 
         switch (true) {
           case type === 'folder':
