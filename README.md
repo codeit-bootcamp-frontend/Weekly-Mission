@@ -64,7 +64,7 @@ This project is licensed under the MIT License. See the LICENSE.md file for deta
 - [ ] card 컴포넌트에 별모양 아이콘 클릭시 회색, 파랑색으로 변하는 토글 스위치를 만들어 주세요.
 - [ ] card 컴포넌트에 설명글이 두 줄 보다 길어지면 ellipsis 설정해 주세요.
 - [ ] footer영역은 루트 페이지(“/”) 와 동일하게 만들어 주세요.
-- [ ] 상단 네비게이션바에는 “/api/sample/user”에서 받은 데이터를 반영하도록 수정해 주세요.
+- [x] 상단 네비게이션바에는 “/api/sample/user”에서 받은 데이터를 반영하도록 수정해 주세요.
 - [ ] [https://bootcamp-api.codeit.kr/docs](https://bootcamp-api.codeit.kr/docs) 에 명세된 “/api/sample/folder”에서 받은 데이터가 카드 컴포넌트에 들어가게 수정해 주세요.
 - [ ] folder.owner, folder.name 의 데이터도 반영될 수 있도록 수정해 주세요.
 - [ ] 카드 컴포넌트에서 createdAt 데이터 기준으로 현재 Date와 차이가
