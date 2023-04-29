@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import LinkButton from "components/LinkButton";
 import { useUserId } from "contexts/UserIdContext";
+import { useEffect, useState } from "react";
+import { getUsers } from "../utils/api";
 
 const StickyTag = styled.div`
   position: sticky;
@@ -81,8 +83,30 @@ const ProfileEmail = styled.p`
 `;
 
 function Nav() {
+  const [userEmail, setUserEmail] = useState("");
+  const [userImage, setUserImage] = useState("src/assets/default-profile.png");
   const userId = useUserId();
-  const isAuth = userId > 0 ? userId : null;
+  const isAuth = userId > 0 ? true : false;
+
+  // userId에 맞는 데이터를 가져와야 하는데 api에 데이터가 하나밖에 없고 배열의 형태가 아니라서 일단 조건 없이 가져오는 것으로 임시 처리했습니다.
+  useEffect(() => {
+    async function getUserData() {
+      const response = await getUsers();
+      if (!response || !response.data) return;
+      const { email, profileImageSource } = response.data;
+      if (email !== undefined) {
+        setUserEmail(email);
+      } else {
+        setUserEmail("");
+      }
+      if (profileImageSource !== undefined) {
+        setUserImage(profileImageSource);
+      } else {
+        setUserImage("src/assets/default-profile.png");
+      }
+    }
+    getUserData();
+  }, []);
 
   return (
     <StickyTag>
@@ -95,12 +119,12 @@ function Nav() {
             <Link to="/my-link">
               <ImageContainer>
                 <ProfileImage
-                  src="src/assets/default-profile.png"
-                  alt="Profile Image"
+                  src={`${userImage}`}
+                  alt={`${userId}의 Profile Image`}
                 />
               </ImageContainer>
             </Link>
-            <ProfileEmail>test@exmaple.com</ProfileEmail>
+            <ProfileEmail>{`${userEmail}`}</ProfileEmail>
           </NavUserProfile>
         ) : (
           <Link to="/signin">
