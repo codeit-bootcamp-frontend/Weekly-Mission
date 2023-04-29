@@ -5,14 +5,14 @@ import { useUserId } from "contexts/UserIdContext";
 import { useEffect, useState } from "react";
 import { getUsers } from "utils/api";
 
-const StickyTag = styled.div`
+const GNB = styled.nav`
   position: sticky;
   inset: 0;
   z-index: 1;
   background-color: var(--navbar-background);
 `;
 
-const NavContainer = styled.nav`
+const NavContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -102,7 +102,7 @@ function Nav() {
   }, []);
 
   return (
-    <StickyTag>
+    <GNB>
       <NavContainer>
         <Link to="/">
           <Logo src="logo.png" alt="Linkbrary Logo" />
@@ -125,7 +125,7 @@ function Nav() {
           </Link>
         )}
       </NavContainer>
-    </StickyTag>
+    </GNB>
   );
 }
 

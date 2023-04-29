@@ -1,5 +1,12 @@
+import styled from "styled-components";
+
+const GFT = styled.footer`
+  background-color: var(--black);
+  font-family: "Arial", sans-serif;
+`;
+
 function Footer() {
-  return <div>Footer</div>;
+  return <GFT></GFT>;
 }
 
 export default Footer;
