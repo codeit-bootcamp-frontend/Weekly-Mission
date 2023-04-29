@@ -1,14 +1,15 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import { colors } from "../../styles/colors";
+import UserAccountInfo from "./UserAccountInfo";
 
-interface GnbProps {
-  profileImgSrc?: string;
+export interface GnbProps {
   username: string;
   email: string;
+  profileImgSrc?: string;
 }
 
-const Gnb: React.FC<GnbProps> = (props: GnbProps | null) => {
+const Gnb = (props: GnbProps | {}) => {
   const [prevScrollPosition, setPrevScrollPosition] = useState(0);
   const [currentScrollPosition, setCurrentScrollPosition] = useState(0);
   const [navHeight, setNavHeight] = useState<number>(0);
@@ -17,7 +18,7 @@ const Gnb: React.FC<GnbProps> = (props: GnbProps | null) => {
   const handleScroll = () => {
     setCurrentScrollPosition(window.scrollY);
   };
-  console.log("renders");
+
   const handleMediaChange = () => {
     const header = document.querySelector("header");
     if (header instanceof HTMLElement) {
@@ -42,9 +43,7 @@ const Gnb: React.FC<GnbProps> = (props: GnbProps | null) => {
     };
   }, []);
 
-  //nav change useEffect
   useEffect(() => {
-    // scroll down
     if (currentScrollPosition > prevScrollPosition) {
       setShow(false);
     } else {
@@ -64,7 +63,11 @@ const Gnb: React.FC<GnbProps> = (props: GnbProps | null) => {
           <SLogo id="logo" href="/">
             <img src="/src/assets/images/logo.svg" />
           </SLogo>
-          <SLoginBtn href="signin.html"> 로그인 </SLoginBtn>
+          {"username" in props ? (
+            <UserAccountInfo {...props} />
+          ) : (
+            <SLoginBtn href="signin.html"> 로그인 </SLoginBtn>
+          )}
         </SNav>
       </SHeaderWrapper>
     </SHeader>

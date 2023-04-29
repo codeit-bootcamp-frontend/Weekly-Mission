@@ -1,16 +1,31 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
+import { getUserRequest } from "../api/userApi";
 import Footer from "../components/Footer/Footer";
-import Gnb from "../components/Gnb/Gnb";
+import Gnb, { GnbProps } from "../components/Gnb/Gnb";
 
-const Layout = (props) => {
-  const gnbProps = {
-    username: "kenny",
-    email: "wnl383@naver.com",
-  };
+const Layout = () => {
+  const [userData, setUserData] = useState<GnbProps>();
+
+  useEffect(() => {
+    getUserRequest()
+      .then((res) => res.data)
+      .then((data) => {
+        const {
+          name: username,
+          email,
+          profileImageSource: profileImgSrc,
+        } = data;
+        setUserData({ username, email, profileImgSrc });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <>
-      <Gnb {...gnbProps} />
+      {userData ? <Gnb {...userData} /> : <Gnb />}
       <Outlet />
       <Footer></Footer>
     </>
