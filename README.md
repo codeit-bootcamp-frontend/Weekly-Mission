@@ -30,6 +30,10 @@ The application can be accessed at [https://jeris-weekly-mission.netlify.app/](h
 - [React Query](https://tanstack.com/query/v3/) v3.39.3
 - [Recoil](https://recoiljs.org/) v0.7.7
 
+### Testing Tool
+
+- [Jest](https://jestjs.io/) 29.5.0
+
 ## License
 
 This project is licensed under the MIT License. See the LICENSE.md file for details.
