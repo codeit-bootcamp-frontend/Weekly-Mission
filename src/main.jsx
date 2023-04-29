@@ -20,15 +20,17 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<HomePage />} />
-            <Route path="signin" element={<SigninPage />} />
-            <Route path="signup" element={<SignupPage />} />
             <Route path="forgot-password" element={<ForgotPasswordPage />} />
             <Route path="my-link" element={<MyLinkPage />} />
             <Route path="shared" element={<SharedPage />} />
             <Route path="faq" element={<FaqPage />} />
             <Route path="privacy" element={<PrivacyPage />} />
-            <Route path="*" element={<NotFoundPage />} />
           </Route>
+          <Route path="/">
+            <Route path="signin" element={<SigninPage />} />
+            <Route path="signup" element={<SignupPage />} />
+          </Route>
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
     </RecoilRoot>

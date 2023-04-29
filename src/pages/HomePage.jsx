@@ -1,5 +1,16 @@
+import styled from "styled-components";
+
+const HomePageTest = styled.div`
+  background-color: white;
+  height: 100rem;
+`;
+
 function HomePage() {
-  return <div>HomePage</div>;
+  return (
+    <>
+      <HomePageTest />
+    </>
+  );
 }
 
 export default HomePage;

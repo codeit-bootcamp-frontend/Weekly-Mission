@@ -12,6 +12,7 @@ The application can be accessed at [https://jeris-weekly-mission.netlify.app/](h
 - src/: This folder is for storing source code.
 - src/assets/: This folder is for storing static asset files.
 - src/components/: This folder is for storing React components.
+- src/contexts/: This folder is used for storing React Context functions and constants in the project.
 - src/pages/: This folder is for storing page components that implement routing using React Router Dom.
 - src/utils/: This folder is for storing utility functions and constants used in the project.
 
