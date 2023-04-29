@@ -83,8 +83,9 @@ const ProfileEmail = styled.p`
 `;
 
 function Nav() {
+  const defaultProfilePath = "src/assets/default-profile.png";
   const [userEmail, setUserEmail] = useState("");
-  const [userImage, setUserImage] = useState("src/assets/default-profile.png");
+  const [userImage, setUserImage] = useState(defaultProfilePath);
   const userId = useUserId();
   const isAuth = userId > 0 ? true : false;
 
@@ -102,7 +103,7 @@ function Nav() {
       if (profileImageSource !== undefined) {
         setUserImage(profileImageSource);
       } else {
-        setUserImage("src/assets/default-profile.png");
+        setUserImage(defaultProfilePath);
       }
     }
     getUserData();
