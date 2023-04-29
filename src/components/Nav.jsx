@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import LinkButton from "components/LinkButton";
-import { useAuth } from "contexts/AuthContext";
+import { useUserId } from "contexts/UserIdContext";
 
 const StickyTag = styled.div`
   position: sticky;
@@ -81,8 +81,8 @@ const ProfileEmail = styled.p`
 `;
 
 function Nav() {
-  const auth = useAuth();
-  const isAuth = auth === "true" ? true : false;
+  const userId = useUserId();
+  const isAuth = userId > 0 ? userId : null;
 
   return (
     <StickyTag>
