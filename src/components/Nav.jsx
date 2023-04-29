@@ -3,7 +3,7 @@ import styled from "styled-components";
 import LinkButton from "components/LinkButton";
 import { useUserId } from "contexts/UserIdContext";
 import { useEffect, useState } from "react";
-import { getUsers } from "../utils/api";
+import { getUsers } from "utils/api";
 
 const StickyTag = styled.div`
   position: sticky;
