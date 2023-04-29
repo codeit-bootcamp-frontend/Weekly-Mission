@@ -6,8 +6,6 @@ const useUserLibrary = (type, url) => {
   const [userType, setUserType] = useState({});
   const location = useLocation();
 
-  if (location.pathname !== '/shared') return [undefined];
-
   useEffect(() => {
     (async () => {
       try {
@@ -28,7 +26,7 @@ const useUserLibrary = (type, url) => {
     })();
   }, [type, url]);
 
-  return [userType];
+  return location.pathname === '/shared' ? [userType] : [undefined];
 };
 
 export default useUserLibrary;
