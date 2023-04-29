@@ -6,8 +6,6 @@ import PrivacyPage from '@/pages/PrivacyPage';
 import FAQPage from '@/pages/FAQPage';
 
 function App() {
-  const isLogin = true;
-
   return (
     <BrowserRouter>
       <Routes>
