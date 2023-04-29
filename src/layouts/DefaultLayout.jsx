@@ -6,15 +6,11 @@ import { Outlet } from "react-router-dom";
 const DefaultLayout = () => {
   return (
     <div>
-      <nav>
-        <Gnb />
-      </nav>
+      <Gnb />
       <main>
         <Outlet />
       </main>
-      <footer>
-        <Footer />
-      </footer>
+      <Footer />
     </div>
   );
 };
