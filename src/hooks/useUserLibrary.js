@@ -5,7 +5,7 @@ const useUserLibrary = (type, url) => {
   const [userType, setUserType] = useState({});
 
   useEffect(() => {
-    const fetchUser = async () => {
+    (async () => {
       try {
         const res = await axios.get(url);
         const result = res.data;
@@ -21,8 +21,7 @@ const useUserLibrary = (type, url) => {
       } catch (error) {
         console.dir(error);
       }
-    };
-    fetchUser();
+    })();
   }, [type, url]);
 
   return [userType, setUserType];
