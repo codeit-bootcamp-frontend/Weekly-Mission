@@ -83,9 +83,9 @@ const ProfileEmail = styled.p`
 `;
 
 function Nav() {
-  const defaultProfilePath = "src/assets/default-profile.png";
+  const defaultProfileSource = "src/assets/default-profile.png";
   const [userEmail, setUserEmail] = useState("");
-  const [userImage, setUserImage] = useState(defaultProfilePath);
+  const [userImage, setUserImage] = useState(defaultProfileSource);
   const userId = useUserId();
   const isAuth = userId > 0 ? true : false;
 
@@ -95,16 +95,8 @@ function Nav() {
       const response = await getUsers();
       if (!response || !response.data) return;
       const { email, profileImageSource } = response.data;
-      if (email !== undefined) {
-        setUserEmail(email);
-      } else {
-        setUserEmail("");
-      }
-      if (profileImageSource !== undefined) {
-        setUserImage(profileImageSource);
-      } else {
-        setUserImage(defaultProfilePath);
-      }
+      setUserEmail(email || "");
+      setUserImage(profileImageSource || defaultProfileSource);
     }
     getUserData();
   }, []);
@@ -121,7 +113,7 @@ function Nav() {
               <ImageContainer>
                 <ProfileImage
                   src={userImage}
-                  alt={`${userId}의 Profile Image`}
+                  alt={`${userId}'s Profile Image`}
                 />
               </ImageContainer>
             </Link>
