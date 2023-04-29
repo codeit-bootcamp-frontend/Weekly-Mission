@@ -1,12 +1,13 @@
 import React from "react";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
-import Gnb from "./components/Gnb";
-import Footer from "./components/Footer";
-import HomePage from "./pages/HomePage";
-import SharedPage from "./pages/SharedPage";
-import SigninPage from "./pages/SigninPage";
-import SignupPage from "./pages/SignupPage";
-import NotFound from "./pages/NotFound";
+import Gnb from "./Gnb";
+import Footer from "./Footer";
+import HomePage from "../pages/HomePage";
+import SharedPage from "../pages/SharedPage";
+import SigninPage from "../pages/SigninPage";
+import SignupPage from "../pages/SignupPage";
+import NotFound from "../pages/NotFound";
+import "/src/components/App.css";
 
 function BasicLayout() {
   return (
