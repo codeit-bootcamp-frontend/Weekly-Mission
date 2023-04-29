@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import LinkButton from "components/LinkButton";
 import { useUserId } from "contexts/UserIdContext";
@@ -83,6 +83,11 @@ const ProfileEmail = styled.p`
 `;
 
 function Nav() {
+  const location = useLocation();
+  if (["/signin", "/signup"].includes(location.pathname)) {
+    return null;
+  }
+
   const defaultProfileSource = "src/assets/default-profile.png";
   const [userEmail, setUserEmail] = useState("");
   const [userImage, setUserImage] = useState(defaultProfileSource);

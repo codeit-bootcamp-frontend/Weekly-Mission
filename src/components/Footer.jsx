@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 const GFT = styled.footer`
@@ -49,6 +49,11 @@ const IconBox = styled.div`
 `;
 
 function Footer() {
+  const location = useLocation();
+  if (["/signin", "/signup"].includes(location.pathname)) {
+    return null;
+  }
+
   return (
     <GFT>
       <FooterContainer>

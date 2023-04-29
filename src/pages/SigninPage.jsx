@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { useUserId } from "contexts/UserIdContext";
 import { Navigate } from "react-router-dom";
 
@@ -7,7 +8,7 @@ function SigninPage() {
 
   if (isAuth) return <Navigate to="/" />;
 
-  return <div>SigninPage</div>;
+  return <></>;
 }
 
 export default SigninPage;
