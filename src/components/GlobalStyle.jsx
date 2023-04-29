@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
     --gray6: #F5F5F5;
     --navbar-background: rgba(240, 246, 255, 0.5);
     --profile-email: #373740;
-    --content-frame-description: #6B6B6B;
+    --home-content-description: #6B6B6B;
     --footer-text1: #676767;
     --footer-text2: #CFCFCF;
     --account-password-hide: #4B5563;
@@ -23,16 +23,16 @@ const GlobalStyle = createGlobalStyle`
     --card-since: #666666;
     --card-date: #333333;
     --search-bar-text: #666666;
-    --emphasis-1-left: var(--primary);
-    --emphasis-1-right: #FF9F9F;
-    --emphasis-2-left: #FE8A8A;
-    --emphasis-2-right: #A4CEFF;
-    --emphasis-3-left: #FFD88B;
-    --emphasis-3-right: #6FBAFF;
-    --emphasis-4-left: #6D7CCD;
-    --emphasis-4-right: #528885;
-    --emphasis-5-left: #3dd1eb;
-    --emphasis-5-right: #3ea5d0;
+    --emphasis-left: var(--primary);
+    --emphasis-right: #FF9F9F;
+    --emphasis-1-left: #FE8A8A;
+    --emphasis-1-right: #A4CEFF;
+    --emphasis-2-left: #FFD88B;
+    --emphasis-2-right: #6FBAFF;
+    --emphasis-3-left: #6D7CCD;
+    --emphasis-3-right: #528885;
+    --emphasis-4-left: #3dd1eb;
+    --emphasis-4-right: #3ea5d0;
   }
 
   * {
@@ -46,7 +46,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     background-color: var(--gray5);
-    word-break: keel-all;
+    word-break: keep-all;
     font-family: 'Pretendard', sans-serif;
     font-size: 1.6rem;
   }

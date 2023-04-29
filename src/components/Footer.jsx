@@ -21,27 +21,26 @@ const FooterContainer = styled.div`
   }
 `;
 
-const FooterContents1 = styled.p`
-  margin: 0;
-  color: var(--footer-text1);
+const FooterContents = styled.div`
+  &:first-child {
+    color: var(--footer-text1);
 
-  @media (max-width: 767px) {
-    width: 100%;
-    order: 1;
+    @media (max-width: 767px) {
+      width: 100%;
+      order: 1;
+    }
+  }
+
+  &:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+    width: 16.3rem;
+
+    * {
+      color: var(--footer-text2);
+    }
   }
 `;
-
-const FooterContents2 = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 16.3rem;
-
-  * {
-    color: var(--footer-text2);
-  }
-`;
-
-const FooterContents3 = styled.div``;
 
 const IconBox = styled.div`
   display: flex;
@@ -53,12 +52,12 @@ function Footer() {
   return (
     <GFT>
       <FooterContainer>
-        <FooterContents1>@codeit-2023</FooterContents1>
-        <FooterContents2>
+        <FooterContents>@codeit-2023</FooterContents>
+        <FooterContents>
           <Link to="/privacy">Privacy Policy</Link>
           <Link to="faq">FAQ</Link>
-        </FooterContents2>
-        <FooterContents3>
+        </FooterContents>
+        <FooterContents>
           <IconBox>
             <a
               href="https://facebook.com"
@@ -105,7 +104,7 @@ function Footer() {
               />
             </a>
           </IconBox>
-        </FooterContents3>
+        </FooterContents>
       </FooterContainer>
     </GFT>
   );
