@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import styled, { css } from "styled-components";
 import { colors } from "../../styles/colors";
 
 interface GnbProps {
@@ -9,8 +9,56 @@ interface GnbProps {
 }
 
 const Gnb: React.FC<GnbProps> = (props: GnbProps | null) => {
+  const [prevScrollPosition, setPrevScrollPosition] = useState(0);
+  const [currentScrollPosition, setCurrentScrollPosition] = useState(0);
+  const [navHeight, setNavHeight] = useState<number>(0);
+  const [show, setShow] = useState(true);
+
+  const handleScroll = () => {
+    setCurrentScrollPosition(window.scrollY);
+  };
+  console.log("renders");
+  const handleMediaChange = () => {
+    const header = document.querySelector("header");
+    if (header instanceof HTMLElement) {
+      setNavHeight(header.offsetHeight);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    const mq = window.matchMedia("(max-width: 767px)");
+    mq.addEventListener("change", handleMediaChange);
+
+    const headerElem = document.querySelector("header");
+    if (headerElem instanceof HTMLElement) {
+      setNavHeight(headerElem.offsetHeight);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      mq.removeEventListener("change", handleMediaChange);
+    };
+  }, []);
+
+  //nav change useEffect
+  useEffect(() => {
+    // scroll down
+    if (currentScrollPosition > prevScrollPosition) {
+      setShow(false);
+    } else {
+      setShow(true);
+    }
+    setPrevScrollPosition(currentScrollPosition);
+  }, [currentScrollPosition]);
+
   return (
-    <header>
+    <SHeader
+      show={show}
+      isTop={currentScrollPosition === 0 ? true : false}
+      navHeight={navHeight}
+    >
       <SHeaderWrapper id="header-wrapper">
         <SNav>
           <SLogo id="logo" href="/">
@@ -19,9 +67,23 @@ const Gnb: React.FC<GnbProps> = (props: GnbProps | null) => {
           <SLoginBtn href="signin.html"> 로그인 </SLoginBtn>
         </SNav>
       </SHeaderWrapper>
-    </header>
+    </SHeader>
   );
 };
+
+const SHeader = styled.header<{
+  show: boolean;
+  isTop: boolean;
+  navHeight: number;
+}>`
+  top: ${({ show, navHeight }) => (show ? "0px" : `-${navHeight}px`)};
+  ${({ isTop, show }) =>
+    !isTop &&
+    show &&
+    css`
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    `}
+`;
 
 const SHeaderWrapper = styled.div`
   width: 100%;
