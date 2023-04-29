@@ -11,7 +11,7 @@ function SharedPage() {
   const userId = useUserId();
   const isAuth = userId > 0 ? true : false;
 
-  if (!isAuth) return <Navigate to="/" />;
+  if (!isAuth) return <Navigate to="/signin" />;
 
   // getFolderData();
   return <div>SharedPage</div>;
