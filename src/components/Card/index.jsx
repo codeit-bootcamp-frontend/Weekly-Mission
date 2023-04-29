@@ -1,41 +1,30 @@
-import { useCallback } from "react";
-import styles from "./card.module.css";
-import { beautifyTimeDiff } from "../../utils";
-import PropTypes from "prop-types";
+import { useCallback } from 'react';
+import styles from './card.module.css';
+import PropTypes from 'prop-types';
+import beautifyDate from '@/utils/beautifyDate';
 
 const Card = ({ link }) => {
-  const creationDate = new Date(link.createdAt);
-  const currentDate = new Date();
-  const timeDiffInMinutes = (currentDate - creationDate) / 1000 / 60;
+  const [beautifiedDate, beautifiedTimeDiff] = beautifyDate(link.createdAt);
 
-  const navigateCardLink = useCallback(
+  const handleNavigateCardLink = useCallback(
     (e) => {
-      if (e.target.closest(".cardAsterisk")) return;
+      if (e.target.closest('.cardAsterisk')) return;
       window.open(link.url);
     },
-    [link.url]
+    [link.url],
   );
 
   return (
-    <div className={`${styles.card}`} onClick={navigateCardLink}>
+    <div className={`${styles.card}`} onClick={handleNavigateCardLink}>
       <div className={`${styles.cardAsterisk}`}>
-        <img
-          className={`cardAsterisk`}
-          src={"/assets/card-asterisk.svg"}
-          alt="Card Asterisk"
-        />
+        <img className={`cardAsterisk`} src={'/assets/card-asterisk.svg'} alt="Card Asterisk" />
       </div>
       <div className={`${styles.cardImgTop}`}>
-        <img
-          src={link.imageSource ? link.imageSource : "/assets/image-dummy.png"}
-          alt={link.title}
-        />
+        <img src={link.imageSource ? link.imageSource : '/assets/image-dummy.png'} alt={link.title} />
       </div>
       <div className={`${styles.cardCaption}`}>
         <div className={`${styles.info}`}>
-          <span className={`${styles.time}`}>
-            {beautifyTimeDiff(timeDiffInMinutes)}
-          </span>
+          <span className={`${styles.time}`}>{beautifiedTimeDiff}</span>
           <div className={`${styles.more}`}>
             <span></span>
             <span></span>
@@ -43,9 +32,7 @@ const Card = ({ link }) => {
           </div>
         </div>
         <p className={`${styles.text}`}>{link.description}</p>
-        <div className={`${styles.creation}`}>
-          {creationDate.toLocaleDateString().slice(0, -1)}
-        </div>
+        <div className={`${styles.creation}`}>{beautifiedDate}</div>
       </div>
     </div>
   );

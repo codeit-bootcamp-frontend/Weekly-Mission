@@ -88,11 +88,7 @@
   text-decoration: none;
   width: 128px;
   height: 53px;
-  background: linear-gradient(
-    90.99deg,
-    var(--linkbrary-primary) 0.12%,
-    #6ae3fe 101.84%
-  );
+  background: linear-gradient(90.99deg, var(--linkbrary-primary) 0.12%, #6ae3fe 101.84%);
   border-radius: 8px;
   display: flex;
   justify-content: center;

@@ -1,9 +1,9 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "@/pages/HomePage";
-import SharedPage from "@/pages/SharedPage";
-import SigninPage from "@/pages/SigninPage";
-import PrivacyPage from "@/pages/PrivacyPage";
-import FAQPage from "@/pages/FAQPage";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePage from '@/pages/HomePage';
+import SharedPage from '@/pages/SharedPage';
+import SigninPage from '@/pages/SigninPage';
+import PrivacyPage from '@/pages/PrivacyPage';
+import FAQPage from '@/pages/FAQPage';
 
 function App() {
   return (

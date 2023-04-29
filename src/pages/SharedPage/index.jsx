@@ -1,6 +1,6 @@
-import Header from "@/components/Header";
-import FolderContents from "@/components/FolderContents";
-import Footer from "@/components/Footer";
+import Header from '@/components/Header';
+import FolderContents from '@/components/FolderContents';
+import Footer from '@/components/Footer';
 
 const SharedPage = () => {
   return (

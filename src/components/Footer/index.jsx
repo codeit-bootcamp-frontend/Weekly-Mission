@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import styles from "./footer.module.css";
+import { Link } from 'react-router-dom';
+import styles from './footer.module.css';
 
 const Footer = () => {
   return (
@@ -16,22 +16,16 @@ const Footer = () => {
         </div>
         <div className={`${styles.sns}`}>
           <Link to="https://www.facebook.com/" className={`${styles.facebook}`}>
-            <img src={"/assets/facebook-icon.svg"} alt="Facebook Icon" />
+            <img src={'/assets/facebook-icon.svg'} alt="Facebook Icon" />
           </Link>
-          <Link
-            to="https://twitter.com/?lang=ko"
-            className={`${styles.twitter}`}
-          >
-            <img src={"/assets/twitter-icon.svg"} alt="Twitter Icon" />
+          <Link to="https://twitter.com/?lang=ko" className={`${styles.twitter}`}>
+            <img src={'/assets/twitter-icon.svg'} alt="Twitter Icon" />
           </Link>
           <Link to="https://www.youtube.com/" className={`${styles.youtube}`}>
-            <img src={"/assets/youtube-icon.svg"} alt="Youtube Icon" />
+            <img src={'/assets/youtube-icon.svg'} alt="Youtube Icon" />
           </Link>
-          <Link
-            to="https://www.instagram.com/"
-            className={`${styles.instagram}`}
-          >
-            <img src={"/assets/instagram-icon.svg"} alt="Instagram Icon" />
+          <Link to="https://www.instagram.com/" className={`${styles.instagram}`}>
+            <img src={'/assets/instagram-icon.svg'} alt="Instagram Icon" />
           </Link>
         </div>
       </div>

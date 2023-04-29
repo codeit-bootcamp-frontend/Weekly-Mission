@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
-import styles from "./header.module.css";
-import useUserProfile from "@/hooks/useUserProfile";
+import { Link } from 'react-router-dom';
+import styles from './header.module.css';
+import useUserLibrary from '@/hooks/useUserLibrary';
 
 const Header = () => {
-  const [userProfile] = useUserProfile();
+  const [userProfile] = useUserLibrary('profile', import.meta.env.VITE_USER_URL);
 
   return (
     <header className={`${styles.header}`}>
@@ -19,10 +19,7 @@ const Header = () => {
           ) : (
             <Link className={`${styles.user}`}>
               <div className={`${styles.imgContainer}`}>
-                <img
-                  src={userProfile.profileImageSource}
-                  alt={userProfile.name}
-                />
+                <img src={userProfile.profileImageSource} alt={userProfile.name} />
               </div>
               <span>{userProfile.email}</span>
             </Link>
