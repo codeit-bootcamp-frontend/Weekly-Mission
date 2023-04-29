@@ -120,12 +120,12 @@ function Nav() {
             <Link to="/my-link">
               <ImageContainer>
                 <ProfileImage
-                  src={`${userImage}`}
+                  src={userImage}
                   alt={`${userId}의 Profile Image`}
                 />
               </ImageContainer>
             </Link>
-            <ProfileEmail>{`${userEmail}`}</ProfileEmail>
+            <ProfileEmail>{userEmail}</ProfileEmail>
           </NavUserProfile>
         ) : (
           <Link to="/signin">
