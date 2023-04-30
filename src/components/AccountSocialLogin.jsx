@@ -36,7 +36,7 @@ const Icon = styled.img`
   }
 `;
 
-function AccountSocial({ isSignin, googleLink, kakaotalkLink }) {
+function AccountSocialLogin({ isSignin, googleLink, kakaotalkLink }) {
   return (
     <Container>
       <Description>
@@ -54,4 +54,4 @@ function AccountSocial({ isSignin, googleLink, kakaotalkLink }) {
   );
 }
 
-export default AccountSocial;
+export default AccountSocialLogin;

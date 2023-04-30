@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import AccountInput from "components/AccountInput";
-import AccountSocial from "components/AccountSocial";
+import AccountSocialLogin from "components/AccountSocialLogin";
 import LinkButton from "components/LinkButton";
 import styled from "styled-components";
 import { useState } from "react";
@@ -205,7 +205,7 @@ function Account({ isSignin }) {
       <ForgotPassword>
         {isSignin && <Link to="/forgot-password">비밀번호 찾기</Link>}
       </ForgotPassword>
-      <AccountSocial
+      <AccountSocialLogin
         isSignin={isSignin}
         googleLink="https://www.google.com/"
         kakaotalkLink="https://www.kakaocorp.com/"
