@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import BookmarkIcon from "components/BookmarkIcon";
+import { useState } from "react";
 
 const CardImage = styled.div`
   background-image: url(${(props) => props.src});
@@ -75,6 +76,13 @@ const CardCreatedAt = styled.div`
 
 function Card({ link }) {
   const defaultImageSource = "src/assets/default-card-image.png";
+  const [bookmark, setBookmark] = useState(false);
+
+  const handleBookmarkToggler = (e) => {
+    e.preventDefault();
+    setBookmark((prevState) => !prevState);
+  };
+
   return (
     <Contents>
       <a href={link.url} rel="noopener noreferrer" target="_blank">
@@ -92,7 +100,7 @@ function Card({ link }) {
           <CardCreatedAt>{link.createdAt}</CardCreatedAt>
         </CardText>
       </a>
-      <BookmarkIcon />
+      <BookmarkIcon Bookmark={bookmark} handleToggler={handleBookmarkToggler} />
     </Contents>
   );
 }
