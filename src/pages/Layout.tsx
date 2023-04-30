@@ -24,7 +24,7 @@ const Layout = () => {
           console.error(error);
         });
     }
-  }, []);
+  }, [location.pathname]);
 
   return (
     <>
