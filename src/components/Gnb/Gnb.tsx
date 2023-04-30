@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { colors } from "../../styles/colors";
 import UserAccountInfo from "./UserAccountInfo";
@@ -66,7 +67,9 @@ const Gnb = (props: GnbProps | {}) => {
           {"username" in props ? (
             <UserAccountInfo {...props} />
           ) : (
-            <SLoginBtn href="signin.html"> 로그인 </SLoginBtn>
+            <SLoginBtn>
+              <Link to="/sigin">로그인</Link>
+            </SLoginBtn>
           )}
         </SNav>
       </SHeaderWrapper>
@@ -134,7 +137,7 @@ const SNav = styled.nav`
   }
 `;
 
-const SLoginBtn = styled.a`
+const SLoginBtn = styled.button`
   width: 8rem;
   height: 3.313rem;
   border-radius: 0.5rem;
