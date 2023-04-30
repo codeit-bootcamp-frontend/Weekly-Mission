@@ -1,11 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AccountInput from "components/AccountInput";
 import AccountSocial from "components/AccountSocial";
 import LinkButton from "components/LinkButton";
 import styled from "styled-components";
 import { useState } from "react";
 import { isEmailValid, isPasswordValid } from "utils/validators";
-import { useSetUserId } from "contexts/UserIdContext";
 
 const Container = styled.main`
   margin: 24rem auto;
@@ -47,7 +46,7 @@ function Account({ isSignin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const setUserId = useSetUserId();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     switch (e.target.name) {
@@ -118,8 +117,7 @@ function Account({ isSignin }) {
     e.preventDefault();
     if (isSignin) {
       if (email === "test@codeit.com" && password === "codeit101") {
-        setUserId("1");
-        location.replace("/my-link");
+        navigate("/my-link");
       } else {
         alert("이메일과 비밀번호를 확인해주세요.");
       }
@@ -144,8 +142,8 @@ function Account({ isSignin }) {
           alert("비밀번호가 일치하지 않습니다.");
           break;
         default:
-          setUserId("1");
-          location.replace("/my-link");
+          navigate("/my-link");
+          break;
       }
     }
   };
