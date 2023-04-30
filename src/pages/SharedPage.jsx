@@ -1,5 +1,4 @@
-import { useUserId } from "contexts/UserIdContext";
-import { Navigate } from "react-router-dom";
+import styled from "styled-components";
 // import { getFolders } from "utils/api";
 
 // async function getFolderData() {
@@ -7,14 +6,14 @@ import { Navigate } from "react-router-dom";
 //   console.log(folders);
 // }
 
+const Container = styled.div`
+  height: 100rem;
+  text-align: center;
+`;
+
 function SharedPage() {
-  const userId = useUserId();
-  const isAuth = userId > 0 ? true : false;
-
-  if (!isAuth) return <Navigate to="/signin" />;
-
   // getFolderData();
-  return <div>SharedPage</div>;
+  return <Container>SharedPage</Container>;
 }
 
 export default SharedPage;

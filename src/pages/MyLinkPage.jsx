@@ -1,13 +1,12 @@
-import { useUserId } from "contexts/UserIdContext";
-import { Navigate } from "react-router-dom";
+import styled from "styled-components";
+
+const Container = styled.div`
+  height: 100rem;
+  text-align: center;
+`;
 
 function MyLinkPage() {
-  const userId = useUserId();
-  const isAuth = userId > 0 ? true : false;
-
-  // if (!isAuth) return <Navigate to="/" />;
-
-  return <div>MyLinkPage</div>;
+  return <Container>MyLinkPage</Container>;
 }
 
 export default MyLinkPage;
