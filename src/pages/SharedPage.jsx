@@ -6,10 +6,7 @@ import FolderInfo from "@components/FolderInfo";
 import useFetchData from "@hooks/useFetchData";
 
 const SharedPage = () => {
-  const { data, isLoading, error } = useFetchData(
-    "https://bootcamp-api.codeit.kr" + "/api/sample/folder"
-  );
-
+  const { data, isLoading, error } = useFetchData("/api/sample/folder");
   const [folder, setFolder] = useState();
   const [cards, setCards] = useState([]);
 
