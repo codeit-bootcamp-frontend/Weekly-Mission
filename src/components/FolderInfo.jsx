@@ -1,16 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./FolderInfo.module.css";
-import ownerImg from "/src/assets/owner.png";
+import { getFolderData } from "../api";
 
 function FolderInfo() {
+  const [folder, setFolder] = useState(null);
+
+  const applyFolderInfoData = async () => {
+    const folderData = await getFolderData();
+    setFolder(folderData);
+  };
+
+  useEffect(() => {
+    applyFolderInfoData();
+  }, []);
+
   return (
-    <header className={styles.headerFolder}>
-      <div className={styles.ownerContainer}>
-        <img className={styles.ownerImg} src={ownerImg} alt="폴더owner이미지" />
-        <p className={styles.ownerName}>@코드잇</p>
-      </div>
-      <h1 className={styles.folderName}>⭐️ 즐겨찾기</h1>
-    </header>
+    folder && (
+      <header className={styles.headerFolder}>
+        <div className={styles.ownerContainer}>
+          <img
+            className={styles.ownerImg}
+            src={folder.owner.profileImageSource}
+            alt="폴더owner이미지"
+          />
+          <p className={styles.ownerName}>{`@${folder.owner.name}`}</p>
+        </div>
+        <h1 className={styles.folderName}>{folder.name}</h1>
+      </header>
+    )
   );
 }
 
