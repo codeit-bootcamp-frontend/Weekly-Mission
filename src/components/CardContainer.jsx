@@ -18,10 +18,12 @@ const Container = styled.div`
   }
 `;
 
-function CardContainer() {
+function CardContainer({ CardLinks }) {
   return (
     <Container>
-      <Card />
+      {CardLinks.map((link) => (
+        <Card key={link.id} link={link} />
+      ))}
     </Container>
   );
 }

@@ -5,6 +5,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+
 const OwnerImage = styled.img`
   width: 6rem;
   margin-top: 2rem;

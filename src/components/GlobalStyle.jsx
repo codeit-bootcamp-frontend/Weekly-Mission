@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
     --footer-text2: #CFCFCF;
     --eye-toggler: #4B5563;
     --kakaotalk-background: #F5E14B;
-    --card-since: #666666;
+    --card-time-since: #666666;
     --card-date: #333333;
     --search-bar-text: #666666;
     --emphasis-left: var(--primary);

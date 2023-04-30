@@ -9,6 +9,7 @@ function SharedPage() {
   const [ownerImage, setOwnerImage] = useState(defaultOwnerImage);
   const [ownerName, setOwnerName] = useState("");
   const [folderName, setFolderName] = useState("");
+  const [cardLinks, setCardLinks] = useState([]);
 
   const getFolderData = async () => {
     const { data } = await getFolders();
@@ -23,10 +24,14 @@ function SharedPage() {
     const { data } = await getFolders();
     if (!data) return;
     const { links } = data.folder;
+    setCardLinks(links);
   };
 
   useEffect(() => {
     getFolderData();
+  }, []);
+
+  useEffect(() => {
     getLinks();
   }, []);
 
@@ -40,7 +45,7 @@ function SharedPage() {
         OwnerImage={ownerImage}
         FolderName={folderName}
       />
-      <SharedMain />
+      <SharedMain CardLinks={cardLinks} />
     </>
   );
 }

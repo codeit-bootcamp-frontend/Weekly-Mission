@@ -26,13 +26,12 @@ const Contents = styled.div`
   }
 `;
 
-function SharedMain() {
-  // getFolderData();
+function SharedMain({ CardLinks }) {
   return (
     <Container>
       <Contents>
         <SearchBar />
-        <CardContainer />
+        <CardContainer CardLinks={CardLinks} />
       </Contents>
     </Container>
   );
