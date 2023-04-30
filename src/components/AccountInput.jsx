@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { isEmailValid } from "../utils/validators";
 
 const Label = styled.label`
   text-align: left;
@@ -31,22 +32,29 @@ const Eye = styled.i`
   color: var(--eye-toggler);
 `;
 
-function AccountInput({ value, passwordCheck }) {
+function AccountInput({ value, isConfirmPassword, handleBlur, handleChange }) {
   return (
     <>
-      <Label htmlFor={`${value}-input`}>
+      <Label
+        htmlFor={
+          isConfirmPassword === true ? `${value}-input2` : `${value}-input`
+        }
+      >
         {value === "email" ? "이메일" : "비밀번호"}
-        {passwordCheck === true && " 확인"}
+        {isConfirmPassword === true && " 확인"}
       </Label>
       <InputContainer>
         <Input
           type={value}
-          id={passwordCheck === true ? `${value}-input2` : `${value}-input`}
-          name={passwordCheck === true ? value + "2" : value}
+          id={isConfirmPassword === true ? `${value}-input2` : `${value}-input`}
+          name={isConfirmPassword === true ? value + "2" : value}
           placeholder={
-            value === "email" ? "이메일을 입력해주세요." : "비밀번호"
+            (value === "email" ? "이메일을 입력해주세요." : "비밀번호") +
+            (isConfirmPassword === true ? " 확인" : "")
           }
           autocomplete={value === "email" ? "email" : "current-password"}
+          onChange={handleChange}
+          onBlur={handleBlur}
         />
         {value === "email" || <Eye className="fa fa-eye fa-eye-slash" />}
       </InputContainer>

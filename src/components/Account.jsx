@@ -3,6 +3,8 @@ import AccountInput from "components/AccountInput";
 import AccountSocial from "components/AccountSocial";
 import LinkButton from "components/LinkButton";
 import styled from "styled-components";
+import { useState } from "react";
+import { isEmailValid, isPasswordValid } from "utils/validators";
 
 const Container = styled.main`
   margin: 24rem auto;
@@ -41,6 +43,79 @@ const ForgotPassword = styled.div`
 `;
 
 function Account({ isSignin }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  const handleChange = (e) => {
+    switch (e.target.name) {
+      case "email":
+        setEmail(e.target.value);
+        break;
+      case "password":
+        setPassword(e.target.value);
+        break;
+      case "password2":
+        setConfirmPassword(e.target.value);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const handleBlur = (e) => {
+    switch (e.target.name) {
+      case "email":
+        switch (true) {
+          case email === "":
+            break;
+          case !isEmailValid(email):
+            alert("올바른 이메일 형식이 아닙니다.");
+            break;
+          case !isSignin && email === "test@codeit.com":
+            alert("이미 사용 중인 아이디입니다.");
+            break;
+          default:
+            break;
+        }
+        break;
+      case "password":
+        switch (true) {
+          case password === "":
+            break;
+          case !isPasswordValid(password):
+            alert("비밀번호는 영문, 숫자 조합 8자 이상을 입력해 주세요.");
+            break;
+          case confirmPassword !== "" && password !== confirmPassword:
+            alert("비밀번호가 일치하지 않습니다.");
+            break;
+          default:
+            break;
+        }
+        break;
+      case "password2":
+        switch (true) {
+          case confirmPassword === "":
+            break;
+          case !isPasswordValid(confirmPassword):
+            alert("비밀번호는 영문, 숫자 조합 8자 이상을 입력해 주세요.");
+            break;
+          case password !== "" && password !== confirmPassword:
+            alert("비밀번호가 일치하지 않습니다.");
+            break;
+          default:
+            break;
+        }
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <Container>
       <Link to="/">
@@ -52,10 +127,27 @@ function Account({ isSignin }) {
           {isSignin ? "회원 가입하기" : "로그인 하기"}
         </StyledLink>
       </p>
-      <Form>
-        <AccountInput value="email" />
-        <AccountInput value="password" />
-        {isSignin || <AccountInput value="password" passwordCheck={true} />}
+      <Form onSubmit={handleSubmit}>
+        <AccountInput
+          value="email"
+          email={email}
+          handleBlur={handleBlur}
+          handleChange={handleChange}
+        />
+        <AccountInput
+          value="password"
+          password={password}
+          handleBlur={handleBlur}
+          handleChange={handleChange}
+        />
+        {isSignin || (
+          <AccountInput
+            value="password"
+            isConfirmPassword={true}
+            handleBlur={handleBlur}
+            handleChange={handleChange}
+          />
+        )}
         <LinkButton type="submit">
           {isSignin ? "로그인" : "회원가입"}
         </LinkButton>
