@@ -16,6 +16,7 @@
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 
 ## Pages
+<img width="1164" alt="image" src="https://user-images.githubusercontent.com/45449387/235344207-81b49afe-0a05-4e06-9324-1076d75a94e3.png">
 
 ## 링크
 
