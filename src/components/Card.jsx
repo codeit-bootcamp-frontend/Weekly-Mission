@@ -68,7 +68,7 @@ const CardDescription = styled.div`
   width: 29.5rem;
   line-height: 150%;
   font-weight: 500;
-  color: (--black);
+  color: var(--black);
 `;
 
 const CardCreatedAt = styled.div`
