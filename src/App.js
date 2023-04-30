@@ -4,6 +4,7 @@ import getUserData from "./api/userData";
 import GNB from "./components/GNB";
 import SearchBar from "./components/SearchBar";
 import Card from "./components/Card";
+import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
               ))}
             </div>
           </main>
+          <Footer />
         </>
       ) : (
         <h1>로딩 중...</h1>
