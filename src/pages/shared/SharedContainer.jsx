@@ -19,7 +19,11 @@ const SharedContainer = () => {
   return (
     <Fragment>
       <div className={styles.user}>
-        <img className={styles.icon} src={avatar} alt="icon" />
+        <img
+          className={styles.icon}
+          src={cardList?.folder?.owner?.profileImageSource}
+          alt="icon"
+        />
         <p className="user-name">{cardList?.folder?.owner?.name}</p>
         <p className={styles.favorite}>{cardList?.folder?.name}</p>
       </div>

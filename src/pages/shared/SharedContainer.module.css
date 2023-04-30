@@ -7,6 +7,8 @@
 }
 
 .user .icon {
+  width: 80px;
+  height: 80x;
   padding-top: 20px;
   margin-bottom: 20px;
 }
