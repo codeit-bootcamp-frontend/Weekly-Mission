@@ -1,9 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
-const GFT = styled.footer`
+const FooterWrapper = styled.footer`
   background-color: var(--black);
-  font-family: "Arial", sans-serif;
 `;
 
 const FooterContainer = styled.div`
@@ -13,6 +12,7 @@ const FooterContainer = styled.div`
   padding: 3.2rem 10.4rem 3.2rem;
   max-width: 192rem;
   height: 16rem;
+  font-family: "Arial", sans-serif;
 
   @media (max-width: 767px) {
     flex-wrap: wrap;
@@ -55,7 +55,7 @@ function Footer() {
   }
 
   return (
-    <GFT>
+    <FooterWrapper>
       <FooterContainer>
         <FooterContents>@codeit-2023</FooterContents>
         <FooterContents>
@@ -111,7 +111,7 @@ function Footer() {
           </IconBox>
         </FooterContents>
       </FooterContainer>
-    </GFT>
+    </FooterWrapper>
   );
 }
 

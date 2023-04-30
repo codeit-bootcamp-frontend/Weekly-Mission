@@ -21,9 +21,10 @@ const Container = styled.div`
 function CardContainer({ CardLinks }) {
   return (
     <Container>
-      {CardLinks.map((link) => (
-        <Card key={link.id} link={link} />
+      {CardLinks.map((cardLink) => (
+        <Card key={cardLink.id} link={cardLink} />
       ))}
+      {CardLinks.length === 0 && <div />}
     </Container>
   );
 }
