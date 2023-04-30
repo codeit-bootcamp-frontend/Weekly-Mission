@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import styled from "styled-components";
 import LogoImg from "@/assets/images/Linkbrary.svg";
 
-export default function Gnb({ user }) {
+import { UserContext } from "@/contexts/UserContext";
+
+export default function Gnb() {
+  const { data: user } = useContext(UserContext);
   const { profileImageSource: profileSrc = "", email = "" } = user || {};
 
   return (
