@@ -32,7 +32,7 @@ const LinkCardItem = ({
     const updatedDate = new Date(dateString);
     const today = new Date();
     const timeDiff = today.getTime() - updatedDate.getTime();
-    console.log("hi");
+
     const MINUTE = 60 * 1000;
     const HOUR = MINUTE * 60;
     const DAY = HOUR * 24;
