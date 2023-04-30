@@ -85,26 +85,31 @@ const ProfileEmail = styled.p`
 function Nav() {
   const location = useLocation();
   if (["/signin", "/signup"].includes(location.pathname)) {
-    return null;
+    return;
   }
 
   const defaultProfileSource = "src/assets/default-profile.png";
+
   const [userEmail, setUserEmail] = useState("");
   const [userImage, setUserImage] = useState(defaultProfileSource);
-  const userId = useUserId();
-  const isAuth = userId > 0 ? true : false;
 
-  // userId에 맞는 데이터를 가져와야 하는데 api에 데이터가 하나밖에 없고 배열의 형태가 아니라서 일단 조건 없이 가져오는 것으로 임시 처리했습니다.
+  // userId에 맞는 데이터를 가져와야 하는데
+  // api에 데이터가 하나밖에 없고 배열의 형태가 아니라서
+  // 일단 조건 없이 가져오는 것으로 임시 처리했습니다.
+  const getUserData = async () => {
+    const { data } = await getUsers();
+    if (!data) return;
+    const { email, profileImageSource } = data;
+    setUserEmail(email || "");
+    setUserImage(profileImageSource || defaultProfileSource);
+  };
+
   useEffect(() => {
-    async function getUserData() {
-      const response = await getUsers();
-      if (!response || !response.data) return;
-      const { email, profileImageSource } = response.data;
-      setUserEmail(email || "");
-      setUserImage(profileImageSource || defaultProfileSource);
-    }
     getUserData();
   }, []);
+
+  const userId = useUserId();
+  const isAuth = userId > 0 ? true : false;
 
   return (
     <GNB>
