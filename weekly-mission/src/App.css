@@ -1,0 +1,45 @@
+.App {
+  padding-top: 35px;
+  font-family: "Pretendard";
+  background-color: #f0f6ff;
+}
+
+main {
+  background-color: #fff;
+  padding: 40px 0 99px;
+}
+
+.main-container {
+  margin: auto;
+  max-width: 1060px;
+}
+
+.cardList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin: 40px auto 0;
+}
+
+@media (max-width: 1099px) and (min-width: 768px) {
+  .main-container {
+    min-width: 704px;
+    padding: 0 32.5px;
+  }
+
+  .cardList {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 704px;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 375px) {
+  .main-container {
+    max-width: 340px;
+  }
+
+  .cardList {
+    grid-template-columns: 1fr;
+  }
+}
