@@ -1,4 +1,3 @@
-import React from "react";
 import LinkCardItem, { linkCardProp } from "./LinkCardItem";
 import styled from "styled-components";
 

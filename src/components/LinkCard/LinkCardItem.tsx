@@ -11,7 +11,6 @@ export interface linkCardProp {
 }
 
 const LinkCardItem = ({
-  id,
   href,
   thumbnailSrc,
   createdDate,

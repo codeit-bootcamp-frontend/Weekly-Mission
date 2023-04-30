@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { getFolderRequest } from "../api/folderApi";
 import FolderInfo, {
@@ -12,8 +12,8 @@ const SharedPage = () => {
   const [folderData, setFolderData] = useState<folderInfoProps>();
   const [cardDataList, setCardDataList] = useState<linkCardProp[]>();
 
-  const getCardListProp = (dataList) => {
-    return dataList.map((data) => {
+  const getCardListProp = (dataList: any) => {
+    return dataList.map((data: any) => {
       return {
         id: data.id,
         href: data.url,
@@ -24,7 +24,7 @@ const SharedPage = () => {
     });
   };
 
-  const getFolderInfoProp = (folder) => {
+  const getFolderInfoProp = (folder: any) => {
     return {
       folderName: folder.name,
       ownerName: folder.owner.name,
