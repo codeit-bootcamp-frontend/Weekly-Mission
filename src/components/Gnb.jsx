@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Gnb.module.css";
 import logo from "/src/assets/logo.png";
 import { getUserData } from "../api";
+import useAsync from "../hooks/useAsync";
 
 function LoginButton() {
   return (
@@ -14,16 +15,19 @@ function LoginButton() {
 
 function UserProfile() {
   const [user, setUser] = useState(null);
+  const [isApplying, ApplyingError, onApplyAsync] = useAsync(getUserData);
 
-  const applyUserData = async () => {
-    const userData = await getUserData();
+  const applyUserData = useCallback(async () => {
+    const userData = await onApplyAsync();
+    if (!userData) return;
     setUser(userData);
-  };
+  }, [onApplyAsync]);
 
   useEffect(() => {
     applyUserData();
-  }, []);
+  }, [applyUserData]);
 
+  if (ApplyingError) return <div>{ApplyingError.message}</div>;
   return (
     user && (
       <div className={styles.userContainer}>
