@@ -2,8 +2,6 @@ import defaultImg from "../images/default_image.png";
 import kebabImg from "../images/kebab.svg";
 import defaultStar from "../images/default-star.svg";
 import selectedStar from "../images/selected-star.svg";
-import "../common/color.css";
-import "../common/reset.css";
 import "./Card.css";
 
 const DEFAULT = {

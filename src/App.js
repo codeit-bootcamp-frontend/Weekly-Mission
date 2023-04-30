@@ -5,6 +5,8 @@ import GNB from "./components/GNB";
 import SearchBar from "./components/SearchBar";
 import Card from "./components/Card";
 import Footer from "./components/Footer";
+import "./common/color.css";
+import "./common/reset.css";
 import "./App.css";
 
 function App() {
