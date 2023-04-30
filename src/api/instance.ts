@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const wrapRequest = (func) => {
-  return async (...args) => {
+export const wrapRequest = (func: any) => {
+  return async (...args: any) => {
     const res = await func(...args);
     if (res?.data && res?.code && res.code !== 0) {
       throw res;
@@ -14,7 +14,7 @@ export const wrapRequest = (func) => {
 
 export const instance = () => {
   const instance = axios.create({
-    baseURL: "https://bootcamp-api.codeit.kr/api/sample",
+    baseURL: import.meta.env.VITE_API_BASE_URL,
     timeout: 10000,
     headers: {
       "Content-Type": "application/json",
