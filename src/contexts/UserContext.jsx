@@ -4,9 +4,7 @@ import useFetchData from "@hooks/useFetchData";
 const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
-  const { data, isLoading, error } = useFetchData(
-    "https://bootcamp-api.codeit.kr" + "/api/sample/user"
-  );
+  const { data, isLoading, error } = useFetchData("/api/sample/user");
 
   return (
     <UserContext.Provider value={{ data, isLoading, error }}>
