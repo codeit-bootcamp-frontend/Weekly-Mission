@@ -8,6 +8,8 @@ import SigninPage from "../pages/SigninPage";
 import SignupPage from "../pages/SignupPage";
 import NotFound from "../pages/NotFound";
 import "/src/components/App.css";
+import PolicyPage from "../pages/PolicyPage";
+import FAQPage from "../pages/FAQPage";
 
 function BasicLayout() {
   return (
@@ -29,6 +31,8 @@ function App() {
         </Route>
         <Route path="/signin" element={<SigninPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/policy" element={<PolicyPage />} />
+        <Route path="/faq" element={<FAQPage />} />
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </BrowserRouter>
