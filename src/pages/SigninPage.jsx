@@ -1,6 +1,7 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { useUserId } from "contexts/UserIdContext";
 import { Navigate } from "react-router-dom";
+import Account from "components/Account";
 
 function SigninPage() {
   const userId = useUserId();
@@ -8,7 +9,18 @@ function SigninPage() {
 
   if (isAuth) return <Navigate to="/" />;
 
-  return <></>;
+  return (
+    <>
+      <Helmet>
+        <title>로그인 | Linkbrary</title>
+        <link
+          rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+      </Helmet>
+      <Account isSignin={true}></Account>
+    </>
+  );
 }
 
 export default SigninPage;

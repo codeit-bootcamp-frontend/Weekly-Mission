@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
     --home-content-description: #6B6B6B;
     --footer-text1: #676767;
     --footer-text2: #CFCFCF;
-    --account-password-hide: #4B5563;
+    --eye-toggler: #4B5563;
     --kakaotalk-background: #F5E14B;
     --card-since: #666666;
     --card-date: #333333;

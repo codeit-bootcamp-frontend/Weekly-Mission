@@ -21,10 +21,6 @@ const NavContainer = styled.div`
   max-width: 192rem;
   height: 9.4rem;
 
-  ${LinkButton} {
-    width: 12.8rem;
-  }
-
   @media (min-width: 768px) and (max-width: 1199px) {
     max-width: 86.4rem;
     padding: 2rem 3.2rem;
@@ -34,12 +30,16 @@ const NavContainer = styled.div`
     margin: 0;
     padding: 0 3.2rem;
     height: 6.3rem;
+  }
+`;
 
-    ${LinkButton} {
-      width: 8rem;
-      padding: 1rem 0;
-      font-size: 1.4rem;
-    }
+const StyledLinkButton = styled(LinkButton)`
+  width: 12.8rem;
+
+  @media (max-width: 767px) {
+    width: 8rem;
+    padding: 1rem 0;
+    font-size: 1.4rem;
   }
 `;
 
@@ -126,7 +126,7 @@ function Nav() {
           </NavUserProfile>
         ) : (
           <Link to="/signin">
-            <LinkButton>로그인</LinkButton>
+            <StyledLinkButton>로그인</StyledLinkButton>
           </Link>
         )}
       </NavContainer>

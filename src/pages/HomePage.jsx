@@ -62,19 +62,18 @@ const HomeHeader = styled.article`
   flex-direction: column;
   align-items: center;
 
-  ${LinkButton} {
-    width: 35rem;
-  }
-
   @media (max-width: 768px) {
     margin: 0;
     padding: 0 3.2rem;
 
-    ${LinkButton} {
-      width: 20rem;
-      padding: 1rem 0;
-      font-size: 1.4rem;
-    }
+`;
+
+const StyledLinkButton = styled(LinkButton)`
+  width: 35rem;
+  @media (max-width: 768px) {
+    width: 20rem;
+    padding: 1rem 0;
+    font-size: 1.4rem;
   }
 `;
 
@@ -237,7 +236,7 @@ function HomePage() {
           쉽게 저장하고 관리해 보세요
         </HeaderTitle>
         <Link to="/shared">
-          <LinkButton>링크 추가하기</LinkButton>
+          <StyledLinkButton>링크 추가하기</StyledLinkButton>
         </Link>
         <HeaderImage
           src="src/assets/homepage-header-image.png"
