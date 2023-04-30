@@ -7,7 +7,7 @@ import UserIdSelect from "components/UserIdSelect";
 
 function App() {
   return (
-    <UserIdProvider defalutValue={-1}>
+    <UserIdProvider defalutValue>
       <GlobalStyle />
       <Nav />
       <UserIdSelect />

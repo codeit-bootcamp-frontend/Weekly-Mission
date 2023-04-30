@@ -5,6 +5,7 @@ import LinkButton from "components/LinkButton";
 import styled from "styled-components";
 import { useState } from "react";
 import { isEmailValid, isPasswordValid } from "utils/validators";
+import { useSetUserId } from "contexts/UserIdContext";
 
 const Container = styled.main`
   margin: 24rem auto;
@@ -46,10 +47,7 @@ function Account({ isSignin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+  const setUserId = useSetUserId();
 
   const handleChange = (e) => {
     switch (e.target.name) {
@@ -113,6 +111,42 @@ function Account({ isSignin }) {
         break;
       default:
         break;
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (isSignin) {
+      if (email === "test@codeit.com" && password === "codeit101") {
+        setUserId("1");
+        location.replace("/my-link");
+      } else {
+        alert("이메일과 비밀번호를 확인해주세요.");
+      }
+    } else {
+      switch (true) {
+        case email === "":
+          alert("이메일을 입력해 주세요.");
+          break;
+        case !isEmailValid(email):
+          alert("올바른 이메일 형식이 아닙니다.");
+          break;
+        case email === "test@codeit.com":
+          alert("이미 사용 중인 이메일입니다.");
+          break;
+        case password === "" || confirmPassword === "":
+          alert("비밀번호를 입력해 주세요.");
+          break;
+        case !isPasswordValid(password) || !isPasswordValid(confirmPassword):
+          alert("비밀번호는 영문, 숫자 조합 8자 이상을 입력해 주세요.");
+          break;
+        case password !== confirmPassword:
+          alert("비밀번호가 일치하지 않습니다.");
+          break;
+        default:
+          setUserId("1");
+          location.replace("/my-link");
+      }
     }
   };
 
