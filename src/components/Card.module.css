@@ -32,7 +32,6 @@
   background-size: contain;
   background-repeat: no-repeat;
   transition: transform 0.5s;
-  background-image: url("/src/assets/capture-linkbrary.png");
 }
 
 .star {
