@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import BookmarkIcon from "components/BookmarkIcon";
+import getElapsedTime from "utils/getElapsedTime";
 import getFormattedDate from "utils/getFormattedDate";
 
 const CardImage = styled.div`
@@ -47,8 +48,8 @@ const FirstLine = styled.div`
   align-items: center;
 `;
 
-const TimeSince = styled.div`
-  font-size: 1.4rem
+const ElapsedTime = styled.div`
+  font-size: 1.4rem;
   color: var(--card-time-since);
 `;
 
@@ -78,7 +79,8 @@ const CardCreatedAt = styled.div`
 function Card({ link }) {
   const defaultImageSource = "src/assets/default-card-image.png";
   const [bookmark, setBookmark] = useState(false);
-  const cc = getFormattedDate(link.createdAt);
+  const elapsedTime = getElapsedTime(link.createdAt);
+  const formattedCreatedAt = getFormattedDate(link.createdAt);
 
   const handleBookmarkToggler = (e) => {
     e.preventDefault();
@@ -91,7 +93,7 @@ function Card({ link }) {
         <CardImage src={link.imageSource || defaultImageSource} />
         <CardText>
           <FirstLine>
-            <TimeSince>{link.createdAt}</TimeSince>
+            <ElapsedTime>{elapsedTime}</ElapsedTime>
             <EclipseContainer>
               <img src="src/assets/eclipse.png" alt="eclipse" width="3" />
               <img src="src/assets/eclipse.png" alt="eclipse" width="3" />
@@ -99,7 +101,7 @@ function Card({ link }) {
             </EclipseContainer>
           </FirstLine>
           <CardDescription>{link.description}</CardDescription>
-          <CardCreatedAt>{cc}</CardCreatedAt>
+          <CardCreatedAt>{formattedCreatedAt}</CardCreatedAt>
         </CardText>
       </a>
       <BookmarkIcon Bookmark={bookmark} handleToggler={handleBookmarkToggler} />
