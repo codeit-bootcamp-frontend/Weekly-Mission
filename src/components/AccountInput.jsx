@@ -48,7 +48,7 @@ function AccountInput({ value, passwordCheck }) {
           }
           autocomplete={value === "email" ? "email" : "current-password"}
         />
-        <Eye className="fa fa-eye fa-eye-slash" />
+        {value === "email" || <Eye className="fa fa-eye fa-eye-slash" />}
       </InputContainer>
     </>
   );
