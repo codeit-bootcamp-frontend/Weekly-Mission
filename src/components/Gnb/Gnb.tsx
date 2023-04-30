@@ -68,7 +68,7 @@ const Gnb = (props: GnbProps | {}) => {
             <UserAccountInfo {...props} />
           ) : (
             <SLoginBtn>
-              <Link to="/sigin">로그인</Link>
+              <Link to="/signin">로그인</Link>
             </SLoginBtn>
           )}
         </SNav>
