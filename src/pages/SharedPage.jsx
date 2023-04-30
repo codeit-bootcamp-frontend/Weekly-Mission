@@ -14,14 +14,8 @@ const SharedPage = () => {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    console.log(data);
-
-    if (data.folder) {
-      setFolder(data.folder);
-      if (data.folder.links) {
-        setCards(data.folder.links);
-      }
-    }
+    setFolder(data.folder ? data.folder : null);
+    setCards(data.folder && data.folder.links ? data.folder.links : []);
   }, [data]);
 
   return (

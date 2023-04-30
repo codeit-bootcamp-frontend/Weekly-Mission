@@ -8,15 +8,10 @@ function FolderInfo({ folder }) {
   const [folderName, setFolderName] = useState("⭐️ 즐겨찾기");
 
   useEffect(() => {
-    if (folder?.owner?.profileImageSource) {
-      setProfileSrc(folder?.owner?.profileImageSource);
-    }
-    if (folder?.owner?.name) {
-      setOwnerName(folder?.owner?.name);
-    }
-    if (folder?.name) {
-      setFolderName(folder?.name);
-    }
+    folder?.owner?.profileImageSource &&
+      setProfileSrc(folder.owner.profileImageSource);
+    folder?.owner?.name && setOwnerName(folder.owner.name);
+    folder?.name && setFolderName(folder.name);
   }, [folder]);
 
   return (
