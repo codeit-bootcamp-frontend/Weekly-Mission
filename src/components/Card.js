@@ -87,13 +87,13 @@ function Card({ data: { createdAt = DEFAULT.createdAt, url = DEFAULT.url, descri
       <div className="text-box">
         <div className="text-content">
           <div className="card-info">
-            <span className="added-time">${timeDiffFormat}</span>
+            <span className="added-time">{timeDiffFormat}</span>
             <button className="kebab-button">
               <img src={kebabImg} />
             </button>
           </div>
-          <p className="card-description">${description}</p>
-          <span className="datetime">${dateFormat}</span>
+          <p className="card-description">{description}</p>
+          <span className="datetime">{dateFormat}</span>
         </div>
       </div>
     </div>
