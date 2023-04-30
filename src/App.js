@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import getFolderData from "./api/folderData";
 import getUserData from "./api/userData";
+import GNB from "./components/GNB";
 import SearchBar from "./components/SearchBar";
 import Card from "./components/Card";
 import "./App.css";
 
 function App() {
-  const [folderInfo, setFolderInfo] = useState([]);
-  const [cards, setCards] = useState([]);
-  const [userInfo, setUserInfo] = useState([]);
+  const [folderInfo, setFolderInfo] = useState(null);
+  const [cards, setCards] = useState(null);
+  const [userInfo, setUserInfo] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleLoad = async () => {
@@ -17,9 +18,9 @@ function App() {
       const { email, profileImageSource } = await getUserData();
       const { name, profileImageSource: ownerImageSource } = folder.owner;
 
-      setFolderInfo([folder.name, name, ownerImageSource]);
+      setFolderInfo({ folderName: folder.name, ownerName: name, ownerImageSource });
       setCards(folder.links);
-      setUserInfo([email, profileImageSource]);
+      setUserInfo({ email, profileImageSource });
       setIsLoading(true);
     } catch {
       console.log("데이터 로딩에 실패했습니다.");
@@ -30,29 +31,30 @@ function App() {
     handleLoad();
   }, []);
 
-  // console.log("folderInfo", folderInfo);
-  // console.log("userInfo", userInfo);
-  // console.log("cards", cards);
-
   return (
     <>
-      <custom-gnb></custom-gnb>
-      <header>
-        <div className="user-content">
-          <img className="user-avatar" src="/images/user-avatar.svg" />
-          <p className="user-nickname">@유저</p>
-        </div>
-        <h1 className="header-title">제목</h1>
-      </header>
-      <main>
-        <SearchBar placeholder="원하는 링크를 검색해 보세요" />
-        <div className="card-list">
-          {cards.map((cardData) => (
-            <Card data={cardData} />
-          ))}
-        </div>
-      </main>
-      {/* footer */}
+      {isLoading ? (
+        <>
+          <GNB userInfo={userInfo} />
+          <header>
+            <div className="user-content">
+              <img className="user-avatar" src={folderInfo.ownerImageSource} />
+              <p className="user-nickname">@{folderInfo.ownerName}</p>
+            </div>
+            <h1 className="header-title">{folderInfo.folderName}</h1>
+          </header>
+          <main>
+            <SearchBar placeholder="원하는 링크를 검색해 보세요" />
+            <div className="card-list">
+              {cards?.map((cardData) => (
+                <Card key={cardData.id} data={cardData} />
+              ))}
+            </div>
+          </main>
+        </>
+      ) : (
+        <h1>로딩 중...</h1>
+      )}
     </>
   );
 }
