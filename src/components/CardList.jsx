@@ -7,7 +7,8 @@ function CardList({ cards }) {
   const [cardList, setCardList] = useState([]);
 
   useEffect(() => {
-    if (cards) {
+    console.log(cards);
+    if (cards && cards.length > 0) {
       setCardList(
         cards.map((card) => ({
           id: card.id,
@@ -17,14 +18,19 @@ function CardList({ cards }) {
           url: card.url,
         }))
       );
+    } else {
+      setCardList([]);
     }
   }, [cards]);
 
   return (
     <CardListContainer>
-      {cardList.map((card) => (
-        <Card key={card.id} card={card} />
-      ))}
+      {cardList.map((card) => {
+        if (!card) {
+          return;
+        }
+        return <Card key={card.id} card={card} />;
+      })}
     </CardListContainer>
   );
 }
