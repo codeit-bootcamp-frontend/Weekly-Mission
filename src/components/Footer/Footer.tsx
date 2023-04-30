@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const BASE_SRC = "/src/assets/images";
+const BASE_SRC = "assets/images";
 const BASE_HREF = "https://www";
 
 const logoMap = [

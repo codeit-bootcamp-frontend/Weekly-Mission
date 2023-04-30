@@ -7,7 +7,7 @@ export interface folderInfoProps {
   profileImgSrc?: string;
 }
 
-const DEFAULT_PROFILE_IMG_SRC = "/src/assets/images/avatar.png";
+const DEFAULT_PROFILE_IMG_SRC = "assets/images/avatar.png";
 
 const FolderInfo: React.FC<folderInfoProps> = ({
   ownerName,

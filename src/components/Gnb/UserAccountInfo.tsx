@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { GnbProps } from "./Gnb";
 
-const DEFAULT_PROFILE_IMG_SRC = "/src/assets/images/profile_img.png";
+const DEFAULT_PROFILE_IMG_SRC = "assets/images/profile_img.png";
 
 const UserAccountInfo = ({ email, profileImgSrc }: GnbProps) => {
   return (

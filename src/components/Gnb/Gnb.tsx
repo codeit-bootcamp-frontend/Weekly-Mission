@@ -61,7 +61,7 @@ const Gnb = (props: GnbProps | {}) => {
       <SHeaderWrapper id="header-wrapper">
         <SNav>
           <SLogo id="logo" href="/">
-            <img src="/src/assets/images/logo.svg" />
+            <img src="assets/images/logo.svg" />
           </SLogo>
           {"username" in props ? (
             <UserAccountInfo {...props} />

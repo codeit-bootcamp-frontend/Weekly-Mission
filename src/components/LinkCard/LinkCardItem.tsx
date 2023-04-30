@@ -67,7 +67,7 @@ const LinkCardItem = ({
           <img
             id="thumbnail"
             className="thumbnail-img"
-            src={thumbnailSrc ?? "/src/assets/images/default-thumbnail.svg"}
+            src={thumbnailSrc ?? "assets/images/default-thumbnail.svg"}
             alt="thumbnail"
           />
           <img
@@ -75,8 +75,8 @@ const LinkCardItem = ({
             className="like-btn"
             src={
               isLiked
-                ? "/src/assets/images/like-btn-liked.svg"
-                : "/src/assets/images/like-btn-unliked.svg"
+                ? "assets/images/like-btn-liked.svg"
+                : "assets/images/like-btn-unliked.svg"
             }
             alt="like button"
             onClick={(e) => {
@@ -89,7 +89,7 @@ const LinkCardItem = ({
           <img
             id="kebab"
             className="kebab"
-            src="/src/assets/images/kebab.svg"
+            src="assets/images/kebab.svg"
             alt="kebab"
           />
           <p id="updated-time" className="updated-time">

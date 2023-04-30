@@ -10,7 +10,7 @@ const SearchBar = ({ action, placeholder = "검색하세요" }: searchBarProps) 
     <SSearchForm className="search-form" action={action}>
       <label>
         <div className="search-icon-box">
-          <img src="/src/assets/images/search-icon.png" alt="search icon" />
+          <img src="assets/images/search-icon.png" alt="search icon" />
         </div>
         <input
           className="search-input"
