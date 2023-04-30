@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { isEmailValid } from "../utils/validators";
 
 const Label = styled.label`
   text-align: left;

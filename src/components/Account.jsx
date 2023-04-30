@@ -4,7 +4,7 @@ import AccountSocial from "components/AccountSocial";
 import LinkButton from "components/LinkButton";
 import styled from "styled-components";
 import { useState } from "react";
-import { isEmailValid, isPasswordValid } from "utils/validators";
+import { isValidEmail, isValidPassword } from "utils/validators";
 
 const Container = styled.main`
   margin: 24rem auto;
@@ -70,7 +70,7 @@ function Account({ isSignin }) {
         switch (true) {
           case email === "":
             break;
-          case !isEmailValid(email):
+          case !isValidEmail(email):
             alert("올바른 이메일 형식이 아닙니다.");
             break;
           case !isSignin && email === "test@codeit.com":
@@ -84,7 +84,7 @@ function Account({ isSignin }) {
         switch (true) {
           case password === "":
             break;
-          case !isPasswordValid(password):
+          case !isValidPassword(password):
             alert("비밀번호는 영문, 숫자 조합 8자 이상을 입력해 주세요.");
             break;
           case confirmPassword !== "" && password !== confirmPassword:
@@ -98,7 +98,7 @@ function Account({ isSignin }) {
         switch (true) {
           case confirmPassword === "":
             break;
-          case !isPasswordValid(confirmPassword):
+          case !isValidPassword(confirmPassword):
             alert("비밀번호는 영문, 숫자 조합 8자 이상을 입력해 주세요.");
             break;
           case password !== "" && password !== confirmPassword:
@@ -126,7 +126,7 @@ function Account({ isSignin }) {
         case email === "":
           alert("이메일을 입력해 주세요.");
           break;
-        case !isEmailValid(email):
+        case !isValidEmail(email):
           alert("올바른 이메일 형식이 아닙니다.");
           break;
         case email === "test@codeit.com":
@@ -135,7 +135,7 @@ function Account({ isSignin }) {
         case password === "" || confirmPassword === "":
           alert("비밀번호를 입력해 주세요.");
           break;
-        case !isPasswordValid(password) || !isPasswordValid(confirmPassword):
+        case !isValidPassword(password) || !isValidPassword(confirmPassword):
           alert("비밀번호는 영문, 숫자 조합 8자 이상을 입력해 주세요.");
           break;
         case password !== confirmPassword:
