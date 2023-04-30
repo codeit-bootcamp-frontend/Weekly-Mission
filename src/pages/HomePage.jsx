@@ -239,7 +239,7 @@ function HomePage() {
           <StyledLinkButton>링크 추가하기</StyledLinkButton>
         </Link>
         <HeaderImage
-          src="src/assets/homepage-header-image.png"
+          src="../assets/homepage-header-image.png"
           alt="Header Image"
         />
       </HomeHeader>
@@ -253,7 +253,7 @@ function HomePage() {
             싶은 모든 것을 <br />한 공간에 저장하세요.
           </ContentDescription>
           <ContentImage
-            src="src/assets/homepage-body-thumb1.png"
+            src="../assets/homepage-body-thumb1.png"
             alt="Thumbnail"
           />
         </BodyContents>
@@ -266,7 +266,7 @@ function HomePage() {
             다양하게 활용할 수 있습니다.
           </ContentDescription>
           <ContentImage
-            src="src/assets/homepage-body-thumb2.png"
+            src="../assets/homepage-body-thumb2.png"
             alt="Thumbnail"
           />
         </BodyContents>
@@ -279,7 +279,7 @@ function HomePage() {
             쉽고 빠르게 링크를 공유해 보세요.
           </ContentDescription>
           <ContentImage
-            src="src/assets/homepage-body-thumb3.png"
+            src="../assets/homepage-body-thumb3.png"
             alt="Thumbnail"
           />
         </BodyContents>
@@ -291,7 +291,7 @@ function HomePage() {
             중요한 정보들을 검색으로 쉽게 찾아보세요.
           </ContentDescription>
           <ContentImage
-            src="src/assets/homepage-body-thumb4.png"
+            src="../assets/homepage-body-thumb4.png"
             alt="Thumbnail"
           />
         </BodyContents>
