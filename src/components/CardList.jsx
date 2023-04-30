@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Card from "@components/Card";
-import defaultCardImg from "@/assets/images/default-card-img.png";
+import defaultCardImg from "@assets/images/default-card-img.png";
 
 function CardList({ cards }) {
   const [cardList, setCardList] = useState([]);

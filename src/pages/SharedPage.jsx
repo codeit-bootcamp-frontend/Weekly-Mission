@@ -3,7 +3,7 @@ import styled from "styled-components";
 import SearchBar from "@components/SearchBar";
 import CardList from "@components/CardList";
 import FolderInfo from "@components/FolderInfo";
-import useFetchData from "@/hooks/useFetchData";
+import useFetchData from "@hooks/useFetchData";
 
 const SharedPage = () => {
   const { data, isLoading, error } = useFetchData(

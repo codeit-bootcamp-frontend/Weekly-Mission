@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import DefaultLayout from "@/layouts/DefaultLayout";
-import HomePage from "@/pages/HomePage";
-import SharedPage from "@/pages/SharedPage";
+import DefaultLayout from "@layouts/DefaultLayout";
+import HomePage from "@pages/HomePage";
+import SharedPage from "@pages/SharedPage";
 
 //style
-import GlobalStyle from "@/styles/GlobalStyles";
+import GlobalStyle from "@styles/GlobalStyles";
 
 // contextAPI
-import { UserProvider } from "@/contexts/UserContext";
+import { UserProvider } from "@contexts/UserContext";
 
 function App() {
   return (

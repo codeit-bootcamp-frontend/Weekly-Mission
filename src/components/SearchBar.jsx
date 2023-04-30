@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import lensIcon from "@/assets/images/search-bar-lens-icon.svg";
+import lensIcon from "@assets/images/search-bar-lens-icon.svg";
 
 const SearchBar = () => {
   return (

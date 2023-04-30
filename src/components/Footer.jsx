@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 // images
-import FacebookIcon from "@/assets/images/facebook.svg";
-import TwitterIcon from "@/assets/images/twitter.svg";
-import YoutubeIcon from "@/assets/images/youtube.svg";
-import InstaIcon from "@/assets/images/insta.svg";
+import FacebookIcon from "@assets/images/facebook.svg";
+import TwitterIcon from "@assets/images/twitter.svg";
+import YoutubeIcon from "@assets/images/youtube.svg";
+import InstaIcon from "@assets/images/insta.svg";
 
 const Footer = () => {
   const socialMedias = [
