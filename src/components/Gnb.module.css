@@ -1,4 +1,4 @@
-header {
+.gnb {
   height: 9.4rem;
   padding: 0 20rem;
   display: flex;
@@ -46,7 +46,7 @@ header {
 
 /* Tablet 반응형 */
 @media (max-width: 1200px) {
-  header {
+  .gnb {
     padding-left: 3.2rem;
     padding-right: 3.2rem;
   }
@@ -65,7 +65,7 @@ header {
 
 /* Mobile 반응형 */
 @media (max-width: 768px) {
-  header {
+  .gnb {
     height: 6.3rem;
   }
 

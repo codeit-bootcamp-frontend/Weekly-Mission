@@ -5,7 +5,7 @@ import logo from "/src/assets/logo.png";
 
 function Gnb() {
   return (
-    <header>
+    <header className={styles.gnb}>
       <div className={styles.gnbContainer}>
         <Link to="/">
           <img className={styles.logo} src={logo} alt="로고" />
