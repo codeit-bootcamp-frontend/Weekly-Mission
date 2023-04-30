@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useCallback, useState } from "react";
 import styled from "styled-components";
 import { colors } from "../../styles/colors";
 
@@ -20,20 +19,20 @@ const LinkCardItem = ({
 }: linkCardProp) => {
   const [isLiked, setIsLiked] = useState(false);
 
-  const parseDate = (dateString: string) => {
+  const parseDate = useCallback((dateString: string) => {
     const date = new Date(dateString);
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, "0");
     const day = String(date.getDate()).padStart(2, "0");
 
     return [year, month, day].join(".");
-  };
+  }, []);
 
-  const getTimeSinceCreation = (dateString: string) => {
+  const getTimeSinceCreation = useCallback((dateString: string) => {
     const updatedDate = new Date(dateString);
     const today = new Date();
     const timeDiff = today.getTime() - updatedDate.getTime();
-
+    console.log("hi");
     const MINUTE = 60 * 1000;
     const HOUR = MINUTE * 60;
     const DAY = HOUR * 24;
@@ -55,12 +54,12 @@ const LinkCardItem = ({
     const diff = Object.keys(timeMap).find((key) => timeDiff < Number(key));
 
     if (diff) {
-      return timeMap[diff](timeDiff);
+      return timeMap[Number(diff)](timeDiff);
     }
 
     const years = Math.floor(timeDiff / (MONTH * 12));
     return years + " years ago";
-  };
+  }, []);
 
   return (
     <a id="card-link" href={href} target="_blank">
@@ -81,7 +80,8 @@ const LinkCardItem = ({
                 : "/src/assets/images/like-btn-unliked.svg"
             }
             alt="like button"
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
               setIsLiked(!isLiked);
             }}
           />
