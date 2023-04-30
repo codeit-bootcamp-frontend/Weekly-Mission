@@ -49,6 +49,10 @@ const IconBox = styled.div`
 `;
 
 function Footer() {
+  const FACEBOOK_LINK = "https://facebook.com";
+  const TWITTER_LINK = "https://twitter.com";
+  const YOUTUBE_LINK = "https://youtube.com";
+  const INSTAGRAM_LINK = "https://instagram.com";
   const location = useLocation();
   if (["/signin", "/signup"].includes(location.pathname)) {
     return null;
@@ -64,32 +68,16 @@ function Footer() {
         </FooterContents>
         <FooterContents>
           <IconBox>
-            <a
-              href="https://facebook.com"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
+            <a href={FACEBOOK_LINK} rel="noopener noreferrer" target="_blank">
               <img src="icon-facebook.png" alt="Facebook Icon" width="18" />
             </a>
-            <a
-              href="https://twitter.com"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
+            <a href={TWITTER_LINK} rel="noopener noreferrer" target="_blank">
               <img src="icon-twitter.png" alt="Twitter Icon" width="19" />
             </a>
-            <a
-              href="https://youtube.com"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
+            <a href={YOUTUBE_LINK} rel="noopener noreferrer" target="_blank">
               <img src="icon-youtube.png" alt="Youtube Icon" width="20" />
             </a>
-            <a
-              href="https://instagram.com"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
+            <a href={INSTAGRAM_LINK} rel="noopener noreferrer" target="_blank">
               <img src="icon-instagram.png" alt="Instagram Icon" width="17" />
             </a>
           </IconBox>

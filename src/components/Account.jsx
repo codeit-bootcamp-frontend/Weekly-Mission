@@ -43,6 +43,8 @@ const ForgotPassword = styled.div`
 `;
 
 function Account({ isSignin }) {
+  const GOOGLE_LINK = "https://www.google.com/";
+  const KAKAOTALK_LINK = "https://www.kakaocorp.com/";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -207,8 +209,8 @@ function Account({ isSignin }) {
       </ForgotPassword>
       <AccountSocialLogin
         isSignin={isSignin}
-        googleLink="https://www.google.com/"
-        kakaotalkLink="https://www.kakaocorp.com/"
+        googleLink={GOOGLE_LINK}
+        kakaotalkLink={KAKAOTALK_LINK}
       />
     </Container>
   );
