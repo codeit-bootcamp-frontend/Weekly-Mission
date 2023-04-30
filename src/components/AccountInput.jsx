@@ -32,37 +32,36 @@ const Eye = styled.i`
 
 function AccountInput({
   value,
-  type,
+  type = "text",
   showPassword,
-  isConfirmPassword,
+  isConfirmPassword = false,
   handleBlur,
   handleChange,
   handlePasswordToggler,
 }) {
+  const EMAIL_TYPE = "email";
+  const PASSWORD_TYPE = "password";
+
   return (
     <>
-      <Label
-        htmlFor={
-          isConfirmPassword === true ? `${value}-input2` : `${value}-input`
-        }
-      >
-        {value === "email" ? "이메일" : "비밀번호"}
-        {isConfirmPassword === true && " 확인"}
+      <Label htmlFor={isConfirmPassword ? `${value}-input2` : `${value}-input`}>
+        {value === EMAIL_TYPE ? "이메일" : "비밀번호"}
+        {isConfirmPassword && " 확인"}
       </Label>
       <InputContainer>
         <Input
           type={type}
-          id={isConfirmPassword === true ? `${value}-input2` : `${value}-input`}
-          name={isConfirmPassword === true ? value + "2" : value}
+          id={isConfirmPassword ? `${value}-input2` : `${value}-input`}
+          name={isConfirmPassword ? value + "2" : value}
           placeholder={
-            (value === "email" ? "이메일을 입력해주세요." : "비밀번호") +
-            (isConfirmPassword === true ? " 확인" : "")
+            (value === EMAIL_TYPE ? "이메일을 입력해주세요." : "비밀번호") +
+            (isConfirmPassword ? " 확인" : "")
           }
-          autocomplete={value === "email" ? "email" : "current-password"}
+          autocomplete={value === EMAIL_TYPE ? EMAIL_TYPE : "current-password"}
           onChange={handleChange}
           onBlur={handleBlur}
         />
-        {value === "email" || (
+        {value === PASSWORD_TYPE && (
           <Eye
             className={`fa ${showPassword ? "fa-eye" : "fa-eye-slash"}`}
             onMouseDown={handlePasswordToggler}
