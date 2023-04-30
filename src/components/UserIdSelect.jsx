@@ -1,4 +1,4 @@
-import { useUserId, useSetUserId } from "contexts/UserIdContext";
+import { useUserId, useSetUserId } from "../contexts/UserIdContext";
 
 function UserIdSelect() {
   const userId = useUserId();

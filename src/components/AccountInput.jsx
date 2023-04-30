@@ -32,7 +32,15 @@ const Eye = styled.i`
   color: var(--eye-toggler);
 `;
 
-function AccountInput({ value, isConfirmPassword, handleBlur, handleChange }) {
+function AccountInput({
+  value,
+  type,
+  showPassword,
+  isConfirmPassword,
+  handleBlur,
+  handleChange,
+  handlePasswordToggler,
+}) {
   return (
     <>
       <Label
@@ -45,7 +53,7 @@ function AccountInput({ value, isConfirmPassword, handleBlur, handleChange }) {
       </Label>
       <InputContainer>
         <Input
-          type={value}
+          type={type}
           id={isConfirmPassword === true ? `${value}-input2` : `${value}-input`}
           name={isConfirmPassword === true ? value + "2" : value}
           placeholder={
@@ -56,7 +64,12 @@ function AccountInput({ value, isConfirmPassword, handleBlur, handleChange }) {
           onChange={handleChange}
           onBlur={handleBlur}
         />
-        {value === "email" || <Eye className="fa fa-eye fa-eye-slash" />}
+        {value === "email" || (
+          <Eye
+            className={`fa ${showPassword ? "fa-eye" : "fa-eye-slash"}`}
+            onMouseDown={handlePasswordToggler}
+          />
+        )}
       </InputContainer>
     </>
   );

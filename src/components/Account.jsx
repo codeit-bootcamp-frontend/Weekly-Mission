@@ -150,6 +150,19 @@ function Account({ isSignin }) {
     }
   };
 
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
+
+  const handlePasswordToggler = (e) => {
+    e.preventDefault();
+    setShowPassword((prevState) => !prevState);
+  };
+
+  const handlePassword2Toggler = (e) => {
+    e.preventDefault();
+    setShowPassword2((prevState) => !prevState);
+  };
+
   return (
     <Container>
       <Link to="/">
@@ -164,22 +177,27 @@ function Account({ isSignin }) {
       <Form onSubmit={handleSubmit}>
         <AccountInput
           value="email"
-          email={email}
+          type="email"
           handleBlur={handleBlur}
           handleChange={handleChange}
         />
         <AccountInput
           value="password"
-          password={password}
+          type={showPassword ? "text" : "password"}
+          showPassword={showPassword}
           handleBlur={handleBlur}
           handleChange={handleChange}
+          handlePasswordToggler={handlePasswordToggler}
         />
         {isSignin || (
           <AccountInput
             value="password"
+            type={showPassword2 ? "text" : "password"}
+            showPassword={showPassword2}
             isConfirmPassword={true}
             handleBlur={handleBlur}
             handleChange={handleChange}
+            handlePasswordToggler={handlePassword2Toggler}
           />
         )}
         <LinkButton type="submit">
