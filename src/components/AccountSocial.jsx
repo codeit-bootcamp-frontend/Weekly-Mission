@@ -29,35 +29,24 @@ const IconContainer = styled.div`
 const Icon = styled.img`
   width: 4.2rem;
   vertical-align: middle;
-
-  &:first-child {
-    background-color: var(--white);
-  }
+  background-color: var(--white);
 
   &:last-child {
     background-color: var(--kakaotalk-bakcground);
   }
 `;
 
-function AccountSocial({ isSignin }) {
+function AccountSocial({ isSignin, googleLink, kakaotalkLink }) {
   return (
     <Container>
       <Description>
         {isSignin ? "소셜 로그인" : "다른 방식으로 가입하기"}
       </Description>
       <IconContainer>
-        <a
-          href="https://www.google.com/"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
+        <a href={googleLink} rel="noopener noreferrer" target="_blank">
           <Icon src="src/assets/link-google.png" alt="Google Icon" />
         </a>
-        <a
-          href="https://www.kakaocorp.com/"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
+        <a href={kakaotalkLink} rel="noopener noreferrer" target="_blank">
           <Icon src="src/assets/link-kakaotalk.png" alt="Kakaotalk Icon" />
         </a>
       </IconContainer>

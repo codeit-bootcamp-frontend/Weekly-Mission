@@ -205,7 +205,11 @@ function Account({ isSignin }) {
       <ForgotPassword>
         {isSignin && <Link to="/forgot-password">비밀번호 찾기</Link>}
       </ForgotPassword>
-      <AccountSocial isSignin={isSignin} />
+      <AccountSocial
+        isSignin={isSignin}
+        googleLink="https://www.google.com/"
+        kakaotalkLink="https://www.kakaocorp.com/"
+      />
     </Container>
   );
 }
