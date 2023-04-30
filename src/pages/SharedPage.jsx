@@ -12,19 +12,27 @@ function SharedPage() {
   const [cardLinks, setCardLinks] = useState([]);
 
   const getFolderData = async () => {
-    const { data } = await getFolders();
-    if (!data) return;
-    const { name, owner } = data.folder;
-    setOwnerImage(owner.profileImageSource);
-    setOwnerName(owner.name);
-    setFolderName(name);
+    try {
+      const { data } = await getFolders();
+      if (!data) return;
+      const { name, owner } = data.folder;
+      setOwnerImage(owner.profileImageSource);
+      setOwnerName(owner.name);
+      setFolderName(name);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const getLinks = async () => {
-    const { data } = await getFolders();
-    if (!data) return;
-    const { links } = data.folder;
-    setCardLinks(links);
+    try {
+      const { data } = await getFolders();
+      if (!data) return;
+      const { links } = data.folder;
+      setCardLinks(links);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   useEffect(() => {

@@ -97,11 +97,15 @@ function Nav() {
   // api에 데이터가 하나밖에 없고 배열의 형태가 아니라서
   // 일단 조건 없이 가져오는 것으로 임시 처리했습니다.
   const getUserData = async () => {
-    const { data } = await getUsers();
-    if (!data) return;
-    const { email, profileImageSource } = data;
-    setUserEmail(email || "");
-    setUserImage(profileImageSource || defaultProfileSource);
+    try {
+      const { data } = await getUsers();
+      if (!data) return;
+      const { email, profileImageSource } = data;
+      setUserEmail(email || "");
+      setUserImage(profileImageSource || defaultProfileSource);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   useEffect(() => {
