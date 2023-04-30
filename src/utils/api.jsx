@@ -7,8 +7,8 @@ export const getFolders = async () => {
     const response = await axios.get(`${BASE_URL}/sample/folder`);
     return response.data;
   } catch (error) {
-    console.log(error);
-    return;
+    console.error(`getFolders error: ${error}`);
+    throw error;
   }
 };
 
@@ -17,7 +17,7 @@ export const getUsers = async () => {
     const response = await axios.get(`${BASE_URL}/sample/user`);
     return response.data;
   } catch (error) {
-    console.log(error);
-    return;
+    console.error(`getUsers error: ${error}`);
+    throw error;
   }
 };
