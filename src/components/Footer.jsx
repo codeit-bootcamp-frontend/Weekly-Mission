@@ -55,3 +55,64 @@ const Footer = () => {
 };
 
 export default Footer;
+
+const FooterWrapper = styled.footer`
+  background-color: var(--linkbrary-black);
+  font-family: "Arial";
+  font-weight: 400;
+  font-size: 1.6rem;
+`;
+
+const ContentWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 192rem;
+  margin: 0 auto;
+  padding: 3.2rem 3.2rem 10.4rem;
+  @media screen and (max-width: 767px) {
+    display: grid;
+    padding: 3.2rem;
+    align-items: start;
+    grid-template-areas:
+      "privacypolicyfaq socialmedialinks"
+      "copyright copyright";
+    gap: 6rem 0;
+  }
+`;
+
+const Copyright = styled.p`
+  grid-area: copyright;
+  width: 10.5rem;
+  height: 1.8rem;
+  color: #676767;
+  margin: 0;
+  @media screen and (max-width: 767px) {
+    grid-row: ;
+  }
+`;
+
+const PrivacyPolicyFAQ = styled.div`
+  grid-area: privacypolicyfaq;
+  display: flex;
+  justify-content: space-between;
+  gap: 30;
+  a {
+    color: #cfcfcf;
+  }
+  a:first-child {
+    margin-right: 3rem;
+  }
+`;
+
+const SocialMediaLinks = styled.div`
+  grid-area: socialmedialinks;
+  img {
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-right: 1.3rem;
+  }
+  @media screen and (max-width: 767px) {
+    justify-self: end;
+  }
+`;
