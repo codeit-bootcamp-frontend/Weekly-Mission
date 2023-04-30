@@ -28,9 +28,9 @@ function App() {
     handleLoad();
   }, []);
 
-  console.log("folderInfo", folderInfo);
-  console.log("userInfo", userInfo);
-  console.log("cards", cards);
+  // console.log("folderInfo", folderInfo);
+  // console.log("userInfo", userInfo);
+  // console.log("cards", cards);
 
   return <div className="App">{isLoading ? <Card data={cards[1]} /> : <div>Hello</div>}</div>;
 }

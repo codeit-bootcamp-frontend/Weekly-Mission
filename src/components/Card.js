@@ -68,11 +68,15 @@ function Card({ data: { createdAt = DEFAULT.createdAt, url = DEFAULT.url, descri
   };
 
   const handleClickStar = (e) => {
-    const starImg = e.target.children[0];
-    if (starImg.src === defaultStar) {
-      starImg.src = selectedStar;
-    } else {
+    e.stopPropagation();
+    const starImg = e.currentTarget.firstChild;
+
+    if (starImg.classList.contains("selected-star")) {
+      starImg.classList.remove("selected-star");
       starImg.src = defaultStar;
+    } else {
+      starImg.classList.add("selected-star");
+      starImg.src = selectedStar;
     }
   };
 
