@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import styled from "styled-components";
 // import { getFolders } from "utils/api";
 
@@ -13,7 +14,14 @@ const Container = styled.div`
 
 function SharedPage() {
   // getFolderData();
-  return <Container>SharedPage</Container>;
+  return (
+    <>
+      <Helmet>
+        <title>즐겨찾기 | Linkbrary</title>
+      </Helmet>
+      <Container>PrivacyPage</Container>;
+    </>
+  );
 }
 
 export default SharedPage;

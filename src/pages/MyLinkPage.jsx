@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -6,7 +7,14 @@ const Container = styled.div`
 `;
 
 function MyLinkPage() {
-  return <Container>MyLinkPage</Container>;
+  return (
+    <>
+      <Helmet>
+        <title>내 프로필 | Linkbrary</title>
+      </Helmet>
+      <Container>MyLinkPage</Container>;
+    </>
+  );
 }
 
 export default MyLinkPage;

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -6,7 +7,14 @@ const Container = styled.div`
 `;
 
 function FaqPage() {
-  return <Container>FaqPage</Container>;
+  return (
+    <>
+      <Helmet>
+        <title>FAQ | Linkbrary</title>
+      </Helmet>
+      <Container>FaqPage</Container>;
+    </>
+  );
 }
 
 export default FaqPage;

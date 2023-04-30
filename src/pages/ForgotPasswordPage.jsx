@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -6,7 +7,14 @@ const Container = styled.div`
 `;
 
 function ForgotPasswordPage() {
-  return <Container>ForgotPasswordPage</Container>;
+  return (
+    <>
+      <Helmet>
+        <title>비밀번호 찾기 | Linkbrary</title>
+      </Helmet>
+      <Container>ForgotPasswordPage</Container>;
+    </>
+  );
 }
 
 export default ForgotPasswordPage;
