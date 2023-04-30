@@ -1,9 +1,8 @@
-import { useState } from "react";
 import styled from "styled-components";
 import LogoImg from "@/assets/images/Linkbrary.svg";
 
-export default function Gnb() {
-  const [prop, setProp] = useState(null);
+export default function Gnb({ user }) {
+  const { profileImageSource: profileSrc = "", email = "" } = user || {};
 
   return (
     <>
@@ -11,10 +10,10 @@ export default function Gnb() {
         <a href="/">
           <Logo alt="logo" src={LogoImg} />
         </a>
-        {prop ? (
+        {user ? (
           <Profile>
-            <ProfileIcon src={prop.profileSrc} />
-            <UserEmail>{prop.email}</UserEmail>
+            {profileSrc && <ProfileIcon src={profileSrc} />}
+            {email && <UserEmail>{email}</UserEmail>}
           </Profile>
         ) : (
           <Login href="/signin/">로그인</Login>
