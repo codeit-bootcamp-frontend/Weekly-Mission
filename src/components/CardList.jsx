@@ -7,30 +7,26 @@ function CardList({ cards }) {
   const [cardList, setCardList] = useState([]);
 
   useEffect(() => {
-    console.log(cards);
-    if (cards && cards.length > 0) {
-      setCardList(
-        cards.map((card) => ({
-          id: card.id,
-          imageSrc: card.imageSource ?? defaultCardImg,
-          description: card.description,
-          date: card.createdAt,
-          url: card.url,
-        }))
-      );
-    } else {
-      setCardList([]);
-    }
+    cards && cards.length > 0
+      ? setCardList(
+          cards.map((card) => ({
+            id: card.id,
+            imageSrc: card.imageSource ?? defaultCardImg,
+            description: card.description,
+            date: card.createdAt,
+            url: card.url,
+          }))
+        )
+      : setCardList([]);
   }, [cards]);
 
   return (
     <CardListContainer>
-      {cardList.map((card) => {
-        if (!card) {
-          return;
-        }
-        return <Card key={card.id} card={card} />;
-      })}
+      {cardList
+        .filter((card) => card)
+        .map((card) => (
+          <Card key={card.id} card={card} />
+        ))}
     </CardListContainer>
   );
 }

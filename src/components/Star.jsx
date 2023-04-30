@@ -6,7 +6,6 @@ const Star = ({ isStarred }) => {
   const fillRef = useRef(null);
 
   const handleStarClick = (event) => {
-    console.log("클릭 됨");
     event.stopPropagation();
     setStarred((prev) => !prev);
   };
