@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import LogoImg from "@/assets/images/Linkbrary.svg";
+import LogoImg from "@assets/images/Linkbrary.svg";
 
-import { UserContext } from "@/contexts/UserContext";
+import { UserContext } from "@contexts/UserContext";
 
 export default function Gnb() {
   const { data: user } = useContext(UserContext);

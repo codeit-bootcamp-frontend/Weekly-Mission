@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Star from "@components/Star";
-import KebabIcon from "@/assets/images/kebab.svg";
+import KebabIcon from "@assets/images/kebab.svg";
 
 function Card({ card }) {
   const { imageSrc, description, date, url } = card;
