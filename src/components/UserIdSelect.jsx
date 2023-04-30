@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useUserId, useSetUserId } from "../contexts/UserIdContext";
+import { useUserId, useSetUserId } from "contexts/UserIdContext";
 
 const Select = styled.select`
   position: absolute;

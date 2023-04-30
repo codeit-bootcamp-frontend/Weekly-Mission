@@ -25,7 +25,7 @@ const Folder = styled.h2`
 function SharedHeader(props) {
   return (
     <Container>
-      <OwnerImage src={props.OwnerImage} alt="User Avatar" />
+      <OwnerImage src={props.OwnerImage} alt="Owner Image" />
       <Owner>{props.OwnerName}</Owner>
       <Folder>{props.FolderName}</Folder>
     </Container>

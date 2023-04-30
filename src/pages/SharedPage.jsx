@@ -5,7 +5,7 @@ import SharedMain from "components/SharedMain";
 import { getFolders } from "utils/api";
 
 function SharedPage() {
-  const defaultOwnerImage = "src/assets/default-profile.png";
+  const defaultOwnerImage = "src/assets/default-avatar.png";
   const [ownerImage, setOwnerImage] = useState(defaultOwnerImage);
   const [ownerName, setOwnerName] = useState("");
   const [folderName, setFolderName] = useState("");
@@ -31,6 +31,7 @@ function SharedPage() {
     getFolderData();
   }, []);
 
+  // 나중에 Links는 업데이트가 따로 필요할 수 있으므로 getFolderData와 다른 곳에 작성했습니다.
   useEffect(() => {
     getLinks();
   }, []);

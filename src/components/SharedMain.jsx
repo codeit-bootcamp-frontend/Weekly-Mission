@@ -10,6 +10,7 @@ const Container = styled.main`
   @media (max-width: 767px) {
     padding-top: 2rem;
     padding-bottom: 6rem;
+  }
 `;
 
 const Contents = styled.div`

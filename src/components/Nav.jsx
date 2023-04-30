@@ -1,11 +1,11 @@
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import LinkButton from "components/LinkButton";
 import { useUserId } from "contexts/UserIdContext";
-import { useEffect, useState } from "react";
 import { getUsers } from "utils/api";
 
-const GNB = styled.nav`
+const NavWrapper = styled.nav`
   position: sticky;
   inset: 0;
   z-index: 1;
@@ -112,7 +112,7 @@ function Nav() {
   const isAuth = userId > 0 ? true : false;
 
   return (
-    <GNB>
+    <NavWrapper>
       <NavContainer>
         <Link to="/">
           <Logo src="logo.png" alt="Linkbrary Logo" />
@@ -135,7 +135,7 @@ function Nav() {
           </Link>
         )}
       </NavContainer>
-    </GNB>
+    </NavWrapper>
   );
 }
 

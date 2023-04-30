@@ -1,14 +1,7 @@
 import { Helmet } from "react-helmet-async";
-import { useUserId } from "contexts/UserIdContext";
-import { Navigate } from "react-router-dom";
 import Account from "components/Account";
 
 function SignupPage() {
-  const userId = useUserId();
-  const isAuth = userId > 0 ? true : false;
-
-  if (isAuth) return <Navigate to="/" />;
-
   return (
     <>
       <Helmet>
