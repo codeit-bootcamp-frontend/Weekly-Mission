@@ -9,7 +9,7 @@ const Icon = styled.img`
 `;
 
 function BookmarkIcon({ Bookmark, handleToggler }) {
-  const src = Bookmark ? "src/assets/star-filled.png" : "src/assets/star.png";
+  const src = Bookmark ? "star-filled.png" : "star.png";
   return (
     <div onClick={handleToggler}>
       <Icon src={src} alt="Bookmark Icon" />

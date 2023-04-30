@@ -69,44 +69,28 @@ function Footer() {
               rel="noopener noreferrer"
               target="_blank"
             >
-              <img
-                src="src/assets/icon-facebook.png"
-                alt="Facebook Icon"
-                width="18"
-              />
+              <img src="icon-facebook.png" alt="Facebook Icon" width="18" />
             </a>
             <a
               href="https://twitter.com"
               rel="noopener noreferrer"
               target="_blank"
             >
-              <img
-                src="src/assets/icon-twitter.png"
-                alt="Twitter Icon"
-                width="19"
-              />
+              <img src="icon-twitter.png" alt="Twitter Icon" width="19" />
             </a>
             <a
               href="https://youtube.com"
               rel="noopener noreferrer"
               target="_blank"
             >
-              <img
-                src="src/assets/icon-youtube.png"
-                alt="Youtube Icon"
-                width="20"
-              />
+              <img src="icon-youtube.png" alt="Youtube Icon" width="20" />
             </a>
             <a
               href="https://instagram.com"
               rel="noopener noreferrer"
               target="_blank"
             >
-              <img
-                src="src/assets/icon-instagram.png"
-                alt="Instagram Icon"
-                width="17"
-              />
+              <img src="icon-instagram.png" alt="Instagram Icon" width="17" />
             </a>
           </IconBox>
         </FooterContents>

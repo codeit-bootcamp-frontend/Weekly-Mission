@@ -44,10 +44,10 @@ function AccountSocialLogin({ isSignin, googleLink, kakaotalkLink }) {
       </Description>
       <IconContainer>
         <a href={googleLink} rel="noopener noreferrer" target="_blank">
-          <Icon src="src/assets/link-google.png" alt="Google Icon" />
+          <Icon src="link-google.png" alt="Google Icon" />
         </a>
         <a href={kakaotalkLink} rel="noopener noreferrer" target="_blank">
-          <Icon src="src/assets/link-kakaotalk.png" alt="Kakaotalk Icon" />
+          <Icon src="link-kakaotalk.png" alt="Kakaotalk Icon" />
         </a>
       </IconContainer>
     </Container>

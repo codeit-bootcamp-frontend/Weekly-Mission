@@ -5,7 +5,7 @@ import SharedMain from "components/SharedMain";
 import { getFolders } from "utils/api";
 
 function SharedPage() {
-  const defaultOwnerImage = "src/assets/default-avatar.png";
+  const defaultOwnerImage = "default-avatar.png";
   const [ownerImage, setOwnerImage] = useState(defaultOwnerImage);
   const [ownerName, setOwnerName] = useState("");
   const [folderName, setFolderName] = useState("");

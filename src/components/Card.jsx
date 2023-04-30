@@ -77,7 +77,7 @@ const CardCreatedAt = styled.div`
 `;
 
 function Card({ link }) {
-  const defaultImageSource = "src/assets/default-card-image.png";
+  const defaultImageSource = "default-card-image.png";
   const [bookmark, setBookmark] = useState(false);
   const elapsedTime = getElapsedTime(link.createdAt);
   const formattedCreatedAt = getFormattedDate(link.createdAt);
@@ -95,9 +95,9 @@ function Card({ link }) {
           <FirstLine>
             <ElapsedTime>{elapsedTime}</ElapsedTime>
             <EclipseContainer>
-              <img src="src/assets/eclipse.png" alt="eclipse" width="3" />
-              <img src="src/assets/eclipse.png" alt="eclipse" width="3" />
-              <img src="src/assets/eclipse.png" alt="eclipse" width="3" />
+              <img src="eclipse.png" alt="eclipse" width="3" />
+              <img src="eclipse.png" alt="eclipse" width="3" />
+              <img src="eclipse.png" alt="eclipse" width="3" />
             </EclipseContainer>
           </FirstLine>
           <CardDescription>{link.description}</CardDescription>

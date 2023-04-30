@@ -35,7 +35,7 @@ function SearchBar() {
   return (
     <Container>
       <SearchInput type="search" placeholder="원하는 링크를 검색해 보세요" />
-      <SearchIcon src="src/assets/icon-search.png" />
+      <SearchIcon src="icon-search.png" />
     </Container>
   );
 }

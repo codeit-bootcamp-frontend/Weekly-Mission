@@ -88,7 +88,7 @@ function Nav() {
     return;
   }
 
-  const defaultProfileSource = "src/assets/default-profile.png";
+  const defaultProfileSource = "default-profile.png";
 
   const [userEmail, setUserEmail] = useState("");
   const [userImage, setUserImage] = useState(defaultProfileSource);
