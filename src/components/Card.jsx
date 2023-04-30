@@ -1,6 +1,7 @@
+import { useState } from "react";
 import styled from "styled-components";
 import BookmarkIcon from "components/BookmarkIcon";
-import { useState } from "react";
+import getFormattedDate from "utils/getFormattedDate";
 
 const CardImage = styled.div`
   background-image: url(${(props) => props.src});
@@ -77,6 +78,7 @@ const CardCreatedAt = styled.div`
 function Card({ link }) {
   const defaultImageSource = "src/assets/default-card-image.png";
   const [bookmark, setBookmark] = useState(false);
+  const cc = getFormattedDate(link.createdAt);
 
   const handleBookmarkToggler = (e) => {
     e.preventDefault();
@@ -97,7 +99,7 @@ function Card({ link }) {
             </EclipseContainer>
           </FirstLine>
           <CardDescription>{link.description}</CardDescription>
-          <CardCreatedAt>{link.createdAt}</CardCreatedAt>
+          <CardCreatedAt>{cc}</CardCreatedAt>
         </CardText>
       </a>
       <BookmarkIcon Bookmark={bookmark} handleToggler={handleBookmarkToggler} />
