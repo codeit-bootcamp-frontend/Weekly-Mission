@@ -1,5 +1,11 @@
+import Footer from "../../Components/Footer";
+
 function Shared() {
-  return <div>shared</div>;
+  return (
+    <>
+      <Footer />
+    </>
+  );
 }
 
 export default Shared;
