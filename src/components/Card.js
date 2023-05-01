@@ -3,6 +3,7 @@ import kebabImg from "../images/kebab.svg";
 import defaultStar from "../images/default-star.svg";
 import selectedStar from "../images/selected-star.svg";
 import "./Card.css";
+import { useState } from "react";
 
 const DEFAULT = {
   createdAt: "2023. 3. 15",
@@ -82,6 +83,8 @@ function getDateFormat(prevDate) {
 }
 
 function Card({ data: { createdAt = DEFAULT.createdAt, url = DEFAULT.url, description = DEFAULT.description, imageSource = DEFAULT.imageSource } }) {
+  const [isSelected, SetIsSelected] = useState(false);
+
   const timeDiffFormat = getTimeDiffFormat(createdAt);
   const dateFormat = getDateFormat(createdAt);
 
@@ -93,13 +96,12 @@ function Card({ data: { createdAt = DEFAULT.createdAt, url = DEFAULT.url, descri
     e.stopPropagation();
     const starImg = e.currentTarget.firstChild;
 
-    if (starImg.classList.contains("selected-star")) {
-      starImg.classList.remove("selected-star");
+    if (isSelected) {
       starImg.src = defaultStar;
     } else {
-      starImg.classList.add("selected-star");
       starImg.src = selectedStar;
     }
+    SetIsSelected(!isSelected);
   };
 
   return (
