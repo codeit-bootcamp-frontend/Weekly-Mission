@@ -4,7 +4,12 @@ import FacebookIcon from "assets/icon-facebook.png";
 import TwitterIcon from "assets/icon-twitter.png";
 import YoutubeIcon from "assets/icon-youtube.png";
 import InstagramIcon from "assets/icon-instagram.png";
-
+import {
+  FACEBOOK_LINK,
+  TWITTER_LINK,
+  YOUTUBE_LINK,
+  INSTAGRAM_LINK,
+} from "utils/constants";
 const FooterWrapper = styled.footer`
   background-color: var(--black);
 `;
@@ -53,10 +58,6 @@ const IconBox = styled.div`
 `;
 
 function Footer() {
-  const FACEBOOK_LINK = "https://facebook.com";
-  const TWITTER_LINK = "https://twitter.com";
-  const YOUTUBE_LINK = "https://youtube.com";
-  const INSTAGRAM_LINK = "https://instagram.com";
   const location = useLocation();
   if (["/signin", "/signup"].includes(location.pathname)) {
     return null;

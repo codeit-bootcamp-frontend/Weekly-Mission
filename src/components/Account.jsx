@@ -5,6 +5,7 @@ import LinkButton from "components/LinkButton";
 import styled from "styled-components";
 import { useState } from "react";
 import { isValidEmail, isValidPassword } from "utils/validators";
+import { GOOGLE_LINK, KAKAOTALK_LINK } from "utils/constants";
 
 const Container = styled.main`
   margin: 24rem auto;
@@ -43,8 +44,6 @@ const ForgotPassword = styled.div`
 `;
 
 function Account({ isSignin }) {
-  const GOOGLE_LINK = "https://www.google.com/";
-  const KAKAOTALK_LINK = "https://www.kakaocorp.com/";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");

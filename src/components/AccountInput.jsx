@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { EMAIL_TYPE, PASSWORD_TYPE } from "utils/constants";
 
 const Label = styled.label`
   text-align: left;
@@ -39,9 +40,6 @@ function AccountInput({
   handleChange,
   handlePasswordToggler,
 }) {
-  const EMAIL_TYPE = "email";
-  const PASSWORD_TYPE = "password";
-
   return (
     <>
       <Label htmlFor={isConfirmPassword ? `${value}-input2` : `${value}-input`}>

@@ -70,7 +70,7 @@ const HomeHeader = styled.article`
   @media (max-width: 768px) {
     margin: 0;
     padding: 0 3.2rem;
-
+  }
 `;
 
 const StyledLinkButton = styled(LinkButton)`
@@ -97,6 +97,7 @@ const HeaderTitle = styled.h1`
     width: 24rem;
     margin: 2.8rem 0 2.4rem;
     font-size: 3.2rem;
+  }
 `;
 
 const HeaderImage = styled.img`
@@ -197,7 +198,7 @@ const BodyContents = styled.section`
 
   &:nth-child(2n) {
     ${ContentImage} {
-      order -1;
+      order: -1;
     }
   }
 
@@ -226,7 +227,7 @@ const BodyContents = styled.section`
 
     &:nth-child(2n) {
       ${ContentImage} {
-        order 1;
+        order: 1;
       }
     }
   }
