@@ -3,7 +3,7 @@ import defaultProfileImg from "../images/default_profile_image.svg";
 import "./GNB.css";
 
 function GNB({ userInfo }) {
-  const email = userInfo?.email;
+  const email = userInfo?.email ?? "";
   const profileImageSource = userInfo?.profileImageSource ?? defaultProfileImg;
 
   return (

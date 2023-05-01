@@ -24,29 +24,51 @@ function getTimeDiffFormat(prevDate) {
   const diffMonth = diffDay / 30;
   const diffYear = diffMonth / 12;
 
+  let result;
+
   if (diffYear >= 1) {
-    const diffDate = Math.floor(diffYear);
-    return diffYear >= 2 ? diffDate + ` years ago` : diffDate + ` year ago`;
+    result = Math.floor(diffYear);
+    if (result >= 2) {
+      return `${result} years ago`;
+    } else {
+      return `${result} year ago`;
+    }
   }
 
   if (diffMonth >= 1) {
-    const diffDate = Math.floor(diffMonth);
-    return diffMonth >= 2 ? diffDate + ` months ago` : diffDate + ` month ago`;
+    result = Math.floor(diffMonth);
+    if (result >= 2) {
+      return `${result} months ago`;
+    } else {
+      return `${result} month ago`;
+    }
   }
 
   if (diffDay >= 1) {
-    const diffDate = Math.floor(diffDay);
-    return diffDate >= 2 ? diffDate + ` days ago` : diffDate + ` day ago`;
+    result = Math.floor(diffDay);
+    if (result >= 2) {
+      return `${result} days ago`;
+    } else {
+      return `${result} day ago`;
+    }
   }
 
   if (diffHour >= 1) {
-    const diffDate = Math.floor(diffHour);
-    return diffHour >= 2 ? diffDate + ` hours ago` : diffDate + ` hour ago`;
+    result = Math.floor(diffHour);
+    if (result >= 2) {
+      return `${result} hours ago`;
+    } else {
+      return `${result} hour ago`;
+    }
   }
 
   if (diffMin >= 1) {
-    const diffDate = Math.floor(diffMin);
-    return diffMin >= 2 ? diffDate + ` minutes ago` : diffDate + ` minute ago`;
+    result = Math.floor(diffMin);
+    if (result >= 2) {
+      return `${result} minutes ago`;
+    } else {
+      return `${result} minute ago`;
+    }
   }
 }
 
