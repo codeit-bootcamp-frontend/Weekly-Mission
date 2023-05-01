@@ -5,7 +5,7 @@ async function getFolderData() {
     return data;
   } catch {
     console.log("잘못된 url이거나 json 데이터가 아닙니다.");
-    return null;
+    throw new Error("fetch error - folder");
   }
 }
 

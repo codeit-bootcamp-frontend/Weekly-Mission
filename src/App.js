@@ -14,6 +14,7 @@ function App() {
   const [cards, setCards] = useState(null);
   const [userInfo, setUserInfo] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingFailed, setIsLoadingFailed] = useState(false);
 
   const handleLoad = async () => {
     try {
@@ -26,7 +27,7 @@ function App() {
       setUserInfo({ email, profileImageSource });
       setIsLoading(true);
     } catch {
-      console.log("데이터 로딩에 실패했습니다.");
+      setIsLoadingFailed(true);
     }
   };
 
@@ -56,6 +57,8 @@ function App() {
           </main>
           <Footer />
         </>
+      ) : isLoadingFailed ? (
+        <h1>API 리퀘스트에 실패했습니다. 잠시 후에 시도하세요</h1>
       ) : (
         <h1>로딩 중...</h1>
       )}
