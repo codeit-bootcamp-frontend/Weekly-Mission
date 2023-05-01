@@ -82,7 +82,9 @@ function getDateFormat(prevDate) {
   return `${year}. ${month}. ${day}`;
 }
 
-function Card({ data: { createdAt = DEFAULT.createdAt, url = DEFAULT.url, description = DEFAULT.description, imageSource = DEFAULT.imageSource } }) {
+function Card({
+  data: { createdAt = DEFAULT.createdAt, url = DEFAULT.url, title = DEFAULT.title, description = DEFAULT.description, imageSource = DEFAULT.imageSource },
+}) {
   const [isSelected, SetIsSelected] = useState(false);
 
   const timeDiffFormat = getTimeDiffFormat(createdAt);
@@ -107,9 +109,9 @@ function Card({ data: { createdAt = DEFAULT.createdAt, url = DEFAULT.url, descri
   return (
     <div className="card" onClick={handleClickCard}>
       <div className="card-image-container">
-        <img className="card-image" src={imageSource} />
+        <img className="card-image" src={imageSource} alt={title} />
         <button className="star-button" onClick={handleClickStar}>
-          <img className="star-icon" src={defaultStar} />
+          <img className="star-icon" src={defaultStar} alt="bookmark" />
         </button>
       </div>
       <div className="text-box">
@@ -117,7 +119,7 @@ function Card({ data: { createdAt = DEFAULT.createdAt, url = DEFAULT.url, descri
           <div className="card-info">
             <span className="added-time">{timeDiffFormat}</span>
             <button className="kebab-button">
-              <img src={kebabImg} />
+              <img src={kebabImg} alt="more_information" />
             </button>
           </div>
           <p className="card-description">{description}</p>

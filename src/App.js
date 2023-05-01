@@ -42,7 +42,7 @@ function App() {
           <GNB userInfo={userInfo} />
           <header>
             <div className="user-content">
-              <img className="user-avatar" src={folderInfo.ownerImageSource} />
+              <img className="user-avatar" src={folderInfo.ownerImageSource} alt="avatar" />
               <p className="user-nickname">@{folderInfo.ownerName}</p>
             </div>
             <h1 className="header-title">{folderInfo.folderName}</h1>

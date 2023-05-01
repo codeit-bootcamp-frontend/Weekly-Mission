@@ -9,11 +9,11 @@ function GNB({ userInfo }) {
   return (
     <nav className="gnb">
       <a className="linkbrary-logo" href="/">
-        <img className="linkbrary-logo-image" src={linkbrary} />
+        <img className="linkbrary-logo-image" src={linkbrary} alt="logo" />
       </a>
       {userInfo ? (
         <div className="profile-container">
-          <img src={profileImageSource} />
+          <img src={profileImageSource} alt="profile" />
           <span className="profile-email">{email}</span>
         </div>
       ) : (
