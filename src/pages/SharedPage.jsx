@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import SharedHeader from "components/SharedHeader";
 import SharedMain from "components/SharedMain";
 import { getFolders } from "utils/api";
+import DefaultOwnerImage from "assets/default-avatar.png";
 
 function SharedPage() {
-  const defaultOwnerImage = "default-avatar.png";
-  const [ownerImage, setOwnerImage] = useState(defaultOwnerImage);
+  const [ownerImage, setOwnerImage] = useState(DefaultOwnerImage);
   const [ownerName, setOwnerName] = useState("");
   const [folderName, setFolderName] = useState("");
   const [cardLinks, setCardLinks] = useState([]);

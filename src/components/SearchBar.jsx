@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import SearchIconImage from "assets/icon-search.png";
 
 const Container = styled.div`
   position: relative;
@@ -35,7 +36,7 @@ function SearchBar() {
   return (
     <Container>
       <SearchInput type="search" placeholder="원하는 링크를 검색해 보세요" />
-      <SearchIcon src="icon-search.png" />
+      <SearchIcon src={SearchIconImage} />
     </Container>
   );
 }

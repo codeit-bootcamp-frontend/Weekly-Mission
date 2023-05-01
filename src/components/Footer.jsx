@@ -1,6 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import FacebookIcon from "assets/icon-facebook.png";
+import TwitterIcon from "assets/icon-twitter.png";
+import YoutubeIcon from "assets/icon-youtube.png";
+import InstagramIcon from "assets/icon-instagram.png";
 
 const FooterWrapper = styled.footer`
   background-color: var(--black);
@@ -73,13 +76,13 @@ function Footer() {
               <img src={FacebookIcon} alt="Facebook Icon" width="18" />
             </a>
             <a href={TWITTER_LINK} rel="noopener noreferrer" target="_blank">
-              <img src="icon-twitter.png" alt="Twitter Icon" width="19" />
+              <img src={TwitterIcon} alt="Twitter Icon" width="19" />
             </a>
             <a href={YOUTUBE_LINK} rel="noopener noreferrer" target="_blank">
-              <img src="icon-youtube.png" alt="Youtube Icon" width="20" />
+              <img src={YoutubeIcon} alt="Youtube Icon" width="20" />
             </a>
             <a href={INSTAGRAM_LINK} rel="noopener noreferrer" target="_blank">
-              <img src="icon-instagram.png" alt="Instagram Icon" width="17" />
+              <img src={InstagramIcon} alt="Instagram Icon" width="17" />
             </a>
           </IconBox>
         </FooterContents>

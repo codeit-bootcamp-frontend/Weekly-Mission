@@ -4,6 +4,7 @@ import styled from "styled-components";
 import LinkButton from "components/LinkButton";
 import { useUserId } from "contexts/UserIdContext";
 import { getUsers } from "utils/api";
+import DefaultProfileSource from "assets/default-profile.png";
 
 const NavWrapper = styled.nav`
   position: sticky;
@@ -88,10 +89,8 @@ function Nav() {
     return;
   }
 
-  const defaultProfileSource = "default-profile.png";
-
   const [userEmail, setUserEmail] = useState("");
-  const [userImage, setUserImage] = useState(defaultProfileSource);
+  const [userImage, setUserImage] = useState(DefaultProfileSource);
 
   // userId에 맞는 데이터를 가져와야 하는데
   // api에 데이터가 하나밖에 없고 배열의 형태가 아니라서
@@ -102,7 +101,7 @@ function Nav() {
       if (!data) return;
       const { email, profileImageSource } = data;
       setUserEmail(email || "");
-      setUserImage(profileImageSource || defaultProfileSource);
+      setUserImage(profileImageSource || DefaultProfileSource);
     } catch (error) {
       console.error(error);
     }

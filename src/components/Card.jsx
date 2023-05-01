@@ -3,6 +3,8 @@ import styled from "styled-components";
 import BookmarkIcon from "components/BookmarkIcon";
 import getElapsedTime from "utils/getElapsedTime";
 import getFormattedDate from "utils/getFormattedDate";
+import DefaultCardImage from "assets/default-card-image.png";
+import Eclipse from "assets/eclipse.png";
 
 const CardImage = styled.div`
   background-image: url(${(props) => props.src});
@@ -77,7 +79,6 @@ const CardCreatedAt = styled.div`
 `;
 
 function Card({ link }) {
-  const defaultImageSource = "default-card-image.png";
   const [bookmark, setBookmark] = useState(false);
   const elapsedTime = getElapsedTime(link.createdAt);
   const formattedCreatedAt = getFormattedDate(link.createdAt);
@@ -90,14 +91,14 @@ function Card({ link }) {
   return (
     <Contents>
       <a href={link.url} rel="noopener noreferrer" target="_blank">
-        <CardImage src={link.imageSource || defaultImageSource} />
+        <CardImage src={link.imageSource || DefaultCardImage} />
         <CardText>
           <FirstLine>
             <ElapsedTime>{elapsedTime}</ElapsedTime>
             <EclipseContainer>
-              <img src="eclipse.png" alt="eclipse" width="3" />
-              <img src="eclipse.png" alt="eclipse" width="3" />
-              <img src="eclipse.png" alt="eclipse" width="3" />
+              <img src={Eclipse} alt="eclipse" width="3" />
+              <img src={Eclipse} alt="eclipse" width="3" />
+              <img src={Eclipse} alt="eclipse" width="3" />
             </EclipseContainer>
           </FirstLine>
           <CardDescription>{link.description}</CardDescription>

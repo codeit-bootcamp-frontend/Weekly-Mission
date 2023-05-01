@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import GoogleLinkIcon from "assets/link-google.png";
+import KakaotalkLinkIcon from "assets/link-kakaotalk.png";
 
 const Container = styled.div`
   display: flex;
@@ -44,10 +46,10 @@ function AccountSocialLogin({ isSignin, googleLink, kakaotalkLink }) {
       </Description>
       <IconContainer>
         <a href={googleLink} rel="noopener noreferrer" target="_blank">
-          <Icon src="link-google.png" alt="Google Icon" />
+          <Icon src={GoogleLinkIcon} alt="Google Icon" />
         </a>
         <a href={kakaotalkLink} rel="noopener noreferrer" target="_blank">
-          <Icon src="link-kakaotalk.png" alt="Kakaotalk Icon" />
+          <Icon src={KakaotalkLinkIcon} alt="Kakaotalk Icon" />
         </a>
       </IconContainer>
     </Container>
