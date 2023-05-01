@@ -13,22 +13,26 @@ function App() {
   const [folderInfo, setFolderInfo] = useState(null);
   const [cards, setCards] = useState(null);
   const [userInfo, setUserInfo] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isLoadingFailed, setIsLoadingFailed] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [loadingError, setLoadingError] = useState(null);
 
   const handleLoad = async () => {
+    let folderResult;
+    let userResult;
     try {
-      const { folder } = await getFolderData();
-      const { email, profileImageSource } = await getUserData();
-      const { name, profileImageSource: ownerImageSource } = folder.owner;
-
-      setFolderInfo({ folderName: folder.name, ownerName: name, ownerImageSource });
-      setCards(folder.links);
-      setUserInfo({ email, profileImageSource });
-      setIsLoading(true);
-    } catch {
-      setIsLoadingFailed(true);
+      folderResult = await getFolderData();
+      userResult = await getUserData();
+    } catch (error) {
+      setLoadingError(error);
+      return;
     }
+    const { folder } = folderResult;
+    const { email, profileImageSource } = userResult;
+    const { name, profileImageSource: ownerImageSource } = folder.owner;
+    setFolderInfo({ folderName: folder.name, ownerName: name, ownerImageSource });
+    setCards(folder.links);
+    setUserInfo({ email, profileImageSource });
+    setIsLoaded(true);
   };
 
   useEffect(() => {
@@ -37,7 +41,7 @@ function App() {
 
   return (
     <>
-      {isLoading ? (
+      {isLoaded ? (
         <>
           <GNB userInfo={userInfo} />
           <header>
@@ -57,7 +61,7 @@ function App() {
           </main>
           <Footer />
         </>
-      ) : isLoadingFailed ? (
+      ) : loadingError ? (
         <h1>API 리퀘스트에 실패했습니다. 잠시 후에 시도하세요</h1>
       ) : (
         <h1>로딩 중...</h1>
