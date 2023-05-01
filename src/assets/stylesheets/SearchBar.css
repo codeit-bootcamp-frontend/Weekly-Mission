@@ -1,0 +1,43 @@
+.search-bar {
+  position: relative;
+}
+
+.search-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  position: absolute;
+  top: 1.9rem;
+  left: 1.6rem;
+}
+
+input#search-input {
+  border: none;
+  background-color: #f5f5f5;
+  width: 100%;
+  max-width: 106rem;
+  height: 5.4rem;
+  padding-left: 4.2rem;
+  border-radius: 1rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.8rem;
+  color: #666666;
+  text-align: left;
+}
+
+input:focus {
+  outline-style: none;
+}
+
+@media (max-width: 768px) {
+  input#search-input {
+    height: 4.3rem;
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+  }
+
+  .search-icon {
+    top: 1.35rem;
+    left: 1.6rem;
+  }
+}
