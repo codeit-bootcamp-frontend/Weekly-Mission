@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+/* 메인배너 */
+.banner {
+  background-color: var(--gray-5);
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.bannerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.banner .user {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner .userProfileImage {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.banner .bookmark {
+  display: flex;
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 60px;
+}
+
+/* 컨텐츠 */
+.contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} 
+
+.searchBar {
+  width: 1060px;
+  margin-bottom: 40px;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1060px;
+  gap: 24px 20px;
+  margin-bottom: 160px;
+}
+
+/* 타블렛 */
+@media (max-width: 1199px) {
+  .cardContainer {
+    width: 705px;
+  }
+
+  .searchBar {
+    width: 704px;
+    margin-bottom: 40px;
+  }
+}
+  
+
+/* 모바일 */
+@media (max-width: 767px) {
+  .banner {
+    margin-bottom: 25px;
+  }
+
+  .bannerContainer {
+    margin-top: 10px;
+  }
+
+  .banner .user {
+    margin-bottom: 10px;
+  }
+
+  .banner .avatar {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+
+  .banner .bookmark {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+
+  .banner .star {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+  }
+
+  .searchBar {
+    width: 325px;
+    margin-bottom: 32px;
+  }
+
+  .cardContainer {
+    width: 325px;
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 375px) {
+  .banner, .contents {
+    width: 375px;
+  }
+}
+
+
+
+
+
+
