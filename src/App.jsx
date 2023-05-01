@@ -1,11 +1,11 @@
-import { useState } from 'react'
 import './App.css'
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
+import Shared from './pages/Shared'
 
 function App() {
   return (
     <Routes>
-     <Route path='/' element={<Shared/>}></Route>
+     <Route path='/shared' element={<Shared/>}/>
     </Routes>
   )
 }
