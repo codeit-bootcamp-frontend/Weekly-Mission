@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import styles from "./Card.module.css";
+import styles from "/src/components/Card.module.css";
 import kebab from "/src/assets/kebab.png";
 import cardDefaultImg from "/src/assets/card-default.png";
-import Star from "./Star";
+import Star from "/src/components/Star.jsx";
 
 function Card(links) {
   const [data, setdata] = useState({

@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import styles from "./Shared.module.css";
-import folderData from "../api/folderapi";
-import Gnb from "../components/gnb";
-import SearchBar from "../components/SearchBar";
-import Card from "../components/Card";
-import Footer from "../components/footer";
+import styles from "/src/pages/Shared.module.css";
+import folderData from "/src/api/folderapi.js";
+import Gnb from "/src/components/Gnb.jsx";
+import SearchBar from "/src/components/SearchBar.jsx";
+import Card from "/src/components/Card.jsx";
+import Footer from "/src/components/Footer.jsx";
 import Avatar from "/src/assets/Avatar.png";
 
 function Shared() {
@@ -28,8 +28,6 @@ function Shared() {
     }
     fetchData();
   }, []);
-
-  console.log(data)
 
   return (
     <>

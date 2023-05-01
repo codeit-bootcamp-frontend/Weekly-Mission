@@ -17,7 +17,7 @@
   display: block;
   width: 136px;
   height: 32px;
-  background-image: url(src/assets/Linkbrary.png);
+  background-image: url(/src/assets/Linkbrary.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;

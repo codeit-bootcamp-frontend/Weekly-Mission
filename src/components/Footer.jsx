@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "./Footer.module.css";
+import styles from "/src/components/Footer.module.css";
 import facebook from "/src/assets/facebook-icon.png";
 import twitter from "/src/assets/twitter-icon.png";
 import youtube from "/src/assets/youtube-icon.png";

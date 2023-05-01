@@ -1,4 +1,4 @@
-import childStyles from "./Star.module.css";
+import childStyles from "/src/components/Star.module.css";
 
 function Star({ styles }) {
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import userData from "../api/userapi";
-import styles from "./Gnb.module.css";
+import userData from "/src/api/userapi.js";
+import styles from "/src/components/Gnb.module.css";
 
 function Gnb() {
   const [isLoggedIn, setisLoggedIn] = useState(true);

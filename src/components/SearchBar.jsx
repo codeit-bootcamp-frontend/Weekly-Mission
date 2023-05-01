@@ -1,4 +1,4 @@
-import childStyles from "./SearchBar.module.css";
+import childStyles from "/src/components/SearchBar.module.css";
 import Search from "/src/assets/Search.png";
 
 function SearchBar({styles}) {
