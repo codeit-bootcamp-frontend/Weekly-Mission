@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
+import FacebookIcon from "assets/icon-facebook.png";
 
 const FooterWrapper = styled.footer`
   background-color: var(--black);
@@ -69,7 +70,7 @@ function Footer() {
         <FooterContents>
           <IconBox>
             <a href={FACEBOOK_LINK} rel="noopener noreferrer" target="_blank">
-              <img src="icon-facebook.png" alt="Facebook Icon" width="18" />
+              <img src={FacebookIcon} alt="Facebook Icon" width="18" />
             </a>
             <a href={TWITTER_LINK} rel="noopener noreferrer" target="_blank">
               <img src="icon-twitter.png" alt="Twitter Icon" width="19" />
