@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import GoogleLinkIcon from "assets/link-google.png";
 import KakaotalkLinkIcon from "assets/link-kakaotalk.png";
+import { GOOGLE_LINK, KAKAOTALK_LINK } from "utils/constants";
 
 const Container = styled.div`
   display: flex;
@@ -38,17 +39,17 @@ const Icon = styled.img`
   }
 `;
 
-function AccountSocialLogin({ isSignin, googleLink, kakaotalkLink }) {
+function AccountSocialLogin({ isSignin }) {
   return (
     <Container>
       <Description>
         {isSignin ? "소셜 로그인" : "다른 방식으로 가입하기"}
       </Description>
       <IconContainer>
-        <a href={googleLink} rel="noopener noreferrer" target="_blank">
+        <a href={GOOGLE_LINK} rel="noopener noreferrer" target="_blank">
           <Icon src={GoogleLinkIcon} alt="Google Icon" />
         </a>
-        <a href={kakaotalkLink} rel="noopener noreferrer" target="_blank">
+        <a href={KAKAOTALK_LINK} rel="noopener noreferrer" target="_blank">
           <Icon src={KakaotalkLinkIcon} alt="Kakaotalk Icon" />
         </a>
       </IconContainer>

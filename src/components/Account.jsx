@@ -5,9 +5,6 @@ import LinkButton from "components/LinkButton";
 import styled from "styled-components";
 import { useState } from "react";
 import { isValidEmail, isValidPassword } from "utils/validators";
-import { GOOGLE_LINK, KAKAOTALK_LINK } from "utils/constants";
-import { EMAIL_TYPE } from "utils/constants";
-import { PASSWORD_TYPE } from "utils/constants";
 
 const Container = styled.main`
   margin: 24rem auto;
@@ -202,11 +199,7 @@ function Account({ isSignin }) {
       <ForgotPassword>
         {isSignin && <Link to="/forgot-password">비밀번호 찾기</Link>}
       </ForgotPassword>
-      <AccountSocialLogin
-        isSignin={isSignin}
-        googleLink={GOOGLE_LINK}
-        kakaotalkLink={KAKAOTALK_LINK}
-      />
+      <AccountSocialLogin isSignin={isSignin} />
     </Container>
   );
 }
