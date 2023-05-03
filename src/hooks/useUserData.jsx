@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getUsers } from "utils/api";
-import DefaultProfileSource from "assets/default-profile.jpg";
+import DefaultProfileSource from "assets/default-profile.png";
 
 function useUserData() {
   const [userEmail, setUserEmail] = useState("");
