@@ -6,6 +6,8 @@ import styled from "styled-components";
 import { useState } from "react";
 import { isValidEmail, isValidPassword } from "utils/validators";
 import { GOOGLE_LINK, KAKAOTALK_LINK } from "utils/constants";
+import { EMAIL_TYPE } from "utils/constants";
+import { PASSWORD_TYPE } from "utils/constants";
 
 const Container = styled.main`
   margin: 24rem auto;
@@ -66,51 +68,45 @@ function Account({ isSignin }) {
   };
 
   const handleBlur = (e) => {
-    switch (e.target.name) {
-      case "email":
-        switch (true) {
-          case email === "":
-            break;
-          case !isValidEmail(email):
-            alert("올바른 이메일 형식이 아닙니다.");
-            break;
-          case !isSignin && email === "test@codeit.com":
-            alert("이미 사용 중인 아이디입니다.");
-            break;
-          default:
-            break;
-        }
-        break;
-      case "password":
-        switch (true) {
-          case password === "":
-            break;
-          case !isValidPassword(password):
-            alert("비밀번호는 영문, 숫자 조합 8자 이상을 입력해 주세요.");
-            break;
-          case confirmPassword !== "" && password !== confirmPassword:
-            alert("비밀번호가 일치하지 않습니다.");
-            break;
-          default:
-            break;
-        }
-        break;
-      case "password2":
-        switch (true) {
-          case confirmPassword === "":
-            break;
-          case !isValidPassword(confirmPassword):
-            alert("비밀번호는 영문, 숫자 조합 8자 이상을 입력해 주세요.");
-            break;
-          case password !== "" && password !== confirmPassword:
-            alert("비밀번호가 일치하지 않습니다.");
-            break;
-          default:
-            break;
-        }
-        break;
-      default:
-        break;
+    if (e.target.name === "email") {
+      switch (true) {
+        case email === "":
+          break;
+        case !isValidEmail(email):
+          alert("올바른 이메일 형식이 아닙니다.");
+          break;
+        case !isSignin && email === "test@codeit.com":
+          alert("이미 사용 중인 아이디입니다.");
+          break;
+        default:
+          break;
+      }
+    } else if (e.target.name === "password") {
+      switch (true) {
+        case password === "":
+          break;
+        case !isValidPassword(password):
+          alert("비밀번호는 영문, 숫자 조합 8자 이상을 입력해 주세요.");
+          break;
+        case confirmPassword !== "" && password !== confirmPassword:
+          alert("비밀번호가 일치하지 않습니다.");
+          break;
+        default:
+          break;
+      }
+    } else if (e.target.name === "password2") {
+      switch (true) {
+        case confirmPassword === "":
+          break;
+        case !isValidPassword(confirmPassword):
+          alert("비밀번호는 영문, 숫자 조합 8자 이상을 입력해 주세요.");
+          break;
+        case password !== "" && password !== confirmPassword:
+          alert("비밀번호가 일치하지 않습니다.");
+          break;
+        default:
+          break;
+      }
     }
   };
 
