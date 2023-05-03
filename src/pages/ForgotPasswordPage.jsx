@@ -1,4 +1,6 @@
+import LinkButton from "components/LinkButton";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -11,6 +13,10 @@ const Container = styled.div`
 const Title = styled.h1`
   font-size: 3rem;
   margin-bottom: 2rem;
+`;
+
+const StyledLinkButton = styled(LinkButton)`
+  margin-top: 2rem;
 `;
 
 function ForgotPasswordPage() {
@@ -28,6 +34,9 @@ function ForgotPasswordPage() {
             <input type="email" id="email" />
             <button type="submit">비밀번호 찾기</button>
           </form>
+          <Link to="/">
+            <StyledLinkButton>홈으로</StyledLinkButton>
+          </Link>
         </div>
       </Container>
     </>
