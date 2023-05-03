@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import useUserData from "hooks/useUserData";
 import LinkButton from "components/LinkButton";
 import { useUserId } from "contexts/UserIdContext";
-import useUserData from "hooks/useUserData";
 
 const NavWrapper = styled.nav`
   position: sticky;
