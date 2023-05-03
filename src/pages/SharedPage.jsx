@@ -1,0 +1,54 @@
+import { Helmet } from "react-helmet-async";
+import { useEffect, useState } from "react";
+import SharedHeader from "components/SharedHeader";
+import SharedMain from "components/SharedMain";
+import { getFolders } from "utils/api";
+import DefaultOwnerImage from "assets/default-avatar.png";
+
+function SharedPage() {
+  const [ownerImage, setOwnerImage] = useState(DefaultOwnerImage);
+  const [ownerName, setOwnerName] = useState("");
+  const [folderName, setFolderName] = useState("");
+  const [cardLinks, setCardLinks] = useState([]);
+
+  const getFolderData = async () => {
+    const { data } = await getFolders();
+    if (!data) return;
+    const { name, owner } = data.folder;
+    setOwnerImage(owner.profileImageSource);
+    setOwnerName(owner.name);
+    setFolderName(name);
+  };
+
+  const getLinks = async () => {
+    const { data } = await getFolders();
+    if (!data) return;
+    const { links } = data.folder;
+    setCardLinks(links);
+  };
+
+  useEffect(() => {
+    getFolderData();
+  }, []);
+
+  // 나중에 Links는 업데이트가 따로 필요할 수 있으므로 getFolderData와 다른 곳에 작성했습니다.
+  useEffect(() => {
+    getLinks();
+  }, []);
+
+  return (
+    <>
+      <Helmet>
+        <title>즐겨찾기 | Linkbrary</title>
+      </Helmet>
+      <SharedHeader
+        OwnerName={ownerName}
+        OwnerImage={ownerImage}
+        FolderName={folderName}
+      />
+      <SharedMain CardLinks={cardLinks} />
+    </>
+  );
+}
+
+export default SharedPage;
