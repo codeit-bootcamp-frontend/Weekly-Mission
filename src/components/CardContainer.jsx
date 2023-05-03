@@ -24,7 +24,6 @@ function CardContainer({ CardLinks }) {
       {CardLinks.map((cardLink) => (
         <Card key={cardLink.id} link={cardLink} />
       ))}
-      {CardLinks.length === 0 && <div />}
     </Container>
   );
 }
