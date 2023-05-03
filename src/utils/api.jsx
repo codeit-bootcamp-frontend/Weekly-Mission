@@ -8,7 +8,6 @@ export const getFolders = async () => {
     return response.data;
   } catch (error) {
     console.error(`getFolders error: ${error}`);
-    throw error;
   }
 };
 
@@ -18,6 +17,5 @@ export const getUsers = async () => {
     return response.data;
   } catch (error) {
     console.error(`getUsers error: ${error}`);
-    throw error;
   }
 };
