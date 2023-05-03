@@ -1,0 +1,105 @@
+.header {
+  position: sticky;
+  top: 0;
+  background-color: var(--gray-5);
+  z-index: 1;
+}
+
+.header .container {
+  padding: 0 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 94px;
+}
+
+.header .logo {
+  display: block;
+  width: 136px;
+  height: 32px;
+  background-image: url(/src/assets/Linkbrary.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+}
+
+.userIcon {
+  width: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.userEmail {
+  margin-left: 6px;
+}
+
+.header .loginBtn {
+  font-family: 'Pretendard';
+  width: 128px;
+  height: 53px;
+  background-image: linear-gradient(to right, #6d6afe, #6ae3fe);
+  border-radius: 8px;
+  color: white;
+  line-height: 55px;
+  font-size: 18px;
+  text-align: center;
+}
+
+@media (max-width: 1199px) {
+  .container {
+    padding: 0 32px;
+  }
+
+  .header .container {
+    width: 800px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .header .logo {
+    width: 133px;
+  }
+
+  .header .login-btn {
+    width: 128px;
+    height: 53px;
+  }
+}  
+
+@media (max-width: 868px) {
+  .header .container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .header .container {
+    height: 64px;
+  }
+
+  .header .logo {
+    width: 88px;
+  }
+
+  .user-email {
+    display: none;
+  }
+
+  .header .login-btn {
+    width: 80px;
+    height: 37px;
+    font-size: 14px;
+    line-height: 37px;
+  }
+}
+
+@media (max-width: 375px) {
+  .header {
+    width: 375px;
+  }
+}
