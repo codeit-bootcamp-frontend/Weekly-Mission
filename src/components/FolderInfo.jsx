@@ -1,23 +1,16 @@
-import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import CodeitAvatarIcon from "@assets/images/users/codeit-avatar.png";
 
 function FolderInfo({ folder }) {
-  const [profileSrc, setProfileSrc] = useState(CodeitAvatarIcon);
-  const [ownerName, setOwnerName] = useState("@코드잇");
-  const [folderName, setFolderName] = useState("⭐️ 즐겨찾기");
-
-  useEffect(() => {
-    folder?.owner?.profileImageSource &&
-      setProfileSrc(folder.owner.profileImageSource);
-    folder?.owner?.name && setOwnerName(folder.owner.name);
-    folder?.name && setFolderName(folder.name);
-  }, [folder]);
+  const {
+    owner: { profileImageSource = CodeitAvatarIcon, name = "@코드잇" } = {},
+    name: folderName,
+  } = folder || {};
 
   return (
     <UserInfo>
-      <CodeitAvatar src={profileSrc} />
-      <UserName>{ownerName}</UserName>
+      <CodeitAvatar src={profileImageSource} />
+      <UserName>{name}</UserName>
       <PageHeading>{folderName}</PageHeading>
     </UserInfo>
   );

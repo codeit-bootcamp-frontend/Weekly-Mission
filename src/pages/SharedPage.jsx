@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import SearchBar from "@components/SearchBar";
 import CardList from "@components/CardList";
@@ -6,20 +6,8 @@ import FolderInfo from "@components/FolderInfo";
 import useFetchData from "@hooks/useFetchData";
 
 const SharedPage = () => {
-  const {
-    data: origin_data = {},
-    isLoading,
-    error,
-  } = useFetchData("/api/sample/folder");
-  const { data } = origin_data;
-
-  const [folder, setFolder] = useState();
-  const [cards, setCards] = useState([]);
-
-  useEffect(() => {
-    setFolder(data?.folder ? data?.folder : null);
-    setCards(data?.folder && data?.folder.links ? data?.folder.links : []);
-  }, [origin_data]);
+  const { data } = useFetchData("/api/sample/folder");
+  const { folder = {}, folder: { links = [] } = {} } = data?.data ?? {};
 
   return (
     <>
@@ -28,7 +16,7 @@ const SharedPage = () => {
       </HearoSection>
       <Wrapper>
         <SearchBar />
-        <CardList cards={cards} />
+        <CardList cards={links} />
       </Wrapper>
     </>
   );

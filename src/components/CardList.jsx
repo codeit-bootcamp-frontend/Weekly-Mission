@@ -1,28 +1,10 @@
-import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Card from "@components/Card";
-import defaultCardImg from "@assets/images/default-card-img.png";
 
 function CardList({ cards }) {
-  const [cardList, setCardList] = useState([]);
-
-  useEffect(() => {
-    cards && cards.length > 0
-      ? setCardList(
-          cards.map((card) => ({
-            id: card.id,
-            imageSrc: card.imageSource ?? defaultCardImg,
-            description: card.description,
-            date: card.createdAt,
-            url: card.url,
-          }))
-        )
-      : setCardList([]);
-  }, [cards]);
-
   return (
     <CardListContainer>
-      {cardList
+      {cards
         .filter((card) => card)
         .map((card) => (
           <Card key={card.id} card={card} />

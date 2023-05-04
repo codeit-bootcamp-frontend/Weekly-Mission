@@ -2,9 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import Star from "@components/Star";
 import KebabIcon from "@assets/images/kebab.svg";
+import defaultCardImg from "@assets/images/default-card-img.png";
 
 function Card({ card }) {
-  const { imageSrc, description, date, url } = card;
+  const { imageSource = defaultCardImg, description, createdAt, url } = card;
 
   function calculateTimeDiff(dateString) {
     const updatedDate = new Date(dateString);
@@ -54,17 +55,17 @@ function Card({ card }) {
 
   return (
     <CardContainer onClick={() => (window.location.href = url)}>
-      <CardImage src={imageSrc} />
+      <CardImage src={imageSource} />
       <StarIcon>
         <Star />
       </StarIcon>
       <CardInfo>
         <CardInfoHead>
-          <CardUpdateTime>{calculateTimeDiff(date)}</CardUpdateTime>
+          <CardUpdateTime>{calculateTimeDiff(createdAt)}</CardUpdateTime>
           <KebabIconWrap src={KebabIcon} />
         </CardInfoHead>
         <CardDescription>{description}</CardDescription>
-        <CardDate>{parseDate(date)}</CardDate>
+        <CardDate>{parseDate(createdAt)}</CardDate>
       </CardInfo>
     </CardContainer>
   );

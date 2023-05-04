@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 function useFetchData(url) {
-  const [data, setData] = useState();
+  const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
 
