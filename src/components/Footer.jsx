@@ -7,7 +7,7 @@ import YoutubeIcon from "@assets/images/youtube.svg";
 import InstaIcon from "@assets/images/insta.svg";
 
 const Footer = () => {
-  const socialMedias = [
+  const SOCIAL_MEDIAS = [
     {
       href: "https://ko-kr.facebook.com/",
       alt: "facebook",
@@ -43,7 +43,7 @@ const Footer = () => {
           </a>
         </PrivacyPolicyFAQ>
         <SocialMediaLinks>
-          {socialMedias.map((socialMedia) => (
+          {SOCIAL_MEDIAS.map((socialMedia) => (
             <a key={socialMedia.alt} href={socialMedia.href}>
               <img alt={socialMedia.alt} src={socialMedia.src} />
             </a>
@@ -70,6 +70,7 @@ const ContentWrapper = styled.div`
   max-width: 192rem;
   margin: 0 auto;
   padding: 3.2rem 3.2rem 10.4rem;
+
   @media screen and (max-width: 767px) {
     display: grid;
     padding: 3.2rem;
@@ -87,9 +88,6 @@ const Copyright = styled.p`
   height: 1.8rem;
   color: #676767;
   margin: 0;
-  @media screen and (max-width: 767px) {
-    grid-row: ;
-  }
 `;
 
 const PrivacyPolicyFAQ = styled.div`

@@ -33,7 +33,7 @@ export default SharedPage;
 const HearoSection = styled.div`
   text-align: center;
   padding: 2rem 0 6rem;
-  background-color: var(--library-white-smoke);
+  background-color: var(--linkbrary-white-smoke);
   @media screen and (max-width: 767px) {
     text-align: center;
     padding: 1rem 0 4rem;

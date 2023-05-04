@@ -5,15 +5,8 @@ import lensIcon from "@assets/images/search-bar-lens-icon.svg";
 const SearchBar = () => {
   return (
     <SearchWrap>
-      <SearchLensIcon
-        className="search-lens-icon"
-        alt="search-lens-icon"
-        src={lensIcon}
-      />
-      <SearchBarInput
-        className="search-bar-input"
-        placeholder="원하는 링크를 검색해 보세요"
-      />
+      <SearchLensIcon alt="search lens icon" src={lensIcon} />
+      <SearchBarInput placeholder="원하는 링크를 검색해 보세요" />
     </SearchWrap>
   );
 };

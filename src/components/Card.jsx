@@ -96,12 +96,16 @@ const CardContainer = styled.div`
   width: 34rem;
   height: 33.4rem;
   background-color: var(--linkbrary-white);
-  &:hover ${CardImage} {
-    transform: scale(1.2);
+
+  &:hover {
+    ${CardImage} {
+      transform: scale(1.2);
+    }
+    ${CardInfo} {
+      background-color: var(--linkbrary-white-smoke);
+    }
   }
-  &:hover ${CardInfo} {
-    background-color: var(--library-white-smoke);
-  }
+
   @media screen and (max-width: 767px) {
     width: 32.5rem;
     height: 32.7rem;

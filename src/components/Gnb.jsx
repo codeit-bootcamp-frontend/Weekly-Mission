@@ -9,26 +9,24 @@ export default function Gnb() {
   const { profileImageSource: profileSrc = "", email = "" } = user || {};
 
   return (
-    <>
-      <GnbContainer>
-        <a href="/">
-          <Logo alt="logo" src={LogoImg} />
-        </a>
-        {user ? (
-          <Profile>
-            {profileSrc && <ProfileIcon src={profileSrc} />}
-            {email && <UserEmail>{email}</UserEmail>}
-          </Profile>
-        ) : (
-          <Login href="/signin/">로그인</Login>
-        )}
-      </GnbContainer>
-    </>
+    <GnbContainer>
+      <a href="/">
+        <Logo alt="logo" src={LogoImg} />
+      </a>
+      {user ? (
+        <Profile>
+          {profileSrc && <ProfileIcon src={profileSrc} />}
+          {email && <UserEmail>{email}</UserEmail>}
+        </Profile>
+      ) : (
+        <Login href="/signin/">로그인</Login>
+      )}
+    </GnbContainer>
   );
 }
 
 const GnbContainer = styled.nav`
-  background-color: var(--library-white-smoke);
+  background-color: var(--linkbrary-white-smoke);
   justify-content: space-between;
   display: flex;
   max-width: 192rem;
@@ -36,17 +34,15 @@ const GnbContainer = styled.nav`
   align-items: center;
   height: 9.4rem;
   padding: 0 20rem;
+
   @media screen and (max-width: 1199px) {
     padding: 0;
     gap: 53.8rem;
     justify-content: center;
   }
+
   @media screen and (max-width: 863px) {
     padding: 0 3.2rem;
-    gap: 0;
-    justify-content: space-between;
-  }
-  @media screen and (max-width: 767px) {
     gap: 0;
     justify-content: space-between;
   }
@@ -60,17 +56,18 @@ const Logo = styled.img`
 const Login = styled.a`
   width: 12.8rem;
   height: 5.3rem;
-  color: #f5f5f5;
+  color: var(--button-white);
   background: linear-gradient(
     90.99deg,
     var(--linkbrary-primary) 0.12%,
-    #6ae3fe 101.84%
+    var(--button-sky-blue) 101.84%
   );
   border: 0;
   border-radius: 0.8rem;
   padding: 1.6rem 2rem;
   font-weight: 600;
   font-size: 1.8rem;
+
   @media screen and (max-width: 767px) {
     width: 8rem;
     height: 3.7rem;
@@ -94,9 +91,10 @@ const UserEmail = styled.p`
   display: inline-block;
   vertical-align: middle;
   margin: 0;
-  color: var(--library-dark-slate-gray);
+  color: var(--linkbrary-dark-slate-gray);
   font-size: 1.4rem;
   line-height: 1.7rem;
+
   @media screen and (max-width: 767px) {
     display: none;
   }
