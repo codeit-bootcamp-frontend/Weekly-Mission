@@ -6,23 +6,9 @@ const Star = ({ isStarred }) => {
   const fillRef = useRef(null);
 
   const handleStarClick = (event) => {
-    console.log("클릭 됨");
     event.stopPropagation();
     setStarred((prev) => !prev);
   };
-
-  const changeFill = () => {
-    const fillOpacity = starred ? "1" : "0.2";
-    const fillColor = starred
-      ? "var(--linkbrary-primary)"
-      : "var(--linkbrary-black)";
-    fillRef.current.setAttribute("fill", fillColor);
-    fillRef.current.setAttribute("fill-opacity", fillOpacity);
-  };
-
-  useEffect(() => {
-    changeFill();
-  }, [starred]);
 
   return (
     <StarWrapper isStarred={starred} onClick={handleStarClick}>
@@ -50,5 +36,12 @@ export default Star;
 const StarWrapper = styled.div`
   svg {
     cursor: pointer;
+    path {
+      fill: ${(props) =>
+        props.isStarred
+          ? "var(--linkbrary-primary)"
+          : "var(--linkbrary-black)"};
+      fill-opacity: ${(props) => (props.isStarred ? "1" : "0.2")};
+    }
   }
 `;
