@@ -7,9 +7,11 @@ const UserProvider = ({ children }) => {
   const { data, isLoading, error } = useFetchData("/api/sample/user");
 
   return (
-    <UserContext.Provider value={{ data, isLoading, error }}>
-      {children}
-    </UserContext.Provider>
+    data && (
+      <UserContext.Provider value={{ data, isLoading, error }}>
+        {children}
+      </UserContext.Provider>
+    )
   );
 };
 

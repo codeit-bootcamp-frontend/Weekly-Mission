@@ -5,7 +5,8 @@ import LogoImg from "@assets/images/Linkbrary.svg";
 import { UserContext } from "@contexts/UserContext";
 
 export default function Gnb() {
-  const { data: user } = useContext(UserContext);
+  const { data: origin_data = "" } = useContext(UserContext);
+  const { data: user } = origin_data;
   const { profileImageSource: profileSrc = "", email = "" } = user || {};
 
   return (

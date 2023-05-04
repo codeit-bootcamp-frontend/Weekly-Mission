@@ -6,14 +6,20 @@ import FolderInfo from "@components/FolderInfo";
 import useFetchData from "@hooks/useFetchData";
 
 const SharedPage = () => {
-  const { data, isLoading, error } = useFetchData("/api/sample/folder");
+  const {
+    data: origin_data = {},
+    isLoading,
+    error,
+  } = useFetchData("/api/sample/folder");
+  const { data } = origin_data;
+
   const [folder, setFolder] = useState();
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    setFolder(data.folder ? data.folder : null);
-    setCards(data.folder && data.folder.links ? data.folder.links : []);
-  }, [data]);
+    setFolder(data?.folder ? data?.folder : null);
+    setCards(data?.folder && data?.folder.links ? data?.folder.links : []);
+  }, [origin_data]);
 
   return (
     <>
