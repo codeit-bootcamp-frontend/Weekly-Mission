@@ -14,11 +14,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="*" element={<NotFoundPage />} />
         </Route>
         <Route path="/" element={<AccountLayout />}>
           <Route path="signin" element={<SigninPage />} />
           <Route path="signup" element={<SignupPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
