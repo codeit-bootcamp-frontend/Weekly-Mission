@@ -27,3 +27,8 @@ This repository is the frontend part of TaskComm project.
 This project is licensed under the MIT License. See the LICENSE.md file for details.
 
 ## Progress
+
+- [ ] 로그인, 회원가입 페이지 작성
+- [ ] 비로그인 시 로그인 페이지로 리다이렉트
+- [ ] 로그인 기능 구현
+- [ ] 회원가입 기능 구현
