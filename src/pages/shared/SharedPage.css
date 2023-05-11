@@ -1,0 +1,68 @@
+/*Header 시작*/
+header {
+  background-color: #f0f6ff;
+  padding-top: 20px;
+  padding-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.headerBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.headerImg {
+  width: 60px;
+  height: 60px;
+}
+
+.user {
+  margin: 0 0 8px 0;
+}
+
+.headerTitle {
+  margin: 0;
+}
+
+/*메인*/
+
+main {
+  width: 100%;
+  padding: 40px 0 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1099px) {
+  main {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 32px 100px;
+  }
+}
+
+@media screen and (min-width: 1100px) and (max-width: 1199px) {
+  main {
+    width: 100%;
+    padding: 40px 32px 0;
+    align-items: center;
+  }
+}
+
+/* Mobile */
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  main {
+    width: 100%;
+    padding: 20px 32px 60px;
+    align-items: center;
+  }
+}
