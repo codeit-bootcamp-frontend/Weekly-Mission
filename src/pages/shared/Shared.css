@@ -1,0 +1,14 @@
+* {
+  font-family: "Pretendard";
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  margin: 0 auto;
+  font-size: 62.5%;
+}
+
+body {
+  width: 100%;
+}
