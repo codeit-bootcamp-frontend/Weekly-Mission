@@ -1,0 +1,9 @@
+.cardWrapper {
+  padding-bottom: 99px;
+  max-width: 1060px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px 20px;
+}
