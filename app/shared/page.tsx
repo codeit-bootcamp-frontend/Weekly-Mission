@@ -13,6 +13,7 @@ const Shared = async () => {
         <div className={styles.codeitAvatar}>
           <Image
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1199px) 100vw, 100vw"
             src={userFolder.owner.profileImageSource}
             alt="Owner Avatar"
             className={styles.image}
