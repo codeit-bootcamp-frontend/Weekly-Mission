@@ -3,15 +3,10 @@
 import Link from "next/link";
 import styles from "./gnb.module.css";
 import Image from "next/image";
+import { UserData } from "@/lib/getUserData";
 
 export interface Props {
-  user: {} & User;
-}
-export interface User {
-  id: number;
-  name: string;
-  email: string;
-  profileImageSource: string;
+  user: {} & UserData;
 }
 
 const Gnb = ({ user }: Props) => {
