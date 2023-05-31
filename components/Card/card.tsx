@@ -16,7 +16,7 @@ interface ClickHandler {
 
 const Card = ({ link }: Props) => {
   const { beautifiedDate, beautifiedTimeDiff } = beautifyDate(link.createdAt);
-  const [isChecked, setIsChecked] = useState("");
+  const [isChecked, setIsChecked] = useState<string | undefined>("");
   const asteriskImage = useRef<HTMLImageElement>(null);
 
   const handleClickNavigation: ClickHandler = useCallback(
