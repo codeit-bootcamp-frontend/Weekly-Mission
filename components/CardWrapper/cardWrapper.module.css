@@ -1,4 +1,5 @@
 .cardWrapper {
+  width: 100%;
   padding-bottom: 99px;
   max-width: 1060px;
   margin: 0 auto;
@@ -6,4 +7,9 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 24px 20px;
+}
+@media only screen and (max-width: 1199px) {
+  .cardWrapper {
+    max-width: calc(100% - 6.4rem);
+  }
 }

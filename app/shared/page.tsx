@@ -24,10 +24,8 @@ const Shared = async () => {
       </div>
 
       <div className={styles.contents}>
-        <div className={styles.inner}>
-          <SearchBar />
-          <CardWrapper links={userFolder.links} />
-        </div>
+        <SearchBar />
+        <CardWrapper links={userFolder.links} />
       </div>
     </main>
   );
