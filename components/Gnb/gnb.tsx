@@ -5,7 +5,7 @@ import styles from "./gnb.module.css";
 import Image from "next/image";
 
 export interface Props {
-  user: User;
+  user: {} & User;
 }
 export interface User {
   id: number;
@@ -28,7 +28,7 @@ const Gnb = ({ user }: Props) => {
               priority
             />
           </Link>
-          {!user ? (
+          {Object.keys(user).length === 0 ? (
             <Link href="/signin" className={`${styles.signin}`}>
               로그인
             </Link>
