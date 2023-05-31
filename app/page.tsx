@@ -1,4 +1,5 @@
 import Gnb from "@/components/Gnb/gnb";
+import Footer from "@/components/Footer/footer";
 import styles from "./page.module.css";
 import getUserData from "@/lib/getUserData";
 import Image from "next/image";
@@ -31,7 +32,6 @@ export default async function Home() {
             </div>
           </div>
         </div>
-
         <div className={styles.contents}>
           <div className={styles.inner}>
             <section className={`${styles.save} ${styles.section}`}>
@@ -123,6 +123,8 @@ export default async function Home() {
           </div>
         </div>
       </main>
+
+      <Footer />
     </>
   );
 }
