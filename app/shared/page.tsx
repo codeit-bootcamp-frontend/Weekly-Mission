@@ -1,6 +1,7 @@
 import getFolderData from "@/lib/getFolderData";
 import styles from "./page.module.css";
 import Image from "next/image";
+import SearchBar from "@/components/SearchBar/searchbar";
 
 const Shared = async () => {
   const userFolder = await getFolderData();
@@ -18,6 +19,12 @@ const Shared = async () => {
         </div>
         <span className={styles.atsign}>@{userFolder.owner.name}</span>
         <span className={styles.marks}>{userFolder.name}</span>
+      </div>
+
+      <div className={styles.contents}>
+        <div className={styles.inner}>
+          <SearchBar />
+        </div>
       </div>
     </main>
   );
