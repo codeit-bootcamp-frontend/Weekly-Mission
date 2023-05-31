@@ -1,7 +1,10 @@
+import getUserData from "@/lib/getUserData";
 import "./globals.css";
 
 import { Metadata } from "next";
 import localFont from "next/font/local";
+import Gnb from "@/components/Gnb/gnb";
+import Footer from "@/components/Footer/footer";
 
 export const metadata: Metadata = {
   title: "Codeit Weekly Mission",
@@ -58,14 +61,19 @@ const pretendard = localFont({
   ],
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const user = await getUserData();
   return (
     <html lang="ko" className={pretendard.className}>
-      <body>{children}</body>
+      <body>
+        <Gnb user={user} />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

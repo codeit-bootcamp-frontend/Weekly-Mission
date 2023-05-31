@@ -1,15 +1,9 @@
-import Gnb from "@/components/Gnb/gnb";
-import Footer from "@/components/Footer/footer";
 import styles from "./page.module.css";
-import getUserData from "@/lib/getUserData";
 import Image from "next/image";
 
 export default async function Home() {
-  const user = await getUserData();
   return (
     <>
-      <Gnb user={user} />
-
       <main className={styles.main}>
         <div className={styles.hero}>
           <div className={styles.inner}>
@@ -123,8 +117,6 @@ export default async function Home() {
           </div>
         </div>
       </main>
-
-      <Footer />
     </>
   );
 }
