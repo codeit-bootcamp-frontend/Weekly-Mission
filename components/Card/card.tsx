@@ -1,23 +1,43 @@
 "use client";
 
-import { Link } from "@/components/CardWrapper/cardWrapper";
+import { LinkType } from "@/components/CardWrapper/cardWrapper";
 import styles from "./card.module.css";
 import beautifyDate from "@/lib/beautifyData";
 import Image from "next/image";
+import { useCallback, useRef, useState } from "react";
 
 interface Props {
-  link: Link;
+  link: LinkType;
+}
+
+interface ClickHandler {
+  (e: React.MouseEvent<HTMLElement>): void;
 }
 
 const Card = ({ link }: Props) => {
   const { beautifiedDate, beautifiedTimeDiff } = beautifyDate(link.createdAt);
+  const [isChecked, setIsChecked] = useState("");
+  const asteriskImage = useRef<HTMLImageElement>(null);
+
+  const handleClickNavigation: ClickHandler = useCallback(
+    (e) => {
+      if (e.target === asteriskImage.current) return;
+      window.open(link.url);
+    },
+    [link.url]
+  );
+
+  const handleClickCheck = () => {
+    isChecked === "" ? setIsChecked("-check") : setIsChecked("");
+  };
 
   return (
-    <div className={styles.card} onClick={() => {}}>
-      <div className={styles.cardAsterisk}>
+    <div className={styles.card} onClick={handleClickNavigation}>
+      <div className={styles.cardAsterisk} onClick={handleClickCheck}>
         <Image
+          ref={asteriskImage}
           className={styles.image}
-          src="/assets/card-asterisk.svg"
+          src={`/assets/card-asterisk${isChecked}.svg`}
           alt="Card Asterisk"
           fill
         />
@@ -29,6 +49,7 @@ const Card = ({ link }: Props) => {
           alt={link.title}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1199px) 100vw, 100vw"
+          priority
         />
       </div>
       <div className={styles.cardCaption}>

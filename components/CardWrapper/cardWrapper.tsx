@@ -4,9 +4,9 @@ import Card from "@/components/Card/card";
 import styles from "./cardWrapper.module.css";
 
 interface Props {
-  links: Link[];
+  links: LinkType[];
 }
-export interface Link {
+export interface LinkType {
   id: number;
   createdAt: string;
   url: string;
