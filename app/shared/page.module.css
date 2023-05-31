@@ -56,7 +56,7 @@
   color: #000000;
 }
 
-@media (max-width: 767px) {
+@media only screen and (max-width: 768px) {
   .hero {
     padding: 10px 0 40px;
   }
@@ -75,4 +75,10 @@
     line-height: 38px;
     letter-spacing: -0.2px;
   }
+}
+
+.contents {
+  width: 100%;
+  height: auto;
+  background: var(--linkbrary-white);
 }

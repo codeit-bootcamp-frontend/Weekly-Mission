@@ -2,6 +2,7 @@ import getFolderData from "@/lib/getFolderData";
 import styles from "./page.module.css";
 import Image from "next/image";
 import SearchBar from "@/components/SearchBar/searchbar";
+import CardWrapper from "@/components/CardWrapper/cardWrapper";
 
 const Shared = async () => {
   const userFolder = await getFolderData();
@@ -24,6 +25,7 @@ const Shared = async () => {
       <div className={styles.contents}>
         <div className={styles.inner}>
           <SearchBar />
+          <CardWrapper links={userFolder.links} />
         </div>
       </div>
     </main>
