@@ -6,7 +6,11 @@ import Image from "next/image";
 
 import styles from "./searchbar.module.css";
 
-const SearchBar = () => {
+interface ISearchBar {
+  placeholder: string;
+}
+
+const SearchBar = ({ placeholder }: ISearchBar) => {
   return (
     <div className={styles.searchBar}>
       <div className={styles.search}>
@@ -22,7 +26,7 @@ const SearchBar = () => {
           <input
             className={styles.input}
             type="text"
-            placeholder="원하는 링크를 검색해 보세요"
+            placeholder={placeholder}
           />
         </div>
       </div>

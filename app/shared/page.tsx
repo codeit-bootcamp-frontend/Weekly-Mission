@@ -28,7 +28,7 @@ const Shared = async () => {
       </div>
 
       <div className={styles.contents}>
-        <SearchBar />
+        <SearchBar placeholder="원하는 링크를 검색해 보세요" />
         <CardWrapper links={userFolder.links} />
       </div>
     </main>

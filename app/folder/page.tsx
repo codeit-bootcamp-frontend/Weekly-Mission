@@ -13,7 +13,7 @@ const Folder = async () => {
     <main className={styles.main}>
       <AddLink />
       <div className={styles.contents}>
-        <SearchBar />
+        <SearchBar placeholder="제목을 검색해 보세요" />
         <CardWrapper links={userFolder.links} />
       </div>
     </main>
