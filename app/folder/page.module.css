@@ -1,22 +1,11 @@
-/* common layouts */
-.inner {
-  margin: 0 auto;
-  width: 100%;
-  max-width: calc(1920px - 40rem);
-  height: 100%;
-}
-@media only screen and (max-width: 1920px) {
-  .inner {
-    max-width: calc(100% - 20rem);
-  }
-}
-@media only screen and (max-width: 768px) {
-  .inner {
-    max-width: calc(100% - 6.4rem);
-  }
-}
-
 .main {
   width: 100%;
   height: 100%;
+}
+
+.contents {
+  width: 100%;
+  height: auto;
+  background: var(--linkbrary-white);
+  margin: 0 auto;
 }
