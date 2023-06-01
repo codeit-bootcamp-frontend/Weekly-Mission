@@ -1,11 +1,11 @@
-export interface UserData {
+export interface IUserData {
   id: number;
   name: string;
   email: string;
   profileImageSource: string;
 }
 
-const getUserData = async (): Promise<UserData> => {
+const getUserData = async (): Promise<IUserData> => {
   const res = await fetch(`https://bootcamp-api.codeit.kr/api/sample/user`, {
     cache: "no-store",
   });

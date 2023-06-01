@@ -2,20 +2,13 @@
 
 import Card from "@/components/Card/card";
 import styles from "./cardWrapper.module.css";
+import { ILink } from "@/lib/getFolderData";
 
-interface Props {
-  links: LinkType[];
-}
-export interface LinkType {
-  id: number;
-  createdAt: string;
-  url: string;
-  title: string;
-  description: string;
-  imageSource?: string;
+interface ICardWrapper {
+  links: ILink[];
 }
 
-const CardWrapper = ({ links }: Props) => {
+const CardWrapper = ({ links }: ICardWrapper) => {
   return (
     <div className={styles.cardWrapper}>
       {links.map((link) => (

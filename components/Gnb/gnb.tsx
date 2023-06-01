@@ -3,13 +3,13 @@
 import Link from "next/link";
 import styles from "./gnb.module.css";
 import Image from "next/image";
-import { UserData } from "@/lib/getUserData";
+import { IUserData } from "@/lib/getUserData";
 
-export interface Props {
-  user: {} & UserData;
+export interface IGnb {
+  user: {} & IUserData;
 }
 
-const Gnb = ({ user }: Props) => {
+const Gnb = ({ user }: IGnb) => {
   return (
     <header className={`${styles.header}`}>
       <div className={`${styles.inner}`}>
