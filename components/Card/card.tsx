@@ -17,11 +17,11 @@ interface ICard {
 const Card = ({ link }: ICard) => {
   const { beautifiedDate, beautifiedTimeDiff } = beautifyDate(link.createdAt);
   const [isChecked, setIsChecked] = useState<string | undefined>("");
-  const asteriskImage = useRef<HTMLImageElement>(null);
+  const asteriskImageRef = useRef<HTMLImageElement>(null);
 
   const handleClickNavigation = useCallback(
-    (e: React.MouseEvent<HTMLElement>) => {
-      if (e.target === asteriskImage.current) return;
+    (e: React.MouseEvent<HTMLDivElement>): void => {
+      if (e.target === asteriskImageRef.current) return;
       window.open(link.url);
     },
     [link.url]
@@ -35,7 +35,7 @@ const Card = ({ link }: ICard) => {
     <div className={styles.card} onClick={handleClickNavigation}>
       <div className={styles.cardAsterisk} onClick={handleClickCheck}>
         <Image
-          ref={asteriskImage}
+          ref={asteriskImageRef}
           className={styles.image}
           src={`/assets/card-asterisk${isChecked}.svg`}
           alt="Card Asterisk"
