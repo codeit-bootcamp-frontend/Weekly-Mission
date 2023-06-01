@@ -1,5 +1,25 @@
-const beautifyTimeDiff = (minutes: number) => {
-  const r = (t: number) => Math.round(t);
+type TBeautifyTimeDiff = (minutes: number) => string;
+
+type TBeautifyDate = (createAt: string) => {
+  beautifiedDate: string;
+  beautifiedTimeDiff: string;
+};
+
+/**
+ * @example createdAt 데이터 기준으로 현재 Date와 차이가
+ * - 2분 미만은 “1 minute ago”
+ * - 59분 이하는 “OO minutes ago”
+ * - 60분 이상은 “1 hour ago”
+ * - 23시간 이하는 “OO hours ago”
+ * - 24시간 이상은 “1 day ago”
+ * - 30일 이하는 “OO days ago”
+ * - 31일 이상은 “1 month ago”
+ * - 11달 이하는 “OO months ago”
+ * - 12달 이상은 “1 year ago”
+ * - OO달 이상은 “{OO/12(소수점 버린 정수)} years ago”
+ */
+const beautifyTimeDiff: TBeautifyTimeDiff = (minutes) => {
+  const r = (t: number): number => Math.round(t);
 
   switch (true) {
     case r(minutes) < 2:
@@ -23,7 +43,10 @@ const beautifyTimeDiff = (minutes: number) => {
   }
 };
 
-const beautifyDate = (createdAt: string) => {
+/**
+ * yyyy.mm.dd 형식으로 반환하는 함수
+ */
+const beautifyDate: TBeautifyDate = (createdAt) => {
   const creationDate = new Date(createdAt);
   const currentDate = new Date();
   const timeDiffInMinutes =
