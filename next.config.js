@@ -16,6 +16,12 @@ const nextConfig = {
       "s.pstatic.net",
     ],
   },
+  onDemandEntries: {
+    // period (in ms) where the server will keep pages in the buffer
+    maxInactiveAge: 3600 * 1000, // 1시간 간격
+    // number of pages that should be kept simultaneously without being disposed
+    pagesBufferLength: 20,
+  },
 };
 
 module.exports = nextConfig;
