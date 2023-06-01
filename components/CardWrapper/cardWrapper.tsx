@@ -1,8 +1,11 @@
 "use client";
 
+import React from "react";
+
 import Card from "@/components/Card/card";
-import styles from "./cardWrapper.module.css";
 import { ILink } from "@/lib/getFolderData";
+
+import styles from "./cardWrapper.module.css";
 
 interface ICardWrapper {
   links: ILink[];

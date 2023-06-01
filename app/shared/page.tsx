@@ -1,8 +1,12 @@
-import getFolderData from "@/lib/getFolderData";
-import styles from "./page.module.css";
+import React from "react";
+
 import Image from "next/image";
-import SearchBar from "@/components/SearchBar/searchbar";
+
 import CardWrapper from "@/components/CardWrapper/cardWrapper";
+import SearchBar from "@/components/SearchBar/searchbar";
+import getFolderData from "@/lib/getFolderData";
+
+import styles from "./page.module.css";
 
 const Shared = async () => {
   const userFolder = await getFolderData();

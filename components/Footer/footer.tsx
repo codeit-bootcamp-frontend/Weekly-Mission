@@ -1,8 +1,11 @@
 "use client";
 
-import Link from "next/link";
-import styles from "./footer.module.css";
+import React from "react";
+
 import Image from "next/image";
+import Link from "next/link";
+
+import styles from "./footer.module.css";
 
 const Footer = () => {
   return (

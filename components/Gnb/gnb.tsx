@@ -1,12 +1,17 @@
 "use client";
 
-import Link from "next/link";
-import styles from "./gnb.module.css";
+import React from "react";
+
 import Image from "next/image";
+import Link from "next/link";
+
 import { IUserData } from "@/lib/getUserData";
 
+import styles from "./gnb.module.css";
+
 export interface IGnb {
-  user: {} & IUserData;
+  // 어떤 값도 담기지 않는 빈 객체를 가리키기 위해 Record<string, never> 사용
+  user: Record<string, never> | IUserData;
 }
 
 const Gnb = ({ user }: IGnb) => {

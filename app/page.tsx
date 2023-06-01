@@ -1,5 +1,8 @@
-import styles from "./page.module.css";
+import React from "react";
+
 import Image from "next/image";
+
+import styles from "./page.module.css";
 
 export default async function Home() {
   return (
@@ -21,6 +24,7 @@ export default async function Home() {
                 alt="Hero Image"
                 width={1168}
                 height={561}
+                priority
                 className={styles.img}
               />
             </div>

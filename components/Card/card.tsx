@@ -1,24 +1,26 @@
 "use client";
 
-import styles from "./card.module.css";
+import React from "react";
+import { useCallback, useRef, useState } from "react";
+
+import Image from "next/image";
+
 import beautifyDate from "@/lib/beautifyData";
 import { ILink } from "@/lib/getFolderData";
-import Image from "next/image";
-import { useCallback, useRef, useState } from "react";
+
+import styles from "./card.module.css";
 
 interface ICard {
   link: ILink;
 }
-
-type TClickHandler = (e: React.MouseEvent<HTMLElement>) => void;
 
 const Card = ({ link }: ICard) => {
   const { beautifiedDate, beautifiedTimeDiff } = beautifyDate(link.createdAt);
   const [isChecked, setIsChecked] = useState<string | undefined>("");
   const asteriskImage = useRef<HTMLImageElement>(null);
 
-  const handleClickNavigation: TClickHandler = useCallback(
-    (e) => {
+  const handleClickNavigation = useCallback(
+    (e: React.MouseEvent<HTMLElement>) => {
       if (e.target === asteriskImage.current) return;
       window.open(link.url);
     },

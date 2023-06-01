@@ -1,10 +1,13 @@
-import getUserData from "@/lib/getUserData";
-import "./globals.css";
+import React from "react";
 
 import { Metadata } from "next";
 import localFont from "next/font/local";
-import Gnb from "@/components/Gnb/gnb";
+
 import Footer from "@/components/Footer/footer";
+import Gnb from "@/components/Gnb/gnb";
+import getUserData from "@/lib/getUserData";
+
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Codeit Weekly Mission",
