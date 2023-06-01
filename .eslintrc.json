@@ -4,7 +4,7 @@
     "next/core-web-vitals" /* next js 권장사항 */,
     "eslint:recommended" /* https://eslint.org/docs/latest/rules/ 에 체크되어 있는 모든 규칙 활성화. rules로 확장 가능 */,
     "plugin:@typescript-eslint/recommended" /* eslint:recommended 와 유사하다. ts 전용 규칙 사용 */,
-    "prettier",
+    "prettier" /* eslint-config-prettier에서 prettier와 충돌되는 스타일 옵션을 꺼버리는 기능 */,
     "plugin:prettier/recommended",
     "prettier/prettier",
     "plugin:react/recommended",
@@ -13,6 +13,7 @@
   "plugins": ["prettier", "@typescript-eslint"],
   /* ESLint 사용을 위해 지원하려는 Javascript 언어 옵션을 지정 */
   "parserOptions": {
+    "project": "./tsconfig.json" /* 프로젝트에서 사용하고 있는 ts 설정 참조하도록 경로 지정 */,
     "sourceType": "module" /* parser의 export 형태를 설정 */,
     "ecmaVersion": 2020 /* 사용할 ECMAScript 버전을 설정 */
   },
