@@ -4,19 +4,20 @@ import React, { useRef, useState } from "react";
 
 import Image from "next/image";
 
+import AddModal from "../AddModal/addModal";
 import styles from "./addLink.module.css";
 
 const AddLink = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [selectedLink, setSelectedLink] = useState<string>("");
+  const [openAddModal, setOpenAddModal] = useState<boolean>(false);
+  const [selectedLinkValue, setSelectedLinkValue] = useState<string>("");
   const linkInputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmitOpenModal = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     if (linkInputRef.current) {
-      // TODO: 모달창 열고 모달창에서 onClick일 때 데이터 전송하기
-      setSelectedLink(linkInputRef.current.value);
-      setIsOpen(!isOpen);
+      setSelectedLinkValue(linkInputRef.current.value);
+      setOpenAddModal((prev) => !prev);
+      linkInputRef.current.value = "";
     }
   };
 
@@ -45,6 +46,13 @@ const AddLink = () => {
           추가하기
         </button>
       </form>
+
+      {openAddModal && (
+        <AddModal
+          handleClickCloseModal={() => setOpenAddModal((prev) => !prev)}
+          selectedLinkValue={selectedLinkValue}
+        />
+      )}
     </div>
   );
 };
