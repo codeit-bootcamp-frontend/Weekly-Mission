@@ -55,10 +55,10 @@ const Card = ({ link }: ICard) => {
       <div className={styles.cardCaption}>
         <div className={styles.info}>
           <span className={styles.time}>{beautifiedTimeDiff}</span>
-          <div className={styles.more}>
-            <span className={styles.moreDot}></span>
-            <span className={styles.moreDot}></span>
-            <span className={styles.moreDot}></span>
+          <div className={styles.kebabMenu}>
+            <span className={styles.kebabDot}></span>
+            <span className={styles.kebabDot}></span>
+            <span className={styles.kebabDot}></span>
           </div>
         </div>
         <p className={styles.text}>{link.description}</p>

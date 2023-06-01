@@ -56,13 +56,13 @@
   line-height: 16px;
   color: #666666;
 }
-.cardCaption .info .more {
+.cardCaption .info .kebabMenu {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
 }
-.cardCaption .info .more .moreDot {
+.cardCaption .info .kebabMenu .kebabDot {
   width: 3px;
   height: 3px;
   background: #333236;
