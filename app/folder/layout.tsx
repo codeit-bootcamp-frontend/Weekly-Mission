@@ -5,5 +5,10 @@ export default async function FolderLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      {children}
+      <div id="add-portal"></div>
+    </>
+  );
 }
