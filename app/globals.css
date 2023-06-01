@@ -46,3 +46,10 @@ a:active {
   text-decoration: none;
   color: var(--linkbrary-black);
 }
+
+#add-portal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
