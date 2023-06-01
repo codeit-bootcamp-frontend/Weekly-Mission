@@ -1,0 +1,6 @@
+.modalWrapper {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.08);
+}
