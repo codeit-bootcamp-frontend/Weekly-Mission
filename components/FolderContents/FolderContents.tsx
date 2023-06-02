@@ -20,6 +20,7 @@ const FolderContents = ({ links }: ICardWrapper) => {
   useEffect(() => {
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
+        console.log(entry.isIntersecting);
         setInView(entry.isIntersecting);
       });
     });
@@ -33,14 +34,11 @@ const FolderContents = ({ links }: ICardWrapper) => {
 
   return (
     <>
-      <div
-        className={`${styles.addLinkContainer} ${styles[`${inView}`]}`}
-        ref={(el: HTMLDivElement) => (observerTargetRefs.current[0] = el)}
-      >
+      <div className={`${styles.addLinkContainer} ${styles[`${inView}`]}`}>
         <AddLink />
       </div>
       <div className={styles.contents}>
-        <div ref={(el: HTMLDivElement) => (observerTargetRefs.current[1] = el)}>
+        <div ref={(el: HTMLDivElement) => (observerTargetRefs.current[0] = el)}>
           <SearchBar placeholder="제목을 검색해 보세요" />
         </div>
         <CardWrapper links={links} />
