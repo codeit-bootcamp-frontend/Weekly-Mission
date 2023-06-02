@@ -14,13 +14,14 @@ interface ICardWrapper {
 }
 
 const FolderContents = ({ links }: ICardWrapper) => {
+  // TODO: prop으로 현재 탭(파일 데이터), 탭 리스트(파일 목록)을 넘겨받아서, 그 탭에 있는 링크들을 목록으로 보여주기
+
   const observerTargetRefs = useRef<HTMLDivElement[]>([]);
   const [inView, setInView] = useState<boolean | null>(null);
 
   useEffect(() => {
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        console.log(entry.isIntersecting);
         setInView(entry.isIntersecting);
       });
     });
