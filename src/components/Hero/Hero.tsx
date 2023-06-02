@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./Hero.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-import landingImg from "@/assets/landing.png";
 
 const Hero = () => {
   return (
@@ -16,7 +15,7 @@ const Hero = () => {
         <Link href="#">링크 추가하기</Link>
         <div className={styles.landingImageContainer}>
           <div className={styles.imageBox}>
-            <Image src={landingImg} alt="landing-img" fill />
+            <Image src="/landing.png" alt="landing-img" fill />
           </div>
         </div>
       </div>
