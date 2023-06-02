@@ -5,9 +5,11 @@ module.exports = {
     node: true,
   },
   extends: [
+    "next/core-web-vitals",
     "eslint:recommended",
     "plugin:react/recommended",
-    "next/core-web-vitals",
+    "plugin:prettier/recommended",
+    "plugin:import/recommended",
   ],
   overrides: [],
   parserOptions: {
@@ -15,5 +17,43 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react"],
-  rules: { "react/react-in-jsx-scope": Off },
+  rules: {
+    "react/react-in-jsx-scope": "off",
+    "import/order": [
+      "error",
+      {
+        groups: [
+          "type",
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "unknown",
+        ],
+        pathGroups: [
+          {
+            pattern: "react*",
+            group: "external",
+            position: "before",
+          },
+        ],
+        pathGroupsExcludedImportTypes: [],
+        "newlines-between": "always",
+        alphabetize: {
+          order: "asc",
+          caseInsensitive: true,
+        },
+      },
+    ],
+  },
+  settings: {
+    "import/resolver": {
+      alias: {
+        map: [["@", "./"]],
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+      },
+    },
+  },
 };
