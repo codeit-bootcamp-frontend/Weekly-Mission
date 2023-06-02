@@ -1,0 +1,77 @@
+.footerWrapper {
+  max-width: 120rem;
+  margin: 0 auto;
+  height: 10rem;
+  padding-top: 2rem;
+  padding-bottom: 6.75rem;
+}
+
+.bottomNav {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 6.5rem;
+}
+
+.bottomNav > span {
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 1.15rem;
+  font-weight: 400;
+}
+
+.bottomNav > div {
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 1.15rem;
+  font-weight: 400;
+}
+
+.bottomNav > div.internalLinks a.faqLink {
+  margin-left: 1.875rem;
+}
+
+.bottomNav a {
+  color: white;
+  text-decoration: none;
+}
+
+.copyright {
+  color: #676767;
+}
+
+.iconbox {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 12px;
+
+  width: 116px;
+  height: 20px;
+}
+
+.iconbox img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media only screen and (max-width: 767px) {
+  .footerWrapper {
+    padding: 2rem;
+  }
+
+  .bottomNav {
+    position: relative;
+    margin: auto;
+  }
+
+  .bottomNav > div.internalLinks a.faqLink {
+    margin-left: 8vw;
+  }
+
+  .copyright {
+    position: absolute;
+    top: 3.75rem;
+    left: 0;
+  }
+}
