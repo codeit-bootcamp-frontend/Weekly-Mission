@@ -44,35 +44,31 @@ function Card({ cardData }) {
   };
 
   return (
-    cardData && (
-      <article className={styles.card}>
-        <a href={cardData.url} target="_blank" rel="noreferrer">
-          <div className={styles.imageContainer}>
-            <div
-              className={styles.cardImg}
-              style={{
-                backgroundImage: `url(${
-                  cardData.imageSource ?? defaultCardImg
-                })`,
-              }}
-            ></div>
-            <div className={styles.star}>
-              <Star />
-            </div>
+    <article className={styles.card}>
+      <a href={cardData.url} target="_blank" rel="noreferrer">
+        <div className={styles.imageContainer}>
+          <div
+            className={styles.cardImg}
+            style={{
+              backgroundImage: `url(${cardData.imageSource ?? defaultCardImg})`,
+            }}
+          ></div>
+          <div className={styles.star}>
+            <Star />
           </div>
-          <div className={styles.contentContainer}>
-            <div className={styles.passedTime}>
-              {calculatePassedTime(cardData.createdAt)}
-            </div>
-            <button className={styles.btnMore} />
-            <h2 className={styles.content}>{cardData.description}</h2>
-            <div className={styles.createdDate}>
-              {changeDateFormat(cardData.createdAt)}
-            </div>
+        </div>
+        <div className={styles.contentContainer}>
+          <div className={styles.passedTime}>
+            {calculatePassedTime(cardData.createdAt)}
           </div>
-        </a>
-      </article>
-    )
+          <button className={styles.btnMore} />
+          <h2 className={styles.content}>{cardData.description}</h2>
+          <div className={styles.createdDate}>
+            {changeDateFormat(cardData.createdAt)}
+          </div>
+        </div>
+      </a>
+    </article>
   );
 }
 

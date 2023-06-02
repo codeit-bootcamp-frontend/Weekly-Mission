@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
-import Gnb from "./Gnb";
+import GNB from "./GNB/GNB";
 import Footer from "./Footer";
 import HomePage from "../pages/HomePage";
 import SharedPage from "../pages/SharedPage";
@@ -14,7 +14,7 @@ import FAQPage from "../pages/FAQPage";
 function BasicLayout() {
   return (
     <>
-      <Gnb />
+      <GNB />
       <Outlet />
       <Footer />
     </>

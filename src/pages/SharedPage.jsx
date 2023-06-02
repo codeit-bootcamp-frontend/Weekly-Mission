@@ -8,35 +8,34 @@ import useAsync from "../hooks/useAsync";
 
 function SharedPage() {
   const [folder, setFolder] = useState(null);
-  const [isApplying, ApplyingError, onApplyAsync] = useAsync(getFolderData);
+  const { loading, error, callAsyncFunction } = useAsync(getFolderData);
 
   const applyFolderInfoData = useCallback(async () => {
-    const folderData = await onApplyAsync();
+    const folderData = await callAsyncFunction();
     if (!folderData) return;
     setFolder(folderData);
-  }, [onApplyAsync]);
+  }, [callAsyncFunction]);
 
   useEffect(() => {
     applyFolderInfoData();
   }, [applyFolderInfoData]);
 
-  if (ApplyingError) return <div>{ApplyingError.message}</div>;
+  if (error) return <div>{error.message}</div>;
+  if (!folder) return null;
   return (
-    folder && (
-      <>
-        <FolderInfo folder={folder} />
-        <main>
-          <section className={styles.searchBarContainer}>
-            <SearchBar />
-          </section>
-          <section className={styles.cardContainer}>
-            {folder?.links.map((link) => (
-              <Card key={link.id} cardData={link} />
-            ))}
-          </section>
-        </main>
-      </>
-    )
+    <>
+      <FolderInfo folder={folder} />
+      <main>
+        <section className={styles.searchBarContainer}>
+          <SearchBar />
+        </section>
+        <section className={styles.cardContainer}>
+          {folder.links.map((link) => (
+            <Card key={link.id} cardData={link} />
+          ))}
+        </section>
+      </main>
+    </>
   );
 }
 
