@@ -47,7 +47,8 @@ a:active {
   color: var(--linkbrary-black);
 }
 
-#add-portal {
+#add-portal,
+#delete-link-portal {
   position: fixed;
   top: 0;
   left: 0;

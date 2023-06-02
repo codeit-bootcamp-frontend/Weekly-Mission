@@ -5,6 +5,8 @@ import { useRef, useState } from "react";
 
 import Image from "next/image";
 
+import AddModal from "@/components/AddModal/AddModal";
+import DeleteLinkModal from "@/components/DeleteLinkModal/DeleteLinkModal";
 import useOutsideClick from "@/hooks/useOutsideClick";
 import beautifyDate from "@/lib/beautifyData";
 import { ILink } from "@/lib/getFolderData";
@@ -25,10 +27,13 @@ const Card = ({ link, idx, isClicked, setIsClickedKebab }: ICard) => {
   const hoverTargetRefs = useRef<HTMLElement[]>([]);
   const kebabRef = useRef<HTMLDivElement | null>(null);
 
-  // TODO: 케밥 popover의 경우 hover 시에 파란색으로 변경되어야 한다. (그냥 css hover 쓰면 된다)
+  const [openDeleteLinkModal, setOpenDeleteLinkModal] =
+    useState<boolean>(false);
+  const [openAddModal, setOpenAddModal] = useState<boolean>(false);
 
   const handleClickNavigation = (e: React.MouseEvent<HTMLDivElement>): void => {
     if (isClicked) return;
+
     let flag = false;
     notTargetRefs.current.forEach((ref) => {
       if (e.target === ref) {
@@ -81,77 +86,93 @@ const Card = ({ link, idx, isClicked, setIsClickedKebab }: ICard) => {
   });
 
   return (
-    <div
-      className={styles.card}
-      onClick={handleClickNavigation}
-      onMouseOver={handleMouseOverCard}
-      onMouseOut={handleMouseOutCard}
-    >
-      <div className={styles.cardAsterisk} onClick={handleClickCheck}>
-        <Image
-          ref={(el: HTMLImageElement) => (notTargetRefs.current[0] = el)}
-          className={styles.image}
-          src={`/assets/card-asterisk${isChecked}.svg`}
-          alt="Card Asterisk"
-          fill
-        />
-      </div>
-      <div className={styles.cardImgTop}>
-        <Image
-          className={styles.image}
-          ref={(el: HTMLImageElement) => (hoverTargetRefs.current[0] = el)}
-          src={link.imageSource ?? "/assets/image-dummy.png"}
-          alt={link.title}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1199px) 100vw, 100vw"
-          priority
-        />
-      </div>
+    <>
       <div
-        className={styles.cardCaption}
-        ref={(el: HTMLDivElement) => (hoverTargetRefs.current[1] = el)}
+        className={styles.card}
+        onClick={handleClickNavigation}
+        onMouseOver={handleMouseOverCard}
+        onMouseOut={handleMouseOutCard}
       >
-        <div className={styles.info}>
-          <span className={styles.time}>{beautifiedTimeDiff}</span>
-          <div
-            ref={(el: HTMLDivElement) => (notTargetRefs.current[1] = el)}
-            className={styles.kebabMenu}
-            onClick={() => setIsClickedKebab(idx)}
-          >
-            <span className={styles.kebabDot}></span>
-            <span className={styles.kebabDot}></span>
-            <span className={styles.kebabDot}></span>
-            {isClicked && (
-              <div
-                className={styles.popOverWrapper}
-                ref={kebabRef}
-                onMouseOver={handleMouseOverPopOver}
-                onMouseOut={handleMouseOutPopOver}
-              >
-                <div
-                  className={styles.deleteButton}
-                  ref={(el: HTMLDivElement) =>
-                    (hoverTargetRefs.current[2] = el)
-                  }
-                >
-                  삭제하기
-                </div>
-                <div
-                  className={styles.addFolderButton}
-                  ref={(el: HTMLDivElement) =>
-                    (hoverTargetRefs.current[3] = el)
-                  }
-                >
-                  폴더에 추가
-                </div>
-              </div>
-            )}
-          </div>
+        <div className={styles.cardAsterisk} onClick={handleClickCheck}>
+          <Image
+            ref={(el: HTMLImageElement) => (notTargetRefs.current[0] = el)}
+            className={styles.image}
+            src={`/assets/card-asterisk${isChecked}.svg`}
+            alt="Card Asterisk"
+            fill
+          />
         </div>
-        <p className={styles.text}>{link.description}</p>
-        <div className={styles.creation}>{beautifiedDate}</div>
+        <div className={styles.cardImgTop}>
+          <Image
+            className={styles.image}
+            ref={(el: HTMLImageElement) => (hoverTargetRefs.current[0] = el)}
+            src={link.imageSource ?? "/assets/image-dummy.png"}
+            alt={link.title}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1199px) 100vw, 100vw"
+            priority
+          />
+        </div>
+        <div
+          className={styles.cardCaption}
+          ref={(el: HTMLDivElement) => (hoverTargetRefs.current[1] = el)}
+        >
+          <div className={styles.info}>
+            <span className={styles.time}>{beautifiedTimeDiff}</span>
+            <div
+              ref={(el: HTMLDivElement) => (notTargetRefs.current[1] = el)}
+              className={styles.kebabMenu}
+              onClick={() => setIsClickedKebab(idx)}
+            >
+              <span className={styles.kebabDot}></span>
+              <span className={styles.kebabDot}></span>
+              <span className={styles.kebabDot}></span>
+              {isClicked && (
+                <div
+                  className={styles.popOverWrapper}
+                  ref={kebabRef}
+                  onMouseOver={handleMouseOverPopOver}
+                  onMouseOut={handleMouseOutPopOver}
+                >
+                  <div
+                    className={styles.deleteButton}
+                    ref={(el: HTMLDivElement) =>
+                      (hoverTargetRefs.current[2] = el)
+                    }
+                    onClick={() => setOpenDeleteLinkModal(true)}
+                  >
+                    삭제하기
+                  </div>
+                  <div
+                    className={styles.addFolderButton}
+                    ref={(el: HTMLDivElement) =>
+                      (hoverTargetRefs.current[3] = el)
+                    }
+                    onClick={() => setOpenAddModal(true)}
+                  >
+                    폴더에 추가
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+          <p className={styles.text}>{link.description}</p>
+          <div className={styles.creation}>{beautifiedDate}</div>
+        </div>
       </div>
-    </div>
+      {openAddModal && (
+        <AddModal
+          setOpenAddModal={setOpenAddModal}
+          selectedLinkValue={link.url}
+        />
+      )}
+      {openDeleteLinkModal && (
+        <DeleteLinkModal
+          setOpenDeleteLinkModal={setOpenDeleteLinkModal}
+          selectedLinkValue={link.url}
+        />
+      )}
+    </>
   );
 };
 

@@ -9,6 +9,7 @@ export default async function FolderLayout({
     <>
       {children}
       <div id="add-portal"></div>
+      <div id="delete-link-portal"></div>
     </>
   );
 }

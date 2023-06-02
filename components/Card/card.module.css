@@ -97,6 +97,10 @@
   justify-content: center;
   align-items: center;
   padding: 7px 12px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #333236;
 }
 .cardCaption .text {
   color: black;
