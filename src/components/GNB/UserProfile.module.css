@@ -1,0 +1,23 @@
+.userContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--gray-brt1);
+}
+
+.userImg {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 100%;
+}
+
+.userEmail {
+  font-size: 1.4rem;
+}
+
+/* Mobile 반응형 */
+@media (max-width: 768px) {
+  .userEmail {
+    display: none;
+  }
+}
