@@ -1,43 +1,43 @@
-import axios from 'axios';
-import { useState, useCallback } from 'react';
+import axios from "axios";
+import { useState, useCallback, useEffect } from "react";
 
-const useHttp = (applyData) => {
+const useHttp = ({ url, method, headers, data }) => {
   const [isLoading, setIsLoadng] = useState(false);
   const [error, setError] = useState(null);
+  const [responseData, setResponseData] = useState([]);
 
-  const sendRequest = useCallback(
-    async (requestConfig) => {
-      setIsLoadng(true);
-      setError(null);
+  const sendRequest = useCallback(async () => {
+    setIsLoadng(true);
+    setError(null);
 
-      try {
-        const response = await axios({
-          method: requestConfig.method || 'GET',
-          url: requestConfig.url,
-          headers: requestConfig.headers || {},
-          data: JSON.stringify(requestConfig.data) || null,
-        });
+    try {
+      const response = await axios({
+        url: url,
+        method: method || "GET",
+        headers: headers || {},
+        data: JSON.stringify(data) || null,
+      });
 
-        const { data } = response.data;
+      setResponseData(response.data);
 
-        applyData(data);
-
-        if (!response.ok) {
-          throw new Error('Request Failed!');
-        }
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setIsLoadng(false);
+      if (!response.ok) {
+        throw new Error("Request Failed!");
       }
-    },
-    [applyData]
-  );
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setIsLoadng(false);
+    }
+  }, [url, method, headers, data]);
+
+  useEffect(() => {
+    sendRequest();
+  }, [url, method, headers, data]);
 
   return {
     isLoading,
     error,
-    sendRequest,
+    responseData,
   };
 };
 
