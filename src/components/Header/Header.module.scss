@@ -1,5 +1,8 @@
 @use "../../styles/variables.scss" as var;
 
+$header-height: 5.813rem;
+$mobile-header-height: 3.938rem;
+
 .headerWrapper {
   width: 100%;
   max-width: 120rem;

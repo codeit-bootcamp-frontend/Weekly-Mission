@@ -1,0 +1,13 @@
+@use "../Header/Header.module.scss" as header;
+@use "../Footer/Footer.module.scss" as footer;
+
+.container {
+  width: 100%;
+  min-height: calc(100vh - #{header.$header-height} - #{footer.$footer-height});
+
+  @media only screen and (max-width: 767px) {
+    min-height: calc(
+      100vh - #{header.$mobile-header-height} - #{footer.$footer-height}
+    );
+  }
+}
