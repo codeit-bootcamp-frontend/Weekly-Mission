@@ -4,7 +4,7 @@ import React from "react";
 
 import Image from "next/image";
 
-import styles from "./searchbar.module.css";
+import styles from "./SearchBar.module.css";
 
 interface ISearchBar {
   placeholder: string;
