@@ -1,0 +1,47 @@
+@use "@/styles/utils";
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  height: 16rem;
+  padding: 3.2rem 10.4rem;
+  background-color: utils.$black;
+  font-family: "Arial", sans-serif;
+  line-height: 1.6rem;
+}
+
+.copyright {
+  color: #676767;
+}
+
+.policyInfo {
+  display: flex;
+  justify-content: space-between;
+  width: 16.3rem;
+  height: 1.8rem;
+
+  > a {
+    color: #cfcfcf;
+    text-decoration: none;
+  }
+}
+
+.snsContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 11.6rem;
+  height: 1.8rem;
+}
+
+@include utils.mobile {
+  .footer {
+    position: relative;
+    padding: 3.2rem 3.2rem;
+  }
+
+  .copyright {
+    position: absolute;
+    bottom: 3.2rem;
+    left: 3.2rem;
+  }
+}

@@ -1,3 +1,5 @@
+import MainLayout from "@/layouts/MainLayout";
+
 export default function Shared() {
-  return <div>shared</div>;
+  return <MainLayout>shared</MainLayout>;
 }

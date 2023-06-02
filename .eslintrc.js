@@ -44,6 +44,11 @@ module.exports = {
             group: "external",
             position: "before",
           },
+          {
+            pattern: "@/public/images/*",
+            group: "internal",
+            position: "after",
+          },
         ],
         pathGroupsExcludedImportTypes: [],
         "newlines-between": "always",

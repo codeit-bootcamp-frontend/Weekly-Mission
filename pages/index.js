@@ -1,5 +1,5 @@
-import styles from "@/styles/Home.module.scss";
+import MainLayout from "@/layouts/MainLayout";
 
 export default function Home() {
-  return <>Next.js 시작..!!</>;
+  return <MainLayout>Next.js 시작..!!</MainLayout>;
 }
