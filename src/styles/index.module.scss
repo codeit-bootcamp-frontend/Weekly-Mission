@@ -1,0 +1,164 @@
+.tutorialSection {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+article.tutorial {
+  width: 62.375rem;
+  height: 28.125rem;
+  margin: 6.25rem auto;
+  padding: 0;
+}
+
+article.tutorial > section {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+article.tutorial > section.explanation {
+  display: flex;
+  align-items: center;
+  width: 28rem;
+  height: 28.125rem;
+}
+
+article.tutorial > section.imageContainer {
+  position: relative;
+  width: 34.375rem;
+  height: 28.125rem;
+}
+
+article.tutorial > section.explanation .hidden {
+  display: none;
+}
+
+article.tutorial:nth-child(2n + 1) > .explanation {
+  float: left;
+}
+
+article.tutorial:nth-child(2n) > .explanation {
+  float: right;
+  justify-content: flex-end;
+}
+
+section.imageContainer > img {
+  width: 100%;
+  height: 100%;
+}
+
+.textArea > h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 3.58rem;
+  margin-bottom: 0.625rem;
+}
+
+.textArea > p {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  color: #6b6b6b;
+}
+.emphasis {
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+
+  &._1 {
+    background-image: linear-gradient(95.63deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+  }
+
+  &._2 {
+    background-image: linear-gradient(
+      277.01deg,
+      #6fbaff 12.22%,
+      #ffd88b 100.66%
+    );
+  }
+  &._3 {
+    background-image: linear-gradient(
+      114deg,
+      #6d7ccd 0.76%,
+      rgba(82, 136, 133, 0.2) 200.69%
+    );
+  }
+  &._4 {
+    background-image: linear-gradient(
+      277deg,
+      #fe578f -120.84%,
+      #68e8f9 137.18%
+    );
+  }
+}
+
+/* tablet  */
+@media only screen and (max-width: 1200px) {
+  article.tutorial {
+    display: flex;
+    width: 43.625rem;
+    height: 19.688rem;
+    margin: 6.25rem auto;
+  }
+
+  article.tutorial > section.explanation {
+    width: 19.563rem;
+    height: 19.688rem;
+  }
+
+  article.tutorial > section.imageContainer {
+    width: 24.063rem;
+    height: 19.688rem;
+  }
+}
+
+/* mobile */
+@media only screen and (max-width: 767px) {
+  .tutorialSection {
+    padding: 0 2rem;
+  }
+
+  article.tutorial {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    margin-top: 5rem;
+    margin-bottom: 4.75rem;
+  }
+
+  article.tutorial > section.explanation {
+    width: 100%;
+    height: auto;
+    order: -1;
+  }
+
+  article.tutorial > section.explanation .imageContainer.hidden {
+    display: block;
+    margin-top: 1.25rem;
+    position: relative;
+    width: 100%;
+  }
+
+  article.tutorial > section.imageContainer {
+    width: 100%;
+    height: 28.125rem;
+  }
+
+  .textArea {
+    width: 100%;
+  }
+
+  .textArea h1 {
+    font-size: calc(1rem + 2vw);
+    line-height: 1.79rem;
+  }
+
+  .textArea p {
+    font-size: clamp(0.938rem, 0.353rem + 2.4vw, 1.5rem);
+    line-height: 1.5;
+  }
+
+  .textArea br {
+    display: none;
+  }
+}
