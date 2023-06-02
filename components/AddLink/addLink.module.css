@@ -76,4 +76,5 @@
   line-height: 17px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
