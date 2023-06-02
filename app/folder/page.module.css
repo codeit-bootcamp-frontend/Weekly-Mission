@@ -2,10 +2,3 @@
   width: 100%;
   height: 100%;
 }
-
-.contents {
-  width: 100%;
-  height: auto;
-  background: var(--linkbrary-white);
-  margin: 0 auto;
-}

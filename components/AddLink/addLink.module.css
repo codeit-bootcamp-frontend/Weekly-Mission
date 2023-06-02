@@ -2,13 +2,6 @@
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  padding: 60px 32px 90px;
-}
-@media only screen and (max-width: 768px) {
-  .formWrapper {
-    padding: 60px 0 90px;
-    max-width: calc(100% - 6.4rem);
-  }
 }
 .form {
   width: 100%;
@@ -77,4 +70,13 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+  .formWrapper {
+    max-width: calc(100% - 6.4rem);
+  }
+  .form {
+    height: 53px;
+  }
 }
