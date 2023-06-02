@@ -6,7 +6,7 @@ services:
     entrypoint: tail -f
 
     ports:
-      - 8000:8000
+      - 5173:5173
     working_dir: /src/app
     volumes:
       - type: bind
