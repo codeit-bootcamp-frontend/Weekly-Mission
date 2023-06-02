@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Card.module.css";
 import Star from "./Star";
 import defaultCardImg from "/src/assets/default-background.png";
+import PropTypes from "prop-types";
 
 function Card({ cardData }) {
   const calculatePassedTime = (time) => {
@@ -71,5 +72,9 @@ function Card({ cardData }) {
     </article>
   );
 }
+
+Card.propTypes = {
+  cardData: PropTypes.object,
+};
 
 export default Card;

@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./FolderInfo.module.css";
+import PropTypes from "prop-types";
 
 function FolderInfo({ folder }) {
   return (
@@ -16,5 +17,9 @@ function FolderInfo({ folder }) {
     </header>
   );
 }
+
+FolderInfo.propTypes = {
+  folder: PropTypes.object,
+};
 
 export default FolderInfo;
