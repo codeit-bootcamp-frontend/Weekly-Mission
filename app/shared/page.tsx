@@ -2,8 +2,8 @@ import React from "react";
 
 import Image from "next/image";
 
-import CardWrapper from "@/components/CardWrapper/cardWrapper";
-import SearchBar from "@/components/SearchBar/searchbar";
+import CardWrapper from "@/components/CardWrapper/CardWrapper";
+import SearchBar from "@/components/SearchBar/SearchBar";
 import getFolderData from "@/lib/getFolderData";
 
 import styles from "./page.module.css";

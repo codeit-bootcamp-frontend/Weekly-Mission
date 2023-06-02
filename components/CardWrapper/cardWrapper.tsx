@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import Card from "@/components/Card/card";
+import Card from "@/components/Card/Card";
 import { ILink } from "@/lib/getFolderData";
 
 import styles from "./cardWrapper.module.css";

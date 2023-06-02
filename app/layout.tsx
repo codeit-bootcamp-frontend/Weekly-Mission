@@ -3,8 +3,8 @@ import React from "react";
 import { Metadata } from "next";
 import localFont from "next/font/local";
 
-import Footer from "@/components/Footer/footer";
-import Gnb from "@/components/Gnb/gnb";
+import Footer from "@/components/Footer/Footer";
+import Gnb from "@/components/Gnb/Gnb";
 import getUserData from "@/lib/getUserData";
 
 import "./globals.css";

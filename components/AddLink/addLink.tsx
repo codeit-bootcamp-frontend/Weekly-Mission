@@ -4,15 +4,17 @@ import React, { useRef, useState } from "react";
 
 import Image from "next/image";
 
-import AddModal from "../AddModal/addModal";
-import styles from "./addLink.module.css";
+import AddModal from "../AddModal/AddModal";
+import styles from "./AddLink.module.css";
 
 const AddLink = () => {
   const [openAddModal, setOpenAddModal] = useState<boolean>(false);
   const [selectedLinkValue, setSelectedLinkValue] = useState<string>("");
   const linkInputRef = useRef<HTMLInputElement>(null);
 
-  const handleSubmitOpenModal = (e: React.FormEvent<HTMLFormElement>): void => {
+  const handleSubmitOpenAddModal = (
+    e: React.FormEvent<HTMLFormElement>
+  ): void => {
     e.preventDefault();
     if (linkInputRef.current) {
       setSelectedLinkValue(linkInputRef.current.value);
@@ -23,7 +25,7 @@ const AddLink = () => {
 
   return (
     <div className={styles.formWrapper}>
-      <form className={styles.form} onSubmit={handleSubmitOpenModal}>
+      <form className={styles.form} onSubmit={handleSubmitOpenAddModal}>
         <div className={styles.linkWrapper}>
           <div className={styles.linkIconWrapper}>
             <Image
@@ -49,7 +51,7 @@ const AddLink = () => {
 
       {openAddModal && (
         <AddModal
-          handleClickCloseModal={() => setOpenAddModal((prev) => !prev)}
+          setOpenAddModal={setOpenAddModal}
           selectedLinkValue={selectedLinkValue}
         />
       )}
