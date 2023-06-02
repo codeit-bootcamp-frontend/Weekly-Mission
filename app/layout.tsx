@@ -3,10 +3,6 @@ import React from "react";
 import { Metadata } from "next";
 import localFont from "next/font/local";
 
-import Footer from "@/components/Footer/Footer";
-import Gnb from "@/components/Gnb/Gnb";
-import getUserData from "@/lib/getUserData";
-
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -69,14 +65,9 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const user = await getUserData();
   return (
     <html lang="ko" className={pretendard.className}>
-      <body>
-        <Gnb user={user} />
-        {children}
-        <Footer />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
