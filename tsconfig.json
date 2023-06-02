@@ -19,7 +19,7 @@
         "name": "next"
       }
     ],
-    "baseUrl": "./app",
+    "baseUrl": "/",
     "paths": {
       "@hooks/*": ["hooks/*"],
       "@shared/*": ["shared/*"],

@@ -3,7 +3,7 @@ import avatar from '@assets/Avatar.png';
 import SharedCard from '@pages/shared/SharedCard.jsx';
 import styles from '@pages/shared/SharedContainer.module.css';
 import SearchBar from '@components/SearchBar';
-import useHttp from '@hooks/useHttp';
+import useHttp from '../hooks/useHttp';
 
 const { VITE_CARDINFO_API } = import.meta.env;
 
