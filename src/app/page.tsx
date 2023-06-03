@@ -2,14 +2,11 @@ import { Inter } from "next/font/google";
 import styles from "@/styles/index.module.scss";
 import Head from "next/head";
 import Image from "next/image";
-import Hero from "@/components/Hero/Hero";
+import Hero from "@/app/components/Hero/Hero";
 const inter = Inter({ subsets: ["latin"] });
-export default function Home() {
+export default function Page() {
   return (
     <>
-      <Head>
-        <title>Linkbrary</title>
-      </Head>
       <Hero />
       <div className={styles.tutorialSection}>
         <article className={styles.tutorial}>
@@ -101,10 +98,3 @@ export default function Home() {
     </>
   );
 }
-
-export const getStaticProps = async () => {
-  const titles = [``];
-  return {
-    props: {},
-  };
-};
