@@ -1,7 +1,7 @@
 .nullCardWrapper {
   width: 100%;
+  height: 100%;
   padding-top: 65px;
-  padding-bottom: 135px;
   max-width: 1060px;
   margin: 0 auto;
   display: flex;
@@ -27,6 +27,5 @@
 @media only screen and (max-width: 768px) {
   .nullCardWrapper {
     padding-top: 62.5px;
-    padding-bottom: 178px;
   }
 }

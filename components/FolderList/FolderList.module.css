@@ -57,12 +57,21 @@
     height: 35px;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 101px;
     z-index: 99;
     justify-content: center;
     background: #6d6afe;
     border: 1px solid #ffffff;
     border-radius: 20px;
+  }
+  .buttonWrapper.upperFooter {
+    bottom: 16px;
+  }
+  .buttonWrapper.upperBottom,
+  .buttonWrapper.undefined {
+    bottom: 16px;
+  }
+  .buttonWrapper.upperAddLink {
+    bottom: calc(85px + 16px);
   }
   .buttonText {
     color: #e7effb;

@@ -12,10 +12,19 @@ import FolderListItem from "./FolderListItem";
 interface IFolderList {
   folders: { id: number; name: string }[];
   currentTab: number;
+  inView: boolean | null;
+  isLinks: number;
 }
 
-const FolderList = ({ folders, currentTab }: IFolderList) => {
+const FolderList = ({ folders, currentTab, inView, isLinks }: IFolderList) => {
   const [openAddFolderModal, setOpenAddFolderModal] = useState<boolean>(false);
+
+  const addPosition = (inView: boolean | null, isLinks: number) => {
+    if (inView === true && isLinks === 0) return "upperFooter";
+    else if (inView === true && isLinks !== 0) return "upperBottom";
+    else if (inView === false && (isLinks !== 0 || isLinks === 0))
+      return "upperAddLink";
+  };
 
   return (
     <div className={styles.folderListWrapper}>
@@ -32,7 +41,9 @@ const FolderList = ({ folders, currentTab }: IFolderList) => {
         })}
       </div>
       <div
-        className={styles.buttonWrapper}
+        className={`${styles.buttonWrapper} ${
+          styles[`${addPosition(inView, isLinks)}`]
+        }`}
         onClick={() => setOpenAddFolderModal(true)}
       >
         <span className={styles.buttonText}>폴더 추가</span>

@@ -47,7 +47,12 @@ const FolderContents = ({ links, folders, currentTab }: ICardWrapper) => {
         <div ref={(el: HTMLDivElement) => (observerTargetRefs.current[0] = el)}>
           <SearchBar placeholder="제목을 검색해 보세요" />
         </div>
-        <FolderList folders={folders} currentTab={currentTab} />
+        <FolderList
+          folders={folders}
+          currentTab={currentTab}
+          inView={inView}
+          isLinks={links.length}
+        />
         <CardListOptions currentFolder={folders[currentTab]} />
         <CardWrapper links={links} />
       </div>

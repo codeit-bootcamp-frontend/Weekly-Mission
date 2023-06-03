@@ -16,6 +16,9 @@
 @media only screen and (max-width: 768px) {
   .optionsWrapper {
     padding-bottom: 20.5px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12.5px;
   }
 }
 .folderTitle {
