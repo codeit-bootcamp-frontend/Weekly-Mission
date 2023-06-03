@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+
 type TBeautifyTimeDiff = (minutes: number) => string;
 
 type TBeautifyDate = (createAt: string) => {
@@ -47,10 +49,10 @@ const beautifyTimeDiff: TBeautifyTimeDiff = (minutes) => {
  * yyyy.mm.dd 형식으로 반환하는 함수
  */
 const beautifyDate: TBeautifyDate = (createdAt) => {
-  const creationDate = new Date(createdAt);
-  const currentDate = new Date();
+  const creationDate: Date = new Date(createdAt);
+  const currentDate: Date = new Date();
   const timeDiffInMinutes =
-    Math.abs(<any>currentDate - <any>creationDate) / 1000 / 60;
+    Math.abs(Number(currentDate) - Number(creationDate)) / 1000 / 60;
 
   const beautifiedTimeDiff = beautifyTimeDiff(timeDiffInMinutes);
   const beautifiedDate = creationDate.toLocaleDateString().slice(0, -1);

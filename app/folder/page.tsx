@@ -11,6 +11,7 @@ import styles from "./page.module.css";
 const Folder = async () => {
   const user = await getUserData();
   const userFolder = await getFolderData();
+  // TODO: Gnb, Footer는 page가 아니라 layout.tsx에 삽입하기
   // TODO: 여기서 data fetching 해와서 FolderContents에 prop으로 넘겨주기
   // TODO: FolderContents에 넘겨줄 prop : 현재 탭(파일 데이터), 탭 리스트(파일 목록)
   // TODO: 지금은 일단 getFolderData가 전체 데이터라고 생각하고, 다른 페이지에서는 이 함수를 사용하지 않는 걸로 빈 화면 UI 구현하기
