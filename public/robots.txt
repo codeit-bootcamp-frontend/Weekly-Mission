@@ -1,3 +1,3 @@
 User-agent: *
 
-Sitemap: 
+Sitemap: https://weekly-mission-git-jer1s-react-codeit-bootcamp.vercel.app/
