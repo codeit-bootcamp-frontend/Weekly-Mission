@@ -1,15 +1,11 @@
 import React from "react";
 
 import FolderContents from "@/components/FolderContents/FolderContents";
-import Footer from "@/components/Footer/Footer";
-import Gnb from "@/components/Gnb/Gnb";
 import getFolderData from "@/lib/getFolderData";
-import getUserData from "@/lib/getUserData";
 
 import styles from "./page.module.css";
 
 const Folder = async () => {
-  const user = await getUserData();
   const userFolder = await getFolderData();
   // TODO: Gnb, Footer는 page가 아니라 layout.tsx에 삽입하기
   // TODO: 여기서 data fetching 해와서 FolderContents에 prop으로 넘겨주기
@@ -18,11 +14,9 @@ const Folder = async () => {
   // TODO: 모든 페이지에서 아래 구조를 똑같이 가져가되, FolderContents의 prop만 바뀌는 걸로 일단 UI 구현하기
   return (
     <>
-      <Gnb user={user} />
       <main className={styles.main}>
         <FolderContents links={userFolder.links} />
       </main>
-      <Footer />
     </>
   );
 };
