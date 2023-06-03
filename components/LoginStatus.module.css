@@ -1,0 +1,13 @@
+.user {
+  display: flex;
+  align-items: center;
+}
+
+.user img {
+  margin-right: 6px;
+}
+@media (max-width: 767px) {
+  .user span {
+    display: none;
+  }
+}

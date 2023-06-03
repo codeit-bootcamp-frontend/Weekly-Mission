@@ -1,18 +1,18 @@
 // 로고 이미지
-// import logo from "@assets/Linkbrary.png";
+import logo from "/public/logo.svg";
 import LoginStatus from "@components/LoginStatus";
+import Link from "next/link";
+import Image from "next/image";
 
-// 프로파일 이미지
-// import profile from "@assets/profile.png";
-import styles from "./GlobalNavigationBar.module.css";
+import styles from "@layout/GlobalNavigationBar.module.css";
 
 const GlobalNavigationBar = () => {
   return (
     <header className={styles.header}>
       <div className={styles["header-container"]}>
-        {/* <div className={styles.logo}>
-          <img onClick={goToHome} src={logo} alt="logo" />
-        </div> */}
+        <Link href="/">
+          <Image src={logo} alt="logo" />
+        </Link>
         <div>
           <LoginStatus />
         </div>

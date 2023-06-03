@@ -1,13 +1,13 @@
 :root {
- --primary: #6D6AFE;
- --red: #FF5B56;
- --black: #111322;
- --white: #ffffff;
- --gray1: #3E3E43;
- --gray2: #9FA6B2;
- --gray3: #CCD5E3;
- --gray4: #E7EFFb;
- --gray5: #F0F6FF;  
+  --primary: #6d6afe;
+  --red: #ff5b56;
+  --black: #111322;
+  --white: #ffffff;
+  --gray1: #3e3e43;
+  --gray2: #9fa6b2;
+  --gray3: #ccd5e3;
+  --gray4: #e7effb;
+  --gray5: #f0f6ff;
 }
 
 * {
@@ -24,4 +24,3 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
