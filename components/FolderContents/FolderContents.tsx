@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 import AddLink from "@/components/AddLink/AddLink";
+import CardListOptions from "@/components/CardListOptions/CardListOptions";
 import CardWrapper from "@/components/CardWrapper/CardWrapper";
 import FolderList from "@/components/FolderList/FolderList";
 import SearchBar from "@/components/SearchBar/SearchBar";
@@ -47,6 +48,7 @@ const FolderContents = ({ links, folders, currentTab }: ICardWrapper) => {
           <SearchBar placeholder="제목을 검색해 보세요" />
         </div>
         <FolderList folders={folders} currentTab={currentTab} />
+        <CardListOptions currentFolder={folders[currentTab]} />
         <CardWrapper links={links} />
       </div>
     </>
