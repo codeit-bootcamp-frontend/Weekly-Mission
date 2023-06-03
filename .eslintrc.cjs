@@ -19,7 +19,7 @@ module.exports = {
     sourceType: 'module',
   },
   settings: { react: { version: '18.2' } },
-  plugins: ['react', 'react-hooks', 'react-refresh', 'jsx-a11y', '@tanstack/query'],
+  plugins: ['react', 'react-hooks', 'react-refresh', 'jsx-a11y', '@tanstack/query', 'vanilla-extract'],
   rules: {
     'react-refresh/only-export-components': 'warn',
     'react/function-component-definition': [

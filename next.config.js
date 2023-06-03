@@ -1,6 +1,11 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-};
+/* eslint-disable import/no-extraneous-dependencies */
+const {
+  createVanillaExtractPlugin,
+} = require('@vanilla-extract/next-plugin');
 
-module.exports = nextConfig;
+const withVanillaExtract = createVanillaExtractPlugin();
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {};
+
+module.exports = withVanillaExtract(nextConfig);
