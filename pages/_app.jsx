@@ -9,6 +9,7 @@ import {
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { RecoilRoot } from 'recoil';
 import PropTypes from 'prop-types';
+import Head from 'next/head';
 
 const App = ({ Component, pageProps }) => {
   const [queryClient] = useState(() => { return new QueryClient(); });
@@ -17,6 +18,13 @@ const App = ({ Component, pageProps }) => {
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydrateState}>
         <RecoilRoot>
+          <Head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+            <title>Linkbrary</title>
+            <link rel="icon" type="icon" href="/favicon.ico" />
+          </Head>
           <Component {...pageProps} />
         </RecoilRoot>
       </Hydrate>

@@ -3,9 +3,7 @@ import Head from 'next/head';
 const Home = () => {
   return (
     <>
-      <Head>
-        <title>Linkbrary</title>
-      </Head>
+      <Head />
       <div>Test</div>
     </>
   );
