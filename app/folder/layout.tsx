@@ -17,6 +17,9 @@ export default async function FolderLayout({
       <div id="add-portal"></div>
       <div id="delete-link-portal"></div>
       <div id="add-folder-portal"></div>
+      <div id="share-folder-portal"></div>
+      <div id="edit-folder-portal"></div>
+      <div id="delete-folder-portal"></div>
       <Footer />
     </>
   );

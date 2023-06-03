@@ -49,7 +49,10 @@ a:active {
 
 #add-portal,
 #delete-link-portal,
-#add-folder-portal {
+#add-folder-portal,
+#share-folder-portal,
+#edit-folder-portal,
+#delete-folder-portal {
   position: fixed;
   top: 0;
   left: 0;
