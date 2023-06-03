@@ -46,7 +46,7 @@ module.exports = {
           },
           {
             pattern: "@/public/images/*",
-            group: "internal",
+            group: "unknown",
             position: "after",
           },
         ],

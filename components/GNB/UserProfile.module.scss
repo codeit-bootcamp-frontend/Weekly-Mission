@@ -1,0 +1,22 @@
+@use "@/styles/utils";
+
+.userContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: utils.$gray-brt1;
+}
+
+.userImg {
+  border-radius: 100%;
+}
+
+.userEmail {
+  font-size: 1.4rem;
+}
+
+@include utils.mobile {
+  .userEmail {
+    display: none;
+  }
+}
