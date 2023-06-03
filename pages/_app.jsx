@@ -7,6 +7,7 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { RecoilRoot } from 'recoil';
 import PropTypes from 'prop-types';
 
 const App = ({ Component, pageProps }) => {
@@ -15,7 +16,9 @@ const App = ({ Component, pageProps }) => {
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydrateState}>
-        <Component {...pageProps} />
+        <RecoilRoot>
+          <Component {...pageProps} />
+        </RecoilRoot>
       </Hydrate>
       <ReactQueryDevtools />
     </QueryClientProvider>
