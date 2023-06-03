@@ -22,12 +22,10 @@ const SharedCard = ({ link }) => {
   return (
     <Link href={url} className={styles.card}>
       <div className={styles["img-box"]}>
-        <Image
+        <img
           className={styles["card-img"]}
           src={imageSource || "/defaultImage.svg"}
           alt="card"
-          width={340}
-          height={200}
         />
         <div
           onClick={handleIsClick}
