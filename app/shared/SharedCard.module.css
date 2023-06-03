@@ -1,0 +1,87 @@
+.card {
+  width: 340px;
+  height: 334px;
+  box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.img-box {
+  width: 100%;
+  height: 200px;
+  position: relative;
+}
+
+.card:hover .img-box {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+}
+
+.card:hover .img-box .card-img {
+  transform: scale(1.2);
+  transition: 1s;
+}
+
+.card:hover .p-box {
+  background-color: #f0f6ff;
+  transition: 1s;
+}
+
+.card .img-box .star {
+  width: 30px;
+  height: 30px;
+  background: url("/starDefault.svg");
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+.card .img-box .click {
+  width: 30px;
+  height: 30px;
+  background: url("/starSelected.svg");
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.card .img-box .card-img {
+  width: 100%;
+  height: 200px;
+  border-radius: 15px 15px 0 0;
+}
+.card .p-box {
+  padding: 20px;
+}
+.card .p-box .post-time {
+  height: 17px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+}
+.card .p-box .post-time p {
+  color: #666;
+}
+.card .p-box .post-time .kabab-box {
+  width: 19px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card .p-box .description {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.card .p-box .post-date {
+  padding-top: 10px;
+  font-weight: 400;
+}
+@media (min-width: 375px) and (max-width: 767px) {
+  .card {
+    width: 325px;
+  }
+}

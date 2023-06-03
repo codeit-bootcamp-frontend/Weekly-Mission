@@ -1,6 +1,6 @@
 import "./globals.css";
-import GlobalNavigationBar from "../layout/GlobalNavigationBar";
-import GlobalFooter from "../layout/GlobalFooter";
+import GlobalNavigationBar from "@layout/GlobalNavigationBar";
+import GlobalFooter from "@layout/GlobalFooter";
 
 export default function RootLayout({
   children,

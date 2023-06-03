@@ -22,9 +22,10 @@
     "baseUrl": "/",
     "paths": {
       "@hooks/*": ["hooks/*"],
-      "@shared/*": ["shared/*"],
       "@layout/*": ["layout/*"],
-      "@components/*": ["components/*"]
+      "@components/*": ["components/*"],
+      "@shared/*": ["app/shared/*"],
+      "@library/*": ["library/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

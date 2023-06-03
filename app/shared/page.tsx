@@ -1,41 +1,47 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import avatar from '@assets/Avatar.png';
-import SharedCard from '@pages/shared/SharedCard.jsx';
-import styles from '@pages/shared/SharedContainer.module.css';
-import SearchBar from '@components/SearchBar';
-import useHttp from '../hooks/useHttp';
+import SharedCard from "@shared/SharedCard";
+import styles from "@shared/SharedContainer.module.css";
+import Image from "next/image";
+import SearchBar from "@components/SearchBar";
+import axios from "axios";
 
-const { VITE_CARDINFO_API } = import.meta.env;
+const getUser = async () => {
+  const result = await fetch("https://bootcamp-api.codeit.kr/api/sample/user");
+  return result.json();
+};
 
-const SharedContainer = () => {
-  const [cardList, setCardList] = useState([]);
+const getFolder = async () => {
+  const result = await fetch(
+    "https://bootcamp-api.codeit.kr/api/sample/folder"
+  );
+  return result.json();
+};
 
-  const { isLoading, error, sendRequest: getCardList } = useHttp(setCardList);
-
-  useEffect(() => {
-    getCardList({ url: VITE_CARDINFO_API });
-  }, [getCardList]);
+const SharedContainer = async () => {
+  let user = await getUser();
+  let folder = await getFolder();
 
   return (
-    <Fragment>
+    <>
       <div className={styles.user}>
-        <img
+        <Image
           className={styles.icon}
-          src={cardList?.folder?.owner?.profileImageSource}
+          src={user.data.profileImageSource}
           alt="icon"
+          width={60}
+          height={60}
         />
-        <p className="user-name">{cardList?.folder?.owner?.name}</p>
-        <p className={styles.favorite}>{cardList?.folder?.name}</p>
+        <p className="user-name">{folder.data.folder.name}</p>
+        <p className={styles.favorite}>{folder.data.folder.owner.name}</p>
       </div>
-      <div className={styles['main-container']}>
+      <div className={styles["main-container"]}>
         <SearchBar />
         <div className={styles.container}>
-          {cardList?.folder?.links.map((link) => (
+          {folder.data.folder.links.map((link) => (
             <SharedCard link={link} key={link.id} />
           ))}
         </div>
       </div>
-    </Fragment>
+    </>
   );
 };
 
