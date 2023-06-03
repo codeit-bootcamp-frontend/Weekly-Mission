@@ -1,4 +1,4 @@
-# Cryptometer
+# Linkbrary
 
 <div>
   <a href="https://www.npmjs.com/package/npm"><img alt="npm Version" src="https://img.shields.io/badge/npm@latest-v9.6.6-CB3837?&logo=npm&logoColor=CB3837"></a>
@@ -14,7 +14,7 @@ Linkbrary is a web application being developed to provide a web service that all
 
 ## Deploy Link
 
-The application can be accessed at [https://jeris-weekly-mission.netlify.app/](https://jeris-weekly-mission.netlify.app/).
+The application can be accessed at []().
 
 ## Project Structure
 ```
