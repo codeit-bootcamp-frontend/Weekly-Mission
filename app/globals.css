@@ -48,7 +48,8 @@ a:active {
 }
 
 #add-portal,
-#delete-link-portal {
+#delete-link-portal,
+#add-folder-portal {
   position: fixed;
   top: 0;
   left: 0;
