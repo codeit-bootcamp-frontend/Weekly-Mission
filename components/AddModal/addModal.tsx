@@ -22,6 +22,7 @@ const MOCK_FOLDERS: { name: string; length: number }[] = [
   { name: "나만의 장소", length: 3 },
 ];
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const AddModal = ({ setOpenAddModal, selectedLinkValue }: IAddModal) => {
   // TODO: api로 폴더 데이터를 받아오면 MOCK 데이터 삭제 예정
 

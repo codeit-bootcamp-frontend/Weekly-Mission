@@ -2,13 +2,7 @@
 
 import React from "react";
 
-export default function Error({
-  error,
-  reset,
-}: {
-  error: Error;
-  reset: () => void;
-}) {
+export default function Error({ reset }: { error: Error; reset: () => void }) {
   return (
     <div>
       <h2>Something went wrong! shared 페이지 내부 에러 처리</h2>
