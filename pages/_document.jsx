@@ -18,6 +18,7 @@ const Document = () => {
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
+          content="https://weekly-mission-git-jer1s-react-codeit-bootcamp.vercel.app/og-thumb.png"
         />
         <meta
           property="og:description"
@@ -26,6 +27,7 @@ const Document = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:image"
+          content="https://weekly-mission-git-jer1s-react-codeit-bootcamp.vercel.app/og-thumb.png"
         />
         <meta name="twitter:title" content="Linkbrary" />
         <meta
