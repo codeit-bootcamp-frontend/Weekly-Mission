@@ -4,7 +4,7 @@ import { useState } from "react";
 import styles from "./LinkCard.module.scss";
 import Image from "next/image";
 
-export interface linkCardProp {
+export interface LinkCardProp {
   id: number;
   href: string;
   thumbnailSrc?: string;
@@ -58,7 +58,7 @@ const LinkCard = ({
   thumbnailSrc,
   createdDate,
   description,
-}: linkCardProp) => {
+}: LinkCardProp) => {
   const [isLiked, setIsLiked] = useState(false);
 
   return (

@@ -2,7 +2,8 @@ import React from "react";
 import FolderInfo from "./components/FolderInfo/FolderInfo";
 import styles from "./page.module.scss";
 import SearchBar from "./components/SearchBar/SearchBar";
-import LinkCard from "./components/LinkCardList/LinkCard/LinkCard";
+import LinkCardList from "./components/LinkCardList/LinkCardList";
+
 const getFolderData = () => {
   return {
     ownerName: "kenny",
@@ -10,13 +11,13 @@ const getFolderData = () => {
   };
 };
 
-const getCardDataList = () => {
+const getCardDataList = async () => {
   return [{}];
 };
 
-const Page = () => {
+const Page = async () => {
   const folderData = getFolderData();
-  const cardDataList = getCardDataList();
+  const cardDataList = await getCardDataList();
   return (
     <main>
       <section className={styles.introSection}>
@@ -29,15 +30,9 @@ const Page = () => {
             placeholder={"원하는 링크를 검색해 보세요"}
           />
         </div>
-        {/* <div className="card-list-wrapper">
-          {cardDataList && <LinkCardList cardProps={cardDataList} />}
-        </div> */}
-        <LinkCard
-          id={1}
-          href="https://www.codeit.kr"
-          description="lorem ipsrum ahfioewhobweuvuiewbouvweniofviygcoiaenlvuaeffvgieu"
-          createdDate="Sat Jun 03 2023 16:54:06 GMT+0900"
-        />
+        <div className="card-list-wrapper">
+          {cardDataList && <LinkCardList cardDataList={cardDataList} />}
+        </div>
       </section>
     </main>
   );
