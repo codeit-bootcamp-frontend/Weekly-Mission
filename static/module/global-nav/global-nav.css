@@ -13,7 +13,7 @@ p {
   margin: 0 auto;
   padding: 2rem 20rem;
   max-width: 1920px;
-  height: 9.4rem;;
+  height: 9.4rem;
 }
 
 .navbar-container .logo img {
@@ -79,7 +79,7 @@ p {
   .navbar-container .logo img {
     width: 7.7rem;
   }
-  
+
   .navbar-container #gnb-login-button {
     width: 8rem;
     padding: 1rem 0;
