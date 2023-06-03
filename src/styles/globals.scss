@@ -102,3 +102,15 @@ a {
     background-color: transparent;
   }
 }
+
+button {
+  appearance: none;
+  border: none;
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+}
