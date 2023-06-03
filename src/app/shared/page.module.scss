@@ -1,0 +1,7 @@
+@use "/src/styles/variables" as var;
+.introSection {
+  text-align: center;
+  background: var.$gray-1;
+  padding-top: 1.25rem;
+  padding-bottom: 3.75rem;
+}
