@@ -6,6 +6,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://acme.com"),
   title: "Codeit Weekly Mission",
   description: "세상의 모든 정보를 쉽게 저장하고 관리해 보세요.",
   openGraph: {
