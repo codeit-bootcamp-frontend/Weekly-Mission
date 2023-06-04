@@ -7,14 +7,14 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    "https://weekly-mission-git-henry-react-week11-codeit-bootcamp.vercel.app"
+    "https://weekly-mission-git-fork-wooleejaan-henry-5968a4-codeit-bootcamp.vercel.app"
   ),
   title: "Codeit Weekly Mission",
   description: "세상의 모든 정보를 쉽게 저장하고 관리해 보세요.",
   openGraph: {
     title: "Linkbrary",
     description: "세상의 모든 정보를 쉽게 저장하고 관리해 보세요.",
-    url: "https://weekly-mission-git-henry-react-week11-codeit-bootcamp.vercel.app",
+    url: "https://weekly-mission-git-fork-wooleejaan-henry-5968a4-codeit-bootcamp.vercel.app",
     siteName: "linkbrary",
     images: {
       url: "https://i.ibb.co/DpfKPC9/img-info.png",
