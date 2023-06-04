@@ -1,1 +1,206 @@
+.text-gradient {
+  color: transparent;
+  background-clip: text;
+  /* background-clip 속성의 text 값은 아직 모든 브라우저가 서포트 X => -webkit 구문도 함께 추가 */
+  -webkit-background-clip: text;
+}
 
+.purple-to-pink {
+  background-image: linear-gradient(to right, var(--primary), #ff9f9f);
+}
+
+.red-to-blue {
+  background-image: linear-gradient(to right, #fe8a8a, #a4ceff);
+}
+
+.yellow-to-blue {
+  background-image: linear-gradient(to left, #6fbaff, #ffd88b);
+}
+
+.blue-to-sky {
+  background-image: linear-gradient(to right, #6d7ccd 20%, #52888538);
+}
+
+.mint-to-blue {
+  background-image: linear-gradient(to left, rgba(183, 156, 193, 1) 0%, rgba(146, 192, 219, 1) 62%, rgba(104, 232, 249, 1) 100%);
+}
+
+.tablet-br,
+.tablet-mobile-br {
+  display: none;
+}
+
+.header {
+  background-color: var(--gray-f);
+  padding-top: 7rem;
+}
+
+.header-title {
+  font-size: 6.4rem;
+  line-height: 8rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.header-image {
+  display: block;
+  margin: 0 auto;
+}
+
+.add-link-button {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.add-link-button .add-link-button-content {
+  display: inline-block;
+  padding: 1.6rem 12.6rem;
+  background-image: linear-gradient(to right, var(--primary), #6ae3fe);
+  border-radius: 0.8rem;
+  color: #f5f5f5;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.main {
+  margin: 12rem 0 17rem;
+}
+
+.card {
+  margin: 10rem auto;
+  width: 99.8rem;
+  height: 45rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 4.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+/* .intro-image {
+  position: relative;
+  width: 55rem;
+  height: 45rem;
+} */
+
+@media (max-width: 1199px) {
+  .tablet-br,
+  .tablet-mobile-br {
+    display: inline;
+  }
+
+  .tablet-br-none {
+    display: none;
+  }
+
+  .header {
+    padding-top: 4rem;
+  }
+
+  .header-image {
+    width: 69.8rem;
+    height: 34.3rem;
+  }
+
+  .main {
+    margin: 8rem 0 17rem;
+  }
+
+  .card:first-of-type {
+    margin-top: 0;
+  }
+
+  .card {
+    width: 69.8rem;
+    height: 31.5rem;
+  }
+
+  .intro-image {
+    width: 38.5rem;
+    height: 31.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    padding-top: 2.8rem;
+  }
+
+  .header,
+  .main {
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
+  }
+
+  .header-title {
+    font-size: 3.2rem;
+    line-height: 4.2rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .header-image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .add-link-button {
+    margin-bottom: 2.4rem;
+  }
+
+  .add-link-button .add-link-button-content {
+    padding: 1rem 6.2rem;
+    font-size: 1.4rem;
+  }
+
+  .main {
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
+    margin: 0;
+  }
+
+  .card {
+    margin: 8rem auto;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .card:first-of-type {
+    margin-top: 4rem;
+  }
+
+  .text-container {
+    display: block;
+    margin-bottom: 2.4rem;
+    order: 1;
+  }
+
+  .title {
+    font-size: 2.4rem;
+  }
+
+  .description {
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+  }
+
+  .intro-image {
+    width: 100%;
+    height: 100%;
+    order: 2;
+  }
+
+  .card br {
+    display: none;
+  }
+}
