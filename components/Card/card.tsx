@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 
 import Image from "next/image";
 
-import AddModal from "components/AddModal/AddModal";
+import AddModal from "@/components/AddModal/AddModal";
 import DeleteLinkModal from "components/DeleteLinkModal/DeleteLinkModal";
 import useOutsideClick from "hooks/useOutsideClick";
 import beautifyDate from "lib/beautifyData";
