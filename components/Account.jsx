@@ -7,8 +7,9 @@ import styles from './Account.module.css';
 import { isValidEmail, isValidPassword } from '@/lib/validators';
 import logoImage from '@/public/logo.svg';
 import AccountInput from './AccountInput';
+import Button from './Button';
 
-const Account = ({ isSignin }) => {
+const Account = ({ isSignin = false }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -131,14 +132,14 @@ const Account = ({ isSignin }) => {
           />
         </div>
       </Link>
-      <p>
+      <div className={styles.headerDescription}>
         {isSignin ? '회원이 아니신가요? ' : '이미 회원이신가요? '}
         <Link href={isSignin ? '/signup' : '/signin'}>
           <div className={styles.accountLink}>
             {isSignin ? '회원 가입하기' : '로그인 하기'}
           </div>
         </Link>
-      </p>
+      </div>
       <form className={styles.accountForm} onSubmit={handleSubmit}>
         <AccountInput
           value="email"
@@ -165,9 +166,9 @@ const Account = ({ isSignin }) => {
             handlePasswordToggler={handlePassword2Toggler}
           />
         )}
-        <button className={styles.accountButton} type="submit">
+        <Button className={styles.accountButton} type="submit">
           {isSignin ? '로그인' : '회원가입'}
-        </button>
+        </Button>
       </form>
       {isSignin && (
       <div className={styles.forgotPassword}>
@@ -179,7 +180,7 @@ const Account = ({ isSignin }) => {
 };
 
 Account.propTypes = {
-  isSignin: PropTypes.bool.isRequired,
+  isSignin: PropTypes.bool,
 };
 
 export default Account;

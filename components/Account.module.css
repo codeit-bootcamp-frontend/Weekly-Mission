@@ -5,15 +5,21 @@
 }
 
 .logoImage {
+  display: inline-block;
   position: relative;
   width: 21rem;
   height: 3.8rem;
 }
 
 .accountLink {
+  display: inline-block;
   text-decoration: underline;
   font-weight: 600;
   color: var(--primary);
+}
+
+.headerDescription {
+  margin: 1.6rem 0;
 }
 
 .accountForm {

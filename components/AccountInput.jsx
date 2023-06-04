@@ -34,9 +34,11 @@ const AccountInput = ({
           onBlur={handleBlur}
         />
         {value === PASSWORD_TYPE && (
-          <button type="button" onMouseDown={handlePasswordToggler}>
-            <i className={`${styles.eyeToggler} fa ${showPassword ? 'fa-eye' : 'fa-eye-slash'}`} />
-          </button>
+        <i
+          className={`${styles.eyeToggler} fa ${showPassword ? 'fa-eye' : 'fa-eye-slash'}`}
+          onMouseDown={handlePasswordToggler}
+          role="presentation"
+        />
         )}
       </div>
     </>
