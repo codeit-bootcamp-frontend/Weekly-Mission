@@ -1,0 +1,59 @@
+.footerWrapper {
+  background-color: var(--linkbrary-black);
+  font-family: "Arial";
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+
+.contentWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 192rem;
+  margin: 0 auto;
+  padding: 3.2rem 3.2rem 10.4rem;
+  color: var(--linkbrary-light-slate-gray);
+}
+
+@media screen and (max-width: 767px) {
+  .contentWrapper {
+    display: grid;
+    padding: 3.2rem;
+    align-items: start;
+    grid-template-areas:
+      "privacypolicyfaq socialmedialinks"
+      "copyright copyright";
+    gap: 6rem 0;
+  }
+}
+
+.privacyPolicyFAQ {
+  grid-area: privacypolicyfaq;
+  display: flex;
+  justify-content: space-between;
+  gap: 30;
+}
+
+.privacyPolicyFAQ a {
+  color: var(--linkbrary-light-slate-gray);
+}
+
+.privacyPolicyFAQ a:first-child {
+  margin-right: 3rem;
+}
+
+.socialMediaLinks {
+  grid-area: socialmedialinks;
+}
+
+.socialMediaLinks img {
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-right: 1.3rem;
+}
+
+@media screen and (max-width: 767px) {
+  .socialMediaLinks {
+    justify-self: end;
+  }
+}
