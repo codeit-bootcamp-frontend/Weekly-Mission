@@ -11,10 +11,11 @@
 .modal {
   background: var(--white);
   position: fixed;
-  top: 30vh;
-  bottom: 30vh;
-  left: 5vw;
-  right: 5vw;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto auto;
   width: 36rem;
   height: 24.4rem;
   z-index: 100;
@@ -62,9 +63,13 @@
   border-radius: 0.8rem;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 767px) {
   .modal {
-    left: calc(50% - 20rem);
-    width: 40rem;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto auto;
   }
 }

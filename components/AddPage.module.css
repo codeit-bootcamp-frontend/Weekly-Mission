@@ -4,8 +4,32 @@
   align-items: center;
 }
 
-.page span {
+.page .add-folder {
   font-size: 2rem;
   color: var(--primary);
   cursor: pointer;
+  border: none;
+  background-color: var(--white);
+}
+
+@media (max-width: 767px) {
+  .page .add-folder {
+    width: 12.8rem;
+    height: 3.5rem;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 14rem;
+    margin: 0 auto;
+    z-index: 1;
+    background-color: var(--primary);
+    color: var(--white);
+    border-radius: 2rem;
+    border: 0.1rem solid var(--white);
+  }
+  .page .chip-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem 0.4rem;
+  }
 }

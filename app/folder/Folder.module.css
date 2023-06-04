@@ -1,19 +1,19 @@
 .main-container {
-  max-width: 1060px;
-  width: cal(100% - 380px);
-  margin: 40px auto 99px;
+  max-width: 106rem;
+  width: cal(100% - 38rem);
+  margin: 4rem auto 0;
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
   /*----------------------- header ---------------------------*/
   .main-container {
-    max-width: 704px;
+    max-width: 70.4rem;
   }
 }
 
 @media (max-width: 767px) {
   /*-------------------------header----------------------*/
   .main-container {
-    max-width: 325px;
+    max-width: 32.5rem;
   }
 }

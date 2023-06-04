@@ -22,7 +22,7 @@ const AddPage = () => {
 
   return (
     <div className={styles.page}>
-      <div>
+      <div className={styles["chip-box"]}>
         {buttonChip.map((chip) => (
           <AddPageChip
             chip={chip}
@@ -32,7 +32,13 @@ const AddPage = () => {
         ))}
       </div>
       <div>
-        <span onClick={modalHandler}>폴더 추가 +</span>
+        <button
+          className={styles["add-folder"]}
+          type="button"
+          onClick={modalHandler}
+        >
+          폴더 추가 +
+        </button>
       </div>
       {modal && (
         <UpdateModal

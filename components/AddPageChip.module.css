@@ -20,3 +20,8 @@
   cursor: pointer;
   display: inline-block;
 }
+
+@media (max-width: 767px) {
+  .button {
+  }
+}
