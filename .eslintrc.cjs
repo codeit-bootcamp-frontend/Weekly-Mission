@@ -32,5 +32,9 @@ module.exports = {
     'no-console': ['error', { allow: ['warn', 'error'] }],
     'arrow-body-style': ['error', 'always'],
     'react/react-in-jsx-scope': 'off',
+    'react/require-default-props': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'import/no-unresolved': 'off',
+    'import/extensions': 'off',
   },
 };

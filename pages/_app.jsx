@@ -1,6 +1,6 @@
-/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/forbid-prop-types */
 import { useState } from 'react';
+import Head from 'next/head';
 import {
   Hydrate,
   QueryClient,
@@ -9,7 +9,7 @@ import {
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { RecoilRoot } from 'recoil';
 import PropTypes from 'prop-types';
-import Head from 'next/head';
+import '@/styles/global.css';
 
 const App = ({ Component, pageProps }) => {
   const [queryClient] = useState(() => { return new QueryClient(); });
