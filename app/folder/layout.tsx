@@ -5,7 +5,7 @@ import SearchBar from "@components/SearchBar";
 import CardContainer from "@components/CardContainer";
 import UpdateLink from "@components/UpdateLink";
 
-const Folder = () => {
+const layout = ({ children }) => {
   return (
     <>
       <AddLinkBar />
@@ -14,9 +14,9 @@ const Folder = () => {
         <AddPage />
         <UpdateLink />
       </div>
-      <CardContainer />
+      {children}
     </>
   );
 };
 
-export default Folder;
+export default layout;

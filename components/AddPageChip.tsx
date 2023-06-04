@@ -1,9 +1,12 @@
-import React from "react";
+"use client";
 import styles from "@components/AddPageChip.module.css";
+import { useRouter } from "next/navigation";
 
-const AddPageChip = ({ chip, isSelected, setIsSelected }) => {
+const AddPageChip = ({ chip, link, isSelected, setIsSelected }) => {
+  const router = useRouter();
   const selectHandler = () => {
     setIsSelected(chip);
+    router.push(link);
   };
 
   return (

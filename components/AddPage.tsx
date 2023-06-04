@@ -5,12 +5,12 @@ import styles from "@components/AddPage.module.css";
 import UpdateModal from "@layout/UpdateModal";
 
 const buttonChip = [
-  "전체",
-  "즐겨찾기",
-  "코딩 팁",
-  "채용 사이트",
-  "유용한 글",
-  "나만의 장소",
+  { chip: "전체", link: "folder" },
+  { chip: "즐겨찾기", link: "folder/favorites" },
+  { chip: "코딩 팁", link: "folder/1" },
+  { chip: "채용 사이트", link: "folder/2" },
+  { chip: "유용한 글", link: "folder/3" },
+  { chip: "나만의 장소", link: "folder/4" },
 ];
 
 const AddPage = () => {
@@ -25,8 +25,9 @@ const AddPage = () => {
       <div className={styles["chip-box"]}>
         {buttonChip.map((chip) => (
           <AddPageChip
-            key={chip}
-            chip={chip}
+            key={chip.chip}
+            chip={chip.chip}
+            link={chip.link}
             isSelected={isSelected}
             setIsSelected={setIsSelected}
           />
