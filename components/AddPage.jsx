@@ -6,7 +6,7 @@ import UpdateModal from "@layout/UpdateModal";
 
 const buttonChip = [
   { chip: "전체", link: "folder" },
-  { chip: "즐겨찾기", link: "folder/favorites" },
+  { chip: "⭐️ 즐겨찾기", link: "folder/favorites" },
   { chip: "코딩 팁", link: "folder/1" },
   { chip: "채용 사이트", link: "folder/2" },
   { chip: "유용한 글", link: "folder/3" },
