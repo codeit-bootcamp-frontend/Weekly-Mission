@@ -1,0 +1,57 @@
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0.4rem 2.5rem rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer {
+  width: 36rem;
+  height: fit-content;
+  background-color: #ffffff;
+  padding: 3.5rem 4rem;
+  position: relative;
+  border: 0.1rem solid #ccd5e3;
+  border-radius: 1.5rem;
+}
+
+.closeIconContainer {
+  position: absolute;
+  right: 1.6rem;
+  top: 1.6rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  cursor: pointer;
+}
+
+.closeIcon {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  display: block;
+  width: 28rem;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2.4rem;
+  text-align: center;
+  color: #373740;
+  padding-bottom: 2.4rem;
+  margin: 0;
+}
