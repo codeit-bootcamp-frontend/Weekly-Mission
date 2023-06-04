@@ -20,3 +20,7 @@ export default function UserProfile({ user }) {
     </div>
   );
 }
+
+UserProfile.propTypes = {
+  user: PropTypes.object.isRequired,
+};

@@ -1,11 +1,10 @@
 import classNames from "classnames/bind";
 import Link from "next/link";
+import PropTypes from "prop-types";
 
 import Star from "@/components/Star";
 
 import styles from "./Card.module.scss";
-
-import defaultCardImg from "@/public/images/default-background.png";
 
 const cx = classNames.bind(styles);
 
@@ -49,6 +48,7 @@ const changeDateFormat = (time) => {
 };
 
 export default function Card({ cardData }) {
+  const defaultCardImg = "/images/default-background.png";
   return (
     <article className={cx("card")}>
       <Link href={cardData.url} target="_blank" rel="noreferrer">
@@ -77,3 +77,7 @@ export default function Card({ cardData }) {
     </article>
   );
 }
+
+Card.propTypes = {
+  cardData: PropTypes.object.isRequired,
+};

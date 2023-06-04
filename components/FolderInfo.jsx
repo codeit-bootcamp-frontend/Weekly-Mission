@@ -23,3 +23,7 @@ export default function FolderInfo({ folder }) {
     </header>
   );
 }
+
+FolderInfo.propTypes = {
+  folder: PropTypes.object.isRequired,
+};

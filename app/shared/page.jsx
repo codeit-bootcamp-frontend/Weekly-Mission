@@ -1,7 +1,4 @@
 import classNames from "classnames/bind";
-import Image from "next/image";
-import Link from "next/link";
-import PropTypes from "prop-types";
 
 import Card from "@/components/Card";
 import FolderInfo from "@/components/FolderInfo";
