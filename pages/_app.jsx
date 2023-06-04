@@ -11,6 +11,7 @@ import { RecoilRoot } from 'recoil';
 import PropTypes from 'prop-types';
 import '@/styles/global.css';
 import Nav from '@/components/Nav';
+import Footer from '@/components/Footer';
 
 const App = ({ Component, pageProps }) => {
   const [queryClient] = useState(() => { return new QueryClient(); });
@@ -26,6 +27,7 @@ const App = ({ Component, pageProps }) => {
           </Head>
           <Nav />
           <Component {...pageProps} />
+          <Footer />
         </RecoilRoot>
       </Hydrate>
       <ReactQueryDevtools />
