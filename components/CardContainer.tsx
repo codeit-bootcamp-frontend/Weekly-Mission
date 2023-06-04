@@ -1,5 +1,5 @@
 import styles from "@components/CardContainer.module.css";
-import SharedCard from "@shared/SharedCard";
+import Card from "@components/Card";
 
 const getFolder = async () => {
   const result = await fetch(
@@ -16,7 +16,7 @@ const CardContainer = async () => {
     <div className={styles["main-container"]}>
       <div className={styles.container}>
         {folder.data.folder.links.map((link) => (
-          <SharedCard link={link} key={link.id} />
+          <Card link={link} key={link.id} />
         ))}
       </div>
     </div>

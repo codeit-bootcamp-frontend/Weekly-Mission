@@ -1,9 +1,7 @@
-import SharedCard from "@shared/SharedCard";
+import Card from "@components/Card";
 import styles from "@shared/SharedContainer.module.css";
 import SearchBar from "@components/SearchBar";
 import axios from "axios";
-import AddPage from "@components/AddPage";
-import { formatDiagnostic } from "typescript";
 
 const getUser = async () => {
   const result = await fetch("https://bootcamp-api.codeit.kr/api/sample/user", {
@@ -40,7 +38,7 @@ const SharedContainer = async () => {
       <div className={styles["main-container"]}>
         <div className={styles.container}>
           {folder.data.folder.links.map((link) => (
-            <SharedCard link={link} key={link.id} />
+            <Card link={link} key={link.id} />
           ))}
         </div>
       </div>

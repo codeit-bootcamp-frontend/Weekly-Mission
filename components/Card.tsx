@@ -2,14 +2,14 @@
 
 import Link from "next/link";
 import React, { useRef, useEffect } from "react";
-import styles from "./SharedCard.module.css";
+import styles from "@components/Card.module.css";
 import kebab from "/public/kebab.svg";
 import defaultImage from "/public/defaultImage.svg";
 import { timeForToday } from "@library/timeForToday";
 import { getToday } from "@library/getToday";
 import { useState } from "react";
 
-const SharedCard = ({ link }) => {
+const Card = ({ link }) => {
   const { createdAt, url, description, imageSource } = link;
   const [isClick, setIsClick] = useState(false);
   const [showPopOver, setShowPopOver] = useState(false);
@@ -70,4 +70,4 @@ const SharedCard = ({ link }) => {
   );
 };
 
-export default SharedCard;
+export default Card;
