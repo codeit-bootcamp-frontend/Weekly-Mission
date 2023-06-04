@@ -3,7 +3,6 @@ import React from "react";
 
 import dynamic from "next/dynamic";
 
-// import FolderContents from "components/FolderContents/FolderContents";
 import getFolderData from "lib/getFolderData";
 
 import styles from "./page.module.css";

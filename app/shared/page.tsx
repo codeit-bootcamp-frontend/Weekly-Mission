@@ -8,7 +8,6 @@ import getFolderData from "lib/getFolderData";
 
 import styles from "./page.module.css";
 
-// import CardWrapper from "@/components/CardWrapper/CardWrapper";
 const CardWrapper = dynamic(
   () => import("components/CardWrapper/CardWrapper"),
   { ssr: false }

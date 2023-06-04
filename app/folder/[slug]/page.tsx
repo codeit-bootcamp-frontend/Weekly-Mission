@@ -5,8 +5,6 @@ import dynamic from "next/dynamic";
 
 import styles from "./page.module.css";
 
-// import FolderContents from "components/FolderContents/FolderContents";
-
 const FolderContents = dynamic(
   () => import("components/FolderContents/FolderContents"),
   { ssr: false }
