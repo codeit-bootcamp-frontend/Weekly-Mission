@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { MouseEventHandler, useRef, useState } from "react";
 import styles from "./LinkCard.module.scss";
 import Image from "next/image";
+import Popover from "../Popover/Popover";
+import useOutsideClick from "@/app/hooks/useOutsideClick";
 
 export interface LinkCardProp {
   id: number;
@@ -60,6 +62,17 @@ const LinkCard = ({
   description,
 }: LinkCardProp) => {
   const [isLiked, setIsLiked] = useState(false);
+  const [showPopover, setShowPopover] = useState(false);
+  const popoverRef = useRef(null);
+
+  const handleClickOpenPopover: MouseEventHandler = (e) => {
+    e.preventDefault();
+    setShowPopover(true);
+  };
+
+  useOutsideClick(popoverRef, () => {
+    setShowPopover(false);
+  });
 
   return (
     <a id={styles["card-link"]} href={href} target="_blank">
@@ -86,8 +99,19 @@ const LinkCard = ({
           </div>
         </div>
         <div className={styles.metadataContainer}>
-          <div className={styles.kebab}>
+          <div className={styles.kebab} onClick={handleClickOpenPopover}>
             <Image src="/kebab.svg" alt="kebab" fill />
+            {showPopover && (
+              <div className={styles.popoverContainer} ref={popoverRef}>
+                <Popover
+                  onClickItem={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setShowPopover(false);
+                  }}
+                />
+              </div>
+            )}
           </div>
           <p className={styles.updatedTime}>
             {getTimeSinceCreation(createdDate)}

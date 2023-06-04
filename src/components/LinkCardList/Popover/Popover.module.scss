@@ -1,0 +1,29 @@
+@use "/src/styles/variables" as var;
+
+.popover {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  list-style: none;
+  z-index: 10;
+  background-color: var.$white;
+  box-shadow: 0px 2px 8px rgba(51, 50, 54, 0.1);
+}
+
+.selectItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 30px;
+  background-color: var.$white;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: var.$black;
+
+  &:nth-child(2) {
+    background-color: var.$gray-1;
+    color: var.$primary;
+  }
+}

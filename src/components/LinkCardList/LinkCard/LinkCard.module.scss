@@ -66,6 +66,12 @@
   top: 0.9375rem;
   right: 1.25rem;
   cursor: pointer;
+
+  .popoverContainer {
+    position: absolute;
+    right: 0;
+    top: 21px;
+  }
 }
 
 .updatedTime {
