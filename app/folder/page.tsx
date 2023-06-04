@@ -8,12 +8,7 @@ import UpdateLink from "@components/UpdateLink";
 const Folder = () => {
   return (
     <>
-      <AddLinkBar />
-      <div className={styles["main-container"]}>
-        <SearchBar />
-        <AddPage />
-        <UpdateLink />
-      </div>
+      <UpdateLink title="전체" />
       <CardContainer />
     </>
   );

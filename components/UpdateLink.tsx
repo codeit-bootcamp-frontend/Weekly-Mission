@@ -6,7 +6,7 @@ import DeleteModal from "@layout/DeleteModal";
 import UpdateModal from "@layout/UpdateModal";
 import ShareModal from "@layout/ShareModal";
 
-const UpdateLink = () => {
+const UpdateLink = ({ title }) => {
   const [deleteModal, setDeleteModal] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
   const [shareModal, setShareModal] = useState(false);
@@ -25,7 +25,7 @@ const UpdateLink = () => {
   return (
     <div className={styles.container}>
       <div>
-        <p className={styles.selected}>전체</p>
+        <p className={styles.selected}>{title}</p>
       </div>
       <div className={styles.icons}>
         <div onClick={shareModalHander}>

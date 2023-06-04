@@ -12,9 +12,8 @@ const layout = ({ children }) => {
       <div className={styles["main-container"]}>
         <SearchBar />
         <AddPage />
-        <UpdateLink />
+        {children}
       </div>
-      {children}
     </>
   );
 };
