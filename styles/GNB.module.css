@@ -1,0 +1,89 @@
+.gnb {
+  width: 100%;
+  max-width: 192rem;
+  height: 9.4rem;
+  padding: 0 20rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--gray-f);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.linkbrary-logo {
+  position: relative;
+  width: 13.3rem;
+  height: 2.4rem;
+}
+
+.linkbrary-logo-image {
+  display: block;
+}
+
+.login-button {
+  padding: 1.6rem 4.05rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #f5f5f5;
+  border-radius: 0.8rem;
+  background-image: linear-gradient(to right, var(--primary) 20%, #6ae3fe);
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.profile-container img {
+  width: 2.8rem;
+  border-radius: 70%;
+}
+
+.profile-email {
+  font-size: 1.4rem;
+}
+
+@media (max-width: 1199px) {
+  .gnb {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .linkbrary-logo {
+    margin-right: 53.8rem;
+  }
+}
+
+@media (max-width: 862px) {
+  .gnb {
+    justify-content: space-between;
+    padding: 0 3.2rem;
+  }
+
+  .linkbrary-logo {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .gnb {
+    height: 6.3rem;
+  }
+
+  .linkbrary-logo {
+    width: 8.867rem;
+    height: 1.6rem;
+  }
+
+  .login-button {
+    padding: 1rem 2.15rem;
+    font-size: 1.4rem;
+  }
+
+  .profile-email {
+    display: none;
+  }
+}
