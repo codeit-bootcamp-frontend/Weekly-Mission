@@ -11,10 +11,10 @@ const Footer = () => {
       <div className={styles.inner}>
         <div className={styles.copyright}>©codeit - 2023</div>
         <div className={styles.policy}>
-          <Link href="/privacy" className={styles.privacy}>
+          <Link href="/" className={styles.privacy}>
             Privacy Policy
           </Link>
-          <Link href="/faq" className={styles.faq}>
+          <Link href="/" className={styles.faq}>
             FAQ
           </Link>
         </div>
