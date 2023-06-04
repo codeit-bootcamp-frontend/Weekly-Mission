@@ -1,0 +1,20 @@
+@use "@/styles/utils";
+
+.folderChip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 0.8rem 1.2rem;
+  border: 0.1rem solid utils.$primary;
+  border-radius: 0.5rem;
+
+  &:active {
+    background-color: utils.$gray-brt4;
+  }
+
+  @include utils.mobile {
+    padding: 0.6rem 1rem;
+    font-size: 1.4rem;
+  }
+}

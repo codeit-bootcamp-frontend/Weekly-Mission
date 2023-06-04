@@ -16,6 +16,7 @@ export default async function RootLayout({ children }) {
         <GNB isLogged={isLogged} user={user} />
         {children}
         <Footer />
+        <div id="modal-portal" />
       </body>
     </html>
   );

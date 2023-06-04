@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 
-import Card from "@/components/Card";
+import Card from "@/components/Card/Card";
 import FolderInfo from "@/components/FolderInfo";
 import SearchBar from "@/components/SearchBar";
 import { getFolder } from "@/utils/api";
