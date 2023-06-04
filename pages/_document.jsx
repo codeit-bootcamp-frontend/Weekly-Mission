@@ -6,6 +6,7 @@ const Document = () => {
   return (
     <Html lang="ko">
       <Head>
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta
           name="description"
           content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
