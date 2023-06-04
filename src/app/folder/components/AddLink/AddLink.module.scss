@@ -1,7 +1,6 @@
 @use "/src/styles/variables" as var;
 
 .addForm {
-  width: max(100%, 800px);
   padding: 16px 20px;
   background: var.$white;
   border: 1px solid var.$primary;
