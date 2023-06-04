@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from '@/styles/Home.module.css';
+import Layout from '@/components/Layout';
 import HeaderImage from '@/public/homepage-header-image.svg';
 import ContentImage1 from '@/public/homepage-body-thumb1.svg';
 import ContentImage2 from '@/public/homepage-body-thumb2.svg';
@@ -9,7 +10,7 @@ import ButtonLink from '@/components/ButtonLink';
 
 const Home = () => {
   return (
-    <>
+    <Layout>
       <article className={styles.homeHeader}>
         <h1 className={styles.headerTitle}>
           <span className={styles.emphasis}>세상의 모든 정보</span>
@@ -104,7 +105,7 @@ const Home = () => {
           </div>
         </section>
       </main>
-    </>
+    </Layout>
   );
 };
 

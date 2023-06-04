@@ -10,8 +10,6 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { RecoilRoot } from 'recoil';
 import PropTypes from 'prop-types';
 import '@/styles/global.css';
-import Nav from '@/components/Nav';
-import Footer from '@/components/Footer';
 
 const App = ({ Component, pageProps }) => {
   const [queryClient] = useState(() => { return new QueryClient(); });
@@ -25,9 +23,7 @@ const App = ({ Component, pageProps }) => {
             <title>Linkbrary</title>
             <link rel="icon" type="icon" href="/favicon.ico" />
           </Head>
-          <Nav />
           <Component {...pageProps} />
-          <Footer />
         </RecoilRoot>
       </Hydrate>
       <ReactQueryDevtools />
