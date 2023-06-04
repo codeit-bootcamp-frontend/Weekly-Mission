@@ -1,12 +1,18 @@
 import React from "react";
 
+import dynamic from "next/dynamic";
 import Image from "next/image";
 
-import CardWrapper from "@/components/CardWrapper/CardWrapper";
 import SearchBar from "@/components/SearchBar/SearchBar";
 import getFolderData from "lib/getFolderData";
 
 import styles from "./page.module.css";
+
+// import CardWrapper from "@/components/CardWrapper/CardWrapper";
+const CardWrapper = dynamic(
+  () => import("components/CardWrapper/CardWrapper"),
+  { ssr: false }
+);
 
 const Shared = async () => {
   const userFolder = await getFolderData();

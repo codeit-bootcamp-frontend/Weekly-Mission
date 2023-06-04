@@ -1,10 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 
-import FolderContents from "components/FolderContents/FolderContents";
+import dynamic from "next/dynamic";
+
+// import FolderContents from "components/FolderContents/FolderContents";
 import getFolderData from "lib/getFolderData";
 
 import styles from "./page.module.css";
+
+const FolderContents = dynamic(
+  () => import("components/FolderContents/FolderContents"),
+  { ssr: false }
+);
 
 const MOCK_FOLDERS: { id: number; name: string }[] = [
   { id: 0, name: "전체" },
