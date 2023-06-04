@@ -8,7 +8,15 @@
 
   a {
     color: #000000;
-    text-decoration: none;
+  }
+
+  .cardImg {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
   }
 
   &:hover {
@@ -25,15 +33,6 @@
   width: 34rem;
   height: 20rem;
   overflow: hidden;
-}
-
-.cardImg {
-  width: 100%;
-  height: 100%;
-  transition: transform 0.5s;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
 }
 
 .star {
