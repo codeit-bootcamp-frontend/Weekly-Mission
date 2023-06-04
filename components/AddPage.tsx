@@ -2,6 +2,7 @@
 import { useState } from "react";
 import AddPageChip from "./AddPageChip";
 import styles from "@components/AddPage.module.css";
+import UpdateModal from "@layout/UpdateModal";
 
 const buttonChip = [
   "전체",
@@ -14,6 +15,11 @@ const buttonChip = [
 
 const AddPage = () => {
   const [isSelected, setIsSelected] = useState("전체");
+  const [modal, setModal] = useState(false);
+  const modalHandler = () => {
+    setModal(!modal);
+  };
+
   return (
     <div className={styles.page}>
       <div>
@@ -26,8 +32,16 @@ const AddPage = () => {
         ))}
       </div>
       <div>
-        <span>폴더 추가 +</span>
+        <span onClick={modalHandler}>폴더 추가 +</span>
       </div>
+      {modal && (
+        <UpdateModal
+          modal={modal}
+          modalHandler={modalHandler}
+          content="폴더 추가"
+          placeholder="내용 입력"
+        />
+      )}
     </div>
   );
 };

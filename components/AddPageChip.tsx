@@ -5,7 +5,6 @@ const AddPageChip = ({ chip, isSelected, setIsSelected }) => {
   const selectHandler = () => {
     setIsSelected(chip);
   };
-  console.log(isSelected);
 
   return (
     <button
