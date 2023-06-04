@@ -1,9 +1,30 @@
 @use "/src/styles/variables" as var;
 
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.3s ease;
+  &.floating {
+    flex-direction: column-reverse;
+  }
+}
+
 .heroSection {
   padding: 60px 32.5px 90px;
   background: var.$gray-1;
-
+  transition: all 0.3s ease;
+  &.floating {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    padding: 24px 32.5px;
+    width: 100%;
+    z-index: 11;
+    @media only screen and (max-width: 768px) {
+      padding: 16px 32.5px;
+    }
+  }
   @media only screen and (max-width: 768px) {
     padding: 24px 32.5px 40px;
   }

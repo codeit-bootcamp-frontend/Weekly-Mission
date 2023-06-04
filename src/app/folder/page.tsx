@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import AddLink from "./components/AddLink/AddLink";
 import styles from "./page.module.scss";
 import SearchBar from "@/components/SearchBar/SearchBar";
@@ -9,6 +9,8 @@ import Image from "next/image";
 import Option from "./components/Option/Option";
 import LinkCardList from "@/components/LinkCardList/LinkCardList";
 import { getFolderRequest } from "@/lib/api/folderApi";
+import useIsVisible from "../hooks/useIsVisible";
+import useMediaQuery from "../hooks/useMediaQuery";
 
 const FOLDER_CHIP_LIST = [
   {
@@ -45,6 +47,10 @@ const FOLDER_CHIP_LIST = [
 
 const Page = () => {
   const [cardListProps, setCardListProps] = useState([]);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isHeroVisible = useIsVisible(isMobile ? 182 : 314);
+
   const getCardListProps = (dataList: any) => {
     return dataList.map((data: any) => {
       return {
@@ -69,8 +75,21 @@ const Page = () => {
   }, []);
 
   return (
-    <main>
-      <section className={styles.heroSection}>
+    <main
+      className={
+        isHeroVisible
+          ? styles.mainContainer
+          : `${styles.mainContainer} ${styles.floating}`
+      }
+    >
+      <section
+        className={
+          isHeroVisible
+            ? styles.heroSection
+            : `${styles.heroSection} ${styles.floating}`
+        }
+        ref={heroRef}
+      >
         <div className={styles.addLinkContainer}>
           <AddLink />
         </div>
