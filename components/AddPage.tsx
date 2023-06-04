@@ -44,7 +44,7 @@ const AddPage = () => {
         <UpdateModal
           modal={modal}
           modalHandler={modalHandler}
-          content="폴더 추가"
+          title="폴더 추가"
           placeholder="내용 입력"
         />
       )}
