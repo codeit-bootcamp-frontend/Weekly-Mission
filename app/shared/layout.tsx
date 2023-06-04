@@ -1,7 +1,7 @@
 import React from "react";
 
-import Footer from "components/Footer/Footer";
-import Gnb from "components/Gnb/Gnb";
+import Footer from "@/components/Footer/Footer";
+import Gnb from "@/components/Gnb/Gnb";
 import getUserData from "lib/getUserData";
 
 export default async function SharedLayout({

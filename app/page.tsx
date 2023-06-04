@@ -2,8 +2,8 @@ import React from "react";
 
 import Image from "next/image";
 
-import Footer from "components/Footer/Footer";
-import Gnb from "components/Gnb/Gnb";
+import Footer from "@/components/Footer/Footer";
+import Gnb from "@/components/Gnb/Gnb";
 import getUserData from "lib/getUserData";
 
 import styles from "./page.module.css";

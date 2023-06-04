@@ -2,11 +2,11 @@
 
 import React, { useEffect, useRef, useState } from "react";
 
-import AddLink from "components/AddLink/AddLink";
+import AddLink from "@/components/AddLink/AddLink";
+import CardWrapper from "@/components/CardWrapper/CardWrapper";
+import SearchBar from "@/components/SearchBar/SearchBar";
 import CardListOptions from "components/CardListOptions/CardListOptions";
-import CardWrapper from "components/CardWrapper/CardWrapper";
 import FolderList from "components/FolderList/FolderList";
-import SearchBar from "components/SearchBar/SearchBar";
 import { ILink } from "lib/getFolderData";
 
 import styles from "./FolderContents.module.css";
