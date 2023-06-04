@@ -22,7 +22,6 @@ const SharedCard = ({ link }) => {
   };
 
   const handleClickOutside = ({ target }) => {
-    console.log(showPopOver);
     if (showPopOver && !popEl.current.contains(target)) setShowPopOver(false);
   };
 
