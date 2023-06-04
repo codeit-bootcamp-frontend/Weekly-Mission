@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 import Image from "next/image";
 
-import AddFolderModal from "@/components/AddFolderModal/AddFolderModal";
+import AddFolderModal from "components/AddFolderModal/AddFolderModal";
 
 import styles from "./FolderList.module.css";
 import FolderListItem from "./FolderListItem";

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 
 import Image from "next/image";
 
-import { allowScroll, preventScroll } from "@/lib/modal";
+import { allowScroll, preventScroll } from "lib/modal";
 
 import styles from "./AddModal.module.css";
 import AddPortalWrapper from "./AddPortalWrapper";

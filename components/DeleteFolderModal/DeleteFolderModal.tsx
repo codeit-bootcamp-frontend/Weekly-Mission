@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 
 import Image from "next/image";
 
-import { allowScroll, preventScroll } from "@/lib/modal";
+import { allowScroll, preventScroll } from "lib/modal";
 
 import styles from "./DeleteFolderModal.module.css";
 import DeleteFolderPortalWrapper from "./DeleteFolderPortalWrapper";

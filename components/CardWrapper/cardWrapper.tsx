@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 
-import Card from "@/components/Card/Card";
-import { ILink } from "@/lib/getFolderData";
+import Card from "components/Card/Card";
+import { ILink } from "lib/getFolderData";
 
 import styles from "./CardWrapper.module.css";
 

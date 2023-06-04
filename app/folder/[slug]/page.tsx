@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 
-import FolderContents from "@/components/FolderContents/FolderContents";
+import FolderContents from "components/FolderContents/FolderContents";
 
 import styles from "./page.module.css";
 

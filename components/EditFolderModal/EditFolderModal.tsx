@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 
 import Image from "next/image";
 
-import { allowScroll, preventScroll } from "@/lib/modal";
+import { allowScroll, preventScroll } from "lib/modal";
 
 import styles from "./EditFolderModal.module.css";
 import EditFolderPortalWrapper from "./EditFolderPortalWrapper";

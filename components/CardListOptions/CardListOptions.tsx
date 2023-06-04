@@ -4,9 +4,9 @@ import React, { useState } from "react";
 
 import Image from "next/image";
 
-import DeleteFolderModal from "@/components/DeleteFolderModal/DeleteFolderModal";
-import EditFolderModal from "@/components/EditFolderModal/EditFolderModal";
-import ShareFolderModal from "@/components/ShareFolderModal/ShareFolderModal";
+import DeleteFolderModal from "components/DeleteFolderModal/DeleteFolderModal";
+import EditFolderModal from "components/EditFolderModal/EditFolderModal";
+import ShareFolderModal from "components/ShareFolderModal/ShareFolderModal";
 
 import styles from "./CardListOptions.module.css";
 
