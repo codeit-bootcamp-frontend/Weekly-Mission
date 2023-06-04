@@ -36,7 +36,8 @@ const SharedContainer = async () => {
       </div>
       <div className={styles["main-container"]}>
         <SearchBar />
-        <AddPage />
+      </div>
+      <div className={styles["main-container"]}>
         <div className={styles.container}>
           {folder.data.folder.links.map((link) => (
             <SharedCard link={link} key={link.id} />

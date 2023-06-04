@@ -16,11 +16,6 @@ const nextConfig = {
       },
     ],
   },
-
-  // onDemandEntries: {
-  //   maxInactiveAge: 3600 * 1000,
-  //   pagesBufferLength: 20,
-  // },
 };
 
 module.exports = nextConfig;

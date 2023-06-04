@@ -25,6 +25,7 @@
       "@layout/*": ["layout/*"],
       "@components/*": ["components/*"],
       "@shared/*": ["app/shared/*"],
+      "@folder/*": ["app/folder/*"],
       "@library/*": ["library/*"]
     }
   },
