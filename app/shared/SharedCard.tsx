@@ -1,8 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import styles from "./SharedCard.module.css";
 import kebab from "/public/kebab.svg";
 import defaultImage from "/public/defaultImage.svg";
@@ -13,10 +12,29 @@ import { useState } from "react";
 const SharedCard = ({ link }) => {
   const { createdAt, url, description, imageSource } = link;
   const [isClick, setIsClick] = useState(false);
+  const [showPopOver, setShowPopOver] = useState(false);
+
+  let popEl = useRef();
 
   const handleIsClick = (e) => {
     e.preventDefault();
     setIsClick(!isClick);
+  };
+
+  const handleClickOutside = ({ target }) => {
+    if (!popEl.current.contains(target)) setShowPopOver(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener("click", handleClickOutside);
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+  const popHandler = (event) => {
+    event.preventDefault();
+    setShowPopOver(true);
   };
 
   return (
@@ -35,8 +53,14 @@ const SharedCard = ({ link }) => {
       <div className={styles["p-box"]}>
         <div className={styles["post-time"]}>
           <p className="postTimeComparison">{timeForToday(createdAt)}</p>
-          <div className="kabab-box">
+          <div className={styles["kabab-box"]} ref={popEl} onClick={popHandler}>
             <img src="/kebab.svg" alt="kabab" />
+            {showPopOver && (
+              <div className={styles.pop}>
+                <p>삭제하기</p>
+                <p>폴더에 추가</p>
+              </div>
+            )}
           </div>
         </div>
         <p className={styles.description}>{description}</p>

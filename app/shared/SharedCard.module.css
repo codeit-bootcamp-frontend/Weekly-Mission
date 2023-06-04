@@ -63,11 +63,29 @@
   color: #666;
 }
 .card .p-box .post-time .kabab-box {
+  position: relative;
   width: 19px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+.card .p-box .post-time .pop {
+  position: absolute;
+  top: 2rem;
+  left: -8rem;
+  width: 10rem;
+  height: 6.4rem;
+  background: #ffffff;
+  box-shadow: 0px 2px 8px rgba(51, 50, 54, 0.1);
+}
+
+.card .p-box .post-time .pop p {
+  height: 3.2rem;
+  text-align: center;
+  line-height: 3.2rem;
+}
+
 .card .p-box .description {
   width: 100%;
   overflow: hidden;
@@ -80,6 +98,7 @@
   padding-top: 10px;
   font-weight: 400;
 }
+
 @media (min-width: 375px) and (max-width: 767px) {
   .card {
     width: 325px;
