@@ -2,11 +2,7 @@ import "./globals.css";
 import GlobalNavigationBar from "@layout/GlobalNavigationBar";
 import GlobalFooter from "@layout/GlobalFooter";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
