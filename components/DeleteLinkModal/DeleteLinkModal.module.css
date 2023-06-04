@@ -55,6 +55,10 @@
   line-height: 22px;
   text-align: center;
   color: #9fa6b2;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
 }
 .deleteButton {
   display: flex;
