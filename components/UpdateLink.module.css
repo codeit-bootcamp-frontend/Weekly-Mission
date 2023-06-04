@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2.4rem;
+}
+
+.selected {
+  font-size: 2.4rem;
+  font-weight: 600;
+}
