@@ -40,9 +40,11 @@
   align-items: center;
 }
 
-.modal p {
+.modal .title {
   font-size: 2rem;
-  margin-bottom: 2.4rem;
+  margin-bottom: 0.8rem;
+  color: var(--black);
+  font-weight: 700;
 }
 
 .modal .content {
