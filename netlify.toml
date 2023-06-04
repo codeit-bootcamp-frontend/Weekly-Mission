@@ -6,6 +6,11 @@ publish = ".next"
 package = "@netlify/plugin-nextjs"
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+from = "/*"
+to = "/index.html"
+status = 200
+
+[[context.dev.redirects]]
+from = "/_next/static/*"
+to = "/static/:splat"
+status = 200
