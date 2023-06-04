@@ -7,10 +7,14 @@
 }
 
 .user .icon {
-  width: 80px;
-  height: 80x;
-  padding-top: 20px;
+  width: 8rem;
+  height: 8rem;
   margin-bottom: 20px;
+  border-radius: 4.7rem;
+}
+
+.user .user-name {
+  font-size: 2rem;
 }
 
 .user .favorite {
