@@ -7,6 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/private/",
     },
-    sitemap: "https://acme.com/sitemap.xml",
+    sitemap:
+      "https://weekly-mission-git-henry-react-week11-codeit-bootcamp.vercel.app/sitemap.xml",
   };
 }
