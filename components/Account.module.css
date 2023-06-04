@@ -1,0 +1,40 @@
+.container {
+  margin: 24rem auto;
+  max-width: 40rem;
+  text-align: center;
+}
+
+.logoImage {
+  position: relative;
+  width: 21rem;
+  height: 3.8rem;
+}
+
+.accountLink {
+  text-decoration: underline;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.accountForm {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3.2rem;
+}
+
+.forgotPassword {
+  margin-top: 1.6rem;
+  font-size: 1.4rem;
+}
+
+.forgotPassword * {
+  color: var(--gray1);
+}
+
+@media (max-width: 767px) {
+  .container {
+    max-width: 46.4rem;
+    margin: 0 auto;
+    padding: 12rem 3.2rem 10rem;
+  }
+}
