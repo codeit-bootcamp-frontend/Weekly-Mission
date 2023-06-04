@@ -25,6 +25,7 @@ const AddPage = () => {
       <div className={styles["chip-box"]}>
         {buttonChip.map((chip) => (
           <AddPageChip
+            key={chip}
             chip={chip}
             isSelected={isSelected}
             setIsSelected={setIsSelected}

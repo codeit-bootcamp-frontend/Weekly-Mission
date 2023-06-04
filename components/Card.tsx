@@ -1,18 +1,44 @@
 "use client";
 
 import Link from "next/link";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useCallback } from "react";
 import styles from "@components/Card.module.css";
 import kebab from "/public/kebab.svg";
 import defaultImage from "/public/defaultImage.svg";
 import { timeForToday } from "@library/timeForToday";
 import { getToday } from "@library/getToday";
 import { useState } from "react";
+import DeleteModal from "@layout/DeleteModal";
+import AddfolderModal from "@layout/AddFolderModal";
+
+const popContnet = ["삭제하기", "폴더에 추가"];
 
 const Card = ({ link }) => {
   const { createdAt, url, description, imageSource } = link;
   const [isClick, setIsClick] = useState(false);
   const [showPopOver, setShowPopOver] = useState(false);
+  const [selectedPop, setSelectedPop] = useState("삭제하기");
+  const [deleteModal, setDeleteModal] = useState(false);
+  const [addFolderModal, setAddFolderModal] = useState(false);
+
+  const deleteModalHandler = (e) => {
+    e.preventDefault();
+    setDeleteModal(!deleteModal);
+  };
+
+  const addFolderModalHandler = (e) => {
+    e.preventDefault();
+    setAddFolderModal(!addFolderModal);
+  };
+
+  const selectedPophandler = (pop) => {
+    if (pop === "삭제하기") {
+      setDeleteModal(!deleteModal);
+    } else {
+      setAddFolderModal(!addFolderModal);
+    }
+    setSelectedPop(pop);
+  };
 
   let popEl = useRef();
 
@@ -57,8 +83,17 @@ const Card = ({ link }) => {
             <img src="/kebab.svg" alt="kabab" />
             {showPopOver && (
               <div className={styles.pop}>
-                <p>삭제하기</p>
-                <p>폴더에 추가</p>
+                {popContnet.map((pop) => (
+                  <p
+                    className={
+                      pop === selectedPop ? styles.selected : undefined
+                    }
+                    onClick={() => selectedPophandler(pop)}
+                    key={pop}
+                  >
+                    {pop}
+                  </p>
+                ))}
               </div>
             )}
           </div>
@@ -66,6 +101,22 @@ const Card = ({ link }) => {
         <p className={styles.description}>{description}</p>
         <p className={styles["post-date"]}>{getToday(createdAt)}</p>
       </div>
+      {deleteModal && (
+        <DeleteModal
+          modal={deleteModal}
+          modalHandler={deleteModalHandler}
+          title="폴더 삭제"
+          content="폴더명"
+        />
+      )}
+      {addFolderModal && (
+        <AddfolderModal
+          modal={addFolderModal}
+          modalHandler={addFolderModalHandler}
+          title="폴더에 추가"
+          content="링크 주소"
+        />
+      )}
     </Link>
   );
 };

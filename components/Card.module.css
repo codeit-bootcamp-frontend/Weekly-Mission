@@ -99,6 +99,15 @@
   font-weight: 400;
 }
 
+.card .p-box .pop p {
+  background-color: var(--white);
+}
+
+.card .p-box .pop p.selected {
+  color: var(--primary);
+  background-color: #e7effb;
+}
+
 @media (min-width: 375px) and (max-width: 767px) {
   .card {
     width: 325px;
