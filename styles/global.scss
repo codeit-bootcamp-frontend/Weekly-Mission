@@ -22,5 +22,27 @@ body {
 }
 
 a {
+  color: #000000;
   text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  all: unset;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+  font-style: normal;
+}
+
+input {
+  padding: 0;
 }
