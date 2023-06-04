@@ -1,0 +1,73 @@
+.wrapper {
+  position: sticky;
+  inset: 0;
+  z-index: 1;
+  background-color: var(--navbar-background);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 2rem 20rem;
+  max-width: 192rem;
+  height: 9.4rem;
+}
+
+a.styledButtonLink {
+  width: 12.8rem;
+}
+
+.logo {
+  width: 13.3rem;
+}
+
+.userProfile {
+  display: flex;
+  justify-content: end;
+  gap: 0.6rem;
+  text-align: center;
+  line-height: 2.8rem;
+  font-size: 1.4rem;
+}
+
+.profileImage {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 70%;
+  overflow: hidden;
+}
+
+.profileEmail {
+  color: var(--profile-email);
+}
+
+@media screen and (max-width: 1199px) {
+  .container {
+    max-width: 86.4rem;
+    padding: 2rem 3.2rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    margin: 0;
+    padding: 0 3.2rem;
+    height: 6.3rem;
+  }
+
+  a.styledButtonLink {
+    width: 8rem;
+    padding: 1rem 0;
+    font-size: 1.4rem;
+  }
+
+  .logo {
+    width: 7.7rem;
+  }
+
+  .profileEmail {
+    display: none;
+  }
+}

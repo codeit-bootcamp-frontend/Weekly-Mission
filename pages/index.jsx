@@ -5,7 +5,7 @@ import ContentImage1 from '@/public/homepage-body-thumb1.svg';
 import ContentImage2 from '@/public/homepage-body-thumb2.svg';
 import ContentImage3 from '@/public/homepage-body-thumb3.svg';
 import ContentImage4 from '@/public/homepage-body-thumb4.svg';
-import StyledButtonLink from '@/components/StyledButtonLink';
+import ButtonLink from '@/components/ButtonLink';
 
 const Home = () => {
   return (
@@ -17,7 +17,7 @@ const Home = () => {
           <br />
           쉽게 저장하고 관리해 보세요
         </h1>
-        <StyledButtonLink href="/shared">링크 추가하기</StyledButtonLink>
+        <ButtonLink className={styles.styledButtonLink} href="/shared">링크 추가하기</ButtonLink>
         <div className={styles.headerImage}>
           <Image
             fill

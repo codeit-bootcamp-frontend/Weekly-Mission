@@ -66,6 +66,10 @@
   margin-bottom: 4rem;
 }
 
+a.styledButtonLink {
+  width: 35rem;
+}
+
 .headerImage {
   position: relative;
   width: 120rem;
@@ -166,16 +170,22 @@
     margin: 2.8rem 0 2.4rem;
     font-size: 3.2rem;
   }
-
-  .homeBody {
-    margin: 0;
-    padding: 4rem 3.2rem 8rem;
+  
+  a.styledButtonLink {
+    width: 20rem;
+    padding: 1rem 0;
+    font-size: 1.4rem;
   }
 
   .headerImage {
     width: 100%;
     height: 16rem;
     margin-top: 2.4rem;
+  }
+
+  .homeBody {
+    margin: 0;
+    padding: 4rem 3.2rem 8rem;
   }
 
   .contentTitle {
@@ -191,8 +201,9 @@
   }
 
   .contentImage {
-    width: 32.5rem;
-    height: 26.6rem;
+    width: 100%;
+    height: 0;
+    padding-bottom: 82%;
     order: 1;
   }
 
