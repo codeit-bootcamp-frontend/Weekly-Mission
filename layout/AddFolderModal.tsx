@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "@layout/AddfolderModal.module.css";
+import styles from "@layout/AddFolderModal.module.css";
 import { useState } from "react";
 
 import { createPortal } from "react-dom";
