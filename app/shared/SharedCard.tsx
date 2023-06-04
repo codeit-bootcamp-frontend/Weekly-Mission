@@ -22,7 +22,8 @@ const SharedCard = ({ link }) => {
   };
 
   const handleClickOutside = ({ target }) => {
-    if (!popEl.current.contains(target)) setShowPopOver(false);
+    console.log(showPopOver);
+    if (showPopOver && !popEl.current.contains(target)) setShowPopOver(false);
   };
 
   useEffect(() => {
@@ -30,11 +31,11 @@ const SharedCard = ({ link }) => {
     return () => {
       window.removeEventListener("click", handleClickOutside);
     };
-  }, []);
+  }, [showPopOver]);
 
   const popHandler = (event) => {
     event.preventDefault();
-    setShowPopOver(true);
+    setShowPopOver(!showPopOver);
   };
 
   return (
