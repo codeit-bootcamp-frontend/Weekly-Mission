@@ -1,22 +1,20 @@
 import React from "react";
 import Image from "next/image";
-import styles from "./FolderInfo.module.css";
+import styles from "./PageInfo.module.css";
 
-function FolderInfo({ folder }) {
+function PageInfo({ folder }) {
   const {
-    owner: { profileImageSource = "/assets/images/users/codeit-avatar.png", name = "@코드잇" } = {},
+    owner: {
+      profileImageSource = "/assets/images/users/codeit-avatar.png",
+      name = "@코드잇",
+    } = {},
     name: folderName,
   } = folder || {};
 
   return (
     <div className={styles.userInfo}>
       <div className={styles.codeitAvatar}>
-        <Image
-          src={profileImageSource}
-          alt="Avatar"
-          width={64}
-          height={64}
-        />
+        <Image src={profileImageSource} alt="Avatar" width={64} height={64} />
       </div>
       <p className={styles.userName}>{name}</p>
       <h1 className={styles.pageHeading}>{folderName}</h1>
@@ -24,4 +22,4 @@ function FolderInfo({ folder }) {
   );
 }
 
-export default FolderInfo;
+export default PageInfo;

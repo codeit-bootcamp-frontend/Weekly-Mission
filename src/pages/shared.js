@@ -2,8 +2,8 @@ import React from "react";
 import styles from "@/styles/shared.module.css";
 import SearchBar from "@/components/SearchBar";
 import CardList from "@/components/CardList";
-import FolderInfo from "@/components/FolderInfo";
-import DefaultLayout from '@/layouts/DefaultLayout'
+import PageInfo from "@/components/PageInfo";
+import DefaultLayout from "@/layouts/DefaultLayout";
 
 const BASE_URL = process.env.BASE_URL;
 
@@ -11,7 +11,7 @@ const SharedPage = ({ folder, links }) => {
   return (
     <>
       <div className={styles.heroSection}>
-        <FolderInfo folder={folder} />
+        <PageInfo folder={folder} />
       </div>
       <div className={styles.wrapper}>
         <SearchBar />
@@ -20,7 +20,6 @@ const SharedPage = ({ folder, links }) => {
     </>
   );
 };
-
 
 export async function getServerSideProps() {
   const response = await fetch(`${BASE_URL}api/sample/folder`);
@@ -38,9 +37,5 @@ export async function getServerSideProps() {
 export default SharedPage;
 
 SharedPage.getLayout = function getLayout(page) {
-  return (
-    <DefaultLayout>
-      {page}
-    </DefaultLayout>
-  )
-}
+  return <DefaultLayout>{page}</DefaultLayout>;
+};
