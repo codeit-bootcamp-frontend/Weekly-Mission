@@ -1,10 +1,11 @@
 import GNB from "@/components/GNB";
-import cs from "classnames/bind";
+import Footer from "@/components/Footer";
+import classNames from "classnames/bind";
 import styles from "./page.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
-const cx = cs.bind(styles);
+const cx = classNames.bind(styles);
 
 export default function Home() {
   return (
@@ -83,6 +84,7 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <Footer />
     </>
   );
 }

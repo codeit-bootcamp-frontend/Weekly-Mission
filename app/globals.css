@@ -24,6 +24,7 @@ html {
 body {
   margin: 0 auto;
   max-width: 192rem;
+  min-width: 37.5rem;
 }
 
 a {
