@@ -3,7 +3,7 @@ import axios from '@/lib/axios';
 
 const useUser = () => {
   return useQuery(['user'], async () => {
-    const { data } = await axios.get('user');
+    const { data } = await axios.get('/user');
     return data;
   });
 };

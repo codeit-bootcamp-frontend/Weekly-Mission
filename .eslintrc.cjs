@@ -21,7 +21,6 @@ module.exports = {
   settings: { react: { version: '18.2' } },
   plugins: ['react', 'react-hooks', 'react-refresh', 'jsx-a11y', '@tanstack/query', 'vanilla-extract'],
   rules: {
-    'react-refresh/only-export-components': 'warn',
     'react/function-component-definition': [
       2,
       { namedComponents: 'arrow-function' },

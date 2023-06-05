@@ -1,28 +1,46 @@
-import { useCallback, useEffect, useState } from 'react';
 import Head from 'next/head';
-import useFolder from '@/hooks/useFolder';
+import PropTypes from 'prop-types';
+import axios from '@/lib/axios';
 import Layout from '@/components/Layout';
 import FolderHeader from '@/components/FolderHeader';
 import FolderMain from '@/components/FolderMain';
 import Spinner from '@/components/Spinner';
 
-const Shared = () => {
-  const [cardLinks, setCardLinks] = useState([]);
-  const {
-    status, data, error,
-  } = useFolder();
+export const getStaticProps = async () => {
+  const { data, error, isLoading } = await axios.get('/folder');
 
-  const handleLoad = useCallback(() => {
-    if (data) {
-      const { links } = data.data.folder;
-      setCardLinks(links);
-    }
-  }, [data]);
+  if (error) {
+    return {
+      props: {
+        status: 'error',
+        error: error.message,
+        links: [],
+      },
+    };
+  }
 
-  useEffect(() => {
-    handleLoad();
-  }, [handleLoad]);
+  if (isLoading) {
+    return {
+      props: {
+        status: 'loading',
+        error: null,
+        links: [],
+      },
+    };
+  }
 
+  const { links } = data.data.folder;
+
+  return {
+    props: {
+      status: 'success',
+      error: null,
+      links,
+    },
+  };
+};
+
+const Folder = ({ status, error, links }) => {
   return (
     <Layout>
       <Head>
@@ -37,11 +55,26 @@ const Shared = () => {
       ) : (
         <>
           <FolderHeader />
-          <FolderMain cardLinks={cardLinks} />
+          <FolderMain cardLinks={links} />
         </>
       )}
     </Layout>
   );
 };
 
-export default Shared;
+Folder.propTypes = {
+  status: PropTypes.oneOf(['loading', 'error', 'success']).isRequired,
+  error: PropTypes.string,
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      createdAt: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      imageSource: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+};
+
+export default Folder;
