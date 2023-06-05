@@ -5,7 +5,6 @@ const useIsVisible = (elementRef: React.RefObject<HTMLElement>): boolean => {
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    console.log(elementRef.current);
     observerRef.current = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
