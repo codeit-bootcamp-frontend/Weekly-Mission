@@ -1,3 +1,11 @@
+.loading {
+  position: relative;
+  margin: 0 auto;
+  width: 4.5rem;
+  height: 4.5rem;
+  text-align: center;
+}
+
 @keyframes rotate {
   from {
     transform: rotate(0);

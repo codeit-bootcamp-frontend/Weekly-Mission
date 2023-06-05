@@ -5,13 +5,14 @@ import spinnerImg from '@/public/spinner.svg';
 
 const Spinner = ({ className = '' }) => {
   return (
-    <Image
-      className={`${styles.spinner} ${className}`}
-      src={spinnerImg}
-      width={45}
-      height={45}
-      alt="로딩 중...."
-    />
+    <div className={styles.loading}>
+      <Image
+        fill
+        className={`${styles.spinner} ${className}`}
+        src={spinnerImg}
+        alt="로딩 중...."
+      />
+    </div>
   );
 };
 
