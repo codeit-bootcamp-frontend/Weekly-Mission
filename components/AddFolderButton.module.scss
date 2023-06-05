@@ -3,8 +3,9 @@
 .button {
   display: flex;
   z-index: 9;
+  flex-shrink: 0;
   align-items: center;
-  justify-content: center;
+  width: 7.9rem;
   color: utils.$primary;
   font-weight: 500;
   gap: 0.4rem;
@@ -13,6 +14,7 @@
     position: fixed;
     bottom: 10.1rem;
     left: 50%;
+    width: auto;
     padding: 0.8rem 2.4rem;
     transform: translateX(-50%);
     border: 0.1rem solid #ffffff;

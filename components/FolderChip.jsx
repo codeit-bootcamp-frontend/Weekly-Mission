@@ -8,7 +8,7 @@ const cx = classNames.bind(styles);
 
 export default function FolderChip({ content }) {
   return (
-    <Link href="/folder">
+    <Link className={cx("container")} href="/folder">
       <div className={cx("folderChip")}>{content}</div>
     </Link>
   );

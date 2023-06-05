@@ -1,10 +1,13 @@
 @use "@/styles/utils";
 
+.container {
+  width: fit-content;
+}
+
 .folderChip {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: fit-content;
   padding: 0.8rem 1.2rem;
   border: 0.1rem solid utils.$primary;
   border-radius: 0.5rem;

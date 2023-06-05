@@ -1,0 +1,144 @@
+@use "@/styles/utils";
+
+.addLinkSection {
+  display: flex;
+  justify-content: center;
+  height: 21.9rem;
+  padding-top: 6rem;
+  background-color: utils.$gray-brt5;
+}
+
+.addLinkBarContainer {
+  width: 80rem;
+  height: 6.9rem;
+}
+
+.folderSection {
+  display: flex;
+  flex-direction: column;
+  width: 106rem;
+  margin: 4rem auto;
+  margin-bottom: 10rem;
+  gap: 4rem;
+}
+
+.searchBarContainer {
+  height: 5.4rem;
+}
+
+.folderContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.folderSelect {
+  display: flex;
+  justify-content: space-between;
+}
+
+.folders {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.folderHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 2.9rem;
+}
+
+.title {
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  column-gap: 2rem;
+  row-gap: 2.4rem;
+}
+
+.notExistLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10rem;
+}
+
+@media (max-width: 1100px) {
+  .addLinkBarContainer {
+    width: 70.4rem;
+  }
+
+  .folderSection {
+    width: 70.4rem;
+  }
+
+  .cardContainer {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2.4rem;
+  }
+}
+
+@include utils.mobile {
+  .addLinkSection {
+    height: 11.7rem;
+    padding-top: 2.4rem;
+  }
+
+  .addLinkBarContainer {
+    width: 32.5rem;
+    height: 5.3rem;
+  }
+
+  .folderSection {
+    width: 32.5rem;
+    margin: 2rem auto;
+    margin-bottom: 6rem;
+    gap: 3.2rem;
+  }
+
+  .searchBarContainer {
+    height: 4.3rem;
+  }
+
+  .folderContainer {
+    gap: 0rem;
+  }
+
+  .folders {
+    flex-wrap: wrap;
+    margin-bottom: 2.4rem;
+  }
+
+  .chipContainer {
+    margin-bottom: 0.4rem;
+  }
+
+  .folderHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1.2rem;
+    height: auto;
+    margin-bottom: 2rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .cardContainer {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+
+  .notExistLink {
+    margin-bottom: 7.7rem;
+  }
+}
