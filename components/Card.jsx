@@ -17,14 +17,9 @@ const DEFAULT = {
 };
 
 export default function Card({
-  createdAt = DEFAULT.createdAt,
-  url = DEFAULT.url,
-  title = DEFAULT.title,
-  description = DEFAULT.description,
-  imageSource = DEFAULT.imageSource,
+  data: { createdAt = DEFAULT.createdAt, url = DEFAULT.url, title = DEFAULT.title, description = DEFAULT.description, imageSource = DEFAULT.imageSource },
 }) {
   const [isSelected, SetIsSelected] = useState(false);
-
   const timeDiffFormat = getTimeDiffFormat(createdAt);
   const dateFormat = getDateFormat(createdAt);
 
