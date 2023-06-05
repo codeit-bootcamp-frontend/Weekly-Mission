@@ -24,8 +24,21 @@ const Modal = ({
   onClose,
 }: ModalProps) => {
   return (
-    <dialog className={styles.modalContainer} id="modal" ref={modalRef}>
-      <div className={styles.closeIconBox} onClick={onClose}>
+    <dialog
+      className={styles.modalContainer}
+      id="modal"
+      ref={modalRef}
+      onClick={(e) => {
+        e.preventDefault();
+      }}
+    >
+      <div
+        className={styles.closeIconBox}
+        onClick={(e) => {
+          e.preventDefault();
+          onClose();
+        }}
+      >
         <Image src="/close-modal-icon.svg" alt="close modal" fill />
       </div>
       <div className={styles.titleContainer}>
@@ -37,7 +50,12 @@ const Modal = ({
         <button
           className={`${styles.proceedBtn} ${styles[`${type}`]}`}
           type="button"
-          onClick={onClickProceed}
+          onClick={(e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            if (onClickProceed) onClickProceed();
+            onClose();
+          }}
         >
           {proceedBtnText}
         </button>

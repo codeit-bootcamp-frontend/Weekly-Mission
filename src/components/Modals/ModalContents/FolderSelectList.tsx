@@ -33,7 +33,9 @@ const FolderSelectItem = ({
     >
       <div className={styles.optionContainer}>
         <span className={styles.optionTitle}>{option.title}</span>
-        <span className={styles.optionDetail}>{option.linkCount}</span>
+        <span
+          className={styles.optionDetail}
+        >{`${option.linkCount}개 링크`}</span>
       </div>
       {selected && (
         <div className={styles.selectedIconBox}>

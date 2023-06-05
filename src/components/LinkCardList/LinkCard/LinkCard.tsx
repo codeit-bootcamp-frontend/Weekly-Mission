@@ -5,6 +5,8 @@ import styles from "./LinkCard.module.scss";
 import Image from "next/image";
 import Popover from "../Popover/Popover";
 import useOutsideClick from "@/app/hooks/useOutsideClick";
+import FolderSelectList from "@/components/Modals/ModalContents/FolderSelectList";
+import Modal, { ModalProps } from "@/components/Modals/Modal";
 
 export interface LinkCardProp {
   id: number;
@@ -13,6 +15,28 @@ export interface LinkCardProp {
   createdDate: string;
   description: string;
 }
+
+const FOLDER_OPTIONS = [
+  { title: "코딩팁", selected: false, linkCount: 7 },
+  { title: "채용 사이트", selected: false, linkCount: 12 },
+  { title: "유용한 글", selected: false, linkCount: 30 },
+  { title: "나만의 장소", selected: true, linkCount: 3 },
+];
+
+const ADD_LINK_MODAL_PROPS = {
+  type: "add",
+  title: "폴더에 추가",
+  subtitle: "링크 주소",
+  ui: <FolderSelectList folders={FOLDER_OPTIONS} />,
+  proceedBtnText: "추가하기",
+};
+
+const DELETE_LINK_MODAL_PROPS = {
+  type: "delete",
+  title: "링크 삭제",
+  subtitle: "https://www.abc.com",
+  proceedBtnText: "삭제하기",
+};
 
 const parseDate = (dateString: string) => {
   const date = new Date(dateString);
@@ -64,10 +88,46 @@ const LinkCard = ({
   const [isLiked, setIsLiked] = useState(false);
   const [showPopover, setShowPopover] = useState(false);
   const popoverRef = useRef(null);
+  const modalRef = useRef<HTMLDialogElement>(null);
+  const [modalProps, setModalProps] = useState<ModalProps>({
+    ...ADD_LINK_MODAL_PROPS,
+    onClose: () => {},
+    modalRef,
+  });
 
   const handleClickOpenPopover: MouseEventHandler = (e) => {
     e.preventDefault();
     setShowPopover(true);
+  };
+
+  const handleCloseModal = () => {
+    if (modalRef.current) {
+      modalRef.current.close();
+    }
+  };
+
+  const handleOpenModal = () => {
+    if (modalRef.current) {
+      modalRef.current.showModal();
+    }
+  };
+
+  const handleClickDelete = () => {
+    setModalProps({
+      ...DELETE_LINK_MODAL_PROPS,
+      onClose: handleCloseModal,
+      modalRef,
+    });
+    handleOpenModal();
+  };
+
+  const handleClickAdd = () => {
+    setModalProps({
+      ...ADD_LINK_MODAL_PROPS,
+      onClose: handleCloseModal,
+      modalRef,
+    });
+    handleOpenModal();
   };
 
   useOutsideClick(popoverRef, () => {
@@ -109,6 +169,8 @@ const LinkCard = ({
                     e.stopPropagation();
                     setShowPopover(false);
                   }}
+                  onClickDelete={handleClickDelete}
+                  onClickAdd={handleClickAdd}
                 />
               </div>
             )}
@@ -120,6 +182,7 @@ const LinkCard = ({
           <p className={styles.date}>{parseDate(createdDate)}</p>
         </div>
       </div>
+      <Modal {...modalProps} />
     </a>
   );
 };

@@ -12,7 +12,6 @@ import { getFolderRequest } from "@/lib/api/folderApi";
 import useIsVisible from "../hooks/useIsVisible";
 import useMediaQuery from "../hooks/useMediaQuery";
 import Modal, { ModalProps } from "@/components/Modals/Modal";
-import FolderSelectList from "@/components/Modals/ModalContents/FolderSelectList";
 import ShareFolder from "@/components/Modals/ModalContents/ShareFolder";
 import EditFolderName from "@/components/Modals/ModalContents/EditFolderName";
 
@@ -49,28 +48,6 @@ const FOLDER_CHIP_LIST = [
   },
 ];
 
-const FOLDER_OPTIONS = [
-  { title: "코딩팁", selected: false, linkCount: 7 },
-  { title: "채용 사이트", selected: false, linkCount: 12 },
-  { title: "유용한 글", selected: false, linkCount: 30 },
-  { title: "나만의 장소", selected: true, linkCount: 3 },
-];
-
-const ADD_LINK_MODAL_PROPS = {
-  type: "add",
-  title: "폴더에 추가",
-  subtitle: "링크 주소",
-  ui: <FolderSelectList folders={FOLDER_OPTIONS} />,
-  proceedBtnText: "추가하기",
-};
-
-const DELETE_LINK_MODAL_PROPS = {
-  type: "delete",
-  title: "링크 삭제",
-  subtitle: "https://www.abc.com",
-  proceedBtnText: "삭제하기",
-};
-
 const DELETE_FOLDER_MODAL_PROPS = {
   type: "delete",
   title: "폴더 삭제",
@@ -82,12 +59,6 @@ const SHARE_FOLDER_MODAL_PROPS = {
   type: "share",
   title: "폴더 공유",
   subtitle: "폴더명",
-};
-
-const ADD_FOLDER_MODAL_PROPS = {
-  type: "add",
-  title: "폴더 추가",
-  proceedBtnText: "추가하기",
 };
 
 const EDIT_FOLDER_MODAL_PROPS = {
@@ -103,7 +74,7 @@ const Page = () => {
   const isHeroVisible = useIsVisible(isMobile ? 182 : 314);
   const modalRef = useRef<HTMLDialogElement>(null);
   const [modalProps, setModalProps] = useState<ModalProps>({
-    ...ADD_LINK_MODAL_PROPS,
+    ...SHARE_FOLDER_MODAL_PROPS,
     modalRef,
     onClose: () => {},
   });
