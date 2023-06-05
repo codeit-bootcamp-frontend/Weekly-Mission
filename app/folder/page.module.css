@@ -1,0 +1,10 @@
+.header {
+  padding: 6rem 3.2rem 9rem;
+  background-color: var(--gray-f);
+}
+
+@media (max-width: 767px) {
+  .header {
+    padding: 2.4rem 3.2rem 3.2rem;
+  }
+}
