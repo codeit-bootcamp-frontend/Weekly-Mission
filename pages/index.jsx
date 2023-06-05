@@ -48,14 +48,12 @@ const Home = () => {
         </section>
         <section className={styles.contentContainer}>
           <h2 className={styles.contentTitle}>
-            링크를 폴더로
-            {' '}
+            {'링크를 폴더로 '}
             <span className={styles.emphasis2}>관리</span>
             하세요
           </h2>
           <p className={styles.contentDescription}>
-            나만의 폴더를 무제한으로 만들고
-            {' '}
+            {'나만의 폴더를 무제한으로 만들고 '}
             <br />
             다양하게 활용할 수 있습니다.
           </p>
@@ -69,8 +67,7 @@ const Home = () => {
         </section>
         <section className={styles.contentContainer}>
           <h2 className={styles.contentTitle}>
-            저장한 링크를
-            {' '}
+            {'저장한 링크를 '}
             <span className={styles.emphasis3}>공유</span>
             해 보세요
           </h2>
@@ -88,8 +85,7 @@ const Home = () => {
         </section>
         <section className={styles.contentContainer}>
           <h2 className={styles.contentTitle}>
-            저장한 링크를
-            {' '}
+            {'저장한 링크를 '}
             <span className={styles.emphasis4}>검색</span>
             해 보세요
           </h2>

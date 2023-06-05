@@ -19,7 +19,7 @@ const Nav = () => {
             <Image
               fill
               src={logo}
-              alt="Library Logo Image"
+              alt="Library Logo"
             />
           </div>
         </Link>
@@ -30,7 +30,7 @@ const Nav = () => {
                 <Image
                   fill
                   src={userImage}
-                  alt={`${userName}'s Profile Image`}
+                  alt={`${userName}'s Profile`}
                 />
               </div>
             </Link>
