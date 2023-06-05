@@ -32,7 +32,7 @@ const Modal = ({
         <h1>{title}</h1>
         {subtitle && <h3>{subtitle}</h3>}
       </div>
-      <div className={styles.uiContainer}>{ui ?? null}</div>
+      {ui && <div className={styles.uiContainer}>{ui}</div>}
       {proceedBtnText && (
         <button
           className={`${styles.proceedBtn} ${styles[`${type}`]}`}

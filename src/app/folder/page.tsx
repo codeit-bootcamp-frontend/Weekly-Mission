@@ -11,6 +11,10 @@ import LinkCardList from "@/components/LinkCardList/LinkCardList";
 import { getFolderRequest } from "@/lib/api/folderApi";
 import useIsVisible from "../hooks/useIsVisible";
 import useMediaQuery from "../hooks/useMediaQuery";
+import Modal, { ModalProps } from "@/components/Modals/Modal";
+import FolderSelectList from "@/components/Modals/ModalContents/FolderSelectList";
+import ShareFolder from "@/components/Modals/ModalContents/ShareFolder";
+import EditFolderName from "@/components/Modals/ModalContents/EditFolderName";
 
 const FOLDER_CHIP_LIST = [
   {
@@ -45,12 +49,64 @@ const FOLDER_CHIP_LIST = [
   },
 ];
 
+const FOLDER_OPTIONS = [
+  { title: "코딩팁", selected: false, linkCount: 7 },
+  { title: "채용 사이트", selected: false, linkCount: 12 },
+  { title: "유용한 글", selected: false, linkCount: 30 },
+  { title: "나만의 장소", selected: true, linkCount: 3 },
+];
+
+const ADD_LINK_MODAL_PROPS = {
+  type: "add",
+  title: "폴더에 추가",
+  subtitle: "링크 주소",
+  ui: <FolderSelectList folders={FOLDER_OPTIONS} />,
+  proceedBtnText: "추가하기",
+};
+
+const DELETE_LINK_MODAL_PROPS = {
+  type: "delete",
+  title: "링크 삭제",
+  subtitle: "https://www.abc.com",
+  proceedBtnText: "삭제하기",
+};
+
+const DELETE_FOLDER_MODAL_PROPS = {
+  type: "delete",
+  title: "폴더 삭제",
+  subtitle: "폴더명",
+  proceedBtnText: "삭제하기",
+};
+
+const SHARE_FOLDER_MODAL_PROPS = {
+  type: "share",
+  title: "폴더 공유",
+  subtitle: "폴더명",
+};
+
+const ADD_FOLDER_MODAL_PROPS = {
+  type: "add",
+  title: "폴더 추가",
+  proceedBtnText: "추가하기",
+};
+
+const EDIT_FOLDER_MODAL_PROPS = {
+  type: "edit",
+  title: "폴더 이름 변경",
+  proceedBtnText: "변경하기",
+};
+
 const Page = () => {
   const [cardListProps, setCardListProps] = useState([]);
   const heroRef = useRef<HTMLDivElement>(null);
   const isMobile = useMediaQuery("(max-width: 768px)");
   const isHeroVisible = useIsVisible(isMobile ? 182 : 314);
-
+  const modalRef = useRef<HTMLDialogElement>(null);
+  const [modalProps, setModalProps] = useState<ModalProps>({
+    ...ADD_LINK_MODAL_PROPS,
+    modalRef,
+    onClose: () => {},
+  });
   const getCardListProps = (dataList: any) => {
     return dataList.map((data: any) => {
       return {
@@ -60,6 +116,48 @@ const Page = () => {
         description: data.description,
         createdDate: data.createdAt,
       };
+    });
+  };
+
+  const handleCloseModal = () => {
+    if (modalRef.current) {
+      modalRef.current.close();
+    }
+  };
+
+  const handleOpenModal = () => {
+    if (modalRef.current) {
+      modalRef.current.showModal();
+    }
+  };
+
+  const handleClickShareFolder = () => {
+    setModalProps({
+      ...SHARE_FOLDER_MODAL_PROPS,
+      ui: (
+        <ShareFolder
+          folderInfo={{ title: "즐겨찾기", link: "https://www.abc.com" }}
+        />
+      ),
+      onClose: handleCloseModal,
+      modalRef,
+    });
+  };
+
+  const handleClickEditFolder = () => {
+    setModalProps({
+      ...EDIT_FOLDER_MODAL_PROPS,
+      ui: <EditFolderName folderName="유용한 팁" />,
+      onClose: handleCloseModal,
+      modalRef,
+    });
+  };
+
+  const handleClickDeleteFolder = () => {
+    setModalProps({
+      ...DELETE_FOLDER_MODAL_PROPS,
+      onClose: handleCloseModal,
+      modalRef,
     });
   };
 
@@ -132,21 +230,30 @@ const Page = () => {
                   <Option
                     imgSrc="/shareIcon.svg"
                     label="공유"
-                    onClick={() => {}}
+                    onClick={() => {
+                      handleClickShareFolder();
+                      handleOpenModal();
+                    }}
                   ></Option>
                 </li>
                 <li>
                   <Option
                     imgSrc="/pencilIcon.svg"
                     label="이름 변경"
-                    onClick={() => {}}
+                    onClick={() => {
+                      handleClickEditFolder();
+                      handleOpenModal();
+                    }}
                   ></Option>
                 </li>
                 <li>
                   <Option
                     imgSrc="/deleteIcon.svg"
                     label="삭제"
-                    onClick={() => {}}
+                    onClick={() => {
+                      handleClickDeleteFolder();
+                      handleOpenModal();
+                    }}
                   ></Option>
                 </li>
               </ul>
@@ -157,6 +264,7 @@ const Page = () => {
           </div>
         </div>
       </section>
+      <Modal {...modalProps} />
     </main>
   );
 };
