@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import AddLink from "../components/AddLink/AddLink";
-import styles from "./page.module.scss";
+import styles from "../page.module.scss";
 import SearchBar from "@/components/SearchBar/SearchBar";
 import FolderChip from "../components/FolderChip/FolderChip";
 import Image from "next/image";
