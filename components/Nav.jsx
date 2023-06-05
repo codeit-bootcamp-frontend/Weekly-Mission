@@ -8,7 +8,7 @@ import ButtonLink from '@/components/ButtonLink';
 
 const Nav = () => {
   const {
-    userId, userName, userImage,
+    userId, userEmail, userName, userImage,
   } = useRecoilValue(userSelector);
 
   return (
@@ -19,7 +19,7 @@ const Nav = () => {
             <Image
               fill
               src={logo}
-              alt="LiLogo Image"
+              alt="Library Logo Image"
             />
           </div>
         </Link>
@@ -34,6 +34,7 @@ const Nav = () => {
                 />
               </div>
             </Link>
+            <p className={styles.profileEmail}>{userEmail}</p>
           </div>
         ) : (
           <ButtonLink className={styles.styledButtonLink} href="/signin">

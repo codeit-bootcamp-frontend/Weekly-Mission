@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import ButtonLink from '@/components/ButtonLink';
+import styles from '@/styles/my-link.module.css';
 
 const MyLink = () => {
   return (
@@ -6,7 +8,10 @@ const MyLink = () => {
       <Head>
         <title>내 링크 | Linkbrary</title>
       </Head>
-      <div>내 링크</div>
+      <div className={styles.container}>
+        <h1 className={styles.title}>내 링크</h1>
+        <ButtonLink href="/">홈으로</ButtonLink>
+      </div>
     </>
   );
 };

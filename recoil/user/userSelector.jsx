@@ -6,7 +6,8 @@ const userSelector = selector({
   key: 'userSelector',
   get: ({ get }) => {
     const user = get(userAtom);
-    const userImage = user.image || defaultUserImage;
+    const userImage = user.profileImageSource || defaultUserImage;
+
     return {
       userId: user.id,
       userName: user.name,

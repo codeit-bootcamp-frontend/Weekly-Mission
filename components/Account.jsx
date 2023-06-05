@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useSetRecoilState } from 'recoil';
+import userAtom from 'recoil/user/userAtom';
 import styles from './Account.module.css';
 import { isValidEmail, isValidPassword } from '@/lib/validators';
 import logoImage from '@/public/logo.svg';
@@ -13,6 +15,7 @@ const Account = ({ isSignin = false }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const setUser = useSetRecoilState(userAtom);
   const router = useRouter();
 
   const handleChange = (e) => {
@@ -78,6 +81,12 @@ const Account = ({ isSignin = false }) => {
     e.preventDefault();
     if (isSignin) {
       if (email === 'test@codeit.com' && password === 'codeit101') {
+        setUser({
+          id: 1,
+          name: '코드잇',
+          email: 'codeit@codeit.com',
+          profileImageSource: '',
+        });
         router.push('/my-link');
       } else {
         alert('이메일과 비밀번호를 확인해주세요.');
@@ -166,7 +175,7 @@ const Account = ({ isSignin = false }) => {
             handlePasswordToggler={handlePassword2Toggler}
           />
         )}
-        <Button className={styles.accountButton} type="submit">
+        <Button type="submit">
           {isSignin ? '로그인' : '회원가입'}
         </Button>
       </form>

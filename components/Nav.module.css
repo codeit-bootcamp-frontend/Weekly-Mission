@@ -35,6 +35,7 @@ a.styledButtonLink {
 }
 
 .profileImage {
+  position: relative;
   width: 2.8rem;
   height: 2.8rem;
   border-radius: 70%;
