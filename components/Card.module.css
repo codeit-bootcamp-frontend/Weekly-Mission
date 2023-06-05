@@ -41,6 +41,11 @@
   align-items: center;
 }
 
+.elapsedTime {
+  font-size: 1.4rem;
+  color: var(--card-time-since);
+}
+
 .kebab {
   position: relative;
   width: 2.1rem;
