@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 import { useCallback, useEffect, useState } from 'react';
 import Head from 'next/head';
 import useFolder from '@/hooks/useFolder';
