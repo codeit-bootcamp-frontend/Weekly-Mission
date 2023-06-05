@@ -84,7 +84,7 @@ const Account = ({ isSignin = false }) => {
         setUser({
           id: 1,
           name: '코드잇',
-          email: 'codeit@codeit.com',
+          email: 'test@codeit.com',
           profileImageSource: '',
         });
         router.push('/my-link');
@@ -112,6 +112,12 @@ const Account = ({ isSignin = false }) => {
           alert('비밀번호가 일치하지 않습니다.');
           break;
         default:
+          setUser({
+            id: 1,
+            name: '코드잇',
+            email,
+            profileImageSource: '',
+          });
           router.push('/my-link');
           break;
       }
