@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styles from '@/styles/home.module.css';
 import Layout from '@/components/Layout';
-import HeaderImage from '@/public/homepage-header-image.svg';
+import HeaderImage from '@/public/homepage-header-image.png';
 import ContentImage1 from '@/public/homepage-body-thumb1.svg';
 import ContentImage2 from '@/public/homepage-body-thumb2.svg';
 import ContentImage3 from '@/public/homepage-body-thumb3.svg';
@@ -24,6 +24,7 @@ const Home = () => {
             fill
             src={HeaderImage}
             alt="Header Image"
+            priority
           />
         </div>
       </article>

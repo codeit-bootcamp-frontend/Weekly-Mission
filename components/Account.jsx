@@ -138,6 +138,7 @@ const Account = ({ isSignin = false }) => {
     e.preventDefault();
     setShowPassword2((prevState) => { return !prevState; });
   };
+
   return (
     <main className={styles.container}>
       <Link href="/">
@@ -146,6 +147,7 @@ const Account = ({ isSignin = false }) => {
             fill
             src={logoImage}
             alt="Linkbrary Logo"
+            priority
           />
         </div>
       </Link>

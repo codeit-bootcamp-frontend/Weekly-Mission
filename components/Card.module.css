@@ -76,5 +76,6 @@
 
     .cardImage:hover img {
       transform: scale(1.2);
+      overflow: unset;
     }
 }
