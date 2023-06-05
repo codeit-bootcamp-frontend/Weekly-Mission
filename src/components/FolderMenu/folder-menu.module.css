@@ -1,0 +1,15 @@
+.folderMenuContainer {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 0 24px;
+  display: flex;
+}
+
+.chipContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
