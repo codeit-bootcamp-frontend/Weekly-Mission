@@ -1,20 +1,21 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import AddLink from "./components/AddLink/AddLink";
+import AddLink from "../components/AddLink/AddLink";
 import styles from "./page.module.scss";
 import SearchBar from "@/components/SearchBar/SearchBar";
-import FolderChip from "./components/FolderChip/FolderChip";
+import FolderChip from "../components/FolderChip/FolderChip";
 import Image from "next/image";
-import Option from "./components/Option/Option";
+import Option from "../components/Option/Option";
 import LinkCardList from "@/components/LinkCardList/LinkCardList";
 import { getFolderRequest } from "@/lib/api/folderApi";
-import useIsVisible from "../hooks/useIsVisible";
-import useMediaQuery from "../hooks/useMediaQuery";
+import useIsVisible from "../../hooks/useIsVisible";
+import useMediaQuery from "../../hooks/useMediaQuery";
 import Modal, { ModalProps } from "@/components/Modals/Modal";
 import ShareFolder from "@/components/Modals/ModalContents/ShareFolder";
 import EditFolderName from "@/components/Modals/ModalContents/EditFolderName";
 import AddFolder from "@/components/Modals/ModalContents/AddFolder";
+import EmptyLinks from "@/components/LinkCardList/EmptyLinks";
 
 const DELETE_FOLDER_MODAL_PROPS = {
   type: "delete",
@@ -40,6 +41,44 @@ const ADD_FOLDER_MODAL_PROPS = {
   title: "폴더 추가",
   proceedBtnText: "추가하기",
 };
+const FOLDER_CHIP_LIST = [
+  {
+    id: "",
+    href: "/folder/",
+    label: "전체",
+    selected: true,
+  },
+  {
+    id: "favorites",
+    href: "/folder/favorites",
+    label: "⭐️ 즐겨찾기",
+    selected: false,
+  },
+  {
+    id: "1",
+    href: "/folder/1",
+    label: "코딩 팁",
+    selected: false,
+  },
+  {
+    id: "2",
+    href: "/folder/2",
+    label: "채용 사이트",
+    selected: false,
+  },
+  {
+    id: "3",
+    href: "/folder/3",
+    label: "유용한 글",
+    selected: false,
+  },
+  {
+    id: "4",
+    href: "/folder/4",
+    label: "나만의 장소",
+    selected: false,
+  },
+];
 
 const Page = ({ params }: { params: { id: string } }) => {
   const [cardListProps, setCardListProps] = useState([]);
@@ -52,57 +91,6 @@ const Page = ({ params }: { params: { id: string } }) => {
     modalRef,
     onClose: () => {},
   });
-
-  const FOLDER_CHIP_LIST = [
-    {
-      id: "",
-      href: "/folder/",
-      label: "전체",
-      selected: true,
-    },
-    {
-      id: "favorites",
-      href: "/folder/favorites",
-      label: "⭐️ 즐겨찾기",
-      selected: false,
-    },
-    {
-      id: "1",
-      href: "/folder/1",
-      label: "코딩 팁",
-      selected: false,
-    },
-    {
-      id: "2",
-      href: "/folder/2",
-      label: "채용 사이트",
-      selected: false,
-    },
-    {
-      id: "3",
-      href: "/folder/3",
-      label: "유용한 글",
-      selected: false,
-    },
-    {
-      id: "4",
-      href: "/folder/4",
-      label: "나만의 장소",
-      selected: false,
-    },
-  ];
-
-  const getCardListProps = (dataList: any) => {
-    return dataList.map((data: any) => {
-      return {
-        id: data.id,
-        href: data.url,
-        thumbnailSrc: data.imageSource,
-        description: data.description,
-        createdDate: data.createdAt,
-      };
-    });
-  };
 
   const handleCloseModal = () => {
     if (modalRef.current) {
@@ -155,17 +143,6 @@ const Page = ({ params }: { params: { id: string } }) => {
     });
   };
 
-  useEffect(() => {
-    getFolderRequest()
-      .then((res) => res.data)
-      .then((res) => {
-        setCardListProps(getCardListProps(res.folder.links));
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
   return (
     <main
       className={
@@ -203,7 +180,7 @@ const Page = ({ params }: { params: { id: string } }) => {
                       <FolderChip
                         href={chip.href}
                         label={chip.label}
-                        selected={chip.selected}
+                        selected={params.id === chip.id}
                       />
                     </li>
                   );
@@ -225,7 +202,9 @@ const Page = ({ params }: { params: { id: string } }) => {
               </button>
             </div>
             <div className={styles.titleRow}>
-              <h2 className={styles.title}>전체</h2>
+              <h2 className={styles.title}>
+                {FOLDER_CHIP_LIST.find((item) => item.id === params.id)?.label}
+              </h2>
               <ul className={styles.optionListContainer}>
                 <li>
                   <Option
@@ -260,7 +239,11 @@ const Page = ({ params }: { params: { id: string } }) => {
               </ul>
             </div>
             <article className={styles.cardList}>
-              <LinkCardList cardDataList={cardListProps} />
+              {cardListProps.length > 0 ? (
+                <LinkCardList cardDataList={cardListProps} />
+              ) : (
+                <EmptyLinks />
+              )}
             </article>
           </div>
         </div>

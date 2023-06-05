@@ -18,7 +18,7 @@ a.chip {
   line-height: 19px;
   transition: background 0.2s ease;
 
-  &:hover {
+  &:hover:not(.selected) {
     background: var.$gray-2;
   }
 
