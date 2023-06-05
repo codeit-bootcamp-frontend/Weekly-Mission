@@ -9,7 +9,7 @@ const AddLinkBar = () => {
   };
 
   return (
-    <form className={styles.container} onSubmit={handleSubmit}>
+    <form className={styles.searchForm} onSubmit={handleSubmit}>
       <div className={styles.shareIcon}>
         <Image
           fill
