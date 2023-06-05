@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import styles from './SearchBar.module.css';
+import Image from "next/image";
+import styles from "./SearchBar.module.css";
 
 const SearchBar = () => {
   return (
@@ -11,7 +11,10 @@ const SearchBar = () => {
         width={12}
         height={12}
       />
-      <input className={styles.searchBarInput} placeholder="원하는 링크를 검색해 보세요" />
+      <input
+        className={styles.searchBarInput}
+        placeholder="원하는 링크를 검색해 보세요"
+      />
     </div>
   );
 };
