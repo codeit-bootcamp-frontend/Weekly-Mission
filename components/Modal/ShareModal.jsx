@@ -35,7 +35,9 @@ export default function ShareModal() {
           </div>
           <div className={cx("util")}>
             <button>
-              <Image width={42} height={42} src={copyLink} alt="링크 복사" />
+              <div className={cx("copyLink")}>
+                <Image width={18} height={18} src={copyLink} alt="링크 복사" />
+              </div>
             </button>
             <p className={cx("name")}>링크 복사</p>
           </div>
