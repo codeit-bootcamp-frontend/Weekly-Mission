@@ -38,3 +38,11 @@ a {
   text-decoration: none;
   text-align: center;
 }
+
+button {
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
