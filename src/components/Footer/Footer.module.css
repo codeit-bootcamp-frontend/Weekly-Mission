@@ -1,4 +1,5 @@
 .footerWrapper {
+  width: 100%;
   background-color: var(--linkbrary-black);
   font-family: "Arial";
   font-weight: 400;
@@ -18,7 +19,7 @@
 @media screen and (max-width: 767px) {
   .contentWrapper {
     display: grid;
-    padding: 3.2rem;
+    padding: 3.2rem 0;
     align-items: start;
     grid-template-areas:
       "privacypolicyfaq socialmedialinks"
