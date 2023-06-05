@@ -13,8 +13,19 @@
 
 .cardImage {
   position: relative;
+  overflow: hidden;
   width: 34rem;
   height: 20rem;
+}
+
+.cardImage img {
+  object-fit: cover;
+}
+
+.bookmarkIcon {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
 }
 
 .cardText {
@@ -58,7 +69,7 @@
       background-color: var(--gray5);
     }
 
-    .container:hover .cardImage {
-      background-size: 120%;
+    .cardImage:hover img {
+      transform: scale(1.2);
     }
 }

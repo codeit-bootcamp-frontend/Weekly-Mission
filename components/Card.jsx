@@ -44,7 +44,11 @@ const Card = ({ link }) => {
           <div className={styles.cardCreatedAt}>{formattedCreatedAt}</div>
         </div>
       </Link>
-      <BookmarkIcon Bookmark={bookmark} handleToggler={handleBookmarkToggler} />
+      <BookmarkIcon
+        className={styles.bookmarkIcon}
+        Bookmark={bookmark}
+        handleToggler={handleBookmarkToggler}
+      />
     </div>
   );
 };

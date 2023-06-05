@@ -4,11 +4,11 @@ import styles from './BookmarkIcon.module.css';
 import FilledStar from '@/public/star-filled.svg';
 import Star from '@/public/star.svg';
 
-const BookmarkIcon = ({ Bookmark, handleToggler }) => {
+const BookmarkIcon = ({ className = '', Bookmark, handleToggler }) => {
   const src = Bookmark ? FilledStar : Star;
 
   return (
-    <button className={styles.icon} type="button" onClick={handleToggler}>
+    <button className={`${styles.icon} ${className}`} type="button" onClick={handleToggler}>
       <Image
         fill
         src={src}
@@ -19,6 +19,7 @@ const BookmarkIcon = ({ Bookmark, handleToggler }) => {
 };
 
 BookmarkIcon.propTypes = {
+  className: PropTypes.string,
   Bookmark: PropTypes.bool.isRequired,
   handleToggler: PropTypes.func.isRequired,
 };
