@@ -8,9 +8,7 @@ import FolderChip from "../components/FolderChip/FolderChip";
 import Image from "next/image";
 import Option from "../components/Option/Option";
 import LinkCardList from "@/components/LinkCardList/LinkCardList";
-import { getFolderRequest } from "@/lib/api/folderApi";
 import useIsVisible from "../../hooks/useIsVisible";
-import useMediaQuery from "../../hooks/useMediaQuery";
 import Modal, { ModalProps } from "@/components/Modals/Modal";
 import ShareFolder from "@/components/Modals/ModalContents/ShareFolder";
 import EditFolderName from "@/components/Modals/ModalContents/EditFolderName";
@@ -41,6 +39,7 @@ const ADD_FOLDER_MODAL_PROPS = {
   title: "폴더 추가",
   proceedBtnText: "추가하기",
 };
+
 const FOLDER_CHIP_LIST = [
   {
     id: "",
@@ -83,8 +82,8 @@ const FOLDER_CHIP_LIST = [
 const Page = ({ params }: { params: { id: string } }) => {
   const [cardListProps, setCardListProps] = useState([]);
   const heroRef = useRef<HTMLDivElement>(null);
-  const isMobile = useMediaQuery("(max-width: 768px)");
-  const isHeroVisible = useIsVisible(isMobile ? 182 : 314);
+  const dummyRef = useRef(null);
+  const isHeroVisible = useIsVisible(dummyRef);
   const modalRef = useRef<HTMLDialogElement>(null);
   const [modalProps, setModalProps] = useState<ModalProps>({
     ...SHARE_FOLDER_MODAL_PROPS,
@@ -164,6 +163,7 @@ const Page = ({ params }: { params: { id: string } }) => {
         </div>
       </section>
       <section className={styles.contentSection}>
+        <div className={styles.thresholdTarget} ref={dummyRef} />
         <div className={styles.contentsContainer}>
           <div className={styles.searchBarContainer}>
             <SearchBar

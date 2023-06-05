@@ -1,23 +1,31 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 
-const useIsVisible = (threshold: number): boolean => {
+const useIsVisible = (elementRef: React.RefObject<HTMLElement>): boolean => {
   const [isVisible, setIsVisible] = useState(true);
-
-  const handleScroll = useCallback(() => {
-    if (window.scrollY > threshold) {
-      setIsVisible(false);
-    } else {
-      setIsVisible(true);
-    }
-  }, [threshold]);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    console.log(elementRef.current);
+    observerRef.current = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 1 }
+    );
+
+    const currentObserver = observerRef.current;
+    const currentElement = elementRef.current;
+
+    if (currentElement && currentObserver) {
+      currentObserver.observe(currentElement);
+    }
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      if (currentElement) {
+        currentObserver?.unobserve(currentElement);
+      }
     };
-  }, [handleScroll]);
+  }, [elementRef]);
 
   return isVisible;
 };
