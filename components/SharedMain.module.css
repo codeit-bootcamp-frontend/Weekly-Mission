@@ -1,0 +1,28 @@
+.container {
+  padding-top: 4rem;
+  padding-bottom: 10rem;
+  background-color: var(--white);
+}
+
+.contents {
+  width: 106rem;
+  margin: 0 auto;
+}
+
+@media screen and (max-width:1199px) {
+  .contents {
+    width: 70.4rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding-top: 2rem;
+    padding-bottom: 6rem;
+  }
+
+  .contents {
+    width: 100%;
+    max-width: 32.5rem;
+  }
+}

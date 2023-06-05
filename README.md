@@ -50,3 +50,11 @@ linkbrary
 ## License
 
 This project is licensed under the MIT License. See the LICENSE.md file for details.
+
+## Progress
+
+- [ ] React Query 적용
+- [ ] Static Generation 적용
+- [ ] jsx 파일들을 TypeScript으로 변환
+- [ ] CSS Modules를 vanill-extract로 변환
+- [ ] 유저 기능

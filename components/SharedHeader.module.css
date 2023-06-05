@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headerImage {
+  position: relative;
+  width: 6rem;
+  height: 6rem;
+  margin-top: 2rem;
+  margin-bottom: 1.2rem;
+}
+
+.headerFolder {
+  margin: 2rem 0 6rem;
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 767px) {
+  .headerImage {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .headerName {
+    font-size: 1.4rem;
+  }
+
+  .headerFolder {
+    margin: 1rem 0 4rem;
+    font-size: 3.2rem;
+    font-weight: 600;
+  }
+}

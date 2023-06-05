@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
@@ -8,8 +9,9 @@ import userAtom from 'recoil/user/userAtom';
 import styles from './Account.module.css';
 import { isValidEmail, isValidPassword } from '@/lib/validators';
 import logoImage from '@/public/logo.svg';
-import AccountInput from './AccountInput';
-import Button from './Button';
+import AccountInput from '@/components/AccountInput';
+import AccountSocialLogin from '@/components/AccountSocialLogin';
+import Button from '@/components/Button';
 
 const Account = ({ isSignin = false }) => {
   const [email, setEmail] = useState('');
@@ -190,6 +192,7 @@ const Account = ({ isSignin = false }) => {
         <Link href="/forgot-password">비밀번호 찾기</Link>
       </div>
       )}
+      <AccountSocialLogin isSignin={isSignin} />
     </main>
   );
 };

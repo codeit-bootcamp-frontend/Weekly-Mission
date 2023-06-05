@@ -39,7 +39,7 @@
 }
 
 
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .container {
     flex-wrap: wrap;
     align-content: space-between;

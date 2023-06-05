@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 3.2rem;
+  border: 0.1rem solid var(--gray3);
+  border-radius: 0.8rem;
+  padding: 1.2rem 2.4rem;
+  background-color: var(--gray4);
+  font-size: 1.4rem;
+  color: var(--gray1);
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 10rem;
+  line-height: 4.2rem;
+}
+
+.icon {
+  position: relative;
+  width: 4.2rem;
+  height: 4.2rem;
+  vertical-align: middle;
+  background-color: var(--white);
+}
+
+.icon:last-child {
+  background-color: var(--kakaotalk-bakcground);
+}

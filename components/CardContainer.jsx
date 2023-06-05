@@ -1,0 +1,31 @@
+import PropTypes from 'prop-types';
+import styles from './CardContainer.module.css';
+import Card from './Card';
+
+// eslint-disable-next-line no-unused-vars
+const CardContainer = ({ cardLinks }) => {
+  return (
+    <div className={styles.container}>
+      {cardLinks.map((cardLink) => {
+        return (
+          <Card key={cardLink.id} link={cardLink} />
+        );
+      })}
+    </div>
+  );
+};
+
+CardContainer.propTypes = {
+  cardLinks: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      createdAt: PropTypes.string,
+      url: PropTypes.string,
+      title: PropTypes.string,
+      description: PropTypes.string,
+      imageSource: PropTypes.string,
+    }),
+  ).isRequired,
+};
+
+export default CardContainer;

@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.4rem 2rem;
+  margin-top: 4rem;
+}
+
+@media screen and (max-width: 1199px) {
+  .container {
+    gap: 2.4rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    gap: 2rem;
+    margin-top: 3.2rem;
+  }
+}
