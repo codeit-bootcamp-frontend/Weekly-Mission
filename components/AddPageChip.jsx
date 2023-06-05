@@ -6,7 +6,7 @@ const AddPageChip = ({ chip, link, isSelected, setIsSelected }) => {
   const router = useRouter();
   const selectHandler = () => {
     setIsSelected(chip);
-    router.push(link);
+    router.prefetch(link);
   };
 
   return (
