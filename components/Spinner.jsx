@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import PropTypes from 'prop-types';
-import spinnerImg from '@/public/spinner.svg';
 import styles from './Spinner.module.css';
+import spinnerImg from '@/public/spinner.svg';
 
 const Spinner = ({ className = '' }) => {
   return (

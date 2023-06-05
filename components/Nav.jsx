@@ -4,7 +4,7 @@ import { useRecoilValue } from 'recoil';
 import userSelector from '@/recoil/user/userSelector';
 import styles from './Nav.module.css';
 import logo from '@/public/logo.svg';
-import ButtonLink from '@/components/ButtonLink';
+import ButtonLink from './ButtonLink';
 
 const Nav = () => {
   const {

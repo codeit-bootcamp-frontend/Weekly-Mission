@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import Image from 'next/image';
+import PropTypes from 'prop-types';
 import styles from './SharedHeader.module.css';
 
 const SharedHeader = ({ ownerImage, ownerName, folderName }) => {

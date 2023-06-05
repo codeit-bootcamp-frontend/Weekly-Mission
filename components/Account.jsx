@@ -1,17 +1,17 @@
 /* eslint-disable no-alert */
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import PropTypes from 'prop-types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSetRecoilState } from 'recoil';
 import userAtom from 'recoil/user/userAtom';
+import PropTypes from 'prop-types';
 import styles from './Account.module.css';
-import { isValidEmail, isValidPassword } from '@/lib/validators';
 import logoImage from '@/public/logo.svg';
-import AccountInput from '@/components/AccountInput';
-import AccountSocialLogin from '@/components/AccountSocialLogin';
-import Button from '@/components/Button';
+import { isValidEmail, isValidPassword } from '@/lib/validators';
+import AccountInput from './AccountInput';
+import AccountSocialLogin from './AccountSocialLogin';
+import Button from './Button';
 
 const Account = ({ isSignin = false }) => {
   const [email, setEmail] = useState('');
