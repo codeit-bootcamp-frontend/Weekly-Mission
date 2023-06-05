@@ -14,6 +14,7 @@ import useMediaQuery from "../hooks/useMediaQuery";
 import Modal, { ModalProps } from "@/components/Modals/Modal";
 import ShareFolder from "@/components/Modals/ModalContents/ShareFolder";
 import EditFolderName from "@/components/Modals/ModalContents/EditFolderName";
+import AddFolder from "@/components/Modals/ModalContents/AddFolder";
 
 const FOLDER_CHIP_LIST = [
   {
@@ -65,6 +66,12 @@ const EDIT_FOLDER_MODAL_PROPS = {
   type: "edit",
   title: "폴더 이름 변경",
   proceedBtnText: "변경하기",
+};
+
+const ADD_FOLDER_MODAL_PROPS = {
+  type: "add",
+  title: "폴더 추가",
+  proceedBtnText: "추가하기",
 };
 
 const Page = () => {
@@ -132,6 +139,15 @@ const Page = () => {
     });
   };
 
+  const handleClickAddFolder = () => {
+    setModalProps({
+      ...ADD_FOLDER_MODAL_PROPS,
+      ui: <AddFolder />,
+      modalRef,
+      onClose: handleCloseModal,
+    });
+  };
+
   useEffect(() => {
     getFolderRequest()
       .then((res) => res.data)
@@ -186,7 +202,14 @@ const Page = () => {
                   );
                 })}
               </ul>
-              <button type="button" className={styles.addFolderButton}>
+              <button
+                type="button"
+                className={styles.addFolderButton}
+                onClick={() => {
+                  handleClickShareFolder();
+                  handleOpenModal();
+                }}
+              >
                 <span>폴더 추가</span>
                 <div className={styles.addIconBox}>
                   <Image src="/addIcon.svg" alt="add icon" fill />

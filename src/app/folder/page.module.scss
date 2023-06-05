@@ -86,7 +86,12 @@
           gap: 4px;
           padding: 0px;
           cursor: pointer;
-          transition: transform 0.2s ease;
+
+          transition: all 0.2s ease;
+          &:hover {
+            font-weight: 600;
+            transform: scale(1.2);
+          }
           @media only screen and (max-width: 768px) {
             position: fixed;
             bottom: 100px;
