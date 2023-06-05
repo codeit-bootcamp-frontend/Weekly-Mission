@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { getFolders } from '@/lib/api';
 import Layout from '@/components/Layout';
 import FolderHeader from '@/components/FolderHeader';
-import SharedMain from '@/components/SharedMain';
+import FolderMain from '@/components/FolderMain';
 
 const Shared = () => {
   const [cardLinks, setCardLinks] = useState([]);
@@ -22,10 +22,10 @@ const Shared = () => {
   return (
     <Layout>
       <Head>
-        <title>즐겨찾기 | Linkbrary</title>
+        <title>폴더 | Linkbrary</title>
       </Head>
       <FolderHeader />
-      <SharedMain cardLinks={cardLinks} />
+      <FolderMain cardLinks={cardLinks} />
     </Layout>
   );
 };

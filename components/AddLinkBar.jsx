@@ -1,22 +1,26 @@
 import Image from 'next/image';
 import styles from './AddLinkBar.module.css';
-import shareIconImage from '@/public/share.svg';
+import linkIconImage from '@/public/link.svg';
 import Button from './Button';
 
-const SearchBar = () => {
+const AddLinkBar = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <div className={styles.container}>
-      <input className={styles.searchInput} type="search" placeholder="링크를 추가해 보세요" />
-      <Button className={styles.button}>추가하기</Button>
+    <form className={styles.container} onSubmit={handleSubmit}>
       <div className={styles.shareIcon}>
         <Image
           fill
-          src={shareIconImage}
+          src={linkIconImage}
           alt="Share Icon"
         />
       </div>
-    </div>
+      <input className={styles.searchInput} type="text" placeholder="링크를 추가해 보세요" />
+      <Button className={styles.button} type="submit">추가하기</Button>
+    </form>
   );
 };
 
-export default SearchBar;
+export default AddLinkBar;

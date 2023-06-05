@@ -3,21 +3,33 @@
 }
 
 .searchInput {
-  width: 100%;
-  border: 0;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  padding-left: 4.2rem;
-  color: var(--search-bar-text);
-  background-color: var(--gray6);
+  width: 80rem;
+  border: 1px solid var(--primary);
+  border-radius: 1.5rem;
+  padding: 2.25rem 11.2rem 2.25rem 5.2rem;
+  background-color: var(--white);
+}
+
+.searchInput::placeholder {
+  color: var(--gray2);
 }
 
 .shareIcon {
   position: absolute;
+  top: 2.25rem;
+  left: 2rem;
+  width: 2rem;
+  height: 2rem;
+}
+
+.button {
+  position: absolute;
   top: 1.6rem;
-  left: 1.6rem;
-  width: 1.6rem;
-  height: 1.6rem;
+  right: 1.6rem;
+  padding: 1rem 1.55rem;
+  font-size: 1.4rem;
+  width: 8rem;
+  height: 3.7rem;
 }
 
 @media screen and (max-width: 767px) {
