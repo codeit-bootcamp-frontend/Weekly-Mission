@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Modal.module.scss";
 import Image from "next/image";
 
-interface ModalProps {
+export interface ModalProps {
   type: string;
   modalRef: React.RefObject<HTMLDialogElement>;
   title: string;

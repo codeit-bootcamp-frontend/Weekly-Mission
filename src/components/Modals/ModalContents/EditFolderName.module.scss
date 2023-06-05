@@ -1,0 +1,25 @@
+@use "/src/styles/variables" as var;
+
+.inputBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 18px 15px;
+  height: 60px;
+  width: 100%;
+
+  background: var.$white;
+
+  border: 1px solid var.$primary;
+  border-radius: 8px;
+}
+
+.input {
+  font-size: 16px;
+  color: var.$black;
+  border: none;
+  outline: none;
+  &::placeholder {
+    color: var.$gray-3;
+  }
+}
