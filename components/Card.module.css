@@ -46,12 +46,36 @@
   color: var(--card-time-since);
 }
 
+.kebabContainer {
+  position: relative;
+}
+
 .kebab {
   cursor: pointer;
   position: relative;
   width: 2.1rem;
   height: 1.7rem;
   background-color: inherit;
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  position: absolute;
+  top: 2.2rem;
+  right: 0;
+  font-size: 1.4rem;
+  background-color: var(--white);
+  box-shadow: 0px 2px 8px var(--kebab-box-shadow);
+}
+
+.popup > button{
+  cursor: pointer;
+  padding: 0.7rem 0;
+  width: 10rem;
+  background-color: var(--white);
 }
 
 .cardDescription {
@@ -71,17 +95,6 @@
   color: var(--card-date);
 }
 
-.popup {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
-}
-
-.popup > button{
-  cursor: pointer
-}
-
 @media (hover: hover) {
     .container.hovered {
       background-color: var(--gray5);
@@ -90,5 +103,10 @@
     .cardImage.hovered img {
       transform: scale(1.2);
       overflow: unset;
+    }
+
+    .popup > button:hover {
+      color: var(--primary);
+      background-color: var(--gray4);
     }
 }

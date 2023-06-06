@@ -11,11 +11,8 @@ import BookmarkIcon from './BookmarkIcon';
 
 const Card = ({ link }) => {
   const [isHovered, setIsHovered] = useState(false);
-
   const [clickKebab, setClickKebab] = useState(false);
-  const popupRef = useRef(null);
   const kebabRef = useRef(null);
-
   const [bookmark, setBookmark] = useState(false);
   const elapsedTime = getElapsedTime(link.createdAt);
   const formattedCreatedAt = getFormattedDate(link.createdAt);
@@ -35,8 +32,7 @@ const Card = ({ link }) => {
 
   const handleOutsideClick = (e) => {
     if (
-      popupRef.current
-      && !popupRef.current.contains(e.target)
+      kebabRef.current
       && !kebabRef.current.contains(e.target)
     ) {
       setClickKebab(false);
@@ -81,24 +77,25 @@ const Card = ({ link }) => {
         <div className={styles.cardText}>
           <div className={styles.firstLine}>
             <div className={styles.elapsedTime}>{elapsedTime}</div>
-            <button
-              type="button"
-              className={styles.kebab}
-              ref={kebabRef}
-              onClick={handleKebabToggler}
-            >
-              <Image
-                fill
-                src={kebabImage}
-                alt="Kebab"
-              />
-            </button>
-            {clickKebab && (
-            <div className={styles.popup} ref={popupRef}>
-              <button type="button">삭제하기</button>
-              <button type="button">폴더에 추가</button>
+            <div className={styles.kebabContainer} ref={kebabRef}>
+              <button
+                type="button"
+                className={styles.kebab}
+                onClick={handleKebabToggler}
+              >
+                <Image
+                  fill
+                  src={kebabImage}
+                  alt="Kebab"
+                />
+              </button>
+              {clickKebab && (
+              <div className={styles.popup}>
+                <button type="button">삭제하기</button>
+                <button type="button">폴더에 추가</button>
+              </div>
+              )}
             </div>
-            )}
           </div>
           <div className={styles.cardDescription}>{link.description}</div>
           <div className={styles.cardCreatedAt}>{formattedCreatedAt}</div>
