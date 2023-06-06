@@ -1,15 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRecoilValue } from 'recoil';
-import userSelector from '@/recoil/user/userSelector';
+// import { useRecoilValue } from 'recoil';
+// import userSelector from '@/recoil/user/userSelector';
 import styles from './Nav.module.css';
 import logo from '@/public/logo.svg';
 import ButtonLink from './ButtonLink';
 
 const Nav = () => {
-  const {
-    userId, userEmail, userName, userImage,
-  } = useRecoilValue(userSelector);
+  // const {
+  //   userId, userEmail, userName, userImage,
+  // } = useRecoilValue(userSelector);
 
   return (
     <nav className={styles.container}>
@@ -22,7 +22,7 @@ const Nav = () => {
           />
         </div>
       </Link>
-      {userId ? (
+      {/* {userId ? (
         <div className={styles.userProfile}>
           <Link href="/my-link">
             <div className={styles.profileImage}>
@@ -35,11 +35,11 @@ const Nav = () => {
           </Link>
           <p className={styles.profileEmail}>{userEmail}</p>
         </div>
-      ) : (
-        <ButtonLink className={styles.styledButtonLink} href="/signin">
-          로그인
-        </ButtonLink>
-      )}
+      ) : ( */}
+      <ButtonLink className={styles.styledButtonLink} href="/signin">
+        로그인
+      </ButtonLink>
+      {/* )} */}
     </nav>
   );
 };

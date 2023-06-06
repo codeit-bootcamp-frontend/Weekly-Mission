@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useSetRecoilState } from 'recoil';
-import userAtom from 'recoil/user/userAtom';
+// import { useSetRecoilState } from 'recoil';
+// import userAtom from 'recoil/user/userAtom';
 import PropTypes from 'prop-types';
 import styles from './Account.module.css';
 import logoImage from '@/public/logo.svg';
@@ -17,7 +17,7 @@ const Account = ({ isSignin = false }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const setUser = useSetRecoilState(userAtom);
+  // const setUser = useSetRecoilState(userAtom);
   const router = useRouter();
 
   const handleChange = (e) => {
@@ -83,12 +83,12 @@ const Account = ({ isSignin = false }) => {
     e.preventDefault();
     if (isSignin) {
       if (email === 'test@codeit.com' && password === 'codeit101') {
-        setUser({
-          id: 1,
-          name: '코드잇',
-          email: 'test@codeit.com',
-          profileImageSource: '',
-        });
+        // setUser({
+        //   id: 1,
+        //   name: '코드잇',
+        //   email: 'test@codeit.com',
+        //   profileImageSource: '',
+        // });
         router.push('/my-link');
       } else {
         alert('이메일과 비밀번호를 확인해주세요.');
@@ -114,12 +114,12 @@ const Account = ({ isSignin = false }) => {
           alert('비밀번호가 일치하지 않습니다.');
           break;
         default:
-          setUser({
-            id: 1,
-            name: '코드잇',
-            email,
-            profileImageSource: '',
-          });
+          // setUser({
+          //   id: 1,
+          //   name: '코드잇',
+          //   email,
+          //   profileImageSource: '',
+          // });
           router.push('/my-link');
           break;
       }
