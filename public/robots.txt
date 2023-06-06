@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://weekly-mission-git-jer1s-react-codeit-bootcamp.vercel.app/
+
+# Sitemaps
+Sitemap: https://weekly-mission-git-jer1s-react-codeit-bootcamp.vercel.app/sitemap.xml
