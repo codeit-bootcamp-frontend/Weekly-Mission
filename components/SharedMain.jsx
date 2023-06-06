@@ -3,7 +3,7 @@ import styles from './SharedMain.module.css';
 import SearchBar from './SearchBar';
 import CardContainer from './CardContainer';
 
-const sharedMain = ({ cardLinks }) => {
+const SharedMain = ({ cardLinks }) => {
   return (
     <main className={styles.container}>
       <div className={styles.contents}>
@@ -14,7 +14,7 @@ const sharedMain = ({ cardLinks }) => {
   );
 };
 
-sharedMain.propTypes = {
+SharedMain.propTypes = {
   cardLinks: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
@@ -27,4 +27,4 @@ sharedMain.propTypes = {
   ).isRequired,
 };
 
-export default sharedMain;
+export default SharedMain;

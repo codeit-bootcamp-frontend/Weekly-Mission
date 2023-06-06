@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import styles from '@/styles/home.module.css';
+import styles from '@/styles/Home.module.css';
 import Layout from '@/components/Layout';
 import HeaderImage from '@/public/homepage-header-image.png';
 import ContentImage1 from '@/public/homepage-body-thumb1.svg';

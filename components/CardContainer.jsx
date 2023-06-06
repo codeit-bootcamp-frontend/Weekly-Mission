@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import styles from './CardContainer.module.css';
 import Card from './Card';
 
-// eslint-disable-next-line no-unused-vars
 const CardContainer = ({ cardLinks, handleDeleteLink, handleAddToFolder }) => {
   return (
     <div className={styles.container}>
