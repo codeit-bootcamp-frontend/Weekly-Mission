@@ -17,6 +17,9 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.modal-content {
-  margin-bottom: 1rem;
+.closeButton {
+  cursor: pointer;
+  position: relative;
+  width: 1.6rem;
+  height: 1.6rem;
 }
