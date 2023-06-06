@@ -1,0 +1,45 @@
+{
+  "parser": "@typescript-eslint/parser" /* ts 코드에 대한 AST 생성 (ts에서 ESLint 사용할 수 있게 하는 파서) */,
+  "extends": [
+    "next/core-web-vitals" /* next js 권장사항 */,
+    "eslint:recommended" /* https://eslint.org/docs/latest/rules/ 에 체크되어 있는 모든 규칙 활성화. rules로 확장 가능 */,
+    "plugin:@typescript-eslint/recommended" /* eslint:recommended 와 유사하다. ts 전용 규칙 사용 */,
+    "prettier" /* eslint-config-prettier에서 prettier와 충돌되는 스타일 옵션을 꺼버리는 기능 */,
+    "plugin:prettier/recommended",
+    "prettier/prettier",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "plugins": ["prettier", "@typescript-eslint"],
+  /* ESLint 사용을 위해 지원하려는 Javascript 언어 옵션을 지정 */
+  "parserOptions": {
+    "project": "./tsconfig.json" /* 프로젝트에서 사용하고 있는 ts 설정 참조하도록 경로 지정 */,
+    "sourceType": "module" /* parser의 export 형태를 설정 */,
+    "ecmaVersion": 2020 /* 사용할 ECMAScript 버전을 설정 */
+  },
+  "rules": {
+    "no-unused-vars": "off", // interface나 type에 prop 넘겨주는 애들을 unused로 인식하므로 off 해주고 typescript 용으로 켜준다.
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-non-null-assertion": "off" /* https://typescript-eslint.io/rules/no-non-null-assertion/ */,
+    // "no-unused-vars": [
+    //   1,
+    //   { "args": "after-used", "argsIgnorePattern": "^_" }
+    // ] /* 인자를 사용하지 않아도 에러x, 인자에 _붙여도 에러x */,
+    "react-hooks/exhaustive-deps": [
+      "warn",
+      {
+        /* 커스텀 훅 사용할 경우, 여기에 등록하면 된다. */
+        "additionalHooks": "useRecoilCallback"
+      }
+    ],
+    /* https://typescript-eslint.io/rules/no-empty-interface/ */
+    "@typescript-eslint/no-empty-interface": [
+      "error",
+      {
+        "allowSingleExtends": false
+      }
+    ],
+    "react/prop-types": "off",
+    "react/display-name": "off"
+  }
+}

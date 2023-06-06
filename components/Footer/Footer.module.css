@@ -1,0 +1,97 @@
+/* footer layout */
+.inner {
+  margin: 0 auto;
+  width: 100%;
+  width: calc(1920px - 40rem);
+  height: 100%;
+}
+@media only screen and (max-width: 1920px) {
+  .inner {
+    max-width: calc(100% - 20rem);
+  }
+}
+@media only screen and (max-width: 768px) {
+  .inner {
+    max-width: calc(100% - 6.4rem);
+  }
+}
+
+.footer {
+  width: 100%;
+  height: 16rem;
+  background: #111322;
+}
+.footer .inner {
+  height: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(3.2rem);
+}
+@media only screen and (max-width: 1920px) {
+  .footer .inner {
+    max-width: calc(100% - 20.8rem);
+  }
+}
+@media only screen and (max-width: 768px) {
+  .footer .inner {
+    max-width: calc(100% - 6.4rem);
+  }
+}
+@media only screen and (max-width: 768px) {
+  .footer .inner {
+    position: relative;
+  }
+}
+
+.copyright {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  color: #676767;
+}
+.policy {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  color: #cfcfcf;
+  display: flex;
+  gap: 3rem;
+}
+.policy .privacy,
+.policy .faq {
+  text-decoration-line: none;
+}
+.policy .privacy:link,
+.policy .privacy:active,
+.policy .privacy:hover,
+.policy .privacy:visited,
+.policy .faq:link,
+.policy .faq:active,
+.policy .faq:hover,
+.policy .faq:visited {
+  color: #cfcfcf;
+}
+.sns {
+  display: flex;
+  gap: 1.23rem;
+  justify-content: center;
+  align-items: center;
+  height: 1.8rem;
+}
+.sns .facebook,
+.sns .twitter,
+.sns .youtube,
+.sns .instagram {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (max-width: 768px) {
+  .copyright {
+    position: absolute;
+    top: 78px;
+    left: 0;
+  }
+}

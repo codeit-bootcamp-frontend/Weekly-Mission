@@ -1,0 +1,32 @@
+.nullCardWrapper {
+  width: 100%;
+  padding-top: 65px;
+  padding-bottom: 135px;
+  max-width: 1060px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px 20px;
+}
+.cardWrapper {
+  width: 100%;
+  padding-bottom: 99px;
+  max-width: 1060px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px 20px;
+}
+@media only screen and (max-width: 1199px) {
+  .cardWrapper {
+    max-width: calc(100% - 6.4rem);
+  }
+}
+@media only screen and (max-width: 768px) {
+  .nullCardWrapper {
+    padding-top: 62.5px;
+    padding-bottom: 178px;
+  }
+}

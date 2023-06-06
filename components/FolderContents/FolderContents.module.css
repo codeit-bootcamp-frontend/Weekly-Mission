@@ -1,0 +1,28 @@
+.contents {
+  width: 100%;
+  height: auto;
+  background: var(--linkbrary-white);
+  margin: 0 auto;
+}
+.addLinkContainer {
+  width: 100%;
+  padding: 60px 32px 90px;
+  background-color: var(--linkbrary-bg);
+}
+.addLinkContainer.false {
+  position: fixed;
+  width: 100%;
+  background: var(--linkbrary-bg);
+  bottom: 0;
+  z-index: 99;
+  padding: 16px 32px 16px;
+}
+
+@media only screen and (max-width: 768px) {
+  .addLinkContainer {
+    padding: 24px 0 40px;
+  }
+  .addLinkContainer.false {
+    padding: 16px 0 16px;
+  }
+}
