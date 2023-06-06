@@ -1,12 +1,12 @@
 import Image from 'next/image';
-import styles from '@/styles/Home.module.css';
-import Layout from '@/components/Layout';
 import HeaderImage from '@/public/homepage-header-image.png';
 import ContentImage1 from '@/public/homepage-body-thumb1.svg';
 import ContentImage2 from '@/public/homepage-body-thumb2.svg';
 import ContentImage3 from '@/public/homepage-body-thumb3.svg';
 import ContentImage4 from '@/public/homepage-body-thumb4.svg';
+import Layout from '@/components/Layout';
 import ButtonLink from '@/components/ButtonLink';
+import styles from '@/styles/Home.module.css';
 
 const Home = () => {
   return (

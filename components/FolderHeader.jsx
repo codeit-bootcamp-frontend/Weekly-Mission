@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import styles from './FolderHeader.module.css';
 import AddLinkBar from './AddLinkBar';
+import styles from './FolderHeader.module.css';
 
 const FolderHeader = ({ exceedThreshold = false }) => {
   return (

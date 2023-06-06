@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import ButtonLink from '@/components/ButtonLink';
-import styles from '@/styles/my-link.module.css';
+import styles from '@/styles/MyLink.module.css';
 
 const MyLink = () => {
   return (

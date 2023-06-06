@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from './Card.module.css';
+import PropTypes from 'prop-types';
 import getFormattedDate from '@/lib/getFormattedDate';
 import getElapsedTime from '@/lib/getElapsedTime';
 import defaultCardImage from '@/public/default-card-image.svg';
 import kebabImage from '@/public/kebab.svg';
 import BookmarkIcon from './BookmarkIcon';
+import styles from './Card.module.css';
 
 const Card = ({ link, handleDeleteLink, handleAddToFolder }) => {
   const [isHovered, setIsHovered] = useState(false);

@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import Image from 'next/image';
-import styles from './FolderModal.module.css';
+import PropTypes from 'prop-types';
 import closeIcon from '@/public/close.svg';
 import ModalEditFolder from './ModalEditFolder';
 import ModalAddFolder from './ModalAddFolder';
@@ -9,6 +8,7 @@ import ModalShareFolder from './ModalShareFolder';
 import ModalDeleteFolder from './ModalDeleteFolder';
 import ModalDeleteLink from './ModalDeleteLink';
 import ModalAddToFolder from './ModalAddToFolder';
+import styles from './FolderModal.module.css';
 
 const FolderModal = ({ option, closeModal }) => {
   useEffect(() => {

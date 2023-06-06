@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './Footer.module.css';
 import facebookIcon from '@/public/icon-facebook.svg';
 import twitterIcon from '@/public/icon-twitter.svg';
 import youtubeIcon from '@/public/icon-youtube.svg';
 import instagramIcon from '@/public/icon-instagram.svg';
+import styles from './Footer.module.css';
 
 const Footer = () => {
   return (

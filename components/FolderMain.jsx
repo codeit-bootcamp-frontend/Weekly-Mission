@@ -2,7 +2,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
-import styles from './FolderMain.module.css';
 import SearchBar from './SearchBar';
 import CardContainer from './CardContainer';
 import SortButton from './SortButton';
@@ -10,6 +9,7 @@ import FolderModal from './FolderModal';
 import shareIcon from '@/public/share.svg';
 import penIcon from '@/public/pen.svg';
 import deleteIcon from '@/public/delete.svg';
+import styles from './FolderMain.module.css';
 
 const FolderMain = ({ endPoint, cardLinks, exceedThreshold = false }) => {
   const [modalOpen, setModalOpen] = useState(false);

@@ -1,11 +1,11 @@
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import axios from '@/lib/axios';
+import defaultOwnerImage from '@/public/default-avatar.svg';
 import Layout from '@/components/Layout';
 import SharedHeader from '@/components/SharedHeader';
 import SharedMain from '@/components/SharedMain';
 import Spinner from '@/components/Spinner';
-import defaultOwnerImage from '@/public/default-avatar.svg';
 
 export const getStaticProps = async () => {
   const { data, error, isLoading } = await axios.get('/folder');

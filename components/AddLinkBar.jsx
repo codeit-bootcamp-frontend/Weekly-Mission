@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import styles from './AddLinkBar.module.css';
 import linkIconImage from '@/public/link.svg';
 import Button from './Button';
+import styles from './AddLinkBar.module.css';
 
 const AddLinkBar = () => {
   const handleSubmit = (e) => {

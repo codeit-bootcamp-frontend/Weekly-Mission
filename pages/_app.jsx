@@ -7,8 +7,8 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { RecoilRoot } from 'recoil';
 import PropTypes from 'prop-types';
+import { RecoilRoot } from 'recoil';
 import '@/styles/global.css';
 
 const App = ({ Component, pageProps }) => {

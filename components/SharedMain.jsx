@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import styles from './SharedMain.module.css';
 import SearchBar from './SearchBar';
 import CardContainer from './CardContainer';
+import styles from './SharedMain.module.css';
 
 const SharedMain = ({ cardLinks }) => {
   return (

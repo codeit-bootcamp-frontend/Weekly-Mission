@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import PropTypes from 'prop-types';
 import Image from 'next/image';
-import styles from './AccountSocialLogin.module.css';
+import PropTypes from 'prop-types';
 import googleLinkIcon from '@/public/link-google.svg';
 import kakaotalkLinkIcon from '@/public/link-kakaotalk.svg';
+import styles from './AccountSocialLogin.module.css';
 
 const AccountSocialLogin = ({ isSignin = false }) => {
   return (

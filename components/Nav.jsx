@@ -2,9 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRecoilValue } from 'recoil';
 import userSelector from '@/recoil/user/userSelector';
-import styles from './Nav.module.css';
 import logo from '@/public/logo.svg';
 import ButtonLink from './ButtonLink';
+import styles from './Nav.module.css';
 
 const Nav = () => {
   const {

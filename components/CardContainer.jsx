@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import styles from './CardContainer.module.css';
 import Card from './Card';
+import styles from './CardContainer.module.css';
 
 const CardContainer = ({ cardLinks, handleDeleteLink, handleAddToFolder }) => {
   return (

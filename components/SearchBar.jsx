@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import PropTypes from 'prop-types';
-import styles from './SearchBar.module.css';
 import searchIconImage from '@/public/search.svg';
+import styles from './SearchBar.module.css';
 
 const SearchBar = ({ className = '', placeHolder = '' }) => {
   return (

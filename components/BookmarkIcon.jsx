@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import PropTypes from 'prop-types';
-import styles from './BookmarkIcon.module.css';
-import FilledStar from '@/public/star-filled.svg';
 import Star from '@/public/star.svg';
+import FilledStar from '@/public/star-filled.svg';
+import styles from './BookmarkIcon.module.css';
 
 const BookmarkIcon = ({ className = '', Bookmark, handleToggler }) => {
   const src = Bookmark ? FilledStar : Star;
