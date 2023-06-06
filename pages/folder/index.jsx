@@ -84,12 +84,12 @@ Folder.propTypes = {
   error: PropTypes.string,
   links: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      createdAt: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      imageSource: PropTypes.string.isRequired,
+      id: PropTypes.number,
+      createdAt: PropTypes.string,
+      url: PropTypes.string,
+      title: PropTypes.string,
+      description: PropTypes.string,
+      imageSource: PropTypes.string,
     }),
   ).isRequired,
 };

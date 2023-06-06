@@ -42,9 +42,11 @@ linkbrary
 ```
 
 - components/: This folder is for storing React components.
+- hooks/: This folder is for storing custom hooks.
 - lib/: This folder is for storing library codes or utility functions.
 - pages/: This folder is for storing React page components.
 - public/: This folder is for storing static files.
+- recoil/: This folder is for storing recoil files.
 - styles/: This folder is for storing stylesheet files.
 
 ## License
@@ -53,7 +55,6 @@ This project is licensed under the MIT License. See the LICENSE.md file for deta
 
 ## Progress
 
-- [x] Static Generation 적용
 - [ ] jsx 파일들을 TypeScript으로 변환
 - [ ] CSS Modules를 vanill-extract로 변환
 - [ ] 유저 기능

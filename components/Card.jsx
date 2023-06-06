@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -9,8 +9,12 @@ import defaultCardImage from '@/public/default-card-image.svg';
 import kebabImage from '@/public/kebab.svg';
 import BookmarkIcon from './BookmarkIcon';
 
-const Card = ({ link, clickKebab }) => {
+const Card = ({ link }) => {
   const [isHovered, setIsHovered] = useState(false);
+
+  const [clickKebab, setClickKebab] = useState(false);
+  const popupRef = useRef(null);
+
   const [bookmark, setBookmark] = useState(false);
   const elapsedTime = getElapsedTime(link.createdAt);
   const formattedCreatedAt = getFormattedDate(link.createdAt);
@@ -23,10 +27,29 @@ const Card = ({ link, clickKebab }) => {
     setIsHovered(false);
   };
 
+  const handleKebabToggler = (e) => {
+    e.preventDefault();
+    setClickKebab((prev) => { return !prev; });
+  };
+
+  const handleOutsideClick = (e) => {
+    if (popupRef.current && !popupRef.current.contains(e.target)) {
+      setClickKebab(false);
+    }
+  };
+
   const handleBookmarkToggler = (e) => {
     e.preventDefault();
     setBookmark((prevState) => { return !prevState; });
   };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);
 
   return (
     <div
@@ -45,13 +68,19 @@ const Card = ({ link, clickKebab }) => {
         <div className={styles.cardText}>
           <div className={styles.firstLine}>
             <div className={styles.elapsedTime}>{elapsedTime}</div>
-            <button type="button" className={styles.kebab} onClick={clickKebab}>
+            <button type="button" className={styles.kebab} onClick={handleKebabToggler}>
               <Image
                 fill
                 src={kebabImage}
                 alt="Kebab"
               />
             </button>
+            {clickKebab && (
+            <div className={styles.popup} ref={popupRef}>
+              <button type="button">삭제하기</button>
+              <button type="button">폴더에 추가</button>
+            </div>
+            )}
           </div>
           <div className={styles.cardDescription}>{link.description}</div>
           <div className={styles.cardCreatedAt}>{formattedCreatedAt}</div>
@@ -75,7 +104,6 @@ Card.propTypes = {
     description: PropTypes.string,
     imageSource: PropTypes.string,
   }).isRequired,
-  clickKebab: PropTypes.func.isRequired,
 };
 
 export default Card;
