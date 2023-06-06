@@ -21,20 +21,10 @@ const getElapsedTime = (dateItem) => {
     for (let i = 0; i < timeUnits.length; i += 1) {
       const { value, label } = timeUnits[i];
 
-      if (timeDiff < value) {
-      // eslint-disable-next-line no-continue
-        continue;
+      if (timeDiff >= value) {
+        const formattedTimeDiff = Math.floor(timeDiff / value);
+        return `${formattedTimeDiff} ${label}${formattedTimeDiff > 1 ? 's' : ''} ago`;
       }
-
-      const formattedTimeDiff = Math.floor(timeDiff / value);
-
-      return (
-        `${formattedTimeDiff
-        } ${
-          label
-        }${formattedTimeDiff > 1 ? 's' : ''
-        } ago`
-      );
     }
   }
   return '';
