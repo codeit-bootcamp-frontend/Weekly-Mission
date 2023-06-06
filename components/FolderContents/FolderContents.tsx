@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import AddLink from "@/components/AddLink/AddLink";
 import CardWrapper from "@/components/CardWrapper/CardWrapper";

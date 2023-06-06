@@ -1,6 +1,6 @@
 "use clinet";
 
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 import Image from "next/image";
 

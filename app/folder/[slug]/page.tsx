@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React from "react";
-
 import dynamic from "next/dynamic";
 
 import styles from "./page.module.css";

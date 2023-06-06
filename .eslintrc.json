@@ -18,6 +18,7 @@
     "ecmaVersion": 2020 /* 사용할 ECMAScript 버전을 설정 */
   },
   "rules": {
+    "react/react-in-jsx-scope": "off", // suppress errors for missing 'import React' in files
     "no-unused-vars": "off", // interface나 type에 prop 넘겨주는 애들을 unused로 인식하므로 off 해주고 typescript 용으로 켜준다.
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-non-null-assertion": "off" /* https://typescript-eslint.io/rules/no-non-null-assertion/ */,

@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 import { createPortal } from "react-dom";
 
 const AddPortalWrapper = ({ children }: { children: React.ReactNode }) => {
