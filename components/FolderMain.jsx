@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
@@ -5,11 +6,25 @@ import styles from './FolderMain.module.css';
 import SearchBar from './SearchBar';
 import CardContainer from './CardContainer';
 import SortButton from './SortButton';
+import FolderModal from './FolderModal';
 import shareIcon from '@/public/share.svg';
 import penIcon from '@/public/pen.svg';
 import deleteIcon from '@/public/delete.svg';
 
 const FolderMain = ({ endPoint, cardLinks, exceedThreshold = false }) => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalOption, setModalOption] = useState('');
+
+  const openModal = (option) => {
+    setModalOpen(true);
+    setModalOption(option);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setModalOption('');
+  };
+
   let title = '';
   switch (endPoint) {
     case 'favorites':
@@ -57,13 +72,13 @@ const FolderMain = ({ endPoint, cardLinks, exceedThreshold = false }) => {
               <SortButton fill={endPoint === '4'}>나만의 장소</SortButton>
             </Link>
           </div>
-          <button type="button" className={styles.addFolder}>폴더 추가 +</button>
-          <button type="button" className={styles.addFolderMobile}>폴더 추가 +</button>
+          <button type="button" className={styles.addFolder} onClick={() => { return openModal('addFolder'); }}>폴더 추가 +</button>
+          <button type="button" className={styles.addFolderMobile} onClick={() => { return openModal('addFolder'); }}>폴더 추가 +</button>
         </div>
         <div className={`${styles.secondLine} ${exceedThreshold ? styles.hide : ''}`}>
           <h3 className={styles.slTitle}>{title}</h3>
           <div className={styles.slOption}>
-            <button className={styles.optionButton} type="button">
+            <button className={styles.optionButton} type="button" onClick={() => { return openModal('shareFolder'); }}>
               <Image
                 src={shareIcon}
                 width={18}
@@ -72,21 +87,21 @@ const FolderMain = ({ endPoint, cardLinks, exceedThreshold = false }) => {
               />
               <p>공유</p>
             </button>
-            <button className={styles.optionButton} type="button">
+            <button className={styles.optionButton} type="button" onClick={() => { return openModal('editFolder'); }}>
               <Image
                 src={penIcon}
                 width={18}
                 height={18}
-                alt="Share"
+                alt="Edit"
               />
               <p>이름 변경</p>
             </button>
-            <button className={styles.optionButton} type="button">
+            <button className={styles.optionButton} type="button" onClick={() => { return openModal('deleteFolder'); }}>
               <Image
                 src={deleteIcon}
                 width={18}
                 height={18}
-                alt="Share"
+                alt="Delete"
               />
               <p>삭제</p>
             </button>
@@ -98,6 +113,8 @@ const FolderMain = ({ endPoint, cardLinks, exceedThreshold = false }) => {
           <div className={styles.emptyMessage}>저장된 링크가 없습니다</div>
         )}
       </div>
+
+      {modalOpen && <FolderModal option={modalOption} closeModal={closeModal} />}
     </main>
   );
 };
