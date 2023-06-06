@@ -1,9 +1,11 @@
 import { selector } from 'recoil';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { v4 } from 'uuid';
 import userAtom from './userAtom';
 import defaultUserImage from '@/public/default-profile.svg';
 
 const userSelector = selector({
-  key: 'userSelector',
+  key: v4(),
   get: ({ get }) => {
     const user = get(userAtom);
     const userImage = user.profileImageSource || defaultUserImage;
