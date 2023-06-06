@@ -71,6 +71,17 @@
   color: var(--card-date);
 }
 
+.popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+}
+
+.popup > button{
+  cursor: pointer
+}
+
 @media (hover: hover) {
     .container.hovered {
       background-color: var(--gray5);

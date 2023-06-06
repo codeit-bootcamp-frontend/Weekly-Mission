@@ -14,6 +14,7 @@ const Card = ({ link }) => {
 
   const [clickKebab, setClickKebab] = useState(false);
   const popupRef = useRef(null);
+  const kebabRef = useRef(null);
 
   const [bookmark, setBookmark] = useState(false);
   const elapsedTime = getElapsedTime(link.createdAt);
@@ -33,7 +34,11 @@ const Card = ({ link }) => {
   };
 
   const handleOutsideClick = (e) => {
-    if (popupRef.current && !popupRef.current.contains(e.target)) {
+    if (
+      popupRef.current
+      && !popupRef.current.contains(e.target)
+      && !kebabRef.current.contains(e.target)
+    ) {
       setClickKebab(false);
     }
   };
@@ -76,7 +81,12 @@ const Card = ({ link }) => {
         <div className={styles.cardText}>
           <div className={styles.firstLine}>
             <div className={styles.elapsedTime}>{elapsedTime}</div>
-            <button type="button" className={styles.kebab} onClick={handleKebabToggler}>
+            <button
+              type="button"
+              className={styles.kebab}
+              ref={kebabRef}
+              onClick={handleKebabToggler}
+            >
               <Image
                 fill
                 src={kebabImage}
