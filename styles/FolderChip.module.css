@@ -1,0 +1,21 @@
+.chip-button {
+  cursor: pointer;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary);
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 1.6rem;
+}
+
+.active {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+@media (max-width: 767px) {
+  .chip-button {
+    padding: 0.6rem 1rem;
+    font-size: 1.4rem;
+  }
+}

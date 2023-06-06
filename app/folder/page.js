@@ -3,6 +3,7 @@ import AddLinkBar from "@/components/AddLinkBar";
 import GNB from "@/components/GNB";
 import styles from "./page.module.css";
 import classNames from "classnames/bind";
+import FolderChip from "@/components/FolderChip";
 
 const cx = classNames.bind(styles);
 
@@ -16,6 +17,7 @@ export default async function Folder() {
       <header className={cx("header")}>
         <AddLinkBar />
       </header>
+      <FolderChip>전체</FolderChip>
     </>
   );
 }
