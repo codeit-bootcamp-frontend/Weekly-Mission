@@ -4,9 +4,57 @@
   background-color: var(--white);
 }
 
-.contents {
+.contents { 
   width: 106rem;
   margin: 0 auto;
+}
+
+.firstLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 4rem;
+  width: 100%;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.addFolder {
+  cursor: pointer;
+  color: var(--primary);
+  background-color: var(--white);
+  font-weight: 500;
+}
+
+.addFolderMobile {
+  display: none;
+  cursor: pointer;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 10rem;
+  transform: translateX(-50%);
+  border: 1px solid var(--white);
+  border-radius: 2rem;
+  padding: 0.8rem 2.4rem;
+  font-weight: 500;
+  color: var(--white);
+  background-color: var(--primary);
+}
+
+.emptyMessage {
+  margin: 6.5rem auto 3.5rem;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  color: var(--black);
+
 }
 
 @media screen and (max-width:1199px) {
@@ -24,5 +72,17 @@
   .contents {
     width: 100%;
     max-width: 32.5rem;
+  }
+
+  .firstLine {
+    margin-top: 3.2rem;
+  }
+
+  .addFolder {
+    display: none;
+  }
+
+  .addFolderMobile {
+    display: block;
   }
 }

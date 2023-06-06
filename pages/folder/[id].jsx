@@ -6,41 +6,56 @@ import FolderHeader from '@/components/FolderHeader';
 import FolderMain from '@/components/FolderMain';
 import Spinner from '@/components/Spinner';
 
-export const getStaticProps = async () => {
-  const { data, error, isLoading } = await axios.get('/folder');
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { id: '1' } },
+      { params: { id: '2' } },
+      { params: { id: '3' } },
+      { params: { id: '4' } },
+    ],
+    fallback: false,
+  };
+}
 
-  if (error) {
+export const getStaticProps = async (context) => {
+  const { id } = context.params;
+
+  if (!['1', '2', '3', '4'].includes(id)) {
     return {
-      props: {
-        status: 'error',
-        error: error.message,
-        links: [],
-      },
+      notFound: true,
     };
   }
 
-  if (isLoading) {
+  try {
+    const { data } = await axios.get(`/folder/${id}`);
+    const { links } = data.data.folder;
+
     return {
       props: {
-        status: 'loading',
+        status: 'success',
+        error: null,
+        links: links || [],
+        paramsId: id,
+      },
+    };
+  } catch (error) {
+    console.error(`axios error: ${error}`);
+
+    return {
+      props: {
+        status: 'success',
         error: null,
         links: [],
+        paramsId: id,
       },
     };
   }
-
-  const { links } = data.data.folder;
-
-  return {
-    props: {
-      status: 'success',
-      error: null,
-      links,
-    },
-  };
 };
 
-const Folder = ({ status, error, links }) => {
+const Folder = ({
+  status, error, links, paramsId,
+}) => {
   return (
     <Layout>
       <Head>
@@ -55,7 +70,7 @@ const Folder = ({ status, error, links }) => {
       ) : (
         <>
           <FolderHeader />
-          <FolderMain endPoint="" cardLinks={links} />
+          <FolderMain endPoint={paramsId} cardLinks={links} />
         </>
       )}
     </Layout>
@@ -75,6 +90,7 @@ Folder.propTypes = {
       imageSource: PropTypes.string.isRequired,
     }),
   ).isRequired,
+  paramsId: PropTypes.string.isRequired,
 };
 
 export default Folder;

@@ -6,7 +6,7 @@ const Privacy = () => {
       <Head>
         <title>개인정보 처리 방침 | Linkbrary</title>
       </Head>
-      <div>내 링크</div>
+      <div>개인정보 처리 방침</div>
     </>
   );
 };

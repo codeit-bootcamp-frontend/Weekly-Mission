@@ -7,37 +7,28 @@ import FolderMain from '@/components/FolderMain';
 import Spinner from '@/components/Spinner';
 
 export const getStaticProps = async () => {
-  const { data, error, isLoading } = await axios.get('/folder');
+  try {
+    const { data } = await axios.get('/folder/favorites');
+    const { links } = data.data.folder;
 
-  if (error) {
     return {
       props: {
-        status: 'error',
-        error: error.message,
-        links: [],
+        status: 'success',
+        error: null,
+        links: links || [],
       },
     };
-  }
+  } catch (error) {
+    console.error(`axios error: ${error}`);
 
-  if (isLoading) {
     return {
       props: {
-        status: 'loading',
+        status: 'success',
         error: null,
         links: [],
       },
     };
   }
-
-  const { links } = data.data.folder;
-
-  return {
-    props: {
-      status: 'success',
-      error: null,
-      links,
-    },
-  };
 };
 
 const Folder = ({ status, error, links }) => {
@@ -55,7 +46,7 @@ const Folder = ({ status, error, links }) => {
       ) : (
         <>
           <FolderHeader />
-          <FolderMain endPoint="" cardLinks={links} />
+          <FolderMain endPoint="favorites" cardLinks={links} />
         </>
       )}
     </Layout>

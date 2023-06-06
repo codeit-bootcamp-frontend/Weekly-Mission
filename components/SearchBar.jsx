@@ -1,11 +1,12 @@
 import Image from 'next/image';
+import PropTypes from 'prop-types';
 import styles from './SearchBar.module.css';
 import searchIconImage from '@/public/search.svg';
 
-const SearchBar = () => {
+const SearchBar = ({ placeHolder = '' }) => {
   return (
     <div className={styles.container}>
-      <input className={styles.searchInput} type="search" placeholder="원하는 링크를 검색해 보세요" />
+      <input className={styles.searchInput} type="search" placeholder={placeHolder} />
       <div className={styles.searchIcon}>
         <Image
           fill
@@ -15,6 +16,10 @@ const SearchBar = () => {
       </div>
     </div>
   );
+};
+
+SearchBar.propTypes = {
+  placeHolder: PropTypes.string,
 };
 
 export default SearchBar;

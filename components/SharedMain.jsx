@@ -5,12 +5,12 @@ import CardContainer from './CardContainer';
 
 const sharedMain = ({ cardLinks }) => {
   return (
-    <div className={styles.container}>
+    <main className={styles.container}>
       <div className={styles.contents}>
-        <SearchBar />
+        <SearchBar placeHolder="원하는 링크를 검색해 보세요" />
         <CardContainer cardLinks={cardLinks} />
       </div>
-    </div>
+    </main>
   );
 };
 

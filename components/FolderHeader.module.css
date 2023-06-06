@@ -18,7 +18,17 @@
 }
 
 @media screen and (max-width: 767px) {
+  .folderHeader {
+    position: sticky;
+    z-index: 1;
+    margin: 0.8rem auto 2.4rem;
+  }
+
+  .folderContainer {
+    padding: 1.6rem 0;
+  }
+  
   .bottomHeader {
-    top: calc(100vh - 10.2rem);
+    top: calc(100vh - 8.6rem);
   }
 }

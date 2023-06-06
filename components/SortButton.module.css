@@ -1,0 +1,21 @@
+.button {
+  cursor: pointer;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  padding: 0.8rem 1.2rem;
+  line-height: 1.9rem;
+  background-color: var(--white);
+}
+
+.button.filled {
+  color: white;
+  background-color: var(--primary);
+}
+
+@media screen and (max-width: 767px) {
+  .button {
+    padding: 0.6rem 1rem;
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+  }
+}
