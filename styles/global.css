@@ -10,8 +10,9 @@
   --gray4: #E7EFFB;
   --gray5: #F0F6FF;
   --gray6: #F5F5F5;
+  --gray7: #373740;
   --navbar-background: rgba(240, 246, 255, 0.5);
-  --profile-email: #373740;
+  --profile-email: var(--gray7);
   --home-content-description: #6B6B6B;
   --footer-text1: #676767;
   --footer-text2: #CFCFCF;

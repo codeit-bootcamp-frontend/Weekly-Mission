@@ -1,5 +1,29 @@
-.contaienr {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.modalHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 2.4rem;
+}
+
+.modalTitle {
+  font-size: 2rem;
+}
+
+.modalDescription {
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  color: var(--gray2);
+}
+
+.modalButton {
+  width: 28rem;
+  font-size: 1.6rem;
+  background: var(--red);
 }
