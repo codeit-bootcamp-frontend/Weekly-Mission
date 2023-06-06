@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
+import { CardPropTypes } from '@/lib/constants';
 import SearchBar from './SearchBar';
 import CardContainer from './CardContainer';
 import SortButton from './SortButton';
@@ -15,6 +16,15 @@ const FolderMain = ({ endPoint, cardLinks, exceedThreshold = false }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalOption, setModalOption] = useState('');
 
+  const titles = {
+    '': '전체',
+    favorites: '⭐️ 즐겨찾기',
+    1: '코딩 팁',
+    2: '채용 사이트',
+    3: '유용한 글',
+    4: '나만의 장소',
+  };
+
   const openModal = (option) => {
     setModalOpen(true);
     setModalOption(option);
@@ -25,27 +35,7 @@ const FolderMain = ({ endPoint, cardLinks, exceedThreshold = false }) => {
     setModalOption('');
   };
 
-  let title = '';
-  switch (endPoint) {
-    case 'favorites':
-      title = '⭐️ 즐겨찾기';
-      break;
-    case '1':
-      title = '코딩 팀';
-      break;
-    case '2':
-      title = '채용 사이트';
-      break;
-    case '3':
-      title = '유용한 글';
-      break;
-    case '4':
-      title = '나만의 장소';
-      break;
-    default:
-      title = '전체';
-      break;
-  }
+  const title = titles[endPoint];
 
   return (
     <main className={styles.container}>
@@ -124,16 +114,7 @@ const FolderMain = ({ endPoint, cardLinks, exceedThreshold = false }) => {
 
 FolderMain.propTypes = {
   endPoint: PropTypes.string.isRequired,
-  cardLinks: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number,
-      createdAt: PropTypes.string,
-      url: PropTypes.string,
-      title: PropTypes.string,
-      description: PropTypes.string,
-      imageSource: PropTypes.string,
-    }),
-  ).isRequired,
+  cardLinks: PropTypes.arrayOf(PropTypes.shape(CardPropTypes)).isRequired,
   exceedThreshold: PropTypes.bool,
 };
 

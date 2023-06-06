@@ -20,6 +20,24 @@ const Account = ({ isSignin = false }) => {
   const setUser = useSetRecoilState(userAtom);
   const router = useRouter();
 
+  const validateEmail = (value) => {
+    if (value === '') return;
+    if (!isValidEmail(value)) {
+      alert('올바른 이메일 형식이 아닙니다.');
+      return;
+    }
+    if (!isSignin && value === 'test@codeit.com') {
+      alert('이미 사용 중인 아이디입니다.');
+    }
+  };
+
+  const validatePassword = (value) => {
+    if (value === '') return;
+    if (!isValidPassword(value)) {
+      alert('비밀번호는 영문, 숫자 조합 8자 이상을 입력해 주세요.');
+    }
+  };
+
   const handleChange = (e) => {
     switch (e.target.name) {
       case 'email':
@@ -37,50 +55,26 @@ const Account = ({ isSignin = false }) => {
   };
 
   const handleBlur = (e) => {
-    if (e.target.name === 'email') {
-      switch (true) {
-        case email === '':
-          break;
-        case !isValidEmail(email):
-          alert('올바른 이메일 형식이 아닙니다.');
-          break;
-        case !isSignin && email === 'test@codeit.com':
-          alert('이미 사용 중인 아이디입니다.');
-          break;
-        default:
-          break;
+    const { name, value } = e.target;
+
+    if (name === 'email') {
+      validateEmail(value);
+    } else if (name === 'password') {
+      validatePassword(value);
+      if (confirmPassword !== '' && value !== confirmPassword) {
+        alert('비밀번호가 일치하지 않습니다.');
       }
-    } else if (e.target.name === 'password') {
-      switch (true) {
-        case password === '':
-          break;
-        case !isValidPassword(password):
-          alert('비밀번호는 영문, 숫자 조합 8자 이상을 입력해 주세요.');
-          break;
-        case confirmPassword !== '' && password !== confirmPassword:
-          alert('비밀번호가 일치하지 않습니다.');
-          break;
-        default:
-          break;
-      }
-    } else if (e.target.name === 'password2') {
-      switch (true) {
-        case confirmPassword === '':
-          break;
-        case !isValidPassword(confirmPassword):
-          alert('비밀번호는 영문, 숫자 조합 8자 이상을 입력해 주세요.');
-          break;
-        case password !== '' && password !== confirmPassword:
-          alert('비밀번호가 일치하지 않습니다.');
-          break;
-        default:
-          break;
+    } else if (name === 'password2') {
+      validatePassword(value);
+      if (password !== '' && password !== value) {
+        alert('비밀번호가 일치하지 않습니다.');
       }
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (isSignin) {
       if (email === 'test@codeit.com' && password === 'codeit101') {
         setUser({
@@ -94,35 +88,24 @@ const Account = ({ isSignin = false }) => {
         alert('이메일과 비밀번호를 확인해주세요.');
       }
     } else {
-      switch (true) {
-        case email === '':
-          alert('이메일을 입력해 주세요.');
-          break;
-        case !isValidEmail(email):
-          alert('올바른 이메일 형식이 아닙니다.');
-          break;
-        case email === 'test@codeit.com':
-          alert('이미 사용 중인 이메일입니다.');
-          break;
-        case password === '' || confirmPassword === '':
-          alert('비밀번호를 입력해 주세요.');
-          break;
-        case !isValidPassword(password) || !isValidPassword(confirmPassword):
-          alert('비밀번호는 영문, 숫자 조합 8자 이상을 입력해 주세요.');
-          break;
-        case password !== confirmPassword:
-          alert('비밀번호가 일치하지 않습니다.');
-          break;
-        default:
-          setUser({
-            id: 1,
-            name: '코드잇',
-            email,
-            profileImageSource: '',
-          });
-          router.push('/my-link');
-          break;
+      if (
+        !validateEmail(email)
+        || !validatePassword(password)
+        || !validatePassword(confirmPassword)
+      ) return;
+
+      if (password !== confirmPassword) {
+        alert('비밀번호가 일치하지 않습니다.');
+        return;
       }
+
+      setUser({
+        id: 1,
+        name: '코드잇',
+        email,
+        profileImageSource: '',
+      });
+      router.push('/my-link');
     }
   };
 

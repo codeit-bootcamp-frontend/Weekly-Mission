@@ -11,23 +11,21 @@ import styles from './Card.module.css';
 
 const Card = ({ link, handleDeleteLink, handleAddToFolder }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [clickKebab, setClickKebab] = useState(false);
+  const [isKebabClicked, setIsKebabClicked] = useState(false);
   const kebabRef = useRef(null);
-  const [bookmark, setBookmark] = useState(false);
+  const [isBookmarked, setIsBookmarked] = useState(false);
   const elapsedTime = getElapsedTime(link.createdAt);
   const formattedCreatedAt = getFormattedDate(link.createdAt);
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
+  const handleHover = (value) => {
+    return () => {
+      setIsHovered(value);
+    };
   };
 
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-
-  const handleKebabToggler = (e) => {
+  const toggleKebabClick = (e) => {
     e.preventDefault();
-    setClickKebab((prev) => { return !prev; });
+    setIsKebabClicked((prev) => { return !prev; });
   };
 
   const handleOutsideClick = (e) => {
@@ -35,19 +33,19 @@ const Card = ({ link, handleDeleteLink, handleAddToFolder }) => {
       kebabRef.current
       && !kebabRef.current.contains(e.target)
     ) {
-      setClickKebab(false);
+      setIsKebabClicked(false);
     }
   };
 
   const handleEscKey = (e) => {
     if (e.keyCode === 27) {
-      setClickKebab(false);
+      setIsKebabClicked(false);
     }
   };
 
   const handleBookmarkToggler = (e) => {
     e.preventDefault();
-    setBookmark((prevState) => { return !prevState; });
+    setIsBookmarked((prevState) => { return !prevState; });
   };
 
   useEffect(() => {
@@ -62,8 +60,8 @@ const Card = ({ link, handleDeleteLink, handleAddToFolder }) => {
 
   return (
     <div
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={handleHover(true)}
+      onMouseLeave={handleHover(false)}
       className={`${styles.container} ${isHovered ? styles.hovered : ''}`}
     >
       <Link href={link.url} target="_blank">
@@ -81,15 +79,15 @@ const Card = ({ link, handleDeleteLink, handleAddToFolder }) => {
               <button
                 type="button"
                 className={styles.kebab}
-                onClick={handleKebabToggler}
+                onClick={toggleKebabClick}
               >
                 <Image
                   fill
                   src={kebabImage}
-                  alt="Kebab"
+                  alt="Menu Icon"
                 />
               </button>
-              {clickKebab && (
+              {isKebabClicked && (
               <div className={styles.popup}>
                 <button
                   type="button"
@@ -119,7 +117,7 @@ const Card = ({ link, handleDeleteLink, handleAddToFolder }) => {
       </Link>
       <BookmarkIcon
         className={styles.bookmarkIcon}
-        Bookmark={bookmark}
+        isBookmarked={isBookmarked}
         handleToggler={handleBookmarkToggler}
       />
     </div>

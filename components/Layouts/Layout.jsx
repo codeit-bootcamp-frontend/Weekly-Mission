@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import Nav from './Nav';
-import Footer from './Footer';
+import Nav from '../Nav';
+import Footer from '../Footer';
 
 const Layout = ({ children }) => {
   return (

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import checkIcon from '@/public/check.svg';
-import Button from './Button';
+import Button from '@/components/Button';
 import styles from './ModalAddToFolder.module.css';
 
 const ModalAddToFolder = () => {

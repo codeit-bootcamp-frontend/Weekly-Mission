@@ -3,7 +3,7 @@ import styles from './SortButton.module.css';
 
 const SortButton = ({ fill = false, children = '' }) => {
   return (
-    <button type="button" className={`${styles.button}  ${fill ? styles.filled : ''}`}>{children}</button>
+    <button type="button" className={`${styles.button} ${fill ? styles.filled : ''}`}>{children}</button>
   );
 };
 

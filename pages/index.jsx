@@ -4,14 +4,14 @@ import ContentImage1 from '@/public/homepage-body-thumb1.svg';
 import ContentImage2 from '@/public/homepage-body-thumb2.svg';
 import ContentImage3 from '@/public/homepage-body-thumb3.svg';
 import ContentImage4 from '@/public/homepage-body-thumb4.svg';
-import Layout from '@/components/Layout';
+import Layout from '@/components/Layouts/Layout';
 import ButtonLink from '@/components/ButtonLink';
 import styles from '@/styles/Home.module.css';
 
 const Home = () => {
   return (
     <Layout>
-      <article className={styles.homeHeader}>
+      <header className={styles.homeHeader}>
         <h1 className={styles.headerTitle}>
           <span className={styles.emphasis}>세상의 모든 정보</span>
           를
@@ -27,7 +27,7 @@ const Home = () => {
             priority
           />
         </div>
-      </article>
+      </header>
       <main className={styles.homeBody}>
         <section className={styles.contentContainer}>
           <h2 className={styles.contentTitle}>
@@ -43,7 +43,7 @@ const Home = () => {
             <Image
               fill
               src={ContentImage1}
-              alt="Image1 Thumbnail"
+              alt="Image1"
             />
           </div>
         </section>
@@ -62,7 +62,7 @@ const Home = () => {
             <Image
               fill
               src={ContentImage2}
-              alt="Image2 Thumbnail"
+              alt="Image2"
             />
           </div>
         </section>
@@ -80,7 +80,7 @@ const Home = () => {
             <Image
               fill
               src={ContentImage3}
-              alt="Image3 Thumbnail"
+              alt="Image3"
             />
           </div>
         </section>
@@ -97,7 +97,7 @@ const Home = () => {
             <Image
               fill
               src={ContentImage4}
-              alt="Image4 Thumbnail"
+              alt="Image4"
             />
           </div>
         </section>

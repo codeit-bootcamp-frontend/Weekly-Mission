@@ -1,21 +1,18 @@
 .modalOverlay {
-  position: fixed;
-  inset: 0;
-  z-index: 2;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  background-color: var(--modal-overlay);
 }
 
 .modal {
-  background-color: white;
   padding: 3.2rem 4rem;
-  position: relative;
   border: 1px solid var(--modal-box-border);
   border-radius: 1.5rem;
+  position: relative;
   background-color: var(--white);
 }
 
@@ -26,5 +23,5 @@
   right: 1.6rem;
   width: 1.6rem;
   height: 1.6rem;
-  border-radius: 50%;
+  background-color: var(--white);
 }

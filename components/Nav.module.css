@@ -36,7 +36,7 @@ a.styledButtonLink {
 }
 
 .profileEmail {
-  color: var(--profile-email);
+  color: var(--gray7);
 }
 
 @media screen and (max-width: 1199px) {

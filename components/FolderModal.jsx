@@ -2,12 +2,12 @@ import { useEffect } from 'react';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
 import closeIcon from '@/public/close.svg';
-import ModalEditFolder from './ModalEditFolder';
-import ModalAddFolder from './ModalAddFolder';
-import ModalShareFolder from './ModalShareFolder';
-import ModalDeleteFolder from './ModalDeleteFolder';
-import ModalDeleteLink from './ModalDeleteLink';
-import ModalAddToFolder from './ModalAddToFolder';
+import ModalEditFolder from './Modals/ModalEditFolder';
+import ModalAddFolder from './Modals/ModalAddFolder';
+import ModalShareFolder from './Modals/ModalShareFolder';
+import ModalDeleteFolder from './Modals/ModalDeleteFolder';
+import ModalDeleteLink from './Modals/ModalDeleteLink';
+import ModalAddToFolder from './Modals/ModalAddToFolder';
 import styles from './FolderModal.module.css';
 
 const FolderModal = ({ option, closeModal }) => {
@@ -34,18 +34,20 @@ const FolderModal = ({ option, closeModal }) => {
   }, [closeModal]);
 
   const options = {
-    editFolder: <ModalEditFolder />,
-    addFolder: <ModalAddFolder />,
-    shareFolder: <ModalShareFolder />,
-    deleteFolder: <ModalDeleteFolder />,
-    deleteLink: <ModalDeleteLink />,
-    addToFolder: <ModalAddToFolder />,
+    editFolder: ModalEditFolder,
+    addFolder: ModalAddFolder,
+    shareFolder: ModalShareFolder,
+    deleteFolder: ModalDeleteFolder,
+    deleteLink: ModalDeleteLink,
+    addToFolder: ModalAddToFolder,
   };
+
+  const SelectedModal = options[option];
 
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modal}>
-        {options[option]}
+        <SelectedModal />
         <button className={styles.closeButton} type="button" onClick={closeModal}>
           <Image
             fill

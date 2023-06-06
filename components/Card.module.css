@@ -43,7 +43,7 @@
 
 .elapsedTime {
   font-size: 1.4rem;
-  color: var(--card-time-since);
+  color: var(--gray8);
 }
 
 .kebabContainer {

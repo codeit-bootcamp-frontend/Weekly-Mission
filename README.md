@@ -68,7 +68,7 @@ This project is licensed under the MIT License. See the LICENSE.md file for deta
 ## Progress
 
 - [ ] jsx 파일들을 TypeScript으로 변환
-- [ ] CSS Modules를 vanill-extract로 변환
+- [ ] CSS Modules를 vanilla-extract로 변환
 - [ ] React Query 사용
 - [ ] Jest로 test
 - [ ] 유저 기능

@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import axios from '@/lib/axios';
-import Layout from '@/components/Layout';
+import { CardPropTypes } from '@/lib/constants';
+import Layout from '@/components/Layouts/Layout';
 import FolderHeader from '@/components/FolderHeader';
 import FolderMain from '@/components/FolderMain';
 import Spinner from '@/components/Spinner';
@@ -80,16 +81,7 @@ const Folder = ({
 Folder.propTypes = {
   status: PropTypes.oneOf(['loading', 'error', 'success']).isRequired,
   error: PropTypes.string,
-  links: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number,
-      createdAt: PropTypes.string,
-      url: PropTypes.string,
-      title: PropTypes.string,
-      description: PropTypes.string,
-      imageSource: PropTypes.string,
-    }),
-  ).isRequired,
+  links: PropTypes.arrayOf(PropTypes.shape(CardPropTypes)).isRequired,
   paramsId: PropTypes.string.isRequired,
 };
 

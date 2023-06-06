@@ -11,17 +11,14 @@
   --gray5: #F0F6FF;
   --gray6: #F5F5F5;
   --gray7: #373740;
-  --navbar-background: rgba(240, 246, 255, 0.5);
-  --profile-email: var(--gray7);
+  --gray8: #666666;
   --home-content-description: #6B6B6B;
   --footer-text1: #676767;
   --footer-text2: #CFCFCF;
   --eye-toggler: #4B5563;
-  --kakaotalk-background: #F5E14B;
-  --card-time-since: #666666;
   --card-date: #333333;
-  --search-bar-text: #666666;
   --kebab-box-shadow: rgba(51, 50, 54, 0.1);
+  --modal-overlay: rgba(0, 0, 0, 0.5);
   --modal-box-border: #DEE2E6;
   --emphasis-left: var(--primary);
   --emphasis-right: #FF9F9F;
@@ -83,7 +80,7 @@ h6 {
 }
 
 @media screen and (max-width: 767px) {
-  .mobile-mg-bt-40 {
+  .mobile-mg-bt-32 {
     margin-bottom: 3.2rem;
   }
 }

@@ -1,12 +1,10 @@
+
 .emphasis {
   background: linear-gradient(
     90deg,
     var(--emphasis-left),
     var(--emphasis-right)
   );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .emphasis1 {
@@ -15,9 +13,6 @@
     var(--emphasis-1-left),
     var(--emphasis-1-right)
   );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .emphasis2 {
@@ -26,9 +21,6 @@
     var(--emphasis-2-left),
     var(--emphasis-2-right)
   );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .emphasis3 {
@@ -37,9 +29,6 @@
     var(--emphasis-3-left),
     var(--emphasis-3-right)
   );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .emphasis4 {
@@ -48,6 +37,13 @@
     var(--emphasis-4-left),
     var(--emphasis-4-right)
   );
+}
+
+.emphasis,
+.emphasis1,
+.emphasis2,
+.emphasis3,
+.emphasis4 {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -140,10 +136,7 @@ a.styledButtonLink {
     height: 34.3rem
   }
 
-  .contentTitle {
-    width: 26.2rem;
-  }
-
+  .contentTitle,
   .contentDescription {
     width: 26.2rem;
   }
@@ -217,14 +210,6 @@ a.styledButtonLink {
 
   .contentContainer br {
     display: none;
-  }
-
-  .contentContainer:first-child {
-    margin-top: 0;
-  }
-
-  .contentContainer:last-child {
-    margin-bottom: 0;
   }
 
   .contentContainer:nth-child(2n) .contentImage {
