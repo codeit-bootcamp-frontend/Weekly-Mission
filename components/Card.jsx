@@ -38,6 +38,12 @@ const Card = ({ link }) => {
     }
   };
 
+  const handleEscKey = (e) => {
+    if (e.keyCode === 27) {
+      setClickKebab(false);
+    }
+  };
+
   const handleBookmarkToggler = (e) => {
     e.preventDefault();
     setBookmark((prevState) => { return !prevState; });
@@ -45,9 +51,11 @@ const Card = ({ link }) => {
 
   useEffect(() => {
     document.addEventListener('mousedown', handleOutsideClick);
+    document.addEventListener('keydown', handleEscKey);
 
     return () => {
       document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener('keydown', handleEscKey);
     };
   }, []);
 
