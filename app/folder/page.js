@@ -4,6 +4,8 @@ import GNB from "@/components/GNB";
 import styles from "./page.module.css";
 import classNames from "classnames/bind";
 import FolderChip from "@/components/FolderChip";
+import { folderData } from "@/data/folderData";
+import FAB from "@/components/FAB";
 
 const cx = classNames.bind(styles);
 
@@ -17,7 +19,12 @@ export default async function Folder() {
       <header className={cx("header")}>
         <AddLinkBar />
       </header>
-      <FolderChip>전체</FolderChip>
+      {folderData.map((folder) => (
+        <FolderChip key={folder.name} active={folder.name === "전체"}>
+          {folder.name}
+        </FolderChip>
+      ))}
+      <FAB />
     </>
   );
 }
