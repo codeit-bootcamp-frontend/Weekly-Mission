@@ -3,12 +3,17 @@ import styles from './CardContainer.module.css';
 import Card from './Card';
 
 // eslint-disable-next-line no-unused-vars
-const CardContainer = ({ cardLinks }) => {
+const CardContainer = ({ cardLinks, handleDeleteLink, handleAddToFolder }) => {
   return (
     <div className={styles.container}>
       {cardLinks.map((cardLink) => {
         return (
-          <Card key={cardLink.id} link={cardLink} />
+          <Card
+            key={cardLink.id}
+            link={cardLink}
+            handleDeleteLink={handleDeleteLink}
+            handleAddToFolder={handleAddToFolder}
+          />
         );
       })}
     </div>
@@ -26,6 +31,8 @@ CardContainer.propTypes = {
       imageSource: PropTypes.string,
     }),
   ).isRequired,
+  handleDeleteLink: PropTypes.func.isRequired,
+  handleAddToFolder: PropTypes.func.isRequired,
 };
 
 export default CardContainer;

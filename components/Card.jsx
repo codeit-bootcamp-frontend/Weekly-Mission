@@ -9,7 +9,7 @@ import defaultCardImage from '@/public/default-card-image.svg';
 import kebabImage from '@/public/kebab.svg';
 import BookmarkIcon from './BookmarkIcon';
 
-const Card = ({ link }) => {
+const Card = ({ link, handleDeleteLink, handleAddToFolder }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [clickKebab, setClickKebab] = useState(false);
   const kebabRef = useRef(null);
@@ -91,8 +91,8 @@ const Card = ({ link }) => {
               </button>
               {clickKebab && (
               <div className={styles.popup}>
-                <button type="button">삭제하기</button>
-                <button type="button">폴더에 추가</button>
+                <button type="button" onClick={(e) => { e.preventDefault(); handleDeleteLink(); }}>삭제하기</button>
+                <button type="button" onClick={(e) => { e.preventDefault(); handleAddToFolder(); }}>폴더에 추가</button>
               </div>
               )}
             </div>
@@ -119,6 +119,8 @@ Card.propTypes = {
     description: PropTypes.string,
     imageSource: PropTypes.string,
   }).isRequired,
+  handleDeleteLink: PropTypes.func.isRequired,
+  handleAddToFolder: PropTypes.func.isRequired,
 };
 
 export default Card;

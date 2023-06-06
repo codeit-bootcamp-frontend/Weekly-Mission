@@ -108,12 +108,15 @@ const FolderMain = ({ endPoint, cardLinks, exceedThreshold = false }) => {
           </div>
         </div>
         {cardLinks.length > 0 ? (
-          <CardContainer cardLinks={cardLinks} />
+          <CardContainer
+            cardLinks={cardLinks}
+            handleDeleteLink={() => { return openModal('handleDeleteLink'); }}
+            handleAddToFolder={() => { return openModal('handleAddToFolder'); }}
+          />
         ) : (
           <div className={styles.emptyMessage}>저장된 링크가 없습니다</div>
         )}
       </div>
-
       {modalOpen && <FolderModal option={modalOption} closeModal={closeModal} />}
     </main>
   );
