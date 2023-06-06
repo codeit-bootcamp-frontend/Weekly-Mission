@@ -1,5 +1,5 @@
 import ButtonLink from '@/components/ButtonLink';
-import styles from '@/styles/NotFound.module.css';
+import styles from '@/styles/notFound.module.css';
 
 const NotFound = () => {
   return (
