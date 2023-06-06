@@ -1,31 +1,19 @@
-import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import styles from './FolderHeader.module.css';
 import AddLinkBar from './AddLinkBar';
 
-const FolderHeader = () => {
-  const [isBottomHeader, setIsBottomHeader] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const threshold = 222;
-
-      setIsBottomHeader(scrollPosition > threshold);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
+const FolderHeader = ({ exceedThreshold = false }) => {
   return (
-    <article className={`${styles.folderHeader}  ${isBottomHeader ? styles.bottomHeader : ''}`}>
+    <article className={`${styles.folderHeader}  ${exceedThreshold ? styles.bottomHeader : ''}`}>
       <div className={styles.folderContainer}>
         <AddLinkBar />
       </div>
     </article>
   );
+};
+
+FolderHeader.propTypes = {
+  exceedThreshold: PropTypes.bool,
 };
 
 export default FolderHeader;

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import axios from '@/lib/axios';
@@ -41,6 +42,22 @@ export const getStaticProps = async () => {
 };
 
 const Folder = ({ status, error, links }) => {
+  const [exceedThreshold, setExceedThreshold] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const threshold = 222;
+
+      setExceedThreshold(scrollPosition > threshold);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <Layout>
       <Head>
@@ -54,8 +71,8 @@ const Folder = ({ status, error, links }) => {
         </div>
       ) : (
         <>
-          <FolderHeader />
-          <FolderMain endPoint="" cardLinks={links} />
+          <FolderHeader exceedThreshold={exceedThreshold} />
+          <FolderMain endPoint="" cardLinks={links} exceedThreshold={exceedThreshold} />
         </>
       )}
     </Layout>

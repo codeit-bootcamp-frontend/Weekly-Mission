@@ -25,6 +25,10 @@
   margin-bottom: 2.4rem;
 }
 
+.secondLine.hide {
+  display: none;
+}
+
 .slTitle {
   font-size: 2.4rem;
   font-weight: 600;

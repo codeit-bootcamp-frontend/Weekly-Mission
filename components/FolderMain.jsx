@@ -9,7 +9,7 @@ import shareIcon from '@/public/share.svg';
 import penIcon from '@/public/pen.svg';
 import deleteIcon from '@/public/delete.svg';
 
-const FolderMain = ({ endPoint, cardLinks }) => {
+const FolderMain = ({ endPoint, cardLinks, exceedThreshold = false }) => {
   let title = '';
   switch (endPoint) {
     case 'favorites':
@@ -60,7 +60,7 @@ const FolderMain = ({ endPoint, cardLinks }) => {
           <button type="button" className={styles.addFolder}>폴더 추가 +</button>
           <button type="button" className={styles.addFolderMobile}>폴더 추가 +</button>
         </div>
-        <div className={styles.secondLine}>
+        <div className={`${styles.secondLine} ${exceedThreshold ? styles.hide : ''}`}>
           <h3 className={styles.slTitle}>{title}</h3>
           <div className={styles.slOption}>
             <button className={styles.optionButton} type="button">
@@ -114,6 +114,7 @@ FolderMain.propTypes = {
       imageSource: PropTypes.string,
     }),
   ).isRequired,
+  exceedThreshold: PropTypes.bool,
 };
 
 export default FolderMain;
