@@ -7,7 +7,7 @@ const sharedMain = ({ cardLinks }) => {
   return (
     <main className={styles.container}>
       <div className={styles.contents}>
-        <SearchBar placeHolder="원하는 링크를 검색해 보세요" />
+        <SearchBar className="mg-bt-40 mobile-mg-bt-40" placeHolder="원하는 링크를 검색해 보세요" />
         <CardContainer cardLinks={cardLinks} />
       </div>
     </main>

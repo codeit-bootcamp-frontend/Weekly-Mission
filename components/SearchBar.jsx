@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import styles from './SearchBar.module.css';
 import searchIconImage from '@/public/search.svg';
 
-const SearchBar = ({ placeHolder = '' }) => {
+const SearchBar = ({ className = '', placeHolder = '' }) => {
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${className}`}>
       <input className={styles.searchInput} type="search" placeholder={placeHolder} />
       <div className={styles.searchIcon}>
         <Image
@@ -19,6 +19,7 @@ const SearchBar = ({ placeHolder = '' }) => {
 };
 
 SearchBar.propTypes = {
+  className: PropTypes.string,
   placeHolder: PropTypes.string,
 };
 

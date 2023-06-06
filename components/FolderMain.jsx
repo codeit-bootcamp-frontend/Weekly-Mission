@@ -1,15 +1,41 @@
-import PropTypes from 'prop-types';
 import Link from 'next/link';
+import Image from 'next/image';
+import PropTypes from 'prop-types';
 import styles from './FolderMain.module.css';
 import SearchBar from './SearchBar';
 import CardContainer from './CardContainer';
 import SortButton from './SortButton';
+import shareIcon from '@/public/share.svg';
+import penIcon from '@/public/pen.svg';
+import deleteIcon from '@/public/delete.svg';
 
 const FolderMain = ({ endPoint, cardLinks }) => {
+  let title = '';
+  switch (endPoint) {
+    case 'favorites':
+      title = '⭐️ 즐겨찾기';
+      break;
+    case '1':
+      title = '코딩 팀';
+      break;
+    case '2':
+      title = '채용 사이트';
+      break;
+    case '3':
+      title = '유용한 글';
+      break;
+    case '4':
+      title = '나만의 장소';
+      break;
+    default:
+      title = '전체';
+      break;
+  }
+
   return (
     <main className={styles.container}>
       <div className={styles.contents}>
-        <SearchBar placeHolder="제목을 검색해 보세요" />
+        <SearchBar className="mg-bt-40 mobile-mg-bt-40" placeHolder="제목을 검색해 보세요" />
         <div className={styles.firstLine}>
           <div className={styles.buttons}>
             <Link href="/folder">
@@ -33,6 +59,38 @@ const FolderMain = ({ endPoint, cardLinks }) => {
           </div>
           <button type="button" className={styles.addFolder}>폴더 추가 +</button>
           <button type="button" className={styles.addFolderMobile}>폴더 추가 +</button>
+        </div>
+        <div className={styles.secondLine}>
+          <h3 className={styles.slTitle}>{title}</h3>
+          <div className={styles.slOption}>
+            <button className={styles.optionButton} type="button">
+              <Image
+                src={shareIcon}
+                width={18}
+                height={18}
+                alt="Share"
+              />
+              <p>공유</p>
+            </button>
+            <button className={styles.optionButton} type="button">
+              <Image
+                src={penIcon}
+                width={18}
+                height={18}
+                alt="Share"
+              />
+              <p>이름 변경</p>
+            </button>
+            <button className={styles.optionButton} type="button">
+              <Image
+                src={deleteIcon}
+                width={18}
+                height={18}
+                alt="Share"
+              />
+              <p>삭제</p>
+            </button>
+          </div>
         </div>
         {cardLinks.length > 0 ? (
           <CardContainer cardLinks={cardLinks} />

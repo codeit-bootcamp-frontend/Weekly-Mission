@@ -58,6 +58,7 @@ button {
   font-family: inherit;
   font-size: inherit;
   border: none;
+  padding: 0;
 }
 
 a {
@@ -72,4 +73,14 @@ h4,
 h5,
 h6 {
   margin: 0;
+}
+
+.mg-bt-40 {
+  margin-bottom: 4rem;
+}
+
+@media screen and (max-width: 767px) {
+  .mobile-mg-bt-40 {
+    margin-bottom: 3.2rem;
+  }
 }
