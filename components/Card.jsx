@@ -91,8 +91,24 @@ const Card = ({ link, handleDeleteLink, handleAddToFolder }) => {
               </button>
               {clickKebab && (
               <div className={styles.popup}>
-                <button type="button" onClick={(e) => { e.preventDefault(); handleDeleteLink(); }}>삭제하기</button>
-                <button type="button" onClick={(e) => { e.preventDefault(); handleAddToFolder(); }}>폴더에 추가</button>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleDeleteLink();
+                  }}
+                >
+                  삭제하기
+                </button>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleAddToFolder();
+                  }}
+                >
+                  폴더에 추가
+                </button>
               </div>
               )}
             </div>

@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 import Image from 'next/image';
 import styles from './FolderModal.module.css';
 import closeIcon from '@/public/close.svg';
+import ModalEditFolder from './ModalEditFolder';
+import ModalAddFolder from './ModalAddFolder';
+import ModalShareFolder from './ModalShareFolder';
+import ModalDeleteFolder from './ModalDeleteFolder';
+import ModalDeleteLink from './ModalDeleteLink';
+import ModalAddToFolder from './ModalAddToFolder';
 
 const FolderModal = ({ option, closeModal }) => {
   useEffect(() => {
@@ -27,10 +33,19 @@ const FolderModal = ({ option, closeModal }) => {
     };
   }, [closeModal]);
 
+  const options = {
+    editFolder: <ModalEditFolder />,
+    addFolder: <ModalAddFolder />,
+    shareFolder: <ModalShareFolder />,
+    deleteFolder: <ModalDeleteFolder />,
+    deleteLink: <ModalDeleteLink />,
+    addToFolder: <ModalAddToFolder />,
+  };
+
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modal}>
-        {option}
+        {options[option]}
         <button className={styles.closeButton} type="button" onClick={closeModal}>
           <Image
             fill

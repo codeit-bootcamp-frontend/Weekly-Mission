@@ -12,14 +12,19 @@
 
 .modal {
   background-color: white;
-  padding: 1rem;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 3.2rem 4rem;
+  position: relative;
+  border: 1px solid var(--modal-box-border);
+  border-radius: 1.5rem;
+  background-color: var(--white);
 }
 
 .closeButton {
   cursor: pointer;
-  position: relative;
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
   width: 1.6rem;
   height: 1.6rem;
+  border-radius: 50%;
 }
