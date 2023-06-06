@@ -19,25 +19,37 @@ The application can be accessed at [https://weekly-mission-git-jer1s-react-codei
 ## Project Structure
 ```
 linkbrary
-├─ components
-├─ lib
-├─ pages
-│  ├─ _app.jsx
-│  ├─ _document.jsx
-│  └─ index.jsx
-├─ public
-│  ├─ favicon.ico
-│  ├─ robots.txt
-│  └─ sitemap.xml
-├─ styles
 ├─ .eslintrc.cjs
 ├─ LICENSE.md
 ├─ README.md
+├─ components /
+├─ hooks /
 ├─ jest.config.mjs
 ├─ jsconfig.json
+├─ lib /
+├─ next-sitemap.config.js
 ├─ next.config.js
 ├─ package-lock.json
-└─ package.json
+├─ package.json
+├─ pages
+│  ├─ 404.jsx
+│  ├─ _app.jsx
+│  ├─ _document.jsx
+│  ├─ faq.jsx
+│  ├─ folder
+│  │  ├─ [id].jsx
+│  │  ├─ favorites.jsx
+│  │  └─ index.jsx
+│  ├─ forgot-password.jsx
+│  ├─ index.jsx
+│  ├─ my-link.jsx
+│  ├─ privacy.jsx
+│  ├─ shared.jsx
+│  ├─ signin.jsx
+│  └─ signup.jsx
+├─ public /
+├─ recoil /
+└─ styles /
 
 ```
 
@@ -57,4 +69,5 @@ This project is licensed under the MIT License. See the LICENSE.md file for deta
 
 - [ ] jsx 파일들을 TypeScript으로 변환
 - [ ] CSS Modules를 vanill-extract로 변환
+- [ ] React Query 사용
 - [ ] 유저 기능
