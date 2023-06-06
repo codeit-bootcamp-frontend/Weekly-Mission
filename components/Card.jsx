@@ -9,10 +9,19 @@ import defaultCardImage from '@/public/default-card-image.svg';
 import kebabImage from '@/public/kebab.svg';
 import BookmarkIcon from './BookmarkIcon';
 
-const Card = ({ link }) => {
+const Card = ({ link, clickKebab }) => {
+  const [isHovered, setIsHovered] = useState(false);
   const [bookmark, setBookmark] = useState(false);
   const elapsedTime = getElapsedTime(link.createdAt);
   const formattedCreatedAt = getFormattedDate(link.createdAt);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
 
   const handleBookmarkToggler = (e) => {
     e.preventDefault();
@@ -20,9 +29,13 @@ const Card = ({ link }) => {
   };
 
   return (
-    <div className={styles.container}>
+    <div
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className={`${styles.container} ${isHovered ? styles.hovered : ''}`}
+    >
       <Link href={link.url} target="_blank">
-        <div className={styles.cardImage}>
+        <div className={`${styles.cardImage} ${isHovered ? styles.hovered : ''}`}>
           <Image
             fill
             src={link.imageSource || defaultCardImage}
@@ -32,13 +45,13 @@ const Card = ({ link }) => {
         <div className={styles.cardText}>
           <div className={styles.firstLine}>
             <div className={styles.elapsedTime}>{elapsedTime}</div>
-            <div className={styles.kebab}>
+            <button type="button" className={styles.kebab} onClick={clickKebab}>
               <Image
                 fill
                 src={kebabImage}
                 alt="Kebab"
               />
-            </div>
+            </button>
           </div>
           <div className={styles.cardDescription}>{link.description}</div>
           <div className={styles.cardCreatedAt}>{formattedCreatedAt}</div>
@@ -62,6 +75,7 @@ Card.propTypes = {
     description: PropTypes.string,
     imageSource: PropTypes.string,
   }).isRequired,
+  clickKebab: PropTypes.func.isRequired,
 };
 
 export default Card;

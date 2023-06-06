@@ -4,7 +4,7 @@ import AddLinkBar from './AddLinkBar';
 
 const FolderHeader = ({ exceedThreshold = false }) => {
   return (
-    <article className={`${styles.folderHeader}  ${exceedThreshold ? styles.bottomHeader : ''}`}>
+    <article className={`${styles.folderHeader} ${exceedThreshold ? styles.bottomHeader : ''}`}>
       <div className={styles.folderContainer}>
         <AddLinkBar />
       </div>
