@@ -1,10 +1,11 @@
+import { useCallback } from 'react';
 import Button from '@/components/Button';
 import styles from './ModalEditFolder.module.css';
 
 const ModalEditFolder = () => {
-  const handleSubmit = (e) => {
+  const handleSubmit = useCallback((e) => {
     e.preventDefault();
-  };
+  }, []);
 
   return (
     <form className={styles.container} onSubmit={handleSubmit}>

@@ -54,6 +54,7 @@ const Folder = ({ status, error, links }) => {
     };
 
     window.addEventListener('scroll', handleScroll);
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };

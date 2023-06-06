@@ -1,5 +1,6 @@
-/* eslint-disable import/prefer-default-export */
 import PropTypes from 'prop-types';
+import googleLinkIcon from '@/public/link-google.svg';
+import kakaotalkLinkIcon from '@/public/link-kakaotalk.svg';
 
 export const CardPropTypes = {
   id: PropTypes.number,
@@ -9,3 +10,16 @@ export const CardPropTypes = {
   description: PropTypes.string,
   imageSource: PropTypes.string,
 };
+
+export const socialLinks = [
+  {
+    name: 'Google',
+    url: 'https://www.google.com/',
+    icon: googleLinkIcon,
+  },
+  {
+    name: 'KakaoTalk',
+    url: 'https://www.kakaocorp.com/',
+    icon: kakaotalkLinkIcon,
+  },
+];

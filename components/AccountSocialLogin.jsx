@@ -1,22 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
-import googleLinkIcon from '@/public/link-google.svg';
-import kakaotalkLinkIcon from '@/public/link-kakaotalk.svg';
+import { socialLinks } from '@/lib/constants';
 import styles from './AccountSocialLogin.module.css';
-
-const socialLinks = [
-  {
-    name: 'Google',
-    url: 'https://www.google.com/',
-    icon: googleLinkIcon,
-  },
-  {
-    name: 'KakaoTalk',
-    url: 'https://www.kakaocorp.com/',
-    icon: kakaotalkLinkIcon,
-  },
-];
 
 const AccountSocialLogin = ({ isSignin = false }) => {
   return (

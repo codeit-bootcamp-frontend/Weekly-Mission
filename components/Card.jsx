@@ -4,6 +4,7 @@ import Image from 'next/image';
 import PropTypes from 'prop-types';
 import getFormattedDate from '@/lib/getFormattedDate';
 import getElapsedTime from '@/lib/getElapsedTime';
+import { CardPropTypes } from '@/lib/constants';
 import defaultCardImage from '@/public/default-card-image.svg';
 import kebabImage from '@/public/kebab.svg';
 import BookmarkIcon from './BookmarkIcon';
@@ -125,14 +126,7 @@ const Card = ({ link, handleDeleteLink, handleAddToFolder }) => {
 };
 
 Card.propTypes = {
-  link: PropTypes.shape({
-    id: PropTypes.number,
-    createdAt: PropTypes.string,
-    url: PropTypes.string,
-    title: PropTypes.string,
-    description: PropTypes.string,
-    imageSource: PropTypes.string,
-  }).isRequired,
+  link: PropTypes.shape(CardPropTypes).isRequired,
   handleDeleteLink: PropTypes.func.isRequired,
   handleAddToFolder: PropTypes.func.isRequired,
 };
