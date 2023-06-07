@@ -49,7 +49,7 @@
   font-size: 1.8rem;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .login {
     width: 8rem;
     height: 3.7rem;
@@ -78,7 +78,7 @@
   line-height: 1.7rem;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .userEmail {
     display: none;
   }
