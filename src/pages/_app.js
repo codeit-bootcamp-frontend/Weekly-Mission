@@ -1,7 +1,6 @@
-
-import { UserProvider } from '@/contexts/UserProvider';
+import { UserProvider } from "@/contexts/UserProvider";
 const BASE_URL = process.env.BASE_URL;
-import "@/styles/global.css"
+import "@/styles/global.css";
 
 function MyApp({ Component, pageProps, user }) {
   const getLayout = Component.getLayout || ((page) => page);
@@ -14,7 +13,9 @@ function MyApp({ Component, pageProps, user }) {
 }
 
 MyApp.getInitialProps = async ({ Component, ctx }) => {
-  const response = await fetch(`${BASE_URL}api/sample/user`);
+  // TODO : 추후 인증으로 변경해야함.
+  const userId = 1;
+  const response = await fetch(`${BASE_URL}/api/users/${userId}`);
   const user = await response.json();
 
   let pageProps = {};
@@ -24,7 +25,7 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
 
   return {
     pageProps,
-    user : user || ""
+    user: user || "",
   };
 };
 

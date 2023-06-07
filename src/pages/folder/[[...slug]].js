@@ -66,7 +66,7 @@ export async function getServerSideProps({ query }) {
     };
   }
 
-  const response = await fetch(`${BASE_URL}api/sample/folder`);
+  const response = await fetch(`${BASE_URL}/api/sample/folder`);
   const data = await response.json();
   const { folder: { links = [] } = {} } = data?.data ?? {};
 
