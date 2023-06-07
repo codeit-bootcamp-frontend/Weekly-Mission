@@ -14,6 +14,7 @@ function MyApp({ Component, pageProps, user }) {
 
 MyApp.getInitialProps = async ({ Component, ctx }) => {
   // TODO : 추후 인증으로 변경해야함.
+  // TODO : SSG가 불가능해짐 -> 추후 fetch 시점 변경 해야함
   const userId = 1;
   const response = await fetch(`${BASE_URL}/api/users/${userId}`);
   const user = await response.json();

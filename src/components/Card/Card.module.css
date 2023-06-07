@@ -10,16 +10,17 @@
   background-color: var(--linkbrary-white);
 }
 
-.cardContainer:hover {
-  transform: scale(1.2);
-  background-color: var(--linkbrary-white-smoke);
-}
-
 .cardImage {
   height: 20rem;
   object-fit: cover;
   overflow: hidden;
   display: block;
+}
+.starIcon {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  z-index: 1;
 }
 
 .cardInfo {
@@ -29,11 +30,20 @@
   height: 13.4rem;
 }
 
-.starIcon {
-  position: absolute;
-  top: 1.6rem;
-  right: 1.6rem;
-  z-index: 1;
+.cardContainer:hover > .cardImage {
+  transform: scale(1.2);
+}
+
+.cardContainer:hover > .cardInfo {
+  background-color: var(--linkbrary-white-smoke);
+}
+
+.disableHover:hover > .cardImage {
+  transform: none;
+}
+
+.disableHover:hover > .cardInfo {
+  background-color: transparent;
 }
 
 .cardInfoHead {
@@ -42,7 +52,11 @@
   justify-content: space-between;
 }
 
-.kebabIconWrap {
+.kebabWrap {
+  cursor: pointer;
+}
+
+.kebabIcon {
   width: 2.1rem;
   height: 1.7rem;
 }

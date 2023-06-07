@@ -1,0 +1,33 @@
+.dropDownWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  gap: 0.4rem;
+  top: 3rem;
+  right: 2rem;
+  position: absolute;
+
+  background: #ffffff;
+  box-shadow: 0 0.2rem 0.8rem rgba(51, 50, 54, 0.1);
+  width: 10rem;
+}
+
+@media screen and (max-width: 767px) {
+  .dropDownWrapper {
+    top: 3.6rem;
+    right: 1.95rem;
+  }
+}
+.dropDownWrapper > * {
+  width: 100%;
+  padding: 0.7rem 0;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.dropDownWrapper > *:hover {
+  background-color: var(--linkbrary-alice-blue);
+  color: var(--linkbrary-primary);
+}

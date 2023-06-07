@@ -1,11 +1,19 @@
-import React from "react";
+import { useRef, useState, useEffect } from "react";
 import styles from "./Card.module.css";
 import Star from "@/components/Star";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import DropDown from "@/presentation/DropDown/DropDown";
 
 function Card({ card }) {
-  const { imageSource = "/assets/images/default-card-img.png", description, createdAt, url } = card;
+  const [isKebabOpen, setIsKebabOpen] = useState(false);
+  const cardRef = useRef();
+  const {
+    imageSource = "/assets/images/default-card-img.png",
+    description,
+    createdAt,
+    url,
+  } = card;
   const router = useRouter();
 
   function calculateTimeDiff(dateString) {
@@ -58,16 +66,66 @@ function Card({ card }) {
     router.push(url);
   };
 
+  const handleKebabClick = (e) => {
+    e.stopPropagation();
+    setIsKebabOpen(!isKebabOpen);
+  };
+
+  const handleClickOutside = (e) => {
+    if (cardRef.current && !cardRef.current.contains(e.target)) {
+      setIsKebabOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className={styles.cardContainer} onClick={handleCardClick}>
-      <Image className={styles.cardImage} src={imageSource} alt="card image" width={340} height={250} />
+    <div
+      className={`${styles.cardContainer} ${
+        isKebabOpen ? styles.disableHover : ""
+      }`}
+      onClick={handleCardClick}
+    >
+      <Image
+        className={styles.cardImage}
+        src={imageSource}
+        alt="card image"
+        width={340}
+        height={250}
+      />
       <div className={styles.starIcon}>
         <Star />
       </div>
       <div className={styles.cardInfo}>
         <div className={styles.cardInfoHead}>
-          <div className={styles.cardUpdateTime}>{calculateTimeDiff(createdAt)}</div>
-          <Image className={styles.kebabIconWrap} src="/assets/images/kebab.svg" alt="Kebab Icon" width={24} height={24} />
+          <div className={styles.cardUpdateTime}>
+            {calculateTimeDiff(createdAt)}
+          </div>
+          <button
+            type="button"
+            className={styles.kebabWrap}
+            onClick={handleKebabClick}
+            ref={cardRef}
+          >
+            <Image
+              className={styles.kebabIcon}
+              src="/assets/images/kebab.svg"
+              alt="Kebab Icon"
+              width={24}
+              height={24}
+            />
+          </button>
+          {isKebabOpen && (
+            <DropDown>
+              <div>삭제하기</div>
+              <div>폴더에 추가</div>
+            </DropDown>
+          )}
         </div>
         <div className={styles.cardDescription}>{description}</div>
         <div className={styles.cardDate}>{parseDate(createdAt)}</div>
