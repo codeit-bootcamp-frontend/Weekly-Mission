@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { CardPropTypes } from '@/lib/constants';
+import { CARD_PROP_TYPES } from '@/lib/constants';
 import CardContainer from './CardContainer';
-import FolderModal from './FolderModal';
+import ModalTemplate from './ModalTemplate';
 import SearchBar from './SearchBar';
 import styles from './SharedMain.module.css';
 
@@ -34,13 +34,13 @@ const SharedMain = ({ cardLinks }) => {
           <div className={styles.emptyMessage}>저장된 링크가 없습니다</div>
         )}
       </div>
-      {modalOpen && <FolderModal option={modalOption} closeModal={closeModal} />}
+      {modalOpen && <ModalTemplate option={modalOption} closeModal={closeModal} />}
     </main>
   );
 };
 
 SharedMain.propTypes = {
-  cardLinks: PropTypes.arrayOf(PropTypes.shape(CardPropTypes)).isRequired,
+  cardLinks: PropTypes.arrayOf(PropTypes.shape(CARD_PROP_TYPES)).isRequired,
 };
 
 export default SharedMain;

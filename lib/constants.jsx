@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import googleLinkIcon from '@/public/link-google.svg';
 import kakaotalkLinkIcon from '@/public/link-kakaotalk.svg';
 
-export const CardPropTypes = {
+export const CARD_PROP_TYPES = {
   id: PropTypes.number,
   createdAt: PropTypes.string,
   url: PropTypes.string,
@@ -11,7 +11,7 @@ export const CardPropTypes = {
   imageSource: PropTypes.string,
 };
 
-export const socialLinks = [
+export const SOCIAL_LINKS = [
   {
     name: 'Google',
     url: 'https://www.google.com/',
@@ -23,3 +23,7 @@ export const socialLinks = [
     icon: kakaotalkLinkIcon,
   },
 ];
+
+export const KEY_CODES = {
+  ESC: 27,
+};

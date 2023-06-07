@@ -2,11 +2,11 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
-import { CardPropTypes } from '@/lib/constants';
+import { CARD_PROP_TYPES } from '@/lib/constants';
 import SearchBar from './SearchBar';
 import CardContainer from './CardContainer';
 import SortButton from './SortButton';
-import FolderModal from './FolderModal';
+import ModalTemplate from './ModalTemplate';
 import shareIcon from '@/public/share.svg';
 import penIcon from '@/public/pen.svg';
 import deleteIcon from '@/public/delete.svg';
@@ -107,14 +107,14 @@ const FolderMain = ({ endPoint, cardLinks, exceedThreshold = false }) => {
           <div className={styles.emptyMessage}>저장된 링크가 없습니다</div>
         )}
       </div>
-      {modalOpen && <FolderModal option={modalOption} closeModal={closeModal} />}
+      {modalOpen && <ModalTemplate option={modalOption} closeModal={closeModal} />}
     </main>
   );
 };
 
 FolderMain.propTypes = {
   endPoint: PropTypes.string.isRequired,
-  cardLinks: PropTypes.arrayOf(PropTypes.shape(CardPropTypes)).isRequired,
+  cardLinks: PropTypes.arrayOf(PropTypes.shape(CARD_PROP_TYPES)).isRequired,
   exceedThreshold: PropTypes.bool,
 };
 

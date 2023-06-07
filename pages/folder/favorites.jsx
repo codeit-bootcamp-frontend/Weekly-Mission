@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import axios from '@/lib/axios';
-import { CardPropTypes } from '@/lib/constants';
+import { CARD_PROP_TYPES } from '@/lib/constants';
 import Layout from '@/components/Layouts/Layout';
 import FolderHeader from '@/components/FolderHeader';
 import FolderMain from '@/components/FolderMain';
@@ -57,7 +57,7 @@ const Folder = ({ status, error, links }) => {
 Folder.propTypes = {
   status: PropTypes.oneOf(['loading', 'error', 'success']).isRequired,
   error: PropTypes.string,
-  links: PropTypes.arrayOf(PropTypes.shape(CardPropTypes)).isRequired,
+  links: PropTypes.arrayOf(PropTypes.shape(CARD_PROP_TYPES)).isRequired,
 };
 
 export default Folder;

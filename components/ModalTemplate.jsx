@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
+import { KEY_CODES } from '@/lib/constants';
 import closeIcon from '@/public/close.svg';
 import ModalEditFolder from './Modals/ModalEditFolder';
 import ModalAddFolder from './Modals/ModalAddFolder';
@@ -8,9 +9,9 @@ import ModalShareFolder from './Modals/ModalShareFolder';
 import ModalDeleteFolder from './Modals/ModalDeleteFolder';
 import ModalDeleteLink from './Modals/ModalDeleteLink';
 import ModalAddToFolder from './Modals/ModalAddToFolder';
-import styles from './FolderModal.module.css';
+import styles from './ModalTemplate.module.css';
 
-const FolderModal = ({ option, closeModal }) => {
+const ModalTemplate = ({ option, closeModal }) => {
   useEffect(() => {
     const handleOutsideClick = (e) => {
       if (e.target.classList.contains(styles.modalOverlay)) {
@@ -19,7 +20,7 @@ const FolderModal = ({ option, closeModal }) => {
     };
 
     const handleEscKey = (e) => {
-      if (e.keyCode === 27) {
+      if (e.keyCode === KEY_CODES.ESC) {
         closeModal();
       }
     };
@@ -60,9 +61,9 @@ const FolderModal = ({ option, closeModal }) => {
   );
 };
 
-FolderModal.propTypes = {
+ModalTemplate.propTypes = {
   option: PropTypes.string.isRequired,
   closeModal: PropTypes.func.isRequired,
 };
 
-export default FolderModal;
+export default ModalTemplate;

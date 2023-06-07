@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import axios from '@/lib/axios';
-import { CardPropTypes } from '@/lib/constants';
+import { CARD_PROP_TYPES } from '@/lib/constants';
 import defaultOwnerImage from '@/public/default-avatar.svg';
 import Layout from '@/components/Layouts/Layout';
 import SharedHeader from '@/components/SharedHeader';
@@ -85,7 +85,7 @@ Shared.propTypes = {
   ownerImage: PropTypes.string.isRequired,
   ownerName: PropTypes.string.isRequired,
   folderName: PropTypes.string.isRequired,
-  cardLinks: PropTypes.arrayOf(PropTypes.shape(CardPropTypes)).isRequired,
+  cardLinks: PropTypes.arrayOf(PropTypes.shape(CARD_PROP_TYPES)).isRequired,
 };
 
 export default Shared;
