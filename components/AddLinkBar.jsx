@@ -1,13 +1,12 @@
-import { useCallback } from 'react';
 import Image from 'next/image';
 import linkIconImage from '@/public/link.svg';
 import Button from './Button';
 import styles from './AddLinkBar.module.css';
 
 const AddLinkBar = () => {
-  const handleSubmit = useCallback((e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-  }, []);
+  };
 
   return (
     <form className={styles.searchForm} onSubmit={handleSubmit}>
