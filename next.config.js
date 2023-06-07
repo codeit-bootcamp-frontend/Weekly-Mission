@@ -66,12 +66,6 @@ const nextConfig = {
       },
     ],
   },
-  async exportPathMap() {
-    return {
-      '/shared': { page: '/shared', query: { name: 'shared' } },
-      '/folder': { page: '/folder', query: { name: 'folder' } },
-    };
-  },
 };
 
 module.exports = withVanillaExtract(nextConfig);
