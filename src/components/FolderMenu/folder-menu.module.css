@@ -1,11 +1,17 @@
 .folderMenuContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 106rem;
+  margin: 0 auto;
+}
+.chipsContainer {
   width: 100%;
   margin: 0 auto;
-  padding: 0 0 24px;
   display: flex;
 }
 
-.chipContainer {
+.chip {
   width: 100%;
   display: flex;
   justify-content: flex-start;

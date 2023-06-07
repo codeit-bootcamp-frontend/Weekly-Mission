@@ -1,27 +1,32 @@
 import FolderChipButton from "@/presentation/Button/FolderChipButton";
 import styles from "./folder-menu.module.css";
+import { useRouter } from "next/router";
 
-const MOCK_FOLDERS = [
-  { id: 0, folderTitle: "전체" },
-  { id: 1, folderTitle: "⭐️ 즐겨찾기" },
-  { id: 2, folderTitle: "코딩 팁" },
-  { id: 3, folderTitle: "채용 사이트" },
-  { id: 4, folderTitle: "유용한 글" },
-  { id: 5, folderTitle: "나만의 장소" },
-];
+const FolderMenu = ({ currentTab, MOCK_FOLDERS }) => {
+  const router = useRouter();
+  const handleClick = ({ id }) => {
+    if (id === 0) {
+      router.push("/folder");
+    } else if (id === 1) {
+      router.push("/folder/favorites");
+    } else {
+      router.push(`/folder/${id - 1}`);
+    }
+  };
 
-const FolderMenu = ({ currentTab }) => {
   return (
     <div className={styles.folderMenuContainer}>
-      <div className={styles.chipContainer}>
-        {MOCK_FOLDERS.map((folder) => (
-          <FolderChipButton
-            key={folder.id}
-            id={folder.id}
-            name={folder.folderTitle}
-            isSelected={folder.id === currentTab}
-          />
-        ))}
+      <div className={styles.chipsContainer}>
+        <div className={styles.chip}>
+          {MOCK_FOLDERS.map((folder) => (
+            <div key={folder.id} onClick={() => handleClick({ id: folder.id })}>
+              <FolderChipButton
+                name={folder.folderTitle}
+                isSelected={folder.folderTitle === currentTab}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
