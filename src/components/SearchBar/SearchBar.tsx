@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styles from "./SearchBar.module.scss";
+import Image from "next/image";
 
 interface searchBarProps {
   action: string;
@@ -7,47 +8,21 @@ interface searchBarProps {
 
 const SearchBar = ({ action, placeholder = "검색하세요" }: searchBarProps) => {
   return (
-    <SSearchForm className="search-form" action={action}>
-      <label>
-        <div className="search-icon-box">
-          <img src="assets/images/search-icon.png" alt="search icon" />
+    <form className={styles.searchForm} action={action}>
+      <label htmlFor="search-input">
+        <div className={styles.searchIconBox}>
+          <Image src="/search-icon.png" alt="search icon" fill />
         </div>
         <input
-          className="search-input"
+          className={styles.searchInput}
+          id="search-input"
           type="search"
           name="q"
           placeholder={placeholder}
         />
       </label>
-    </SSearchForm>
+    </form>
   );
 };
 
-const SSearchForm = styled.form`
-  position: relative;
-
-  .search-icon-box {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    width: 1rem;
-    height: 1rem;
-  }
-
-  .search-icon-box img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  .search-input {
-    font-size: 1rem;
-    line-height: 1.125rem;
-    width: 100%;
-    padding: 0.9375rem 2.635rem;
-    border: none;
-    background-color: #f5f5f5;
-    border-radius: 10px;
-  }
-`;
 export default SearchBar;

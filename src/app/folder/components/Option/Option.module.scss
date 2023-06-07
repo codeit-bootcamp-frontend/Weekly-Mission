@@ -1,0 +1,26 @@
+@use "/src/styles/variables" as var;
+
+.optionContainer {
+  display: flex;
+  align-items: center;
+  padding: 0px;
+  gap: 4px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+    filter: invert(0.8);
+  }
+
+  .optionIconBox {
+    position: relative;
+    width: 18px;
+    height: 18px;
+  }
+
+  span {
+    font-weight: 600;
+    color: var.$gray-4;
+  }
+}

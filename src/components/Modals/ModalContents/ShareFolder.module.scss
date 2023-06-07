@@ -1,0 +1,35 @@
+.shareLinksContainer {
+  display: flex;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 32px;
+}
+
+.linkContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0px;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+  }
+
+  .iconBox {
+    position: relative;
+    width: 42px;
+    height: 42px;
+  }
+
+  .linkLabel {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+    text-align: center;
+  }
+}

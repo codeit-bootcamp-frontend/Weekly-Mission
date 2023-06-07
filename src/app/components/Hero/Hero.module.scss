@@ -1,0 +1,125 @@
+@use "@/styles/variables.scss" as var;
+
+.introWrapper {
+  width: 100%;
+  background-color: var.$gray-1;
+}
+
+.introSection {
+  width: 100%;
+  max-width: 120rem;
+  height: 59.25rem;
+  padding-top: 4.063rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.introSection h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 5rem;
+  margin-bottom: 2.5rem;
+}
+
+.introSection h1 > span:first-child {
+  background: linear-gradient(91.26deg, var.$primary 17.28%, #ff9f9f 74.98%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.introSection a {
+  display: inline-block;
+  width: 21.875rem;
+  height: 3.313rem;
+  padding: 1rem 7.875rem;
+  font-size: 1.063rem;
+  font-weight: 600;
+  line-height: 1.313rem;
+  border-radius: 0.5rem;
+  background-image: linear-gradient(
+    90.99deg,
+    var.$primary 0.12%,
+    #6ae3fe 101.84%
+  );
+  text-decoration: none;
+  color: #f5f5f5;
+  margin-bottom: 2.5rem;
+}
+
+.landingImageContainer {
+  height: 36.875rem;
+}
+
+.imageBox {
+  position: relative;
+  width: 1200px;
+  height: 590px;
+  margin: 0 auto;
+}
+
+.introSection {
+  background-color: var(--gray-1);
+}
+
+/* tablet  */
+@media only screen and (max-width: 1200px) {
+  .introSection > h1 > span.tabletNl {
+    display: block;
+  }
+
+  .introSection {
+    height: 47.25rem;
+    padding-top: 2.5rem;
+    margin-bottom: 5rem;
+  }
+
+  .landingImageContainer {
+    height: 21.438rem;
+  }
+
+  .imageBox {
+    width: 43.625rem;
+    height: 21.438rem;
+  }
+}
+
+/* mobile */
+@media only screen and (max-width: 767px) {
+  .introWrapper {
+    padding: 0 2rem;
+  }
+
+  .introSection {
+    height: fit-content;
+    padding-top: 1.75rem;
+    margin-bottom: 5rem;
+  }
+
+  .introSection > h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 2.625rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .introSection a {
+    width: 12.5rem;
+    height: 2.313rem;
+    padding: 0.625rem 1rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.063rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .landingImageContainer {
+    height: 100%;
+  }
+
+  .imageBox {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
