@@ -42,16 +42,29 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2.4rem;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
 .title {
-  display: block;
   width: 28rem;
   font-weight: 700;
   font-size: 2rem;
   line-height: 2.4rem;
   text-align: center;
   color: #373740;
-  padding-bottom: 2.4rem;
+  margin: 0;
+}
+
+.subTitle {
+  text-align: center;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  color: var(--linkbrary-blue-gray);
   margin: 0;
 }

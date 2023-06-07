@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./modal.module.css";
 
-const Modal = ({ children, modalTitle }) => {
+const Modal = ({ children, modalTitle, modalSubTitle }) => {
   return (
     <div className={styles.overlay}>
       <div className={styles.modalContainer}>
@@ -14,9 +14,12 @@ const Modal = ({ children, modalTitle }) => {
           />
         </div>
         <div className={styles.contents}>
-          <h3 className={styles.title}>{modalTitle}</h3>
+          <div className={styles.titleContainer}>
+            <h3 className={styles.title}>{modalTitle}</h3>
+            <h5 className={styles.subTitle}>{modalSubTitle}</h5>
+          </div>
+          {children}
         </div>
-        {children}
       </div>
     </div>
   );
