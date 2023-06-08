@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 
+import usePreventScroll from "@/hooks/usePreventScroll";
+
 import styles from "./ModalLayout.module.scss";
 import ModalPortalWrapper from "./ModalPortalWrapper";
 
@@ -14,6 +16,8 @@ const ModalLayout = ({
   handleClickCloseModal: () => void;
   children: React.ReactNode;
 }) => {
+  usePreventScroll();
+
   return (
     <ModalPortalWrapper id={portalId}>
       <div className={styles.overlay} onClick={handleClickCloseModal}>

@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 import ModalLayout from "components/Common/ModalLayout";
-import { allowScroll, preventScroll } from "lib/modal";
 
 import styles from "./EditFolderModal.module.scss";
 
@@ -28,13 +27,6 @@ const EditFolderModal = ({
       clearTimeout(timer);
     }, 500);
   };
-
-  useEffect(() => {
-    const prevScrollY = preventScroll();
-    return () => {
-      allowScroll(prevScrollY);
-    };
-  }, []);
 
   return (
     <ModalLayout

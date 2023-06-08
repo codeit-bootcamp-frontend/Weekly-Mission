@@ -1,9 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
-
 import ModalLayout from "components/Common/ModalLayout";
-import { allowScroll, preventScroll } from "lib/modal";
 
 import styles from "./DeleteLinkModal.module.scss";
 
@@ -23,13 +20,6 @@ const DeleteLinkModal = ({
       clearTimeout(timer);
     }, 500);
   };
-
-  useEffect(() => {
-    const prevScrollY = preventScroll();
-    return () => {
-      allowScroll(prevScrollY);
-    };
-  }, []);
 
   return (
     <ModalLayout

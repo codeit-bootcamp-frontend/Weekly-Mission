@@ -1,11 +1,8 @@
 "use client";
 
-import { useEffect } from "react";
-
 import Image from "next/image";
 
 import ModalLayout from "components/Common/ModalLayout";
-import { allowScroll, preventScroll } from "lib/modal";
 
 import styles from "./ShareFolderModal.module.scss";
 
@@ -46,12 +43,6 @@ const ShareFolderModal = ({
     }, 500);
   };
 
-  useEffect(() => {
-    const prevScrollY = preventScroll();
-    return () => {
-      allowScroll(prevScrollY);
-    };
-  }, []);
   return (
     <ModalLayout
       portalId="share-folder-portal"
