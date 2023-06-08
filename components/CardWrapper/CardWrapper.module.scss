@@ -1,3 +1,5 @@
+@use "styles/abstract/mixins" as mixin;
+
 .nullCardWrapper {
   width: 100%;
   padding-top: 65px;
@@ -19,12 +21,14 @@
   justify-content: center;
   gap: 24px 20px;
 }
-@media only screen and (max-width: 1199px) {
+
+@include mixin.tablet {
   .cardWrapper {
     max-width: calc(100% - 6.4rem);
   }
 }
-@media only screen and (max-width: 768px) {
+
+@include mixin.mobile {
   .nullCardWrapper {
     padding-top: 62.5px;
     padding-bottom: 178px;

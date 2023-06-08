@@ -1,4 +1,5 @@
 @use "styles/abstract/variables_color" as var-color;
+@use "styles/abstract/mixins" as mixin;
 
 .optionsWrapper {
   width: 100%;
@@ -8,51 +9,56 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  .folderTitle {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: -0.2px;
+    color: #000000;
+  }
+  .modalList {
+    display: flex;
+    gap: 14px;
+
+    .button {
+      display: flex;
+      gap: 4px;
+      cursor: pointer;
+
+      .imageWrapper {
+        width: 18px;
+        height: 18px;
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        .image {
+          @include mixin.image;
+        }
+      }
+
+      .text {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        color: var-color.$linkbrary-gray-60;
+      }
+    }
+  }
 }
-@media only screen and (max-width: 1199px) {
+
+@include mixin.tablet {
   .optionsWrapper {
     max-width: calc(100% - 6.4rem);
   }
 }
-@media only screen and (max-width: 768px) {
+
+@include mixin.mobile {
   .optionsWrapper {
     padding-bottom: 20.5px;
     flex-direction: column;
     align-items: flex-start;
     gap: 12.5px;
   }
-}
-.folderTitle {
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 29px;
-  letter-spacing: -0.2px;
-  color: #000000;
-}
-.modalList {
-  display: flex;
-  gap: 14px;
-}
-.button {
-  display: flex;
-  gap: 4px;
-  cursor: pointer;
-}
-.imageWrapper {
-  width: 18px;
-  height: 18px;
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-.image {
-  display: block;
-  width: 100%;
-  object-fit: cover;
-}
-.text {
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 17px;
-  color: var-color.$linkbrary-gray-60;
 }

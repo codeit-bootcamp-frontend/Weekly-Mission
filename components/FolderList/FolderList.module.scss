@@ -1,4 +1,5 @@
 @use "styles/abstract/variables_color" as var-color;
+@use "styles/abstract/mixins" as mixin;
 
 .folderListWrapper {
   width: 100%;
@@ -6,52 +7,55 @@
   margin: 0 auto;
   padding: 0 0 24px;
   display: flex;
+
+  .tabList {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    box-sizing: border-box;
+  }
+  .buttonWrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+
+    .buttonText {
+      display: block;
+      min-width: 59px;
+      height: 19px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: -0.3px;
+      color: var-color.$linkbrary-primary;
+    }
+
+    .ImageWrapper {
+      position: relative;
+      width: 16px;
+      height: 16px;
+
+      .image {
+        @include mixin.image;
+      }
+    }
+  }
 }
-@media only screen and (max-width: 1199px) {
+
+@include mixin.tablet {
   .folderListWrapper {
     max-width: calc(100% - 6.4rem);
   }
 }
-.tabList {
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  box-sizing: border-box;
-}
-.buttonWrapper {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  cursor: pointer;
-}
-.buttonText {
-  display: block;
-  min-width: 59px;
-  height: 19px;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: -0.3px;
-  color: var-color.$linkbrary-primary;
-}
-.ImageWrapper {
-  position: relative;
-  width: 16px;
-  height: 16px;
-}
-.image {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-}
 
-@media only screen and (max-width: 768px) {
+@include mixin.mobile {
   .buttonWrapper {
     position: fixed;
     width: 127px;
@@ -74,9 +78,15 @@
   .buttonWrapper.upperAddLink {
     bottom: calc(85px + 16px);
   }
-  .buttonText {
-    color: var-color.$linkbrary-gray-10;
+
+  .folderListWrapper {
+    .buttonWrapper {
+      .buttonText {
+        color: var-color.$linkbrary-gray-10;
+      }
+    }
   }
+
   .image {
     filter: invert(94%) sepia(34%) saturate(5873%) hue-rotate(179deg)
       brightness(109%) contrast(97%);
