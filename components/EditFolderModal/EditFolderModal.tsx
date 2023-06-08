@@ -4,10 +4,10 @@ import { useEffect, useRef } from "react";
 
 import Image from "next/image";
 
+import ModalPortalWrapper from "components/Common/ModalPortalWrapper";
 import { allowScroll, preventScroll } from "lib/modal";
 
 import styles from "./EditFolderModal.module.scss";
-import EditFolderPortalWrapper from "./EditFolderPortalWrapper";
 
 interface IEditFolderModal {
   setOpenEditFolderModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -39,7 +39,7 @@ const EditFolderModal = ({
   }, []);
 
   return (
-    <EditFolderPortalWrapper>
+    <ModalPortalWrapper id="edit-folder-portal">
       <div
         className={styles.overlay}
         onClick={() => setOpenEditFolderModal(false)}
@@ -78,7 +78,7 @@ const EditFolderModal = ({
           </div>
         </div>
       </div>
-    </EditFolderPortalWrapper>
+    </ModalPortalWrapper>
   );
 };
 

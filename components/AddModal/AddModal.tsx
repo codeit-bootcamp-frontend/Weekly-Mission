@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 
 import Image from "next/image";
 
+import ModalPortalWrapper from "components/Common/ModalPortalWrapper";
 import { allowScroll, preventScroll } from "lib/modal";
 
 import styles from "./AddModal.module.scss";
-import AddPortalWrapper from "./AddPortalWrapper";
 import FolderItem from "./FolderItem";
 
 interface IAddModal {
@@ -45,7 +45,7 @@ const AddModal = ({ setOpenAddModal, selectedLinkValue }: IAddModal) => {
   }, []);
 
   return (
-    <AddPortalWrapper>
+    <ModalPortalWrapper id="add-portal">
       <div className={styles.overlay} onClick={() => setOpenAddModal(false)}>
         <div
           className={styles.modalWrapper}
@@ -82,7 +82,7 @@ const AddModal = ({ setOpenAddModal, selectedLinkValue }: IAddModal) => {
           </div>
         </div>
       </div>
-    </AddPortalWrapper>
+    </ModalPortalWrapper>
   );
 };
 

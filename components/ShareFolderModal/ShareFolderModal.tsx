@@ -4,10 +4,10 @@ import { useEffect } from "react";
 
 import Image from "next/image";
 
+import ModalPortalWrapper from "components/Common/ModalPortalWrapper";
 import { allowScroll, preventScroll } from "lib/modal";
 
 import styles from "./ShareFolderModal.module.scss";
-import ShareFolderPortalWrapper from "./ShareFolderPortalWrapper";
 
 interface IShareFolderModal {
   setOpenShareFolderModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -53,7 +53,7 @@ const ShareFolderModal = ({
     };
   }, []);
   return (
-    <ShareFolderPortalWrapper>
+    <ModalPortalWrapper id="share-folder-portal">
       <div
         className={styles.overlay}
         onClick={() => setOpenShareFolderModal(false)}
@@ -120,7 +120,7 @@ const ShareFolderModal = ({
           </div>
         </div>
       </div>
-    </ShareFolderPortalWrapper>
+    </ModalPortalWrapper>
   );
 };
 

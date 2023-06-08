@@ -5,9 +5,11 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 
 import { allowScroll, preventScroll } from "@/lib/modal";
+import ModalPortalWrapper from "components/Common/ModalPortalWrapper";
 
 import styles from "./AddFolderModal.module.scss";
-import AddFolderPortalWrapper from "./AddFolderPortalWrapper";
+
+// import AddFolderPortalWrapper from "./AddFolderPortalWrapper";
 
 interface IAddFolderModal {
   setOpenAddFolderModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -35,7 +37,7 @@ const AddFolderModal = ({ setOpenAddFolderModal }: IAddFolderModal) => {
   }, []);
 
   return (
-    <AddFolderPortalWrapper>
+    <ModalPortalWrapper id="add-folder-portal">
       <div
         className={styles.overlay}
         onClick={() => setOpenAddFolderModal(false)}
@@ -74,7 +76,7 @@ const AddFolderModal = ({ setOpenAddFolderModal }: IAddFolderModal) => {
           </div>
         </div>
       </div>
-    </AddFolderPortalWrapper>
+    </ModalPortalWrapper>
   );
 };
 

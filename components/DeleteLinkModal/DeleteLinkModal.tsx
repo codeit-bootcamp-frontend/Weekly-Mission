@@ -4,10 +4,10 @@ import { useEffect } from "react";
 
 import Image from "next/image";
 
+import ModalPortalWrapper from "components/Common/ModalPortalWrapper";
 import { allowScroll, preventScroll } from "lib/modal";
 
 import styles from "./DeleteLinkModal.module.scss";
-import DeleteLinkPortalWrapper from "./DeleteLinkPortalWrapper";
 
 interface IDeleteLinkModal {
   setOpenDeleteLinkModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -34,7 +34,7 @@ const DeleteLinkModal = ({
   }, []);
 
   return (
-    <DeleteLinkPortalWrapper>
+    <ModalPortalWrapper id="delete-link-portal">
       <div
         className={styles.overlay}
         onClick={() => setOpenDeleteLinkModal(false)}
@@ -66,7 +66,7 @@ const DeleteLinkModal = ({
           </div>
         </div>
       </div>
-    </DeleteLinkPortalWrapper>
+    </ModalPortalWrapper>
   );
 };
 

@@ -2,13 +2,15 @@
 
 import { createPortal } from "react-dom";
 
-const DeleteLinkPortalWrapper = ({
+const ModalPortalWrapper = ({
   children,
+  id,
 }: {
   children: React.ReactNode;
+  id: string;
 }) => {
-  const el = document.getElementById("delete-link-portal") as HTMLElement;
+  const el = document.getElementById(id) as HTMLElement;
   return createPortal(children, el);
 };
 
-export default DeleteLinkPortalWrapper;
+export default ModalPortalWrapper;
