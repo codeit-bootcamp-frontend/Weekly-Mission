@@ -20,7 +20,25 @@
 
 /* inner */
 
-@mixin inner($default_padding, $desktop_padding, $mobile_padding) {
+@mixin inner-tablet-mobile($default_padding, $tablet_padding, $mobile_padding) {
+  margin: 0 auto;
+  width: 100%;
+  max-width: calc(1920px - $default_padding);
+  height: 100%;
+
+  @include tablet {
+    max-width: calc(1199px - $tablet_padding);
+  }
+  @include mobile {
+    max-width: calc(100% - $mobile_padding);
+  }
+}
+
+@mixin inner-desktop-mobile(
+  $default_padding,
+  $desktop_padding,
+  $mobile_padding
+) {
   margin: 0 auto;
   width: 100%;
   max-width: calc(1920px - $default_padding);

@@ -2,7 +2,7 @@
 @use "styles/abstract/mixins" as mixin;
 
 .inner {
-  @include mixin.inner(40rem, 20rem, 6.4rem);
+  @include mixin.inner-desktop-mobile(40rem, 20rem, 6.4rem);
 }
 
 .footer {

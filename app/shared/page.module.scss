@@ -1,85 +1,83 @@
 @use "styles/abstract/variables_color" as var-color;
+@use "styles/abstract/mixins" as mixin;
 
 .inner {
-  margin: 0 auto;
-  width: 100%;
-  max-width: calc(1920px - 40rem);
-  height: 100%;
-}
-@media only screen and (max-width: 1920px) {
-  .inner {
-    max-width: calc(100% - 20rem);
-  }
-}
-@media only screen and (max-width: 768px) {
-  .inner {
-    max-width: calc(100% - 6.4rem);
-  }
+  @include mixin.inner-desktop-mobile(40rem, 20rem, 6.4rem);
 }
 
 .main {
   width: 100%;
   height: 100%;
-}
-.hero {
-  padding: 20px 0 60px;
-}
-.hero.inner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.hero .codeitAvatar {
-  width: 60px;
-  height: 60px;
-  position: relative;
-}
-.hero .codeitAvatar .image {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-.hero .atsign {
-  padding: 12px 0 20px;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-  color: #000000;
-}
-.hero .marks {
-  font-weight: 600;
-  font-size: 40px;
-  line-height: 48px;
-  text-align: center;
-  color: #000000;
-}
 
-@media only screen and (max-width: 768px) {
   .hero {
-    padding: 10px 0 40px;
+    padding: 20px 0 60px;
+
+    .codeitAvatar {
+      width: 60px;
+      height: 60px;
+      position: relative;
+
+      .image {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+
+    .atsign {
+      padding: 12px 0 20px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+      color: #000000;
+    }
+
+    .marks {
+      font-weight: 600;
+      font-size: 40px;
+      line-height: 48px;
+      text-align: center;
+      color: #000000;
+    }
   }
-  .hero .codeitAvatar {
-    width: 40px;
-    height: 40px;
+  .hero.inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-  .hero .atsign {
-    padding: 6px 0 10px;
-    font-size: 14px;
-    line-height: 17px;
-    color: #000000;
-  }
-  .hero .marks {
-    font-size: 32px;
-    line-height: 38px;
-    letter-spacing: -0.2px;
+
+  .contents {
+    width: 100%;
+    height: auto;
+    background: var-color.$linkbrary-white;
+    margin: 0 auto;
   }
 }
 
-.contents {
-  width: 100%;
-  height: auto;
-  background: var-color.$linkbrary-white;
-  margin: 0 auto;
+@include mixin.mobile {
+  .main {
+    .hero {
+      padding: 10px 0 40px;
+
+      .codeitAvatar {
+        width: 40px;
+        height: 40px;
+      }
+
+      .atsign {
+        padding: 6px 0 10px;
+        font-size: 14px;
+        line-height: 17px;
+        color: #000000;
+      }
+
+      .marks {
+        font-size: 32px;
+        line-height: 38px;
+        letter-spacing: -0.2px;
+      }
+    }
+  }
 }
