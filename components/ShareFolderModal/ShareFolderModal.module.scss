@@ -1,84 +1,66 @@
 @use "styles/abstract/variables_color" as var-color;
+@use "styles/abstract/mixins" as mixin;
 
 .overlay {
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
-  box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.modalWrapper {
-  width: 360px;
-  height: 209px;
-  background-color: #ffffff;
-  padding: 32px 40px;
-  position: relative;
-  border: 1px solid #dee2e6;
-  border-radius: 15px;
-}
-.closeWrapper {
-  position: absolute;
-  right: 16px;
-  top: 16px;
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-}
-.contents {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.title {
-  display: block;
-  width: 280px;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
-  text-align: center;
-  color: var-color.$linkbrary-gray-100;
-}
-.subTitle {
-  padding-top: 8px;
-  padding-bottom: 24px;
-  display: block;
-  width: 280px;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 22px;
-  text-align: center;
-  color: var-color.$linkbrary-gray-60;
-}
-.shareOptions {
-  display: flex;
-  gap: 39px;
-}
-.button {
-  background: var-color.$linkbrary-white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-}
-.imageWrapper {
-  width: 42px;
-  height: 42px;
-  position: relative;
-}
-.image {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-}
-.text {
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 15px;
-  text-align: center;
-  color: var-color.$linkbrary-gray-100;
+  @include mixin.modal-overlay;
+
+  .modalWrapper {
+    @include mixin.modal-wrapper(
+      209px,
+      32px 40px,
+      var-color.$linkbrary-white,
+      var-color.$linkbrary-gray-20
+    );
+
+    .closeWrapper {
+      @include mixin.modal-close-image-wrapper;
+
+      .image {
+        @include mixin.image;
+      }
+    }
+    .contents {
+      @include mixin.contents-layout;
+
+      .title {
+        @include mixin.modal-title(var-color.$linkbrary-gray-100);
+      }
+      .subTitle {
+        @include mixin.modal-sub-title(var-color.$linkbrary-gray-60) {
+          padding-top: 8px;
+          padding-bottom: 24px;
+        }
+      }
+      .shareOptions {
+        display: flex;
+        gap: 39px;
+
+        .button {
+          background: var-color.$linkbrary-white;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+          cursor: pointer;
+
+          .imageWrapper {
+            width: 42px;
+            height: 42px;
+            position: relative;
+
+            .image {
+              @include mixin.image;
+            }
+          }
+          .text {
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 15px;
+            text-align: center;
+            color: var-color.$linkbrary-gray-100;
+          }
+        }
+      }
+    }
+  }
 }

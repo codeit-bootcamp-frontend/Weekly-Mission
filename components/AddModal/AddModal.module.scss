@@ -1,91 +1,55 @@
 @use "styles/abstract/variables_color" as var-color;
+@use "styles/abstract/mixins" as mixin;
 
 .overlay {
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
-  box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.modalWrapper {
-  width: 360px;
-  height: 389px;
-  background-color: var-color.$linkbrary-white;
-  padding: 32px 40px;
-  position: relative;
-  border: 1px solid #dee2e6;
-  border-radius: 15px;
-}
-.closeWrapper {
-  position: absolute;
-  right: 16px;
-  top: 16px;
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-}
-.closeWrapper .image {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-}
-.contents {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.title {
-  display: block;
-  width: 280px;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
-  text-align: center;
-  color: var-color.$linkbrary-gray-100;
-}
-.subTitle {
-  padding-top: 8px;
-  display: block;
-  width: 280px;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 22px;
-  text-align: center;
-  color: var-color.$linkbrary-gray-60;
-}
-.folderWrapper {
-  padding-top: 32px;
-  padding-bottom: 24px;
-  width: 280px;
-  height: 228px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  justify-content: center;
-}
-.addButton {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 16px 20px;
-  width: 280px;
-  height: 51px;
-  background: linear-gradient(
-    90.99deg,
-    var-color.$linkbrary-primary 0.12%,
-    #6ae3fe 101.84%
-  );
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 19px;
-  display: flex;
-  align-items: center;
-  color: #f5f5f5;
-  cursor: pointer;
+  @include mixin.modal-overlay;
+
+  .modalWrapper {
+    @include mixin.modal-wrapper(
+      389px,
+      32px 40px,
+      var-color.$linkbrary-white,
+      var-color.$linkbrary-gray-20
+    );
+
+    .closeWrapper {
+      @include mixin.modal-close-image-wrapper;
+
+      .image {
+        @include mixin.image;
+      }
+    }
+
+    .contents {
+      @include mixin.contents-layout;
+
+      .title {
+        @include mixin.modal-title(var-color.$linkbrary-gray-100);
+      }
+      .subTitle {
+        @include mixin.modal-sub-title(var-color.$linkbrary-gray-60) {
+          padding-top: 8px;
+        }
+      }
+      .folderWrapper {
+        padding-top: 32px;
+        padding-bottom: 24px;
+        width: 280px;
+        height: 228px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        justify-content: center;
+      }
+      .addButton {
+        @include mixin.modal-button(
+          linear-gradient(
+            90.99deg,
+            var-color.$linkbrary-primary 0.12%,
+            #6ae3fe 101.84%
+          )
+        );
+      }
+    }
+  }
 }
