@@ -1,7 +1,6 @@
 "use client";
 
-import ModalLayout from "components/Common/ModalLayout";
-
+import ModalLayout from "../ModalLayout";
 import styles from "./DeleteLinkModal.module.scss";
 
 interface IDeleteLinkModal {

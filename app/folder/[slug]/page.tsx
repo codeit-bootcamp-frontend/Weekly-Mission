@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import styles from "./page.module.scss";
 
 const FolderContents = dynamic(
-  () => import("components/FolderContents/FolderContents"),
+  () => import("@/components/Modals/FolderContents/FolderContents"),
   { ssr: false }
 );
 

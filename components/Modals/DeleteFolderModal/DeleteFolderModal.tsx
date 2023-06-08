@@ -1,7 +1,6 @@
 "use clinet";
 
-import ModalLayout from "components/Common/ModalLayout";
-
+import ModalLayout from "../ModalLayout";
 import styles from "./DeleteFolderModal.module.scss";
 
 interface IDeleteFolderModal {

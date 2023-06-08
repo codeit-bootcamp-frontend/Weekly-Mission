@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 
-import ModalLayout from "components/Common/ModalLayout";
-
+import ModalLayout from "../ModalLayout";
 import styles from "./ShareFolderModal.module.scss";
 
 interface IShareFolderModal {

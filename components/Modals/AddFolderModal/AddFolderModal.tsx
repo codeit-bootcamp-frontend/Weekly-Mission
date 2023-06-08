@@ -2,8 +2,7 @@
 
 import { useRef } from "react";
 
-import ModalLayout from "components/Common/ModalLayout";
-
+import ModalLayout from "../ModalLayout";
 import styles from "./AddFolderModal.module.scss";
 
 interface IAddFolderModal {

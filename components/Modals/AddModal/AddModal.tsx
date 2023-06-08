@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 
-import ModalLayout from "components/Common/ModalLayout";
-
+import ModalLayout from "../ModalLayout";
 import styles from "./AddModal.module.scss";
 import FolderItem from "./FolderItem";
 

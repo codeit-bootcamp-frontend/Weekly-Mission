@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 
 import Image from "next/image";
 
-import AddModal from "../AddModal/AddModal";
+import AddModal from "../Modals/AddModal/AddModal";
 import styles from "./AddLink.module.scss";
 
 const AddLink = () => {
