@@ -2,14 +2,10 @@
 
 import { useEffect, useRef } from "react";
 
-import Image from "next/image";
-
 import { allowScroll, preventScroll } from "@/lib/modal";
-import ModalPortalWrapper from "components/Common/ModalPortalWrapper";
+import ModalLayout from "components/Common/ModalLayout";
 
 import styles from "./AddFolderModal.module.scss";
-
-// import AddFolderPortalWrapper from "./AddFolderPortalWrapper";
 
 interface IAddFolderModal {
   setOpenAddFolderModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -37,46 +33,66 @@ const AddFolderModal = ({ setOpenAddFolderModal }: IAddFolderModal) => {
   }, []);
 
   return (
-    <ModalPortalWrapper id="add-folder-portal">
-      <div
-        className={styles.overlay}
-        onClick={() => setOpenAddFolderModal(false)}
-      >
-        <div
-          className={styles.modalWrapper}
-          onClick={(e) => e.stopPropagation()}
+    <ModalLayout
+      portalId="add-folder-portal"
+      handleClickCloseModal={() => setOpenAddFolderModal(false)}
+    >
+      <h3 className={styles.title}>폴더 추가</h3>
+      <input
+        ref={folderNameRef}
+        className={styles.input}
+        type="text"
+        placeholder="내용 입력"
+      />
+      <div className={styles.buttonWrapper}>
+        <button
+          className={styles.addFolderButton}
+          onClick={handleClickAddFolder}
         >
-          <div
-            className={styles.closeWrapper}
-            onClick={() => setOpenAddFolderModal(false)}
-          >
-            <Image
-              className={styles.image}
-              fill
-              src="/assets/modal-close.svg"
-              alt="close modal"
-            />
-          </div>
-          <div className={styles.contents}>
-            <h3 className={styles.title}>폴더 추가</h3>
-            <input
-              ref={folderNameRef}
-              className={styles.input}
-              type="text"
-              placeholder="내용 입력"
-            />
-            <div className={styles.buttonWrapper}>
-              <button
-                className={styles.addFolderButton}
-                onClick={handleClickAddFolder}
-              >
-                추가하기
-              </button>
-            </div>
-          </div>
-        </div>
+          추가하기
+        </button>
       </div>
-    </ModalPortalWrapper>
+    </ModalLayout>
+    // <ModalPortalWrapper id="add-folder-portal">
+    //   <div
+    //     className={styles.overlay}
+    //     onClick={() => setOpenAddFolderModal(false)}
+    //   >
+    //     <div
+    //       className={styles.modalWrapper}
+    //       onClick={(e) => e.stopPropagation()}
+    //     >
+    //       <div
+    //         className={styles.closeWrapper}
+    //         onClick={() => setOpenAddFolderModal(false)}
+    //       >
+    //         <Image
+    //           className={styles.image}
+    //           fill
+    //           src="/assets/modal-close.svg"
+    //           alt="close modal"
+    //         />
+    //       </div>
+    //       <div className={styles.contents}>
+    //         <h3 className={styles.title}>폴더 추가</h3>
+    //         <input
+    //           ref={folderNameRef}
+    //           className={styles.input}
+    //           type="text"
+    //           placeholder="내용 입력"
+    //         />
+    //         <div className={styles.buttonWrapper}>
+    //           <button
+    //             className={styles.addFolderButton}
+    //             onClick={handleClickAddFolder}
+    //           >
+    //             추가하기
+    //           </button>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </ModalPortalWrapper>
   );
 };
 

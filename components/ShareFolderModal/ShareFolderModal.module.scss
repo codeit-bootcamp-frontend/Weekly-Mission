@@ -1,66 +1,42 @@
 @use "styles/abstract/variables_color" as var-color;
 @use "styles/abstract/mixins" as mixin;
 
-.overlay {
-  @include mixin.modal-overlay;
+.title {
+  @include mixin.modal-title(var-color.$linkbrary-gray-100);
+}
+.subTitle {
+  @include mixin.modal-sub-title(var-color.$linkbrary-gray-60) {
+    padding-top: 8px;
+    padding-bottom: 24px;
+  }
+}
+.shareOptions {
+  display: flex;
+  gap: 39px;
 
-  .modalWrapper {
-    @include mixin.modal-wrapper(
-      209px,
-      32px 40px,
-      var-color.$linkbrary-white,
-      var-color.$linkbrary-gray-20
-    );
+  .button {
+    background: var-color.$linkbrary-white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
 
-    .closeWrapper {
-      @include mixin.modal-close-image-wrapper;
+    .imageWrapper {
+      width: 42px;
+      height: 42px;
+      position: relative;
 
       .image {
         @include mixin.image;
       }
     }
-    .contents {
-      @include mixin.contents-layout;
-
-      .title {
-        @include mixin.modal-title(var-color.$linkbrary-gray-100);
-      }
-      .subTitle {
-        @include mixin.modal-sub-title(var-color.$linkbrary-gray-60) {
-          padding-top: 8px;
-          padding-bottom: 24px;
-        }
-      }
-      .shareOptions {
-        display: flex;
-        gap: 39px;
-
-        .button {
-          background: var-color.$linkbrary-white;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 10px;
-          cursor: pointer;
-
-          .imageWrapper {
-            width: 42px;
-            height: 42px;
-            position: relative;
-
-            .image {
-              @include mixin.image;
-            }
-          }
-          .text {
-            font-weight: 400;
-            font-size: 13px;
-            line-height: 15px;
-            text-align: center;
-            color: var-color.$linkbrary-gray-100;
-          }
-        }
-      }
+    .text {
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 15px;
+      text-align: center;
+      color: var-color.$linkbrary-gray-100;
     }
   }
 }

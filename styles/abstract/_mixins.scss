@@ -1,40 +1,7 @@
-@mixin modal-overlay() {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4);
-  box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-@mixin modal-wrapper($height, $padding, $background-color, $border) {
-  width: 360px;
-  height: $height;
-  background-color: $background-color;
-  padding: $padding;
-  position: relative;
-  border: 1px solid $border;
-  border-radius: 15px;
-}
-@mixin modal-close-image-wrapper() {
-  position: absolute;
-  right: 16px;
-  top: 16px;
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-}
 @mixin image() {
   width: 100%;
   display: block;
   object-fit: cover;
-}
-@mixin contents-layout() {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 @mixin modal-title($color) {
   display: block;

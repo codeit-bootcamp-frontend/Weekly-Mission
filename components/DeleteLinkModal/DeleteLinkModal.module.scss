@@ -1,42 +1,17 @@
 @use "styles/abstract/variables_color" as var-color;
 @use "styles/abstract/mixins" as mixin;
 
-.overlay {
-  @include mixin.modal-overlay;
+.title {
+  @include mixin.modal-title(var-color.$linkbrary-gray-100);
+}
 
-  .modalWrapper {
-    @include mixin.modal-wrapper(
-      193px,
-      32px 40px,
-      var-color.$linkbrary-white,
-      var-color.$linkbrary-gray-20
-    );
-
-    .closeWrapper {
-      @include mixin.modal-close-image-wrapper;
-
-      .image {
-        @include mixin.image;
-      }
-    }
-
-    .contents {
-      @include mixin.contents-layout;
-
-      .title {
-        @include mixin.modal-title(var-color.$linkbrary-gray-100);
-      }
-
-      .subTitle {
-        @include mixin.modal-sub-title(var-color.$linkbrary-gray-60) {
-          padding-top: 8px;
-          padding-bottom: 40px;
-        }
-      }
-
-      .deleteButton {
-        @include mixin.modal-button(var-color.$linkbrary-red);
-      }
-    }
+.subTitle {
+  @include mixin.modal-sub-title(var-color.$linkbrary-gray-60) {
+    padding-top: 8px;
+    padding-bottom: 40px;
   }
+}
+
+.deleteButton {
+  @include mixin.modal-button(var-color.$linkbrary-red);
 }

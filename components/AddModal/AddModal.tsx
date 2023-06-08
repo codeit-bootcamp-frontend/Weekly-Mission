@@ -2,9 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import Image from "next/image";
-
-import ModalPortalWrapper from "components/Common/ModalPortalWrapper";
+import ModalLayout from "components/Common/ModalLayout";
 import { allowScroll, preventScroll } from "lib/modal";
 
 import styles from "./AddModal.module.scss";
@@ -45,44 +43,27 @@ const AddModal = ({ setOpenAddModal, selectedLinkValue }: IAddModal) => {
   }, []);
 
   return (
-    <ModalPortalWrapper id="add-portal">
-      <div className={styles.overlay} onClick={() => setOpenAddModal(false)}>
-        <div
-          className={styles.modalWrapper}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div
-            className={styles.closeWrapper}
-            onClick={() => setOpenAddModal(false)}
-          >
-            <Image
-              className={styles.image}
-              fill
-              src="/assets/modal-close.svg"
-              alt="close modal"
-            />
-          </div>
-          <div className={styles.contents}>
-            <h3 className={styles.title}>폴더에 추가</h3>
-            <h4 className={styles.subTitle}>링크 주소</h4>
-            <div className={styles.folderWrapper}>
-              {MOCK_FOLDERS.map((folder, idx) => (
-                <FolderItem
-                  key={folder.name}
-                  folder={folder}
-                  idx={idx}
-                  isChecked={idx === checkedItemId}
-                  setCheckedItemId={setCheckedItemId}
-                />
-              ))}
-            </div>
-            <button className={styles.addButton} onClick={handleClickPostLink}>
-              추가하기
-            </button>
-          </div>
-        </div>
+    <ModalLayout
+      portalId="add-portal"
+      handleClickCloseModal={() => setOpenAddModal(false)}
+    >
+      <h3 className={styles.title}>폴더에 추가</h3>
+      <h4 className={styles.subTitle}>링크 주소</h4>
+      <div className={styles.folderWrapper}>
+        {MOCK_FOLDERS.map((folder, idx) => (
+          <FolderItem
+            key={folder.name}
+            folder={folder}
+            idx={idx}
+            isChecked={idx === checkedItemId}
+            setCheckedItemId={setCheckedItemId}
+          />
+        ))}
       </div>
-    </ModalPortalWrapper>
+      <button className={styles.addButton} onClick={handleClickPostLink}>
+        추가하기
+      </button>
+    </ModalLayout>
   );
 };
 

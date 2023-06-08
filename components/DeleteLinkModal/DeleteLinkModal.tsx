@@ -2,9 +2,7 @@
 
 import { useEffect } from "react";
 
-import Image from "next/image";
-
-import ModalPortalWrapper from "components/Common/ModalPortalWrapper";
+import ModalLayout from "components/Common/ModalLayout";
 import { allowScroll, preventScroll } from "lib/modal";
 
 import styles from "./DeleteLinkModal.module.scss";
@@ -34,39 +32,16 @@ const DeleteLinkModal = ({
   }, []);
 
   return (
-    <ModalPortalWrapper id="delete-link-portal">
-      <div
-        className={styles.overlay}
-        onClick={() => setOpenDeleteLinkModal(false)}
-      >
-        <div
-          className={styles.modalWrapper}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div
-            className={styles.closeWrapper}
-            onClick={() => setOpenDeleteLinkModal(false)}
-          >
-            <Image
-              className={styles.image}
-              fill
-              src="/assets/modal-close.svg"
-              alt="close modal"
-            />
-          </div>
-          <div className={styles.contents}>
-            <h3 className={styles.title}>링크 삭제</h3>
-            <h4 className={styles.subTitle}>{selectedLinkValue}</h4>
-            <button
-              className={styles.deleteButton}
-              onClick={handleClickDeleteLink}
-            >
-              삭제하기
-            </button>
-          </div>
-        </div>
-      </div>
-    </ModalPortalWrapper>
+    <ModalLayout
+      portalId="delete-link-portal"
+      handleClickCloseModal={() => setOpenDeleteLinkModal(false)}
+    >
+      <h3 className={styles.title}>링크 삭제</h3>
+      <h4 className={styles.subTitle}>{selectedLinkValue}</h4>
+      <button className={styles.deleteButton} onClick={handleClickDeleteLink}>
+        삭제하기
+      </button>
+    </ModalLayout>
   );
 };
 

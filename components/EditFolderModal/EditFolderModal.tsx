@@ -2,9 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-import Image from "next/image";
-
-import ModalPortalWrapper from "components/Common/ModalPortalWrapper";
+import ModalLayout from "components/Common/ModalLayout";
 import { allowScroll, preventScroll } from "lib/modal";
 
 import styles from "./EditFolderModal.module.scss";
@@ -39,46 +37,23 @@ const EditFolderModal = ({
   }, []);
 
   return (
-    <ModalPortalWrapper id="edit-folder-portal">
-      <div
-        className={styles.overlay}
-        onClick={() => setOpenEditFolderModal(false)}
-      >
-        <div
-          className={styles.modalWrapper}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div
-            className={styles.closeWrapper}
-            onClick={() => setOpenEditFolderModal(false)}
-          >
-            <Image
-              className={styles.image}
-              fill
-              src="/assets/modal-close.svg"
-              alt="close modal"
-            />
-          </div>
-          <div className={styles.contents}>
-            <h3 className={styles.title}>폴더 이름 변경</h3>
-            <input
-              ref={folderEditNameRef}
-              className={styles.input}
-              type="text"
-              placeholder={currentFolderName}
-            />
-            <div className={styles.buttonWrapper}>
-              <button
-                className={styles.button}
-                onClick={handleClickEditFolderName}
-              >
-                변경하기
-              </button>
-            </div>
-          </div>
-        </div>
+    <ModalLayout
+      portalId="edit-folder-portal"
+      handleClickCloseModal={() => setOpenEditFolderModal(false)}
+    >
+      <h3 className={styles.title}>폴더 이름 변경</h3>
+      <input
+        ref={folderEditNameRef}
+        className={styles.input}
+        type="text"
+        placeholder={currentFolderName}
+      />
+      <div className={styles.buttonWrapper}>
+        <button className={styles.button} onClick={handleClickEditFolderName}>
+          변경하기
+        </button>
       </div>
-    </ModalPortalWrapper>
+    </ModalLayout>
   );
 };
 

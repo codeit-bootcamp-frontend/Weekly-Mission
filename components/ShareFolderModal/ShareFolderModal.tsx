@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 import Image from "next/image";
 
-import ModalPortalWrapper from "components/Common/ModalPortalWrapper";
+import ModalLayout from "components/Common/ModalLayout";
 import { allowScroll, preventScroll } from "lib/modal";
 
 import styles from "./ShareFolderModal.module.scss";
@@ -53,74 +53,48 @@ const ShareFolderModal = ({
     };
   }, []);
   return (
-    <ModalPortalWrapper id="share-folder-portal">
-      <div
-        className={styles.overlay}
-        onClick={() => setOpenShareFolderModal(false)}
-      >
-        <div
-          className={styles.modalWrapper}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div
-            className={styles.closeWrapper}
-            onClick={() => setOpenShareFolderModal(false)}
-          >
+    <ModalLayout
+      portalId="share-folder-portal"
+      handleClickCloseModal={() => setOpenShareFolderModal(false)}
+    >
+      <h3 className={styles.title}>폴더 공유</h3>
+      <h4 className={styles.subTitle}>{currentFolderName}</h4>
+      <div className={styles.shareOptions}>
+        <button className={styles.button} onClick={handleClickKaKaoShare}>
+          <div className={styles.imageWrapper}>
             <Image
-              className={styles.image}
               fill
-              src="/assets/modal-close.svg"
-              alt="close modal"
+              className={styles.image}
+              src="/assets/share-kakaotalk.svg"
+              alt="share kakao"
             />
           </div>
-          <div className={styles.contents}>
-            <h3 className={styles.title}>폴더 공유</h3>
-            <h4 className={styles.subTitle}>{currentFolderName}</h4>
-            <div className={styles.shareOptions}>
-              <button className={styles.button} onClick={handleClickKaKaoShare}>
-                <div className={styles.imageWrapper}>
-                  <Image
-                    fill
-                    className={styles.image}
-                    src="/assets/share-kakaotalk.svg"
-                    alt="share kakao"
-                  />
-                </div>
-                <span className={styles.text}>카카오톡</span>
-              </button>
-              <button
-                className={styles.button}
-                onClick={handleClickFacebookShare}
-              >
-                <div className={styles.imageWrapper}>
-                  <Image
-                    fill
-                    className={styles.image}
-                    src="/assets/share-facebook.svg"
-                    alt="share facebook"
-                  />
-                </div>
-                <span className={styles.text}>페이스북</span>
-              </button>
-              <button
-                className={styles.button}
-                onClick={handleClickClipboardShare}
-              >
-                <div className={styles.imageWrapper}>
-                  <Image
-                    fill
-                    className={styles.image}
-                    src="/assets/share-clipboard.svg"
-                    alt="copy link"
-                  />
-                </div>
-                <span className={styles.text}>링크 복사</span>
-              </button>
-            </div>
+          <span className={styles.text}>카카오톡</span>
+        </button>
+        <button className={styles.button} onClick={handleClickFacebookShare}>
+          <div className={styles.imageWrapper}>
+            <Image
+              fill
+              className={styles.image}
+              src="/assets/share-facebook.svg"
+              alt="share facebook"
+            />
           </div>
-        </div>
+          <span className={styles.text}>페이스북</span>
+        </button>
+        <button className={styles.button} onClick={handleClickClipboardShare}>
+          <div className={styles.imageWrapper}>
+            <Image
+              fill
+              className={styles.image}
+              src="/assets/share-clipboard.svg"
+              alt="copy link"
+            />
+          </div>
+          <span className={styles.text}>링크 복사</span>
+        </button>
       </div>
-    </ModalPortalWrapper>
+    </ModalLayout>
   );
 };
 
