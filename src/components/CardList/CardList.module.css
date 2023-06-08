@@ -6,7 +6,7 @@
   margin-bottom: 10rem;
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1199px) {
   .cardListContainer {
     grid-template-columns: repeat(2, 1fr);
   }

@@ -1,9 +1,11 @@
+import { useRef } from "react";
 import Image from "next/image";
 import styles from "./modal.module.css";
+import { createPortal } from "react-dom";
 
 const Modal = ({ children, modalTitle, modalSubTitle }) => {
   return (
-    <div className={styles.overlay}>
+    <>
       <div className={styles.modalContainer}>
         <div className={styles.closeIconContainer}>
           <Image
@@ -21,7 +23,7 @@ const Modal = ({ children, modalTitle, modalSubTitle }) => {
           {children}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

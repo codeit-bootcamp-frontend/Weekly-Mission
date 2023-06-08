@@ -12,6 +12,7 @@
   background: #ffffff;
   border: 0.1rem solid #6d6afe;
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 .tabContainer.true {
