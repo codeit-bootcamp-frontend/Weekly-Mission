@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import styles from "./FolderListItem.module.css";
+import styles from "./FolderListItem.module.scss";
 
 interface IFolderListItem {
   name: string;

@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import { allowScroll, preventScroll } from "lib/modal";
 
-import styles from "./ShareFolderModal.module.css";
+import styles from "./ShareFolderModal.module.scss";
 import ShareFolderPortalWrapper from "./ShareFolderPortalWrapper";
 
 interface IShareFolderModal {

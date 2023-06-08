@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import AddFolderModal from "components/AddFolderModal/AddFolderModal";
 
-import styles from "./FolderList.module.css";
+import styles from "./FolderList.module.scss";
 import FolderListItem from "./FolderListItem";
 
 interface IFolderList {

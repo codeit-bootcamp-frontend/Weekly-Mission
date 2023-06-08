@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import { allowScroll, preventScroll } from "lib/modal";
 
-import styles from "./DeleteLinkModal.module.css";
+import styles from "./DeleteLinkModal.module.scss";
 import DeleteLinkPortalWrapper from "./DeleteLinkPortalWrapper";
 
 interface IDeleteLinkModal {

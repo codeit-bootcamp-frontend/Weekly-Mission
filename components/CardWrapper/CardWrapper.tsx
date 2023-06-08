@@ -5,7 +5,7 @@ import { useState } from "react";
 import Card from "@/components/Card/Card";
 import { ILink } from "lib/getFolderData";
 
-import styles from "./CardWrapper.module.css";
+import styles from "./CardWrapper.module.scss";
 
 interface ICardWrapper {
   links: ILink[];

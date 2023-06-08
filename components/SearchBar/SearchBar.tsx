@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import styles from "./SearchBar.module.css";
+import styles from "./SearchBar.module.scss";
 
 interface ISearchBar {
   placeholder: string;

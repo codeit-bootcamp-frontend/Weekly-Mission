@@ -1,3 +1,5 @@
+@use "styles/abstract/variables_color" as var-color;
+
 .folderListWrapper {
   width: 100%;
   max-width: 1060px;
@@ -36,7 +38,7 @@
   align-items: center;
   text-align: center;
   letter-spacing: -0.3px;
-  color: #6d6afe;
+  color: var-color.$linkbrary-primary;
 }
 .ImageWrapper {
   position: relative;
@@ -58,8 +60,8 @@
     transform: translateX(-50%);
     z-index: 99;
     justify-content: center;
-    background: #6d6afe;
-    border: 1px solid #ffffff;
+    background: var-color.$linkbrary-primary;
+    border: 1px solid var-color.$linkbrary-white;
     border-radius: 20px;
   }
   .buttonWrapper.upperFooter {
@@ -73,7 +75,7 @@
     bottom: calc(85px + 16px);
   }
   .buttonText {
-    color: #e7effb;
+    color: var-color.$linkbrary-gray-10;
   }
   .image {
     filter: invert(94%) sepia(34%) saturate(5873%) hue-rotate(179deg)

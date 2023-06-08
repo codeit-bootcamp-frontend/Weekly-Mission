@@ -1,3 +1,5 @@
+@use "styles/abstract/variables_color" as var-color;
+
 .overlay {
   width: 100vw;
   height: 100vh;
@@ -11,10 +13,10 @@
 .modalWrapper {
   width: 360px;
   height: 244px;
-  background-color: #ffffff;
+  background-color: var-color.$linkbrary-white;
   padding: 35px 40px;
   position: relative;
-  border: 1px solid #ccd5e3;
+  border: 1px solid var-color.$linkbrary-gray-20;
   border-radius: 15px;
 }
 .closeWrapper {
@@ -43,7 +45,7 @@
   font-size: 20px;
   line-height: 24px;
   text-align: center;
-  color: #373740;
+  color: var-color.$linkbrary-gray-100;
   padding-bottom: 24px;
 }
 .input {
@@ -55,18 +57,18 @@
   justify-content: center;
   align-items: center;
   padding: 18px 15px;
-  background: #ffffff;
-  border: 1px solid #ccd5e3;
+  background: var-color.$linkbrary-white;
+  border: 1px solid var-color.$linkbrary-gray-20;
   border-radius: 8px;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #9fa6b2;
+  color: var-color.$linkbrary-gray-60;
 }
 .buttonWrapper {
   padding-top: 15px;
 }
-.button {
+.addFolderButton {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -74,7 +76,11 @@
   padding: 16px 20px;
   width: 280px;
   height: 51px;
-  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  background: linear-gradient(
+    90.99deg,
+    var-color.$linkbrary-primary 0.12%,
+    #6ae3fe 101.84%
+  );
   border-radius: 8px;
   font-weight: 600;
   font-size: 16px;

@@ -4,7 +4,7 @@ import Image from "next/image";
 import SearchBar from "@/components/SearchBar/SearchBar";
 import getFolderData from "lib/getFolderData";
 
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
 
 const CardWrapper = dynamic(
   () => import("components/CardWrapper/CardWrapper"),

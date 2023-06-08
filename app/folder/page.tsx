@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 
 import getFolderData from "lib/getFolderData";
 
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
 
 const FolderContents = dynamic(
   () => import("components/FolderContents/FolderContents"),

@@ -1,18 +1,20 @@
+@use "styles/abstract/variables_color" as var-color;
+
 .contents {
   width: 100%;
   height: auto;
-  background: var(--linkbrary-white);
+  background: var-color.$linkbrary-white;
   margin: 0 auto;
 }
 .addLinkContainer {
   width: 100%;
   padding: 60px 32px 90px;
-  background-color: var(--linkbrary-bg);
+  background-color: var-color.$linkbrary-bg;
 }
 .addLinkContainer.false {
   position: fixed;
   width: 100%;
-  background: var(--linkbrary-bg);
+  background: var-color.$linkbrary-bg;
   bottom: 0;
   z-index: 99;
   padding: 16px 32px 16px;

@@ -1,3 +1,5 @@
+@use "styles/abstract/variables_color" as var-color;
+
 .inner {
   margin: 0 auto;
   width: 100%;
@@ -21,7 +23,7 @@
 }
 .hero {
   padding-top: 70px;
-  background: var(--linkbrary-bg);
+  background: var-color.$linkbrary-bg;
   width: 100%;
   height: auto;
   overflow: hidden;
@@ -40,7 +42,7 @@
 .hero .title span {
   background: linear-gradient(
     91.26deg,
-    var(--linkbrary-primary) 17.28%,
+    var-color.$linkbrary-primary 17.28%,
     #ff9f9f 74.98%
   );
   -webkit-background-clip: text;
@@ -63,7 +65,7 @@
   padding: 16px 20px;
   background: linear-gradient(
     90.99deg,
-    var(--linkbrary-primary) 0.12%,
+    var-color.$linkbrary-primary 0.12%,
     #6ae3fe 101.84%
   );
   border-radius: 8px;
@@ -120,7 +122,7 @@
 .contents {
   width: 100%;
   height: auto;
-  background: var(--linkbrary-white);
+  background: var-color.$linkbrary-white;
   padding-top: 120px;
   padding-bottom: 170px;
 }

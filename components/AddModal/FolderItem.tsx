@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import styles from "./FolderItem.module.css";
+import styles from "./FolderItem.module.scss";
 
 const FolderItem = ({
   folder,

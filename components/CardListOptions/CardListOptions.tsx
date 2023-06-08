@@ -8,7 +8,7 @@ import DeleteFolderModal from "components/DeleteFolderModal/DeleteFolderModal";
 import EditFolderModal from "components/EditFolderModal/EditFolderModal";
 import ShareFolderModal from "components/ShareFolderModal/ShareFolderModal";
 
-import styles from "./CardListOptions.module.css";
+import styles from "./CardListOptions.module.scss";
 
 interface ICardListOptions {
   currentFolder: {

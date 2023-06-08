@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import { allowScroll, preventScroll } from "lib/modal";
 
-import styles from "./DeleteFolderModal.module.css";
+import styles from "./DeleteFolderModal.module.scss";
 import DeleteFolderPortalWrapper from "./DeleteFolderPortalWrapper";
 
 interface IDeleteFolderModal {

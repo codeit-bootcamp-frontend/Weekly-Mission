@@ -1,3 +1,5 @@
+@use "styles/abstract/variables_color" as var-color;
+
 .overlay {
   width: 100vw;
   height: 100vh;
@@ -10,8 +12,8 @@
 }
 .modalWrapper {
   width: 360px;
-  height: 193px;
-  background-color: #ffffff;
+  height: 389px;
+  background-color: var-color.$linkbrary-white;
   padding: 32px 40px;
   position: relative;
   border: 1px solid #dee2e6;
@@ -25,7 +27,7 @@
   height: 24px;
   cursor: pointer;
 }
-.image {
+.closeWrapper .image {
   width: 100%;
   display: block;
   object-fit: cover;
@@ -43,20 +45,29 @@
   font-size: 20px;
   line-height: 24px;
   text-align: center;
-  color: #373740;
+  color: var-color.$linkbrary-gray-100;
 }
 .subTitle {
   padding-top: 8px;
-  padding-bottom: 24px;
   display: block;
   width: 280px;
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;
   text-align: center;
-  color: #9fa6b2;
+  color: var-color.$linkbrary-gray-60;
 }
-.deleteButton {
+.folderWrapper {
+  padding-top: 32px;
+  padding-bottom: 24px;
+  width: 280px;
+  height: 228px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+}
+.addButton {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -64,7 +75,11 @@
   padding: 16px 20px;
   width: 280px;
   height: 51px;
-  background: #ff5b56;
+  background: linear-gradient(
+    90.99deg,
+    var-color.$linkbrary-primary 0.12%,
+    #6ae3fe 101.84%
+  );
   border-radius: 8px;
   font-weight: 600;
   font-size: 16px;

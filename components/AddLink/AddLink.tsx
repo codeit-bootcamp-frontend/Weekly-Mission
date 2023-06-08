@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 
 import AddModal from "../AddModal/AddModal";
-import styles from "./AddLink.module.css";
+import styles from "./AddLink.module.scss";
 
 const AddLink = () => {
   const [openAddModal, setOpenAddModal] = useState<boolean>(false);

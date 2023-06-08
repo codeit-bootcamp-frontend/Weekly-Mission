@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import { allowScroll, preventScroll } from "@/lib/modal";
 
-import styles from "./AddFolderModal.module.css";
+import styles from "./AddFolderModal.module.scss";
 import AddFolderPortalWrapper from "./AddFolderPortalWrapper";
 
 interface IAddFolderModal {

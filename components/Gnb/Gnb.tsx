@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { IUserData } from "lib/getUserData";
 
-import styles from "./Gnb.module.css";
+import styles from "./Gnb.module.scss";
 
 export interface IGnb {
   // 어떤 값도 담기지 않는 빈 객체를 가리키기 위해 Record<string, never> 사용

@@ -10,7 +10,7 @@ import useOutsideClick from "hooks/useOutsideClick";
 import beautifyDate from "lib/beautifyData";
 import { ILink } from "lib/getFolderData";
 
-import styles from "./Card.module.css";
+import styles from "./Card.module.scss";
 
 interface ICard {
   link: ILink;

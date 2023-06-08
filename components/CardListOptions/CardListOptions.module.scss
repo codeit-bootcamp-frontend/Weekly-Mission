@@ -1,3 +1,5 @@
+@use "styles/abstract/variables_color" as var-color;
+
 .optionsWrapper {
   width: 100%;
   max-width: 1060px;
@@ -52,5 +54,5 @@
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
-  color: #9fa6b2;
+  color: var-color.$linkbrary-gray-60;
 }

@@ -9,7 +9,7 @@ import CardListOptions from "components/CardListOptions/CardListOptions";
 import FolderList from "components/FolderList/FolderList";
 import { ILink } from "lib/getFolderData";
 
-import styles from "./FolderContents.module.css";
+import styles from "./FolderContents.module.scss";
 
 interface ICardWrapper {
   links: ILink[];
