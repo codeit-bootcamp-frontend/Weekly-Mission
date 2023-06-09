@@ -12,7 +12,7 @@ interface ICardWrapper {
 }
 
 const CardWrapper = ({ links }: ICardWrapper) => {
-  const [isClickedKebab, setIsClickedKebab] = useState<number>(-1);
+  const [openKebabIndex, setOpenKebabIndex] = useState<number>(-1);
 
   if (links.length === 0) {
     return (
@@ -23,13 +23,13 @@ const CardWrapper = ({ links }: ICardWrapper) => {
   } else
     return (
       <div className={styles.cardWrapper}>
-        {links.map((link, idx) => (
+        {links.map((link, index) => (
           <Card
             key={link.id}
             link={link}
-            idx={idx}
-            isClicked={idx === isClickedKebab}
-            setIsClickedKebab={setIsClickedKebab}
+            isClicked={index === openKebabIndex}
+            handleClickOpenKebab={() => setOpenKebabIndex(index)}
+            handleClickCloseKebab={() => setOpenKebabIndex(-1)}
           />
         ))}
       </div>

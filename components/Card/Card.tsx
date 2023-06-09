@@ -14,12 +14,17 @@ import styles from "./Card.module.scss";
 
 interface ICard {
   link: ILink;
-  idx: number;
   isClicked: boolean;
-  setIsClickedKebab: React.Dispatch<React.SetStateAction<number>>;
+  handleClickOpenKebab: () => void;
+  handleClickCloseKebab: () => void;
 }
 
-const Card = ({ link, idx, isClicked, setIsClickedKebab }: ICard) => {
+const Card = ({
+  link,
+  isClicked,
+  handleClickOpenKebab,
+  handleClickCloseKebab,
+}: ICard) => {
   const { beautifiedDate, beautifiedTimeDiff } = beautifyDate(link.createdAt);
   const [isChecked, setIsChecked] = useState<string | undefined>("");
   const notTargetRefs = useRef<HTMLElement[]>([]);
@@ -80,9 +85,7 @@ const Card = ({ link, idx, isClicked, setIsClickedKebab }: ICard) => {
     }
   };
 
-  useOutsideClick(kebabRef, () => {
-    setIsClickedKebab(-1);
-  });
+  useOutsideClick(kebabRef, handleClickCloseKebab);
 
   return (
     <>
@@ -121,7 +124,7 @@ const Card = ({ link, idx, isClicked, setIsClickedKebab }: ICard) => {
             <div
               ref={(el: HTMLDivElement) => (notTargetRefs.current[1] = el)}
               className={styles.kebabMenu}
-              onClick={() => setIsClickedKebab(idx)}
+              onClick={handleClickOpenKebab}
             >
               <span className={styles.kebabDot}></span>
               <span className={styles.kebabDot}></span>
