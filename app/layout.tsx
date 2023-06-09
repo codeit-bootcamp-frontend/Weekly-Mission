@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import localFont from "next/font/local";
 
-import "styles/globals.scss";
+import "@/styles/globals.scss";
 
 export const metadata: Metadata = {
   metadataBase: new URL(

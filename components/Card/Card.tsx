@@ -6,9 +6,9 @@ import Image from "next/image";
 
 import AddModal from "@/components/Modals/AddModal/AddModal";
 import DeleteLinkModal from "@/components/Modals/DeleteLinkModal/DeleteLinkModal";
-import useOutsideClick from "hooks/useOutsideClick";
-import beautifyDate from "lib/beautifyData";
-import { ILink } from "lib/getFolderData";
+import useOutsideClick from "@/hooks/useOutsideClick";
+import beautifyDate from "@/lib/beautifyData";
+import { ILink } from "@/lib/getFolderData";
 
 import styles from "./Card.module.scss";
 

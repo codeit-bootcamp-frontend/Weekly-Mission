@@ -3,11 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 
 import AddLink from "@/components/AddLink/AddLink";
+import CardListOptions from "@/components/CardListOptions/CardListOptions";
 import CardWrapper from "@/components/CardWrapper/CardWrapper";
+import FolderList from "@/components/FolderList/FolderList";
 import SearchBar from "@/components/SearchBar/SearchBar";
-import CardListOptions from "components/CardListOptions/CardListOptions";
-import FolderList from "components/FolderList/FolderList";
-import { ILink } from "lib/getFolderData";
+import { ILink } from "@/lib/getFolderData";
 
 import styles from "./FolderContents.module.scss";
 

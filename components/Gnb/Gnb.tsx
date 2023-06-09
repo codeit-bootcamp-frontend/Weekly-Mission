@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { IUserData } from "lib/getUserData";
+import { IUserData } from "@/lib/getUserData";
 
 import styles from "./Gnb.module.scss";
 

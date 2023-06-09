@@ -1,5 +1,5 @@
-@use "styles/abstract/variables_color" as var-color;
-@use "styles/abstract/mixins" as mixin;
+@use "@/styles/abstract/variables_color" as var-color;
+@use "@/styles/abstract/mixins" as mixin;
 
 .title {
   @include mixin.modal-title(var-color.$linkbrary-gray-100) {

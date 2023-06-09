@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 
 import SearchBar from "@/components/SearchBar/SearchBar";
-import getFolderData from "lib/getFolderData";
+import getFolderData from "@/lib/getFolderData";
 
 import styles from "./page.module.scss";
 
