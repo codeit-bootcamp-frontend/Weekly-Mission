@@ -13,7 +13,7 @@ export const wrapRequest = (func: any) => {
 };
 
 export const instance = axios.create({
-  baseURL: "https://bootcamp-api.codeit.kr/api/sample",
+  baseURL: "https://bootcamp-api.codeit.kr/api",
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",

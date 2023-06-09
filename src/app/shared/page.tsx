@@ -3,10 +3,10 @@ import FolderInfo from "./FolderInfo/FolderInfo";
 import styles from "./page.module.scss";
 import SearchBar from "@/app/components/SearchBar/SearchBar";
 import LinkCardList from "@/app/components/LinkCardList/LinkCardList";
-import { getFolderRequest } from "@/lib/api/folderApi";
+import { getSampleFolder } from "@/lib/api/folderApi";
 
 const getFolderData = async () => {
-  const res = await getFolderRequest();
+  const res = await getSampleFolder();
   return res.data;
 };
 

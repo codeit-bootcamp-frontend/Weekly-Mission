@@ -8,7 +8,7 @@ import FolderChip from "./FolderChip/FolderChip";
 import Image from "next/image";
 import Option from "./Option/Option";
 import LinkCardList from "@/app/components/LinkCardList/LinkCardList";
-import { getFolderRequest } from "@/lib/api/folderApi";
+import { getSampleFolder } from "@/lib/api/folderApi";
 import useIsVisible from "../hooks/useIsVisible";
 import Modal, { ModalProps } from "@/app/components/Modals/Modal";
 import ShareFolder from "@/app/components/Modals/ModalContents/ShareFolder";
@@ -155,7 +155,7 @@ const Page = ({ params }: { params: { id: string } }) => {
   };
 
   useEffect(() => {
-    getFolderRequest()
+    getSampleFolder()
       .then((res) => res.data)
       .then((res) => {
         setCardListProps(getCardListProps(res.folder.links));
