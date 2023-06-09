@@ -4,9 +4,12 @@ import Star from "@/components/Star";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import DropDown from "@/presentation/DropDown/DropDown";
+import DeleteLinkModal from "@/components/Modals/DeleteLinkModal";
 
 function Card({ card }) {
   const [isKebabOpen, setIsKebabOpen] = useState(false);
+  const [isDeleteLinkModalOpen, setIsDeleteLinkModalOpen] = useState(false);
+  const [isAddLinkModalOpen, setIsAddLinkModalOpen] = useState(false);
   const cardRef = useRef();
   const {
     image_source: imageSource = "/assets/images/default-card-img.png",
@@ -77,6 +80,17 @@ function Card({ card }) {
     }
   };
 
+  const handleDeleteLinkClick = (e) => {
+    //TODO: 링크 삭제하기 API 요청
+    e.stopPropagation();
+    setIsDeleteLinkModalOpen(true);
+  };
+
+  const handleAddLinkClick = (e) => {
+    e.stopPropagation();
+    setIsAddLinkModalOpen(true);
+  };
+
   useEffect(() => {
     document.addEventListener("click", handleClickOutside);
     return () => {
@@ -85,52 +99,61 @@ function Card({ card }) {
   }, []);
 
   return (
-    <div
-      className={`${styles.cardContainer} ${
-        isKebabOpen ? styles.disableHover : ""
-      }`}
-      onClick={handleCardClick}
-    >
-      <Image
-        className={styles.cardImage}
-        src={imageSource}
-        alt="card image"
-        width={340}
-        height={250}
-      />
-      <div className={styles.starIcon}>
-        <Star />
-      </div>
-      <div className={styles.cardInfo}>
-        <div className={styles.cardInfoHead}>
-          <div className={styles.cardUpdateTime}>
-            {calculateTimeDiff(createdAt)}
-          </div>
-          <button
-            type="button"
-            className={styles.kebabWrap}
-            onClick={handleKebabClick}
-            ref={cardRef}
-          >
-            <Image
-              className={styles.kebabIcon}
-              src="/assets/images/kebab.svg"
-              alt="Kebab Icon"
-              width={24}
-              height={24}
-            />
-          </button>
-          {isKebabOpen && (
-            <DropDown>
-              <div>삭제하기</div>
-              <div>폴더에 추가</div>
-            </DropDown>
-          )}
+    <>
+      <div
+        className={`${styles.cardContainer} ${
+          isKebabOpen ? styles.disableHover : ""
+        }`}
+        onClick={handleCardClick}
+      >
+        <Image
+          className={styles.cardImage}
+          src={imageSource}
+          alt="card image"
+          width={340}
+          height={250}
+        />
+        <div className={styles.starIcon}>
+          <Star />
         </div>
-        <div className={styles.cardDescription}>{description}</div>
-        <div className={styles.cardDate}>{parseDate(createdAt)}</div>
+        <div className={styles.cardInfo}>
+          <div className={styles.cardInfoHead}>
+            <div className={styles.cardUpdateTime}>
+              {calculateTimeDiff(createdAt)}
+            </div>
+            <button
+              type="button"
+              className={styles.kebabWrap}
+              onClick={handleKebabClick}
+              ref={cardRef}
+            >
+              <Image
+                className={styles.kebabIcon}
+                src="/assets/images/kebab.svg"
+                alt="Kebab Icon"
+                width={24}
+                height={24}
+              />
+            </button>
+            {isKebabOpen && (
+              <DropDown>
+                <div onClick={handleDeleteLinkClick}>삭제하기</div>
+                <div onClick={handleAddLinkClick}>폴더에 추가</div>
+              </DropDown>
+            )}
+          </div>
+          <div className={styles.cardDescription}>{description}</div>
+          <div className={styles.cardDate}>{parseDate(createdAt)}</div>
+        </div>
       </div>
-    </div>
+      <DeleteLinkModal
+        isDeleteLinkModalOpen={isDeleteLinkModalOpen}
+        onClose={() => {
+          setIsDeleteLinkModalOpen(false);
+        }}
+        link={url}
+      />
+    </>
   );
 }
 
