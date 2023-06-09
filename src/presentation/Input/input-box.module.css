@@ -1,4 +1,4 @@
-.input {
+.input > input {
   display: block;
   width: 28rem;
   height: 6rem;
@@ -17,6 +17,6 @@
   color: #9fa6b2;
 }
 
-.input:focus {
+.input > input:focus {
   border: 1px solid var(--linkbrary-primary);
 }

@@ -1,8 +1,7 @@
-import React from "react";
 import styles from "./input-box.module.css";
 
-const Input = () => {
-  return <input className={styles.input} type="text" />;
+const Input = ({ children }) => {
+  return <div className={styles.input}>{children}</div>;
 };
 
 export default Input;
