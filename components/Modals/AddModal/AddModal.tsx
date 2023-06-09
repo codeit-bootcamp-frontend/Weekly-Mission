@@ -27,9 +27,8 @@ const AddModal = ({ setOpenAddModal, selectedLinkValue }: IAddModal) => {
   const handleClickPostLink = (): void => {
     // TODO: POST request : selectedLinkValue를 checkedItemId 를 가진 폴더에 저장
     // TODO: 바로 닫히지 않고, 데이터가 잘 저장되었다고 알려주는 텀이 있으면 좋겠다.
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       setOpenAddModal(false);
-      clearTimeout(timer);
     }, 500);
   };
 

@@ -21,9 +21,8 @@ const EditFolderModal = ({
     if (!folderEditNameRef.current) return;
     // console.log(folderEditNameRef.current.value);
 
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       setOpenEditFolderModal(false);
-      clearTimeout(timer);
     }, 500);
   };
 

@@ -17,9 +17,8 @@ const ShareFolderModal = ({
   const handleClickFacebookShare = () => {
     window.open("http://www.facebook.com/sharer.php?u=https://www.naver.com/");
 
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       setOpenShareFolderModal(false);
-      clearTimeout(timer);
     }, 500);
   };
 
@@ -28,17 +27,15 @@ const ShareFolderModal = ({
       await navigator.clipboard.writeText(window.location.href);
     }
 
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       setOpenShareFolderModal(false);
-      clearTimeout(timer);
     }, 500);
   };
 
   const handleClickKaKaoShare = () => {
     // TODO: 카카오 기능 연결하기
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       setOpenShareFolderModal(false);
-      clearTimeout(timer);
     }, 500);
   };
 

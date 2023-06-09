@@ -17,9 +17,8 @@ const AddFolderModal = ({ setOpenAddFolderModal }: IAddFolderModal) => {
     if (!folderNameRef.current) return;
     // console.log(folderNameRef.current.value);
 
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       setOpenAddFolderModal(false);
-      clearTimeout(timer);
     }, 500);
   };
 

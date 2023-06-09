@@ -14,9 +14,8 @@ const DeleteFolderModal = ({
 }: IDeleteFolderModal) => {
   const handleClickDeleteFolder = () => {
     // TODO: 해당 폴더를 삭제
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       setOpenDeleteFolderModal(false);
-      clearTimeout(timer);
     }, 500);
   };
 
