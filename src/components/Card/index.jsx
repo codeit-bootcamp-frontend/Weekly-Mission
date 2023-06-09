@@ -9,9 +9,9 @@ function Card({ card }) {
   const [isKebabOpen, setIsKebabOpen] = useState(false);
   const cardRef = useRef();
   const {
-    imageSource = "/assets/images/default-card-img.png",
+    image_source: imageSource = "/assets/images/default-card-img.png",
     description,
-    createdAt,
+    created_at: createdAt,
     url,
   } = card;
   const router = useRouter();

@@ -2,11 +2,11 @@ import { UserProvider } from "@/contexts/UserProvider";
 const BASE_URL = process.env.BASE_URL;
 import "@/styles/global.css";
 
-function MyApp({ Component, pageProps, user }) {
+function MyApp({ Component, pageProps, userInfo }) {
   const getLayout = Component.getLayout || ((page) => page);
 
   return (
-    <UserProvider initialUser={user}>
+    <UserProvider initialUser={userInfo}>
       {getLayout(<Component {...pageProps} />)}
     </UserProvider>
   );
@@ -14,10 +14,10 @@ function MyApp({ Component, pageProps, user }) {
 
 MyApp.getInitialProps = async ({ Component, ctx }) => {
   // TODO : 추후 인증으로 변경해야함.
-  // TODO : SSG가 불가능해짐 -> 추후 fetch 시점 변경 해야함
   const userId = 1;
   const response = await fetch(`${BASE_URL}/api/users/${userId}`);
-  const user = await response.json();
+  const data = await response.json();
+  const userInfo = data.data[0];
 
   let pageProps = {};
   if (Component.getInitialProps) {
@@ -26,7 +26,7 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
 
   return {
     pageProps,
-    user: user || "",
+    userInfo: userInfo || "",
   };
 };
 

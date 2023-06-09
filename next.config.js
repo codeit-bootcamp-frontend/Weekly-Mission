@@ -14,6 +14,9 @@ const nextConfig = {
       "s.pstatic.net",
     ],
   },
+  env: {
+    BASE_URL: process.env.BASE_URL,
+  },
 };
 
 module.exports = nextConfig;

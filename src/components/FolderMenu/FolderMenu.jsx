@@ -2,27 +2,29 @@ import FolderChipButton from "@/presentation/Button/FolderChipButton";
 import styles from "./folder-menu.module.css";
 import { useRouter } from "next/router";
 
-const FolderMenu = ({ currentTab, MOCK_FOLDERS }) => {
+const FolderMenu = ({ currentTab, tabs, onCurrentFolderTitle }) => {
   const router = useRouter();
-  const handleClick = ({ id }) => {
-    if (id === 0) {
-      router.push("/folder");
-    } else if (id === 1) {
-      router.push("/folder/favorites");
-    } else {
-      router.push(`/folder/${id - 1}`);
-    }
+  const handleClick = (tab) => {
+    const { id = "", name = "전체" } = tab || {};
+    router.push(`/folder/${id}`);
+    onCurrentFolderTitle(name);
   };
 
   return (
     <div className={styles.folderMenuContainer}>
       <div className={styles.chipsContainer}>
         <div className={styles.chip}>
-          {MOCK_FOLDERS.map((folder) => (
-            <div key={folder.id} onClick={() => handleClick({ id: folder.id })}>
+          <div key="total" onClick={() => handleClick()}>
+            <FolderChipButton
+              name="전체"
+              isSelected={currentTab === undefined}
+            />
+          </div>
+          {tabs.map((tab) => (
+            <div key={tab.id} onClick={() => handleClick(tab)}>
               <FolderChipButton
-                name={folder.folderTitle}
-                isSelected={folder.folderTitle === currentTab}
+                name={tab.name}
+                isSelected={tab.id === currentTab}
               />
             </div>
           ))}

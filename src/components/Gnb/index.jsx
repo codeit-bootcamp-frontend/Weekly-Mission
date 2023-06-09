@@ -1,12 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useContext } from "react";
-import { UserContext } from "@/contexts/UserProvider";
+import { useUser } from "@/contexts/UserProvider";
 import styles from "./Gnb.module.css";
 
 export default function Gnb() {
-  const { user = "" } = useContext(UserContext);
-  const { image_source: profileSrc = "", email = "" } = user?.data[0] || {};
+  const { user = "" } = useUser();
+  const { image_source: profileSrc = "", email = "" } = user;
   return (
     <header className={styles.gnbContainer}>
       <nav className={styles.gnbWrap}>

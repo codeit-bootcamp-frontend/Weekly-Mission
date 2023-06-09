@@ -1,22 +1,21 @@
-import React, { useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./folder-header.module.css";
 import EditFolderModal from "../Modals/EditFolderModal";
-const FolderHeader = ({ currentTab }) => {
+const FolderHeader = ({ currentFolderTitle }) => {
   const [isFolderEditModalOpen, setIsFolderEditModalOpen] = useState(false);
   const [isFolderDeleteModalOpen, setIsFolderDeleteModalOpen] = useState(false);
   const [isFolderShareModalOpen, setIsFolderShareModalOpen] = useState(false);
-
-  const handleShareClick = () => {
+  const handleEditClick = () => {
     setIsFolderEditModalOpen(!isFolderEditModalOpen);
   };
-  const handleEditClick = () => {};
+  const handleShareClick = () => {};
   const handleDeleteClick = () => {};
 
   return (
     <>
       <div className={styles.folderHeaderContainer}>
-        <div className={styles.folderTitle}>{currentTab}</div>
+        <div className={styles.folderTitle}>{currentFolderTitle}</div>
         <div className={styles.folderHeaderOptionsContainer}>
           <button className={styles.button} onClick={handleShareClick}>
             <div className={styles.iconContainer}>
@@ -56,6 +55,7 @@ const FolderHeader = ({ currentTab }) => {
       <EditFolderModal
         isFolderEditModalOpen={isFolderEditModalOpen}
         onClose={() => setIsFolderEditModalOpen(false)}
+        currentFolderTitle={currentFolderTitle}
       />
     </>
   );
