@@ -5,8 +5,8 @@ import styles from "./LinkCard.module.scss";
 import Image from "next/image";
 import Popover from "../Popover/Popover";
 import useOutsideClick from "@/app/hooks/useOutsideClick";
-import FolderSelectList from "@/components/Modals/ModalContents/FolderSelectList";
-import Modal, { ModalProps } from "@/components/Modals/Modal";
+import FolderSelectList from "@/app/components/Modals/ModalContents/FolderSelectList";
+import Modal, { ModalProps } from "@/app/components/Modals/Modal";
 
 export interface LinkCardProp {
   id: number;
