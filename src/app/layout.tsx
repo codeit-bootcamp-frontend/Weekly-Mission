@@ -1,5 +1,6 @@
 import "@/styles/globals.scss";
 import Layout from "@/app/components/Layout/Layout";
+import Providers from "@/app/components/Providers/Providers";
 
 export const metadata = {
   title: "Linkbrary",
@@ -36,7 +37,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <Layout>{children}</Layout>
+        <Providers>
+          <Layout>{children}</Layout>
+        </Providers>
       </body>
     </html>
   );
