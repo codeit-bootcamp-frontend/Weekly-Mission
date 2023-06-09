@@ -15,29 +15,38 @@ const handler = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        // You need to provide your own logic here that takes the credentials
-        // submitted and returns either a object representing a user or value
-        // that is false/null if the credentials are invalid.
-        // e.g. return { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
-        // You can also use the `req` object to obtain additional parameters
-        // (i.e., the request IP address)
-        // TODO: 이 곳에서 실제 로그인 로직을 구현한다. (db에서 유저 찾기 등)
-        const res = await fetch("/your/endpoint", {
+        const res = await fetch("http:localhost:3000/api/signin", {
           method: "POST",
-          body: JSON.stringify(credentials),
+          body: JSON.stringify({
+            username: credentials?.username,
+            password: credentials?.password,
+          }),
           headers: { "Content-Type": "application/json" },
         });
-        const user = await res.json();
-
-        // If no error and we have user data, return it
+        const { data } = await res.json();
+        const user = {
+          id: data[0].id,
+          displayName: data[0].name,
+          username: data[0].email,
+        };
         if (res.ok && user) {
           return user;
         }
-        // Return null if user data could not be retrieved
         return null;
       },
     }),
   ],
+  callbacks: {
+    async jwt({ token, user }) {
+      return { ...token, ...user };
+    },
+
+    async session({ session, token }) {
+      session.user = token as any;
+      return session;
+    },
+  },
+  secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
 });
 
 export { handler as GET, handler as POST };
