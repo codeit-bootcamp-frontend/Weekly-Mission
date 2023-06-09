@@ -39,7 +39,7 @@
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
-  color: #9fa6b2;
+  color: var(--linkbrary-blue-gray);
 }
 
 .button {

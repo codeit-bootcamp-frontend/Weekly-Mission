@@ -2,6 +2,7 @@ import Modal from "@/presentation/Modal";
 import { useRef } from "react";
 import { createPortal } from "react-dom";
 import styles from "./modal-container.module.css";
+import Image from "next/image";
 
 const ModalContainer = ({
   isOpen,
@@ -32,6 +33,14 @@ const ModalContainer = ({
               modalTitle={modalTitle}
               modalSubTitle={modalSubTitle}
             >
+              <div className={styles.closeIconContainer} onClick={onClose}>
+                <Image
+                  className={styles.closeIcon}
+                  src="/assets/images/modal-close-icon.svg"
+                  alt="close modal"
+                  fill
+                />
+              </div>
               {children}
             </Modal>
           </div>,

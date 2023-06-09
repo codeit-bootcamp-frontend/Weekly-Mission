@@ -46,5 +46,5 @@
   font-size: 1.3rem;
   line-height: 1.5rem;
   text-align: center;
-  color: #373740;
+  color: var(--linkbrary-gray-100);
 }

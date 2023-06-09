@@ -1,8 +1,11 @@
 import FolderChipButton from "@/presentation/Button/FolderChipButton";
 import styles from "./folder-menu.module.css";
 import { useRouter } from "next/router";
+import Image from "next/image";
+import AddFolderButton from "../AddFolderButton/AddFolderButton";
 
 const FolderMenu = ({ currentTab, tabs, onCurrentFolderTitle }) => {
+  //TODO : tabs 추가 CSR API 요청
   const router = useRouter();
 
   const handleClick = (tab) => {
@@ -31,6 +34,7 @@ const FolderMenu = ({ currentTab, tabs, onCurrentFolderTitle }) => {
           ))}
         </div>
       </div>
+      <AddFolderButton />
     </div>
   );
 };

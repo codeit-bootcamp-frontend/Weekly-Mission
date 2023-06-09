@@ -14,9 +14,17 @@
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 24px;
-  color: #9fa6b2;
+  color: var(--linkbrary-blue-gray);
 }
 
 .input > input:focus {
+  color: var(--linkbrary-gray-100);
   border: 1px solid var(--linkbrary-primary);
+}
+
+.input > input::placeholder {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 24px;
+  color: var(--linkbrary-blue-gray);
 }

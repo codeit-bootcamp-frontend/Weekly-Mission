@@ -42,7 +42,7 @@
   font-size: 1.6rem;
   line-height: 2.4rem;
   text-align: left;
-  color: #9fa6b2;
+  color: var(--linkbrary-blue-gray);
 }
 
 .input {

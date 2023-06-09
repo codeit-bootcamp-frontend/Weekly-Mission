@@ -12,3 +12,18 @@
   align-items: center;
   overflow: hidden;
 }
+
+.closeIconContainer {
+  position: absolute;
+  right: 1.6rem;
+  top: 1.6rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  cursor: pointer;
+}
+
+.closeIcon {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}

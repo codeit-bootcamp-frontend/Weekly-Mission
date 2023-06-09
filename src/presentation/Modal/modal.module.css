@@ -8,21 +8,6 @@
   border-radius: 1.5rem;
 }
 
-.closeIconContainer {
-  position: absolute;
-  right: 1.6rem;
-  top: 1.6rem;
-  width: 2.4rem;
-  height: 2.4rem;
-  cursor: pointer;
-}
-
-.closeIcon {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-}
-
 .contents {
   display: flex;
   flex-direction: column;
@@ -43,7 +28,7 @@
   font-size: 2rem;
   line-height: 2.4rem;
   text-align: center;
-  color: #373740;
+  color: var(--linkbrary-gray-100);
   margin: 0;
 }
 

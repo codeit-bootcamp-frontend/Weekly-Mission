@@ -4,10 +4,12 @@ import styles from "./folder-header.module.css";
 import EditFolderModal from "../Modals/EditFolderModal";
 import ShareModal from "../Modals/ShareModal";
 import DeleteFolderModal from "../Modals/DeleteFolderModal";
+
 const FolderHeader = ({ currentFolderTitle }) => {
   const [isFolderEditModalOpen, setIsFolderEditModalOpen] = useState(false);
   const [isFolderDeleteModalOpen, setIsFolderDeleteModalOpen] = useState(false);
   const [isFolderShareModalOpen, setIsFolderShareModalOpen] = useState(false);
+
   const handleEditClick = () => {
     setIsFolderEditModalOpen(!isFolderEditModalOpen);
   };
