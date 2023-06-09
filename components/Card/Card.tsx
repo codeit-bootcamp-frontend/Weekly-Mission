@@ -26,7 +26,7 @@ const Card = ({
   handleClickCloseKebab,
 }: ICardProps) => {
   const { beautifiedDate, beautifiedTimeDiff } = beautifyDate(link.createdAt);
-  const [isChecked, setIsChecked] = useState<string | undefined>("");
+  const [isCheckAsterisk, setIsCheckAsterisk] = useState<boolean>(false);
   const notTargetRefs = useRef<HTMLElement[]>([]);
   const hoverTargetRefs = useRef<HTMLElement[]>([]);
   const kebabRef = useRef<HTMLDivElement | null>(null);
@@ -48,10 +48,6 @@ const Card = ({
     if (!flag) window.open(link.url);
   };
 
-  const handleClickCheck = () => {
-    isChecked === "" ? setIsChecked("-check") : setIsChecked("");
-  };
-
   const handleMouseOverCard = () => {
     if (isClicked) {
       hoverTargetRefs.current[0].style.transform = "scale(1)";
@@ -61,6 +57,7 @@ const Card = ({
       hoverTargetRefs.current[1].style.background = "var(--linkbrary-bg)";
     }
   };
+
   const handleMouseOutCard = () => {
     hoverTargetRefs.current[0].style.transform = "scale(1)";
     hoverTargetRefs.current[1].style.background = "#ffffff";
@@ -95,14 +92,27 @@ const Card = ({
         onMouseOver={handleMouseOverCard}
         onMouseOut={handleMouseOutCard}
       >
-        <div className={styles.cardAsterisk} onClick={handleClickCheck}>
-          <Image
-            ref={(el: HTMLImageElement) => (notTargetRefs.current[0] = el)}
-            className={styles.image}
-            src={`/assets/card-asterisk${isChecked}.svg`}
-            alt="Card Asterisk"
-            fill
-          />
+        <div
+          className={styles.cardAsterisk}
+          onClick={() => setIsCheckAsterisk((prev) => !prev)}
+        >
+          {isCheckAsterisk ? (
+            <Image
+              ref={(el: HTMLImageElement) => (notTargetRefs.current[0] = el)}
+              className={styles.image}
+              src="/assets/card-asterisk-check.svg"
+              alt="Checked Card Asterisk"
+              fill
+            />
+          ) : (
+            <Image
+              ref={(el: HTMLImageElement) => (notTargetRefs.current[0] = el)}
+              className={styles.image}
+              src="/assets/card-asterisk.svg"
+              alt="Card Asterisk"
+              fill
+            />
+          )}
         </div>
         <div className={styles.cardImgTop}>
           <Image
