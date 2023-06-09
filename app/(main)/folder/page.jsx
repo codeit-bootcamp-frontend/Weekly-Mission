@@ -1,7 +1,10 @@
+"use client";
+
 import classNames from "classnames/bind";
 
 import AddFolderButton from "@/components/AddFolderButton";
 import AddLinkBar from "@/components/AddLinkBar";
+import Card from "@/components/Card/Card";
 import FolderChip from "@/components/FolderChip";
 import Option from "@/components/Option";
 import SearchBar from "@/components/SearchBar";
@@ -26,6 +29,27 @@ export default async function Folder() {
           <div className={cx("folderContainer")}>
             <div className={cx("folderSelect")}>
               <div className={cx("folders")}>
+                <div className={cx("chipContainer")}>
+                  <FolderChip content="전체" />
+                </div>
+                <div className={cx("chipContainer")}>
+                  <FolderChip content="전체" />
+                </div>
+                <div className={cx("chipContainer")}>
+                  <FolderChip content="전체" />
+                </div>
+                <div className={cx("chipContainer")}>
+                  <FolderChip content="전체" />
+                </div>
+                <div className={cx("chipContainer")}>
+                  <FolderChip content="전체" />
+                </div>
+                <div className={cx("chipContainer")}>
+                  <FolderChip content="전체" />
+                </div>
+                <div className={cx("chipContainer")}>
+                  <FolderChip content="전체" />
+                </div>
                 <div className={cx("chipContainer")}>
                   <FolderChip content="전체" />
                 </div>

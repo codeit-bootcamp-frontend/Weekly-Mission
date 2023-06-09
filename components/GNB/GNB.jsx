@@ -28,4 +28,5 @@ export default function GNB({ isLogged, user }) {
 
 GNB.propTypes = {
   isLogged: PropTypes.bool.isRequired,
+  user: PropTypes.object.isRequired,
 };
