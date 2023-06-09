@@ -1,7 +1,6 @@
 import "@/styles/globals.scss";
-import Header from "@/app/components/Header/Header";
-import Footer from "@/app/components/Footer/Footer";
-import PageContainer from "./components/PageContainer/PageContainer";
+import Layout from "@/app/components/Layout/Layout";
+
 export const metadata = {
   title: "Linkbrary",
   description: "세상의 모든 정보를 한 곳에",
@@ -37,9 +36,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <Header />
-        <PageContainer>{children}</PageContainer>
-        <Footer />
+        <Layout>{children}</Layout>
       </body>
     </html>
   );
