@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "./folder-header.module.css";
 import EditFolderModal from "../Modals/EditFolderModal";
 import ShareModal from "../Modals/ShareModal";
+import DeleteFolderModal from "../Modals/DeleteFolderModal";
 const FolderHeader = ({ currentFolderTitle }) => {
   const [isFolderEditModalOpen, setIsFolderEditModalOpen] = useState(false);
   const [isFolderDeleteModalOpen, setIsFolderDeleteModalOpen] = useState(false);
@@ -13,7 +14,9 @@ const FolderHeader = ({ currentFolderTitle }) => {
   const handleShareClick = () => {
     setIsFolderShareModalOpen(!isFolderShareModalOpen);
   };
-  const handleDeleteClick = () => {};
+  const handleDeleteClick = () => {
+    setIsFolderDeleteModalOpen(!isFolderShareModalOpen);
+  };
 
   return (
     <>
@@ -63,6 +66,11 @@ const FolderHeader = ({ currentFolderTitle }) => {
       <ShareModal
         isFolderShareModalOpen={isFolderShareModalOpen}
         onClose={() => setIsFolderShareModalOpen(false)}
+        currentFolderTitle={currentFolderTitle}
+      />
+      <DeleteFolderModal
+        isFolderDeleteModalOpen={isFolderDeleteModalOpen}
+        onClose={() => setIsFolderDeleteModalOpen(false)}
         currentFolderTitle={currentFolderTitle}
       />
     </>
