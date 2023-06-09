@@ -1,8 +1,8 @@
 import React from "react";
-import FolderInfo from "./components/FolderInfo/FolderInfo";
+import FolderInfo from "./FolderInfo/FolderInfo";
 import styles from "./page.module.scss";
-import SearchBar from "@/components/SearchBar/SearchBar";
-import LinkCardList from "@/components/LinkCardList/LinkCardList";
+import SearchBar from "@/app/components/SearchBar/SearchBar";
+import LinkCardList from "@/app/components/LinkCardList/LinkCardList";
 import { getFolderRequest } from "@/lib/api/folderApi";
 
 const getFolderData = async () => {

@@ -1,19 +1,19 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import AddLink from "../components/AddLink/AddLink";
+import AddLink from "../AddLink/AddLink";
 import styles from "../page.module.scss";
-import SearchBar from "@/components/SearchBar/SearchBar";
-import FolderChip from "../components/FolderChip/FolderChip";
+import SearchBar from "@/app/components/SearchBar/SearchBar";
+import FolderChip from "../FolderChip/FolderChip";
 import Image from "next/image";
-import Option from "../components/Option/Option";
-import LinkCardList from "@/components/LinkCardList/LinkCardList";
+import Option from "../Option/Option";
+import LinkCardList from "@/app/components/LinkCardList/LinkCardList";
 import useIsVisible from "../../hooks/useIsVisible";
-import Modal, { ModalProps } from "@/components/Modals/Modal";
-import ShareFolder from "@/components/Modals/ModalContents/ShareFolder";
-import EditFolderName from "@/components/Modals/ModalContents/EditFolderName";
-import AddFolder from "@/components/Modals/ModalContents/AddFolder";
-import EmptyLinks from "@/components/LinkCardList/EmptyLinks";
+import Modal, { ModalProps } from "@/app/components/Modals/Modal";
+import ShareFolder from "@/app/components/Modals/ModalContents/ShareFolder";
+import EditFolderName from "@/app/components/Modals/ModalContents/EditFolderName";
+import AddFolder from "@/app/components/Modals/ModalContents/AddFolder";
+import EmptyLinks from "@/app/components/LinkCardList/EmptyLinks";
 
 const DELETE_FOLDER_MODAL_PROPS = {
   type: "delete",
