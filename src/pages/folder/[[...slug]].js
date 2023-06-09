@@ -12,8 +12,7 @@ const BASE_URL = process.env.BASE_URL;
 
 const FolderPage = ({ links, tabs }) => {
   const router = useRouter();
-  const { slug } = router.query;
-  const currentTab = Number(slug);
+  const { slug: currentTab } = router.query;
   const [currentFolderTitle, setCurrentFolderTitle] = useState("전체");
 
   return (

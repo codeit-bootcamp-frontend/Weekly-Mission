@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 
 const FolderMenu = ({ currentTab, tabs, onCurrentFolderTitle }) => {
   const router = useRouter();
+
   const handleClick = (tab) => {
     const { id = "", name = "전체" } = tab || {};
     router.push(`/folder/${id}`);
@@ -24,7 +25,7 @@ const FolderMenu = ({ currentTab, tabs, onCurrentFolderTitle }) => {
             <div key={tab.id} onClick={() => handleClick(tab)}>
               <FolderChipButton
                 name={tab.name}
-                isSelected={tab.id === currentTab}
+                isSelected={tab.id === Number(currentTab)}
               />
             </div>
           ))}
