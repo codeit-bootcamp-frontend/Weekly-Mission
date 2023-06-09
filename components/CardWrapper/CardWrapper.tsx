@@ -27,7 +27,7 @@ const CardWrapper = ({ links }: ICardWrapperProps) => {
           <Card
             key={link.id}
             link={link}
-            isClicked={index === openKebabIndex}
+            isClickedKebab={index === openKebabIndex}
             handleClickOpenKebab={() => setOpenKebabIndex(index)}
             handleClickCloseKebab={() => setOpenKebabIndex(-1)}
           />

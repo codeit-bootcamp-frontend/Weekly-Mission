@@ -14,21 +14,20 @@ import styles from "./Card.module.scss";
 
 interface ICardProps {
   link: ILinkData;
-  isClicked: boolean;
+  isClickedKebab: boolean;
   handleClickOpenKebab: () => void;
   handleClickCloseKebab: () => void;
 }
 
 const Card = ({
   link,
-  isClicked,
+  isClickedKebab,
   handleClickOpenKebab,
   handleClickCloseKebab,
 }: ICardProps) => {
   const { beautifiedDate, beautifiedTimeDiff } = beautifyDate(link.createdAt);
   const [isCheckAsterisk, setIsCheckAsterisk] = useState<boolean>(false);
   const notTargetRefs = useRef<HTMLElement[]>([]);
-  const hoverTargetRefs = useRef<HTMLElement[]>([]);
   const kebabRef = useRef<HTMLDivElement | null>(null);
 
   const [openDeleteLinkModal, setOpenDeleteLinkModal] =
@@ -36,62 +35,19 @@ const Card = ({
   const [openAddModal, setOpenAddModal] = useState<boolean>(false);
 
   const handleClickNavigation = (e: React.MouseEvent<HTMLDivElement>): void => {
-    if (isClicked) return;
+    if (isClickedKebab) return;
+    const isValidTarget = notTargetRefs.current.every(
+      (ref) => ref !== e.target
+    );
 
-    let flag = false;
-    notTargetRefs.current.forEach((ref) => {
-      if (e.target === ref) {
-        flag = true;
-        return;
-      }
-    });
-    if (!flag) window.open(link.url);
-  };
-
-  const handleMouseOverCard = () => {
-    if (isClicked) {
-      hoverTargetRefs.current[0].style.transform = "scale(1)";
-      hoverTargetRefs.current[1].style.background = "#ffffff";
-    } else {
-      hoverTargetRefs.current[0].style.transform = "scale(1.2)";
-      hoverTargetRefs.current[1].style.background = "var(--linkbrary-bg)";
-    }
-  };
-
-  const handleMouseOutCard = () => {
-    hoverTargetRefs.current[0].style.transform = "scale(1)";
-    hoverTargetRefs.current[1].style.background = "#ffffff";
-  };
-
-  const handleMouseOverPopOver = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (e.target === hoverTargetRefs.current[2]) {
-      hoverTargetRefs.current[2].style.background = "#E7EFFB";
-      hoverTargetRefs.current[2].style.color = "#6D6AFE";
-    } else if (e.target === hoverTargetRefs.current[3]) {
-      hoverTargetRefs.current[3].style.background = "#E7EFFB";
-      hoverTargetRefs.current[3].style.color = "#6D6AFE";
-    }
-  };
-  const handleMouseOutPopOver = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (e.target === hoverTargetRefs.current[2]) {
-      hoverTargetRefs.current[2].style.background = "#ffffff";
-      hoverTargetRefs.current[2].style.color = "#333236";
-    } else if (e.target === hoverTargetRefs.current[3]) {
-      hoverTargetRefs.current[3].style.background = "#ffffff";
-      hoverTargetRefs.current[3].style.color = "#333236";
-    }
+    if (isValidTarget) window.open(link.url);
   };
 
   useOutsideClick(kebabRef, handleClickCloseKebab);
 
   return (
-    <>
-      <div
-        className={styles.card}
-        onClick={handleClickNavigation}
-        onMouseOver={handleMouseOverCard}
-        onMouseOut={handleMouseOutCard}
-      >
+    <div className={styles.cardWrapper}>
+      <div className={styles.card} onClick={handleClickNavigation}>
         <div
           className={styles.cardAsterisk}
           onClick={() => setIsCheckAsterisk((prev) => !prev)}
@@ -117,7 +73,6 @@ const Card = ({
         <div className={styles.cardImgTop}>
           <Image
             className={styles.image}
-            ref={(el: HTMLImageElement) => (hoverTargetRefs.current[0] = el)}
             src={link.imageSource ?? "/assets/image-dummy.png"}
             alt={link.title}
             fill
@@ -125,52 +80,39 @@ const Card = ({
             priority
           />
         </div>
-        <div
-          className={styles.cardCaption}
-          ref={(el: HTMLDivElement) => (hoverTargetRefs.current[1] = el)}
-        >
+        <div className={styles.cardCaption}>
           <div className={styles.info}>
             <span className={styles.time}>{beautifiedTimeDiff}</span>
-            <div
-              ref={(el: HTMLDivElement) => (notTargetRefs.current[1] = el)}
-              className={styles.kebabMenu}
-              onClick={handleClickOpenKebab}
-            >
-              <span className={styles.kebabDot}></span>
-              <span className={styles.kebabDot}></span>
-              <span className={styles.kebabDot}></span>
-              {isClicked && (
-                <div
-                  className={styles.popOverWrapper}
-                  ref={kebabRef}
-                  onMouseOver={handleMouseOverPopOver}
-                  onMouseOut={handleMouseOutPopOver}
-                >
-                  <div
-                    className={styles.deleteButton}
-                    ref={(el: HTMLDivElement) =>
-                      (hoverTargetRefs.current[2] = el)
-                    }
-                    onClick={() => setOpenDeleteLinkModal(true)}
-                  >
-                    삭제하기
-                  </div>
-                  <div
-                    className={styles.addFolderButton}
-                    ref={(el: HTMLDivElement) =>
-                      (hoverTargetRefs.current[3] = el)
-                    }
-                    onClick={() => setOpenAddModal(true)}
-                  >
-                    폴더에 추가
-                  </div>
-                </div>
-              )}
-            </div>
           </div>
           <p className={styles.text}>{link.description}</p>
           <div className={styles.creation}>{beautifiedDate}</div>
         </div>
+      </div>
+
+      <div
+        ref={(el: HTMLDivElement) => (notTargetRefs.current[1] = el)}
+        className={styles.kebabMenu}
+        onClick={handleClickOpenKebab}
+      >
+        <span className={styles.kebabDot}></span>
+        <span className={styles.kebabDot}></span>
+        <span className={styles.kebabDot}></span>
+        {isClickedKebab && (
+          <div className={styles.popOverWrapper} ref={kebabRef}>
+            <div
+              className={styles.deleteButton}
+              onClick={() => setOpenDeleteLinkModal(true)}
+            >
+              삭제하기
+            </div>
+            <div
+              className={styles.addFolderButton}
+              onClick={() => setOpenAddModal(true)}
+            >
+              폴더에 추가
+            </div>
+          </div>
+        )}
       </div>
       {openAddModal && (
         <AddModal
@@ -184,7 +126,7 @@ const Card = ({
           selectedLinkValue={link.url}
         />
       )}
-    </>
+    </div>
   );
 };
 
