@@ -6,8 +6,7 @@ import { IUserData } from "lib/getUserData";
 import styles from "./Gnb.module.scss";
 
 export interface IGnb {
-  // 어떤 값도 담기지 않는 빈 객체를 가리키기 위해 Record<string, never> 사용
-  user: Record<string, never> | IUserData;
+  user: IUserData | null;
 }
 
 const Gnb = ({ user }: IGnb) => {
@@ -25,23 +24,25 @@ const Gnb = ({ user }: IGnb) => {
               className={styles.image}
             />
           </Link>
-          {Object.keys(user).length === 0 ? (
+          {(user && Object.keys(user).length === 0) || !user ? (
             <Link href="/signin" className={styles.signin}>
               로그인
             </Link>
           ) : (
-            <Link href="" className={styles.user}>
-              <div className={styles.imgContainer}>
-                <Image
-                  src={user.profileImageSource}
-                  alt={user.name}
-                  width="28"
-                  height="28"
-                  className={styles.image}
-                />
-              </div>
-              <span className={styles.email}>{user.email}</span>
-            </Link>
+            user && (
+              <Link href="" className={styles.user}>
+                <div className={styles.imgContainer}>
+                  <Image
+                    src={user.profileImageSource}
+                    alt={user.name}
+                    width="28"
+                    height="28"
+                    className={styles.image}
+                  />
+                </div>
+                <span className={styles.email}>{user.email}</span>
+              </Link>
+            )
           )}
         </nav>
       </div>
