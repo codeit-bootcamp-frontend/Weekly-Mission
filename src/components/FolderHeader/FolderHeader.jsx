@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./folder-header.module.css";
 import EditFolderModal from "../Modals/EditFolderModal";
+import ShareModal from "../Modals/ShareModal";
 const FolderHeader = ({ currentFolderTitle }) => {
   const [isFolderEditModalOpen, setIsFolderEditModalOpen] = useState(false);
   const [isFolderDeleteModalOpen, setIsFolderDeleteModalOpen] = useState(false);
@@ -9,7 +10,9 @@ const FolderHeader = ({ currentFolderTitle }) => {
   const handleEditClick = () => {
     setIsFolderEditModalOpen(!isFolderEditModalOpen);
   };
-  const handleShareClick = () => {};
+  const handleShareClick = () => {
+    setIsFolderShareModalOpen(!isFolderShareModalOpen);
+  };
   const handleDeleteClick = () => {};
 
   return (
@@ -55,6 +58,11 @@ const FolderHeader = ({ currentFolderTitle }) => {
       <EditFolderModal
         isFolderEditModalOpen={isFolderEditModalOpen}
         onClose={() => setIsFolderEditModalOpen(false)}
+        currentFolderTitle={currentFolderTitle}
+      />
+      <ShareModal
+        isFolderShareModalOpen={isFolderShareModalOpen}
+        onClose={() => setIsFolderShareModalOpen(false)}
         currentFolderTitle={currentFolderTitle}
       />
     </>
