@@ -2,13 +2,17 @@ import Link from "next/link";
 
 import styles from "./FolderListItem.module.scss";
 
-interface IFolderListItem {
+interface IFolderListItemProps {
   name: string;
   toRoute: number;
   isSelected: boolean;
 }
 
-const FolderListItem = ({ name, toRoute, isSelected }: IFolderListItem) => {
+const FolderListItem = ({
+  name,
+  toRoute,
+  isSelected,
+}: IFolderListItemProps) => {
   return (
     <>
       <Link

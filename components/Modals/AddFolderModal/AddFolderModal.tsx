@@ -5,11 +5,11 @@ import { useRef } from "react";
 import ModalLayout from "../ModalLayout";
 import styles from "./AddFolderModal.module.scss";
 
-interface IAddFolderModal {
+interface IAddFolderModalProps {
   setOpenAddFolderModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const AddFolderModal = ({ setOpenAddFolderModal }: IAddFolderModal) => {
+const AddFolderModal = ({ setOpenAddFolderModal }: IAddFolderModalProps) => {
   const folderNameRef = useRef<HTMLInputElement>(null);
 
   const handleClickAddFolder = () => {

@@ -6,7 +6,7 @@ import ModalLayout from "../ModalLayout";
 import styles from "./AddModal.module.scss";
 import FolderItem from "./FolderItem";
 
-interface IAddModal {
+interface IAddModalProps {
   setOpenAddModal: React.Dispatch<React.SetStateAction<boolean>>;
   selectedLinkValue: string;
 }
@@ -19,7 +19,7 @@ const MOCK_FOLDERS: { name: string; length: number }[] = [
 ];
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const AddModal = ({ setOpenAddModal, selectedLinkValue }: IAddModal) => {
+const AddModal = ({ setOpenAddModal, selectedLinkValue }: IAddModalProps) => {
   // TODO: api로 폴더 데이터를 받아오면 MOCK 데이터 삭제 예정
 
   const [checkedItemId, setCheckedItemId] = useState(-1);

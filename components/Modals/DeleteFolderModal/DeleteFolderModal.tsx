@@ -3,7 +3,7 @@
 import ModalLayout from "../ModalLayout";
 import styles from "./DeleteFolderModal.module.scss";
 
-interface IDeleteFolderModal {
+interface IDeleteFolderModalProps {
   setOpenDeleteFolderModal: React.Dispatch<React.SetStateAction<boolean>>;
   currentFolderName: string;
 }
@@ -11,7 +11,7 @@ interface IDeleteFolderModal {
 const DeleteFolderModal = ({
   setOpenDeleteFolderModal,
   currentFolderName,
-}: IDeleteFolderModal) => {
+}: IDeleteFolderModalProps) => {
   const handleClickDeleteFolder = () => {
     // TODO: 해당 폴더를 삭제
     setTimeout(() => {

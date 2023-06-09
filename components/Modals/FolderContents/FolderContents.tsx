@@ -7,18 +7,18 @@ import CardListOptions from "@/components/CardListOptions/CardListOptions";
 import CardWrapper from "@/components/CardWrapper/CardWrapper";
 import FolderList from "@/components/FolderList/FolderList";
 import SearchBar from "@/components/SearchBar/SearchBar";
-import { ILink } from "@/lib/getFolderData";
+import { ILinkData } from "@/lib/getFolderData";
 
 import styles from "./FolderContents.module.scss";
 
-interface ICardWrapper {
-  links: ILink[];
+interface ICardWrapperProps {
+  links: ILinkData[];
   folders: { id: number; name: string }[];
   currentTab: number;
   searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-const FolderContents = ({ links, folders, currentTab }: ICardWrapper) => {
+const FolderContents = ({ links, folders, currentTab }: ICardWrapperProps) => {
   // TODO: prop으로 현재 탭(파일 데이터), 탭 리스트(파일 목록)을 넘겨받아서, 그 탭에 있는 링크들을 목록으로 보여주기
 
   const observerTargetRefs = useRef<HTMLDivElement[]>([]);

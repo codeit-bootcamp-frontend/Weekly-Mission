@@ -3,15 +3,15 @@
 import { useState } from "react";
 
 import Card from "@/components/Card/Card";
-import { ILink } from "@/lib/getFolderData";
+import { ILinkData } from "@/lib/getFolderData";
 
 import styles from "./CardWrapper.module.scss";
 
-interface ICardWrapper {
-  links: ILink[];
+interface ICardWrapperProps {
+  links: ILinkData[];
 }
 
-const CardWrapper = ({ links }: ICardWrapper) => {
+const CardWrapper = ({ links }: ICardWrapperProps) => {
   const [openKebabIndex, setOpenKebabIndex] = useState<number>(-1);
 
   if (links.length === 0) {

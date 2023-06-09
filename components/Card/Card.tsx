@@ -8,12 +8,12 @@ import AddModal from "@/components/Modals/AddModal/AddModal";
 import DeleteLinkModal from "@/components/Modals/DeleteLinkModal/DeleteLinkModal";
 import useOutsideClick from "@/hooks/useOutsideClick";
 import beautifyDate from "@/lib/beautifyData";
-import { ILink } from "@/lib/getFolderData";
+import { ILinkData } from "@/lib/getFolderData";
 
 import styles from "./Card.module.scss";
 
-interface ICard {
-  link: ILink;
+interface ICardProps {
+  link: ILinkData;
   isClicked: boolean;
   handleClickOpenKebab: () => void;
   handleClickCloseKebab: () => void;
@@ -24,7 +24,7 @@ const Card = ({
   isClicked,
   handleClickOpenKebab,
   handleClickCloseKebab,
-}: ICard) => {
+}: ICardProps) => {
   const { beautifiedDate, beautifiedTimeDiff } = beautifyDate(link.createdAt);
   const [isChecked, setIsChecked] = useState<string | undefined>("");
   const notTargetRefs = useRef<HTMLElement[]>([]);

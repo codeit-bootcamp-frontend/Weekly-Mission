@@ -9,14 +9,19 @@ import AddFolderModal from "@/components/Modals/AddFolderModal/AddFolderModal";
 import styles from "./FolderList.module.scss";
 import FolderListItem from "./FolderListItem";
 
-interface IFolderList {
+interface IFolderListProps {
   folders: { id: number; name: string }[];
   currentTab: number;
   inView: boolean | null;
   isLinks: number;
 }
 
-const FolderList = ({ folders, currentTab, inView, isLinks }: IFolderList) => {
+const FolderList = ({
+  folders,
+  currentTab,
+  inView,
+  isLinks,
+}: IFolderListProps) => {
   const [openAddFolderModal, setOpenAddFolderModal] = useState<boolean>(false);
 
   const addPosition = (inView: boolean | null, isLinks: number) => {

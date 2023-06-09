@@ -3,7 +3,7 @@
 import ModalLayout from "../ModalLayout";
 import styles from "./DeleteLinkModal.module.scss";
 
-interface IDeleteLinkModal {
+interface IDeleteLinkModalProps {
   setOpenDeleteLinkModal: React.Dispatch<React.SetStateAction<boolean>>;
   selectedLinkValue: string;
 }
@@ -11,7 +11,7 @@ interface IDeleteLinkModal {
 const DeleteLinkModal = ({
   setOpenDeleteLinkModal,
   selectedLinkValue,
-}: IDeleteLinkModal) => {
+}: IDeleteLinkModalProps) => {
   const handleClickDeleteLink = () => {
     // TODO: 해당 link를 폴더에서 삭제, 어떤 폴더인지 알아야 하므로 나중에 폴더 식별할 수 있는 Prop 추가하기
     setTimeout(() => {

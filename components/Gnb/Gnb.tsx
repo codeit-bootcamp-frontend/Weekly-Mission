@@ -5,11 +5,11 @@ import { IUserData } from "@/lib/getUserData";
 
 import styles from "./Gnb.module.scss";
 
-export interface IGnb {
+export interface IGnbProps {
   user: IUserData | null;
 }
 
-const Gnb = ({ user }: IGnb) => {
+const Gnb = ({ user }: IGnbProps) => {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>

@@ -10,14 +10,14 @@ import ShareFolderModal from "@/components/Modals/ShareFolderModal/ShareFolderMo
 
 import styles from "./CardListOptions.module.scss";
 
-interface ICardListOptions {
+interface ICardListOptionsProps {
   currentFolder: {
     id: number;
     name: string;
   };
 }
 
-const CardListOptions = ({ currentFolder }: ICardListOptions) => {
+const CardListOptions = ({ currentFolder }: ICardListOptionsProps) => {
   // TODO: 카카오 공유하기에 들어갈 제목, 설명, 이미지 주소 필요.
 
   const [openShareFolderModal, setOpenShareFolderModal] =

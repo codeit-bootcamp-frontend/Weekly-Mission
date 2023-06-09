@@ -5,7 +5,7 @@ import { useRef } from "react";
 import ModalLayout from "../ModalLayout";
 import styles from "./EditFolderModal.module.scss";
 
-interface IEditFolderModal {
+interface IEditFolderModalProps {
   setOpenEditFolderModal: React.Dispatch<React.SetStateAction<boolean>>;
   currentFolderName: string;
 }
@@ -13,7 +13,7 @@ interface IEditFolderModal {
 const EditFolderModal = ({
   setOpenEditFolderModal,
   currentFolderName,
-}: IEditFolderModal) => {
+}: IEditFolderModalProps) => {
   const folderEditNameRef = useRef<HTMLInputElement>(null);
 
   const handleClickEditFolderName = () => {

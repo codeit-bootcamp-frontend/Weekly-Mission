@@ -5,7 +5,7 @@ import Image from "next/image";
 import ModalLayout from "../ModalLayout";
 import styles from "./ShareFolderModal.module.scss";
 
-interface IShareFolderModal {
+interface IShareFolderModalProps {
   setOpenShareFolderModal: React.Dispatch<React.SetStateAction<boolean>>;
   currentFolderName: string;
 }
@@ -13,7 +13,7 @@ interface IShareFolderModal {
 const ShareFolderModal = ({
   setOpenShareFolderModal,
   currentFolderName,
-}: IShareFolderModal) => {
+}: IShareFolderModalProps) => {
   const handleClickFacebookShare = () => {
     window.open("http://www.facebook.com/sharer.php?u=https://www.naver.com/");
 
