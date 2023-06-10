@@ -1,4 +1,6 @@
-import { instance } from "@/utils/api/instance";
+import { getRequest } from "@/utils/api/common";
 
-export const getUserQueryFn = async () =>
-  instance.get("/users/1").then((res) => res.data.data[0]);
+export const getUserQueryFn = async () => {
+  const response = await getRequest(`/users/1`);
+  return response.data[0];
+};
