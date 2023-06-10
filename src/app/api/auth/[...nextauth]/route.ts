@@ -26,8 +26,9 @@ const handler = NextAuth({
         const { data } = await res.json();
         const user = {
           id: data[0].id,
-          displayName: data[0].name,
-          username: data[0].email,
+          name: data[0].name,
+          email: data[0].email,
+          image: data[0].image_source,
         };
         if (res.ok && user) {
           return user;

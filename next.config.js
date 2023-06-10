@@ -13,6 +13,7 @@ const nextConfig = {
       "testing-library.com",
       "static.cdninstagram.com",
       "s.pstatic.net",
+      "ca.slack-edge.com",
     ],
   },
 };
