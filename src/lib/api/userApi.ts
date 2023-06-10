@@ -5,7 +5,7 @@ export const getSampleUser = async () => {
   return response;
 };
 
-export const getUserById = async (uid: number) => {
+export const getUserById = async (uid: string) => {
   const response = await getRequest(`/users/${uid}`);
   return response;
 };

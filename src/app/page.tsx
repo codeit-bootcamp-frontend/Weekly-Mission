@@ -1,12 +1,8 @@
 import styles from "@/styles/index.module.scss";
 import Image from "next/image";
 import Hero from "@/app/components/Hero/Hero";
-import { getServerSession } from "next-auth";
-import { authOptions } from "./api/auth/[...nextauth]/route";
 
 export default async function Page() {
-  const session = await getServerSession(authOptions);
-  console.log(session);
   return (
     <>
       <Hero />

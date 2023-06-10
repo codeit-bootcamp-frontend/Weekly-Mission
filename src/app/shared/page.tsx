@@ -3,41 +3,67 @@ import FolderInfo from "./FolderInfo/FolderInfo";
 import styles from "./page.module.scss";
 import SearchBar from "@/app/components/SearchBar/SearchBar";
 import LinkCardList from "@/app/components/LinkCardList/LinkCardList";
-import { getSampleFolder } from "@/lib/api/folderApi";
+import { getFolderById, getLinksByFolderId } from "@/lib/api/folderApi";
+import { notFound } from "next/navigation";
+import { getUserById } from "@/lib/api/userApi";
 
-const getFolderData = async () => {
-  const res = await getSampleFolder();
-  return res.data;
+const getFolderName = async (userId: string, folderId: string) => {
+  const res = await getFolderById(userId, folderId);
+  if (res.data.length === 0) {
+    notFound();
+  }
+  return res.data[0].name;
 };
 
-const getCardListProps = (dataList: any) => {
-  return dataList.map((data: any) => {
+const getFolderOwnerInfo = async (userId: string) => {
+  const res = await getUserById(userId);
+  if (res.data.length === 0) {
+    notFound();
+  }
+  return {
+    ownerName: res.data[0].name,
+    profileImageSource: res.data[0].image_source,
+  };
+};
+
+const getCardListProps = async (userId: string, folderId: string) => {
+  const { distinctData } = await getLinksByFolderId(userId, folderId);
+  if (distinctData.length === 0) {
+    notFound();
+  }
+  return distinctData.map((data: any) => {
     return {
       id: data.id,
       href: data.url,
-      thumbnailSrc: data.imageSource,
+      thumbnailSrc: data.image_source,
       description: data.description,
-      createdDate: data.createdAt,
+      createdDate: data.created_at,
     };
   });
 };
 
-const getFolderInfoProps = (folder: any) => {
-  return {
-    folderName: folder.name,
-    ownerName: folder.owner.name,
-    profileImgSrc: folder.owner.profileImageSource,
-  };
-};
+const Page = async ({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) => {
+  let { userId, folderId } = searchParams;
+  if (!userId || !folderId) {
+    notFound();
+  }
+  userId = Array.isArray(userId) ? userId.join(" ") : userId;
+  folderId = Array.isArray(folderId) ? folderId.join(" ") : folderId;
 
-const Page = async () => {
-  const folderData = await getFolderData();
-  const folderInfoProps = getFolderInfoProps(folderData.folder);
-  const cardListProps = getCardListProps(folderData.folder.links);
+  const [folderName, folderOwnerInfo, cardListProps] = await Promise.all([
+    getFolderName(userId, folderId),
+    getFolderOwnerInfo(userId),
+    getCardListProps(userId, folderId),
+  ]);
+
   return (
     <main>
       <section className={styles.introSection}>
-        <FolderInfo {...folderInfoProps}></FolderInfo>
+        <FolderInfo folderName={folderName} {...folderOwnerInfo}></FolderInfo>
       </section>
       <section className={styles.cardSection}>
         <div className={styles.searchBarWrapper}>
