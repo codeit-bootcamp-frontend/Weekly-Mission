@@ -13,7 +13,7 @@ export default async function SharedLayout({
   children: React.ReactNode;
 }) {
   const queryClient = getQueryClient();
-  await queryClient.prefetchQuery(["user"], getUserQueryFn);
+  await queryClient.prefetchQuery(["user"], () => getUserQueryFn(1));
   const dehydratedState = dehydrate(queryClient);
 
   return (
