@@ -6,7 +6,7 @@ import getFolderData from "@/lib/getFolderData";
 import styles from "./page.module.scss";
 
 const FolderContents = dynamic(
-  () => import("@/components/Modals/FolderContents/FolderContents"),
+  () => import("@/components/FolderContents/FolderContents"),
   { ssr: false }
 );
 
