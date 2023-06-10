@@ -1,6 +1,8 @@
 import "@/styles/globals.scss";
 import Layout from "@/app/components/Layout/Layout";
 import Providers from "@/app/components/Providers/Providers";
+import { getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]/route";
 
 export const metadata = {
   title: "Linkbrary",
@@ -29,16 +31,17 @@ export const metadata = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await getServerSession(authOptions);
   return (
     <html lang="ko">
       <body>
         <Providers>
-          <Layout>{children}</Layout>
+          <Layout session={session}>{children}</Layout>
         </Providers>
       </body>
     </html>

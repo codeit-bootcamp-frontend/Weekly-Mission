@@ -5,27 +5,30 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./Header.module.scss";
 import useResponsiveHeader from "@/app/hooks/useResponsiveHeader";
-import { useSession } from "next-auth/react";
 import UserAccountInfo from "./UserAccountInfo";
+import { Session } from "next-auth";
 
-const Header = () => {
+interface HeaderProps {
+  session: Session | null;
+}
+
+const Header = ({ session }: HeaderProps) => {
   const headerRef = useRef(null);
   useResponsiveHeader(headerRef);
-  const { data: session } = useSession();
   return (
     <header className={styles.headerWrapper} ref={headerRef}>
       <nav>
         <Link className={styles.logo} href="/">
           <Image src="/logo.svg" alt="logo" fill />
         </Link>
-        {session === undefined || session === null ? (
+        {!session?.user ? (
           <Link className={styles.loginBtn} href="/signin">
             로그인
           </Link>
         ) : (
           <UserAccountInfo
-            email={session!.user?.email as string}
-            profileImgSrc={session!.user?.image as string}
+            email={session.user.email as string}
+            profileImgSrc={session.user.image as string}
           />
         )}
       </nav>

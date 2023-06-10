@@ -4,7 +4,11 @@ import Head from "next/head";
 import Image from "next/image";
 import Hero from "@/app/components/Hero/Hero";
 const inter = Inter({ subsets: ["latin"] });
-export default function Page() {
+import { getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]/route";
+export default async function Page() {
+  const session = await getServerSession(authOptions);
+  console.log(session);
   return (
     <>
       <Hero />
