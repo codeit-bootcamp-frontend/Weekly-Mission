@@ -35,7 +35,7 @@ export const authOptions: NextAuthOptions = {
             image_source:
               "https://codeit-images.codeit.com/badges/COMPLETE_100_LESSONS.png",
             email: "codeit@codeit.com",
-            password: new Array(10)
+            password: new Array(11)
               .fill(null)
               .map((elem, index) => String(index + 1)),
           };
