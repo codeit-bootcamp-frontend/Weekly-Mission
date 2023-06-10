@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import localFont from "next/font/local";
 
+import Providers from "@/components/Providers/Providers";
 import "@/styles/globals.scss";
 
 export const metadata: Metadata = {
@@ -68,7 +69,9 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="ko" className={pretendard.className}>
-      <body>{children}</body>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
