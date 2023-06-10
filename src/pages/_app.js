@@ -1,5 +1,5 @@
 import { UserProvider } from "@/contexts/UserProvider";
-const BASE_URL = process.env.BASE_URL;
+import getData from "@/lib/getData";
 import "@/styles/global.css";
 
 function MyApp({ Component, pageProps, userInfo }) {
@@ -15,8 +15,7 @@ function MyApp({ Component, pageProps, userInfo }) {
 MyApp.getInitialProps = async ({ Component, ctx }) => {
   // TODO : 추후 인증으로 변경해야함.
   const userId = 1;
-  const response = await fetch(`${BASE_URL}/api/users/${userId}`);
-  const data = await response.json();
+  const data = await getData(`/api/users/${userId}`);
   const userInfo = data.data[0];
 
   let pageProps = {};

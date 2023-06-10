@@ -4,8 +4,7 @@ import SearchBar from "@/components/SearchBar";
 import CardList from "@/components/CardList";
 import PageInfo from "@/components/PageInfo";
 import DefaultLayout from "@/layouts/DefaultLayout";
-
-const BASE_URL = process.env.BASE_URL;
+import getData from "@/lib/getData";
 
 const SharedPage = ({ folder, links }) => {
   return (
@@ -22,8 +21,7 @@ const SharedPage = ({ folder, links }) => {
 };
 
 export async function getServerSideProps() {
-  const response = await fetch(`${BASE_URL}api/sample/folder`);
-  const data = await response.json();
+  const data = await getData(`/api/sample/folder`);
   const { folder = {}, folder: { links = [] } = {} } = data?.data ?? {};
 
   return {

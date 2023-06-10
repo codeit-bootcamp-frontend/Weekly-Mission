@@ -7,8 +7,7 @@ import DefaultLayout from "@/layouts/DefaultLayout";
 import AddLinkBar from "@/components/AddLinkBar";
 import FolderMenu from "@/components/FolderMenu/FolderMenu";
 import FolderHeader from "@/components/FolderHeader/FolderHeader";
-
-const BASE_URL = process.env.BASE_URL;
+import getData from "@/lib/getData";
 
 const FolderPage = ({ links, tabs }) => {
   const router = useRouter();
@@ -46,14 +45,12 @@ export async function getServerSideProps({ query }) {
 
   const folderId = slug || "";
 
-  const linksResponse = await fetch(
-    `${BASE_URL}/api/users/${userId}/links?folderId=${folderId}`
+  const linksData = await getData(
+    `/api/users/${userId}/links?folderId=${folderId}`
   );
-  const linksData = await linksResponse.json();
   const { distinctData: links = [] } = linksData;
 
-  const tabsResponse = await fetch(`${BASE_URL}/api/users/${userId}/folders`);
-  const tabData = await tabsResponse.json();
+  const tabData = await getData(`/api/users/${userId}/folders`);
   const { data: tabs } = tabData;
 
   return {

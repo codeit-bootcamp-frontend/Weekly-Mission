@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-const BASE_URL = process.env.BASE_URL;
+import BASE_URL from "@/lib/common.api";
 
 const useFetch = (url) => {
   const [data, setData] = useState(null);
