@@ -5,8 +5,9 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import DropDown from "@/presentation/DropDown/DropDown";
 import DeleteLinkModal from "@/components/Modals/DeleteLinkModal";
+import AddLinkModal from "@/components/Modals/AddLinkModal";
 
-function Card({ card }) {
+function Card({ card, tabs }) {
   const [isKebabOpen, setIsKebabOpen] = useState(false);
   const [isDeleteLinkModalOpen, setIsDeleteLinkModalOpen] = useState(false);
   const [isAddLinkModalOpen, setIsAddLinkModalOpen] = useState(false);
@@ -152,6 +153,14 @@ function Card({ card }) {
           setIsDeleteLinkModalOpen(false);
         }}
         link={url}
+      />
+      <AddLinkModal
+        isAddLinkModalOpen={isAddLinkModalOpen}
+        onClose={() => {
+          setIsAddLinkModalOpen(false);
+        }}
+        link={url}
+        tabs={tabs}
       />
     </>
   );

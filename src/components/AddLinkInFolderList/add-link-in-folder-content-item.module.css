@@ -1,0 +1,45 @@
+.tabsContainer {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.8rem;
+  gap: 0.4rem;
+  width: 28rem;
+  height: 4rem;
+}
+
+.tabsContainer:hover {
+  background-color: var(--linkbrary-white-smoke);
+  color: var(--linkbrary-primary);
+  border-radius: 0.8rem;
+}
+
+.click {
+  background-color: var(--linkbrary-white-smoke);
+  color: var(--linkbrary-primary);
+  border-radius: 0.8rem;
+}
+
+.folderName {
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+
+.numOfLink {
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: var(--linkbrary-blue-gray);
+}
+
+.checkedIcon {
+  width: 1.4rem;
+  height: 1.4rem;
+  position: absolute;
+  right: 0.8rem;
+}
+.image {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}

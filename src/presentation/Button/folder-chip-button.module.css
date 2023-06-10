@@ -10,13 +10,13 @@
   line-height: 1.9rem;
   color: #000000;
   background: #ffffff;
-  border: 0.1rem solid #6d6afe;
+  border: 0.1rem solid var(--linkbrary-primary);
   border-radius: 0.5rem;
   cursor: pointer;
 }
 
 .tabContainer.true {
-  background: #6d6afe;
+  background: var(--linkbrary-primary);
   color: #ffffff;
 }
 

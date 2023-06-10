@@ -35,7 +35,7 @@
 .subTitle {
   text-align: center;
   font-size: 1.4rem;
-  line-height: 2.2rem;
+  font-weight: 400;
   color: var(--linkbrary-blue-gray);
   margin: 0;
 }

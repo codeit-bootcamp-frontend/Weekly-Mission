@@ -16,7 +16,7 @@
   align-items: center;
   text-align: center;
   letter-spacing: -0.3px;
-  color: #6d6afe;
+  color: var(--linkbrary-primary);
 }
 
 .ImageWrapper {

@@ -18,7 +18,7 @@ const FolderPage = ({ links, tabs }) => {
   return (
     <>
       <div className={styles.heroSection}>
-        <AddLinkBar />
+        <AddLinkBar tabs={tabs} />
       </div>
       <div className={styles.wrapper}>
         <SearchBar />
@@ -31,7 +31,7 @@ const FolderPage = ({ links, tabs }) => {
       </div>
       <div className={styles.cardWrapper}>
         {links.length !== 0 ? (
-          <CardList cards={links} />
+          <CardList cards={links} tabs={tabs} />
         ) : (
           <div className={styles.emptySavedLink}>저장한 링크가 없습니다</div>
         )}
