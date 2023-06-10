@@ -1,0 +1,62 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "baseUrl": "/",
+    "paths": {
+      "@hooks/*": ["hooks/*"],
+      "@layout/*": ["layout/*"],
+      "@components/*": ["components/*"],
+      "@shared/*": ["app/shared/*"],
+      "@folder/*": ["app/folder/*"],
+      "@library/*": ["library/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "layout/UpdateModal.jsx",
+    "layout/ShareModal.jsx",
+    "layout/GlobalNavigationBar.jsx",
+    "layout/GlobalFooter.jsx",
+    "layout/DeleteModal.jsx",
+    "layout/AddFolderModal.jsx",
+    "hooks/useHttp.jsx",
+    "components/UpdateLink.jsx",
+    "components/Star.jsx",
+    "components/SearchBar.jsx",
+    "components/LoginStatus.jsx",
+    "components/CardContainer.jsx",
+    "components/CardPopOver.jsx",
+    "components/Card.jsx",
+    "components/AddPageChip.jsx",
+    "components/AddPage.jsx",
+    "components/AddLinkBar.jsx",
+    "app/page.jsx",
+    "app/layout.jsx",
+    "app/shared/page.jsx",
+    "app/folder/[link]/page.jsx",
+    "app/folder/page.jsx",
+    "app/folder/layout.jsx"
+  ],
+  "exclude": ["node_modules"]
+}

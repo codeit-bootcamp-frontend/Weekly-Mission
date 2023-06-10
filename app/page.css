@@ -1,0 +1,315 @@
+/*---------------------- header-content -------------------*/
+.header-section {
+  width: 100vw;
+  height: auto;
+  background-image: url("/_dim.svg");
+  background-position: center;
+  background-size: cover;
+  background-color: var(--gray5);
+}
+
+.header-section .header-content {
+  width: 70rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 6.4rem;
+  font-weight: 700;
+  line-height: 8rem;
+}
+
+.header-section .header-content .p-box {
+  width: 80rem;
+  text-align: center;
+  font-size: 6.4rem;
+  font-weight: 700;
+  line-height: 8rem;
+}
+
+.header-section .header-content p {
+  width: 70.8rem;
+}
+
+.header-section .header-content p span {
+  margin-right: 1rem;
+}
+
+.header-section .header-content p {
+  background-image: linear-gradient(90deg, #6d6afe, #ff9f9f);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-section .header-content span {
+  background-color: black;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-section .header-content button {
+  width: 35rem;
+  height: 5.4rem;
+  color: #f5f5f5;
+  border: none;
+  border-radius: 1rem;
+  background-image: linear-gradient(90deg, #6d6afe, #6ae3fe);
+  font-size: 2.5rem;
+  margin: 4rem 0 9rem;
+}
+
+.header-section .header-content .img-box {
+  width: 111.8rem;
+  height: 66rem;
+}
+
+.header-section .header-content img {
+  width: 100%;
+  height: 100%;
+}
+
+/*-------------------------- main ------------------------*/
+
+main {
+  width: 100vw;
+}
+
+main .main-container {
+  width: 99.8rem;
+  margin: 0 auto 17rem;
+}
+
+main .main-container .container {
+  width: 100%;
+  height: 45rem;
+  margin: 12rem 0 auto;
+  display: flex;
+  /* grid-template-rows: 8.94rem 7.5;
+  grid-template-columns: 17.5rem 34.375rem; */
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-between;
+}
+
+main .container .title-box {
+  width: 28rem;
+  font-weight: 700;
+  line-height: 5.728rem;
+  font-size: 4.8rem;
+}
+
+main .container .title-box p span {
+  background-color: black;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+main .container .additional-explanation {
+  width: 28rem;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: #6b6b6b;
+  margin-top: 1.6rem;
+}
+
+main .container .img-box {
+  width: 55rem;
+  height: 45rem;
+}
+
+main .container .img-box img {
+  width: 100%;
+  height: 100%;
+}
+
+/*------------------------ save --------------------------*/
+
+main .save-link .title-box span {
+  background-image: linear-gradient(95.63deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*----------------------- folder -------------------------*/
+
+main .folder .title-box span {
+  background-image: linear-gradient(90deg, #6fbaff, #ffd88b);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*------------------------ share -------------------------*/
+
+main .share .title-box span {
+  background-image: linear-gradient(90deg, #6d7ccd 100%, #528885 22%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*------------------------ search ------------------------*/
+
+main .search .title-box span {
+  background-image: linear-gradient(#fe578f, #68e8f9);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*태블릿 디바이스 (가로 해상도가 768px보다 크고 991px 보다 작은 화면에 적용)  */
+@media screen and (max-width: 1199px) {
+  /*----------------------- header ---------------------------*/
+  .header-section .header-content .img-box {
+    width: 65rem;
+    height: 38.3rem;
+  }
+
+  /*---------------------- main -----------------------------*/
+  main .main-container {
+    width: 69.8rem;
+  }
+
+  main .main-container .container {
+    height: 31.5rem;
+    margin-bottom: 10rem;
+  }
+
+  main .main-container .container .img-box {
+    width: 38.5rem;
+    height: 31.5rem;
+  }
+}
+/*태블릿 디바이스 (가로 해상도가 768px보다 크고 991px 보다 작은 화면에 적용)  */
+@media screen and (max-width: 863px) {
+  /*-------------------- header ----------------------------*/
+  header .header-container {
+    width: calc(100% - 6.4rem);
+    padding: 1.6rem 3.2rem 2.4rem;
+  }
+
+  .header-section .header-content .p-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header-section .header-content .img-box {
+    width: 65rem;
+    height: 38.3rem;
+  }
+  /*---------------------- main -----------------------------*/
+  main .main-container {
+    width: 69.8rem;
+  }
+
+  main .main-container .container {
+    height: 31.5rem;
+    margin-bottom: 10rem;
+  }
+
+  main .main-container .container .img-box {
+    width: 38.5rem;
+    height: 31.5rem;
+  }
+}
+
+/* 가로모드 모바일 디바이스 (가로 해상도가 376px보다 크고 767px 보다 작은 화면에 적용)  */
+@media screen and (max-width: 767px) {
+  /*-------------------------header----------------------*/
+  header .header-container {
+    width: calc(100% - 6.4rem);
+    padding: 1.6rem 3.2rem 2.4rem;
+  }
+
+  .header-section .header-container img {
+    width: 9.6rem;
+  }
+
+  header .header-container button {
+    width: 9.6rem;
+  }
+
+  .header-section .header-content {
+    width: calc(100% - 6.4rem);
+  }
+
+  .header-section .header-content .img-box {
+    width: 100%;
+    height: 100%;
+  }
+
+  .header-section .header-content .img-box img {
+    width: 100%;
+    height: 100%;
+  }
+  .header-section .header-content button {
+    width: 20rem;
+    margin-bottom: 3.2rem;
+  }
+
+  .header-section .header-content .p-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .header-section .header-content .p-box span {
+    font-size: 3.2rem;
+    line-height: 4.2rem;
+  }
+
+  .header-section .header-content p {
+    width: 100%;
+    font-size: 3.2rem;
+    line-height: 4.2rem;
+  }
+
+  .header-section .header-content button {
+    margin-top: 4rem;
+  }
+  /*------------------------ container ------------------ */
+  main .main-container {
+    width: calc(100% - 6.4rem);
+    margin: 4.8rem auto 0;
+  }
+
+  main .main-container .container {
+    width: 100%;
+    height: auto;
+    margin-bottom: 8rem;
+  }
+
+  main .main-container .title-box {
+    width: 100%;
+    order: 1;
+  }
+
+  main .main-container br {
+    display: none;
+  }
+
+  main .main-container .additional-explanation {
+    width: 100%;
+    order: 3;
+  }
+
+  main .main-container .container .img-box {
+    width: 100%;
+    height: auto;
+    order: 2;
+    margin: 1.6rem 0;
+  }
+
+  main .container .img-box img {
+    width: 100%;
+    height: auto;
+  }
+}

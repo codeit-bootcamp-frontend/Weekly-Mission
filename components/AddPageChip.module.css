@@ -1,0 +1,27 @@
+.button {
+  height: 3.5rem;
+  border-radius: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  margin-right: 0.8rem;
+  border: 0.1rem solid var(--primary);
+  background-color: var(--white);
+  cursor: pointer;
+  display: inline-block;
+}
+
+.selected {
+  height: 3.5rem;
+  border-radius: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  margin-right: 0.8rem;
+  border: 0.1rem solid var(--primary);
+  color: var(--white);
+  background-color: var(--primary);
+  cursor: pointer;
+  display: inline-block;
+}
+
+@media (max-width: 767px) {
+  .button {
+  }
+}

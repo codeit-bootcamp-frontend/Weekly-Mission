@@ -1,0 +1,75 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+  background: var(--white);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto auto;
+  width: 36rem;
+  height: 24.4rem;
+  z-index: 100;
+  overflow: hidden;
+  padding: 2rem;
+  border-radius: 1.5rem;
+}
+
+.modal .img {
+  display: flex;
+  justify-content: end;
+  cursor: pointer;
+}
+
+.modal div {
+  display: flex;
+}
+
+.modal .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal p {
+  font-size: 2rem;
+  margin-bottom: 2.4rem;
+}
+
+.modal input {
+  padding: 1.8rem 1.5rem;
+  width: 28rem;
+  height: 6rem;
+  border: 1px solid #6d6afe;
+}
+
+.modal button {
+  margin-top: 1.5rem;
+  width: 28rem;
+  height: 5.1rem;
+  border: none;
+  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  border-radius: 8px;
+  color: var(--white);
+  border-radius: 0.8rem;
+}
+
+@media (max-width: 767px) {
+  .modal {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto auto;
+  }
+}
