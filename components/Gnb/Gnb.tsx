@@ -33,7 +33,7 @@ const Gnb = ({ userId }: IGnbProps) => {
             />
           </Link>
           {!user ? (
-            <Link href="/signin" className={styles.signin}>
+            <Link href="/api/auth/signin" className={styles.signin}>
               로그인
             </Link>
           ) : (
