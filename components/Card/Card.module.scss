@@ -35,6 +35,7 @@
 
       .image {
         @include mixin.image;
+        height: 100%;
       }
     }
 

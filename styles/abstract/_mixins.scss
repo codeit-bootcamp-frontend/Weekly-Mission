@@ -58,6 +58,8 @@
   width: 100%;
   display: block;
   object-fit: cover;
+
+  @content;
 }
 
 /* modal items */

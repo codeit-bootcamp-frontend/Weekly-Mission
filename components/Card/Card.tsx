@@ -71,13 +71,10 @@ const Card = ({
           )}
         </div>
         <div className={styles.cardImgTop}>
-          <Image
+          <img
             className={styles.image}
             src={link.imageSource ?? "/assets/image-dummy.png"}
             alt={link.title}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1199px) 100vw, 100vw"
-            priority
           />
         </div>
         <div className={styles.cardCaption}>
