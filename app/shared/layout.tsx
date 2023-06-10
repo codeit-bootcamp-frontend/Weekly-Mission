@@ -19,7 +19,7 @@ export default async function SharedLayout({
   return (
     <>
       <QueryHydrate state={dehydratedState}>
-        <Gnb />
+        <Gnb userId={1} />
         {children}
         <Footer />
       </QueryHydrate>

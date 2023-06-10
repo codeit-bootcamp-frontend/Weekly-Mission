@@ -5,6 +5,14 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
+  async rewrites() {
+    return [
+      {
+        source: "/:path*",
+        destination: "https://bootcamp-api.codeit.kr/api/:path*",
+      },
+    ];
+  },
   async redirects() {
     return [
       {

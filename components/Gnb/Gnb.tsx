@@ -8,10 +8,14 @@ import { useQuery } from "@tanstack/react-query";
 
 import styles from "./Gnb.module.scss";
 
-const Gnb = () => {
+interface IGnbProps {
+  userId: number;
+}
+
+const Gnb = ({ userId }: IGnbProps) => {
   const { data: user } = useQuery({
     queryKey: ["user"],
-    queryFn: getUserQueryFn,
+    queryFn: () => getUserQueryFn(userId),
   });
 
   return (
@@ -28,7 +32,7 @@ const Gnb = () => {
               className={styles.image}
             />
           </Link>
-          {(user && Object.keys(user).length === 0) || !user ? (
+          {userId && user && Object.keys(user).length === 0 ? (
             <Link href="/signin" className={styles.signin}>
               로그인
             </Link>

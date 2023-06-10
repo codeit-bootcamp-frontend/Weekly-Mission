@@ -19,7 +19,7 @@ export default async function FolderLayout({
   return (
     <>
       <QueryHydrate state={dehydratedState}>
-        <Gnb />
+        <Gnb userId={1} />
         {children}
         <Footer />
         <div id="add-portal"></div>
