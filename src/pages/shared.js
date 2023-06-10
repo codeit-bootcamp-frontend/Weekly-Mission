@@ -20,9 +20,20 @@ const SharedPage = ({ folder, links }) => {
   );
 };
 
-export async function getServerSideProps() {
-  const data = await getData(`/api/sample/folder`);
-  const { folder = {}, folder: { links = [] } = {} } = data?.data ?? {};
+export async function getServerSideProps({ query }) {
+  const { user: sharedUserId, folder: folderId } = query;
+
+  const sharedData = await getData(
+    `/api/users/${sharedUserId}/links?folderId=${folderId}`
+  );
+  const { distinctData: links = {} } = sharedData ?? {};
+
+  const folderTitleData = await getData(
+    `/api/users/${sharedUserId}/folders/${folderId}`
+  );
+  const {
+    data: [{ name: folder = "" } = {}],
+  } = folderTitleData ?? {};
 
   return {
     props: {
