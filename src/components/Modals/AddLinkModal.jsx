@@ -3,7 +3,13 @@ import ModalContainer from "./ModalContainer";
 import SubmitButton from "@/presentation/Button/SubmitButton";
 import AddLinkInFolderContent from "@/components/AddLinkInFolderList/AddLinkInFolderContent";
 
-const AddLinkModal = ({ isAddLinkModalOpen, onClose, link, tabs }) => {
+const AddLinkModal = ({
+  isAddLinkModalOpen,
+  onClose,
+  link,
+  tabs,
+  clearInput,
+}) => {
   const [checkedItemId, setCheckedItemId] = useState(null);
 
   useEffect(() => {
@@ -15,6 +21,7 @@ const AddLinkModal = ({ isAddLinkModalOpen, onClose, link, tabs }) => {
 
     if (!checkedItemId) return; //TODO: validation 추가
     onClose();
+    clearInput();
   };
 
   return (

@@ -15,6 +15,12 @@ const AddLinkBar = ({ tabs }) => {
     if (!value) return;
     setIsAddLinkModalOpen(true);
   };
+
+  const clearInput = () => {
+    if (linkInputRef.current) {
+      linkInputRef.current.value = "";
+    }
+  };
   return (
     <>
       <div className={styles.formContainer}>
@@ -54,6 +60,7 @@ const AddLinkBar = ({ tabs }) => {
         }}
         link={linkInputRef.current?.value}
         tabs={tabs}
+        clearInput={clearInput}
       />
     </>
   );
