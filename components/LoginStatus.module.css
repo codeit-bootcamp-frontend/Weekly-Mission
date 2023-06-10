@@ -5,6 +5,9 @@
 
 .user img {
   margin-right: 6px;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
 }
 @media (max-width: 767px) {
   .user span {
