@@ -12,7 +12,6 @@ const Header = () => {
   const headerRef = useRef(null);
   useResponsiveHeader(headerRef);
   const { data: session } = useSession();
-  console.log(session);
   return (
     <header className={styles.headerWrapper} ref={headerRef}>
       <nav>
