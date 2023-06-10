@@ -32,25 +32,23 @@ const Gnb = ({ userId }: IGnbProps) => {
               className={styles.image}
             />
           </Link>
-          {userId && user && Object.keys(user).length === 0 ? (
+          {!user ? (
             <Link href="/signin" className={styles.signin}>
               로그인
             </Link>
           ) : (
-            user && (
-              <Link href="" className={styles.user}>
-                <div className={styles.imgContainer}>
-                  <Image
-                    src={user.image_source}
-                    alt={user.name}
-                    width="28"
-                    height="28"
-                    className={styles.image}
-                  />
-                </div>
-                <span className={styles.email}>{user.email}</span>
-              </Link>
-            )
+            <Link href="" className={styles.user}>
+              <div className={styles.imgContainer}>
+                <Image
+                  src={user.image_source}
+                  alt={user.name}
+                  width="28"
+                  height="28"
+                  className={styles.image}
+                />
+              </div>
+              <span className={styles.email}>{user.email}</span>
+            </Link>
           )}
         </nav>
       </div>
