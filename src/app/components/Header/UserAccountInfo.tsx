@@ -16,6 +16,7 @@ const UserAccountInfo = ({ email, profileImgSrc }: UserAccountInfoProps) => {
           src={profileImgSrc ?? DEFAULT_PROFILE_IMG_SRC}
           alt="profile image"
           fill
+          sizes="10vw"
         />
       </div>
       <div className={styles.usernameContainer}>{email}</div>

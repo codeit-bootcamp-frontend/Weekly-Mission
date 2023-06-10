@@ -8,7 +8,7 @@ const AddLink = () => {
       <div>
         <div>
           <div className={styles.linkIconBox}>
-            <Image src="/link.svg" alt="link icon" fill />
+            <Image src="/link.svg" alt="link icon" fill sizes="1vw" />
           </div>
           <input
             id="addlink-input"

@@ -143,6 +143,7 @@ const LinkCard = ({
             src={thumbnailSrc ?? "/default-thumbnail.svg"}
             alt="thumbnail"
             fill
+            sizes="10vw"
           />
           <div
             className={styles.likeBtnBox}
@@ -155,12 +156,13 @@ const LinkCard = ({
               src={isLiked ? "/like-btn-liked.svg" : "/like-btn-unliked.svg"}
               alt="like button"
               fill
+              sizes="1vw"
             />
           </div>
         </div>
         <div className={styles.metadataContainer}>
           <div className={styles.kebab} onClick={handleClickOpenPopover}>
-            <Image src="/kebab.svg" alt="kebab" fill />
+            <Image src="/kebab.svg" alt="kebab" fill sizes="1vw" />
             {showPopover && (
               <div className={styles.popoverContainer} ref={popoverRef}>
                 <Popover

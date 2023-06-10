@@ -196,8 +196,13 @@ const Page = ({ params }: { params: { id: string } }) => {
               >
                 <span>폴더 추가</span>
                 <div className={styles.addIconBox}>
-                  <Image src="/addIcon.svg" alt="add icon" fill />
-                  <Image src="/addIcon-white.svg" alt="add icon" fill />
+                  <Image src="/addIcon.svg" alt="add icon" fill sizes="1vw" />
+                  <Image
+                    src="/addIcon-white.svg"
+                    alt="add icon"
+                    fill
+                    sizes="1vw"
+                  />
                 </div>
               </button>
             </div>
