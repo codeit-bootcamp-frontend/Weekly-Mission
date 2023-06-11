@@ -1,8 +1,7 @@
 "use client";
 
-import Image from "next/image";
-
 import ModalLayout from "../ModalLayout";
+import ShareButtonContainer from "./ShareButtonContainer";
 import styles from "./ShareFolderModal.module.scss";
 
 interface IShareFolderModalProps {
@@ -14,31 +13,7 @@ const ShareFolderModal = ({
   setOpenShareFolderModal,
   currentFolderName,
 }: IShareFolderModalProps) => {
-  const handleClickFacebookShare = () => {
-    window.open("http://www.facebook.com/sharer.php?u=https://www.naver.com/");
-
-    setTimeout(() => {
-      setOpenShareFolderModal(false);
-    }, 500);
-  };
-
-  const handleClickClipboardShare = async () => {
-    if (navigator.clipboard && window.isSecureContext) {
-      await navigator.clipboard.writeText(window.location.href);
-    }
-
-    setTimeout(() => {
-      setOpenShareFolderModal(false);
-    }, 500);
-  };
-
-  const handleClickKaKaoShare = () => {
-    // TODO: 환경변수 가능할 때, 카카오 기능 연결하기
-    setTimeout(() => {
-      setOpenShareFolderModal(false);
-    }, 500);
-  };
-
+  // TODO: 폴더 공유 관련 api 처리
   return (
     <ModalLayout
       portalId="share-folder-portal"
@@ -46,41 +21,7 @@ const ShareFolderModal = ({
     >
       <h3 className={styles.title}>폴더 공유</h3>
       <h4 className={styles.subTitle}>{currentFolderName}</h4>
-      <div className={styles.shareOptions}>
-        <button className={styles.button} onClick={handleClickKaKaoShare}>
-          <div className={styles.imageWrapper}>
-            <Image
-              fill
-              className={styles.image}
-              src="/assets/share-kakaotalk.svg"
-              alt="share kakao"
-            />
-          </div>
-          <span className={styles.text}>카카오톡</span>
-        </button>
-        <button className={styles.button} onClick={handleClickFacebookShare}>
-          <div className={styles.imageWrapper}>
-            <Image
-              fill
-              className={styles.image}
-              src="/assets/share-facebook.svg"
-              alt="share facebook"
-            />
-          </div>
-          <span className={styles.text}>페이스북</span>
-        </button>
-        <button className={styles.button} onClick={handleClickClipboardShare}>
-          <div className={styles.imageWrapper}>
-            <Image
-              fill
-              className={styles.image}
-              src="/assets/share-clipboard.svg"
-              alt="copy link"
-            />
-          </div>
-          <span className={styles.text}>링크 복사</span>
-        </button>
-      </div>
+      <ShareButtonContainer setOpenShareFolderModal={setOpenShareFolderModal} />
     </ModalLayout>
   );
 };
