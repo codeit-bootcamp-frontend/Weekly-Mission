@@ -2,14 +2,9 @@ import DefaultLayout from "@/layouts/DefaultLayout";
 import Image from "next/image";
 import styles from "@/styles/home.module.css";
 import { User } from "$/types";
+import { ReactElement } from "react";
 
-interface HomeProps {
-  user: User;
-}
-
-const Home: React.FC<HomeProps> & {
-  getLayout: (page: JSX.Element) => JSX.Element;
-} = ({ user }) => {
+const Home = () => {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
@@ -125,7 +120,7 @@ const Home: React.FC<HomeProps> & {
   );
 };
 
-Home.getLayout = function getLayout(page) {
+Home.getLayout = function getLayout(page: ReactElement) {
   return <DefaultLayout>{page}</DefaultLayout>;
 };
 

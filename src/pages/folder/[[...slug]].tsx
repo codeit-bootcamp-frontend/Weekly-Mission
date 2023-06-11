@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ReactElement, useState } from "react";
 import { useRouter } from "next/router";
 import styles from "@/styles/folder.module.css";
 import SearchBar from "@/components/SearchBar";
@@ -8,11 +8,21 @@ import AddLinkBar from "@/components/AddLinkBar";
 import FolderMenu from "@/components/FolderMenu/FolderMenu";
 import FolderHeader from "@/components/FolderHeader/FolderHeader";
 import getData from "@/lib/getData";
+import { Folder, Link } from "$/types";
+import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
-const FolderPage = ({ links, tabs }) => {
+interface FolderPageProps {
+  links: Link[];
+  tabs: Folder[];
+}
+
+function FolderPage({
+  links,
+  tabs,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const router = useRouter();
   const { slug: currentTab } = router.query;
-  const [currentFolderTitle, setCurrentFolderTitle] = useState("전체");
+  const [currentFolderTitle, setCurrentFolderTitle] = useState<string>("전체");
 
   return (
     <>
@@ -37,12 +47,13 @@ const FolderPage = ({ links, tabs }) => {
       </div>
     </>
   );
-};
+}
 
-export async function getServerSideProps({ query }) {
-  const { slug } = query;
+export const getServerSideProps: GetServerSideProps<FolderPageProps> = async (
+  context
+) => {
+  const { slug } = context.query;
   const userId = 1;
-
   const folderId = slug || "";
 
   const linksData = await getData(
@@ -59,10 +70,10 @@ export async function getServerSideProps({ query }) {
       tabs,
     },
   };
-}
+};
 
-export default FolderPage;
-
-FolderPage.getLayout = function getLayout(page) {
+FolderPage.getLayout = function getLayout(page: ReactElement) {
   return <DefaultLayout>{page}</DefaultLayout>;
 };
+
+export default FolderPage;

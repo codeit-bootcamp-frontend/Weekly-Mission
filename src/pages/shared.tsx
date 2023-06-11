@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import styles from "@/styles/shared.module.css";
 import SearchBar from "@/components/SearchBar";
 import CardList from "@/components/CardList";
@@ -6,16 +6,21 @@ import PageInfo from "@/components/PageInfo";
 import DefaultLayout from "@/layouts/DefaultLayout";
 import getData from "@/lib/getData";
 import { Folder, Link } from "$/types";
-import { NextPageContext } from "next";
+import {
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+  NextPageContext,
+} from "next";
 
 interface SharedPageProps {
-  folder: Folder[];
+  folder: Folder;
   links: Link[];
 }
 
-const SharedPage: React.FC<SharedPageProps> & {
-  getLayout: (page: JSX.Element) => JSX.Element;
-} = ({ folder, links }) => {
+function SharedPage({
+  links,
+  folder,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   console.log(links);
   return (
     <>
@@ -28,10 +33,12 @@ const SharedPage: React.FC<SharedPageProps> & {
       </div>
     </>
   );
-};
+}
 
-export async function getServerSideProps({ query }: NextPageContext) {
-  const { user: sharedUserId, folder: folderId } = query;
+export const getServerSideProps: GetServerSideProps<SharedPageProps> = async (
+  context
+) => {
+  const { user: sharedUserId, folder: folderId } = context.query;
 
   const sharedData = await getData(
     `/api/users/${sharedUserId}/links?folderId=${folderId}`
@@ -51,10 +58,10 @@ export async function getServerSideProps({ query }: NextPageContext) {
       links,
     },
   };
-}
+};
 
 export default SharedPage;
 
-SharedPage.getLayout = function getLayout(page) {
+SharedPage.getLayout = function getLayout(page: ReactElement) {
   return <DefaultLayout>{page}</DefaultLayout>;
 };

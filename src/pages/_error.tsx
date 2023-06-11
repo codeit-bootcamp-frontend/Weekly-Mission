@@ -1,8 +1,7 @@
 import DefaultLayout from "@/layouts/DefaultLayout";
+import { ReactElement } from "react";
 
-const Error: React.FC & {
-  getLayout: (page: JSX.Element) => JSX.Element;
-} = () => {
+const Error = () => {
   return (
     <div>
       <p>에러가 발생했습니다</p>
@@ -10,7 +9,7 @@ const Error: React.FC & {
   );
 };
 
-Error.getLayout = function getLayout(page) {
+Error.getLayout = function getLayout(page: ReactElement) {
   return <DefaultLayout>{page}</DefaultLayout>;
 };
 
