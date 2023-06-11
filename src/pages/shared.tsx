@@ -16,6 +16,7 @@ interface SharedPageProps {
 const SharedPage: React.FC<SharedPageProps> & {
   getLayout: (page: JSX.Element) => JSX.Element;
 } = ({ folder, links }) => {
+  console.log(links);
   return (
     <>
       <div className={styles.heroSection}>
