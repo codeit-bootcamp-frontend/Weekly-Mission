@@ -1,6 +1,7 @@
+import { Children } from "$/types";
 import styles from "./input-box.module.css";
 
-const Input = ({ children }) => {
+const Input = ({ children }: Children) => {
   return <div className={styles.input}>{children}</div>;
 };
 
