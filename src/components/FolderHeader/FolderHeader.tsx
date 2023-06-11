@@ -1,11 +1,15 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./folder-header.module.css";
 import EditFolderModal from "../Modals/EditFolderModal";
 import ShareModal from "../Modals/ShareModal";
 import DeleteFolderModal from "../Modals/DeleteFolderModal";
 
-const FolderHeader = ({ currentFolderTitle }) => {
+interface FolderHeaderProps {
+  currentFolderTitle: string;
+}
+
+const FolderHeader = ({ currentFolderTitle }: FolderHeaderProps) => {
   const [isFolderEditModalOpen, setIsFolderEditModalOpen] = useState(false);
   const [isFolderDeleteModalOpen, setIsFolderDeleteModalOpen] = useState(false);
   const [isFolderShareModalOpen, setIsFolderShareModalOpen] = useState(false);
@@ -17,7 +21,7 @@ const FolderHeader = ({ currentFolderTitle }) => {
     setIsFolderShareModalOpen(!isFolderShareModalOpen);
   };
   const handleDeleteClick = () => {
-    setIsFolderDeleteModalOpen(!isFolderShareModalOpen);
+    setIsFolderDeleteModalOpen(!isFolderDeleteModalOpen);
   };
 
   return (
