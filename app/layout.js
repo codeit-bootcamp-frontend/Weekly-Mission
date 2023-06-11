@@ -1,5 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import GNB from "@/components/GNB";
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "Create Next App",
