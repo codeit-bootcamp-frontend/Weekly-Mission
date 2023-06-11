@@ -9,8 +9,8 @@ import { Folder, Link } from "$/types";
 import { NextPageContext } from "next";
 
 interface SharedPageProps {
-  folder: Folder;
-  links: Link;
+  folder: Folder[];
+  links: Link[];
 }
 
 const SharedPage: React.FC<SharedPageProps> & {
