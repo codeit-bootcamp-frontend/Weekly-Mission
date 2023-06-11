@@ -13,7 +13,7 @@ const DeleteLinkModal = ({
   selectedLinkValue,
 }: IDeleteLinkModalProps) => {
   const handleClickDeleteLink = () => {
-    // TODO: 해당 link를 폴더에서 삭제, 어떤 폴더인지 알아야 하므로 나중에 폴더 식별할 수 있는 Prop 추가하기
+    // TODO: 해당 link를 폴더에서 삭제
     setTimeout(() => {
       setOpenDeleteLinkModal(false);
     }, 500);

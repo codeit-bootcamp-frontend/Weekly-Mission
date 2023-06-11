@@ -33,7 +33,7 @@ const ShareFolderModal = ({
   };
 
   const handleClickKaKaoShare = () => {
-    // TODO: 카카오 기능 연결하기
+    // TODO: 환경변수 가능할 때, 카카오 기능 연결하기
     setTimeout(() => {
       setOpenShareFolderModal(false);
     }, 500);

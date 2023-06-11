@@ -20,6 +20,7 @@ const Shared = async () => {
   const userId = session?.user.id as number;
   const folderId = 1;
 
+  // TODO: 이후 요구사항이 자세히 나오면 getFolderData를 다른 api로 대체하기
   const userFolder = await getFolderData();
   const links = await getLinkQueryFn(userId, folderId);
 
