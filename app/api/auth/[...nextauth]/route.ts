@@ -12,11 +12,7 @@ export const authOptions: NextAuthOptions = {
         email: { label: "Email" },
         password: { label: "Password" },
       },
-      authorize(
-        credentials,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        req
-      ) {
+      async authorize(credentials: Record<string, string> | undefined) {
         // Perform database operations
 
         try {
@@ -25,7 +21,7 @@ export const authOptions: NextAuthOptions = {
             password: string;
           };
 
-          // TODO: mongodb 검색 코드 작성
+          // TODO: db 내 유무 확인/비밀번호 검증 코드 작성
 
           /**
            * @description 임시로 설정한 유저 정보입니다.
@@ -43,17 +39,17 @@ export const authOptions: NextAuthOptions = {
           };
 
           if (email === user.email && user.password.includes(password)) {
-            return {
+            return Promise.resolve({
               id: user.id,
               name: user.name,
               image_source: user.image_source,
               email: user.email,
-            } as any;
+            }) as any;
           }
-
-          return null;
+          return Promise.reject(null);
         } catch (e) {
           console.log(e);
+          return Promise.reject(null);
         }
       },
     }),
