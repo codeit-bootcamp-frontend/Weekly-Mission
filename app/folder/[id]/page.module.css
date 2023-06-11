@@ -25,6 +25,11 @@
   gap: 0.8rem;
 }
 
+.folder-header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .folder-title {
   font-size: 2.4rem;
 }

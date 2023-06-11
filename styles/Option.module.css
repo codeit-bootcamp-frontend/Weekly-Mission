@@ -1,0 +1,15 @@
+.option-container {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.option-container button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  color: var(--gray-9);
+  gap: 0.4rem;
+}

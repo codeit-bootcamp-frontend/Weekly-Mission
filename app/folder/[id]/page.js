@@ -1,13 +1,14 @@
 import getUserData from "@/api/getUserData";
 import getFolders from "@/api/getFolders";
+import getLinks from "@/api/getLinks";
 import AddLinkBar from "@/components/AddLinkBar";
 import SearchBar from "@/components/SearchBar";
 import FolderChip from "@/components/FolderChip";
+import FAB from "@/components/FAB";
+import Option from "@/components/Option";
 import Card from "@/components/Card";
 import styles from "./page.module.css";
 import classNames from "classnames/bind";
-import getLinks from "@/api/getLinks";
-import FAB from "@/components/FAB";
 
 const cx = classNames.bind(styles);
 
@@ -41,6 +42,7 @@ export default async function FolderID({ params }) {
           </div>
           <div className={cx("folder-header")}>
             <h1 className={cx("folder-title")}>전체</h1>
+            <Option />
           </div>
           <div className={cx("card-list")}>
             {links.map((linkData) => (
