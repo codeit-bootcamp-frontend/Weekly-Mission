@@ -1,15 +1,18 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./PageInfo.module.css";
+import { User } from "$/types";
 
-function PageInfo({ folder }) {
+interface PageInfoProps {
+  folder: string;
+  user?: User;
+}
+
+function PageInfo({ folder, user }: PageInfoProps) {
   const {
-    owner: {
-      profileImageSource = "/assets/images/users/codeit-avatar.png",
-      name = "@코드잇",
-    } = {},
-    name: folderName,
-  } = folder || {};
+    image_source: profileImageSource = "/assets/images/users/codeit-avatar.png",
+    name = "@코드잇",
+  } = user || {};
 
   return (
     <div className={styles.userInfo}>
@@ -17,7 +20,7 @@ function PageInfo({ folder }) {
         <Image src={profileImageSource} alt="Avatar" width={64} height={64} />
       </div>
       <p className={styles.userName}>{name}</p>
-      <h1 className={styles.pageHeading}>{folderName}</h1>
+      <h1 className={styles.pageHeading}>{folder}</h1>
     </div>
   );
 }
