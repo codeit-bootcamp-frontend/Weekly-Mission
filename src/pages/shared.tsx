@@ -40,7 +40,7 @@ export const getServerSideProps: GetServerSideProps<SharedPageProps> = async (
   const sharedData = await getData(
     `/api/users/${sharedUserId}/links?folderId=${folderId}`
   );
-  const { distinctData: links = {} } = sharedData ?? {};
+  const { distinctData: links = [] } = sharedData ?? {};
 
   const userData = await getData(`/api/users/${sharedUserId}`);
   const user = userData.data[0];
@@ -49,7 +49,7 @@ export const getServerSideProps: GetServerSideProps<SharedPageProps> = async (
     `/api/users/${sharedUserId}/folders/${folderId}`
   );
   const {
-    data: [{ name: folder = "" } = {}],
+    data: [{ name: folder = "" } = []],
   } = folderTitleData ?? {};
 
   return {
