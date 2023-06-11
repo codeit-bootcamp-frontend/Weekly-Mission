@@ -1,18 +1,21 @@
 const path = require("path");
 
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
   webpack: (config) => {
     config.resolve.alias["@"] = path.resolve(__dirname);
     return config;
   },
   async rewrites() {
-    return [
-      {
-        source: "/:path*",
-        destination: "https://bootcamp-api.codeit.kr/api/:path*",
-      },
-    ];
+    return {
+      fallback: [
+        {
+          source: "/:path*",
+          destination: "https://bootcamp-api.codeit.kr/api/:path*",
+        },
+      ],
+    };
   },
   images: {
     remotePatterns: [
@@ -37,3 +40,5 @@ module.exports = {
     ],
   },
 };
+
+module.exports = nextConfig;
