@@ -10,21 +10,21 @@ import useOutsideClick from "@/hooks/useOutsideClick";
 import { ILink } from "@/types/linkbrary";
 import beautifyDate from "@/utils/beautifyDate";
 
-import styles from "./Card.module.scss";
+import styles from "./LinkCard.module.scss";
 
-interface ICardProps {
+interface ILinkCardProps {
   link: ILink;
   isClickedKebab: boolean;
   handleClickOpenKebab: () => void;
   handleClickCloseKebab: () => void;
 }
 
-const Card = ({
+const LinkCard = ({
   link,
   isClickedKebab,
   handleClickOpenKebab,
   handleClickCloseKebab,
-}: ICardProps) => {
+}: ILinkCardProps) => {
   const { beautifiedDate, beautifiedTimeDiff } = beautifyDate(link.created_at);
   const [isCheckAsterisk, setIsCheckAsterisk] = useState<boolean>(false);
   const notTargetRefs = useRef<HTMLElement[]>([]);
@@ -127,4 +127,4 @@ const Card = ({
   );
 };
 
-export default Card;
+export default LinkCard;

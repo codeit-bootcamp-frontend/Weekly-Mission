@@ -1,9 +1,9 @@
 "use client";
 
 import AddLinkField from "@/components/AddLinkField/AddLinkField";
-import CardWrapper from "@/components/CardWrapper/CardWrapper";
 import CurrentFolderMenu from "@/components/CurrentFolderMenu/CurrentFolderMenu";
 import FolderChipField from "@/components/FolderChipField/FolderChipField";
+import LinkField from "@/components/LinkField/LinkField";
 import SearchBar from "@/components/SearchBar/SearchBar";
 import useViewObserver from "@/hooks/useViewObserver";
 import { IFolder, ILink } from "@/types/linkbrary";
@@ -45,7 +45,7 @@ const FolderContents = ({
           isLinks={links.length !== 0}
         />
         {currentFolder && <CurrentFolderMenu currentFolder={currentFolder} />}
-        <CardWrapper links={links} />
+        <LinkField links={links} />
       </div>
     </>
   );

@@ -1,6 +1,6 @@
 @use "@/styles/abstract/mixins" as mixin;
 
-.nullCardWrapper {
+.nullLinkField {
   width: 100%;
   padding-top: 65px;
   padding-bottom: 135px;
@@ -11,7 +11,7 @@
   justify-content: center;
   gap: 24px 20px;
 }
-.cardWrapper {
+.linkField {
   width: 100%;
   padding-bottom: 99px;
   max-width: 1060px;
@@ -23,13 +23,13 @@
 }
 
 @include mixin.tablet {
-  .cardWrapper {
+  .linkField {
     max-width: calc(100% - 6.4rem);
   }
 }
 
 @include mixin.mobile {
-  .nullCardWrapper {
+  .nullLinkField {
     padding-top: 62.5px;
     padding-bottom: 178px;
   }

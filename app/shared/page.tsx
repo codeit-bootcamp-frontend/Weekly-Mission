@@ -9,10 +9,9 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import styles from "./page.module.scss";
 
-const CardWrapper = dynamic(
-  () => import("components/CardWrapper/CardWrapper"),
-  { ssr: false }
-);
+const CardWrapper = dynamic(() => import("@/components/LinkField/LinkField"), {
+  ssr: false,
+});
 
 const Shared = async () => {
   const session = await getServerSession(authOptions);
