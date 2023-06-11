@@ -15,7 +15,13 @@ const FolderContents = dynamic(
   { ssr: false }
 );
 
-const Tab = async ({ params }: { params: any }) => {
+const Tab = async ({
+  params,
+}: {
+  params: {
+    slug: string;
+  };
+}) => {
   const session = await getServerSession(authOptions);
 
   const userId = session?.user.id as number;
