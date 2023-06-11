@@ -1,7 +1,18 @@
+import { Folder } from "$/types";
 import styles from "./add-link-in-folder-content-item.module.css";
 import Image from "next/image";
 
-const AddLinkInFolderContentItem = ({ tab, onClick, isClicked }) => {
+interface AddLinkInFolderContentItemProps {
+  tab: Folder;
+  onClick: (id: number) => void;
+  isClicked: boolean;
+}
+
+const AddLinkInFolderContentItem = ({
+  tab,
+  onClick,
+  isClicked,
+}: AddLinkInFolderContentItemProps) => {
   return (
     <button
       className={`${styles.tabsContainer} ${isClicked ? styles.click : ""}`}

@@ -1,11 +1,10 @@
-import { useState } from "react";
 import styles from "./add-link-in-folder-content.module.css";
 import AddLinkInFolderContentItem from "@/components/AddLinkInFolderList/AddLinkInFolderContentItem";
 import { Folder } from "$/types";
 
 interface AddLinkInFolderContentProps {
   tabs: Folder[];
-  checkedItemId: number;
+  checkedItemId: number | null;
   onCheckedItemId: (id: number) => void;
 }
 
