@@ -49,6 +49,7 @@ const AddLink = () => {
           추가하기
         </button>
       </form>
+      <div className={styles.observed}></div>
 
       {openAddModal && (
         <AddModal
