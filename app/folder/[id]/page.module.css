@@ -31,7 +31,7 @@
 
 .card-list {
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2.4rem 2rem;
 }
 
