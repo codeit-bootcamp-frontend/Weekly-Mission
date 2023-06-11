@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 
 import Image from "next/image";
 
-import AddModal from "@/components/Modals/AddModal/AddModal";
+import AddModal from "@/components/Modals/AddLinkModal/AddLinkModal";
 import DeleteLinkModal from "@/components/Modals/DeleteLinkModal/DeleteLinkModal";
 import useOutsideClick from "@/hooks/useOutsideClick";
 import { ILink } from "@/types/linkbrary";

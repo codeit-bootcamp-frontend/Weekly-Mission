@@ -1,6 +1,6 @@
 "use client";
 
-import AddLink from "@/components/AddLink/AddLink";
+import AddLinkField from "@/components/AddLinkField/AddLinkField";
 import CardListOptions from "@/components/CardListOptions/CardListOptions";
 import CardWrapper from "@/components/CardWrapper/CardWrapper";
 import FolderList from "@/components/FolderList/FolderList";
@@ -32,7 +32,7 @@ const FolderContents = ({
   return (
     <>
       <div className={`${styles.addLinkContainer} ${styles[`${inView}`]}`}>
-        <AddLink />
+        <AddLinkField />
       </div>
       <div className={styles.contents}>
         <div ref={(el: HTMLDivElement) => (observerTargetRefs.current[0] = el)}>

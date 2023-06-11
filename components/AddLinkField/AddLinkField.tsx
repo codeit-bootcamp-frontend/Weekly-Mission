@@ -4,12 +4,12 @@ import { useRef, useState } from "react";
 
 import Image from "next/image";
 
-import AddModal from "@/components/Modals/AddModal/AddModal";
+import AddLinkModal from "@/components/Modals/AddLinkModal/AddLinkModal";
 
-import styles from "./AddLink.module.scss";
+import styles from "./AddLinkField.module.scss";
 
-const AddLink = () => {
-  const [openAddModal, setOpenAddModal] = useState<boolean>(false);
+const AddLinkField = () => {
+  const [openAddLinkModal, setOpenAddLinkModal] = useState<boolean>(false);
   const [selectedLinkValue, setSelectedLinkValue] = useState<string>("");
   const linkInputRef = useRef<HTMLInputElement>(null);
 
@@ -19,7 +19,7 @@ const AddLink = () => {
     e.preventDefault();
     if (linkInputRef.current) {
       setSelectedLinkValue(linkInputRef.current.value);
-      setOpenAddModal((prev) => !prev);
+      setOpenAddLinkModal((prev) => !prev);
       linkInputRef.current.value = "";
     }
   };
@@ -51,9 +51,9 @@ const AddLink = () => {
       </form>
       <div className={styles.observed}></div>
 
-      {openAddModal && (
-        <AddModal
-          setOpenAddModal={setOpenAddModal}
+      {openAddLinkModal && (
+        <AddLinkModal
+          setOpenAddLinkModal={setOpenAddLinkModal}
           selectedLinkValue={selectedLinkValue}
         />
       )}
@@ -61,4 +61,4 @@ const AddLink = () => {
   );
 };
 
-export default AddLink;
+export default AddLinkField;
