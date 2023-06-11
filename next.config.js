@@ -6,6 +6,14 @@ module.exports = {
     config.resolve.alias["@"] = path.resolve(__dirname);
     return config;
   },
+  async rewrites() {
+    return [
+      {
+        source: "/:path*",
+        destination: "https://bootcamp-api.codeit.kr/api/:path*",
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {
@@ -17,6 +25,12 @@ module.exports = {
       {
         protocol: "https",
         hostname: "codeit-images.codeit.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "ca.slack-edge.com",
         port: "",
         pathname: "/**",
       },
