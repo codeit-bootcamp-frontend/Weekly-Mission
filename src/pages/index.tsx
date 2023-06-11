@@ -1,8 +1,15 @@
 import DefaultLayout from "@/layouts/DefaultLayout";
 import Image from "next/image";
 import styles from "@/styles/home.module.css";
+import { User } from "$/types";
 
-export default function Home({ user }) {
+interface HomeProps {
+  user: User;
+}
+
+const Home: React.FC<HomeProps> & {
+  getLayout: (page: JSX.Element) => JSX.Element;
+} = ({ user }) => {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
@@ -116,8 +123,10 @@ export default function Home({ user }) {
       </section>
     </div>
   );
-}
+};
 
 Home.getLayout = function getLayout(page) {
   return <DefaultLayout>{page}</DefaultLayout>;
 };
+
+export default Home;
