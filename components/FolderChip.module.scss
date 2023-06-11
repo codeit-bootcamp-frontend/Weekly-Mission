@@ -1,13 +1,9 @@
 @use "@/styles/utils";
 
-.container {
-  width: fit-content;
-}
-
 .folderChip {
   display: flex;
   align-items: center;
-  justify-content: center;
+  height: 3.5rem;
   padding: 0.8rem 1.2rem;
   border: 0.1rem solid utils.$primary;
   border-radius: 0.5rem;
@@ -16,7 +12,13 @@
     background-color: utils.$gray-brt4;
   }
 
+  &.active {
+    background-color: utils.$primary;
+    color: #ffffff;
+  }
+
   @include utils.mobile {
+    height: 2.9rem;
     padding: 0.6rem 1rem;
     font-size: 1.4rem;
   }

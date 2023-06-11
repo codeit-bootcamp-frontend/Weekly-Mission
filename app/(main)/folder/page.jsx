@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import classNames from "classnames/bind";
 
 import AddFolderButton from "@/components/AddFolderButton";
@@ -8,12 +10,22 @@ import Card from "@/components/Card/Card";
 import FolderChip from "@/components/FolderChip";
 import Option from "@/components/Option";
 import SearchBar from "@/components/SearchBar";
+import { getFolder } from "@/utils/axiosAPI";
 
 import styles from "./page.module.scss";
 
 const cx = classNames.bind(styles);
 
-export default async function Folder() {
+export default function Folder() {
+  const userID = 1;
+  const [folders, setFolders] = useState([]);
+
+  useEffect(() => {
+    getFolder(userID).then((res) => {
+      setFolders(res);
+    });
+  }, []);
+
   return (
     <>
       <div className={cx("addLinkSection")}>
@@ -30,32 +42,13 @@ export default async function Folder() {
             <div className={cx("folderSelect")}>
               <div className={cx("folders")}>
                 <div className={cx("chipContainer")}>
-                  <FolderChip content="전체" />
+                  <FolderChip id="" name="전체" />
                 </div>
-                <div className={cx("chipContainer")}>
-                  <FolderChip content="전체" />
-                </div>
-                <div className={cx("chipContainer")}>
-                  <FolderChip content="전체" />
-                </div>
-                <div className={cx("chipContainer")}>
-                  <FolderChip content="전체" />
-                </div>
-                <div className={cx("chipContainer")}>
-                  <FolderChip content="전체" />
-                </div>
-                <div className={cx("chipContainer")}>
-                  <FolderChip content="전체" />
-                </div>
-                <div className={cx("chipContainer")}>
-                  <FolderChip content="전체" />
-                </div>
-                <div className={cx("chipContainer")}>
-                  <FolderChip content="전체" />
-                </div>
-                <div className={cx("chipContainer")}>
-                  <FolderChip content="전체" />
-                </div>
+                {folders.map((folder) => (
+                  <div key={folder.id} className={cx("chipContainer")}>
+                    <FolderChip id={folder.id} name={folder.name} />
+                  </div>
+                ))}
               </div>
               <AddFolderButton />
             </div>
