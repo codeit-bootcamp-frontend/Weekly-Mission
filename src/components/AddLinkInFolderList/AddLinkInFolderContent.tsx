@@ -1,9 +1,20 @@
 import { useState } from "react";
 import styles from "./add-link-in-folder-content.module.css";
 import AddLinkInFolderContentItem from "@/components/AddLinkInFolderList/AddLinkInFolderContentItem";
+import { Folder } from "$/types";
 
-const AddLinkInFolderContent = ({ tabs, checkedItemId, onCheckedItemId }) => {
-  const handleClick = (id) => {
+interface AddLinkInFolderContentProps {
+  tabs: Folder[];
+  checkedItemId: number;
+  onCheckedItemId: (id: number) => void;
+}
+
+const AddLinkInFolderContent = ({
+  tabs,
+  checkedItemId,
+  onCheckedItemId,
+}: AddLinkInFolderContentProps) => {
+  const handleClick = (id: number) => {
     onCheckedItemId(id);
   };
 

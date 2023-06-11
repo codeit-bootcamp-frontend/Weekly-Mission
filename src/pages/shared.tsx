@@ -5,7 +5,7 @@ import CardList from "@/components/CardList";
 import PageInfo from "@/components/PageInfo";
 import DefaultLayout from "@/layouts/DefaultLayout";
 import getData from "@/lib/getData";
-import { Folder, Link, User } from "$/types";
+import { Link, User } from "$/types";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
 interface SharedPageProps {
