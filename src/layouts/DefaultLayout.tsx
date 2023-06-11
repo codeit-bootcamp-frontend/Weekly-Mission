@@ -1,14 +1,13 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Gnb from "@/components/Gnb";
 import Footer from "@/components/Footer";
+import { Children } from "$/types";
 
-const DefaultLayout = ({ children }) => {
+const DefaultLayout = ({ children }: Children) => {
   return (
     <div>
       <Gnb />
-      <main>
-        {children}
-      </main>
+      <main>{children}</main>
       <Footer />
     </div>
   );
