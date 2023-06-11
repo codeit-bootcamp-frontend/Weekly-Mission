@@ -14,7 +14,6 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ card, tabs }) => {
-  console.log(card);
   const [isKebabOpen, setIsKebabOpen] = useState(false);
   const [isDeleteLinkModalOpen, setIsDeleteLinkModalOpen] = useState(false);
   const [isAddLinkModalOpen, setIsAddLinkModalOpen] = useState(false);

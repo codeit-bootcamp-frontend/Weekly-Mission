@@ -2,26 +2,36 @@ import { useEffect, useState } from "react";
 import ModalContainer from "./ModalContainer";
 import SubmitButton from "@/presentation/Button/SubmitButton";
 import AddLinkInFolderContent from "@/components/AddLinkInFolderList/AddLinkInFolderContent";
+import { Folder } from "$/types";
 
-const AddLinkModal = ({
+interface AddLinkModalProps {
+  isAddLinkModalOpen: boolean;
+  onClose: () => void;
+  link: string;
+  tabs: Folder[];
+  clearInput?: () => void;
+}
+
+const AddLinkModal: React.FC<AddLinkModalProps> = ({
   isAddLinkModalOpen,
   onClose,
   link,
   tabs,
   clearInput,
 }) => {
-  const [checkedItemId, setCheckedItemId] = useState(null);
+  const [checkedItemId, setCheckedItemId] = useState<number | null>(null);
 
   useEffect(() => {
     setCheckedItemId(null);
   }, [isAddLinkModalOpen]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!checkedItemId) return; //TODO: validation 추가
+    if (!checkedItemId) return; // TODO: Add validation
     onClose();
-    clearInput();
+    if (clearInput) {
+      clearInput();
+    }
   };
 
   return (
@@ -37,7 +47,7 @@ const AddLinkModal = ({
         onCheckedItemId={setCheckedItemId}
       />
       <form onSubmit={handleSubmit}>
-        <SubmitButton buttonType="blue" buttonText="추가하기" type="submit" />
+        <SubmitButton buttonType="blue" buttonText="추가하기" />
       </form>
     </ModalContainer>
   );

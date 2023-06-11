@@ -8,7 +8,6 @@ import AddLinkModal from "@/components/Modals/AddLinkModal";
 const AddLinkBar = ({ tabs }) => {
   const linkInputRef = useRef(null);
   const [isAddLinkModalOpen, setIsAddLinkModalOpen] = useState(false);
-  console.log(linkInputRef);
 
   const handleClick = (e, value) => {
     e.preventDefault();
