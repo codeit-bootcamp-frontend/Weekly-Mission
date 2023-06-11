@@ -21,6 +21,7 @@ const FolderContents = ({
   links,
   currentTab,
 }: IFolderContentsProps) => {
+  // TODO: 전역 상태로 inView를 관리하고, AddLink만 client component로 좁히기
   const { inView, observerTargetRefs } = useViewObserver();
 
   const folderList = folders.length
