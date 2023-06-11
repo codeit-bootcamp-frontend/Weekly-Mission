@@ -4,16 +4,24 @@ import { createPortal } from "react-dom";
 import styles from "./modal-container.module.css";
 import Image from "next/image";
 
+interface ModalContainerProps {
+  isOpen: boolean;
+  onClose: () => void;
+  children: React.ReactNode;
+  modalTitle: string;
+  modalSubTitle: string;
+}
+
 const ModalContainer = ({
+  children,
   isOpen,
   onClose,
-  children,
   modalTitle,
   modalSubTitle,
-}) => {
+}: ModalContainerProps) => {
   const overlayRef = useRef(null);
 
-  const handleClickOutside = (event) => {
+  const handleClickOutside = (event: React.MouseEvent) => {
     if (event.target === overlayRef.current) {
       onClose();
     }
@@ -28,11 +36,7 @@ const ModalContainer = ({
             onClick={handleClickOutside}
             ref={overlayRef}
           >
-            <Modal
-              onClose={onClose}
-              modalTitle={modalTitle}
-              modalSubTitle={modalSubTitle}
-            >
+            <Modal modalTitle={modalTitle} modalSubTitle={modalSubTitle}>
               <div className={styles.closeIconContainer} onClick={onClose}>
                 <Image
                   className={styles.closeIcon}
@@ -44,7 +48,7 @@ const ModalContainer = ({
               {children}
             </Modal>
           </div>,
-          document.querySelector("#modal-root")
+          document.querySelector("#modal-root") as HTMLElement
         )}
     </>
   );

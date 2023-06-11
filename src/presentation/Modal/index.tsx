@@ -1,8 +1,12 @@
-import { useRef } from "react";
-import Image from "next/image";
 import styles from "./modal.module.css";
 
-const Modal = ({ children, modalTitle, modalSubTitle }) => {
+interface ModalProps {
+  children: React.ReactNode;
+  modalTitle: string;
+  modalSubTitle: string;
+}
+
+const Modal = ({ children, modalTitle, modalSubTitle }: ModalProps) => {
   return (
     <>
       <div className={styles.modalContainer}>
