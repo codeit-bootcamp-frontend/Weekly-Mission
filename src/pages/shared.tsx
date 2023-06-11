@@ -5,8 +5,17 @@ import CardList from "@/components/CardList";
 import PageInfo from "@/components/PageInfo";
 import DefaultLayout from "@/layouts/DefaultLayout";
 import getData from "@/lib/getData";
+import { Folder, Link } from "$/types";
+import { NextPageContext } from "next";
 
-const SharedPage = ({ folder, links }) => {
+interface SharedPageProps {
+  folder: Folder;
+  links: Link;
+}
+
+const SharedPage: React.FC<SharedPageProps> & {
+  getLayout: (page: JSX.Element) => JSX.Element;
+} = ({ folder, links }) => {
   return (
     <>
       <div className={styles.heroSection}>
@@ -20,7 +29,7 @@ const SharedPage = ({ folder, links }) => {
   );
 };
 
-export async function getServerSideProps({ query }) {
+export async function getServerSideProps({ query }: NextPageContext) {
   const { user: sharedUserId, folder: folderId } = query;
 
   const sharedData = await getData(
