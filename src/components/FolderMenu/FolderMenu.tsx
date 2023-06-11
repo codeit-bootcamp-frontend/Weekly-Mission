@@ -7,7 +7,7 @@ import AddFolderButton from "../AddFolderButton/AddFolderButton";
 import { Folder } from "$/types";
 
 interface FolderMenuProps {
-  currentTab: number | undefined;
+  currentTab: string | string[] | undefined;
   tabs: Folder[];
   onCurrentFolderTitle: (name: string) => void;
 }
