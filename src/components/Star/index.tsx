@@ -5,7 +5,7 @@ interface StarProps {
   isStarred?: boolean;
 }
 
-const Star: React.FC<StarProps> = ({ isStarred = false }) => {
+const Star = ({ isStarred = false }: StarProps) => {
   const [starred, setStarred] = useState<boolean>(isStarred);
   const fillRef = useRef<SVGPathElement>(null);
 
