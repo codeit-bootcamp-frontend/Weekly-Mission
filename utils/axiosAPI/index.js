@@ -1,8 +1,10 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "https://bootcamp-api.codeit.kr/api",
   timeout: 5000,
+  headers: {
+    "Cache-Control": "no-cache",
+  },
 });
 
 instance.interceptors.response.use(
@@ -14,14 +16,24 @@ instance.interceptors.response.use(
   },
 );
 
-const getUser = async () => {
+const getUser = async (id) => {
   const { data } = await instance.request({
-    url: `/sample/user`,
+    url: `/users/${id}`,
   });
-  return data ?? {};
+  return data ? data[0] : {};
 };
 
-const getFolder = async () => {
+const getFolder = async (userID, folderID) => {
+  const url = folderID
+    ? `/users/${userID}/folders/${folderID}`
+    : `/users/${userID}/folders`;
+  const { data } = await instance.request({
+    url,
+  });
+  return data;
+};
+
+const getLink = async () => {
   try {
     const { data } = await instance.request({
       url: `/sample/folder`,
@@ -33,4 +45,4 @@ const getFolder = async () => {
   }
 };
 
-export { getUser, getFolder };
+export { getUser, getFolder, getLink };
