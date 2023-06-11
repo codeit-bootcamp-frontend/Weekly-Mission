@@ -3,7 +3,7 @@ import classNames from "classnames/bind";
 import Card from "@/components/Card/Card";
 import FolderInfo from "@/components/FolderInfo";
 import SearchBar from "@/components/SearchBar";
-import { getFolder } from "@/utils/api";
+import { getFolder } from "@/utils/axiosAPI";
 
 import styles from "./page.module.scss";
 
