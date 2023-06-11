@@ -1,7 +1,7 @@
 import { Children, User } from "$/types";
 import { createContext, useState, useContext, ReactNode } from "react";
 
-interface UserContextValue {
+export interface UserContextValue {
   user: User | null;
   setUser: (user: User | null) => void;
 }
