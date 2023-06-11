@@ -3,11 +3,17 @@ import ModalContainer from "@/components/Modals/ModalContainer";
 import Image from "next/image";
 import styles from "./share-modal.module.css";
 
+interface ShareModalProps {
+  isFolderShareModalOpen: boolean;
+  onClose: () => void;
+  currentFolderTitle: string;
+}
+
 const ShareModal = ({
   isFolderShareModalOpen,
   onClose,
   currentFolderTitle,
-}) => {
+}: ShareModalProps) => {
   const handleClickFacebookShare = () => {
     window.open("http://www.facebook.com/sharer.php?u=https://www.codeit.kr/");
     onClose();
@@ -42,9 +48,10 @@ const ShareModal = ({
         <button className={styles.button} onClick={handleClickKaKaoShare}>
           <div className={styles.imageContainer}>
             <Image
-              fill
               src="/assets/images/kakaotalk-icon.svg"
               alt="share kakao"
+              width={20}
+              height={20}
             />
           </div>
           <span className={styles.text}>카카오톡</span>
@@ -54,9 +61,10 @@ const ShareModal = ({
             <div className={styles.iconContainer}>
               <Image
                 className={styles.icon}
-                fill
                 src="/assets/images/facebook.svg"
                 alt="share facebook"
+                width={20}
+                height={20}
               />
             </div>
           </div>
@@ -66,10 +74,10 @@ const ShareModal = ({
           <div className={styles.iconContainer}>
             <div className={styles.linkWrap}>
               <Image
-                fill
-                className={styles.icon}
                 src="/assets/images/folder-link.svg"
                 alt="copy link"
+                width={20}
+                height={20}
               />
             </div>
           </div>
