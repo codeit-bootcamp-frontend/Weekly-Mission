@@ -13,7 +13,7 @@ export default function UserProfile({ user }) {
         width={28}
         height={28}
         className={cx("userImg")}
-        src={user.profileImageSource}
+        src={user.image_source}
         alt={user.name}
       />
       <p className={cx("userEmail")}>{user.email}</p>
