@@ -4,7 +4,8 @@ import styles from "./add-folder-button.module.css";
 import AddFolderModal from "../Modals/AddFolderModal";
 
 const AddFolderButton = () => {
-  const [isAddFolderModalOpen, setIsAddFolderModalOpen] = useState(false);
+  const [isAddFolderModalOpen, setIsAddFolderModalOpen] =
+    useState<boolean>(false);
 
   return (
     <>
