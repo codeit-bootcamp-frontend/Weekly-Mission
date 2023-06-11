@@ -1,16 +1,22 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 
 import Input from "@/presentation/Input";
 import SubmitButton from "@/presentation/Button/SubmitButton";
 import ModalContainer from "@/components/Modals/ModalContainer";
 
+interface EditFolderModalProps {
+  isFolderEditModalOpen: boolean;
+  onClose: () => void;
+  currentFolderTitle: string;
+}
+
 const EditFolderModal = ({
   isFolderEditModalOpen,
   onClose,
   currentFolderTitle,
-}) => {
-  const inputRef = useRef();
-  const handleSubmit = (e) => {
+}: EditFolderModalProps) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onClose();
     //TODO : inputRef.current.value 사용해 API 요청으로 변경
@@ -29,7 +35,7 @@ const EditFolderModal = ({
         <Input>
           <input defaultValue={currentFolderTitle} ref={inputRef} />
         </Input>
-        <SubmitButton buttonType="blue" buttonText="변경하기" type="submit" />
+        <SubmitButton buttonType="blue" buttonText="변경하기" />
       </form>
     </ModalContainer>
   );
