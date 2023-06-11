@@ -1,12 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-
 import AddLink from "@/components/AddLink/AddLink";
 import CardListOptions from "@/components/CardListOptions/CardListOptions";
 import CardWrapper from "@/components/CardWrapper/CardWrapper";
 import FolderList from "@/components/FolderList/FolderList";
 import SearchBar from "@/components/SearchBar/SearchBar";
+import useViewObserver from "@/hooks/useViewObserver";
 import { IFolder, ILink } from "@/types/linkbrary";
 
 import styles from "./FolderContents.module.scss";
@@ -22,27 +21,7 @@ const FolderContents = ({
   links,
   currentTab,
 }: IFolderContentsProps) => {
-  const observerTargetRefs = useRef<HTMLDivElement[]>([]);
-  const [inView, setInView] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setInView(entry.isIntersecting);
-        });
-      },
-      {
-        threshold: 0.8,
-      }
-    );
-
-    observerTargetRefs.current.forEach((ref) => io.observe(ref));
-
-    return () => {
-      io.disconnect();
-    };
-  }, []);
+  const { inView, observerTargetRefs } = useViewObserver();
 
   const folderList = folders.length
     ? [{ id: 0, name: "전체" }, ...folders]
