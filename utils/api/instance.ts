@@ -14,8 +14,10 @@ export const wrapRequest = (func: any) => {
 };
 
 export const instance = axios.create({
-  // baseURL: "https://bootcamp-api.codeit.kr/api",
-  baseURL: "http://localhost:3000",
+  baseURL:
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://bootcamp-api.codeit.kr/api",
   headers: {
     "Content-Type": "application/json",
     Accept: "*/*",
