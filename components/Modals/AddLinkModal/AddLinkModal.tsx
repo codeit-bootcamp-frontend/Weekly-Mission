@@ -23,12 +23,11 @@ const AddLinkModal = ({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   selectedLinkValue,
 }: IAddModalProps) => {
-  // TODO: api로 폴더 데이터를 받아오면 MOCK 데이터 삭제 예정
-
   const [checkedItemId, setCheckedItemId] = useState(-1);
 
   const handleClickPostLink = (): void => {
-    // TODO: POST request : selectedLinkValue를 checkedItemId 를 가진 폴더에 저장
+    // TODO: api로 폴더 데이터 수정이 가능할 때, MOCK 데이터 삭제 예정
+    // TODO: selectedLinkValue를 checkedItemId 를 가진 폴더에 저장
     // TODO: 바로 닫히지 않고, 데이터가 잘 저장되었다고 알려주는 텀이 있으면 좋겠다.
     setTimeout(() => {
       setOpenAddLinkModal(false);

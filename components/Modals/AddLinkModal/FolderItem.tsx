@@ -13,7 +13,7 @@ const FolderItem = ({
   isChecked: boolean;
   setCheckedItemId: React.Dispatch<React.SetStateAction<number>>;
 }) => {
-  // TODO: API 받아오는 걸로 변경하면, folder prop 타입도 변경될 예정
+  // TODO: 데이터 수정 가능한 Api 구축하면 prop 변경 예정
   return (
     <div
       className={`${styles.itemWrapper} ${styles[`${isChecked}`]}`}
