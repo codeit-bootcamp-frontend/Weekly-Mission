@@ -1,14 +1,8 @@
 .folder-add-button {
   cursor: pointer;
-  padding: 0.8rem 2.4rem;
   background-color: #ffffff;
-  border: 1px solid #ffffff;
-  border-radius: 2rem;
-  color: #ffffff;
   font-size: 1.6rem;
-}
-
-.folder-add-button-content {
+  border: none;
   display: flex;
   align-items: center;
   gap: 0.4rem;

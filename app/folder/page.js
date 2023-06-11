@@ -28,17 +28,26 @@ export default async function Folder() {
       </header>
       <main className={cx("main")}>
         <SearchBar placeholder="원하는 링크를 검색해 보세요" />
-        <FolderChip active>전체</FolderChip>
-        {folders.map((folder) => (
-          <FolderChip key={folder.id} id={folder.id}>
-            {folder.name}
-          </FolderChip>
-        ))}
-        <FAB />
-        <div className={cx("card-list")}>
-          {links.map((linkData) => (
-            <Card key={linkData.id} data={linkData} />
-          ))}
+        <div className={cx("folder-container")}>
+          <div className={cx("folder-tab")}>
+            <div className={cx("folderchip-container")}>
+              <FolderChip active>전체</FolderChip>
+              {folders.map((folder) => (
+                <FolderChip key={folder.id} id={folder.id}>
+                  {folder.name}
+                </FolderChip>
+              ))}
+            </div>
+            <FAB />
+          </div>
+          <div className={cx("folder-header")}>
+            <h1 className={cx("folder-title")}>전체</h1>
+          </div>
+          <div className={cx("card-list")}>
+            {links.map((linkData) => (
+              <Card key={linkData.id} data={linkData} />
+            ))}
+          </div>
         </div>
       </main>
       <Footer />

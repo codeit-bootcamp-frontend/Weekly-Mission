@@ -9,6 +9,26 @@
   max-width: 106rem;
 }
 
+.folder-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.folder-tab {
+  display: flex;
+  justify-content: space-between;
+}
+
+.folderchip-container {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.folder-title {
+  font-size: 2.4rem;
+}
+
 .card-list {
   display: grid;
   grid-template-columns: repeat(3, auto);

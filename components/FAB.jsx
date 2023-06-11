@@ -6,11 +6,9 @@ const cx = classNames.bind(styles);
 
 export default function FAB() {
   return (
-    <button className={cx("folder-add-button")} type="button">
-      <div className={cx("folder-add-button-content")}>
-        폴더 추가
-        <Image src="/images/add.svg" alt="추가 아이콘" width={16} height={16} />
-      </div>
+    <button className={cx("folder-add-button")}>
+      폴더 추가
+      <Image src="/images/add.svg" alt="추가 아이콘" width={16} height={16} />
     </button>
   );
 }
