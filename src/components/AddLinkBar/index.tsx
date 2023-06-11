@@ -1,15 +1,21 @@
 import React, { useRef, useState } from "react";
-
 import Image from "next/image";
-
 import styles from "./add-link-bar.module.css";
 import AddLinkModal from "@/components/Modals/AddLinkModal";
+import { Folder } from "$/types";
 
-const AddLinkBar = ({ tabs }) => {
-  const linkInputRef = useRef(null);
+interface AddLinkBarProps {
+  tabs: Folder[];
+}
+
+const AddLinkBar: React.FC<AddLinkBarProps> = ({ tabs }) => {
+  const linkInputRef = useRef<HTMLInputElement>(null);
   const [isAddLinkModalOpen, setIsAddLinkModalOpen] = useState(false);
 
-  const handleClick = (e, value) => {
+  const handleClick = (
+    e: React.MouseEvent<HTMLButtonElement>,
+    value: string | undefined
+  ) => {
     e.preventDefault();
     if (!value) return;
     setIsAddLinkModalOpen(true);
@@ -20,6 +26,7 @@ const AddLinkBar = ({ tabs }) => {
       linkInputRef.current.value = "";
     }
   };
+
   return (
     <>
       <div className={styles.formContainer}>
@@ -57,7 +64,7 @@ const AddLinkBar = ({ tabs }) => {
         onClose={() => {
           setIsAddLinkModalOpen(false);
         }}
-        link={linkInputRef.current?.value}
+        link={linkInputRef.current?.value ?? ""}
         tabs={tabs}
         clearInput={clearInput}
       />
