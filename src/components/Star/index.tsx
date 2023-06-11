@@ -1,11 +1,15 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, MouseEvent } from "react";
 import styles from "./Star.module.css";
 
-const Star = ({ isStarred }) => {
-  const [starred, setStarred] = useState(isStarred);
-  const fillRef = useRef(null);
+interface StarProps {
+  isStarred?: boolean;
+}
 
-  const handleStarClick = (event) => {
+const Star: React.FC<StarProps> = ({ isStarred = false }) => {
+  const [starred, setStarred] = useState<boolean>(isStarred);
+  const fillRef = useRef<SVGPathElement>(null);
+
+  const handleStarClick = (event: MouseEvent<HTMLDivElement>) => {
     event.stopPropagation();
     setStarred((prev) => !prev);
   };
