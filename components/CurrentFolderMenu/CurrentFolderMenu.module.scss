@@ -1,7 +1,7 @@
 @use "@/styles/abstract/variables_color" as var-color;
 @use "@/styles/abstract/mixins" as mixin;
 
-.optionsWrapper {
+.currentFolderMenuWrapper {
   width: 100%;
   max-width: 1060px;
   margin: 0 auto;
@@ -17,7 +17,7 @@
     letter-spacing: -0.2px;
     color: #000000;
   }
-  .modalList {
+  .menuWrapper {
     display: flex;
     gap: 14px;
 
@@ -49,13 +49,13 @@
 }
 
 @include mixin.tablet {
-  .optionsWrapper {
+  .currentFolderMenuWrapper {
     max-width: calc(100% - 6.4rem);
   }
 }
 
 @include mixin.mobile {
-  .optionsWrapper {
+  .currentFolderMenuWrapper {
     padding-bottom: 20.5px;
     flex-direction: column;
     align-items: flex-start;

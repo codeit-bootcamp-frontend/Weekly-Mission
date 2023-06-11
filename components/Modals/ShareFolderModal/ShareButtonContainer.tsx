@@ -4,21 +4,21 @@ import ShareButton from "./ShareButton";
 import styles from "./ShareFolderModal.module.scss";
 
 interface IShareButtonContainerProps {
-  setOpenShareFolderModal: React.Dispatch<React.SetStateAction<boolean>>;
+  handleClickCloseModal: () => void;
 }
 
 /**
  * @function ShareButtonContainer 공유 기능을 별도 container로 분리
  */
 const ShareButtonContainer = ({
-  setOpenShareFolderModal,
+  handleClickCloseModal,
 }: IShareButtonContainerProps) => {
   const handleClickFacebookShare = () => {
     // TODO: 배포 주소로 변경하기
     window.open("http://www.facebook.com/sharer.php?u=https://www.naver.com/");
 
     setTimeout(() => {
-      setOpenShareFolderModal(false);
+      handleClickCloseModal();
     }, 500);
   };
 
@@ -28,14 +28,14 @@ const ShareButtonContainer = ({
     }
 
     setTimeout(() => {
-      setOpenShareFolderModal(false);
+      handleClickCloseModal();
     }, 500);
   };
 
   const handleClickKaKaoShare = () => {
     // TODO: 환경변수 가능할 때, 카카오 기능 연결하기
     setTimeout(() => {
-      setOpenShareFolderModal(false);
+      handleClickCloseModal();
     }, 500);
   };
 

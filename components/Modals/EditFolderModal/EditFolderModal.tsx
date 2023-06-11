@@ -6,12 +6,12 @@ import ModalLayout from "../ModalLayout";
 import styles from "./EditFolderModal.module.scss";
 
 interface IEditFolderModalProps {
-  setOpenEditFolderModal: React.Dispatch<React.SetStateAction<boolean>>;
+  handleCloseModal: () => void;
   currentFolderName: string;
 }
 
 const EditFolderModal = ({
-  setOpenEditFolderModal,
+  handleCloseModal,
   currentFolderName,
 }: IEditFolderModalProps) => {
   const folderEditNameRef = useRef<HTMLInputElement>(null);
@@ -22,14 +22,14 @@ const EditFolderModal = ({
     // console.log(folderEditNameRef.current.value);
 
     setTimeout(() => {
-      setOpenEditFolderModal(false);
+      handleCloseModal();
     }, 500);
   };
 
   return (
     <ModalLayout
       portalId="edit-folder-portal"
-      handleClickCloseModal={() => setOpenEditFolderModal(false)}
+      handleClickCloseModal={handleCloseModal}
     >
       <h3 className={styles.title}>폴더 이름 변경</h3>
       <input

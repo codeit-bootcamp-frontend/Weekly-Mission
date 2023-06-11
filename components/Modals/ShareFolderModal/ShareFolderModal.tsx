@@ -5,23 +5,23 @@ import ShareButtonContainer from "./ShareButtonContainer";
 import styles from "./ShareFolderModal.module.scss";
 
 interface IShareFolderModalProps {
-  setOpenShareFolderModal: React.Dispatch<React.SetStateAction<boolean>>;
+  handleCloseModal: () => void;
   currentFolderName: string;
 }
 
 const ShareFolderModal = ({
-  setOpenShareFolderModal,
+  handleCloseModal,
   currentFolderName,
 }: IShareFolderModalProps) => {
   // TODO: 폴더 공유 관련 api 처리
   return (
     <ModalLayout
       portalId="share-folder-portal"
-      handleClickCloseModal={() => setOpenShareFolderModal(false)}
+      handleClickCloseModal={handleCloseModal}
     >
       <h3 className={styles.title}>폴더 공유</h3>
       <h4 className={styles.subTitle}>{currentFolderName}</h4>
-      <ShareButtonContainer setOpenShareFolderModal={setOpenShareFolderModal} />
+      <ShareButtonContainer handleClickCloseModal={handleCloseModal} />
     </ModalLayout>
   );
 };
