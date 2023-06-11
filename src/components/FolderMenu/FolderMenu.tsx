@@ -37,9 +37,10 @@ const FolderMenu = ({
           </div>
           {tabs.map((tab) => (
             <div key={tab.id} onClick={() => handleClick(tab)}>
+              {console.log(tab, currentTab)}
               <FolderChipButton
                 name={tab.name}
-                isSelected={tab.id === currentTab}
+                isSelected={tab.id === Number(currentTab)}
               />
             </div>
           ))}
