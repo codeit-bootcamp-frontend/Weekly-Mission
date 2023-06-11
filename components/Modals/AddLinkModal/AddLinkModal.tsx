@@ -6,7 +6,7 @@ import ModalLayout from "../ModalLayout";
 import styles from "./AddLinkModal.module.scss";
 import FolderItem from "./FolderItem";
 
-interface IAddModalProps {
+interface IAddLinkModalProps {
   setOpenAddLinkModal: React.Dispatch<React.SetStateAction<boolean>>;
   selectedLinkValue: string;
 }
@@ -22,7 +22,7 @@ const AddLinkModal = ({
   setOpenAddLinkModal,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   selectedLinkValue,
-}: IAddModalProps) => {
+}: IAddLinkModalProps) => {
   const [checkedItemId, setCheckedItemId] = useState(-1);
 
   const handleClickPostLink = (): void => {

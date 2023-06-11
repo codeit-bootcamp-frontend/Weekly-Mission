@@ -1,18 +1,14 @@
 import Link from "next/link";
 
-import styles from "./FolderListItem.module.scss";
+import styles from "./FolderChip.module.scss";
 
-interface IFolderListItemProps {
+interface IFolderChipProps {
   name: string;
   toRoute: number;
   isSelected: boolean;
 }
 
-const FolderListItem = ({
-  name,
-  toRoute,
-  isSelected,
-}: IFolderListItemProps) => {
+const FolderChip = ({ name, toRoute, isSelected }: IFolderChipProps) => {
   return (
     <>
       <Link
@@ -25,4 +21,4 @@ const FolderListItem = ({
   );
 };
 
-export default FolderListItem;
+export default FolderChip;

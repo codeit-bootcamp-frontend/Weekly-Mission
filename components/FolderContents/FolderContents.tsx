@@ -3,7 +3,7 @@
 import AddLinkField from "@/components/AddLinkField/AddLinkField";
 import CardListOptions from "@/components/CardListOptions/CardListOptions";
 import CardWrapper from "@/components/CardWrapper/CardWrapper";
-import FolderList from "@/components/FolderList/FolderList";
+import FolderChipField from "@/components/FolderChipField/FolderChipField";
 import SearchBar from "@/components/SearchBar/SearchBar";
 import useViewObserver from "@/hooks/useViewObserver";
 import { IFolder, ILink } from "@/types/linkbrary";
@@ -38,11 +38,11 @@ const FolderContents = ({
         <div ref={(el: HTMLDivElement) => (observerTargetRefs.current[0] = el)}>
           <SearchBar placeholder="제목을 검색해 보세요" />
         </div>
-        <FolderList
+        <FolderChipField
           folders={folderList}
           currentTab={currentTab}
           inView={inView}
-          isLinks={links.length ? links.length : 0}
+          isLinks={links.length !== 0}
         />
         {currentFolder && <CardListOptions currentFolder={currentFolder} />}
         <CardWrapper links={links} />

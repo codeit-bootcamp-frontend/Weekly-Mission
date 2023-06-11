@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 
 import Image from "next/image";
 
-import AddModal from "@/components/Modals/AddLinkModal/AddLinkModal";
+import AddLinkModal from "@/components/Modals/AddLinkModal/AddLinkModal";
 import DeleteLinkModal from "@/components/Modals/DeleteLinkModal/DeleteLinkModal";
 import useOutsideClick from "@/hooks/useOutsideClick";
 import { ILink } from "@/types/linkbrary";
@@ -32,7 +32,7 @@ const Card = ({
 
   const [openDeleteLinkModal, setOpenDeleteLinkModal] =
     useState<boolean>(false);
-  const [openAddModal, setOpenAddModal] = useState<boolean>(false);
+  const [openAddLinkModal, setOpenAddLinkModal] = useState<boolean>(false);
 
   const handleClickNavigation = (e: React.MouseEvent<HTMLDivElement>): void => {
     if (isClickedKebab) return;
@@ -104,16 +104,16 @@ const Card = ({
             </div>
             <div
               className={styles.addFolderButton}
-              onClick={() => setOpenAddModal(true)}
+              onClick={() => setOpenAddLinkModal(true)}
             >
               폴더에 추가
             </div>
           </div>
         )}
       </div>
-      {openAddModal && (
-        <AddModal
-          setOpenAddModal={setOpenAddModal}
+      {openAddLinkModal && (
+        <AddLinkModal
+          setOpenAddLinkModal={setOpenAddLinkModal}
           selectedLinkValue={link.url}
         />
       )}

@@ -1,14 +1,14 @@
 @use "@/styles/abstract/variables_color" as var-color;
 @use "@/styles/abstract/mixins" as mixin;
 
-.folderListWrapper {
+.folderChipFieldWrapper {
   width: 100%;
   max-width: 1060px;
   margin: 0 auto;
   padding: 0 0 24px;
   display: flex;
 
-  .tabList {
+  .chipWrapper {
     width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -50,7 +50,7 @@
 }
 
 @include mixin.tablet {
-  .folderListWrapper {
+  .folderChipFieldWrapper {
     max-width: calc(100% - 6.4rem);
   }
 }
@@ -79,7 +79,7 @@
     bottom: calc(85px + 16px);
   }
 
-  .folderListWrapper {
+  .folderChipFieldWrapper {
     .buttonWrapper {
       .buttonText {
         color: var-color.$linkbrary-gray-10;
