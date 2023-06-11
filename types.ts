@@ -22,3 +22,7 @@ export interface Folder {
   name: string;
   user_id: number;
 }
+
+export interface Children {
+  children: React.ReactNode;
+}
