@@ -8,7 +8,8 @@ import classNames from "classnames/bind";
 import styles from "./page.module.css";
 import Image from "next/image";
 
-export default async function Shared() {
+export default async function Shared({ searchParams }) {
+  console.log("searchParams:", searchParams);
   const folderData = await getFolderData();
   const userData = await getUserData();
 

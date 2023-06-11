@@ -17,11 +17,11 @@ const DEFAULT = {
 };
 
 export default function Card({
-  data: { createdAt = DEFAULT.createdAt, url = DEFAULT.url, title = DEFAULT.title, description = DEFAULT.description, imageSource = DEFAULT.imageSource },
+  data: { created_at = DEFAULT.createdAt, url = DEFAULT.url, title = DEFAULT.title, description = DEFAULT.description, image_source = DEFAULT.imageSource },
 }) {
   const [isSelected, SetIsSelected] = useState(false);
-  const timeDiffFormat = getTimeDiffFormat(createdAt);
-  const dateFormat = getDateFormat(createdAt);
+  const timeDiffFormat = getTimeDiffFormat(created_at);
+  const dateFormat = getDateFormat(created_at);
 
   const handleClickCard = () => {
     window.open(url);
@@ -44,7 +44,7 @@ export default function Card({
   return (
     <div className={cx("card")} onClick={handleClickCard}>
       <div className={cx("card-image-container")}>
-        <Image fill className={cx("card-image")} src={imageSource} alt={title} />
+        <Image fill className={cx("card-image")} src={image_source} alt={title} />
         <button className={cx("star-button")} onClick={handleClickStar}>
           <Image className={cx("star-icon")} src="/images/default-star.svg" alt="북마크 아이콘" width={30} height={31} />
         </button>

@@ -30,11 +30,6 @@
   gap: 2.4rem 2rem;
 }
 
-.datetime {
-  color: #333333;
-  font-size: 1.5rem;
-}
-
 @media (max-width: 1099px) {
   .main {
     max-width: 70.4rem;

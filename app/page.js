@@ -41,9 +41,7 @@ export default async function Home() {
               사고 싶은 옷, 기억하고 싶은 모든 것을 <br />한 공간에 저장하세요.
             </p>
           </div>
-          {/* <div className={cx("intro-image-content")}> */}
           <Image className={cx("intro-image")} src="/images/intro_link_card.png" alt="링크 카드 소개 이미지" width={550} height={450} />
-          {/* </div> */}
         </section>
         <section className={cx("card")}>
           <Image className={cx("intro-image")} src="/images/intro_rename_folder.png" alt="폴더 관리 소개 이미지" width={550} height={450} />
