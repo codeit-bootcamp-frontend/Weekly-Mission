@@ -7,13 +7,13 @@ import Image from "next/image";
 import AddModal from "@/components/Modals/AddModal/AddModal";
 import DeleteLinkModal from "@/components/Modals/DeleteLinkModal/DeleteLinkModal";
 import useOutsideClick from "@/hooks/useOutsideClick";
-import { ILinkData } from "@/lib/getFolderData";
+import { ILink } from "@/types/linkbrary";
 import beautifyDate from "@/utils/beautifyDate";
 
 import styles from "./Card.module.scss";
 
 interface ICardProps {
-  link: ILinkData;
+  link: ILink;
   isClickedKebab: boolean;
   handleClickOpenKebab: () => void;
   handleClickCloseKebab: () => void;
@@ -25,7 +25,7 @@ const Card = ({
   handleClickOpenKebab,
   handleClickCloseKebab,
 }: ICardProps) => {
-  const { beautifiedDate, beautifiedTimeDiff } = beautifyDate(link.createdAt);
+  const { beautifiedDate, beautifiedTimeDiff } = beautifyDate(link.created_at);
   const [isCheckAsterisk, setIsCheckAsterisk] = useState<boolean>(false);
   const notTargetRefs = useRef<HTMLElement[]>([]);
   const kebabRef = useRef<HTMLDivElement | null>(null);
@@ -73,7 +73,7 @@ const Card = ({
         <div className={styles.cardImgTop}>
           <img
             className={styles.image}
-            src={link.imageSource ?? "/assets/image-dummy.png"}
+            src={link.image_source ?? "/assets/image-dummy.png"}
             alt={link.title}
           />
         </div>

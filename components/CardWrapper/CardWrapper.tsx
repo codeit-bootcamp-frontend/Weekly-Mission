@@ -3,12 +3,12 @@
 import { useState } from "react";
 
 import Card from "@/components/Card/Card";
-import { ILinkData } from "@/lib/getFolderData";
+import { ILink } from "@/types/linkbrary";
 
 import styles from "./CardWrapper.module.scss";
 
 interface ICardWrapperProps {
-  links: ILinkData[];
+  links: ILink[];
 }
 
 const CardWrapper = ({ links }: ICardWrapperProps) => {

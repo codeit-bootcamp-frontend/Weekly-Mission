@@ -5,12 +5,13 @@ import { useState } from "react";
 import Image from "next/image";
 
 import AddFolderModal from "@/components/Modals/AddFolderModal/AddFolderModal";
+import { IFolder } from "@/types/linkbrary";
 
 import styles from "./FolderList.module.scss";
 import FolderListItem from "./FolderListItem";
 
 interface IFolderListProps {
-  folders: { id: number; name: string }[];
+  folders: IFolder[];
   currentTab: number;
   inView: boolean | null;
   isLinks: number;
@@ -34,13 +35,13 @@ const FolderList = ({
   return (
     <div className={styles.folderListWrapper}>
       <div className={styles.tabList}>
-        {folders.map((folder, index) => {
+        {folders.map((folder) => {
           return (
             <FolderListItem
               key={folder.id}
               toRoute={folder.id}
               name={folder.name}
-              isSelected={currentTab === index}
+              isSelected={currentTab === folder.id}
             />
           );
         })}

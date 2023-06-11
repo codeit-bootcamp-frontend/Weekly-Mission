@@ -14,8 +14,12 @@ export const revalidate = 3600;
 
 export default async function FolderLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: {
+    userId?: number;
+  };
 }) {
   const session = await getServerSession(authOptions);
 
@@ -23,18 +27,17 @@ export default async function FolderLayout({
     redirect("/api/auth/signin");
   }
 
-  const userId = session.user.id;
+  const userId = session.user.id as number;
+  params.userId = userId;
 
   const queryClient = getQueryClient();
-  await queryClient.prefetchQuery(["user"], () =>
-    getUserQueryFn(userId as number)
-  );
+  await queryClient.prefetchQuery(["user"], () => getUserQueryFn(userId));
   const dehydratedState = dehydrate(queryClient);
 
   return (
     <>
       <QueryHydrate state={dehydratedState}>
-        <Gnb userId={userId as number} />
+        <Gnb userId={userId} />
         {children}
         <Footer />
         <div id="add-portal"></div>

@@ -12,6 +12,8 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
 import styles from "./page.module.scss";
 
+export const revalidate = 3600;
+
 export default async function Home() {
   const session = await getServerSession(authOptions);
 

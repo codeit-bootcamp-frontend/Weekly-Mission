@@ -7,29 +7,35 @@ import CardListOptions from "@/components/CardListOptions/CardListOptions";
 import CardWrapper from "@/components/CardWrapper/CardWrapper";
 import FolderList from "@/components/FolderList/FolderList";
 import SearchBar from "@/components/SearchBar/SearchBar";
-import { ILinkData } from "@/lib/getFolderData";
+import { IFolder, ILink } from "@/types/linkbrary";
 
 import styles from "./FolderContents.module.scss";
 
-interface ICardWrapperProps {
-  links: ILinkData[];
-  folders: { id: number; name: string }[];
+interface IFolderContentsProps {
+  links: ILink[] | [];
+  folders: IFolder[] | [];
   currentTab: number;
-  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-const FolderContents = ({ links, folders, currentTab }: ICardWrapperProps) => {
-  // TODO: prop으로 현재 탭(파일 데이터), 탭 리스트(파일 목록)을 넘겨받아서, 그 탭에 있는 링크들을 목록으로 보여주기
-
+const FolderContents = ({
+  folders,
+  links,
+  currentTab,
+}: IFolderContentsProps) => {
   const observerTargetRefs = useRef<HTMLDivElement[]>([]);
   const [inView, setInView] = useState<boolean | null>(null);
 
   useEffect(() => {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        setInView(entry.isIntersecting);
-      });
-    });
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setInView(entry.isIntersecting);
+        });
+      },
+      {
+        threshold: 0.8,
+      }
+    );
 
     observerTargetRefs.current.forEach((ref) => io.observe(ref));
 
@@ -37,6 +43,11 @@ const FolderContents = ({ links, folders, currentTab }: ICardWrapperProps) => {
       io.disconnect();
     };
   }, []);
+
+  const folderList = folders.length
+    ? [{ id: 0, name: "전체" }, ...folders]
+    : folders;
+  const currentFolder = folderList.find((folder) => folder.id === currentTab);
 
   return (
     <>
@@ -48,12 +59,12 @@ const FolderContents = ({ links, folders, currentTab }: ICardWrapperProps) => {
           <SearchBar placeholder="제목을 검색해 보세요" />
         </div>
         <FolderList
-          folders={folders}
+          folders={folderList}
           currentTab={currentTab}
           inView={inView}
-          isLinks={links.length}
+          isLinks={links.length ? links.length : 0}
         />
-        <CardListOptions currentFolder={folders[currentTab]} />
+        {currentFolder && <CardListOptions currentFolder={currentFolder} />}
         <CardWrapper links={links} />
       </div>
     </>

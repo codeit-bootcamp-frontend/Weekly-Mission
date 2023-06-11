@@ -20,11 +20,6 @@ const nextConfig = {
         destination: "/folder",
         permanent: true,
       },
-      {
-        source: "/folder/1",
-        destination: "/folder/favorites",
-        permanent: true,
-      },
     ];
   },
   typescript: {

@@ -7,14 +7,12 @@ import Image from "next/image";
 import DeleteFolderModal from "@/components/Modals/DeleteFolderModal/DeleteFolderModal";
 import EditFolderModal from "@/components/Modals/EditFolderModal/EditFolderModal";
 import ShareFolderModal from "@/components/Modals/ShareFolderModal/ShareFolderModal";
+import { IFolder } from "@/types/linkbrary";
 
 import styles from "./CardListOptions.module.scss";
 
 interface ICardListOptionsProps {
-  currentFolder: {
-    id: number;
-    name: string;
-  };
+  currentFolder: IFolder;
 }
 
 const CardListOptions = ({ currentFolder }: ICardListOptionsProps) => {
