@@ -9,7 +9,7 @@ interface ModalContainerProps {
   onClose: () => void;
   children: React.ReactNode;
   modalTitle: string;
-  modalSubTitle: string;
+  modalSubTitle?: string;
 }
 
 const ModalContainer = ({

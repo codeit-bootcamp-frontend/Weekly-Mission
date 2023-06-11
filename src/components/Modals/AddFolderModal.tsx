@@ -1,11 +1,17 @@
-import React, { useState, useRef } from "react";
-
 import Input from "@/presentation/Input";
 import SubmitButton from "@/presentation/Button/SubmitButton";
 import ModalContainer from "@/components/Modals/ModalContainer";
 
-const AddFolerModal = ({ isAddFolderModalOpen, onClose }) => {
-  const handleSubmit = (e) => {
+interface AddFolderModalProps {
+  isAddFolderModalOpen: boolean;
+  onClose: () => void;
+}
+
+const AddFolderModal = ({
+  isAddFolderModalOpen,
+  onClose,
+}: AddFolderModalProps) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onClose();
   };
@@ -23,10 +29,10 @@ const AddFolerModal = ({ isAddFolderModalOpen, onClose }) => {
         <Input>
           <input placeholder="내용 추가" />
         </Input>
-        <SubmitButton buttonType="blue" buttonText="추가하기" type="submit" />
+        <SubmitButton buttonType="blue" buttonText="추가하기" />
       </form>
     </ModalContainer>
   );
 };
 
-export default AddFolerModal;
+export default AddFolderModal;

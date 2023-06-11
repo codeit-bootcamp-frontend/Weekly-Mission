@@ -3,7 +3,7 @@ import styles from "./modal.module.css";
 interface ModalProps {
   children: React.ReactNode;
   modalTitle: string;
-  modalSubTitle: string;
+  modalSubTitle?: string;
 }
 
 const Modal = ({ children, modalTitle, modalSubTitle }: ModalProps) => {
