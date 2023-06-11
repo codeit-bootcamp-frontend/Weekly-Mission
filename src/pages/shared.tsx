@@ -5,27 +5,24 @@ import CardList from "@/components/CardList";
 import PageInfo from "@/components/PageInfo";
 import DefaultLayout from "@/layouts/DefaultLayout";
 import getData from "@/lib/getData";
-import { Folder, Link } from "$/types";
-import {
-  GetServerSideProps,
-  InferGetServerSidePropsType,
-  NextPageContext,
-} from "next";
+import { Folder, Link, User } from "$/types";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
 interface SharedPageProps {
-  folder: Folder;
+  folder: string;
   links: Link[];
+  user: User;
 }
 
 function SharedPage({
   links,
   folder,
+  user,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  console.log(links);
   return (
     <>
       <div className={styles.heroSection}>
-        <PageInfo folder={folder} />
+        <PageInfo folder={folder} user={user} />
       </div>
       <div className={styles.wrapper}>
         <SearchBar />
@@ -45,6 +42,9 @@ export const getServerSideProps: GetServerSideProps<SharedPageProps> = async (
   );
   const { distinctData: links = {} } = sharedData ?? {};
 
+  const userData = await getData(`/api/users/${sharedUserId}`);
+  const user = userData.data[0];
+
   const folderTitleData = await getData(
     `/api/users/${sharedUserId}/folders/${folderId}`
   );
@@ -56,6 +56,7 @@ export const getServerSideProps: GetServerSideProps<SharedPageProps> = async (
     props: {
       folder,
       links,
+      user,
     },
   };
 };
