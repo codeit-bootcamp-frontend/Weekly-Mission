@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./CardList.module.css";
 import Card from "@/components/Card";
-import { Link as Cards, Folder as Tabs } from "$/types";
+import { Link, Folder } from "$/types";
 
 interface CardListProps {
-  cards: Cards[];
-  tabs?: Tabs[];
+  cards: Link[];
+  tabs?: Folder[];
 }
 
 const CardList: React.FC<CardListProps> = ({ cards, tabs }) => {

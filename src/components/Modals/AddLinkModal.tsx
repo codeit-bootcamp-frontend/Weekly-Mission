@@ -8,7 +8,7 @@ interface AddLinkModalProps {
   isAddLinkModalOpen: boolean;
   onClose: () => void;
   link: string;
-  tabs: Folder[];
+  tabs?: Folder[];
   clearInput?: () => void;
 }
 

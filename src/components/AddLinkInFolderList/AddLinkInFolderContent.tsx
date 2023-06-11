@@ -3,7 +3,7 @@ import AddLinkInFolderContentItem from "@/components/AddLinkInFolderList/AddLink
 import { Folder } from "$/types";
 
 interface AddLinkInFolderContentProps {
-  tabs: Folder[];
+  tabs?: Folder[];
   checkedItemId: number | null;
   onCheckedItemId: (id: number) => void;
 }
@@ -19,16 +19,17 @@ const AddLinkInFolderContent = ({
 
   return (
     <div className={styles.Container}>
-      {tabs.map((tab) => {
-        return (
-          <AddLinkInFolderContentItem
-            key={tab.id}
-            tab={tab}
-            onClick={handleClick}
-            isClicked={tab.id === checkedItemId}
-          />
-        );
-      })}
+      {tabs &&
+        tabs.map((tab) => {
+          return (
+            <AddLinkInFolderContentItem
+              key={tab.id}
+              tab={tab}
+              onClick={handleClick}
+              isClicked={tab.id === checkedItemId}
+            />
+          );
+        })}
     </div>
   );
 };

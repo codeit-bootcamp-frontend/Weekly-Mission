@@ -10,7 +10,7 @@ import { Link as Card, Folder as Tab } from "$/types";
 
 interface CardProps {
   card: Card;
-  tabs: Tab[];
+  tabs?: Tab[];
 }
 
 const Card: React.FC<CardProps> = ({ card, tabs }) => {
