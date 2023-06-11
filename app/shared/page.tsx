@@ -3,7 +3,10 @@ import Image from "next/image";
 
 import SearchBar from "@/components/SearchBar/SearchBar";
 import getFolderData from "@/lib/getFolderData";
+import { getLinkQueryFn } from "@/lib/tanstack/queryFns/foldersQueryFns";
+import { getServerSession } from "next-auth";
 
+import { authOptions } from "../api/auth/[...nextauth]/route";
 import styles from "./page.module.scss";
 
 const CardWrapper = dynamic(
@@ -12,7 +15,13 @@ const CardWrapper = dynamic(
 );
 
 const Shared = async () => {
+  const session = await getServerSession(authOptions);
+
+  const userId = session?.user.id as number;
+  const folderId = 1;
+
   const userFolder = await getFolderData();
+  const links = await getLinkQueryFn(userId, folderId);
 
   return (
     <>
@@ -33,7 +42,7 @@ const Shared = async () => {
 
         <div className={styles.contents}>
           <SearchBar placeholder="원하는 링크를 검색해 보세요" />
-          <CardWrapper links={userFolder.links} />
+          <CardWrapper links={links} />
         </div>
       </main>
     </>

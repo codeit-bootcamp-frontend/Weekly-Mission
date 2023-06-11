@@ -25,6 +25,8 @@ export const authOptions: NextAuthOptions = {
             password: string;
           };
 
+          // TODO: mongodb 검색 코드 작성
+
           /**
            * @description 임시로 설정한 유저 정보입니다.
            */
