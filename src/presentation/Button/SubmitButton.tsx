@@ -1,6 +1,11 @@
 import styles from "./submit-button.module.css";
 
-const SubmitButton = ({ buttonType, buttonText }) => {
+interface SubmitButtonProps {
+  buttonType: string;
+  buttonText: string;
+}
+
+const SubmitButton = ({ buttonType, buttonText }: SubmitButtonProps) => {
   return (
     <button className={`${styles.button} ${styles[buttonType]}`} type="submit">
       {buttonText}
