@@ -49,7 +49,7 @@ const AddLinkField = () => {
           추가하기
         </button>
       </form>
-      <div className={styles.observed}></div>
+      {/* <div className={styles.observed}></div> */}
 
       {openAddLinkModal && (
         <AddLinkModal

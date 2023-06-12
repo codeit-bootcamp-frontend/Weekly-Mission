@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect } from "react";
+
 import AddLinkField from "@/components/AddLinkField/AddLinkField";
 import CurrentFolderMenu from "@/components/CurrentFolderMenu/CurrentFolderMenu";
 import FolderChipField from "@/components/FolderChipField/FolderChipField";
@@ -29,15 +31,23 @@ const FolderContents = ({
     : folders;
   const currentFolder = folderList.find((folder) => folder.id === currentTab);
 
+  useEffect(() => {
+    console.log(inView);
+  }, [inView]);
+
   return (
     <>
-      <div className={`${styles.addLinkContainer} ${styles[`${inView}`]}`}>
-        <AddLinkField />
+      <div className={styles.observedWrapper}>
+        <div className={`${styles.addLinkContainer} ${styles[`${inView}`]}`}>
+          <AddLinkField />
+        </div>
+        <div
+          className={styles.observed}
+          ref={(el: HTMLDivElement) => (observerTargetRefs.current[0] = el)}
+        ></div>
       </div>
       <div className={styles.contents}>
-        <div ref={(el: HTMLDivElement) => (observerTargetRefs.current[0] = el)}>
-          <SearchBar placeholder="제목을 검색해 보세요" />
-        </div>
+        <SearchBar placeholder="제목을 검색해 보세요" />
         <FolderChipField
           folders={folderList}
           currentTab={currentTab}

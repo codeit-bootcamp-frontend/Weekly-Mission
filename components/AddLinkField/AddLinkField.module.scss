@@ -82,9 +82,9 @@
       cursor: pointer;
     }
   }
-  .observed {
-    height: 1px;
-  }
+  // .observed {
+  //   height: 1px;
+  // }
 }
 
 @include mixin.mobile {
