@@ -4,12 +4,12 @@
 .cardWrapper {
   position: relative;
   overflow: hidden;
+  filter: drop-shadow(0px 5px 25px rgba(0, 0, 0, 0.08));
 
   .card {
     background: var-color.$linkbrary-white;
     width: 340px;
     height: 335px;
-    filter: drop-shadow(0px 5px 25px rgba(0, 0, 0, 0.08));
     border-radius: 15px;
     overflow: hidden;
     cursor: pointer;
