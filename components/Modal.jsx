@@ -14,8 +14,8 @@ export default function Modal({ title = "폴더 이름 변경", onClose }) {
   };
 
   return (
-    <div className={cx("background")}>
-      <div className={cx("modal-container")}>
+    <div className={cx("background")} onClick={handleCloseModal}>
+      <div className={cx("modal-container")} onClick={(e) => e.stopPropagation()}>
         <button className={cx("close")} type="button" onClick={handleCloseModal}>
           <Image src="/images/close.svg" alt="닫기" width={24} height={24} />
         </button>

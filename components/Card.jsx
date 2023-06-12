@@ -51,27 +51,29 @@ export default function Card({
   const cx = classNames.bind(styles);
 
   return (
-    <div className={cx("card")} onClick={handleClickCard}>
-      <div className={cx("card-image-container")}>
-        <Image fill className={cx("card-image")} src={image_source} alt={title} />
-        <button className={cx("star-button")} onClick={handleClickStar}>
-          <Image className={cx("star-icon")} src="/images/default-star.svg" alt="북마크 아이콘" width={30} height={31} />
-        </button>
-      </div>
-      <div className={cx("text-box")}>
-        <div className={cx("text-content")}>
-          <div className={cx("card-info")}>
-            <span className={cx("added-time")}>{timeDiffFormat}</span>
-            <button className={cx("kebab-button")} onClick={handleClickKebab}>
-              <Image src="/images/kebab.svg" alt="더보기" width={21} height={17} />
-            </button>
-            {isKebabSelected && <SelectMenu onDeleteClick={setIsDeleteModalOpen} />}
+    <>
+      <div className={cx("card")} onClick={handleClickCard}>
+        <div className={cx("card-image-container")}>
+          <Image fill className={cx("card-image")} src={image_source} alt={title} />
+          <button className={cx("star-button")} onClick={handleClickStar}>
+            <Image className={cx("star-icon")} src="/images/default-star.svg" alt="북마크 아이콘" width={30} height={31} />
+          </button>
+        </div>
+        <div className={cx("text-box")}>
+          <div className={cx("text-content")}>
+            <div className={cx("card-info")}>
+              <span className={cx("added-time")}>{timeDiffFormat}</span>
+              <button className={cx("kebab-button")} onClick={handleClickKebab}>
+                <Image src="/images/kebab.svg" alt="더보기" width={21} height={17} />
+              </button>
+              {isKebabSelected && <SelectMenu onDeleteClick={setIsDeleteModalOpen} />}
+            </div>
+            <p className={cx("card-description")}>{description}</p>
+            <span className={cx("datetime")}>{dateFormat}</span>
           </div>
-          <p className={cx("card-description")}>{description}</p>
-          <span className={cx("datetime")}>{dateFormat}</span>
         </div>
       </div>
       {isDeleteModalOpen && <Modal onClose={setIsDeleteModalOpen} />}
-    </div>
+    </>
   );
 }
