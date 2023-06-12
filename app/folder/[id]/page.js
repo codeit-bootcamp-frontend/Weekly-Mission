@@ -44,11 +44,15 @@ export default async function FolderID({ params }) {
             <h1 className={cx("folder-title")}>전체</h1>
             <Option />
           </div>
-          <div className={cx("card-list")}>
-            {links.map((linkData) => (
-              <Card key={linkData.id} data={linkData} />
-            ))}
-          </div>
+          {links.length === 0 ? (
+            <p className={cx("no-link-content")}>저장된 링크가 없습니다</p>
+          ) : (
+            <div className={cx("card-list")}>
+              {links.map((linkData) => (
+                <Card key={linkData.id} data={linkData} />
+              ))}
+            </div>
+          )}
         </div>
       </main>
     </>

@@ -34,6 +34,12 @@
   font-size: 2.4rem;
 }
 
+.no-link-content {
+  font-size: 1.6rem;
+  text-align: center;
+  padding: 4rem 0 3.5rem;
+}
+
 .card-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
