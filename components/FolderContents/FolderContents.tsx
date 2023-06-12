@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
-
 import AddLinkField from "@/components/AddLinkField/AddLinkField";
 import CurrentFolderMenu from "@/components/CurrentFolderMenu/CurrentFolderMenu";
 import FolderChipField from "@/components/FolderChipField/FolderChipField";
@@ -30,10 +28,6 @@ const FolderContents = ({
     ? [{ id: 0, name: "전체" }, ...folders]
     : folders;
   const currentFolder = folderList.find((folder) => folder.id === currentTab);
-
-  useEffect(() => {
-    console.log(inView);
-  }, [inView]);
 
   return (
     <>
