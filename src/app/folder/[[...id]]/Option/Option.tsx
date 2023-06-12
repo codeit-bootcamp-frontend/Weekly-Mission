@@ -12,7 +12,7 @@ const Option = ({ imgSrc, label, onClick }: OptionProps) => {
   return (
     <div className={styles.optionContainer} onClick={onClick}>
       <div className={styles.optionIconBox}>
-        <Image src={imgSrc} alt="option item" fill sizes="1vw" />
+        <Image src={imgSrc} alt="option item" fill sizes="32vw" />
       </div>
       <span>{label}</span>
     </div>

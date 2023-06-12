@@ -19,7 +19,7 @@ const Header = ({ session }: HeaderProps) => {
     <header className={styles.headerWrapper} ref={headerRef}>
       <nav>
         <Link className={styles.logo} href="/">
-          <Image src="/logo.svg" alt="logo" fill sizes="10vw" />
+          <Image src="/logo.svg" alt="logo" fill sizes="64vw" />
         </Link>
         {!session?.user ? (
           <Link className={styles.loginBtn} href="/signin">

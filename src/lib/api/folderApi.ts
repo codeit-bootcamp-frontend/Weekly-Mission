@@ -16,3 +16,8 @@ export const getLinksByFolderId = async (userId: string, folderId: string) => {
   );
   return response;
 };
+
+export const getFoldersByUserId = async (userId: string) => {
+  const response = await getRequest(`/users/${userId}/folders`);
+  return response;
+};

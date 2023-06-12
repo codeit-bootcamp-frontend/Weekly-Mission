@@ -49,7 +49,7 @@ const Page = () => {
       <article className={styles.loginForm}>
         <section className={styles.logoContainer}>
           <Link href="/">
-            <Image src="/logo.svg" alt="logo" fill sizes="10vw" />
+            <Image src="/logo.svg" alt="logo" fill sizes="64vw" />
           </Link>
         </section>
         <section className={styles.createAccountText}>
@@ -84,7 +84,7 @@ const Page = () => {
                 src="/show-password-icon.svg"
                 alt="show password"
                 fill
-                sizes="1vw"
+                sizes="32vw"
               />
             </div>
           </div>
@@ -106,13 +106,13 @@ const Page = () => {
                 src="/google-icon.png"
                 alt="google logo"
                 fill
-                sizes="1vw"
+                sizes="32vw"
               />
             </Link>
           </div>
           <div className={styles.socialLogoBox}>
             <Link href="https://www.kakaocorp.com/page/">
-              <Image src="/kakao-icon.png" alt="kakao logo" fill sizes="1vw" />
+              <Image src="/kakao-icon.png" alt="kakao logo" fill sizes="32vw" />
             </Link>
           </div>
         </section>

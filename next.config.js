@@ -16,6 +16,14 @@ const nextConfig = {
       "ca.slack-edge.com",
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: "/linkbrary/:path*",
+        destination: "https://bootcamp-api.codeit.kr/api/:path*",
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
