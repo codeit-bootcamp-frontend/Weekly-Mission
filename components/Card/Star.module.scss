@@ -1,0 +1,13 @@
+@use "@/styles/utils";
+
+.star {
+  width: 3.4rem;
+  height: 3.4rem;
+}
+
+@include utils.mobile {
+  .star {
+    width: 3rem;
+    height: 3rem;
+  }
+}

@@ -2,10 +2,15 @@
 
 import { useState } from "react";
 
+import classNames from "classnames/bind";
 import Image from "next/image";
+
+import styles from "./Star.module.scss";
 
 import starImgDefault from "@/public/images/gray-star.png";
 import starImgFavor from "@/public/images/purple-star.png";
+
+const cx = classNames.bind(styles);
 
 export default function Star() {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -16,7 +21,7 @@ export default function Star() {
 
   return (
     <Image
-      fill
+      className={cx("star")}
       src={isFavorite ? starImgFavor : starImgDefault}
       alt="별(favorite)"
       onClick={handleClickStar}
