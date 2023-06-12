@@ -34,3 +34,7 @@ a {
 li {
   list-style: none;
 }
+
+button {
+  font-family: inherit;
+}

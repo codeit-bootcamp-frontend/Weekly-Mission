@@ -16,14 +16,17 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 36rem;
-  height: 50rem;
   background-color: #ffffff;
   border-radius: 1.5rem;
-  padding: 1.6rem;
+  padding: 3.2rem 4rem;
 }
 
 .close {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
   cursor: pointer;
   border: none;
   background-color: transparent;

@@ -8,6 +8,7 @@ import classNames from "classnames/bind";
 import styles from "@/styles/Card.module.css";
 import SelectMenu from "./SelectMenu";
 import Modal from "./Modal";
+import ModalDeleteLink from "./ModalDeleteLink";
 
 const DEFAULT = {
   createdAt: "2023. 3. 15",
@@ -73,7 +74,7 @@ export default function Card({
           </div>
         </div>
       </div>
-      {isDeleteModalOpen && <Modal onClose={setIsDeleteModalOpen} />}
+      {isDeleteModalOpen && <ModalDeleteLink link={url} onClose={setIsDeleteModalOpen} />}
     </>
   );
 }
