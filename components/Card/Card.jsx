@@ -56,7 +56,9 @@ export default function Card({ cardData }) {
           <div
             className={cx("cardImg")}
             style={{
-              backgroundImage: `url(${cardData.imageSource ?? defaultCardImg})`,
+              backgroundImage: `url(${
+                cardData.image_source ?? defaultCardImg
+              })`,
             }}
           ></div>
           <div className={cx("star")}>
@@ -65,7 +67,7 @@ export default function Card({ cardData }) {
         </div>
         <div className={cx("contentContainer")}>
           <div className={cx("passedTime")}>
-            {calculatePassedTime(cardData.createdAt)}
+            {calculatePassedTime(cardData.created_at)}
           </div>
           <KebabButton
             buttonStyle={{
@@ -76,7 +78,7 @@ export default function Card({ cardData }) {
           />
           <h2 className={cx("content")}>{cardData.description}</h2>
           <div className={cx("createdDate")}>
-            {changeDateFormat(cardData.createdAt)}
+            {changeDateFormat(cardData.created_at)}
           </div>
         </div>
       </Link>

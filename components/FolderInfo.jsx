@@ -6,18 +6,18 @@ import styles from "./FolderInfo.module.scss";
 
 const cx = classNames.bind(styles);
 
-export default function FolderInfo({ folder }) {
+export default function FolderInfo({ folder, owner }) {
   return (
     <header className={cx("headerFolder")}>
       <div className={cx("ownerContainer")}>
         <div className={cx("imgContainer")}>
           <Image
             fill
-            src={folder.owner.profileImageSource}
+            src={owner.image_source}
             alt="폴더 사용자 프로필 이미지"
           />
         </div>
-        <p className={cx("ownerName")}>{`@${folder.owner.name}`}</p>
+        <p className={cx("ownerName")}>{`@${owner.name}`}</p>
       </div>
       <h1 className={cx("folderDataName")}>{folder.name}</h1>
     </header>
@@ -26,4 +26,5 @@ export default function FolderInfo({ folder }) {
 
 FolderInfo.propTypes = {
   folder: PropTypes.object.isRequired,
+  owner: PropTypes.object.isRequired,
 };

@@ -23,5 +23,5 @@ export default function FolderChip({ id, name }) {
 
 FolderChip.propTypes = {
   name: PropTypes.string.isRequired,
-  id: PropTypes.number,
+  id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };

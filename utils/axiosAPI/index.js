@@ -33,16 +33,14 @@ const getFolder = async (userID, folderID) => {
   return data;
 };
 
-const getLink = async () => {
-  try {
-    const { data } = await instance.request({
-      url: `/sample/folder`,
-    });
-    const { folder } = data;
-    return folder ?? {};
-  } catch (error) {
-    return Promise.reject(error);
-  }
+const getLink = async (userID, folderID) => {
+  const url = folderID
+    ? `/users/${userID}/links/?folderId=${folderID}`
+    : `/users/${userID}/links`;
+  const { distinctData: data } = await instance.request({
+    url,
+  });
+  return data;
 };
 
 export { getUser, getFolder, getLink };
