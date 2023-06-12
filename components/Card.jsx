@@ -6,6 +6,7 @@ import getDateFormat from "@/utils/getDateFormat";
 import Image from "next/image";
 import classNames from "classnames/bind";
 import styles from "@/styles/Card.module.css";
+import SelectMenu from "./SelectMenu";
 
 const DEFAULT = {
   createdAt: "2023. 3. 15",
@@ -19,7 +20,8 @@ const DEFAULT = {
 export default function Card({
   data: { created_at = DEFAULT.createdAt, url = DEFAULT.url, title = DEFAULT.title, description = DEFAULT.description, image_source = DEFAULT.imageSource },
 }) {
-  const [isSelected, SetIsSelected] = useState(false);
+  const [isStartSelected, SetIsStarSelected] = useState(false);
+  const [isKebabSelected, setIsKebabSelected] = useState(false);
   const timeDiffFormat = getTimeDiffFormat(created_at);
   const dateFormat = getDateFormat(created_at);
 
@@ -31,12 +33,17 @@ export default function Card({
     e.stopPropagation();
     const starImg = e.currentTarget.firstChild;
 
-    if (isSelected) {
+    if (isStartSelected) {
       starImg.src = "/images/default-star.svg";
     } else {
       starImg.src = "/images/selected-star.svg";
     }
-    SetIsSelected(!isSelected);
+    SetIsStarSelected(!isStartSelected);
+  };
+
+  const handleClickKebab = (e) => {
+    e.stopPropagation();
+    setIsKebabSelected(!isKebabSelected);
   };
 
   const cx = classNames.bind(styles);
@@ -53,9 +60,10 @@ export default function Card({
         <div className={cx("text-content")}>
           <div className={cx("card-info")}>
             <span className={cx("added-time")}>{timeDiffFormat}</span>
-            <button className={cx("kebab-button")}>
+            <button className={cx("kebab-button")} onClick={handleClickKebab}>
               <Image src="/images/kebab.svg" alt="더보기" width={21} height={17} />
             </button>
+            {isKebabSelected && <SelectMenu />}
           </div>
           <p className={cx("card-description")}>{description}</p>
           <span className={cx("datetime")}>{dateFormat}</span>
