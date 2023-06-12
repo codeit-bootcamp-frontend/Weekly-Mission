@@ -18,7 +18,10 @@
   border-style: none;
   outline: none;
   background-color: transparent;
-  color: #666666;
+
+  &::placeholder {
+    color: #666666;
+  }
 }
 
 @include utils.mobile {

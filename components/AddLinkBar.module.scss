@@ -24,7 +24,10 @@
   border-style: none;
   outline: none;
   background-color: transparent;
-  color: utils.$gray-brt2;
+
+  &::placeholder {
+    color: utils.$gray-brt2;
+  }
 }
 
 .button {
