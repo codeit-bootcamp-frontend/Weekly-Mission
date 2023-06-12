@@ -2,6 +2,7 @@
 
 import classNames from "classnames/bind";
 import Image from "next/image";
+import PropTypes from "prop-types";
 
 import ModalFrame from "./ModalFrame";
 import styles from "./ShareModal.module.scss";
@@ -12,13 +13,13 @@ import kakaotalk from "@/public/images/sns-logo-kakaotalk.svg";
 
 const cx = classNames.bind(styles);
 
-export default function ShareModal() {
+export default function ShareModal({ folder, onClose }) {
   return (
-    <ModalFrame>
+    <ModalFrame onClose={onClose}>
       <div className={cx("container")}>
         <div className={cx("textContainer")}>
           <h3 className={cx("title")}>폴더 공유</h3>
-          <p className={cx("content")}>폴더명</p>
+          <p className={cx("content")}>{folder.name}</p>
         </div>
         <div className={cx("utils")}>
           <div className={cx("util")}>
@@ -46,3 +47,8 @@ export default function ShareModal() {
     </ModalFrame>
   );
 }
+
+ShareModal.propTypes = {
+  folder: PropTypes.object,
+  onClose: PropTypes.func.isRequired,
+};

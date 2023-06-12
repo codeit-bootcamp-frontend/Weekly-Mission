@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import classNames from "classnames/bind";
 import PropTypes from "prop-types";
@@ -21,22 +21,20 @@ const formModalMap = {
   },
 };
 
-export default function FormModal({ type, onClose, onSubmit }) {
-  const [value, setValue] = useState("");
+export default function FormModal({ folder, onClose, onSubmit }) {
+  const type = folder ? "edit" : "add";
+  const [value, setValue] = useState(type === "edit" ? folder.name : "");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(value);
+    if (type === "edit") onSubmit(folder.id, value);
+    else onSubmit(value);
     onClose();
   };
 
   const handleChangeInput = (e) => {
     setValue(e.target.value);
   };
-
-  useEffect(() => {
-    if (type === "edit") setValue("folder 이름 넣기");
-  }, [type]);
 
   return (
     <ModalFrame onClose={onClose}>
@@ -59,7 +57,7 @@ export default function FormModal({ type, onClose, onSubmit }) {
 }
 
 FormModal.propTypes = {
-  type: PropTypes.string.isRequired,
+  folder: PropTypes.object,
   onClose: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
 };

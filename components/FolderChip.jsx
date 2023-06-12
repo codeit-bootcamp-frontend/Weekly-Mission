@@ -9,19 +9,20 @@ import styles from "./FolderChip.module.scss";
 
 const cx = classNames.bind(styles);
 
-export default function FolderChip({ id, name }) {
+export default function FolderChip({ folder }) {
   const pathname = usePathname();
-  const href = id ? `/folder/${id}` : "/folder";
+  const href = folder.id ? `/folder/${folder.id}` : "/folder";
   const isActive = pathname === href;
 
   return (
     <Link href={href}>
-      <div className={cx("folderChip", isActive && "active")}>{name}</div>
+      <div className={cx("folderChip", isActive && "active")}>
+        {folder.name}
+      </div>
     </Link>
   );
 }
 
 FolderChip.propTypes = {
-  name: PropTypes.string.isRequired,
-  id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  folder: PropTypes.object.isRequired,
 };

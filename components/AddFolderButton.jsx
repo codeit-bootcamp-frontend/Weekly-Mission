@@ -28,9 +28,7 @@ export default function AddFolderButton({ onAddFolder }) {
         <span>폴더 추가</span>
         <span>+</span>
       </button>
-      {shownModal && (
-        <FormModal type="add" onClose={closeModal} onSubmit={onAddFolder} />
-      )}
+      {shownModal && <FormModal onClose={closeModal} onSubmit={onAddFolder} />}
     </>
   );
 }

@@ -19,29 +19,42 @@ import styles from "./page.module.scss";
 const cx = classNames.bind(styles);
 
 export default function Folder({ params }) {
-  const folderID = params.folderID ? Number(params.folderID[0]) : null;
+  const folderIDParams = params.folderID ? Number(params.folderID[0]) : 0;
   const userID = 1; // 추후 auth 기능 추가
+  const [currentFolder, setCurrentFolder] = useState({});
   const [folders, setFolders] = useState([]);
   const [links, setLinks] = useState([]);
-  const [folderName, setFolderName] = useState("");
   const router = useRouter();
 
   const onAddFolder = (name) => {
     return name;
   };
 
+  const onEditFolder = (id, newName) => {
+    return id, newName;
+  };
+
+  const onDeleteFolder = (id) => {
+    return id;
+  };
+
   useEffect(() => {
     getFolder(userID).then((res) => {
       setFolders(res);
-      const foundFolder = res.find((folder) => folder.id === folderID);
-      if (foundFolder) setFolderName(foundFolder.name);
-      else folderID ? router.back() : setFolderName("전체");
+
+      const foundFolder = res.find((folder) => folder.id === folderIDParams);
+      if (foundFolder)
+        setCurrentFolder({ id: foundFolder.id, name: foundFolder.name });
+      else
+        folderIDParams
+          ? router.back()
+          : setCurrentFolder({ id: 0, name: "전체" });
     });
 
-    getLink(userID, folderID).then((res) => {
+    getLink(userID, folderIDParams).then((res) => {
       setLinks(res);
     });
-  }, [folderID, router]);
+  }, [folderIDParams, router]);
 
   return (
     <>
@@ -59,19 +72,23 @@ export default function Folder({ params }) {
             <div className={cx("folderSelect")}>
               <div className={cx("folders")}>
                 <div className={cx("chipContainer")}>
-                  <FolderChip id="" name="전체" />
+                  <FolderChip folder={{ id: 0, name: "전체" }} />
                 </div>
                 {folders.map((folder) => (
                   <div key={folder.id} className={cx("chipContainer")}>
-                    <FolderChip id={folder.id} name={folder.name} />
+                    <FolderChip folder={{ id: folder.id, name: folder.name }} />
                   </div>
                 ))}
               </div>
               <AddFolderButton onAddFolder={onAddFolder} />
             </div>
             <div className={cx("folderHeader")}>
-              <h2 className={cx("title")}>{folderName}</h2>
-              <Option />
+              <h2 className={cx("title")}>{currentFolder.name}</h2>
+              <Option
+                folder={currentFolder}
+                onEditFolder={onEditFolder}
+                onDeleteFolder={onDeleteFolder}
+              />
             </div>
             <div className={cx("cardContainer")}>
               {links.map((link) => (
