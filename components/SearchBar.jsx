@@ -1,3 +1,5 @@
+"use client";
+
 import classNames from "classnames/bind";
 import Image from "next/image";
 
