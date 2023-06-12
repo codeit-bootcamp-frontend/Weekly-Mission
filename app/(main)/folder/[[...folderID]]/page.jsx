@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 import classNames from "classnames/bind";
+import { useRouter } from "next/navigation";
 import PropTypes from "prop-types";
 
 import AddFolderButton from "@/components/AddFolderButton";
@@ -23,19 +24,20 @@ export default function Folder({ params }) {
   const [folders, setFolders] = useState([]);
   const [links, setLinks] = useState([]);
   const [folderName, setFolderName] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     getFolder(userID).then((res) => {
       setFolders(res);
-      setFolderName(
-        res.find((folder) => folder.id === folderID)?.name ?? "전체",
-      );
+      const foundFolder = res.find((folder) => folder.id === folderID);
+      if (foundFolder) setFolderName(foundFolder.name);
+      else folderID ? router.back() : setFolderName("전체");
     });
 
     getLink(userID, folderID).then((res) => {
       setLinks(res);
     });
-  }, [folderID]);
+  }, [folderID, router]);
 
   return (
     <>
