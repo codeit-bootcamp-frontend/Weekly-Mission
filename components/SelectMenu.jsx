@@ -3,10 +3,10 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-export default function SelectMenu() {
+export default function SelectMenu({ onDeleteClick }) {
   const handleDeleteLink = (e) => {
     e.stopPropagation();
-    console.log("링크 삭제");
+    onDeleteClick(true);
   };
 
   const handleAddLinkToFolder = (e) => {

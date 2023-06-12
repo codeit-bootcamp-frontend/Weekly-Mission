@@ -1,0 +1,34 @@
+/* .background {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(230, 230, 230, 0.1);
+} */
+
+.modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: 36rem;
+  height: 50rem;
+  background-color: #ffffff;
+  border-radius: 1.5rem;
+  padding: 1.6rem;
+}
+
+.close {
+  border: none;
+  background-color: transparent;
+  align-self: end;
+}
+
+.title {
+  font-size: 2rem;
+  text-align: center;
+}
