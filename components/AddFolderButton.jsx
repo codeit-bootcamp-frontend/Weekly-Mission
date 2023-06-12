@@ -1,14 +1,40 @@
+"use client";
+
+import { useState } from "react";
+
 import classNames from "classnames/bind";
+import PropTypes from "prop-types";
+
+import FormModal from "@/components/Modal/FormModal";
 
 import styles from "./AddFolderButton.module.scss";
 
 const cx = classNames.bind(styles);
 
-export default function AddFolderButton() {
+export default function AddFolderButton({ onAddFolder }) {
+  const [shownModal, setShownModal] = useState(false);
+
+  const openModal = () => {
+    setShownModal(true);
+  };
+
+  const closeModal = () => {
+    setShownModal(false);
+  };
+
   return (
-    <button className={cx("button")}>
-      <span>폴더 추가</span>
-      <span>+</span>
-    </button>
+    <>
+      <button className={cx("button")} onClick={openModal}>
+        <span>폴더 추가</span>
+        <span>+</span>
+      </button>
+      {shownModal && (
+        <FormModal type="add" onClose={closeModal} onSubmit={onAddFolder} />
+      )}
+    </>
   );
 }
+
+AddFolderButton.propTypes = {
+  onAddFolder: PropTypes.func.isRequired,
+};

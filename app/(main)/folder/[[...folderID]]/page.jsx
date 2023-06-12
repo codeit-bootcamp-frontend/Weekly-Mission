@@ -26,6 +26,10 @@ export default function Folder({ params }) {
   const [folderName, setFolderName] = useState("");
   const router = useRouter();
 
+  const onAddFolder = (name) => {
+    return name;
+  };
+
   useEffect(() => {
     getFolder(userID).then((res) => {
       setFolders(res);
@@ -63,7 +67,7 @@ export default function Folder({ params }) {
                   </div>
                 ))}
               </div>
-              <AddFolderButton />
+              <AddFolderButton onAddFolder={onAddFolder} />
             </div>
             <div className={cx("folderHeader")}>
               <h2 className={cx("title")}>{folderName}</h2>
