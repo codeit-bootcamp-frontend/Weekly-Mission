@@ -3,19 +3,22 @@ import classNames from "classnames/bind";
 import Card from "@/components/Card/Card";
 import FolderInfo from "@/components/FolderInfo";
 import SearchBar from "@/components/SearchBar";
-import { getFolder } from "@/utils/axiosAPI";
+import { getFolder, getLink, getUser } from "@/utils/fetchAPI";
 
 import styles from "./page.module.scss";
 
 const cx = classNames.bind(styles);
 
 export default async function Shared() {
-  const folder = await getFolder();
-  const { links, ...folderInfo } = folder;
+  const sharedUserID = 1; // 쿼리로 받기
+  const folderID = 12; // 쿼리로 받기
+  const sharedUser = await getUser(sharedUserID);
+  const folder = (await getFolder(sharedUserID, folderID))[0];
+  const links = await getLink(sharedUserID, folderID);
 
   return (
     <>
-      <FolderInfo folder={folderInfo} />
+      <FolderInfo folder={folder} owner={sharedUser} />
       <main>
         <section className={cx("searchBarContainer")}>
           <SearchBar />
