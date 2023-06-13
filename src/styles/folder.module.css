@@ -1,12 +1,12 @@
 .heroSection {
   text-align: center;
-  padding: 2rem 2.4rem 6rem;
+  padding: 2rem 0 6rem;
   background-color: var(--linkbrary-white-smoke);
 }
 
 @media screen and (max-width: 768px) {
   .heroSection {
-    padding: 1rem 2.4rem 4rem;
+    padding: 1rem 0 4rem;
   }
 }
 

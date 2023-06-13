@@ -1,16 +1,19 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./add-link-bar.module.css";
 import AddLinkModal from "@/components/Modals/AddLinkModal";
 import { Folder } from "$/types";
+import useElementPosition from "@/hooks/useElementPosition";
 
 interface AddLinkBarProps {
   tabs: Folder[];
 }
 
-const AddLinkBar: React.FC<AddLinkBarProps> = ({ tabs }) => {
+const AddLinkBar = ({ tabs }: AddLinkBarProps) => {
   const linkInputRef = useRef<HTMLInputElement>(null);
   const [isAddLinkModalOpen, setIsAddLinkModalOpen] = useState(false);
+  const inputRef = useRef<HTMLDivElement>(null);
+  const elementPosition = useElementPosition(inputRef);
 
   const handleClick = (
     e: React.MouseEvent<HTMLButtonElement>,
@@ -28,8 +31,12 @@ const AddLinkBar: React.FC<AddLinkBarProps> = ({ tabs }) => {
   };
 
   return (
-    <>
-      <div className={styles.formContainer}>
+    <div ref={inputRef}>
+      <div
+        className={`${styles.formContainer} ${
+          elementPosition && elementPosition <= 0 ? styles.fixedBottom : ""
+        }`}
+      >
         <form className={styles.form}>
           <div className={styles.linkContainer}>
             <div className={styles.linkIconContainer}>
@@ -68,7 +75,7 @@ const AddLinkBar: React.FC<AddLinkBarProps> = ({ tabs }) => {
         tabs={tabs}
         clearInput={clearInput}
       />
-    </>
+    </div>
   );
 };
 
