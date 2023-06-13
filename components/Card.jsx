@@ -9,6 +9,7 @@ import styles from "@/styles/Card.module.css";
 import SelectMenu from "./SelectMenu";
 import Modal from "./Modal";
 import ModalDeleteLink from "./ModalDeleteLink";
+import ModalAdd from "./ModalAdd";
 
 const DEFAULT = {
   createdAt: "2023. 3. 15",
@@ -24,7 +25,8 @@ export default function Card({
 }) {
   const [isStartSelected, SetIsStarSelected] = useState(false);
   const [isKebabSelected, setIsKebabSelected] = useState(false);
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isModalDeleteLinkOpen, setIsModalDeleteLinkOpen] = useState(false);
+  const [isModalAddOpen, setIsModalAddOpen] = useState(false);
   const timeDiffFormat = getTimeDiffFormat(created_at);
   const dateFormat = getDateFormat(created_at);
 
@@ -67,14 +69,15 @@ export default function Card({
               <button className={cx("kebab-button")} onClick={handleClickKebab}>
                 <Image src="/images/kebab.svg" alt="더보기" width={21} height={17} />
               </button>
-              {isKebabSelected && <SelectMenu onDeleteClick={setIsDeleteModalOpen} />}
+              {isKebabSelected && <SelectMenu onDeleteClick={setIsModalDeleteLinkOpen} onAddClick={setIsModalAddOpen} />}
             </div>
             <p className={cx("card-description")}>{description}</p>
             <span className={cx("datetime")}>{dateFormat}</span>
           </div>
         </div>
       </div>
-      {isDeleteModalOpen && <ModalDeleteLink link={url} onClose={setIsDeleteModalOpen} />}
+      {isModalDeleteLinkOpen && <ModalDeleteLink link={url} onClose={setIsModalDeleteLinkOpen} />}
+      {isModalAddOpen && <ModalAdd link={url} onClose={setIsModalAddOpen} />}
     </>
   );
 }

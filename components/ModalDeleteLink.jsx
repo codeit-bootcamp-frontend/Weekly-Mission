@@ -8,7 +8,7 @@ export default function ModalDeleteLink({ link = "https://www.abc.com", onClose 
   return (
     <Modal title="링크 삭제" onClose={onClose}>
       <p className={cx("link-title")}>{link}</p>
-      <button className={cx("delete-button")} type="button">
+      <button className={cx("delete-button")} type="button" onClick={() => console.log("링크 삭제")}>
         삭제하기
       </button>
     </Modal>

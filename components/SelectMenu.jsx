@@ -3,7 +3,7 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-export default function SelectMenu({ onDeleteClick }) {
+export default function SelectMenu({ onDeleteClick, onAddClick }) {
   const handleDeleteLink = (e) => {
     e.stopPropagation();
     onDeleteClick(true);
@@ -11,7 +11,7 @@ export default function SelectMenu({ onDeleteClick }) {
 
   const handleAddLinkToFolder = (e) => {
     e.stopPropagation();
-    console.log("링크를 폴더에 추가");
+    onAddClick(true);
   };
 
   return (
