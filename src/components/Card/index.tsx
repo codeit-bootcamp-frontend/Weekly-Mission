@@ -114,14 +114,15 @@ const Card: React.FC<CardProps> = ({ card, tabs }) => {
         }`}
         onClick={handleCardClick}
       >
-        <Image
-          className={styles.cardImage}
-          src={imageSource || "/assets/images/default-card-img.png"}
-          alt="card image"
-          width={340}
-          height={250}
-        />
-
+        <div className={styles.cardImageContainer}>
+          <Image
+            className={styles.cardImage}
+            src={imageSource || "/assets/images/default-card-img.png"}
+            alt="card image"
+            fill
+            priority
+          />
+        </div>
         <div className={styles.starIcon}>
           <Star />
         </div>

@@ -9,11 +9,13 @@
   height: 33.4rem;
   background-color: var(--linkbrary-white);
 }
-
-.cardImage {
+.cardImageContainer {
+  position: relative;
+  width: 100%;
   height: 20rem;
+}
+.cardImage {
   object-fit: cover;
-  overflow: hidden;
   display: block;
 }
 .starIcon {
