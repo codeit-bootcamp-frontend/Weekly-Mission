@@ -175,6 +175,7 @@
 
   .home-hero-img {
     width: 69.8rem;
+    height: auto;
     border-radius: 2.5rem;
     margin: 0 auto;
   }
