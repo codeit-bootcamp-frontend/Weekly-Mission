@@ -23,11 +23,11 @@ function FolderPage({
   const router = useRouter();
   const { slug: currentTab } = router.query;
   const [currentFolderTitle, setCurrentFolderTitle] = useState<string>("전체");
-
+  const [isAddLinkBarBottom, setIsAddLinkBarBottom] = useState<boolean>(false);
   return (
     <>
       <div className={styles.heroSection}>
-        <AddLinkBar tabs={tabs} />
+        <AddLinkBar tabs={tabs} onIsAddLinkBarBottom={setIsAddLinkBarBottom} />
       </div>
       <div className={styles.wrapper}>
         <SearchBar />
@@ -35,6 +35,7 @@ function FolderPage({
           currentTab={currentTab}
           tabs={tabs}
           onCurrentFolderTitle={setCurrentFolderTitle}
+          isAddLinkBarBottom={isAddLinkBarBottom}
         />
         <FolderHeader currentFolderTitle={currentFolderTitle} />
       </div>

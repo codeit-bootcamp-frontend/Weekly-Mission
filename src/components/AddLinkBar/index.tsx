@@ -7,13 +7,23 @@ import useElementPosition from "@/hooks/useElementPosition";
 
 interface AddLinkBarProps {
   tabs: Folder[];
+  onIsAddLinkBarBottom: (isAddLinkBarBottom: boolean) => void;
 }
 
-const AddLinkBar = ({ tabs }: AddLinkBarProps) => {
+const AddLinkBar = ({ tabs, onIsAddLinkBarBottom }: AddLinkBarProps) => {
   const linkInputRef = useRef<HTMLInputElement>(null);
   const [isAddLinkModalOpen, setIsAddLinkModalOpen] = useState(false);
   const inputRef = useRef<HTMLDivElement>(null);
   const elementPosition = useElementPosition(inputRef);
+
+  useEffect(() => {
+    if (!elementPosition) return;
+    if (elementPosition <= 0) {
+      onIsAddLinkBarBottom(true);
+    } else {
+      onIsAddLinkBarBottom(false);
+    }
+  }, [elementPosition, onIsAddLinkBarBottom]);
 
   const handleClick = (
     e: React.MouseEvent<HTMLButtonElement>,

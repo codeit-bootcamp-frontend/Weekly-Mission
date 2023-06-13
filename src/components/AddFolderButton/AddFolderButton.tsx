@@ -3,14 +3,20 @@ import { useState } from "react";
 import styles from "./add-folder-button.module.css";
 import AddFolderModal from "../Modals/AddFolderModal";
 
-const AddFolderButton = () => {
+const AddFolderButton = ({
+  isAddLinkBarBottom,
+}: {
+  isAddLinkBarBottom: boolean;
+}) => {
   const [isAddFolderModalOpen, setIsAddFolderModalOpen] =
     useState<boolean>(false);
 
   return (
     <>
       <button
-        className={styles.buttonWrapper}
+        className={`${styles.buttonWrapper} ${
+          isAddLinkBarBottom ? styles.fixedBottom : ""
+        }`}
         onClick={() => setIsAddFolderModalOpen(true)}
       >
         <span className={styles.buttonText}>폴더 추가</span>

@@ -95,7 +95,7 @@
 
 @media screen and (max-width: 768px) {
   .fixedBottom {
-    padding: 3.2rem 1.6rem;
+    padding: 1.6rem 3.2rem;
   }
   .form {
     height: 5.3rem;

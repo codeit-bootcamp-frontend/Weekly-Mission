@@ -10,12 +10,14 @@ interface FolderMenuProps {
   currentTab: string | string[] | undefined;
   tabs: Folder[];
   onCurrentFolderTitle: (name: string) => void;
+  isAddLinkBarBottom: boolean;
 }
 
 const FolderMenu = ({
   currentTab,
   tabs,
   onCurrentFolderTitle,
+  isAddLinkBarBottom,
 }: FolderMenuProps) => {
   const router = useRouter();
 
@@ -45,7 +47,7 @@ const FolderMenu = ({
           ))}
         </div>
       </div>
-      <AddFolderButton />
+      <AddFolderButton isAddLinkBarBottom={isAddLinkBarBottom} />
     </div>
   );
 };
