@@ -10,8 +10,8 @@ const useElementPosition = (
   useEffect(() => {
     const handleScroll = () => {
       if (elementRef.current) {
-        const { top } = elementRef.current.getBoundingClientRect();
-        setElementPosition(top);
+        const { bottom } = elementRef.current.getBoundingClientRect();
+        setElementPosition(bottom);
       }
     };
 
