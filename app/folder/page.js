@@ -21,7 +21,7 @@ export default async function Folder() {
   const links = await getLinks(userId);
 
   return (
-    <div>
+    <>
       <GNB userEmail={email} userProfileImageSorce={profileImageSource} />
       <header className={cx("header")}>
         <AddLinkBar />
@@ -52,6 +52,6 @@ export default async function Folder() {
         </div>
       </main>
       <Footer />
-    </div>
+    </>
   );
 }

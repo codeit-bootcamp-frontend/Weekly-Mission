@@ -7,7 +7,6 @@ import Image from "next/image";
 import classNames from "classnames/bind";
 import styles from "@/styles/Card.module.css";
 import SelectMenu from "./SelectMenu";
-import Modal from "./Modal";
 import ModalDeleteLink from "./ModalDeleteLink";
 import ModalAdd from "./ModalAdd";
 
