@@ -5,6 +5,7 @@ import type { AppProps } from "next/app";
 import type { NextPage, NextPageContext } from "next";
 import { ReactElement, ReactNode } from "react";
 import { User } from "$/types";
+import { pretendard } from "@/lib/localFont";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -23,7 +24,9 @@ function MyApp({ Component, pageProps, userInfo }: MyAppProps): ReactElement {
 
   return (
     <UserProvider initialUser={userInfo}>
-      {getLayout(<Component {...pageProps} />)}
+      <div className={pretendard.className}>
+        {getLayout(<Component {...pageProps} />)}
+      </div>
     </UserProvider>
   );
 }

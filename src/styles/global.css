@@ -1,13 +1,4 @@
-@font-face {
-  font-family: "Pretendard";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
-    format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
-
 :root {
-  font-family: "Pretendard";
   font-size: 62.5%;
   --linkbrary-primary: #6d6afe;
   --linkbrary-red: #ff5b56;
@@ -42,12 +33,7 @@ a {
 }
 
 button {
-  font-family: "Pretendard";
-  border: none;
-  margin: 0;
-  padding: 0;
-  outline: 0;
-  background-color: inherit;
+  all: unset;
 }
 
 input:focus {

@@ -1,9 +1,9 @@
 .footerWrapper {
   width: 100%;
   background-color: var(--linkbrary-black);
-  font-family: "Arial";
   font-weight: 400;
   font-size: 1.6rem;
+  padding: 0 10.4rem;
 }
 
 .contentWrapper {
@@ -25,6 +25,10 @@
       "privacypolicyfaq socialmedialinks"
       "copyright copyright";
     gap: 6rem 0;
+  }
+
+  .footerWrapper {
+    padding: 0 3.2rem;
   }
 }
 

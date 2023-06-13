@@ -15,6 +15,14 @@ const nextConfig = {
       "ca.slack-edge.com",
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: "/fonts/:path*",
+        destination: "/fonts/:path*",
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

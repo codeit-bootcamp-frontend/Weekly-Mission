@@ -121,6 +121,7 @@ const Card: React.FC<CardProps> = ({ card, tabs }) => {
             alt="card image"
             fill
             priority
+            sizes="(max-width: 768px) 340px, (max-width: 1199px) 325px"
           />
         </div>
         <div className={styles.starIcon}>
