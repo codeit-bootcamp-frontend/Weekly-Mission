@@ -1,64 +1,26 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { ForwardedRef, forwardRef } from "react";
 
-import Image from "next/image";
-
-import AddLinkModal from "@/components/Modals/AddLinkModal/AddLinkModal";
-
+import AddLinkBar from "./AddLinkBar";
 import styles from "./AddLinkField.module.scss";
 
-const AddLinkField = () => {
-  const [openAddLinkModal, setOpenAddLinkModal] = useState<boolean>(false);
-  const [selectedLinkValue, setSelectedLinkValue] = useState<string>("");
-  const linkInputRef = useRef<HTMLInputElement>(null);
+interface IAddLinkFieldProps {
+  inView: boolean | null;
+}
 
-  const handleSubmitOpenAddModal = (
-    e: React.FormEvent<HTMLFormElement>
-  ): void => {
-    e.preventDefault();
-    if (linkInputRef.current) {
-      setSelectedLinkValue(linkInputRef.current.value);
-      setOpenAddLinkModal((prev) => !prev);
-      linkInputRef.current.value = "";
-    }
-  };
-
+const AddLinkField = forwardRef(function AddLinkField(
+  { inView }: IAddLinkFieldProps,
+  ref: ForwardedRef<HTMLDivElement>
+) {
   return (
-    <div className={styles.formWrapper}>
-      <form className={styles.form} onSubmit={handleSubmitOpenAddModal}>
-        <div className={styles.linkWrapper}>
-          <div className={styles.linkIconWrapper}>
-            <Image
-              fill
-              alt="add link"
-              src="/assets/folder-link.svg"
-              className={styles.image}
-            />
-          </div>
-          <div className={styles.inputWrapper}>
-            <input
-              ref={linkInputRef}
-              className={styles.input}
-              type="text"
-              placeholder="링크를 추가해 보세요"
-            />
-          </div>
-        </div>
-        <button className={styles.button} type="submit">
-          추가하기
-        </button>
-      </form>
-      {/* <div className={styles.observed}></div> */}
-
-      {openAddLinkModal && (
-        <AddLinkModal
-          setOpenAddLinkModal={setOpenAddLinkModal}
-          selectedLinkValue={selectedLinkValue}
-        />
-      )}
+    <div className={styles.observedWrapper}>
+      <div className={`${styles.addLinkContainer} ${styles[`${inView}`]}`}>
+        <AddLinkBar />
+      </div>
+      <div className={styles.observed} ref={ref}></div>
     </div>
   );
-};
+});
 
 export default AddLinkField;

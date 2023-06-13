@@ -1,6 +1,5 @@
 "use client";
 
-import AddLinkField from "@/components/AddLinkField/AddLinkField";
 import CurrentFolderMenu from "@/components/CurrentFolderMenu/CurrentFolderMenu";
 import FolderChipField from "@/components/FolderChipField/FolderChipField";
 import LinkField from "@/components/LinkField/LinkField";
@@ -8,6 +7,7 @@ import SearchBar from "@/components/SearchBar/SearchBar";
 import useViewObserver from "@/hooks/useViewObserver";
 import { IFolder, ILink } from "@/types/linkbrary";
 
+import AddLinkField from "../AddLinkField/AddLinkField";
 import styles from "./FolderContents.module.scss";
 
 interface IFolderContentsProps {
@@ -31,15 +31,10 @@ const FolderContents = ({
 
   return (
     <>
-      <div className={styles.observedWrapper}>
-        <div className={`${styles.addLinkContainer} ${styles[`${inView}`]}`}>
-          <AddLinkField />
-        </div>
-        <div
-          className={styles.observed}
-          ref={(el: HTMLDivElement) => (observerTargetRefs.current[0] = el)}
-        ></div>
-      </div>
+      <AddLinkField
+        inView={inView}
+        ref={(el: HTMLDivElement) => (observerTargetRefs.current[0] = el)}
+      />
       <div className={styles.contents}>
         <SearchBar placeholder="제목을 검색해 보세요" />
         <FolderChipField
