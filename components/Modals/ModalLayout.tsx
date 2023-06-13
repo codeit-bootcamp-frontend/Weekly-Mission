@@ -7,15 +7,17 @@ import usePreventScroll from "@/hooks/usePreventScroll";
 import styles from "./ModalLayout.module.scss";
 import ModalPortalWrapper from "./ModalPortalWrapper";
 
+interface IModalLayoutProps {
+  portalId: string;
+  handleClickCloseModal: () => void;
+  children: React.ReactNode;
+}
+
 const ModalLayout = ({
   portalId,
   handleClickCloseModal,
   children,
-}: {
-  portalId: string;
-  handleClickCloseModal: () => void;
-  children: React.ReactNode;
-}) => {
+}: IModalLayoutProps) => {
   usePreventScroll();
 
   return (

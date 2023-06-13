@@ -9,7 +9,7 @@ import EditFolderModal from "../Modals/EditFolderModal/EditFolderModal";
 import ShareFolderModal from "../Modals/ShareFolderModal/ShareFolderModal";
 import styles from "./CurrentFolderMenu.module.scss";
 
-interface ICurrentFolderMenuItem {
+interface ICurrentFolderMenuItemProps {
   modalType: string;
   currentFolderName: string;
   imgSrc: string;
@@ -23,7 +23,7 @@ const CurrentFolderMenuItem = ({
   imgSrc,
   imgAlt,
   menuName,
-}: ICurrentFolderMenuItem) => {
+}: ICurrentFolderMenuItemProps) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   return (
     <>

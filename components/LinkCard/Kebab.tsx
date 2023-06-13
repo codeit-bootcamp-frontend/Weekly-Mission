@@ -8,7 +8,7 @@ import AddLinkModal from "../Modals/AddLinkModal/AddLinkModal";
 import DeleteLinkModal from "../Modals/DeleteLinkModal/DeleteLinkModal";
 import styles from "./LinkCard.module.scss";
 
-interface IKebab {
+interface IKebabProps {
   linkUrl: string;
   isClickedKebab: boolean;
   handleClickOpenKebab: () => void;
@@ -21,7 +21,7 @@ const Kebab = forwardRef(function Kebab(
     isClickedKebab,
     handleClickOpenKebab,
     handleClickCloseKebab,
-  }: IKebab,
+  }: IKebabProps,
   ref: ForwardedRef<HTMLDivElement>
 ) {
   const kebabRef = useRef<HTMLDivElement | null>(null);

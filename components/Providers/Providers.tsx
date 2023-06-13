@@ -6,11 +6,11 @@ import { queryClientOptions } from "@/utils/constants";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { SessionProvider } from "next-auth/react";
 
-interface Props {
+interface IProvidersProps {
   children: React.ReactNode;
 }
 
-const Providers = ({ children }: Props) => {
+const Providers = ({ children }: IProvidersProps) => {
   const [queryClient] = useState(() => new QueryClient(queryClientOptions));
   return (
     <SessionProvider>

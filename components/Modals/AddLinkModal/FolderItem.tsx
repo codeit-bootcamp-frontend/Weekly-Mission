@@ -2,17 +2,19 @@ import Image from "next/image";
 
 import styles from "./FolderItem.module.scss";
 
+interface IFolderItemProps {
+  folder: { name: string; length: number };
+  idx: number;
+  isChecked: boolean;
+  setCheckedItemId: React.Dispatch<React.SetStateAction<number>>;
+}
+
 const FolderItem = ({
   folder,
   idx,
   isChecked,
   setCheckedItemId,
-}: {
-  folder: { name: string; length: number };
-  idx: number;
-  isChecked: boolean;
-  setCheckedItemId: React.Dispatch<React.SetStateAction<number>>;
-}) => {
+}: IFolderItemProps) => {
   // TODO: 데이터 수정 가능한 Api 구축하면 prop 변경 예정
   return (
     <div
