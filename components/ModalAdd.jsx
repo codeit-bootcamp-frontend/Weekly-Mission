@@ -19,9 +19,9 @@ export default function ModalAdd({ link = "https://www.abc.com", onClose }) {
   const [folders, setFolders] = useState(MOCK_FOLDERS);
 
   const handleChange = (folderNum) => {
-    folders[folderNum]["selected"] = !folders[folderNum]["selected"];
-    setFolders([...folders]);
-    console.log(folders);
+    const foldersCopy = JSON.parse(JSON.stringify(folders));
+    foldersCopy[folderNum]["selected"] = !foldersCopy[folderNum]["selected"];
+    setFolders(foldersCopy);
   };
 
   const handleSubmit = () => {
