@@ -3,12 +3,10 @@
 import React, { ReactNode, Suspense, useRef } from "react";
 import styles from "./page.module.scss";
 import { notFound } from "next/navigation";
-import { useSession } from "next-auth/react";
 import Loader from "@/app/components/Loader/Loader";
 import useIsVisible from "@/app/hooks/useIsVisible";
 import AddLink from "./AddLink/AddLink";
 import SearchBar from "@/app/components/SearchBar/SearchBar";
-import MainContent from "./MainContent/MainContent";
 
 const Page = ({
   params,
@@ -53,7 +51,21 @@ const Page = ({
               action="/search?q=null"
             />
           </div>
-          <Suspense fallback={<Loader />}>{children}</Suspense>
+          <Suspense
+            fallback={
+              <div
+                style={{
+                  width: "965px",
+                  height: "211px",
+                  position: "relative",
+                }}
+              >
+                <Loader />
+              </div>
+            }
+          >
+            {children}
+          </Suspense>
         </div>
       </section>
     </main>
