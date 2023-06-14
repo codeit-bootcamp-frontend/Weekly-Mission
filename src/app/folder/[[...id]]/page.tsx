@@ -1,75 +1,24 @@
-"use client";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+import MainContent from "./MainContent/MainContent";
+import Main from "./Main";
 
-import React, { ReactNode, Suspense, useRef } from "react";
-import styles from "./page.module.scss";
-import { notFound } from "next/navigation";
-import Loader from "@/app/components/Loader/Loader";
-import useIsVisible from "@/app/hooks/useIsVisible";
-import AddLink from "./AddLink/AddLink";
-import SearchBar from "@/app/components/SearchBar/SearchBar";
-
-const Page = ({
-  params,
-  children,
-}: {
-  params: { id?: string[] };
-  children: ReactNode;
-}) => {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const dummyRef = useRef(null);
-  const isHeroVisible = useIsVisible(dummyRef);
-  if (params.id && params.id.length > 1) {
-    notFound();
+const layout = async ({ params }: { params: { id?: string[] } }) => {
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    redirect("/signin");
   }
-
   return (
-    <main
-      className={
-        isHeroVisible
-          ? styles.mainContainer
-          : `${styles.mainContainer} ${styles.floating}`
-      }
-    >
-      <section
-        className={
-          isHeroVisible
-            ? styles.heroSection
-            : `${styles.heroSection} ${styles.floating}`
-        }
-        ref={heroRef}
-      >
-        <div className={styles.addLinkContainer}>
-          <AddLink />
-        </div>
-      </section>
-      <section className={styles.contentSection}>
-        <div className={styles.thresholdTarget} ref={dummyRef} />
-        <div className={styles.contentsContainer}>
-          <div className={styles.searchBarContainer}>
-            <SearchBar
-              placeholder="제목을 검색해 보세요"
-              action="/search?q=null"
-            />
-          </div>
-          <Suspense
-            fallback={
-              <div
-                style={{
-                  width: "965px",
-                  height: "211px",
-                  position: "relative",
-                }}
-              >
-                <Loader />
-              </div>
-            }
-          >
-            {children}
-          </Suspense>
-        </div>
-      </section>
-    </main>
+    <>
+      <Main params={params}>
+        <MainContent
+          userId={session.user.id!}
+          folderId={params.id ? params.id[0] : ""}
+        />
+      </Main>
+    </>
   );
 };
 
-export default Page;
+export default layout;
