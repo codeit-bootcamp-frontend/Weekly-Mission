@@ -1,0 +1,53 @@
+@use "/src/styles/variables" as var;
+
+.addFolderButton {
+  background: none;
+  color: var.$primary;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0px;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+  &:hover {
+    font-weight: 600;
+    transform: scale(1.2);
+  }
+  @media only screen and (max-width: 768px) {
+    position: fixed;
+    bottom: 100px;
+    left: calc(50% - 128px / 2);
+    background-color: var.$primary;
+    color: var.$white;
+    width: 128px;
+    height: 36px;
+    justify-content: center;
+    border-radius: 20px;
+    z-index: 10;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  span {
+    line-height: 0%;
+  }
+  .addIconBox {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    & > img:nth-child(2) {
+      display: none;
+    }
+    @media only screen and (max-width: 786px) {
+      & > img:first-child {
+        display: none;
+      }
+      & > img:nth-child(2) {
+        display: block;
+      }
+    }
+  }
+}

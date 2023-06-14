@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Suspense, useRef } from "react";
+import React, { ReactNode, Suspense, useRef } from "react";
 import styles from "./page.module.scss";
 import { notFound } from "next/navigation";
 import { useSession } from "next-auth/react";
@@ -10,10 +10,13 @@ import AddLink from "./AddLink/AddLink";
 import SearchBar from "@/app/components/SearchBar/SearchBar";
 import MainContent from "./MainContent/MainContent";
 
-const Page = ({ params }: { params: { id?: string[] } }) => {
-  const { data: session, status } = useSession({
-    required: true,
-  });
+const Page = ({
+  params,
+  children,
+}: {
+  params: { id?: string[] };
+  children: ReactNode;
+}) => {
   const heroRef = useRef<HTMLDivElement>(null);
   const dummyRef = useRef(null);
   const isHeroVisible = useIsVisible(dummyRef);
@@ -21,9 +24,6 @@ const Page = ({ params }: { params: { id?: string[] } }) => {
     notFound();
   }
 
-  if (status === "loading") {
-    return <Loader />;
-  }
   return (
     <main
       className={
@@ -53,12 +53,7 @@ const Page = ({ params }: { params: { id?: string[] } }) => {
               action="/search?q=null"
             />
           </div>
-          <Suspense fallback={<Loader />}>
-            <MainContent
-              userId={session.user.id!}
-              folderId={params.id ? +params.id[0] : 0}
-            />
-          </Suspense>
+          <Suspense fallback={<Loader />}>{children}</Suspense>
         </div>
       </section>
     </main>
