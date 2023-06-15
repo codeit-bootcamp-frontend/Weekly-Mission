@@ -7,7 +7,7 @@ const instance = axios.create({
 
 async function getUser(USERID) {
   try {
-    const response = await instance.get(`/users/${USERID}`);
+    const response = await instance.get(`api/users/${USERID}`);
     const { data } = response.data;
     return data[0];
   } catch (error) {

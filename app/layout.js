@@ -24,7 +24,7 @@ import { SessionProvider } from "next-auth/react"
 // }
 
 export default async function RootLayout({ children }) {
-  let isLoggedin = false;
+  let isLoggedin = true;
   const USERID = "7";
   let user = isLoggedin ? await getUser(USERID) : null;
 

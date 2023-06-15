@@ -19,8 +19,8 @@ module.exports = {
   async rewrites() {
     return [
       {
-        source: "/:path*",
-        destination: "https://bootcamp-api.codeit.kr/api/:path*",
+        source: "/api/users/:path*",
+        destination: "https://bootcamp-api.codeit.kr/api/users/:path*",
       },
     ];
   },
