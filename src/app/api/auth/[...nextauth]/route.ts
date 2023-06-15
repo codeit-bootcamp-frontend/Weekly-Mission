@@ -15,7 +15,11 @@ const authOptions: AuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        const res = await fetch("http:localhost:3000/api/signin", {
+        const prefix =
+          process.env.NODE_ENV === "development"
+            ? "http:localhost:3000"
+            : `https://${process.env.VERCEL_URL}`;
+        const res = await fetch(`${prefix}/api/signin`, {
           method: "POST",
           body: JSON.stringify({
             username: credentials?.username,
