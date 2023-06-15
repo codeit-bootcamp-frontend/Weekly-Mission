@@ -13,7 +13,10 @@ interface CardListContainerProps {
 }
 
 const getLinkProps = async (userId: number, folderId: number) => {
-  const { distinctData } = await getLinksByFolderId(`${userId}`, `${folderId}`);
+  const { distinctData } = await getLinksByFolderId(
+    `${userId}`,
+    `${folderId ? folderId : ""}`
+  );
   return distinctData.map((data: any) => {
     return {
       id: data.id,
