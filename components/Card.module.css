@@ -20,6 +20,9 @@
 .card:hover .img-box .card-img {
   transform: scale(1.2);
   transition: 1s;
+  object-fit: cover;
+  width: 34rem;
+  height: 20rem;
 }
 
 .card:hover .p-box {
@@ -103,7 +106,7 @@
   background-color: var(--white);
 }
 
-.card .p-box .pop p.selected {
+.card .p-box .pop p:hover {
   color: var(--primary);
   background-color: #e7effb;
 }
