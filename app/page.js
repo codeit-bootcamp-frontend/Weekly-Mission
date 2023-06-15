@@ -1,7 +1,9 @@
-export default function Home() {
+import styles from "./page.module.css";
+
+export default async function Home() {
   return (
     <>
-      <main>메인페이지</main>
+      <main className={styles.main}>메인페이지</main>
     </>
   );
 }

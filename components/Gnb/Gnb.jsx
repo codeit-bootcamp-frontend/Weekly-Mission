@@ -1,61 +1,44 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Gnb.module.css";
-import instance from "@/app/api/axios";
-import axios from "axios";
+import { useSession, signIn, signOut  } from 'next-auth/react'
 
-const USERID = "7";
+function Gnb({ user }) {
 
-async function getUserData() {
-  try {
-    const response = await instance.get("/users/7");
-    return response.data;
-  } catch (error) {
-    console.log(error);
-  }
-}
-// 데이터만 받아오기
-
-const userData = await getUserData();
-
-function Gnb() {
-  const [isLoggedIn, setisLoggedIn] = useState(true);
-  const [userData, setUserData] = useState(null);
-
-  async function fetchUserData() {
-    const data = await getUserData();
-    setUserData(data);
-  }
-
-  useEffect(() => {
-    fetchUserData();
-  }, []);
+  console.log(user);
 
   return (
     <>
       <header className={styles.header}>
         <div className={styles.container}>
           <h1>
-            <Link href="/" className={styles.logo}></Link>
+            <Link href="/" className={styles.logo}>
+              <Image
+                src="/assets/Linkbrary.png"
+                alt="linkbrary-logo"
+                width="133"
+                height="25"
+                className={styles.image}
+              />
+            </Link>
           </h1>
-          <div>{userData.name}</div>
-          {/* {isLoggedIn ? (
+          {user ? (
             <div className={styles.user}>
               <Image
                 className={styles.userIcon}
-                src={userData?.image_source}
+                src={user.image_source}
                 alt={"user-profile-image"}
+                fill
               />
-              <span className={styles.userEmail}>{userData?.email}</span>
+              <span className={styles.userEmail}>{user.email}</span>
             </div>
           ) : (
-            <a href="/signin.html" className={styles.loginBtn}>
+            <button onClick={() => { signIn() }} className={styles.loginBtn}>
               로그인
-            </a>
-          )} */}
+            </button>
+          )}
         </div>
       </header>
     </>
