@@ -1,3 +1,98 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 13,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "@tanstack/query"
+  ],
+  "ignorePatterns": ["!**/*"],
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.tsx",
+        "*.js",
+        "*.jsx"
+      ],
+      "rules": {
+        "@next/next/no-html-link-for-pages": ["error", "apps/new-teams/pages"]
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {}
+    }
+  ],
+  "rules": {
+    "@next/next/no-html-link-for-pages": "off",
+    "@typescript-eslint/semi": ["error", "never"],
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "@typescript-eslint/no-unsafe-assignment": "error",
+    "@typescript-eslint/no-var-requires": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/jsx-key": "error",
+    "react/function-component-definition": [2, { "namedComponents": "arrow-function" }],
+    "react/prop-types": "off",
+    "react/require-default-props": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "arrow-body-style": ["error", "always"],
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "off",
+      {
+        "devDependencies": [
+          ".storybook/**",
+          "**/*.stories.tsx",
+          "**/*.test.js",
+          "**/*.spec.js"
+        ]
+      }
+    ],
+    "react/jsx-props-no-spreading": ["off", { "devDependencies": ["**/*.stories.tsx"] }],
+    "no-nested-ternary": "off"
+  }
 }
