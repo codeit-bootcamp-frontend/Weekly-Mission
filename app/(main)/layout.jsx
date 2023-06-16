@@ -1,7 +1,7 @@
 import Footer from "@/components/Footer";
 import GNB from "@/components/GNB/GNB";
+import { getUser } from "@/utils/axiosAPI";
 import checkLoginStatus from "@/utils/checkLoginStatus";
-import { getUser } from "@/utils/fetchAPI";
 
 export default async function MainLayout({ children }) {
   const isLogged = checkLoginStatus();
