@@ -1,8 +1,7 @@
-import React from "react";
 import styles from "@folder/[link]/page.module.css";
 import UpdateLink from "@components/UpdateLink";
 
-const page = (props) => {
+const page = async (props) => {
   let title = "";
 
   switch (props.params.link) {
@@ -22,6 +21,7 @@ const page = (props) => {
       title = "나만의 장소";
       break;
   }
+
   return (
     <>
       <UpdateLink title={title} />

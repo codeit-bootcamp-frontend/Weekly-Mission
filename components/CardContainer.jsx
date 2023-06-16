@@ -3,7 +3,7 @@ import Card from "@components/Card";
 
 const getFolder = async () => {
   const result = await fetch(
-    "https://bootcamp-api.codeit.kr/api/sample/folder",
+    "https://bootcamp-api.codeit.kr/api/users/1/links",
     { cache: "no-store" }
   );
   return result.json();
@@ -15,7 +15,7 @@ const CardContainer = async () => {
   return (
     <div className={styles["main-container"]}>
       <div className={styles.container}>
-        {folder.data.folder.links.map((link) => (
+        {folder.distinctData.map((link) => (
           <Card link={link} key={link.id} />
         ))}
       </div>

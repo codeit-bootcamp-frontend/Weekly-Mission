@@ -14,7 +14,7 @@ import AddfolderModal from "@layout/AddFolderModal";
 const popContnet = ["삭제하기", "폴더에 추가"];
 
 const Card = ({ link }) => {
-  const { createdAt, url, description, imageSource } = link;
+  const { createdAt, url, description, image_source } = link;
   const [isClick, setIsClick] = useState(false);
   const [showPopOver, setShowPopOver] = useState(false);
   const [selectedPop, setSelectedPop] = useState("삭제하기");
@@ -67,7 +67,7 @@ const Card = ({ link }) => {
       <div className={styles["img-box"]}>
         <img
           className={styles["card-img"]}
-          src={imageSource || "/defaultImage.svg"}
+          src={image_source || "/defaultImage.svg"}
           alt="card"
         />
         <div

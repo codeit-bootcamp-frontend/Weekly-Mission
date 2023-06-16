@@ -54,9 +54,10 @@
     "app/page.jsx",
     "app/layout.jsx",
     "app/shared/page.jsx",
-    "app/folder/[link]/page.jsx",
+    "app/folder/[[ink]/page.jsx",
     "app/folder/page.jsx",
-    "app/folder/layout.jsx"
+    "app/folder/layout.jsx",
+    "app/folder/[slug]/page.jsx"
   ],
   "exclude": ["node_modules"]
 }

@@ -32,7 +32,6 @@ const SharedContainer = async (props) => {
   let user = await getUser(userId);
   let folder = await getFolder(userId);
   let data = await getData(userId, folderId);
-  console.log(user);
 
   return (
     <>

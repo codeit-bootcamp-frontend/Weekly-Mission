@@ -20,8 +20,8 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/:path*",
-        destination: "https://bootcamp-api.codeit.kr/api/:path*",
+        source: "/users/:path*",
+        destination: "https://bootcamp-api.codeit.kr/api/users/:path*",
       },
     ];
   },

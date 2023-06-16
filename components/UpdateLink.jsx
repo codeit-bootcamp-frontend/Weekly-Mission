@@ -10,7 +10,6 @@ const UpdateLink = ({ title }) => {
   const [deleteModal, setDeleteModal] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
   const [shareModal, setShareModal] = useState(false);
-
   const shareModalHander = () => {
     setShareModal(!shareModal);
   };

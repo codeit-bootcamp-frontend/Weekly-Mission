@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 import useHttp from "../hooks/useHttp";
-import profile from "/public/profile.svg";
-import Image from "next/image";
 import styles from "@components/LoginStatus.module.css";
 
 const LoginStatus = () => {

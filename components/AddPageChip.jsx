@@ -2,20 +2,35 @@
 import styles from "@components/AddPageChip.module.css";
 import { useRouter } from "next/navigation";
 
-const AddPageChip = ({ chip, link, isSelected, setIsSelected }) => {
+const AddPageChip = ({ link }) => {
+  const { id, name } = link;
   const router = useRouter();
+
   const selectHandler = () => {
-    setIsSelected(chip);
-    router.push(link);
+    let route = "";
+    switch (id) {
+      case 1:
+        route = "folder";
+        break;
+      case 12:
+        route = "folder/1";
+        break;
+      case 14:
+        route = "folder/2";
+        break;
+      case 16:
+        route = "folder/3";
+        break;
+      case 17:
+        route = "folder/4";
+    }
+    router.push(route);
   };
+  // className={chip === isSelected ? styles.selected : styles.button}
 
   return (
-    <button
-      onClick={selectHandler}
-      type="button"
-      className={chip === isSelected ? styles.selected : styles.button}
-    >
-      {chip}
+    <button type="button" onClick={selectHandler}>
+      {name}
     </button>
   );
 };
