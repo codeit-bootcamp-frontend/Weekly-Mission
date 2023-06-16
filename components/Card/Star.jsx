@@ -16,6 +16,7 @@ export default function Star() {
   const [isFavorite, setIsFavorite] = useState(false);
   const handleClickStar = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     setIsFavorite((prevIsFavor) => !prevIsFavor);
   };
 
