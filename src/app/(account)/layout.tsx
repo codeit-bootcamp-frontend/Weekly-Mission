@@ -1,7 +1,4 @@
-import Nav from '@/components/Nav'
-import Footer from '@/components/Footer'
 import '@/lib/global.css'
-import '@/lib/theme.css'
 
 export const metadata = {
   title: 'Linkbrary',
@@ -49,9 +46,7 @@ const RootLayout = ({
   return (
     <html lang="ko">
       <body>
-        <Nav />
         {children}
-        <Footer />
       </body>
     </html>
   )

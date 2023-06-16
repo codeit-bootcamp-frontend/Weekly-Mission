@@ -28,7 +28,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".eslintrc.json",
+    ".eslintrc.json", "src/components/Button",
   ],
   "exclude": ["node_modules"]
 }

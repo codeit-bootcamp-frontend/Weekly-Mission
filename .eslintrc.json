@@ -93,6 +93,7 @@
       }
     ],
     "react/jsx-props-no-spreading": ["off", { "devDependencies": ["**/*.stories.tsx"] }],
-    "no-nested-ternary": "off"
+    "no-nested-ternary": "off",
+    "import/prefer-default-export": "off"
   }
 }

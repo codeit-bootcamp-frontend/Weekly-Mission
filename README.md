@@ -23,7 +23,18 @@ This project is licensed under the MIT License. See the LICENSE.md file for deta
 
 ## Progress
 
-[x] next 프로젝트 생성
-[x] 필요한 패키지 설치
-[x] 시작 세팅
-[ ] App routing 구현
+- [x] next 프로젝트 생성
+- [x] 필요한 패키지 설치
+- [x] 시작 세팅
+- [x] nx-space 폴더 구조 사용
+- [ ] App routing 구현
+- [ ] vanilla-extract로 마이그레이션
+- [ ] 서버 컴포넌트 생성
+- [ ] 클라이언트 컴포넌트 생성
+- [ ] api 데이터, React Query 활용
+- [ ] 무한 스크롤링 구현
+- [ ] 모바일에서 카드 클릭시 기본 이벤트 제거
+- [ ] 폴더 추가하기 팝업이 footer를 가리지 않도록 수정
+- [ ] Jest로 test
+- [ ] 유저 기능
+- [ ] 스토리북 사용
