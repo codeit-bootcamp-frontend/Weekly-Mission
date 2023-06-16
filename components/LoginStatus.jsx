@@ -16,8 +16,6 @@ const LoginStatus = () => {
     setIslogin(!isLogin);
   };
 
-  console.log(responseData);
-
   return (
     <>
       {isLogin ? (

@@ -10,17 +10,17 @@ const getUser = async (id = 1) => {
   return result.json();
 };
 
-const getFolder = async (id = 1) => {
+const getFolder = async (user = 1, folder = 1) => {
   const result = await fetch(
-    `https://bootcamp-api.codeit.kr/api/users/1/folders/1`,
+    `https://bootcamp-api.codeit.kr/api/users/${user}/folders/${folder}`,
     { cache: "no-store" }
   );
   return result.json();
 };
 
-const getData = async (id = 1) => {
+const getData = async (user = 1, folder = 1) => {
   const result = await fetch(
-    `https://bootcamp-api.codeit.kr/api/users/${id}/links?folderId=1`,
+    `https://bootcamp-api.codeit.kr/api/users/${user}/links?folderId=${folder}`,
     { cache: "no-store" }
   );
   return result.json();
@@ -28,9 +28,11 @@ const getData = async (id = 1) => {
 
 const SharedContainer = async (props) => {
   const userId = props.searchParams.user;
+  const folderId = props.searchParams.folder;
   let user = await getUser(userId);
   let folder = await getFolder(userId);
-  let data = await getData(userId);
+  let data = await getData(userId, folderId);
+  console.log(user);
 
   return (
     <>
