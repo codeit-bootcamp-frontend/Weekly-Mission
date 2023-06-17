@@ -1,22 +1,25 @@
-import styles from "@folder/[[...link]]/page.module.css";
+import styles from "@folder/[link]/page.module.css";
 import UpdateLink from "@components/UpdateLink";
 
 const page = async (props) => {
   let title = "";
   switch (props.params.link) {
-    case "favorites":
-      title = "즐겨찾기";
+    case undefined:
+      title = "전체";
       break;
     case "1":
-      title = "코딩 팁";
+      title = "즐겨찾기";
       break;
     case "2":
-      title = "채용 사이트";
+      title = "코딩 팁";
       break;
     case "3":
-      title = "유용한 글";
+      title = "채용 사이트";
       break;
     case "4":
+      title = "유용한 글";
+      break;
+    case "5":
       title = "나만의 장소";
       break;
   }
