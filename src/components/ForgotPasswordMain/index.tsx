@@ -1,5 +1,5 @@
 import ButtonLink from '@/components/ButtonLink'
-import * as styles from './ForgotPasswordMain'
+import * as styles from './ForgotPasswordMain.css'
 
 const ForgotPasswordMain = () => {
   return (
