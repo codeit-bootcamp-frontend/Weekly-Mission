@@ -1,9 +1,8 @@
-import styles from "@folder/[link]/page.module.css";
+import styles from "@folder/[[...link]]/page.module.css";
 import UpdateLink from "@components/UpdateLink";
 
 const page = async (props) => {
   let title = "";
-
   switch (props.params.link) {
     case "favorites":
       title = "즐겨찾기";
