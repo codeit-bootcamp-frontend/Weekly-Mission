@@ -8,9 +8,23 @@ import ModalFrame from "./ModalFrame";
 
 const cx = classNames.bind(styles);
 
-export default function DeleteModal({ folder, onClose, onDelete }) {
+export default function DeleteModal({ folder, link, onClose, onDelete }) {
+  let item;
+  if (folder)
+    item = {
+      title: "폴더 삭제",
+      id: folder.id,
+      content: folder.name,
+    };
+  else
+    item = {
+      title: "링크 삭제",
+      id: link.id,
+      content: link.url,
+    };
+
   const handleDelete = () => {
-    onDelete(folder.id);
+    onDelete(item.id);
     onClose();
   };
 
@@ -18,8 +32,8 @@ export default function DeleteModal({ folder, onClose, onDelete }) {
     <ModalFrame onClose={onClose}>
       <div className={cx("container")}>
         <div className={cx("textContainer")}>
-          <h3 className={cx("title")}>폴더 삭제</h3>
-          <p className={cx("content")}>{folder.name}</p>
+          <h3 className={cx("title")}>{item.title}</h3>
+          <p className={cx("content")}>{item.content}</p>
         </div>
         <button className={cx("button")} onClick={handleDelete}>
           삭제하기
@@ -30,7 +44,8 @@ export default function DeleteModal({ folder, onClose, onDelete }) {
 }
 
 DeleteModal.propTypes = {
-  folder: PropTypes.object.isRequired,
+  folder: PropTypes.object,
+  link: PropTypes.object,
   onClose: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
 };

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import classNames from "classnames/bind";
 import { useRouter } from "next/navigation";
@@ -38,6 +38,10 @@ export default function Folder({ params }) {
     return id;
   };
 
+  const onDeleteLink = (id) => {
+    return id;
+  };
+
   useEffect(() => {
     getFolder(userID).then((res) => {
       setFolders(res);
@@ -56,6 +60,34 @@ export default function Folder({ params }) {
     });
   }, [folderIDParams, router]);
 
+  const targetRef = useRef(null);
+  useEffect(() => {
+    const targetRefCurrent = targetRef.current;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.dispatchEvent(
+            new CustomEvent("GnbVisible", { bubbles: true }),
+          );
+        } else {
+          entry.target.dispatchEvent(
+            new CustomEvent("GnbHidden", { bubbles: true }),
+          );
+        }
+      });
+    });
+
+    if (targetRefCurrent) {
+      observer.observe(targetRefCurrent);
+    }
+
+    return () => {
+      if (targetRefCurrent) {
+        observer.unobserve(targetRefCurrent);
+      }
+    };
+  }, []);
+
   return (
     <>
       <div className={cx("addLinkSection")}>
@@ -65,7 +97,7 @@ export default function Folder({ params }) {
       </div>
       <main>
         <section className={cx("folderSection")}>
-          <div className={cx("searchBarContainer")}>
+          <div className={cx("searchBarContainer")} ref={targetRef}>
             <SearchBar />
           </div>
           <div className={cx("folderContainer")}>
@@ -92,7 +124,12 @@ export default function Folder({ params }) {
             </div>
             <div className={cx("cardContainer")}>
               {links.map((link) => (
-                <Card key={link.id} cardData={link} />
+                <Card
+                  key={link.id}
+                  link={link}
+                  folders={folders}
+                  onDeleteLink={onDeleteLink}
+                />
               ))}
             </div>
             {links.length === 0 && (

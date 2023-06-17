@@ -26,6 +26,13 @@
   font-size: 1.4rem;
 }
 
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 100%;
+}
+
 .button {
   display: flex;
   align-items: center;

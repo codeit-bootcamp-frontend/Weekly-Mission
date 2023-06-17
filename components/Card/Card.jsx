@@ -53,7 +53,7 @@ const changeDateFormat = (time) => {
   return Intl.DateTimeFormat("kr").format(new Date(time));
 };
 
-export default function Card({ cardData }) {
+export default function Card({ link, folders, onDeleteLink }) {
   const defaultCardImg = "/images/default-background.png";
 
   const [shownMenu, setShownMenu] = useState(false);
@@ -65,22 +65,27 @@ export default function Card({ cardData }) {
     setShownMenu((prev) => !prev);
   };
 
-  const handleClickOutsideMenu = (e) => {
-    if (menuRef.current && !menuRef.current.contains(e.target)) {
-      setShownMenu(false);
+  const handleClickOutside = (e) => {
+    if (menuRef.current) {
+      const modalPortal = document.getElementById("modal-portal");
+      const clickedInsideMenu = menuRef.current.contains(e.target);
+      const clickedInsideModal = modalPortal.contains(e.target);
+      if (!clickedInsideMenu && !clickedInsideModal) {
+        setShownMenu(false);
+      }
     }
   };
 
   const handleClickCard = () => {
-    if (!shownMenu) window.open(cardData.url, "_blank");
+    if (!shownMenu) window.open(link.url, "_blank");
   };
 
   useEffect(() => {
     if (shownMenu) {
-      document.addEventListener("click", handleClickOutsideMenu);
+      document.addEventListener("click", handleClickOutside);
     }
     return () => {
-      document.removeEventListener("click", handleClickOutsideMenu);
+      document.removeEventListener("click", handleClickOutside);
     };
   }, [shownMenu]);
 
@@ -93,7 +98,7 @@ export default function Card({ cardData }) {
         <div
           className={cx("cardImg")}
           style={{
-            backgroundImage: `url(${cardData.image_source ?? defaultCardImg})`,
+            backgroundImage: `url(${link.image_source ?? defaultCardImg})`,
           }}
         ></div>
         <div className={cx("star")}>
@@ -102,7 +107,7 @@ export default function Card({ cardData }) {
       </div>
       <div className={cx("contentContainer")}>
         <div className={cx("passedTime")}>
-          {calculatePassedTime(cardData.created_at)}
+          {calculatePassedTime(link.created_at)}
         </div>
         <button
           style={{
@@ -116,12 +121,12 @@ export default function Card({ cardData }) {
         </button>
         {shownMenu && (
           <div className={cx("menuContainer")} ref={menuRef}>
-            <SelectMenu />
+            <SelectMenu link={link} folders={folders} onDelete={onDeleteLink} />
           </div>
         )}
-        <h2 className={cx("content")}>{cardData.description}</h2>
+        <h2 className={cx("content")}>{link.description}</h2>
         <div className={cx("createdDate")}>
-          {changeDateFormat(cardData.created_at)}
+          {changeDateFormat(link.created_at)}
         </div>
       </div>
     </article>
@@ -129,5 +134,7 @@ export default function Card({ cardData }) {
 }
 
 Card.propTypes = {
-  cardData: PropTypes.object.isRequired,
+  link: PropTypes.object.isRequired,
+  folders: PropTypes.array.isRequired,
+  onDeleteLink: PropTypes.func.isRequired,
 };
