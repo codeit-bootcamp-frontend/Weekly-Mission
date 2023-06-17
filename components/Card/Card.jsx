@@ -53,7 +53,7 @@ const changeDateFormat = (time) => {
   return Intl.DateTimeFormat("kr").format(new Date(time));
 };
 
-export default function Card({ link, folders, onDeleteLink }) {
+export default function Card({ link, folders, onDeleteLink, isOwn }) {
   const defaultCardImg = "/images/default-background.png";
 
   const [shownMenu, setShownMenu] = useState(false);
@@ -62,7 +62,7 @@ export default function Card({ link, folders, onDeleteLink }) {
   const handleClickKebab = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    setShownMenu((prev) => !prev);
+    isOwn && setShownMenu((prev) => !prev);
   };
 
   const handleClickOutside = (e) => {
@@ -135,6 +135,7 @@ export default function Card({ link, folders, onDeleteLink }) {
 
 Card.propTypes = {
   link: PropTypes.object.isRequired,
-  folders: PropTypes.array.isRequired,
-  onDeleteLink: PropTypes.func.isRequired,
+  folders: PropTypes.array,
+  onDeleteLink: PropTypes.func,
+  isOwn: PropTypes.bool,
 };

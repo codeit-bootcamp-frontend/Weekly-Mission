@@ -25,7 +25,7 @@ export default async function Shared() {
         </section>
         <section className={cx("cardContainer")}>
           {links.map((link) => (
-            <Card key={link.id} cardData={link} />
+            <Card key={link.id} link={link} isOwn={false} />
           ))}
         </section>
       </main>
