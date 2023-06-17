@@ -11,13 +11,14 @@ const HomeHeader = () => {
         <br />
         쉽게 저장하고 관리해 보세요
       </h1>
-      <ButtonLink className={styles.styledButtonLink} href="/folder">링크 추가하기</ButtonLink>
+      <ButtonLink className={styles.styledButtonLink} href="/folder">
+        링크 추가하기
+      </ButtonLink>
       <div className={styles.image}>
         <Image
           fill
           src="/homepage-header-image.png"
           alt="Header Image"
-          priority
         />
       </div>
     </header>

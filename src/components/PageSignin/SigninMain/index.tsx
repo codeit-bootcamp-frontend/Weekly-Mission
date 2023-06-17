@@ -1,25 +1,23 @@
 import Link from 'next/link'
-import Button from '@/components/Button'
+import AccountLogo from '@/components/Account/ui/AccountLogo'
+import SigninForm from './feature/SigninForm'
+import * as styles from './SigninMain.css'
 
 const SigninMain = () => {
   return (
-    <main>
+    <main className={styles.container}>
       <Link href="/">
-        <div />
+        <AccountLogo />
       </Link>
-      <div>
+      <p className={styles.headerText}>
         {'회원이 아니신가요? '}
-        <Link href="/signup">
-          회원 가입하기
-        </Link>
-      </div>
-      <form>
-        <input />
-        <input />
-        <Button type="submit">
-          로그인
-        </Button>
-      </form>
+        <div className={styles.accountLink}>
+          <Link href="/signup">
+            회원 가입하기
+          </Link>
+        </div>
+      </p>
+      <SigninForm />
       <div>
         <Link href="/fotgot-password">
           비밀번호 찾기
