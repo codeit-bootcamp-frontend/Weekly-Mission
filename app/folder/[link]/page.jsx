@@ -8,7 +8,7 @@ const page = async (props) => {
       title = "전체";
       break;
     case "1":
-      title = "즐겨찾기";
+      title = "⭐️ 즐겨찾기";
       break;
     case "2":
       title = "코딩 팁";
