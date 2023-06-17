@@ -1,7 +1,6 @@
 import '@/lib/global.css'
 
 export const metadata = {
-  title: 'Linkbrary',
   description: '세상의 모든 정보를 한 곳에',
   charSet: 'UTF-8',
   viewport: 'width=device-width, initial-scale=1',
@@ -38,7 +37,7 @@ export const metadata = {
   ],
 }
 
-const RootLayout = ({
+const AccountLayout = ({
   children,
 }: {
   children: React.ReactNode
@@ -52,4 +51,4 @@ const RootLayout = ({
   )
 }
 
-export default RootLayout
+export default AccountLayout
