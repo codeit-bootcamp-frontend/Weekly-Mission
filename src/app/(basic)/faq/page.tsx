@@ -1,4 +1,4 @@
-import FaqMain from '@/components/FaqMain'
+import FaqMain from '@/components/PageFaq/FaqMain'
 
 export const metadata = {
   title: 'FAQ | Linkbrary',

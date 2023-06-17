@@ -1,4 +1,4 @@
-import ForgotPasswordMain from '@/components/ForgotPasswordMain'
+import ForgotPasswordMain from '@/components/PageForgatPassword/ForgotPasswordMain'
 
 export const metadata = {
   title: '비밀번호 찾기 | Linkbrary',

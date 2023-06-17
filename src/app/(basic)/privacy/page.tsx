@@ -1,4 +1,4 @@
-import PrivacyMain from '@/components/PrivacyMain'
+import PrivacyMain from '@/components/PagePrivacy/PrivacyMain'
 
 export const metadata = {
   title: '개인정보 처리 방침 | Linkbrary',
