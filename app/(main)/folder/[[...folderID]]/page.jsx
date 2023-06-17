@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
 import classNames from "classnames/bind";
 import { useRouter } from "next/navigation";
@@ -12,6 +13,7 @@ import Card from "@/components/Card/Card";
 import FolderChip from "@/components/FolderChip";
 import Option from "@/components/Option";
 import SearchBar from "@/components/SearchBar";
+import { useSetVisibleGNB } from "@/hooks/useVisibleGNBContext.js";
 import { getFolder, getLink } from "@/utils/api";
 
 import styles from "./page.module.scss";
@@ -25,6 +27,11 @@ export default function Folder({ params }) {
   const [folders, setFolders] = useState([]);
   const [links, setLinks] = useState([]);
   const router = useRouter();
+
+  const targetRef = useRef(null);
+  const setVisibleGNB = useSetVisibleGNB();
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const [shownAtBottom, setShownAtBottom] = useState(false);
 
   const onAddFolder = (name) => {
     return name;
@@ -60,43 +67,47 @@ export default function Folder({ params }) {
     });
   }, [folderIDParams, router]);
 
-  const targetRef = useRef(null);
   useEffect(() => {
     const targetRefCurrent = targetRef.current;
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.dispatchEvent(
-            new CustomEvent("GnbVisible", { bubbles: true }),
-          );
-        } else {
-          entry.target.dispatchEvent(
-            new CustomEvent("GnbHidden", { bubbles: true }),
-          );
-        }
-      });
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const changeCondition =
+            entry.boundingClientRect.top <= (isMobile ? 20 : 40);
+          if (changeCondition) {
+            setVisibleGNB(false);
+            setShownAtBottom(true);
+          } else {
+            setVisibleGNB(true);
+            setShownAtBottom(false);
+          }
+        });
+      },
+      {
+        threshold: [1],
+        rootMargin: `${isMobile ? "-20px" : "-40px"} 0px 0px 0px`,
+      },
+    );
 
     if (targetRefCurrent) {
       observer.observe(targetRefCurrent);
     }
 
     return () => {
-      if (targetRefCurrent) {
-        observer.unobserve(targetRefCurrent);
-      }
+      setVisibleGNB(true);
+      observer.disconnect();
     };
-  }, []);
+  }, [isMobile, setVisibleGNB]);
 
   return (
     <>
-      <div className={cx("addLinkSection")}>
+      <div className={cx("addLinkSection", { shownAtBottom })}>
         <div className={cx("addLinkBarContainer")}>
           <AddLinkBar />
         </div>
       </div>
       <main>
-        <section className={cx("folderSection")}>
+        <section className={cx("folderSection", { shownAtBottom })}>
           <div className={cx("searchBarContainer")} ref={targetRef}>
             <SearchBar />
           </div>

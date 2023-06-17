@@ -8,8 +8,12 @@
   align-items: center;
   height: 9.4rem;
   padding: 0 20rem;
-  opacity: 0.9;
+  opacity: 1;
   background-color: utils.$gray-brt5;
+
+  &.unvisible {
+    @include utils.fade-out(1s);
+  }
 }
 
 .gnbContainer {
