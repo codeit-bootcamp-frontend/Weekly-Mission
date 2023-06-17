@@ -1,3 +1,5 @@
+'use client'
+
 import Button from '@/components/Button'
 import * as styles from './SigninForm.css'
 

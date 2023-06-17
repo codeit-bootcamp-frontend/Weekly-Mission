@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import AccountLogo from '@/components/Account/ui/AccountLogo'
 import SigninForm from './feature/SigninForm'
+import ForgotPasswordLink from './ui/ForgotPasswordLink'
 import * as styles from './SigninMain.css'
 
 const SigninMain = () => {
@@ -18,11 +19,7 @@ const SigninMain = () => {
         </div>
       </p>
       <SigninForm />
-      <div>
-        <Link href="/fotgot-password">
-          비밀번호 찾기
-        </Link>
-      </div>
+      <ForgotPasswordLink />
       <div />
     </main>
   )
