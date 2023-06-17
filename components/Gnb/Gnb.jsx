@@ -3,45 +3,51 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Gnb.module.css";
-import { useSession, signIn, signOut  } from 'next-auth/react'
+import { signIn } from "next-auth/react";
+import classNames from "classnames/bind";
+
+const cx = classNames.bind(styles);
 
 function Gnb({ user }) {
-
   console.log(user);
 
   return (
-    <>
-      <header className={styles.header}>
-        <div className={styles.container}>
-          <h1>
-            <Link href="/" className={styles.logo}>
-              <Image
-                src="/assets/Linkbrary.png"
-                alt="linkbrary-logo"
-                width="133"
-                height="25"
-                className={styles.image}
-              />
-            </Link>
-          </h1>
-          {user ? (
-            <div className={styles.user}>
-              <Image
-                className={styles.userIcon}
-                src={user.image_source}
-                alt={"user-profile-image"}
-                fill
-              />
-              <span className={styles.userEmail}>{user.email}</span>
-            </div>
-          ) : (
-            <button onClick={() => { signIn() }} className={styles.loginBtn}>
-              로그인
-            </button>
-          )}
-        </div>
-      </header>
-    </>
+    <header className={cx("header")}>
+      <div className={cx("container")}>
+        <h1>
+          <Link href="/" className={cx("logo")}>
+            <Image
+              src="/assets/Linkbrary.png"
+              alt="linkbrary-logo"
+              width="133"
+              height="25"
+              className={cx("image")}
+            />
+          </Link>
+        </h1>
+        {user ? (
+          <div className={cx("user")}>
+            <Image
+              className={cx("user-icon")}
+              src={user.image_source}
+              alt={"user-profile-image"}
+              width="28"
+              height="28"
+            />
+            <span className={cx("user-email")}>{user.email}</span>
+          </div>
+        ) : (
+          <button
+            onClick={() => {
+              signIn();
+            }}
+            className={cx("login-btn")}
+          >
+            로그인
+          </button>
+        )}
+      </div>
+    </header>
   );
 }
 

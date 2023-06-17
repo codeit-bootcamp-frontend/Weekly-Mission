@@ -24,17 +24,17 @@
   align-items: center;
 }
 
-.userIcon {
+.user-icon {
   width: 28px;
   border-radius: 50%;
   cursor: pointer;
 }
 
-.userEmail {
+.user-email {
   margin-left: 6px;
 }
 
-.header .loginBtn {
+.header .login-btn {
   font-family: "Pretendard";
   width: 128px;
   height: 53px;
@@ -44,6 +44,7 @@
   line-height: 55px;
   font-size: 18px;
   text-align: center;
+  cursor: pointer;
 }
 
 @media (max-width: 1199px) {
