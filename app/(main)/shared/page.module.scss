@@ -16,6 +16,13 @@
   row-gap: 2.4rem;
 }
 
+.notExistLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10rem;
+}
+
 // 1100px 이하 card 컴포넌트 2열 배치
 @media (max-width: 1100px) {
   .searchBarContainer {

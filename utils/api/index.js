@@ -19,7 +19,9 @@ const getUser = async (id) => {
   const { data } = await instance.request({
     url: `/users/${id}`,
   });
-  return data ? data[0] : {};
+  if (!(data.length > 0))
+    return Promise.reject(new Error("유저가 존재하지 않습니다."));
+  return data[0];
 };
 
 const getFolder = async (userID, folderID) => {
@@ -29,7 +31,9 @@ const getFolder = async (userID, folderID) => {
   const { data } = await instance.request({
     url,
   });
-  return data;
+  if (!(data.length > 0))
+    return Promise.reject(new Error("폴더가 존재하지 않습니다."));
+  return folderID ? data[0] : data;
 };
 
 const getLink = async (userID, folderID) => {

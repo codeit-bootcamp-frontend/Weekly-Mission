@@ -12,7 +12,7 @@ import Card from "@/components/Card/Card";
 import FolderChip from "@/components/FolderChip";
 import Option from "@/components/Option";
 import SearchBar from "@/components/SearchBar";
-import { getFolder, getLink } from "@/utils/axiosAPI";
+import { getFolder, getLink } from "@/utils/api";
 
 import styles from "./page.module.scss";
 
