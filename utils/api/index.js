@@ -1,7 +1,10 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:3000/",
+  baseURL:
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000/"
+      : "https://bootcamp-api.codeit.kr/api",
   timeout: 5000,
   headers: {},
 });
