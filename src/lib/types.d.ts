@@ -8,3 +8,12 @@ export interface IButtonLinkProps {
   children?: React.ReactNode;
   href: string;
 }
+
+export interface IAccountInputProps {
+  value: string;
+  type: string;
+  onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onTogglePassword?: (e: React.MouseEvent) => void;
+  isConfirmPassword?: boolean;
+}

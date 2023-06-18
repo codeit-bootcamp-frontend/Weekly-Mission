@@ -1,7 +1,9 @@
 import Link from 'next/link'
 import AccountLogo from '@/components/Account/ui/AccountLogo'
 import SigninForm from './feature/SigninForm'
+import SigninHeader from './ui/SigninHeader'
 import ForgotPasswordLink from './ui/ForgotPasswordLink'
+import SocialSignin from './ui/SocialSignin'
 import * as styles from './SigninMain.css'
 
 const SigninMain = () => {
@@ -10,17 +12,10 @@ const SigninMain = () => {
       <Link href="/">
         <AccountLogo />
       </Link>
-      <p className={styles.headerText}>
-        {'회원이 아니신가요? '}
-        <div className={styles.accountLink}>
-          <Link href="/signup">
-            회원 가입하기
-          </Link>
-        </div>
-      </p>
+      <SigninHeader />
       <SigninForm />
       <ForgotPasswordLink />
-      <div />
+      <SocialSignin />
     </main>
   )
 }
