@@ -14,7 +14,7 @@ const cx = classNames.bind(styles);
 
 export default function Star() {
   const [isFavorite, setIsFavorite] = useState(false);
-  const handleClickStar = (e) => {
+  const handleClickStar = (e: React.MouseEvent<HTMLImageElement>) => {
     e.preventDefault();
     e.stopPropagation();
     setIsFavorite((prevIsFavor) => !prevIsFavor);

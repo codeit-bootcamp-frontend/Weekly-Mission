@@ -12,7 +12,7 @@
     background-color: utils.$gray-brt4;
   }
 
-  &.active {
+  &.isActive {
     background-color: utils.$primary;
     color: #ffffff;
   }

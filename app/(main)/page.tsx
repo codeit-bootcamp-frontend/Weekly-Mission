@@ -43,7 +43,7 @@ export default function Home() {
           쉽게 저장하고 <br className={cx("br-not-pc")} />
           관리해 보세요
         </h1>
-        <Link href="/shared" className={cx("btn-add-link")}>
+        <Link href="/folder" className={cx("btn-add-link")}>
           링크 추가하기
         </Link>
         <Image

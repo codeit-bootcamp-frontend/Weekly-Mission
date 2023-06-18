@@ -3,9 +3,9 @@
 import classNames from "classnames/bind";
 import Image from "next/image";
 import Link from "next/link";
-import PropTypes from "prop-types";
 
 import { useVisibleGNB } from "@/hooks/useVisibleGNBContext";
+import { User } from "@/types";
 
 import styles from "./GNB.module.scss";
 import LoginButton from "./LoginButton";
@@ -15,7 +15,7 @@ import logo from "@/public/images/logo.png";
 
 const cx = classNames.bind(styles);
 
-export default function GNB({ isLogged, user }) {
+export default function GNB({ user }: { user: User | null }) {
   const unvisible = !useVisibleGNB();
 
   return (
@@ -26,13 +26,8 @@ export default function GNB({ isLogged, user }) {
             <Image width={133} height={24} src={logo} alt="로고" />
           </div>
         </Link>
-        {isLogged ? <UserProfile user={user} /> : <LoginButton />}
+        {user ? <UserProfile user={user} /> : <LoginButton />}
       </div>
     </header>
   );
 }
-
-GNB.propTypes = {
-  isLogged: PropTypes.bool.isRequired,
-  user: PropTypes.object,
-};

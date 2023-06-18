@@ -33,3 +33,10 @@ export interface ErrorProps {
   error: Error;
   reset: () => void;
 }
+
+export interface CardProps {
+  link: Link;
+  folders?: Folder[];
+  onDeleteLink?: (id: number) => number;
+  isNotOwn?: boolean;
+}

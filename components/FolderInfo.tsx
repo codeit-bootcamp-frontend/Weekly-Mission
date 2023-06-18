@@ -1,12 +1,19 @@
 import classNames from "classnames/bind";
 import Image from "next/image";
-import PropTypes from "prop-types";
+
+import { Folder, User } from "@/types";
 
 import styles from "./FolderInfo.module.scss";
 
 const cx = classNames.bind(styles);
 
-export default function FolderInfo({ folder, owner }) {
+export default function FolderInfo({
+  folder,
+  owner,
+}: {
+  folder: Folder;
+  owner: User;
+}) {
   return (
     <header className={cx("headerFolder")}>
       <div className={cx("ownerContainer")}>
@@ -24,8 +31,3 @@ export default function FolderInfo({ folder, owner }) {
     </header>
   );
 }
-
-FolderInfo.propTypes = {
-  folder: PropTypes.object.isRequired,
-  owner: PropTypes.object.isRequired,
-};

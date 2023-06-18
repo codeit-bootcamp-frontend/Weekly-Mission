@@ -11,7 +11,11 @@ import styles from "./AddFolderButton.module.scss";
 
 const cx = classNames.bind(styles);
 
-export default function AddFolderButton({ onAddFolder }) {
+export default function AddFolderButton({
+  onAddFolder,
+}: {
+  onAddFolder: (name: string) => string;
+}) {
   const [shownModal, setShownModal] = useState(false);
 
   const openModal = () => {

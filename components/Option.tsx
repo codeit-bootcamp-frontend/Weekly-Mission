@@ -4,7 +4,6 @@ import { useState } from "react";
 
 import classNames from "classnames/bind";
 import Image from "next/image";
-import PropTypes from "prop-types";
 
 import DeleteModal from "@/components/Modal/DeleteModal";
 import FormModal from "@/components/Modal/FormModal";
@@ -18,7 +17,16 @@ import shareImage from "@/public/images/folder-share.svg";
 
 const cx = classNames.bind(styles);
 
-export default function Option({ folder, onEditFolder, onDeleteFolder }) {
+interface OptionProps {
+  folder: { id: number; name: string };
+  onEditFolder: (newName: string) => string;
+  onDeleteFolder: (id: number) => number;
+}
+export default function Option({
+  folder,
+  onEditFolder,
+  onDeleteFolder,
+}: OptionProps) {
   const [shownEditModal, setShownEditModal] = useState(false);
   const [shownDeleteModal, setShownDeleteModal] = useState(false);
   const [shownShareModal, setShownShareModal] = useState(false);
@@ -72,7 +80,7 @@ export default function Option({ folder, onEditFolder, onDeleteFolder }) {
       )}
       {shownDeleteModal && (
         <DeleteModal
-          folder={folder}
+          item={{ title: "폴더 삭제", id: folder.id, content: folder.name }}
           onClose={closeDeleteModal}
           onDelete={onDeleteFolder}
         />
@@ -83,9 +91,3 @@ export default function Option({ folder, onEditFolder, onDeleteFolder }) {
     </>
   );
 }
-
-Option.propTypes = {
-  folder: PropTypes.object.isRequired,
-  onEditFolder: PropTypes.func.isRequired,
-  onDeleteFolder: PropTypes.func.isRequired,
-};

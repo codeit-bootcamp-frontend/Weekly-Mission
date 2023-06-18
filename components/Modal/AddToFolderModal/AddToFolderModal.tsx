@@ -3,7 +3,8 @@
 import { useState } from "react";
 
 import classNames from "classnames/bind";
-import PropTypes from "prop-types";
+
+import { Folder, Link } from "@/types";
 
 import ModalFrame from "../ModalFrame";
 
@@ -12,14 +13,25 @@ import FolderListItem from "./FolderListItem";
 
 const cx = classNames.bind(styles);
 
-export default function AddToFolderModal({ link, folders, onClose }) {
-  const [selectedItemId, setSelectedItemId] = useState(null);
-  const handleClickItem = (itemId) => {
+interface AddToFolderModalProps {
+  link: Link;
+  folders: Folder[];
+  onClose: () => void;
+}
+
+export default function AddToFolderModal({
+  link,
+  folders,
+  onClose,
+}: AddToFolderModalProps) {
+  const [selectedItemId, setSelectedItemId] = useState(0);
+  const handleClickItem = (itemId: number) => {
     setSelectedItemId(itemId);
   };
 
-  const onAddToFolder = (link, folderID) => {
-    return link, folderID;
+  const onAddToFolder = (link: Link, folderID: number) => {
+    link;
+    return folderID;
   };
 
   const handleClickAddButton = () => {
@@ -51,9 +63,3 @@ export default function AddToFolderModal({ link, folders, onClose }) {
     </ModalFrame>
   );
 }
-
-AddToFolderModal.propTypes = {
-  link: PropTypes.object.isRequired,
-  folders: PropTypes.array.isRequired,
-  onClose: PropTypes.func.isRequired,
-};

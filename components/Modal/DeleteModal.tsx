@@ -1,28 +1,29 @@
 "use client";
 
 import classNames from "classnames/bind";
-import PropTypes from "prop-types";
 
 import styles from "./DeleteModal.module.scss";
 import ModalFrame from "./ModalFrame";
 
 const cx = classNames.bind(styles);
 
-export default function DeleteModal({ folder, link, onClose, onDelete }) {
-  let item;
-  if (folder)
-    item = {
-      title: "폴더 삭제",
-      id: folder.id,
-      content: folder.name,
-    };
-  else
-    item = {
-      title: "링크 삭제",
-      id: link.id,
-      content: link.url,
-    };
+interface Item {
+  title: string;
+  id: number;
+  content: string;
+}
 
+interface DeleteModalProps {
+  item: Item;
+  onClose: () => void;
+  onDelete: (id: number) => number;
+}
+
+export default function DeleteModal({
+  item,
+  onClose,
+  onDelete,
+}: DeleteModalProps) {
   const handleDelete = () => {
     onDelete(item.id);
     onClose();
@@ -42,10 +43,3 @@ export default function DeleteModal({ folder, link, onClose, onDelete }) {
     </ModalFrame>
   );
 }
-
-DeleteModal.propTypes = {
-  folder: PropTypes.object,
-  link: PropTypes.object,
-  onClose: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired,
-};

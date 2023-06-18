@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { LineWave } from "react-loader-spinner";
 import { useMediaQuery } from "react-responsive";
 
 import classNames from "classnames/bind";
@@ -13,11 +14,10 @@ import FolderChip from "@/components/FolderChip";
 import Option from "@/components/Option";
 import SearchBar from "@/components/SearchBar";
 import { useSetVisibleGNB } from "@/hooks/useVisibleGNBContext";
+import { Folder, Link } from "@/types";
 import { getFolders, getLink } from "@/utils/api";
 
 import styles from "./page.module.scss";
-import { Folder, Link } from "@/types";
-import { LineWave } from "react-loader-spinner";
 
 const cx = classNames.bind(styles);
 
@@ -41,8 +41,8 @@ export default function Folder({ params }: { params: { folderID: string[] } }) {
     return name;
   };
 
-  const onEditFolder = (id: number, newName: string) => {
-    return [id, newName];
+  const onEditFolder = (newName: string) => {
+    return newName;
   };
 
   const onDeleteFolder = (id: number) => {

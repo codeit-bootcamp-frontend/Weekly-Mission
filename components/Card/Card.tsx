@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import classNames from "classnames/bind";
 import Image from "next/image";
-import PropTypes from "prop-types";
+
+import { CardProps } from "@/types";
 
 import styles from "./Card.module.scss";
 import SelectMenu from "./SelectMenu";
@@ -14,7 +15,7 @@ import kebab from "@/public/images/show-more.png";
 
 const cx = classNames.bind(styles);
 
-const calculatePassedTime = (time) => {
+const calculatePassedTime = (time: string): string => {
   const MINUTE = 60 * 1000;
   const HOUR = 60 * MINUTE;
   const DAY = 24 * HOUR;
@@ -23,7 +24,7 @@ const calculatePassedTime = (time) => {
 
   const currentTime = new Date();
   const createdTime = new Date(time);
-  const timeDiff = currentTime - createdTime;
+  const timeDiff = currentTime.getTime() - createdTime.getTime();
 
   switch (true) {
     case timeDiff < 2 * MINUTE:
@@ -49,30 +50,33 @@ const calculatePassedTime = (time) => {
   }
 };
 
-const changeDateFormat = (time) => {
+const changeDateFormat = (time: string): string => {
   return Intl.DateTimeFormat("kr").format(new Date(time));
 };
 
-export default function Card({ link, folders, onDeleteLink, isNotOwn }) {
+export default function Card({
+  link,
+  folders,
+  onDeleteLink,
+  isNotOwn,
+}: CardProps) {
   const defaultCardImg = "/images/default-background.png";
 
   const [shownMenu, setShownMenu] = useState(false);
-  const menuRef = useRef(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
-  const handleClickKebab = (e) => {
+  const handleClickKebab = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
     isNotOwn || setShownMenu((prev) => !prev);
   };
 
-  const handleClickOutside = (e) => {
-    if (menuRef.current) {
-      const modalPortal = document.getElementById("modal-portal");
-      const clickedInsideMenu = menuRef.current.contains(e.target);
-      const clickedInsideModal = modalPortal.contains(e.target);
-      if (!clickedInsideMenu && !clickedInsideModal) {
-        setShownMenu(false);
-      }
+  const handleClickOutside = (e: MouseEvent) => {
+    const modalPortal = document.getElementById("modal-portal");
+    const clickedInsideMenu = menuRef.current?.contains(e.target as Node);
+    const clickedInsideModal = modalPortal?.contains(e.target as Node);
+    if (!clickedInsideMenu && !clickedInsideModal) {
+      setShownMenu(false);
     }
   };
 
@@ -119,7 +123,7 @@ export default function Card({ link, folders, onDeleteLink, isNotOwn }) {
         >
           <Image width={21} height={17} src={kebab} alt="케밥 버튼" />
         </button>
-        {shownMenu && (
+        {shownMenu && folders && onDeleteLink && (
           <div className={cx("menuContainer")} ref={menuRef}>
             <SelectMenu link={link} folders={folders} onDelete={onDeleteLink} />
           </div>
@@ -132,10 +136,3 @@ export default function Card({ link, folders, onDeleteLink, isNotOwn }) {
     </article>
   );
 }
-
-Card.propTypes = {
-  link: PropTypes.object.isRequired,
-  folders: PropTypes.array,
-  onDeleteLink: PropTypes.func,
-  isNotOwn: PropTypes.bool,
-};

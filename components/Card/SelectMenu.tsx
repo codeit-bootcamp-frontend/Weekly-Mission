@@ -3,16 +3,26 @@
 import { useState } from "react";
 
 import classNames from "classnames/bind";
-import PropTypes from "prop-types";
 
 import AddToFolderModal from "@/components/Modal/AddToFolderModal/AddToFolderModal";
 import DeleteModal from "@/components/Modal/DeleteModal";
+import { Folder, Link } from "@/types";
 
 import styles from "./SelectMenu.module.scss";
 
 const cx = classNames.bind(styles);
 
-export default function SelectMenu({ link, folders, onDelete }) {
+interface SelectMenuProps {
+  link: Link;
+  folders: Folder[];
+  onDelete: (id: number) => number;
+}
+
+export default function SelectMenu({
+  link,
+  folders,
+  onDelete,
+}: SelectMenuProps) {
   const [shownDeleteModal, setShownDeleteModal] = useState(false);
   const [shownAddToFolderModal, setShownAddToFolderModal] = useState(false);
 
@@ -44,7 +54,7 @@ export default function SelectMenu({ link, folders, onDelete }) {
       </div>
       {shownDeleteModal && (
         <DeleteModal
-          link={link}
+          item={{ title: "링크 삭제", id: link.id, content: link.url }}
           onClose={closeDeleteModal}
           onDelete={onDelete}
         />
@@ -59,9 +69,3 @@ export default function SelectMenu({ link, folders, onDelete }) {
     </>
   );
 }
-
-SelectMenu.propTypes = {
-  onDelete: PropTypes.func.isRequired,
-  link: PropTypes.object.isRequired,
-  folders: PropTypes.array.isRequired,
-};

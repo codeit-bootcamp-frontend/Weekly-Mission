@@ -1,12 +1,13 @@
 import classNames from "classnames/bind";
 import Image from "next/image";
-import PropTypes from "prop-types";
+
+import { User } from "@/types";
 
 import styles from "./UserProfile.module.scss";
 
 const cx = classNames.bind(styles);
 
-export default function UserProfile({ user }) {
+export default function UserProfile({ user }: { user: User }) {
   return (
     <div className={cx("userContainer")}>
       <Image
@@ -20,7 +21,3 @@ export default function UserProfile({ user }) {
     </div>
   );
 }
-
-UserProfile.propTypes = {
-  user: PropTypes.object.isRequired,
-};

@@ -4,7 +4,8 @@ import { useEffect, useRef } from "react";
 
 import classNames from "classnames/bind";
 import Image from "next/image";
-import PropTypes from "prop-types";
+
+import { Children } from "@/types";
 
 import styles from "./ModalFrame.module.scss";
 import ModalPortal from "./ModalPortal";
@@ -13,12 +14,16 @@ import closeImage from "@/public/images/close.svg";
 
 const cx = classNames.bind(styles);
 
-export default function ModalFrame({ children, onClose }) {
-  const modalRef = useRef(null);
+interface ModalFrameProps extends Children {
+  onClose: () => void;
+}
+
+export default function ModalFrame({ children, onClose }: ModalFrameProps) {
+  const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (modalRef.current && !modalRef.current.contains(e.target)) {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
         onClose();
       }
     };
@@ -43,8 +48,3 @@ export default function ModalFrame({ children, onClose }) {
     </ModalPortal>
   );
 }
-
-ModalFrame.propTypes = {
-  children: PropTypes.node.isRequired,
-  onClose: PropTypes.func.isRequired,
-};

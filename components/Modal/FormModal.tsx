@@ -1,9 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 import classNames from "classnames/bind";
-import PropTypes from "prop-types";
 
 import styles from "./FormModal.module.scss";
 import ModalFrame from "./ModalFrame";
@@ -21,18 +20,27 @@ const formModalMap = {
   },
 };
 
-export default function FormModal({ folder, onClose, onSubmit }) {
-  const type = folder ? "edit" : "add";
-  const [value, setValue] = useState(type === "edit" ? folder.name : "");
+interface FormModalProps {
+  folder?: { id: number; name: string };
+  onClose: () => void;
+  onSubmit: (name: string) => string;
+}
 
-  const handleSubmit = (e) => {
+export default function FormModal({
+  folder,
+  onClose,
+  onSubmit,
+}: FormModalProps) {
+  const type = folder ? "edit" : "add";
+  const [value, setValue] = useState(folder ? folder.name : "");
+
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (type === "edit") onSubmit(folder.id, value);
-    else onSubmit(value);
+    onSubmit(value);
     onClose();
   };
 
-  const handleChangeInput = (e) => {
+  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
 
@@ -40,7 +48,7 @@ export default function FormModal({ folder, onClose, onSubmit }) {
     <ModalFrame onClose={onClose}>
       <div className={cx("container")}>
         <h3 className={cx("title")}>{formModalMap[type].title}</h3>
-        <form className={cx("form")} type="text" onSubmit={handleSubmit}>
+        <form className={cx("form")} onSubmit={handleSubmit}>
           <input
             className={cx("input")}
             placeholder="내용 입력"
@@ -55,9 +63,3 @@ export default function FormModal({ folder, onClose, onSubmit }) {
     </ModalFrame>
   );
 }
-
-FormModal.propTypes = {
-  folder: PropTypes.object,
-  onClose: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
-};

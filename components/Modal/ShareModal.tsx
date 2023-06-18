@@ -2,7 +2,6 @@
 
 import classNames from "classnames/bind";
 import Image from "next/image";
-import PropTypes from "prop-types";
 
 import ModalFrame from "./ModalFrame";
 import styles from "./ShareModal.module.scss";
@@ -13,7 +12,13 @@ import kakaotalk from "@/public/images/sns-logo-kakaotalk.svg";
 
 const cx = classNames.bind(styles);
 
-export default function ShareModal({ folder, onClose }) {
+export default function ShareModal({
+  folder,
+  onClose,
+}: {
+  folder: { id: number; name: string };
+  onClose: () => void;
+}) {
   return (
     <ModalFrame onClose={onClose}>
       <div className={cx("container")}>
@@ -47,8 +52,3 @@ export default function ShareModal({ folder, onClose }) {
     </ModalFrame>
   );
 }
-
-ShareModal.propTypes = {
-  folder: PropTypes.object,
-  onClose: PropTypes.func.isRequired,
-};
