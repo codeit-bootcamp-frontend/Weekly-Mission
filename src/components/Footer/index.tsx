@@ -13,7 +13,11 @@ const Footer = () => {
         </div>
         <div>
           <div className={styles.icons}>
-            <Link href="https://www.google.com/" target="_blank">
+            <a
+              href="https://www.google.com/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               <div className={styles.icon}>
                 <Image
                   fill
@@ -21,8 +25,12 @@ const Footer = () => {
                   alt="Facebook Icon"
                 />
               </div>
-            </Link>
-            <Link href="https://www.twitter.com/" target="_blank">
+            </a>
+            <a
+              href="https://www.twitter.com/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               <div className={styles.icon}>
                 <Image
                   fill
@@ -30,8 +38,12 @@ const Footer = () => {
                   alt="Twitter"
                 />
               </div>
-            </Link>
-            <Link href="https://www.youtube.com/" target="_blank">
+            </a>
+            <a
+              href="https://www.youtube.com/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               <div className={styles.icon}>
                 <Image
                   fill
@@ -39,8 +51,12 @@ const Footer = () => {
                   alt="Youtube"
                 />
               </div>
-            </Link>
-            <Link href="https://www.instagram.com/" target="_blank">
+            </a>
+            <a
+              href="https://www.instagram.com/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               <div className={styles.icon}>
                 <Image
                   fill
@@ -48,7 +64,7 @@ const Footer = () => {
                   alt="Instagram"
                 />
               </div>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

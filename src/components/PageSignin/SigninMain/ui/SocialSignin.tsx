@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Image from 'next/image'
 import * as styles from './SocialSignin.css'
 
@@ -7,7 +6,11 @@ const SocialSignin = () => {
     <div className={styles.container}>
       <p>소셜 로그인</p>
       <div className={styles.iconContainer}>
-        <Link href="https://www.google.com/">
+        <a
+          href="https://www.google.com/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           <div className={styles.icon}>
             <Image
               fill
@@ -15,8 +18,12 @@ const SocialSignin = () => {
               alt="Google Icon"
             />
           </div>
-        </Link>
-        <Link href="https://www.kakaocorp.com/">
+        </a>
+        <a
+          href="https://www.kakaocorp.com/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           <div className={styles.icon}>
             <Image
               fill
@@ -24,7 +31,7 @@ const SocialSignin = () => {
               alt="Kakaotalk Icon"
             />
           </div>
-        </Link>
+        </a>
       </div>
     </div>
   )
