@@ -14,11 +14,27 @@ export const metadata = {
   title: "Linkbrary : Shared",
 };
 
-export default async function Shared({ searchParams }) {
-  const { user: sharedUserID, folder: folderID } = searchParams;
-  if (!sharedUserID || !folderID) notFound();
-  let sharedUser, folder, links;
-  [sharedUser, folder, links] = await Promise.all([
+const checkValidateSearchParams = (params: string | string[] | undefined) => {
+  if (!params) return false;
+  if (Array.isArray(params)) return false;
+  if (isNaN(parseInt(params))) return false;
+  return true;
+};
+
+export default async function Shared({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
+  const { user: userParams, folder: folderParams } = searchParams;
+  if (
+    !checkValidateSearchParams(userParams) ||
+    !checkValidateSearchParams(folderParams)
+  )
+    notFound();
+  const [sharedUserID, folderID] = [Number(userParams), Number(folderParams)];
+
+  const [sharedUser, folder, links] = await Promise.all([
     getUser(sharedUserID),
     getFolder(sharedUserID, folderID),
     getLink(sharedUserID, folderID),
