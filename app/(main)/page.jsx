@@ -12,6 +12,27 @@ import shareFeatureImage from "@/public/images/capture-share.png";
 
 const cx = classNames.bind(styles);
 
+export const metadata = {
+  title: "Linkbrary",
+  openGraph: {
+    title: "Linkbrary",
+    description: "세상의 모든 정보를 쉽게 저장하고 관리해 보세요",
+    url: "https://www.codeit.kr/dashboard", // 배포 사이트에 맞게 변경 필요
+    type: "website",
+    images: [
+      {
+        url: "/sns-preview.png",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Linkbrary",
+    description: "세상의 모든 정보를 쉽게 저장하고 관리해 보세요",
+    images: ["/sns-preview.png"],
+  },
+};
+
 export default function Home() {
   return (
     <main className={cx("home")}>

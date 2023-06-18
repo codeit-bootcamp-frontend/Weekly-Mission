@@ -10,6 +10,10 @@ import styles from "./page.module.scss";
 
 const cx = classNames.bind(styles);
 
+export const metadata = {
+  title: "Linkbrary : Shared",
+};
+
 export default async function Shared({ searchParams }) {
   const { user: sharedUserID, folder: folderID } = searchParams;
   if (!sharedUserID || !folderID) notFound();
