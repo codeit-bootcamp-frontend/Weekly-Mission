@@ -13,8 +13,8 @@ import Card from "@/components/Card/Card";
 import FolderChip from "@/components/FolderChip";
 import Option from "@/components/Option";
 import SearchBar from "@/components/SearchBar";
-import { useSetVisibleGNB } from "@/hooks/useVisibleGNBContext.js";
-import { getFolder, getLink } from "@/utils/api";
+import { useSetVisibleGNB } from "@/hooks/useVisibleGNBContext";
+import { getFolders, getLink } from "@/utils/api";
 
 import styles from "./page.module.scss";
 
@@ -50,7 +50,7 @@ export default function Folder({ params }) {
   };
 
   useEffect(() => {
-    getFolder(userID).then((res) => {
+    getFolders(userID).then((res) => {
       setFolders(res);
 
       const foundFolder = res.find((folder) => folder.id === folderIDParams);
