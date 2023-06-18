@@ -4,19 +4,21 @@ module.exports = {
     es2021: true,
     node: true,
   },
+  parser: "@typescript-eslint/parser",
   extends: [
     "next/core-web-vitals",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:prettier/recommended",
     "plugin:import/recommended",
+    "plugin:@typescript-eslint/recommended",
   ],
   overrides: [],
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react"],
+  plugins: ["@typescript-eslint"],
   rules: {
     "react/react-in-jsx-scope": "off",
     "prettier/prettier": [
