@@ -29,6 +29,7 @@ export default function Home() {
           className={cx("img-homehero")}
           src={homehero}
           alt="홈히어로이미지"
+          priority={true}
         />
       </section>
 

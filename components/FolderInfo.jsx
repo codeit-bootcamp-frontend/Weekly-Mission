@@ -13,6 +13,7 @@ export default function FolderInfo({ folder, owner }) {
         <div className={cx("imgContainer")}>
           <Image
             fill
+            sizes="(max-width: 1200px) 60px, (max-width: 768px) 40px"
             src={owner.image_source}
             alt="폴더 사용자 프로필 이미지"
           />
