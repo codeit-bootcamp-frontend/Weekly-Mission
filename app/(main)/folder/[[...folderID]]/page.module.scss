@@ -29,6 +29,7 @@
 .folderSection {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 106rem;
   margin: 4rem auto;
   margin-bottom: 10rem;
@@ -40,6 +41,7 @@
 }
 
 .searchBarContainer {
+  width: 100%;
   height: 5.4rem;
 }
 
@@ -47,6 +49,7 @@
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
+  width: 100%;
 }
 
 .folderSelect {

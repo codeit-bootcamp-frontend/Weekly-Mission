@@ -17,6 +17,7 @@ import { getFolders, getLink } from "@/utils/api";
 
 import styles from "./page.module.scss";
 import { Folder, Link } from "@/types";
+import { LineWave } from "react-loader-spinner";
 
 const cx = classNames.bind(styles);
 
@@ -114,6 +115,7 @@ export default function Folder({ params }: { params: { folderID: string[] } }) {
           <div className={cx("searchBarContainer")} ref={targetRef}>
             <SearchBar />
           </div>
+          {!currentFolder && <LineWave />}
           {currentFolder && (
             <div className={cx("folderContainer")}>
               <div className={cx("folderSelect")}>
