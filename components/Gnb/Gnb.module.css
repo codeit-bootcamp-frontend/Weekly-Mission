@@ -6,17 +6,11 @@
 }
 
 .header .container {
-  padding: 0 200px;
+  padding: 0 20rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 94px;
-}
-
-.header .logo {
-  display: block;
-  width: 136px;
-  height: 32px;
+  height: 9.4rem;
 }
 
 .user {
@@ -25,46 +19,43 @@
 }
 
 .user-icon {
-  width: 28px;
+  width: 2.8rem;
   border-radius: 50%;
   cursor: pointer;
 }
 
 .user-email {
-  margin-left: 6px;
+  font-size: 1.4rem;
+  margin-left: 0.6rem;
 }
 
 .header .login-btn {
   font-family: "Pretendard";
-  width: 128px;
-  height: 53px;
+  width: 12.8rem;
+  height: 5.3rem;
   background-image: linear-gradient(to right, #6d6afe, #6ae3fe);
-  border-radius: 8px;
+  border-radius: 0.8rem;
   color: white;
-  line-height: 55px;
-  font-size: 18px;
+  line-height: 5.5rem;
+  font-size: 1.8rem;
   text-align: center;
   cursor: pointer;
 }
 
 @media (max-width: 1199px) {
   .container {
-    padding: 0 32px;
+    padding: 0 3.2rem;
   }
 
   .header .container {
-    width: 800px;
+    width: 80rem;
     margin: 0 auto;
-    padding: 0 32px;
-  }
-
-  .header .logo {
-    width: 133px;
+    padding: 0 3.2rem;
   }
 
   .header .login-btn {
-    width: 128px;
-    height: 53px;
+    width: 12.8rem;
+    height: 5.3rem;
   }
 }
 
@@ -76,11 +67,12 @@
 
 @media (max-width: 767px) {
   .header .container {
-    height: 64px;
+    height: 6.4rem;
   }
 
-  .header .logo {
-    width: 88px;
+  .header .image {
+    width: 8.8rem;
+    height: auto;
   }
 
   .user-email {
@@ -88,15 +80,15 @@
   }
 
   .header .login-btn {
-    width: 80px;
-    height: 37px;
-    font-size: 14px;
-    line-height: 37px;
+    width: 8rem;
+    height: 3.7rem;
+    font-size: 1.4rem;
+    line-height: 3.7rem;
   }
 }
 
 @media (max-width: 375px) {
   .header {
-    width: 375px;
+    width: 37.5rem;
   }
 }

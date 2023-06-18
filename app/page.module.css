@@ -8,14 +8,14 @@
 
 .banner .container {
   text-align: center;
-  padding-top: 70px;
+  padding-top: 7rem;
 }
 
 .banner .title {
   font-weight: 700;
-  font-size: 64px;
-  line-height: 80px;
-  margin-bottom: 40px;
+  font-size: 6.4rem;
+  line-height: 8rem;
+  margin-bottom: 4rem;
 }
 
 .banner .main-img {
@@ -31,36 +31,36 @@
 .banner .link-btn {
   display: block;
   margin: 0 auto;
-  width: 351px;
+  width: 35.1rem;
   background-image: linear-gradient(to right, var(--primary), #6ae3fe);
-  border-radius: 8px;
+  border-radius: 0.8rem;
   color: white;
-  line-height: 55px;
-  font-size: 18px;
-  margin-bottom: 60px;
+  line-height: 5.5rem;
+  font-size: 1.8rem;
+  margin-bottom: 6rem;
 }
 
 .content .container {
-  padding-top: 120px;
+  padding-top: 12rem;
   width: fit-content;
   margin: 0 auto;
 }
 
 .card {
-  margin-bottom: 100px;
+  margin-bottom: 10rem;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-content: space-between;
-  width: 1000px;
-  height: 450px;
+  width: 100rem;
+  height: 45rem;
 }
 
 .card .title {
   font-weight: 700;
-  font-size: 48px;
-  margin-bottom: 20px;
+  font-size: 4.8rem;
+  margin-bottom: 2rem;
 }
 
 .card .title .line-break {
@@ -68,11 +68,11 @@
 }
 
 .card .desc {
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 150%;
   color: #6b6b6b;
   word-break: keep-all;
-  width: 277px;
+  width: 27.7rem;
 }
 
 .card .desc .line-break {
@@ -123,8 +123,8 @@
   display: flex;
   justify-content: space-between;
   align-items: start;
-  height: 160px;
-  padding: 30px 104px 0;
+  height: 16rem;
+  padding: 3rem 10.4rem 0;
 }
 
 .copyright {
@@ -140,41 +140,41 @@
 }
 
 .icon {
-  width: 18px;
-  height: 18px;
-  margin-left: 13px;
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-left: 1.3rem;
   display: flex;
   align-items: center;
 }
 
 @media (max-width: 1199px) {
   .container {
-    padding: 0 32px;
+    padding: 0 3.2rem;
   }
 
   .header .container {
-    width: 800px;
+    width: 80.0rem;
     margin: 0 auto;
-    padding: 0 32px;
+    padding: 0 3.2rem;
   }
 
   .header .logo {
-    width: 133px;
+    width: 13.3rem;
   }
 
   .header .login-btn {
-    width: 128px;
-    height: 53px;
-    font-size: 16px;
-    line-height: 53px;
+    width: 12.8rem;
+    height: 5.3rem;
+    font-size: 1.6rem;
+    line-height: 5.3rem;
   }
 
   .banner .container {
-    padding-top: 40px;
+    padding-top: 4rem;
   }
 
   .banner .main-img {
-    width: 650px;
+    width: 65rem;
   }
 
   .banner .line-break {
@@ -182,24 +182,24 @@
   }
 
   .content .container {
-    padding-top: 80px;
+    padding-top: 8rem;
   }
 
   .card {
-    width: 685px;
-    height: 315px;
+    width: 68.5rem;
+    height: 31.5rem;
   }
 
   .card .desc {
-    width: 250px;
+    width: 25rem;
   }
 
   .card img {
-    width: 385px;
+    width: 38.5rem;
   }
 
   .card .title {
-    font-size: 45px;
+    font-size: 4.5rem;
   }
 }
 
@@ -211,28 +211,28 @@
 
 @media (max-width: 767px) {
   .header .container {
-    height: 64px;
+    height: 6.4rem;
   }
 
   .header .logo {
-    width: 88px;
+    width: 8.8rem;
   }
 
   .header .login-btn {
-    width: 80px;
-    height: 37px;
-    font-size: 14px;
-    line-height: 37px;
+    width: 8rem;
+    height: 3.7rem;
+    font-size: 1.4rem;
+    line-height: 3.7rem;
   }
 
   .banner .container {
-    padding-top: 28px;
+    padding-top: 2.8rem;
   }
 
   .banner .title {
-    font-size: 32px;
-    line-height: 42px;
-    margin-bottom: 20px;
+    font-size: 3.2rem;
+    line-height: 4.2rem;
+    margin-bottom: 2rem;
   }
 
   .banner .main-img {
@@ -240,21 +240,21 @@
   }
 
   .banner .link-btn {
-    width: 200px;
-    font-size: 14px;
-    line-height: 37px;
-    margin-bottom: 30px;
+    width: 20rem;
+    font-size: 1.4rem;
+    line-height: 3.7rem;
+    margin-bottom: 3rem;
   }
 
   .content .container {
-    padding-top: 40px;
-    padding-bottom: 80px;
+    padding-top: 4rem;
+    padding-bottom: 8rem;
   }
 
   .card {
     width: 100%;
     height: fit-content;
-    margin-bottom: 80px;
+    margin-bottom: 8rem;
   }
 
   .card:last-child {
@@ -263,13 +263,13 @@
 
   .card img:nth-child(1n) {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
     order: 1;
   }
 
   .card .title {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
   }
 
   .card .title .line-break {
@@ -277,7 +277,7 @@
   }
 
   .card .desc {
-    font-size: 15px;
+    font-size: 1.5rem;
     order: 2;
     width: 100%;
   }
@@ -288,13 +288,13 @@
 
   .footer .container {
     position: relative;
-    padding: 32px;
+    padding: 3.2rem;
   }
 
   .copyright {
     position: absolute;
-    bottom: 32px;
-    left: 32px;
+    bottom: 3.2rem;
+    left: 3.2rem;
   }
 
   .info {
@@ -309,18 +309,18 @@
 
 @media (max-width: 375px) {
   .header .container {
-    width: 375px;
+    width: 37.5rem;
   }
 
   .banner .container {
-    width: 375px;
+    width: 37.5rem;
   }
 
   .content .container {
-    width: 375px;
+    width: 37.5rem;
   }
 
   .footer .container {
-    width: 375px;
+    width: 37.5rem;
   }
 }

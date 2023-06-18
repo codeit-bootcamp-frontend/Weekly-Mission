@@ -15,7 +15,7 @@ function Gnb({ user }) {
     <header className={cx("header")}>
       <div className={cx("container")}>
         <h1>
-          <Link href="/" className={cx("logo")}>
+          <Link href="/">
             <Image
               src="/assets/Linkbrary.png"
               alt="linkbrary-logo"

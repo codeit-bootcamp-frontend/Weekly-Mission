@@ -1,0 +1,9 @@
+.folder-list {
+  display: flex;
+  margin-top: 5rem;
+  align-items: baseline;
+}
+
+.folder {
+  margin-right: 0.8rem;
+}

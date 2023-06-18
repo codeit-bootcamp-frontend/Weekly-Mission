@@ -1,13 +1,14 @@
 .footer {
   background-color: var(--black);
+  font-size: 1.6rem;
 }
 
 .footer .container {
   display: flex;
   justify-content: space-between;
   align-items: start;
-  height: 160px;
-  padding: 30px 104px 0;
+  height: 16rem;
+  padding: 3rem 10.4rem 0;
 }
 
 .copyright {
@@ -19,7 +20,7 @@
 }
 
 .policy {
-  margin-right: 10px;
+  margin-right: 1rem;
 }
 
 .icons {
@@ -27,26 +28,26 @@
 }
 
 .icon {
-  margin-left: 13px;
+  margin-left: 1.3rem;
   display: flex;
   align-items: center;
 }
 
 .icon img {
-  width: 18px;
-  height: 18px;
+  width: 1.8rem;
+  height: 1.8rem;
 }
 
 @media (max-width: 767px) {
   .footer .container {
     position: relative;
-    padding: 32px;
+    padding: 3.2rem;
   }
 
   .copyright {
     position: absolute;
-    bottom: 32px;
-    left: 32px;
+    bottom: 3.2rem;
+    left: 3.2rem;
   }
 
   .info {
@@ -61,6 +62,6 @@
 
 @media (max-width: 375px) {
   .footer {
-    width: 375px;
+    width: 37.5rem;
   }
 }

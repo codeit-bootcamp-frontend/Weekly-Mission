@@ -35,12 +35,14 @@
   --gray-5: #f0f6ff;
 }
 
+html {font-size: 62.5%;}
+
 body, div, ul, li, dl, dd, dt, ol, h1, h2, h3, h4, h5, h6, input, fieldset, legend, p, select, table, th, td, tr, textarea, button, form, figure, figcaption {margin:0; padding:0;}
 
 a {color: inherit; text-decoration: inherit;}
 
 body, input, textarea, select, button, table {font-family: "Pretendard"; font-weight: 500;}
-input {font-size: 16px; color: #3E3E43}
+input {font-size: 1.6rem; color: #3E3E43}
 
 em, address {font-style: normal;}
 
