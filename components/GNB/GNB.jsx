@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import PropTypes from "prop-types";
 
-import { useVisibleGNB } from "@/hooks/useVisibleGNBContext.js";
+import { useVisibleGNB } from "@/hooks/useVisibleGNBContext";
 
 import styles from "./GNB.module.scss";
 import LoginButton from "./LoginButton";

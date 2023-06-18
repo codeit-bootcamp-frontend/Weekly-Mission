@@ -1,12 +1,21 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import {
+  Dispatch,
+  SetStateAction,
+  createContext,
+  useContext,
+  useState,
+} from "react";
 
-import PropTypes from "prop-types";
+import { Children } from "@/types";
 
-const VisibleGNBContext = createContext();
+const VisibleGNBContext = createContext<{
+  visibleGNB: boolean;
+  setVisibleGNB: Dispatch<SetStateAction<boolean>>;
+} | null>(null);
 
-const VisibleGNBProvider = ({ children }) => {
+const VisibleGNBProvider = ({ children }: Children) => {
   const [visibleGNB, setVisibleGNB] = useState(true);
   return (
     <VisibleGNBContext.Provider value={{ visibleGNB, setVisibleGNB }}>
@@ -38,7 +47,3 @@ const useSetVisibleGNB = () => {
 };
 
 export { VisibleGNBProvider, useVisibleGNB, useSetVisibleGNB };
-
-VisibleGNBProvider.propTypes = {
-  children: PropTypes.node,
-};
