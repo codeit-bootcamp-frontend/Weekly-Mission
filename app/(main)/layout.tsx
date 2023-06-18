@@ -1,11 +1,12 @@
 import Footer from "@/components/Footer";
 import GNB from "@/components/GNB/GNB";
-import { VisibleGNBProvider } from "@/hooks/useVisibleGNBContext.js";
+import { VisibleGNBProvider } from "@/hooks/useVisibleGNBContext";
 import { getUser } from "@/utils/api";
 import checkLoginStatus from "@/utils/checkLoginStatus";
 import checkUserID from "@/utils/checkUserID";
+import { Children } from "@/types";
 
-export default async function MainLayout({ children }) {
+export default async function MainLayout({ children }: Children) {
   const isLogged = checkLoginStatus();
   const userID = checkUserID();
 

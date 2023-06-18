@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import PropTypes from "prop-types";
 
-export default function GlobalError({ error, reset }) {
+import { ErrorProps } from "@/types";
+
+export default function GlobalError({ error, reset }: ErrorProps) {
   return (
     <html>
       <body>
@@ -16,8 +17,3 @@ export default function GlobalError({ error, reset }) {
     </html>
   );
 }
-
-GlobalError.propTypes = {
-  error: PropTypes.string.isRequired,
-  reset: PropTypes.func.isRequired,
-};
