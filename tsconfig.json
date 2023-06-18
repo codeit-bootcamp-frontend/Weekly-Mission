@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true, // JS → TS로 마이그레이션 하는 상황에 필요
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -19,7 +18,7 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"] // jsconfig.json에서 그대로 복사
+      "@/*": ["./*"]
     }
   },
   "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
