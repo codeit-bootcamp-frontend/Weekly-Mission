@@ -6,7 +6,7 @@ const instance = axios.create({
   baseURL:
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000/"
-      : "https://bootcamp-api.codeit.kr/api",
+      : "https://weekly-mission-git-ian-react-week12-codeit-bootcamp.vercel.app",
   timeout: 5000,
   headers: {},
 });
