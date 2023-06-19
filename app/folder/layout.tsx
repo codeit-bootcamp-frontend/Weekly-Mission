@@ -2,10 +2,9 @@ import styles from "@folder/Folder.module.css";
 import AddLinkBar from "@components/AddLinkBar";
 import AddPage from "@components/AddPage";
 import SearchBar from "@components/SearchBar";
-import CardContainer from "@components/CardContainer";
-import UpdateLink from "@components/UpdateLink";
+import React from "react";
 
-const layout = ({ children }) => {
+const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <AddLinkBar />

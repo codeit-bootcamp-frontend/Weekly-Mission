@@ -1,7 +1,16 @@
 import styles from "@folder/[link]/page.module.css";
 import UpdateLink from "@components/UpdateLink";
 
-const page = async (props) => {
+interface PropsType {
+  params: {
+    link: string;
+  };
+  searchParams: {
+    [key: string]: string;
+  };
+}
+
+const page = async (props: PropsType) => {
   let title = "";
   switch (props.params.link) {
     case undefined:
@@ -23,6 +32,8 @@ const page = async (props) => {
       title = "나만의 장소";
       break;
   }
+
+  console.log(props);
 
   return (
     <>
