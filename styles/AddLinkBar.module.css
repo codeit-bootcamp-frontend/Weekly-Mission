@@ -28,9 +28,14 @@
   padding: 1rem 1.55rem;
   border: none;
   border-radius: 0.8rem;
+  white-space: nowrap;
 }
 
 @media (max-width: 767px) {
+  .bar-container {
+    padding: 0.8rem 1rem;
+  }
+
   .link-icon {
     width: 1.6rem;
     height: 1.6rem;
