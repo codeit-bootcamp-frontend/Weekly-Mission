@@ -18,11 +18,14 @@
 .folder-tab {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
 }
 
 .folderchip-container {
   display: flex;
   gap: 0.8rem;
+  flex-wrap: wrap;
+  white-space: nowrap;
 }
 
 .folder-header {
@@ -51,6 +54,10 @@
     max-width: 70.4rem;
   }
 
+  .folder-tab {
+    gap: 5rem;
+  }
+
   .card-list {
     grid-template-columns: repeat(2, auto);
     gap: 2.4rem;
@@ -65,6 +72,10 @@
   .main {
     max-width: 32.5rem;
     padding: 2rem 0 6rem;
+  }
+
+  .folder-tab {
+    gap: 0;
   }
 
   .card-list {

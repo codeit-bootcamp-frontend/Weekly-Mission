@@ -18,12 +18,16 @@
 .folder-tab {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
 }
 
 .folderchip-container {
   display: flex;
   gap: 0.8rem;
+  flex-wrap: wrap;
+  white-space: nowrap;
 }
+
 .folder-header {
   display: flex;
   justify-content: space-between;
@@ -42,6 +46,10 @@
 @media (max-width: 1099px) {
   .main {
     max-width: 70.4rem;
+  }
+
+  .folder-tab {
+    gap: 5rem;
   }
 
   .card-list {

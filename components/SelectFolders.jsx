@@ -5,13 +5,6 @@ import styles from "@/styles/SelectFolder.module.css";
 import classNames from "classnames/bind";
 import Image from "next/image";
 
-// const MOCK_FOLDER = [
-//   { name: "코딩팁", n_of_links: 7, selected: false },
-//   { name: "채용 사이트", n_of_links: 12, selected: true },
-//   { name: "유용한 글", n_of_links: 30, selected: false },
-//   { name: "나만의 장소", n_of_links: 3, selected: false },
-// ];
-
 const cx = classNames.bind(styles);
 
 function FolderItem({ folderData, folderNumber, onClick }) {
@@ -27,13 +20,6 @@ function FolderItem({ folderData, folderNumber, onClick }) {
 }
 
 export default function SelectFolders({ folders, onClick }) {
-  // const [folders, setFolders] = useState(foldersData);
-  // const handleChange = (folderNum) => {
-  //   folders[folderNum]["selected"] = !folders[folderNum]["selected"];
-  //   setFolders([...folders]);
-  //   console.log(folders);
-  // };
-
   return (
     <ol className={cx("folder-list")}>
       {folders.map((folder, i) => (
