@@ -33,8 +33,6 @@ const AddPageChip = ({ link }) => {
     router.push(route);
   };
 
-  console.log(params);
-
   return (
     <button
       type="button"

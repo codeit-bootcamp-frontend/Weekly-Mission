@@ -11,7 +11,6 @@ const getFolderLink = async () => {
 
 const FolderLink = async (props) => {
   const folderLink = await getFolderLink();
-  console.log(folderLink.data);
 
   const allContent = {
     id: 0,

@@ -1,16 +1,16 @@
 import styles from "@components/CardContainer.module.css";
 import Card from "@components/Card";
 
-const getFolder = async () => {
+const getFolder = async (userId = 1, folderId) => {
   const result = await fetch(
-    "https://bootcamp-api.codeit.kr/api/users/1/links",
+    `https://bootcamp-api.codeit.kr/api/users/${userId}/links?folder=${folderId}`,
     { cache: "no-store" }
   );
   return result.json();
 };
 
-const CardContainer = async () => {
-  let folder = await getFolder();
+const CardContainer = async (props) => {
+  let folder = await getFolder(1, props.params.folder);
 
   return (
     <div className={styles["main-container"]}>
