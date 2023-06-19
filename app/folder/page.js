@@ -11,18 +11,22 @@ import Footer from "@/components/Footer";
 import styles from "./page.module.css";
 import classNames from "classnames/bind";
 import getLinks from "@/api/getLinks";
+import getUserId from "@/data/getUserId";
 
 const cx = classNames.bind(styles);
 
 export default async function Folder() {
-  const userData = await getUserData();
-  const { id: userId, name: userName, email, profileImageSource } = userData;
+  const userId = getUserId();
+
+  const userData = await getUserData(userId);
   const folders = await getFolders(userId);
   const links = await getLinks(userId);
 
+  const { email, image_source } = userData[0];
+
   return (
     <>
-      <GNB userEmail={email} userProfileImageSorce={profileImageSource} />
+      <GNB userEmail={email} userProfileImageSorce={image_source} />
       <header className={cx("header")}>
         <AddLinkBar />
       </header>
@@ -44,11 +48,15 @@ export default async function Folder() {
             <h1 className={cx("folder-title")}>전체</h1>
             <Option folderName="전체" />
           </div>
-          <div className={cx("card-list")}>
-            {links.map((linkData) => (
-              <Card key={linkData.id} data={linkData} />
-            ))}
-          </div>
+          {links.length === 0 ? (
+            <p className={cx("no-link-content")}>저장된 링크가 없습니다</p>
+          ) : (
+            <div className={cx("card-list")}>
+              {links.map((linkData) => (
+                <Card key={linkData.id} data={linkData} />
+              ))}
+            </div>
+          )}
         </div>
       </main>
       <Footer />

@@ -13,6 +13,7 @@ const nextConfig = {
       "s.pstatic.net",
       "codeit-images.codeit.com", // folder user image
       "codeit-front.s3.ap-northeast-2.amazonaws.com", // login user image
+      "ca.slack-edge.com",
     ],
   },
 };

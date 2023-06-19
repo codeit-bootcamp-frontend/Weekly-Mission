@@ -9,14 +9,14 @@ import Option from "@/components/Option";
 import Card from "@/components/Card";
 import styles from "./page.module.css";
 import classNames from "classnames/bind";
+import getUserId from "@/data/getUserId";
 
 const cx = classNames.bind(styles);
 
 export default async function FolderID({ params }) {
   const { id: folderId } = params;
+  const userId = getUserId();
 
-  const userData = await getUserData();
-  const { id: userId, name: userName, email, profileImageSource } = userData;
   const folders = await getFolders(userId);
   const currFolder = (await getFolders(userId, folderId))[0];
   const links = await getLinks(userId, folderId);

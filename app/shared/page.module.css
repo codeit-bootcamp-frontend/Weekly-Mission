@@ -8,6 +8,10 @@
   margin-bottom: 2rem;
 }
 
+.user-avatar {
+  border-radius: 7rem;
+}
+
 .user-nickname {
   margin-top: 1.2rem;
   font-size: 1.6rem;
@@ -46,7 +50,7 @@
     padding: 1rem 0 4rem;
   }
 
-  .user-avartar {
+  .user-avatar {
     width: 4rem;
     height: 4rem;
   }

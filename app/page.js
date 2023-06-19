@@ -5,16 +5,18 @@ import styles from "./page.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import getUserData from "@/api/getUserData";
+import getUserId from "@/data/getUserId";
 
 const cx = classNames.bind(styles);
 
 export default async function Home() {
-  const userData = await getUserData();
-  const { id: userId, name: userName, email, profileImageSource } = userData;
+  const userId = getUserId();
+  const userData = await getUserData(userId);
+  const { email, image_source } = userData[0];
 
   return (
     <>
-      <GNB userEmail={email} userProfileImageSorce={profileImageSource} />
+      <GNB userEmail={email} userProfileImageSorce={image_source} />
       <header className={cx("header")}>
         <h1 className={cx("header-title")}>
           <span className={cx("text-gradient", "purple-to-pink")}>세상의 모든 정보</span>를
