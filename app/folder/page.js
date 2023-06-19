@@ -42,7 +42,7 @@ export default async function Folder() {
           </div>
           <div className={cx("folder-header")}>
             <h1 className={cx("folder-title")}>전체</h1>
-            <Option />
+            <Option folderName="전체" />
           </div>
           <div className={cx("card-list")}>
             {links.map((linkData) => (

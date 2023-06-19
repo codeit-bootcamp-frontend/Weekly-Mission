@@ -8,7 +8,7 @@ import ModalShare from "./ModalShare";
 
 const cx = classNames.bind(styles);
 
-export default function Option() {
+export default function Option({ folderName }) {
   const [isModalShareOpen, setIsShareModalOpen] = useState(false);
 
   const handleModalShareOpen = () => {
@@ -31,7 +31,7 @@ export default function Option() {
           삭제
         </button>
       </div>
-      {isModalShareOpen && <ModalShare onClose={setIsShareModalOpen} />}
+      {isModalShareOpen && <ModalShare folderName={folderName} onClose={setIsShareModalOpen} />}
     </>
   );
 }

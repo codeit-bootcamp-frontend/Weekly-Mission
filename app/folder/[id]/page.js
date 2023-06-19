@@ -18,7 +18,7 @@ export default async function FolderID({ params }) {
   const userData = await getUserData();
   const { id: userId, name: userName, email, profileImageSource } = userData;
   const folders = await getFolders(userId);
-
+  const currFolder = (await getFolders(userId, folderId))[0];
   const links = await getLinks(userId, folderId);
 
   return (
@@ -42,7 +42,7 @@ export default async function FolderID({ params }) {
           </div>
           <div className={cx("folder-header")}>
             <h1 className={cx("folder-title")}>전체</h1>
-            <Option />
+            <Option folderName={currFolder?.name} />
           </div>
           {links.length === 0 ? (
             <p className={cx("no-link-content")}>저장된 링크가 없습니다</p>
