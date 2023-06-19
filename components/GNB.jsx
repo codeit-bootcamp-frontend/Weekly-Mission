@@ -11,7 +11,7 @@ export default function GNB({ userEmail, userProfileImageSorce }) {
   return (
     <nav className={cx("gnb")}>
       <Link className={cx("linkbrary-logo")} href="/">
-        <Image fill className={cx("linkbrary-logo-image")} src="/images/linkbrary.svg" alt="linkbrary 로고 이미지" />
+        <Image className={cx("linkbrary-logo-image")} src="/images/linkbrary.svg" alt="linkbrary 로고 이미지" width={133} height={24} />
       </Link>
       {userEmail && userProfileImageSorce ? (
         <div className={cx("profile-container")}>

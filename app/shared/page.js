@@ -13,11 +13,10 @@ export default async function Shared({ searchParams }) {
   const folderData = await getFolderData();
   const userData = await getUserData();
 
-  const { id: folderId, name: folderName, owner, links } = folderData.data.folder;
-  const { id: userId, name: userName, email, profileImageSource } = userData.data;
+  const { id: folderId, name: folderName, owner, links } = folderData.folder;
+  const { id: userId, name: userName, email, profileImageSource } = userData;
 
   const cx = classNames.bind(styles);
-  console.log(email, profileImageSource);
 
   return (
     <>
