@@ -1,7 +1,7 @@
 .folder-list {
   display: flex;
-  margin-top: 5rem;
   align-items: baseline;
+  margin-bottom: 2.4rem;
 }
 
 .folder {

@@ -4,8 +4,7 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-export default async function FolderList({ params, folderList }) {
-  const currentIdParam = params?.id && +params?.id[0];
+export default async function FolderList({ currentIdParam, folderList }) {
   return (
     <ul className={cx("folder-list")}>
       <li className={cx("folder")}>

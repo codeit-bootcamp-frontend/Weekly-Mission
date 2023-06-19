@@ -8,9 +8,9 @@ const instance = axios.create({
   timeout: 10000,
 });
 
-async function getUser(uid) {
+async function getUser(userId) {
   try {
-    const response = await instance.get(`api/users/${uid}`);
+    const response = await instance.get(`api/users/${userId}`);
     const { data } = response.data;
     return data[0];
   } catch (error) {
@@ -18,9 +18,9 @@ async function getUser(uid) {
   }
 }
 
-async function getFolderList(uid) {
+async function getFolderList(userId) {
   try {
-    const response = await instance.get(`api/users/${uid}/folders`);
+    const response = await instance.get(`api/users/${userId}/folders`);
     const { data } = response.data;
     return data;
   } catch (error) {
@@ -28,4 +28,17 @@ async function getFolderList(uid) {
   }
 }
 
-export { getUser, getFolderList };
+async function getCardList(userId, folderId) {
+  try {
+    const url = folderId
+      ? `api/users/${userId}/links?folderId=${folderId}`
+      : `api/users/${userId}/links`;
+
+    const response = await instance.get(url);
+    return response.data.distinctData;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export { getUser, getFolderList, getCardList };

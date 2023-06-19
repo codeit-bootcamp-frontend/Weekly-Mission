@@ -1,7 +1,8 @@
 .folder {
   padding: 0.8rem 1.2rem;
-  border-radius: 0.3rem;
+  border-radius: 0.5rem;
   border: 1px solid var(--primary);
+  font-size: 1.6rem;
 }
 
 .selected {
