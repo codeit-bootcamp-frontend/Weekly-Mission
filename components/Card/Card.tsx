@@ -15,15 +15,13 @@ import kebab from "@/public/images/show-more.png";
 
 const cx = classNames.bind(styles);
 
-const calculatePassedTime = (time: string): string => {
+const calculatePassedTime = (createdTime: Date, currentTime: Date): string => {
   const MINUTE = 60 * 1000;
   const HOUR = 60 * MINUTE;
   const DAY = 24 * HOUR;
   const MONTH = 31 * DAY;
   const YEAR = 12 * MONTH;
 
-  const currentTime = new Date();
-  const createdTime = new Date(time);
   const timeDiff = currentTime.getTime() - createdTime.getTime();
 
   switch (true) {
@@ -64,6 +62,7 @@ export default function Card({
 
   const [shownMenu, setShownMenu] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const [date, setDate] = useState<Date>(new Date("2023.06.19"));
 
   const handleClickKebab = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -93,6 +92,10 @@ export default function Card({
     };
   }, [shownMenu]);
 
+  useEffect(() => {
+    setDate(new Date());
+  }, []);
+
   return (
     <article
       className={cx("card", { notShownMenu: !shownMenu })}
@@ -111,7 +114,7 @@ export default function Card({
       </div>
       <div className={cx("contentContainer")}>
         <div className={cx("passedTime")}>
-          {calculatePassedTime(link.created_at)}
+          {calculatePassedTime(new Date(link.created_at), date)}
         </div>
         <button
           style={{
