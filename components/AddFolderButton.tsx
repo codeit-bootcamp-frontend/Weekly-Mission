@@ -3,7 +3,6 @@
 import { useState } from "react";
 
 import classNames from "classnames/bind";
-import PropTypes from "prop-types";
 
 import FormModal from "@/components/Modal/FormModal";
 
@@ -36,7 +35,3 @@ export default function AddFolderButton({
     </>
   );
 }
-
-AddFolderButton.propTypes = {
-  onAddFolder: PropTypes.func.isRequired,
-};
