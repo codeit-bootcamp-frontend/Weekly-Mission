@@ -1,14 +1,6 @@
 import styles from "@folder/[link]/page.module.css";
 import UpdateLink from "@components/UpdateLink";
-
-interface PropsType {
-  params: {
-    link: string;
-  };
-  searchParams: {
-    [key: string]: string;
-  };
-}
+import { PropsType } from "@library/propsType";
 
 const page = async (props: PropsType) => {
   let title = "";

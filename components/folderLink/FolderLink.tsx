@@ -1,6 +1,6 @@
 import AddPageChip from "@components/AddPageChip";
 import styles from "@components/AddPage.module.css";
-import Link from "next/link";
+import { PropsType } from "@library/propsType";
 
 const getFolderLink = async () => {
   const response = await fetch(
@@ -9,8 +9,16 @@ const getFolderLink = async () => {
   return response.json();
 };
 
-const FolderLink = async (props) => {
+interface folderType {
+  id: number;
+  created_at: string;
+  name: string;
+  user_id: number;
+}
+
+const FolderLink = async (props: PropsType) => {
   const folderLink = await getFolderLink();
+  console.log(folderLink.data);
 
   const allContent = {
     id: 0,
@@ -23,7 +31,7 @@ const FolderLink = async (props) => {
 
   return (
     <div className={styles["chip-box"]}>
-      {folderLink.data.map((link) => (
+      {folderLink.data.map((link: folderType) => (
         <AddPageChip link={link} key={link.id} />
       ))}
     </div>
