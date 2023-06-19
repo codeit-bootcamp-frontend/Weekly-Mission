@@ -6,3 +6,10 @@
 .search-bar {
   margin-bottom: 4rem;
 }
+
+.folder-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.4rem;
+}

@@ -1,0 +1,13 @@
+.add-button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: inherit;
+  padding: 0.8rem 1.2rem;
+}
+
+.add-button p {
+  font-size: 1.6rem;
+  color: var(--primary);
+  margin-right: 0.5rem;
+}

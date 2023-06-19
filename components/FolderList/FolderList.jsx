@@ -1,3 +1,5 @@
+// "use client";
+
 import Folder from "@/components/Folder/Folder";
 import styles from "./FolderList.module.css";
 import classNames from "classnames/bind";
@@ -12,11 +14,11 @@ export default async function FolderList({ currentIdParam, folderList }) {
       </li>
       {folderList?.map((folder) => {
         return (
-          <li key={folder.id} className={cx("folder")}>
+          <li key={folder._id} className={cx("folder")}>
             <Folder
               name={folder.name}
-              href={`/folder/${folder.id}`}
-              selected={currentIdParam === folder.id}
+              href={`/folder/${folder._id}`}
+              selected={folder._id.equals(currentIdParam)}
             />
           </li>
         );

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 
-export default function LikeBtn() {
+export default function StarButton() {
   const [isSelected, SetisSelected] = useState(false);
 
   return (

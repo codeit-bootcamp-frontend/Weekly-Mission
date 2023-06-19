@@ -4,7 +4,7 @@ import styles from "./Card.module.css";
 import classNames from "classnames/bind";
 import Image from "next/image";
 import Link from "next/link";
-import LikeBtn from "@/components/LikeBtn/LikeBtn";
+import StarButton from "@/components/StarButton/StarButton";
 import formatCurrentDate from "@/lib/formatCurrentDate";
 import calcElapsedTime from "@/lib/calcElapsedTime";
 
@@ -17,7 +17,7 @@ function Card({ card }) {
       <Link href={card.url}>
         <article className={cx("card")}>
           <div className={cx("like-btn")}>
-            <LikeBtn />
+            <StarButton />
           </div>
           <div
             className={cx("card-image")}

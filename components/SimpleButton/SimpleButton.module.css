@@ -1,0 +1,16 @@
+.button {
+  width: 100%;
+  height: 5.1rem;
+  border-radius: 0.8rem;
+  color: white;
+  cursor: pointer;
+  font-size: 1.6rem;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-image: linear-gradient(to right, #6d6afe, #6ae3fe);
+}
