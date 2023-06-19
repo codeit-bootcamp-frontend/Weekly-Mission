@@ -6,10 +6,6 @@
   right: 0;
 }
 
-.delete {
-  /* border-bottom: 1px solid rgba(51, 50, 54, 0.2); */
-}
-
 .menu-container button {
   cursor: pointer;
   padding: 0.7rem 0;

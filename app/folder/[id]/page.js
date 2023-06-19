@@ -16,7 +16,7 @@ export default async function FolderID({ params }) {
   const { id: folderId } = params;
 
   const userData = await getUserData();
-  const { id: userId, name: userName, email, profileImageSource } = userData.data;
+  const { id: userId, name: userName, email, profileImageSource } = userData;
   const folders = await getFolders(userId);
 
   const links = await getLinks(userId, folderId);

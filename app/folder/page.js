@@ -16,7 +16,7 @@ const cx = classNames.bind(styles);
 
 export default async function Folder() {
   const userData = await getUserData();
-  const { id: userId, name: userName, email, profileImageSource } = userData.data;
+  const { id: userId, name: userName, email, profileImageSource } = userData;
   const folders = await getFolders(userId);
   const links = await getLinks(userId);
 

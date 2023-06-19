@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 
 export default async function Home() {
   const userData = await getUserData();
-  const { id: userId, name: userName, email, profileImageSource } = userData.data;
+  const { id: userId, name: userName, email, profileImageSource } = userData;
 
   return (
     <>
