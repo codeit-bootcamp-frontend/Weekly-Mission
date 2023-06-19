@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { isValidEmail, isValidPassword } from '@/lib/utility/validators'
 import Button from '@/components/Button'
-import AccountInput from '@/components/Account/feature/AccountInput'
+import AccountInput from '@/components/Account/ui/AccountInput'
 import validateEmail from '@/components/Account/utility/validateEmail'
 import validatePassword from '@/components/Account/utility/validatePassword'
 import * as styles from './SignupForm.css'
@@ -77,12 +77,12 @@ const SignupForm = () => {
     }
   }
 
-  const handleTogglePassword = (e: React.MouseEvent) => {
+  const toggleShowPassword = (e: React.MouseEvent) => {
     e.preventDefault()
     setShowPassword(!showPassword)
   }
 
-  const handleTogglePassword2 = (e: React.MouseEvent) => {
+  const toggleShowPassword2 = (e: React.MouseEvent) => {
     e.preventDefault()
     setShowPassword2(!showPassword2)
   }
@@ -103,14 +103,14 @@ const SignupForm = () => {
         type={showPassword ? 'text' : 'password'}
         onBlur={handleBlur}
         onChange={handleChange}
-        onTogglePassword={handleTogglePassword}
+        toggleShowPassword={toggleShowPassword}
       />
       <AccountInput
         value="password"
         type={showPassword2 ? 'text' : 'password'}
         onBlur={handleBlur}
         onChange={handleChange}
-        onTogglePassword={handleTogglePassword2}
+        toggleShowPassword={toggleShowPassword2}
         isConfirmPassword
       />
       <Button type="submit">

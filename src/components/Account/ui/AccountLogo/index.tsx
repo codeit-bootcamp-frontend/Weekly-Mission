@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import * as styles from './AccountLogo.css'
+import * as styles from './index.css'
 
 const AccountLogo = () => {
   return (

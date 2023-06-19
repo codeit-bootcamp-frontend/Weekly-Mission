@@ -1,11 +1,11 @@
-import Image from 'next/image'
 import { IAccountInputProps } from '@/lib/types'
-import * as styles from './AccountInput.css'
+import EyeToggler from '@/components/Account/ui/EyeToggler'
+import * as styles from './index.css'
 
 const AccountInput = ({
   value,
   isConfirmPassword = false,
-  onTogglePassword = () => { return null },
+  toggleShowPassword = () => {},
   ...props
 }: IAccountInputProps) => {
   const EMAIL_VALUE = 'email'
@@ -41,17 +41,7 @@ const AccountInput = ({
           {...props}
         />
         {value === PASSWORD_VALUE && (
-          <button
-            type="button"
-            className={styles.eyeToggler}
-            onMouseDown={onTogglePassword}
-          >
-            <Image
-              fill
-              src="/eye.svg"
-              alt="Eye Toggler"
-            />
-          </button>
+          <EyeToggler onMouseDown={toggleShowPassword} />
         )}
       </div>
     </>

@@ -14,6 +14,10 @@ export interface IAccountInputProps {
   type: string;
   onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onTogglePassword?: (e: React.MouseEvent) => void;
+  toggleShowPassword?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   isConfirmPassword?: boolean;
+}
+
+export interface IEyeTogglerProps {
+  onMouseDown: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }

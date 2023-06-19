@@ -5,7 +5,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Button from '@/components/Button'
-import AccountInput from '@/components/Account/feature/AccountInput'
+import AccountInput from '@/components/Account/ui/AccountInput'
 import validateEmail from '@/components/Account/utility/validateEmail'
 import validatePassword from '@/components/Account/utility/validatePassword'
 import * as styles from './SigninForm.css'
@@ -48,7 +48,7 @@ const SigninForm = () => {
     }
   }
 
-  const handleTogglePassword = (e: React.MouseEvent) => {
+  const toggleShowPassword = (e: React.MouseEvent) => {
     e.preventDefault()
     setShowPassword(!showPassword)
   }
@@ -69,7 +69,7 @@ const SigninForm = () => {
         type={showPassword ? 'text' : 'password'}
         onBlur={handleBlur}
         onChange={handleChange}
-        onTogglePassword={handleTogglePassword}
+        toggleShowPassword={toggleShowPassword}
       />
       <Button type="submit">
         로그인
