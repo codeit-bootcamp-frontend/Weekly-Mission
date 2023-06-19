@@ -16,6 +16,159 @@ Linkbrary is a web application being developed to provide a web service that all
 The application can be accessed at [https://weekly-mission-git-jer1s-react-codeit-bootcamp.vercel.app/](https://weekly-mission-git-jer1s-react-codeit-bootcamp.vercel.app/).
 
 ## Project Structure
+```
+linkbrary
+├─ .eslintignore
+├─ .eslintrc.json
+├─ .gitignore
+├─ LICENSE.md
+├─ README.md
+├─ jest.config.mjs
+├─ next-sitemap.config.js
+├─ next.config.js
+├─ package-lock.json
+├─ package.json
+├─ public /
+├─ src
+│  ├─ app
+│  │  ├─ (basic)
+│  │  │  ├─ faq
+│  │  │  │  └─ page.tsx
+│  │  │  ├─ folder
+│  │  │  │  └─ page.tsx
+│  │  │  ├─ layout.tsx
+│  │  │  ├─ my-link
+│  │  │  │  └─ page.tsx
+│  │  │  ├─ page.tsx
+│  │  │  ├─ privacy
+│  │  │  │  └─ page.tsx
+│  │  │  └─ shared
+│  │  │     └─ page.tsx
+│  │  ├─ favicon.ico
+│  │  ├─ forgot-password
+│  │  │  └─ page.tsx
+│  │  ├─ layout.tsx
+│  │  ├─ not-found.tsx
+│  │  ├─ robots.ts
+│  │  ├─ signin
+│  │  │  └─ page.tsx
+│  │  ├─ signup
+│  │  │  └─ page.tsx
+│  │  └─ sitemap.ts
+│  ├─ components
+│  │  ├─ Account
+│  │  │  ├─ ui
+│  │  │  │  ├─ AccountInput
+│  │  │  │  │  ├─ index.css.ts
+│  │  │  │  │  └─ index.tsx
+│  │  │  │  ├─ AccountLogo
+│  │  │  │  │  ├─ index.css.ts
+│  │  │  │  │  └─ index.tsx
+│  │  │  │  └─ EyeToggler
+│  │  │  │     ├─ index.css.ts
+│  │  │  │     └─ index.tsx
+│  │  │  └─ utility
+│  │  │     ├─ validateEmail.ts
+│  │  │     └─ validatePassword.ts
+│  │  ├─ Button
+│  │  │  ├─ Button.css.ts
+│  │  │  └─ index.tsx
+│  │  ├─ ButtonLink
+│  │  │  ├─ ButtonLink.css.ts
+│  │  │  └─ index.tsx
+│  │  ├─ Footer
+│  │  │  ├─ Footer.css.ts
+│  │  │  └─ index.tsx
+│  │  ├─ Modal
+│  │  │  ├─ feature
+│  │  │  ├─ index.tsx
+│  │  │  └─ ui
+│  │  ├─ Nav
+│  │  │  ├─ Nav.css.ts
+│  │  │  ├─ feature
+│  │  │  ├─ index.tsx
+│  │  │  └─ ui
+│  │  ├─ PageFaq
+│  │  │  └─ FaqMain
+│  │  │     ├─ FaqMain.css.ts
+│  │  │     └─ index.tsx
+│  │  ├─ PageFolder
+│  │  │  └─ FolderMain
+│  │  │     ├─ FolderMain.css.ts
+│  │  │     └─ index.tsx
+│  │  ├─ PageForgatPassword
+│  │  │  └─ ForgotPasswordMain
+│  │  │     ├─ ForgotPasswordMain.css.ts
+│  │  │     └─ index.tsx
+│  │  ├─ PageHome
+│  │  │  ├─ HomeHeader
+│  │  │  │  ├─ HomeHeader.css.ts
+│  │  │  │  └─ index.tsx
+│  │  │  └─ HomeMain
+│  │  │     ├─ HomeMain.css.ts
+│  │  │     └─ index.tsx
+│  │  ├─ PageMyLink
+│  │  │  └─ MyLinkMain
+│  │  │     ├─ MyLinkMain.css.ts
+│  │  │     └─ index.tsx
+│  │  ├─ PageNotFound
+│  │  │  └─ NotFoundMain
+│  │  │     ├─ NotFoundMain.css.ts
+│  │  │     └─ index.tsx
+│  │  ├─ PagePrivacy
+│  │  │  └─ PrivacyMain
+│  │  │     ├─ PrivacyMain.css.ts
+│  │  │     └─ index.tsx
+│  │  ├─ PageShared
+│  │  │  └─ SharedMain
+│  │  │     ├─ SharedMain.css.ts
+│  │  │     └─ index.tsx
+│  │  ├─ PageSignin
+│  │  │  └─ SigninMain
+│  │  │     ├─ SigninMain.css.ts
+│  │  │     ├─ feature
+│  │  │     │  ├─ SigninForm.css.ts
+│  │  │     │  └─ SigninForm.tsx
+│  │  │     ├─ index.tsx
+│  │  │     └─ ui
+│  │  │        ├─ ForgotPasswordLink.css.ts
+│  │  │        ├─ ForgotPasswordLink.tsx
+│  │  │        ├─ SigninHeader.css.ts
+│  │  │        ├─ SigninHeader.tsx
+│  │  │        ├─ SocialSignin.css.ts
+│  │  │        └─ SocialSignin.tsx
+│  │  └─ PageSignup
+│  │     └─ SignupMain
+│  │        ├─ SignupMain.css.ts
+│  │        ├─ feature
+│  │        │  ├─ SignupForm.css.ts
+│  │        │  └─ SignupForm.tsx
+│  │        ├─ index.tsx
+│  │        └─ ui
+│  │           ├─ SignupHeader.css.ts
+│  │           ├─ SignupHeader.tsx
+│  │           ├─ SocialSignup.css.ts
+│  │           └─ SocialSignup.tsx
+│  └─ lib
+│     ├─ api
+│     │  └─ index.ts
+│     ├─ global.css.ts
+│     ├─ hooks
+│     │  └─ index.tsx
+│     ├─ theme.css.ts
+│     ├─ types.d.ts
+│     └─ utility
+│        ├─ getElapsedTime.ts
+│        ├─ getFormattedDate.ts
+│        └─ validators.ts
+└─ tsconfig.json
+
+```
+
+- public/: This folder is for storing static files.
+- src/app/: This folder is for storing Next app-router files.
+- src/components/: This folder is for storing React components.
+- src/lib/: This folder stores axios instances, custom hooks, reusable functions, styles, type definitions files.
 
 ## License
 
