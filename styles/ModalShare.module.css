@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
 .folder-name {
-  margin: 1.3rem 0 2.9rem;
+  margin: 0.8rem 0 2.4rem;
   font-size: 1.4rem;
   color: var(--gray-9);
 }
@@ -19,7 +19,7 @@
   cursor: pointer;
 }
 
-.share-name {
+.share-title {
   font-family: "Inter", sans-serif;
   color: var(--gray-3);
   font-size: 1.3rem;

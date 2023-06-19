@@ -1,0 +1,15 @@
+.folder-title {
+  font-size: 1.4rem;
+  color: var(--gray-9);
+  margin: 0.8rem 0 2.4rem;
+}
+
+.delete-button {
+  cursor: pointer;
+  font-size: 1.6rem;
+  padding: 1.6rem 11.2rem;
+  color: var(--gray-f);
+  background-color: var(--red);
+  border-radius: 0.8rem;
+  border: none;
+}

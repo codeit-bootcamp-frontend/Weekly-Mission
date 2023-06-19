@@ -8,7 +8,7 @@ const cx = classNames.bind(styles);
 export default function ModalShare({ folderName, onClose }) {
   return (
     <Modal title="폴더 공유" onClose={onClose}>
-      <p className={cx("folder-name")}>{folderName}</p>
+      <p className={cx("folder-title")}>{folderName}</p>
       <div className={cx("share-box")}>
         <button className={cx("share-content")} type="button" onClick={() => console.log("카카오톡 공유")}>
           <Image src="/images/share_kakao.svg" alt="카카오톡" width={42} height={42} />
