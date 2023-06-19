@@ -17,7 +17,7 @@ export const metadata = {
   openGraph: {
     title: "Linkbrary",
     description: "세상의 모든 정보를 쉽게 저장하고 관리해 보세요",
-    url: "https://www.codeit.kr/dashboard", // 배포 사이트에 맞게 변경 필요
+    url: "https://weekly-mission-git-ian-react-week12-codeit-bootcamp.vercel.app",
     type: "website",
     images: [
       {
