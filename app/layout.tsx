@@ -1,3 +1,4 @@
+import { pretendard } from "@/styles/fonts/localFont";
 import "@/styles/global.scss";
 import { Children } from "@/types";
 
@@ -7,7 +8,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }: Children) {
   return (
-    <html lang="ko">
+    <html lang="ko" className={pretendard.className}>
       <body>
         {children}
         <div id="modal-portal" />

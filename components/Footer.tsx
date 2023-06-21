@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import styles from "@/components/Footer.module.scss";
+import { arial } from "@/styles/fonts/localFont";
 
 import facebookLogo from "@/public/images/sns-logo-facebook.png";
 import instagramLogo from "@/public/images/sns-logo-instagram.png";
@@ -13,7 +14,7 @@ const cx = classNames.bind(styles);
 
 export default function Footer() {
   return (
-    <footer className={cx("footer")}>
+    <footer className={`${arial.className} ${cx("footer")}`}>
       <div className={cx("copyright")}>©codeit - 2023</div>
       <div className={cx("policyInfo")}>
         <Link href="/policy">
