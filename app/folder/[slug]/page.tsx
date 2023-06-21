@@ -1,12 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import dynamic from "next/dynamic";
 
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import {
-  getFoldersQueryFn,
-  getLinkQueryFn,
-} from "@/lib/tanstack/queryFns/foldersQueryFns";
-import { getServerSession } from "next-auth";
+import Gnb from "@/components/Gnb/Gnb";
+import getCurrentUser from "@/lib/getCurrentUser";
+import { getFolders } from "@/utils/api/folderRequest";
+import { getLink } from "@/utils/api/linkRequest";
 
 import styles from "./page.module.scss";
 
@@ -22,20 +19,22 @@ const Tab = async ({
     slug: string;
   };
 }) => {
-  const session = await getServerSession(authOptions);
-
-  const userId = session?.user.id as number;
+  const userProfile = await getCurrentUser();
+  const userId = userProfile.id;
   const folderId = Number(params.slug);
 
   const [folders, links] = await Promise.all([
-    getFoldersQueryFn(userId),
-    getLinkQueryFn(userId, folderId),
+    getFolders(userId),
+    getLink(userId, folderId),
   ]);
 
   return (
-    <main className={styles.main}>
-      <FolderContents links={links} folders={folders} currentTab={folderId} />
-    </main>
+    <>
+      <Gnb user={userProfile} />
+      <main className={styles.main}>
+        <FolderContents links={links} folders={folders} currentTab={folderId} />
+      </main>
+    </>
   );
 };
 

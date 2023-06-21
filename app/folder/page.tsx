@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import dynamic from "next/dynamic";
 
-import {
-  getFoldersQueryFn,
-  getLinksQueryFn,
-} from "@/lib/tanstack/queryFns/foldersQueryFns";
+import Gnb from "@/components/Gnb/Gnb";
+import getCurrentUser from "@/lib/getCurrentUser";
+import { getFolders } from "@/utils/api/folderRequest";
+import { getLinks } from "@/utils/api/linkRequest";
 
 import styles from "./page.module.scss";
 
@@ -13,30 +12,21 @@ const FolderContents = dynamic(
   { ssr: false }
 );
 
-interface IFolderProps {
-  params: {
-    userId?: number;
-  };
-}
-
 export const revalidate = 3600;
-const Folder = async ({ params }: IFolderProps) => {
-  const userId = params.userId as number;
+const Folder = async () => {
+  const userProfile = await getCurrentUser();
+  const userId = userProfile.id;
 
   const [folders, links] = await Promise.all([
-    getFoldersQueryFn(userId),
-    getLinksQueryFn(userId),
+    getFolders(userId),
+    getLinks(userId),
   ]);
 
   return (
     <>
+      <Gnb user={userProfile} />
       <main className={styles.main}>
-        <FolderContents
-          folders={folders}
-          links={links}
-          currentTab={0}
-          // currentTab={params.userId}
-        />
+        <FolderContents folders={folders} links={links} currentTab={0} />
       </main>
     </>
   );
