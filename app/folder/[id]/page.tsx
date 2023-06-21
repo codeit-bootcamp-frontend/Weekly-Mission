@@ -1,4 +1,3 @@
-import getUserData from "@/api/getUserData";
 import getFolders from "@/api/getFolders";
 import getLinks from "@/api/getLinks";
 import AddLinkBar from "@/components/AddLinkBar";

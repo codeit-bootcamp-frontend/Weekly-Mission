@@ -8,13 +8,22 @@ import styles from "./page.module.css";
 import Image from "next/image";
 import getLinks from "@/api/getLinks";
 import getFolders from "@/api/getFolders";
+import { notFound } from "next/navigation";
 
 export default async function Shared({ searchParams }) {
   const { user: userId, folder: folderId } = searchParams;
 
+  if (!(userId && folderId)) {
+    notFound();
+  }
+
   const folder = await getFolders(userId, folderId);
   const userData = await getUserData(userId);
   const links = await getLinks(userId, folderId);
+
+  if (folder.length === 0) {
+    notFound();
+  }
 
   const { name: folderName } = folder[0];
   const { name: userName, email, image_source } = userData[0];
