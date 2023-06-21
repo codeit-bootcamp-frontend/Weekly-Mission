@@ -9,6 +9,7 @@ import Card from "@/components/Card";
 import styles from "./page.module.css";
 import classNames from "classnames/bind";
 import getUserId from "@/data/getUserId";
+import { redirect } from "next/navigation";
 
 interface Props {
   params: {
@@ -20,11 +21,20 @@ const cx = classNames.bind(styles);
 
 export default async function FolderID({ params }: Props) {
   const { id: folderId } = params;
+
+  if (Number.isNaN(Number(folderId))) {
+    redirect("/folder/");
+  }
+
   const userId = getUserId();
 
   const folders = await getFolders(userId);
   const currFolder = (await getFolders(userId, folderId))[0];
   const links = await getLinks(userId, folderId);
+
+  if (!currFolder) {
+    redirect("/folder/");
+  }
 
   return (
     <>
