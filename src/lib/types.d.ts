@@ -9,6 +9,12 @@ export interface IButtonLinkProps {
   href: string;
 }
 
+export interface INavUserProfileProps {
+  userImage: string;
+  userName: string;
+  userEmail: string;
+}
+
 export interface IAccountInputProps {
   value: string;
   type: string;
@@ -20,4 +26,16 @@ export interface IAccountInputProps {
 
 export interface IEyeTogglerProps {
   onMouseDown: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+export interface IgetUserProps {
+  currentUserId: number;
+}
+
+export type UserType = {
+  id: number;
+  createdAt: string;
+  name: string;
+  image_source: string;
+  email: string;
 }

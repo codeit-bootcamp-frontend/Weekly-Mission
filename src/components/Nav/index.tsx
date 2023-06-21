@@ -1,23 +1,26 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import ButtonLink from '@/components/ButtonLink'
-import * as styles from './Nav.css'
+// import ButtonLink from '@/components/ButtonLink'
+import getUser from './data-access/getUser'
+import NavLogo from './ui/NavLogo'
+import NavUserProfile from './ui/NavUserProfile'
+import * as styles from './index.css'
 
-const Nav = () => {
+const Nav = async () => {
+  const {
+    name: userName,
+    image_source: userImage,
+    email: userEmail,
+  } = await getUser({ currentUserId: 1 })
+
   return (
     <nav className={styles.container}>
       <Link href="/">
-        <div className={styles.logoImage}>
-          <Image
-            fill
-            src="/logo.svg"
-            alt="Library Logo"
-          />
-        </div>
+        <NavLogo />
       </Link>
-      <ButtonLink className={styles.styledButtonLink} href="/signin">
+      <NavUserProfile userImage={userImage} userName={userName} userEmail={userEmail} />
+      {/* <ButtonLink className={styles.styledButtonLink} href="/signin">
         로그인
-      </ButtonLink>
+      </ButtonLink> */}
     </nav>
   )
 }

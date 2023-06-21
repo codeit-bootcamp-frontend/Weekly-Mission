@@ -39,18 +39,6 @@ export const styledButtonLink = style([
   },
 ])
 
-export const logoImage = style({
-  position: 'relative',
-  width: '13.3rem',
-  height: '2.4rem',
-  '@media': {
-    'screen and (max-width: 767px)': {
-      width: '7.7rem',
-      height: '1.4rem',
-    },
-  },
-})
-
 export const userProfile = style({
   display: 'flex',
   justifyContent: 'flex-end',

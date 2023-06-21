@@ -5,7 +5,9 @@ export const metadata = {
 }
 
 const Shared = () => {
-  return <SharedMain />
+  return (
+    <SharedMain />
+  )
 }
 
 export default Shared

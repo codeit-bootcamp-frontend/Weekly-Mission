@@ -1,7 +1,7 @@
-import axios, { AxiosInstance } from 'axios'
+import axios from 'axios'
 
-const instance: AxiosInstance = axios.create({
-  baseURL: 'https://bootcamp-api.codeit.kr/api/sample',
+const instance = axios.create({
+  baseURL: 'https://bootcamp-api.codeit.kr/api',
 })
 
 export default instance
