@@ -1,6 +1,6 @@
-import styles from "@folder/[link]/page.module.css";
-import UpdateLink from "@components/UpdateLink";
-import { PropsType } from "@library/propsType";
+import styles from "@/folder/[link]/page.module.css";
+import UpdateLink from "@/components/UpdateLink";
+import { PropsType } from "@/library/propsType";
 
 const page = async (props: PropsType) => {
   let title = "";
@@ -24,8 +24,6 @@ const page = async (props: PropsType) => {
       title = "나만의 장소";
       break;
   }
-
-  console.log(props);
 
   return (
     <>

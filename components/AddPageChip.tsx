@@ -2,7 +2,12 @@
 import styles from "@components/AddPageChip.module.css";
 import { useParams, useRouter } from "next/navigation";
 
-const AddPageChip = ({ link }) => {
+interface linkType {
+  id: number;
+  name: string;
+}
+
+const AddPageChip = ({ link }: { link: linkType }) => {
   const { id, name } = link;
   const router = useRouter();
   const params = useParams();

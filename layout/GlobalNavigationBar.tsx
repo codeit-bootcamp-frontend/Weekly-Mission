@@ -1,10 +1,10 @@
 // 로고 이미지
 import logo from "/public/logo.svg";
-import LoginStatus from "@components/LoginStatus";
+import LoginStatus from "@/components/LoginStatus";
 import Link from "next/link";
 import Image from "next/image";
 
-import styles from "@layout/GlobalNavigationBar.module.css";
+import styles from "@/layout/GlobalNavigationBar.module.css";
 
 const GlobalNavigationBar = () => {
   return (

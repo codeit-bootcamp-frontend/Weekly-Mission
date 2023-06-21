@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import styles from "@components/AddPage.module.css";
-import UpdateModal from "@layout/UpdateModal";
+import styles from "@/components/AddPage.module.css";
+import UpdateModal from "@/layout/UpdateModal";
 
 const AddLinkBtn = () => {
   const [modal, setModal] = useState(false);

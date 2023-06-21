@@ -1,14 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import useHttp from "../hooks/useHttp";
-import styles from "@components/LoginStatus.module.css";
+import useHttp from "@/hooks/useHttp";
+import styles from "@/components/LoginStatus.module.css";
 
 const LoginStatus = () => {
   const [isLogin, setIslogin] = useState(false);
-  const { responseData, isLoading, error } = useHttp({
+  const { responseData } = useHttp({
     url: "/users/5",
   });
+  console.log(responseData);
 
   const loginHanlder = () => {
     setIslogin(!isLogin);

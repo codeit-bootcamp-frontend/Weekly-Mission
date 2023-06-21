@@ -1,7 +1,6 @@
 "use client";
 
-import styles from "@layout/DeleteModal.module.css";
-import { useState } from "react";
+import styles from "@/layout/ShareModal.module.css";
 
 import { createPortal } from "react-dom";
 
@@ -15,16 +14,29 @@ const ModalOverlay = ({ modalHandler, title, content }) => {
       <div className={styles.img}>
         <img src="/close.svg" onClick={modalHandler} />
       </div>
-      <div className={styles.content}>
+      <div className={styles.box}>
         <p className={styles.title}>{title}</p>
         <p className={styles.content}>{content}</p>
-        <button>삭제하기</button>
+      </div>
+      <div className={styles["icon-box"]}>
+        <div>
+          <img src="/Frame 3.svg" alt="카카오톡" />
+          <p>카카오톡</p>
+        </div>
+        <div>
+          <img src="/Frame 3-1.svg" alt="페이스북" />
+          <p>페이스북</p>
+        </div>
+        <div>
+          <img src="/Frame 3-2.svg" alt="링크복사" />
+          <p>링크 복사</p>
+        </div>
       </div>
     </div>
   );
 };
 
-const DeleteModal = ({ modal, modalHandler, title, content }) => {
+const ShareModal = ({ modal, modalHandler, title, content }) => {
   return modal
     ? createPortal(
         <>
@@ -40,4 +52,4 @@ const DeleteModal = ({ modal, modalHandler, title, content }) => {
     : null;
 };
 
-export default DeleteModal;
+export default ShareModal;

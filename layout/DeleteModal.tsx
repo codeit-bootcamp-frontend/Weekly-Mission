@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "@layout/UpdateModal.module.css";
+import styles from "@/layout/DeleteModal.module.css";
 
 import { createPortal } from "react-dom";
 
@@ -8,30 +8,30 @@ const Backdrop = ({ modalHandler }) => {
   return <div onClick={modalHandler} className={styles.backdrop} />;
 };
 
-const ModalOverlay = ({ modalHandler, content, placeholder }) => {
+const ModalOverlay = ({ modalHandler, title, content }) => {
   return (
     <div className={styles.modal}>
       <div className={styles.img}>
         <img src="/close.svg" onClick={modalHandler} />
       </div>
       <div className={styles.content}>
-        <p>{content}</p>
-        <input placeholder={placeholder} />
-        <button>변경하기</button>
+        <p className={styles.title}>{title}</p>
+        <p className={styles.content}>{content}</p>
+        <button>삭제하기</button>
       </div>
     </div>
   );
 };
 
-const UpdateModal = ({ modal, modalHandler, content, placeholder }) => {
+const DeleteModal = ({ modal, modalHandler, title, content }) => {
   return modal
     ? createPortal(
         <>
           <Backdrop modalHandler={modalHandler} />
           <ModalOverlay
             modalHandler={modalHandler}
+            title={title}
             content={content}
-            placeholder={placeholder}
           />
         </>,
         document.body
@@ -39,4 +39,4 @@ const UpdateModal = ({ modal, modalHandler, content, placeholder }) => {
     : null;
 };
 
-export default UpdateModal;
+export default DeleteModal;

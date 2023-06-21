@@ -1,37 +1,42 @@
 "use client";
 
 import Link from "next/link";
-import React, { useRef, useEffect, useCallback } from "react";
-import styles from "@components/Card.module.css";
-import kebab from "/public/kebab.svg";
-import defaultImage from "/public/defaultImage.svg";
-import { timeForToday } from "@library/timeForToday";
-import { getToday } from "@library/getToday";
+import React, { useRef, useEffect } from "react";
+import styles from "@/components/Card.module.css";
+import { timeForToday } from "@/library/timeForToday";
+import { getToday } from "@/library/getToday";
 import { useState } from "react";
-import DeleteModal from "@layout/DeleteModal";
-import AddfolderModal from "@layout/AddFolderModal";
+import DeleteModal from "@/layout/DeleteModal";
+import AddfolderModal from "@/layout/AddFolderModal";
 
 const popContnet = ["삭제하기", "폴더에 추가"];
 
-const Card = ({ link }) => {
-  const { createdAt, url, description, image_source } = link;
+interface linkType {
+  create_dAt: string;
+  url: string;
+  description: string;
+  image_source: string;
+}
+
+const Card = ({ link }: { link: linkType }) => {
+  const { created_At, url, description, image_source } = link;
   const [isClick, setIsClick] = useState(false);
   const [showPopOver, setShowPopOver] = useState(false);
   const [selectedPop, setSelectedPop] = useState("삭제하기");
   const [deleteModal, setDeleteModal] = useState(false);
   const [addFolderModal, setAddFolderModal] = useState(false);
 
-  const deleteModalHandler = (e) => {
+  const deleteModalHandler = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     setDeleteModal(!deleteModal);
   };
 
-  const addFolderModalHandler = (e) => {
+  const addFolderModalHandler = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     setAddFolderModal(!addFolderModal);
   };
 
-  const selectedPophandler = (pop) => {
+  const selectedPophandler = (pop: string) => {
     if (pop === "삭제하기") {
       setDeleteModal(!deleteModal);
     } else {
@@ -40,15 +45,16 @@ const Card = ({ link }) => {
     setSelectedPop(pop);
   };
 
-  let popEl = useRef();
+  const popEl = useRef(null);
 
-  const handleIsClick = (e) => {
+  const handleIsClick = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     setIsClick(!isClick);
   };
 
-  const handleClickOutside = ({ target }) => {
-    if (showPopOver && !popEl.current.contains(target)) setShowPopOver(false);
+  const handleClickOutside = (e: MouseEvent) => {
+    if (showPopOver && !popEl?.current?.contains(e.target))
+      setShowPopOver(false);
   };
 
   useEffect(() => {
@@ -58,8 +64,8 @@ const Card = ({ link }) => {
     };
   }, [showPopOver]);
 
-  const popHandler = (event) => {
-    event.preventDefault();
+  const popHandler = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
     setShowPopOver(!showPopOver);
   };
   return (
@@ -77,7 +83,7 @@ const Card = ({ link }) => {
       </div>
       <div className={styles["p-box"]}>
         <div className={styles["post-time"]}>
-          <p className="postTimeComparison">{timeForToday(createdAt)}</p>
+          <p className="postTimeComparison">{timeForToday(created_At)}</p>
           <div className={styles["kabab-box"]} ref={popEl} onClick={popHandler}>
             <img src="/kebab.svg" alt="kabab" />
             {showPopOver && (
@@ -98,7 +104,7 @@ const Card = ({ link }) => {
           </div>
         </div>
         <p className={styles.description}>{description}</p>
-        <p className={styles["post-date"]}>{getToday(createdAt)}</p>
+        <p className={styles["post-date"]}>{getToday(created_At)}</p>
       </div>
       {deleteModal && (
         <DeleteModal

@@ -1,10 +1,10 @@
 import styles from "@folder/Folder.module.css";
-import AddLinkBar from "@components/AddLinkBar";
-import AddPage from "@components/AddPage";
-import SearchBar from "@components/SearchBar";
-import React from "react";
+import AddLinkBar from "@/components/AddLinkBar";
+import AddPage from "@/components/AddPage";
+import SearchBar from "@/components/SearchBar";
+import React, { ReactElement } from "react";
 
-const layout = ({ children }: { children: React.ReactNode }) => {
+const layout = ({ children }: { children: ReactElement }) => {
   return (
     <>
       <AddLinkBar />

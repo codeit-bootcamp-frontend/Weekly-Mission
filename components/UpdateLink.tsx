@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
 
-import styles from "@components/UpdateLink.module.css";
-import DeleteModal from "@layout/DeleteModal";
-import UpdateModal from "@layout/UpdateModal";
-import ShareModal from "@layout/ShareModal";
+import styles from "@/components/UpdateLink.module.css";
+import DeleteModal from "@/layout/DeleteModal";
+import UpdateModal from "@/layout/UpdateModal";
+import ShareModal from "@/layout/ShareModal";
 
 const UpdateLink = ({ title }) => {
   const [deleteModal, setDeleteModal] = useState(false);

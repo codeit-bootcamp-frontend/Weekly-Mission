@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import styles from "@components/AddLinkBar.module.css";
+import styles from "@/components/AddLinkBar.module.css";
 
 const AddLinkBar = () => {
   const [scroll, setScroll] = useState(false);

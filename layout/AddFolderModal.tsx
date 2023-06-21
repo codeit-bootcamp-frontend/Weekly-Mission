@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "@layout/AddFolderModal.module.css";
+import styles from "@/layout/AddFolderModal.module.css";
 import { useState } from "react";
 
 import { createPortal } from "react-dom";
@@ -24,13 +24,24 @@ const folderObj = [
   },
 ];
 
-const Backdrop = ({ modalHandler }) => {
+const Backdrop = ({ modalHandler }: { modalHandler: () => void }) => {
   return <div onClick={modalHandler} className={styles.backdrop} />;
 };
 
-const ModalOverlay = ({ modalHandler, title, content }) => {
+const ModalOverlay = ({
+  modalHandler,
+  title,
+  content,
+}: {
+  modalHandler: () => void;
+  title: string;
+  content: string;
+}) => {
   const [selectedFolder, setSelectedFolder] = useState("");
-  const selectedFolderHandler = (e, folder) => {
+  const selectedFolderHandler = (
+    e: { preventDefault: () => void },
+    folder: string
+  ) => {
     e.preventDefault();
     setSelectedFolder(folder);
   };
@@ -65,7 +76,17 @@ const ModalOverlay = ({ modalHandler, title, content }) => {
   );
 };
 
-const AddfolderModal = ({ modal, modalHandler, title, content }) => {
+const AddfolderModal = ({
+  modal,
+  modalHandler,
+  title,
+  content,
+}: {
+  modal: boolean;
+  modalHandler: () => void;
+  title: string;
+  content: string;
+}) => {
   return modal
     ? createPortal(
         <>

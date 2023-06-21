@@ -1,10 +1,17 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import { useState, useCallback, useEffect } from "react";
 
-const useHttp = ({ url, method, headers, data }) => {
+interface type {
+  url: string;
+  method?: string;
+  headers?: AxiosRequestConfig["headers"];
+  data?: string;
+}
+
+const useHttp = ({ url, method, headers, data }: type) => {
   const [isLoading, setIsLoadng] = useState(false);
-  const [error, setError] = useState(null);
-  const [responseData, setResponseData] = useState([]);
+  const [error, setError] = useState<string | null>(null);
+  const [responseData, setResponseData] = useState<unknown>([]);
 
   const sendRequest = useCallback(async () => {
     setIsLoadng(true);
@@ -20,11 +27,11 @@ const useHttp = ({ url, method, headers, data }) => {
 
       setResponseData(response.data);
 
-      if (!response.ok) {
-        throw new Error("Request Failed!");
+      if (response.status < 200 || response.status >= 300) {
+        throw new Error("요청이 실패했습니다!");
       }
     } catch (error) {
-      setError(error.message);
+      setError((error as Error).message);
     } finally {
       setIsLoadng(false);
     }

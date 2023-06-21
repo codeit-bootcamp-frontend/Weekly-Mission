@@ -18,7 +18,6 @@ interface folderType {
 
 const FolderLink = async (props: PropsType) => {
   const folderLink = await getFolderLink();
-  console.log(folderLink.data);
 
   const allContent = {
     id: 0,
