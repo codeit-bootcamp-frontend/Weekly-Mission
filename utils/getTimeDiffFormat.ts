@@ -1,5 +1,5 @@
 export default function getTimeDiffFormat(dateString: string) {
-  const now = new Date();
+  const now = new Date("2023-06-21");
   const createdDate = new Date(dateString);
 
   const diffMSec = now.getTime() - createdDate.getTime();
