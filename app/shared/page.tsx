@@ -13,7 +13,7 @@ import { notFound } from "next/navigation";
 export default async function Shared({ searchParams }) {
   const { user: userId, folder: folderId } = searchParams;
 
-  if (!(userId && folderId)) {
+  if (!(userId && folderId) || Number.isNaN(Number(userId)) || Number.isNaN(Number(folderId))) {
     notFound();
   }
 
