@@ -42,8 +42,7 @@ const SharedContainer = async (props: PropsType) => {
   let user = await getUser(+userId);
   let folder = await getFolder(+userId);
   let data = await getData(+userId, +folderId);
-  console.log(userId, folderId);
-
+  console.log(data);
   return (
     <>
       <div className={styles.user}>
@@ -53,7 +52,7 @@ const SharedContainer = async (props: PropsType) => {
           alt="icon"
         />
         <p className={styles["user-name"]}>{user.data[0].name}</p>
-        <p className={styles.favorite}>{folder.data[0].name}</p>
+        <p className={styles.favorite}>{folder?.data[0]?.name}</p>
       </div>
       <div className={styles["main-container"]}>
         <SearchBar />

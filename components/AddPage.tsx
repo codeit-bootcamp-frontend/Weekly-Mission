@@ -1,4 +1,4 @@
-import styles from "@components/AddPage.module.css";
+import styles from "@/components/AddPage.module.css";
 import FolderLink from "@/components/folderLink/FolderLink";
 import AddLinkBtn from "@/components/AddLinkBtn";
 

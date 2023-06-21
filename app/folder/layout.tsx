@@ -1,4 +1,4 @@
-import styles from "@folder/Folder.module.css";
+import styles from "@/folder/Folder.module.css";
 import AddLinkBar from "@/components/AddLinkBar";
 import AddPage from "@/components/AddPage";
 import SearchBar from "@/components/SearchBar";

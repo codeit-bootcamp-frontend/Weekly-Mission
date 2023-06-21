@@ -1,5 +1,5 @@
 "use client";
-import styles from "@components/AddPageChip.module.css";
+import styles from "@/components/AddPageChip.module.css";
 import { useParams, useRouter } from "next/navigation";
 
 interface linkType {

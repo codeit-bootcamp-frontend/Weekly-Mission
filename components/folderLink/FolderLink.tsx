@@ -1,6 +1,6 @@
-import AddPageChip from "@components/AddPageChip";
-import styles from "@components/AddPage.module.css";
-import { PropsType } from "@library/propsType";
+import AddPageChip from "@/components/AddPageChip";
+import styles from "@/components/AddPage.module.css";
+import { PropsType } from "@/library/propsType";
 
 const getFolderLink = async () => {
   const response = await fetch(

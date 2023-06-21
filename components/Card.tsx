@@ -12,14 +12,17 @@ import AddfolderModal from "@/layout/AddFolderModal";
 const popContnet = ["삭제하기", "폴더에 추가"];
 
 interface linkType {
-  create_dAt: string;
+  id: number;
+  created_at: string;
+  updated_at: string;
   url: string;
+  title: string;
   description: string;
   image_source: string;
 }
 
 const Card = ({ link }: { link: linkType }) => {
-  const { created_At, url, description, image_source } = link;
+  const { created_at, url, description, image_source } = link;
   const [isClick, setIsClick] = useState(false);
   const [showPopOver, setShowPopOver] = useState(false);
   const [selectedPop, setSelectedPop] = useState("삭제하기");
@@ -83,7 +86,7 @@ const Card = ({ link }: { link: linkType }) => {
       </div>
       <div className={styles["p-box"]}>
         <div className={styles["post-time"]}>
-          <p className="postTimeComparison">{timeForToday(created_At)}</p>
+          <p className="postTimeComparison">{timeForToday(created_at)}</p>
           <div className={styles["kabab-box"]} ref={popEl} onClick={popHandler}>
             <img src="/kebab.svg" alt="kabab" />
             {showPopOver && (
@@ -104,7 +107,7 @@ const Card = ({ link }: { link: linkType }) => {
           </div>
         </div>
         <p className={styles.description}>{description}</p>
-        <p className={styles["post-date"]}>{getToday(created_At)}</p>
+        <p className={styles["post-date"]}>{getToday(created_at)}</p>
       </div>
       {deleteModal && (
         <DeleteModal
