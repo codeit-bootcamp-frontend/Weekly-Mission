@@ -4,6 +4,8 @@ import { FormEvent, useState } from "react";
 
 import classNames from "classnames/bind";
 
+import { SelectedFolder } from "@/utils/api/types";
+
 import styles from "./FormModal.module.scss";
 import ModalFrame from "./ModalFrame";
 
@@ -21,7 +23,7 @@ const formModalMap = {
 };
 
 interface FormModalProps {
-  folder?: { id: number; name: string };
+  folder?: SelectedFolder;
   onClose: () => void;
   onSubmit: (name: string) => string;
 }

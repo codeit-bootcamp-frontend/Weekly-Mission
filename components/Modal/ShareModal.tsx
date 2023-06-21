@@ -3,6 +3,8 @@
 import classNames from "classnames/bind";
 import Image from "next/image";
 
+import { SelectedFolder } from "@/utils/api/types";
+
 import ModalFrame from "./ModalFrame";
 import styles from "./ShareModal.module.scss";
 
@@ -16,7 +18,7 @@ export default function ShareModal({
   folder,
   onClose,
 }: {
-  folder: { id: number; name: string };
+  folder: SelectedFolder;
   onClose: () => void;
 }) {
   return (

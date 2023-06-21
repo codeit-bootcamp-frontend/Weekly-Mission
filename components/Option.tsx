@@ -8,6 +8,7 @@ import Image from "next/image";
 import DeleteModal from "@/components/Modal/DeleteModal";
 import FormModal from "@/components/Modal/FormModal";
 import ShareModal from "@/components/Modal/ShareModal";
+import { SelectedFolder } from "@/utils/api/types";
 
 import styles from "./Option.module.scss";
 
@@ -18,7 +19,7 @@ import shareImage from "@/public/images/folder-share.svg";
 const cx = classNames.bind(styles);
 
 interface OptionProps {
-  folder: { id: number; name: string };
+  folder: SelectedFolder;
   onEditFolder: (newName: string) => string;
   onDeleteFolder: (id: number) => number;
 }

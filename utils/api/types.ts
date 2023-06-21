@@ -1,7 +1,10 @@
-export interface Folder {
+export interface SelectedFolder {
   id: number;
-  created_at: string;
   name: string;
+}
+
+export interface Folder extends SelectedFolder {
+  created_at: string;
   user_id: number;
 }
 
