@@ -1,27 +1,36 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 import SearchBar from "@/components/SearchBar/SearchBar";
-import getFolderData from "@/lib/getFolderData";
-import { getLinkQueryFn } from "@/lib/tanstack/queryFns/foldersQueryFns";
-import { getServerSession } from "next-auth";
+import { getFolder } from "@/utils/api/folderRequest";
+import { getLink } from "@/utils/api/linkRequest";
+import { getUser } from "@/utils/api/userRequest";
 
-import { authOptions } from "../api/auth/[...nextauth]/route";
 import styles from "./page.module.scss";
 
-const CardWrapper = dynamic(() => import("@/components/LinkField/LinkField"), {
+const LinkField = dynamic(() => import("@/components/LinkField/LinkField"), {
   ssr: false,
 });
 
-const Shared = async () => {
-  const session = await getServerSession(authOptions);
+interface ISharedProps {
+  searchParams: {
+    [key: string]: number;
+  };
+}
 
-  const userId = session?.user.id as number;
-  const folderId = 1;
+const Shared = async ({ searchParams }: ISharedProps) => {
+  const { user: sharedUserId, folder: folderId } = searchParams;
+  if (!sharedUserId || !folderId) {
+    notFound();
+  }
 
-  // TODO: 이후 요구사항이 자세히 나오면 getFolderData를 다른 api로 대체하기
-  const userFolder = await getFolderData();
-  const links = await getLinkQueryFn(userId, folderId);
+  const [sharedUserProfile, sharedUserFolderName, sharedUserLinks] =
+    await Promise.all([
+      getUser(sharedUserId),
+      getFolder(sharedUserId, folderId),
+      getLink(sharedUserId, folderId),
+    ]);
 
   return (
     <>
@@ -31,18 +40,18 @@ const Shared = async () => {
             <Image
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1199px) 100vw, 100vw"
-              src={userFolder.owner.profileImageSource}
+              src={sharedUserProfile.image_source}
               alt="Owner Avatar"
               className={styles.image}
             />
           </div>
-          <span className={styles.atsign}>@{userFolder.owner.name}</span>
-          <span className={styles.marks}>{userFolder.name}</span>
+          <span className={styles.atsign}>@{sharedUserProfile.name}</span>
+          <span className={styles.marks}>{sharedUserFolderName.name}</span>
         </div>
 
         <div className={styles.contents}>
           <SearchBar placeholder="원하는 링크를 검색해 보세요" />
-          <CardWrapper links={links} />
+          <LinkField links={sharedUserLinks} />
         </div>
       </main>
     </>
