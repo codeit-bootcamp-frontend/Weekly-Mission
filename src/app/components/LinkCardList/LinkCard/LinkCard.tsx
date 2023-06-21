@@ -5,8 +5,8 @@ import styles from "./LinkCard.module.scss";
 import Image from "next/image";
 import Popover from "../Popover/Popover";
 import useOutsideClick from "@/app/hooks/useOutsideClick";
-import FolderSelectList from "@/components/Modals/ModalContents/FolderSelectList";
-import Modal, { ModalProps } from "@/components/Modals/Modal";
+import FolderSelectList from "@/app/components/Modals/ModalContents/FolderSelectList";
+import Modal, { ModalProps } from "@/app/components/Modals/Modal";
 
 export interface LinkCardProp {
   id: number;
@@ -143,6 +143,7 @@ const LinkCard = ({
             src={thumbnailSrc ?? "/default-thumbnail.svg"}
             alt="thumbnail"
             fill
+            sizes="64vw"
           />
           <div
             className={styles.likeBtnBox}
@@ -155,12 +156,13 @@ const LinkCard = ({
               src={isLiked ? "/like-btn-liked.svg" : "/like-btn-unliked.svg"}
               alt="like button"
               fill
+              sizes="32vw"
             />
           </div>
         </div>
         <div className={styles.metadataContainer}>
           <div className={styles.kebab} onClick={handleClickOpenPopover}>
-            <Image src="/kebab.svg" alt="kebab" fill />
+            <Image src="/kebab.svg" alt="kebab" fill sizes="32vw" />
             {showPopover && (
               <div className={styles.popoverContainer} ref={popoverRef}>
                 <Popover

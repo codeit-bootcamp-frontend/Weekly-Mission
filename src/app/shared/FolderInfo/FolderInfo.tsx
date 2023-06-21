@@ -19,7 +19,7 @@ const FolderInfo: React.FC<FolderInfoProps> = ({
     <div className={styles.userInfoContainer}>
       <div className={styles.profileContainer}>
         <div className={styles.profileImgBox}>
-          <Image src={profileImgSrc} alt="avatar" fill />
+          <Image src={profileImgSrc} alt="avatar" fill sizes="64vw" />
         </div>
         <p className={styles.username}>{"@" + ownerName}</p>
       </div>

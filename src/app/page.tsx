@@ -1,9 +1,7 @@
-import { Inter } from "next/font/google";
 import styles from "@/styles/index.module.scss";
-import Head from "next/head";
 import Image from "next/image";
 import Hero from "@/app/components/Hero/Hero";
-const inter = Inter({ subsets: ["latin"] });
+
 export default function Page() {
   return (
     <>
@@ -20,7 +18,7 @@ export default function Page() {
                 저장하세요
               </h1>
               <section className={`${styles.imageContainer} ${styles.hidden}`}>
-                <Image src="/tutorial_01.png" alt="image" fill />
+                <Image src="/tutorial_01.png" alt="image" fill sizes="64vw" />
               </section>
               <p>
                 나중에 읽고 싶은 글, 다시 보고 싶은 영상, <br />
@@ -30,12 +28,12 @@ export default function Page() {
             </div>
           </section>
           <section className={styles.imageContainer}>
-            <Image src="/tutorial_01.png" alt="image" fill />
+            <Image src="/tutorial_01.png" alt="image" fill sizes="64vw" />
           </section>
         </article>
         <article className={styles.tutorial}>
           <section className={styles.imageContainer}>
-            <Image src="/tutorial_02.png" alt="image" fill />
+            <Image src="/tutorial_02.png" alt="image" fill sizes="64vw" />
           </section>
           <section className={styles.explanation}>
             <div className={styles.textArea}>
@@ -45,7 +43,7 @@ export default function Page() {
                 하세요
               </h1>
               <section className={`${styles.imageContainer} ${styles.hidden}`}>
-                <Image src="/tutorial_02.png" alt="image" fill />
+                <Image src="/tutorial_02.png" alt="image" fill sizes="64vw" />
               </section>
               <p>
                 나만의 폴더를 무제한으로 만들고 <br />
@@ -63,7 +61,7 @@ export default function Page() {
                 해 보세요.
               </h1>
               <section className={`${styles.imageContainer} ${styles.hidden}`}>
-                <Image src="/tutorial_03.png" alt="image" fill />
+                <Image src="/tutorial_03.png" alt="image" fill sizes="64vw" />
               </section>
               <p>
                 여러 링크를 폴더에 담고 공유할 수 있어요. <br />
@@ -73,12 +71,12 @@ export default function Page() {
             </div>
           </section>
           <section className={styles.imageContainer}>
-            <Image src="/tutorial_03.png" alt="image" fill />
+            <Image src="/tutorial_03.png" alt="image" fill sizes="64vw" />
           </section>
         </article>
         <article className={styles.tutorial}>
           <section className={styles.imageContainer}>
-            <Image src="/tutorial_04.png" alt="image" fill />
+            <Image src="/tutorial_04.png" alt="image" fill sizes="64vw" />
           </section>
           <section className={styles.explanation}>
             <div className={styles.textArea}>
@@ -88,7 +86,7 @@ export default function Page() {
                 해 보세요
               </h1>
               <section className={`${styles.imageContainer} ${styles.hidden}`}>
-                <Image src="/tutorial_04.png" alt="image" fill />
+                <Image src="/tutorial_04.png" alt="image" fill sizes="64vw" />
               </section>
               <p>중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
             </div>

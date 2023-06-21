@@ -13,7 +13,16 @@ const nextConfig = {
       "testing-library.com",
       "static.cdninstagram.com",
       "s.pstatic.net",
+      "ca.slack-edge.com",
     ],
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/linkbrary/:path*",
+        destination: "https://bootcamp-api.codeit.kr/api/:path*",
+      },
+    ];
   },
 };
 

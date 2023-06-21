@@ -1,7 +1,9 @@
 import "@/styles/globals.scss";
-import Header from "@/app/components/Header/Header";
-import Footer from "@/app/components/Footer/Footer";
-import PageContainer from "./components/PageContainer/PageContainer";
+import Layout from "@/app/components/Layout/Layout";
+import Providers from "@/app/components/Providers/Providers";
+import { getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]/route";
+
 export const metadata = {
   title: "Linkbrary",
   description: "세상의 모든 정보를 한 곳에",
@@ -29,17 +31,18 @@ export const metadata = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await getServerSession(authOptions);
   return (
     <html lang="ko">
       <body>
-        <Header />
-        <PageContainer> {children}</PageContainer>
-        <Footer />
+        <Providers>
+          <Layout session={session}>{children}</Layout>
+        </Providers>
       </body>
     </html>
   );
