@@ -1,5 +1,5 @@
-export default function getDateFormat(prevDate) {
-  const date = new Date(prevDate);
+export default function getDateFormat(dateString: string) {
+  const date = new Date(dateString);
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
   const day = date.getDate();

@@ -1,4 +1,6 @@
-export default async function getFolders(userId, folderId = "") {
+import { Folder } from "@/types";
+
+export default async function getFolders(userId: number | string, folderId: number | string = ""): Promise<Folder[]> {
   try {
     const res = await fetch(`https://bootcamp-api.codeit.kr/api/users/${userId}/folders/${folderId}`);
     if (!res.ok) {

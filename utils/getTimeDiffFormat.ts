@@ -1,6 +1,6 @@
-export default function getTimeDiffFormat(prevDate) {
+export default function getTimeDiffFormat(dateString: string) {
   const now = new Date();
-  const createdDate = new Date(prevDate);
+  const createdDate = new Date(dateString);
 
   const diffMSec = now.getTime() - createdDate.getTime();
   const diffMin = diffMSec / (60 * 1000);
@@ -9,7 +9,7 @@ export default function getTimeDiffFormat(prevDate) {
   const diffMonth = diffDay / 30;
   const diffYear = diffMonth / 12;
 
-  let result;
+  let result = null as number;
 
   if (diffYear >= 1) {
     result = Math.floor(diffYear);
