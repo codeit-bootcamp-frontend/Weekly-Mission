@@ -13,7 +13,7 @@ const instance = axios.create({
 
 instance.interceptors.response.use(
   (response) => {
-    return response;
+    return response.data;
   },
   (error) => {
     return Promise.reject(error);
@@ -21,20 +21,16 @@ instance.interceptors.response.use(
 );
 
 const getUser = async (id: number): Promise<User> => {
-  const { data: responseData } = await instance.get<{ data: User[] }>(
-    `/users/${id}`,
-  );
-  const { data } = responseData;
+  const { data } = await instance.get<never, { data: User[] }>(`/users/${id}`);
   if (data.length === 0)
     return Promise.reject(new Error("유저가 존재하지 않습니다."));
   return data[0];
 };
 
 const getFolders = async (userID: number): Promise<Folder[]> => {
-  const { data: responseData } = await instance.get<{ data: Folder[] }>(
+  const { data } = await instance.get<never, { data: Folder[] }>(
     `users/${userID}/folders`,
   );
-  const { data } = responseData;
   if (data.length === 0) {
     return Promise.reject(new Error("폴더가 존재하지 않습니다."));
   }
@@ -42,10 +38,9 @@ const getFolders = async (userID: number): Promise<Folder[]> => {
 };
 
 const getFolder = async (userID: number, folderID: number): Promise<Folder> => {
-  const { data: responseData } = await instance.get<{ data: Folder[] }>(
+  const { data } = await instance.get<never, { data: Folder[] }>(
     `users/${userID}/folders/${folderID}`,
   );
-  const { data } = responseData;
   if (data.length === 0) {
     return Promise.reject(new Error("폴더가 존재하지 않습니다."));
   }
@@ -58,11 +53,9 @@ const getLink = async (userID: number, folderID?: number): Promise<Link[]> => {
     : `users/${userID}/links`;
 
   // 위에서 instance가 response.data로 처리하는데 인식 못하는 것 같음
-  const { data: responseData } = await instance.get<{ distinctData: Link[] }>(
+  const { distinctData } = await instance.get<never, { distinctData: Link[] }>(
     url,
   );
-  const { distinctData } = responseData;
-
   return distinctData;
 };
 
