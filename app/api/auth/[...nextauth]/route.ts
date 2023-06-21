@@ -38,7 +38,6 @@ export const authOptions: NextAuthOptions = {
         if (!isCorrectPassword) {
           throw new Error("Invalid credentials");
         }
-        console.log(user);
         return user;
       },
     }),

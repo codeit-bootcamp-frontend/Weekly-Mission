@@ -8,7 +8,7 @@ import { ILink } from "@/types/linkbrary";
 import styles from "./LinkField.module.scss";
 
 interface ILinkFieldProps {
-  links: ILink[];
+  links: ILink[] | [];
 }
 
 const LinkField = ({ links }: ILinkFieldProps) => {

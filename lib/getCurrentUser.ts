@@ -1,5 +1,5 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import getUser from "@/utils/api/getUser";
+import { getUser } from "@/utils/api/userRequest";
 import { tempUserDatas } from "@/utils/constants";
 import { getServerSession } from "next-auth";
 

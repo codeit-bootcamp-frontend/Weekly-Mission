@@ -17,11 +17,11 @@ const Login = () => {
 
     try {
       // 로그인 페이지는 signIn 함수를 사용하면 된다.
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const data = await signIn("credentials", {
         email: email.current.value,
         password: password.current.value,
       });
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
