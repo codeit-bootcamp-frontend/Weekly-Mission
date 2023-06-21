@@ -1,5 +1,5 @@
 import ButtonLink from '@/components/ButtonLink'
-import * as styles from './SharedMain.css'
+import * as styles from './index.css'
 
 const SharedMain = () => {
   return (

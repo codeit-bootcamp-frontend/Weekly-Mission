@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import ButtonLink from '@/components/ButtonLink'
-import * as styles from './HomeHeader.css'
+import * as styles from './index.css'
 
 const HomeHeader = () => {
   return (
-    <header className={styles.header}>
+    <header className={styles.container}>
       <h1 className={styles.title}>
         <span className={styles.emphasis}>세상의 모든 정보</span>
         를

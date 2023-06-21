@@ -9,7 +9,7 @@ export const emphasis = style({
   WebkitTextFillColor: 'transparent',
 })
 
-export const header = style({
+export const container = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',

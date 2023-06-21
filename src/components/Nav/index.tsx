@@ -1,6 +1,6 @@
 import Link from 'next/link'
+import getUser from '@/lib/api/getUser'
 // import ButtonLink from '@/components/ButtonLink'
-import getUser from './data-access/getUser'
 import NavLogo from './ui/NavLogo'
 import NavUserProfile from './ui/NavUserProfile'
 import * as styles from './index.css'
@@ -10,7 +10,7 @@ const Nav = async () => {
     name: userName,
     image_source: userImage,
     email: userEmail,
-  } = await getUser({ currentUserId: 1 })
+  } = await getUser({ userId: 8 })
 
   return (
     <nav className={styles.container}>

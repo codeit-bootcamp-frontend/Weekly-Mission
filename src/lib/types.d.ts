@@ -29,13 +29,25 @@ export interface IEyeTogglerProps {
 }
 
 export interface IgetUserProps {
-  currentUserId: number;
+  userId: number;
 }
 
 export type UserType = {
-  id: number;
-  createdAt: string;
-  name: string;
-  image_source: string;
-  email: string;
+  id: number
+  createdAt: string
+  name: string
+  image_source: string
+  email: string
+}
+
+export interface IgetFolderProps {
+  userId: number
+  folderId: number
+}
+
+export type FolderType = {
+  id: number
+  createdAt: string
+  name: string
+  user_id: number
 }

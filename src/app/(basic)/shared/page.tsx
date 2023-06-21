@@ -1,3 +1,4 @@
+import SharedHeader from '@/components/PageShared/SharedHeader'
 import SharedMain from '@/components/PageShared/SharedMain'
 
 export const metadata = {
@@ -6,7 +7,10 @@ export const metadata = {
 
 const Shared = () => {
   return (
-    <SharedMain />
+    <>
+      <SharedHeader />
+      <SharedMain />
+    </>
   )
 }
 
