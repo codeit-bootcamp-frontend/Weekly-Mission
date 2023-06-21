@@ -1,0 +1,43 @@
+// 반응형 breakpoints
+$breakpoint-mobile: 768px;
+$breakpoint-tablet: 1200px;
+
+// 반응형 mixin
+@mixin tablet {
+  @media (max-width: #{$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$breakpoint-mobile}) {
+    @content;
+  }
+}
+
+// 애니메이션
+@mixin fade-in($duration: 1s) {
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  animation: fade-in $duration forwards;
+}
+
+@mixin fade-out($duration: 1s) {
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  animation: fade-out $duration forwards;
+}

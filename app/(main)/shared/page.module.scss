@@ -1,0 +1,55 @@
+@use "@/styles/utils";
+
+.searchBarContainer {
+  width: 106rem;
+  height: 4.8rem;
+  margin: 4rem auto;
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 106rem;
+  margin: 4rem auto;
+  margin-bottom: 10rem;
+  column-gap: 2rem;
+  row-gap: 2.4rem;
+}
+
+.notExistLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10rem;
+}
+
+// 1100px 이하 card 컴포넌트 2열 배치
+@media (max-width: 1100px) {
+  .searchBarContainer {
+    width: 70.4rem;
+    height: 5.4rem;
+  }
+
+  .cardContainer {
+    grid-template-columns: repeat(2, 1fr);
+    width: 70.4rem;
+    column-gap: 2.4rem;
+  }
+}
+
+// 768px 이하(mobile) card 컴포넌트 1열 배치
+@include utils.mobile {
+  .searchBarContainer {
+    width: 32.5rem;
+    height: 4.3rem;
+    margin: 2rem auto;
+  }
+
+  .cardContainer {
+    grid-template-columns: 1fr;
+    width: 32.5rem;
+    margin: 3.2rem auto;
+    margin-bottom: 6rem;
+    row-gap: 2rem;
+  }
+}

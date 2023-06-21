@@ -1,0 +1,60 @@
+@use "@/styles/utils";
+
+.gnb {
+  display: flex;
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  align-items: center;
+  height: 9.4rem;
+  padding: 0 20rem;
+  opacity: 1;
+  background-color: utils.$gray-brt5;
+
+  &.unvisible {
+    @include utils.fade-out(1s);
+  }
+}
+
+.gnbContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.logoContainer {
+  position: relative;
+  width: 13.3rem;
+  height: 2.4rem;
+}
+
+@include utils.tablet {
+  .gnb {
+    padding-right: 3.2rem;
+    padding-left: 3.2rem;
+  }
+
+  .gnbContainer {
+    width: 79.9rem;
+  }
+}
+
+// Tablet 반응형(768~863px)
+@media (max-width: 863px) {
+  .gnbContainer {
+    width: 100%;
+  }
+}
+
+@include utils.mobile {
+  .gnb {
+    height: 6.3rem;
+  }
+
+  .logoContainer {
+    width: 8.867rem;
+    height: 1.6rem;
+  }
+}

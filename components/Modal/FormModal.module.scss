@@ -1,0 +1,50 @@
+@use "@/styles/utils";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.title {
+  color: #373740;
+  font-size: 2rem;
+  font-weight: 700;
+  user-select: none;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.input {
+  height: 6rem;
+  padding: 1.8rem 1.5rem;
+  border: 0.1rem solid utils.$gray-brt3;
+  border-radius: 0.8rem;
+  color: #373740;
+
+  &:focus {
+    border-color: utils.$primary;
+    outline: none;
+  }
+
+  &::placeholder {
+    color: utils.$gray-brt2;
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5.1rem;
+  border-radius: 0.8rem;
+  background: linear-gradient(90.99deg, utils.$primary 0.12%, #6ae3fe 101.84%);
+  color: #f5f5f5;
+  font-weight: 600;
+}

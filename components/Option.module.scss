@@ -1,0 +1,21 @@
+@use "@/styles/utils";
+
+.container {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 1.2rem;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: utils.$gray-brt2;
+  font-size: 1.4rem;
+  font-weight: 600;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,98 @@
+@use "@/styles/utils";
+
+.card {
+  overflow: hidden;
+  transition: all 0.5s;
+  border-radius: 1.5rem;
+  box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.08);
+
+  .cardImg {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  &.notShownMenu:hover {
+    background-color: utils.$gray-brt5;
+    cursor: pointer;
+
+    .cardImg {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.imageContainer {
+  position: relative;
+  width: 34rem;
+  height: 20rem;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+.contentContainer {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 34rem;
+  height: 13.5rem;
+  padding: 1.5rem 2rem;
+  gap: 1rem;
+}
+
+.passedTime {
+  color: #666666;
+  font-size: 1.3rem;
+}
+
+.content {
+  display: -webkit-box;
+  height: 4.9rem;
+  margin: 0;
+  overflow: hidden;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 2.4rem;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.createdDate {
+  color: #333333;
+  font-size: 1.5rem;
+}
+
+.menuContainer {
+  position: absolute;
+  z-index: 8;
+  top: 3rem;
+  right: 2rem;
+  width: 10rem;
+  height: 6.4rem;
+}
+
+@include utils.mobile {
+  .imageContainer {
+    width: 32.5rem;
+    height: 19.2rem;
+  }
+
+  .contentContainer {
+    width: 32.5rem;
+    height: 13.5rem;
+  }
+
+  .menuContainer {
+    top: 3.6rem;
+    right: 1.95rem;
+  }
+}

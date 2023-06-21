@@ -1,30 +1,42 @@
 {
   "name": "weekly-mission-react",
+  "version": "0.1.0",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^1.4.0",
+    "classnames": "^2.3.2",
+    "next": "^13.4.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.10.0"
+    "react-loader-spinner": "^5.3.4",
+    "react-responsive": "^9.0.2",
+    "sass": "^1.62.1",
+    "stylelint": "^15.6.2",
+    "stylelint-scss": "^5.0.0"
   },
   "devDependencies": {
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
-    "@vitejs/plugin-react-swc": "^3.0.0",
-    "eslint": "^8.39.0",
+    "@types/node": "^20.3.1",
+    "@types/react": "^18.2.12",
+    "@types/react-dom": "^18.2.5",
+    "@typescript-eslint/eslint-plugin": "^5.59.11",
+    "@typescript-eslint/parser": "^5.59.11",
+    "eslint": "^8.41.0",
+    "eslint-config-next": "^13.4.4",
     "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.3.4",
-    "prettier": "2.8.8",
-    "vite": "^4.3.2"
+    "prettier": "^2.8.8",
+    "stylelint-config-prettier-scss": "^1.0.0",
+    "stylelint-config-property-sort-order-smacss": "^9.1.0",
+    "stylelint-config-recommended-scss": "^12.0.0",
+    "typescript": "^5.1.3"
   }
 }

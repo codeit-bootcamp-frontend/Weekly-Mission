@@ -1,0 +1,54 @@
+@use "@/styles/utils";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+  user-select: none;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.title {
+  color: #373740;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.content {
+  color: utils.$gray-brt2;
+  font-size: 1.4rem;
+}
+
+.utils {
+  display: flex;
+  gap: 3.2rem;
+}
+
+.util {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.name {
+  color: #444444;
+  font-size: 1.3rem;
+}
+
+.copyLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.2rem;
+  height: 4.2rem;
+  border-radius: 37.3333px;
+  background-color: rgba(157, 157, 157, 0.04);
+}

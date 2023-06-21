@@ -1,0 +1,38 @@
+@use "@/styles/utils";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: utils.$gray-brt5;
+  }
+
+  &.selected {
+    background-color: utils.$gray-brt5;
+  }
+}
+
+.textContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.name {
+  color: #373740;
+
+  &.selected {
+    color: utils.$primary;
+  }
+}
+
+.linksNum {
+  color: utils.$gray-brt2;
+  font-size: 1.4rem;
+}

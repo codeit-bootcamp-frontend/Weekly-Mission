@@ -1,0 +1,25 @@
+@use "@/styles/utils";
+
+.selectMenu {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 8px rgba(51, 50, 54, 0.1);
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10rem;
+  height: 3.1rem;
+  color: #333236;
+  font-size: 1.4rem;
+
+  &:hover {
+    background-color: utils.$gray-brt4;
+    color: utils.$primary;
+    cursor: pointer;
+  }
+}
