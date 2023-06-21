@@ -12,7 +12,7 @@ interface IGnbProps {
     name: string;
     image_source: string;
     email: string;
-  };
+  } | null;
 }
 
 const Gnb = ({ user }: IGnbProps) => {

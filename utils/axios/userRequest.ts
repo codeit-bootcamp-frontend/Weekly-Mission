@@ -1,4 +1,4 @@
-import { getRequest } from "@/utils/api/common";
+import { getRequest } from "@/utils/axios/common";
 
 interface IUserData {
   id: number;

@@ -3,8 +3,8 @@ import { notFound } from "next/navigation";
 
 import Gnb from "@/components/Gnb/Gnb";
 import getCurrentUser from "@/lib/getCurrentUser";
-import { getFolders } from "@/utils/api/folderRequest";
-import { getLink } from "@/utils/api/linkRequest";
+import { getFolders } from "@/utils/axios/folderRequest";
+import { getLink } from "@/utils/axios/linkRequest";
 
 import styles from "./page.module.scss";
 
