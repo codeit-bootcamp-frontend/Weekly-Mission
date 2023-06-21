@@ -1,31 +1,28 @@
-"use client";
-
 import { useState } from "react";
 import classNames from "classnames/bind";
 import Modal from "./Modal";
 import styles from "@/styles/ModalAdd.module.css";
 import SelectFolders from "./SelectFolders";
+import { MOCK_FOLDERS } from "@/data/mock";
 
-const MOCK_FOLDERS = [
-  { name: "코딩팁", n_of_links: 7, selected: false },
-  { name: "채용 사이트", n_of_links: 12, selected: true },
-  { name: "유용한 글", n_of_links: 30, selected: false },
-  { name: "나만의 장소", n_of_links: 3, selected: false },
-];
+interface Props {
+  link: string;
+  onClose: (isOpen: boolean) => void;
+}
 
 const cx = classNames.bind(styles);
 
-export default function ModalAdd({ link = "https://www.abc.com", onClose }) {
+export default function ModalAdd({ link, onClose }: Props) {
   const [folders, setFolders] = useState(MOCK_FOLDERS);
 
-  const handleChange = (folderNum) => {
+  const handleChange = (folderNum: number) => {
     const foldersCopy = JSON.parse(JSON.stringify(folders));
     foldersCopy[folderNum]["selected"] = !foldersCopy[folderNum]["selected"];
     setFolders(foldersCopy);
   };
 
   const handleSubmit = () => {
-    console.log("폴더 추가", folders);
+    console.log("폴더에 추가", folders);
     onClose(false);
   };
 

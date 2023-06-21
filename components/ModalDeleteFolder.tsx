@@ -2,9 +2,14 @@ import classNames from "classnames/bind";
 import Modal from "./Modal";
 import styles from "@/styles/ModalDeleteFolder.module.css";
 
+interface Props {
+  folderName: string;
+  onClose: (isOpen: boolean) => void;
+}
+
 const cx = classNames.bind(styles);
 
-export default function ModalDeleteFolder({ folderName, onClose }) {
+export default function ModalDeleteFolder({ folderName, onClose }: Props) {
   const handleDeleteFolder = () => {
     console.log(`${folderName} 폴더 삭제`);
     onClose(false);

@@ -1,7 +1,5 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import GNB from "@/components/GNB";
-import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "Create Next App",
@@ -34,7 +32,11 @@ const pretendard = localFont({
   variable: "--font-pretendard",
 });
 
-export default function RootLayout({ children }) {
+interface Props {
+  children: JSX.Element | JSX.Element[];
+}
+
+export default function RootLayout({ children }: Props) {
   return (
     <html lang="ko" className={pretendard.variable}>
       <body>{children}</body>

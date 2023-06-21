@@ -3,9 +3,14 @@ import Modal from "./Modal";
 import Image from "next/image";
 import styles from "@/styles/ModalShare.module.css";
 
+interface Props {
+  folderName: string;
+  onClose: (isOpen: boolean) => void;
+}
+
 const cx = classNames.bind(styles);
 
-export default function ModalShare({ folderName, onClose }) {
+export default function ModalShare({ folderName, onClose }: Props) {
   return (
     <Modal title="폴더 공유" onClose={onClose}>
       <p className={cx("folder-title")}>{folderName}</p>

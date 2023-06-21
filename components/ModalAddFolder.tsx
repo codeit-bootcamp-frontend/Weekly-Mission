@@ -1,14 +1,16 @@
-"use client";
-
 import classNames from "classnames/bind";
 import Modal from "./Modal";
 import styles from "@/styles/ModalAddFolder.module.css";
 import { useRef } from "react";
 
+interface Props {
+  onClose: (isOpen: boolean) => void;
+}
+
 const cx = classNames.bind(styles);
 
-export default function ModalAddFolder({ onClose }) {
-  const inputRef = useRef();
+export default function ModalAddFolder({ onClose }: Props) {
+  const inputRef = useRef<HTMLInputElement>();
 
   const handleSubmit = () => {
     console.log("폴더 추가", inputRef.current?.value);

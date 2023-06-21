@@ -9,23 +9,34 @@ import styles from "@/styles/Card.module.css";
 import SelectMenu from "./SelectMenu";
 import ModalDeleteLink from "./ModalDeleteLink";
 import ModalAdd from "./ModalAdd";
+import { DEFAULT_LINK } from "@/data/defaultData";
 
-const DEFAULT = {
-  createdAt: "2023. 3. 15",
-  url: "https://www.codeit.kr/",
-  description:
-    "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat.",
-  title: "Linkbrary",
-  imageSource: "/images/default_image.png",
-};
+interface Props {
+  data: {
+    id: number;
+    created_at?: string;
+    updated_at?: string | null;
+    url?: string;
+    title?: string;
+    description?: string;
+    image_source?: string;
+  };
+}
 
 export default function Card({
-  data: { created_at = DEFAULT.createdAt, url = DEFAULT.url, title = DEFAULT.title, description = DEFAULT.description, image_source = DEFAULT.imageSource },
-}) {
+  data: {
+    created_at = DEFAULT_LINK.createdAt,
+    url = DEFAULT_LINK.url,
+    title = DEFAULT_LINK.title,
+    description = DEFAULT_LINK.description,
+    image_source = DEFAULT_LINK.imageSource,
+  },
+}: Props) {
   const [isStartSelected, SetIsStarSelected] = useState(false);
   const [isKebabSelected, setIsKebabSelected] = useState(false);
   const [isModalDeleteLinkOpen, setIsModalDeleteLinkOpen] = useState(false);
   const [isModalAddOpen, setIsModalAddOpen] = useState(false);
+
   const timeDiffFormat = getTimeDiffFormat(created_at);
   const dateFormat = getDateFormat(created_at);
 
@@ -33,9 +44,9 @@ export default function Card({
     window.open(url);
   };
 
-  const handleClickStar = (e) => {
+  const handleClickStar = (e: React.MouseEvent) => {
     e.stopPropagation();
-    const starImg = e.currentTarget.firstChild;
+    const starImg = e.currentTarget.firstChild as HTMLImageElement;
 
     if (isStartSelected) {
       starImg.src = "/images/default-star.svg";
@@ -45,7 +56,7 @@ export default function Card({
     SetIsStarSelected(!isStartSelected);
   };
 
-  const handleClickKebab = (e) => {
+  const handleClickKebab = (e: React.MouseEvent) => {
     e.stopPropagation();
     setIsKebabSelected(!isKebabSelected);
   };

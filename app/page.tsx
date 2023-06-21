@@ -35,7 +35,7 @@ export default async function Home() {
         <section className={cx("card")}>
           <div className={cx("text-container")}>
             <h1 className={cx("title")}>
-              <sapn className={cx("text-gradient", "red-to-blue")}>원하는 링크</sapn>를 <br />
+              <span className={cx("text-gradient", "red-to-blue")}>원하는 링크</span>를 <br />
               저장하세요
             </h1>
             <p className={cx("description")}>
@@ -50,7 +50,7 @@ export default async function Home() {
           <div className={cx("text-container")}>
             <h1 className={cx("title")}>
               링크를 폴더로 <br />
-              <sapn className={cx("text-gradient", "yellow-to-blue")}>관리</sapn>하세요
+              <span className={cx("text-gradient", "yellow-to-blue")}>관리</span>하세요
             </h1>
             <p className={cx("description")}>
               나만의 폴더를 무제한으로 만들고 <br />

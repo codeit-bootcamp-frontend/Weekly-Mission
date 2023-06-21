@@ -8,9 +8,13 @@ import ModalShare from "./ModalShare";
 import ModalEdit from "./ModalEdit";
 import ModalDeleteFolder from "./ModalDeleteFolder";
 
+interface Props {
+  folderName: string;
+}
+
 const cx = classNames.bind(styles);
 
-export default function Option({ folderName }) {
+export default function Option({ folderName }: Props) {
   const [isModalShareOpen, setIsModalShareOpen] = useState(false);
   const [isModalEditOpen, setIsModalEditOpen] = useState(false);
   const [isModalDeleteFolderOpen, setIsModalDeleteFolderOpen] = useState(false);

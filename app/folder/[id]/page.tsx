@@ -11,9 +11,15 @@ import styles from "./page.module.css";
 import classNames from "classnames/bind";
 import getUserId from "@/data/getUserId";
 
+interface Props {
+  params: {
+    id: string;
+  };
+}
+
 const cx = classNames.bind(styles);
 
-export default async function FolderID({ params }) {
+export default async function FolderID({ params }: Props) {
   const { id: folderId } = params;
   const userId = getUserId();
 

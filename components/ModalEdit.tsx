@@ -3,10 +3,15 @@ import Modal from "./Modal";
 import styles from "@/styles/ModalEdit.module.css";
 import { useRef } from "react";
 
+interface Props {
+  folderName: string;
+  onClose: (isOpen: boolean) => void;
+}
+
 const cx = classNames.bind(styles);
 
-export default function ModalEdit({ folderName, onClose }) {
-  const inputRef = useRef();
+export default function ModalEdit({ folderName, onClose }: Props) {
+  const inputRef = useRef<HTMLInputElement>();
 
   const handleSubmit = () => {
     console.log("폴더 이름 변경", inputRef.current?.value);
