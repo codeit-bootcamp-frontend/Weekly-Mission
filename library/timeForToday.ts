@@ -1,6 +1,6 @@
 // 작성 시간 계산 함수
 
-export const timeForToday = (value) => {
+export const timeForToday = (value: string) => {
   const today = new Date();
   const timeValue = new Date(value);
 

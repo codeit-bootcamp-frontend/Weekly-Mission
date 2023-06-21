@@ -6,7 +6,7 @@ import DeleteModal from "@/layout/DeleteModal";
 import UpdateModal from "@/layout/UpdateModal";
 import ShareModal from "@/layout/ShareModal";
 
-const UpdateLink = ({ title }) => {
+const UpdateLink = ({ title }: { title: string }) => {
   const [deleteModal, setDeleteModal] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
   const [shareModal, setShareModal] = useState(false);

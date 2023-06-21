@@ -4,11 +4,23 @@ import styles from "@/layout/ShareModal.module.css";
 
 import { createPortal } from "react-dom";
 
-const Backdrop = ({ modalHandler }) => {
+const Backdrop = ({
+  modalHandler,
+}: {
+  modalHandler: (e: { preventDefault: () => void }) => void;
+}) => {
   return <div onClick={modalHandler} className={styles.backdrop} />;
 };
 
-const ModalOverlay = ({ modalHandler, title, content }) => {
+const ModalOverlay = ({
+  modalHandler,
+  title,
+  content,
+}: {
+  modalHandler: (e: { preventDefault: () => void }) => void;
+  title: string;
+  content: string;
+}) => {
   return (
     <div className={styles.modal}>
       <div className={styles.img}>
@@ -36,7 +48,17 @@ const ModalOverlay = ({ modalHandler, title, content }) => {
   );
 };
 
-const ShareModal = ({ modal, modalHandler, title, content }) => {
+const ShareModal = ({
+  modal,
+  modalHandler,
+  title,
+  content,
+}: {
+  modal: boolean;
+  modalHandler: (e: { preventDefault: () => void }) => void;
+  title: string;
+  content: string;
+}) => {
   return modal
     ? createPortal(
         <>

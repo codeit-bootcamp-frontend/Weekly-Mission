@@ -1,6 +1,6 @@
 // YYYY.MM.DD 작성 함수
 
-export function getToday(data) {
+export function getToday(data: string): string {
   const date = new Date(data);
   const year = date.getFullYear();
   const month = ("0" + (1 + date.getMonth())).slice(-2);

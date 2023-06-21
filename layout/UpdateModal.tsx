@@ -4,11 +4,23 @@ import styles from "@/layout/UpdateModal.module.css";
 
 import { createPortal } from "react-dom";
 
-const Backdrop = ({ modalHandler }) => {
+const Backdrop = ({
+  modalHandler,
+}: {
+  modalHandler: (e: { preventDefault: () => void }) => void;
+}) => {
   return <div onClick={modalHandler} className={styles.backdrop} />;
 };
 
-const ModalOverlay = ({ modalHandler, content, placeholder }) => {
+const ModalOverlay = ({
+  modalHandler,
+  content,
+  placeholder,
+}: {
+  modalHandler: (e: { preventDefault: () => void }) => void;
+  content: string;
+  placeholder: string;
+}) => {
   return (
     <div className={styles.modal}>
       <div className={styles.img}>
@@ -23,7 +35,17 @@ const ModalOverlay = ({ modalHandler, content, placeholder }) => {
   );
 };
 
-const UpdateModal = ({ modal, modalHandler, content, placeholder }) => {
+const UpdateModal = ({
+  modal,
+  modalHandler,
+  content,
+  placeholder,
+}: {
+  modal: boolean;
+  modalHandler: (e: { preventDefault: () => void }) => void;
+  content: string;
+  placeholder: string;
+}) => {
   return modal
     ? createPortal(
         <>

@@ -1,6 +1,5 @@
 import styles from "@/components/CardContainer.module.css";
 import Card from "@/components/Card";
-import { PropsType } from "@/library/propsType";
 
 interface folderType {
   id: number;

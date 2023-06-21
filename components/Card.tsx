@@ -23,9 +23,9 @@ interface linkType {
 
 const Card = ({ link }: { link: linkType }) => {
   const { created_at, url, description, image_source } = link;
+  const [selectedPop, setSelectedPop] = useState("삭제하기");
   const [isClick, setIsClick] = useState(false);
   const [showPopOver, setShowPopOver] = useState(false);
-  const [selectedPop, setSelectedPop] = useState("삭제하기");
   const [deleteModal, setDeleteModal] = useState(false);
   const [addFolderModal, setAddFolderModal] = useState(false);
 
@@ -48,7 +48,7 @@ const Card = ({ link }: { link: linkType }) => {
     setSelectedPop(pop);
   };
 
-  const popEl = useRef(null);
+  const popEl = useRef<any>(null);
 
   const handleIsClick = (e: { preventDefault: () => void }) => {
     e.preventDefault();

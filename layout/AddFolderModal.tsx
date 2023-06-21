@@ -24,7 +24,11 @@ const folderObj = [
   },
 ];
 
-const Backdrop = ({ modalHandler }: { modalHandler: () => void }) => {
+const Backdrop = ({
+  modalHandler,
+}: {
+  modalHandler: (e: { preventDefault: () => void }) => void;
+}) => {
   return <div onClick={modalHandler} className={styles.backdrop} />;
 };
 
@@ -33,7 +37,7 @@ const ModalOverlay = ({
   title,
   content,
 }: {
-  modalHandler: () => void;
+  modalHandler: (e: { preventDefault: () => void }) => void;
   title: string;
   content: string;
 }) => {
@@ -83,7 +87,7 @@ const AddfolderModal = ({
   content,
 }: {
   modal: boolean;
-  modalHandler: () => void;
+  modalHandler: (e: { preventDefault: () => void }) => void;
   title: string;
   content: string;
 }) => {

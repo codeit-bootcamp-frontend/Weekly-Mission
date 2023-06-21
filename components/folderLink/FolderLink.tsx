@@ -2,19 +2,19 @@ import AddPageChip from "@/components/AddPageChip";
 import styles from "@/components/AddPage.module.css";
 import { PropsType } from "@/library/propsType";
 
-const getFolderLink = async () => {
-  const response = await fetch(
-    "https://bootcamp-api.codeit.kr/api/users/1/folders"
-  );
-  return response.json();
-};
-
 interface folderType {
   id: number;
   created_at: string;
   name: string;
   user_id: number;
 }
+
+const getFolderLink = async () => {
+  const response = await fetch(
+    "https://bootcamp-api.codeit.kr/api/users/1/folders"
+  );
+  return response.json();
+};
 
 const FolderLink = async (props: PropsType) => {
   const folderLink = await getFolderLink();
