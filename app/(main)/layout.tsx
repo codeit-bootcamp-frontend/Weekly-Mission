@@ -1,6 +1,6 @@
 import Footer from "@/components/Footer";
 import GNB from "@/components/GNB/GNB";
-import { VisibleGNBProvider } from "@/hooks/useVisibleGNBContext";
+import { InViewGNBProvider } from "@/hooks/useInViewGNBContext";
 import { Children } from "@/types";
 import { getUser } from "@/utils/api";
 import checkLoginStatus from "@/utils/checkLoginStatus";
@@ -14,10 +14,10 @@ export default async function MainLayout({ children }: Children) {
 
   return (
     <>
-      <VisibleGNBProvider>
+      <InViewGNBProvider>
         <GNB user={user} />
         {children}
-      </VisibleGNBProvider>
+      </InViewGNBProvider>
       <Footer />
     </>
   );

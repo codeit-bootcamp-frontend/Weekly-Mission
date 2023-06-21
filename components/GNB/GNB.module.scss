@@ -11,8 +11,9 @@
   opacity: 1;
   background-color: utils.$gray-brt5;
 
-  &.unvisible {
+  &:not(.inViewGNB) {
     @include utils.fade-out(1s);
+    z-index: -10;
   }
 }
 

@@ -7,7 +7,7 @@
   padding-top: 6rem;
   background-color: utils.$gray-brt5;
 
-  &.shownAtBottom {
+  &.addLinkAtBottom {
     position: fixed;
     z-index: 10;
     bottom: 0;
@@ -19,11 +19,22 @@
 
     @include utils.fade-in(1s);
   }
+
+  &.inViewFooter {
+    @include utils.fade-out(1s);
+    z-index: -10;
+  }
 }
 
 .addLinkBarContainer {
   width: 80rem;
   height: 6.9rem;
+}
+
+.main {
+  &.addLinkAtBottom {
+    margin-top: 21.9rem;
+  }
 }
 
 .folderSection {
@@ -34,10 +45,6 @@
   margin: 4rem auto;
   margin-bottom: 10rem;
   gap: 4rem;
-
-  &.shownAtBottom {
-    margin-top: 25.9rem;
-  }
 }
 
 .searchBarContainer {
@@ -110,7 +117,7 @@
     height: 11.7rem;
     padding-top: 2.4rem;
 
-    &.shownAtBottom {
+    &.addLinkAtBottom {
       height: 8.5rem;
     }
   }
@@ -120,15 +127,17 @@
     height: 5.3rem;
   }
 
+  .main {
+    &.addLinkAtBottom {
+      margin-top: 11.7rem;
+    }
+  }
+
   .folderSection {
     width: 32.5rem;
     margin: 2rem auto;
     margin-bottom: 6rem;
     gap: 3.2rem;
-
-    &.shownAtBottom {
-      margin-top: 13.7rem;
-    }
   }
 
   .searchBarContainer {

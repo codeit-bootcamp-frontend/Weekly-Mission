@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
 import { LineWave } from "react-loader-spinner";
-import { useMediaQuery } from "react-responsive";
 
 import classNames from "classnames/bind";
 import { useRouter } from "next/navigation";
@@ -13,7 +13,7 @@ import Card from "@/components/Card/Card";
 import FolderChip from "@/components/FolderChip";
 import Option from "@/components/Option";
 import SearchBar from "@/components/SearchBar";
-import { useSetVisibleGNB } from "@/hooks/useVisibleGNBContext";
+import { useSetInViewGNB } from "@/hooks/useInViewGNBContext";
 import { getFolders, getLink } from "@/utils/api";
 import { Folder, Link } from "@/utils/api/types";
 
@@ -32,10 +32,9 @@ export default function Folder({ params }: { params: { folderID: string[] } }) {
   const [links, setLinks] = useState<Link[]>([]);
   const router = useRouter();
 
-  const targetRef = useRef<HTMLDivElement>(null);
-  const setVisibleGNB = useSetVisibleGNB();
-  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
-  const [shownAtBottom, setShownAtBottom] = useState(false);
+  const setInViewGNB = useSetInViewGNB();
+  const { ref: addLinkRef, inView: inViewAddLink } = useInView();
+  const { ref: footerRef, inView: inViewFooter } = useInView();
 
   const onAddFolder = (name: string) => {
     return name;
@@ -72,47 +71,25 @@ export default function Folder({ params }: { params: { folderID: string[] } }) {
   }, [folderIDParams, router]);
 
   useEffect(() => {
-    const targetRefCurrent = targetRef.current;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const changeCondition =
-            entry.boundingClientRect.top <= (isMobile ? 20 : 40);
-          if (changeCondition) {
-            setVisibleGNB(false);
-            setShownAtBottom(true);
-          } else {
-            setVisibleGNB(true);
-            setShownAtBottom(false);
-          }
-        });
-      },
-      {
-        threshold: [1],
-        rootMargin: `${isMobile ? "-20px" : "-40px"} 0px 0px 0px`,
-      },
-    );
-
-    if (targetRefCurrent) {
-      observer.observe(targetRefCurrent);
-    }
-
-    return () => {
-      setVisibleGNB(true);
-      observer.disconnect();
-    };
-  }, [isMobile, setVisibleGNB]);
+    setInViewGNB(inViewAddLink);
+  }, [inViewAddLink, setInViewGNB]);
 
   return (
     <>
-      <div className={cx("addLinkSection", { shownAtBottom })}>
+      <div
+        className={cx("addLinkSection", {
+          addLinkAtBottom: !inViewAddLink,
+          inViewFooter,
+        })}
+      >
         <div className={cx("addLinkBarContainer")}>
           <AddLinkBar />
         </div>
       </div>
-      <main>
-        <section className={cx("folderSection", { shownAtBottom })}>
-          <div className={cx("searchBarContainer")} ref={targetRef}>
+      <main className={cx("main", { addLinkAtBottom: !inViewAddLink })}>
+        <div ref={addLinkRef} style={{ height: "0.1px" }} />
+        <section className={cx("folderSection", {})}>
+          <div className={cx("searchBarContainer")}>
             <SearchBar />
           </div>
           {!currentFolder && <LineWave />}
@@ -159,6 +136,7 @@ export default function Folder({ params }: { params: { folderID: string[] } }) {
             </div>
           )}
         </section>
+        <div ref={footerRef} style={{ height: "0.1px" }} />
       </main>
     </>
   );
