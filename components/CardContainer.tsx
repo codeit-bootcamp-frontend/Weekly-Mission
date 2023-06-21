@@ -1,11 +1,21 @@
 import styles from "@/components/CardContainer.module.css";
 import Card from "@/components/Card";
 
-interface folderType {
+// interface folderType {
+//   id: number;
+//   created_at: string;
+//   name: string;
+//   user_id: number;
+// }
+
+interface linkType {
   id: number;
   created_at: string;
-  name: string;
-  user_id: number;
+  updated_at: string;
+  url: string;
+  title: string;
+  description: string;
+  image_source: string;
 }
 
 const getFolder = async (userId = 1, folderId = 1) => {
@@ -22,7 +32,7 @@ const CardContainer = async () => {
   return (
     <div className={styles["main-container"]}>
       <div className={styles.container}>
-        {folder.distinctData.map((link: folderType) => (
+        {folder.distinctData.map((link: linkType) => (
           <Card link={link} key={link.id} />
         ))}
       </div>

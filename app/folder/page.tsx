@@ -5,7 +5,6 @@ const Folder = () => {
   return (
     <>
       <UpdateLink title="전체" />
-      {/* @ts-expect-error Async Server Component */}
       <CardContainer />
     </>
   );

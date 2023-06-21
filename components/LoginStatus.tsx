@@ -9,7 +9,6 @@ const LoginStatus = () => {
   const { responseData } = useHttp({
     url: "/users/5",
   });
-  console.log(responseData);
 
   const loginHanlder = () => {
     setIslogin(!isLogin);

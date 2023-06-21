@@ -8,7 +8,7 @@ interface type {
   data?: string;
 }
 
-const useHttp = ({ url, method, headers, data }: type) => {
+const useHttp = ({ url, method, headers, data }: type): any => {
   const [isLoading, setIsLoadng] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [responseData, setResponseData] = useState<unknown>([]);
