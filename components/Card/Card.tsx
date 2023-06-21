@@ -5,7 +5,7 @@ import React, { useEffect, useRef, useState } from "react";
 import classNames from "classnames/bind";
 import Image from "next/image";
 
-import { CardProps } from "@/types";
+import { Folder, Link } from "@/utils/api/types";
 
 import styles from "./Card.module.scss";
 import SelectMenu from "./SelectMenu";
@@ -53,6 +53,13 @@ const calculatePassedTime = (time: string): string => {
 const changeDateFormat = (time: string): string => {
   return Intl.DateTimeFormat("kr").format(new Date(time));
 };
+
+interface CardProps {
+  link: Link;
+  folders?: Folder[];
+  onDeleteLink?: (id: number) => number;
+  isNotOwn?: boolean;
+}
 
 export default function Card({
   link,

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { Folder, Link, User } from "@/types";
+import { Folder, Link, User } from "./types";
 
 const instance = axios.create({
   baseURL:

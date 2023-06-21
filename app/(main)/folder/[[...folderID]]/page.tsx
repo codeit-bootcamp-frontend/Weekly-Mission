@@ -14,8 +14,8 @@ import FolderChip from "@/components/FolderChip";
 import Option from "@/components/Option";
 import SearchBar from "@/components/SearchBar";
 import { useSetVisibleGNB } from "@/hooks/useVisibleGNBContext";
-import { Folder, Link } from "@/types";
 import { getFolders, getLink } from "@/utils/api";
+import { Folder, Link } from "@/utils/api/types";
 
 import styles from "./page.module.scss";
 
