@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import { notFound } from "next/navigation";
 
 import Gnb from "@/components/Gnb/Gnb";
 import getCurrentUser from "@/lib/getCurrentUser";
@@ -20,6 +21,9 @@ const Tab = async ({
   };
 }) => {
   const userProfile = await getCurrentUser();
+  if (!userProfile) {
+    throw new Error(`Failed to fetch data`);
+  }
   const userId = userProfile.id;
   const folderId = Number(params.slug);
 
@@ -27,6 +31,12 @@ const Tab = async ({
     getFolders(userId),
     getLink(userId, folderId),
   ]);
+
+  const isFolder = folders.find((folder) => folder.id === folderId);
+
+  if (!isFolder) {
+    notFound();
+  }
 
   return (
     <>
