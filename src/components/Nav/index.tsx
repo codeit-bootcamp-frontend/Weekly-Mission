@@ -17,7 +17,11 @@ const Nav = async () => {
       <Link href="/">
         <NavLogo />
       </Link>
-      <NavUserProfile userImage={userImage} userName={userName} userEmail={userEmail} />
+      <NavUserProfile
+        userImage={userImage}
+        userName={userName}
+        userEmail={userEmail}
+      />
       {/* <ButtonLink className={styles.styledButtonLink} href="/signin">
         로그인
       </ButtonLink> */}

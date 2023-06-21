@@ -3,10 +3,8 @@ import { style } from '@vanilla-extract/css'
 
 export const profile = style({
   display: 'flex',
-  justifyContent: 'flex-end',
+  alignItems: 'center',
   gap: '0.6rem',
-  textAlign: 'center',
-  lineHeight: '2.8rem',
   fontSize: '1.4rem',
 })
 
