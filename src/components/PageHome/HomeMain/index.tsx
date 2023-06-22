@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import * as styles from './HomeMain.css'
+import * as styles from './index.css'
 
 const HomeMain = () => {
   return (

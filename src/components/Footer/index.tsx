@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import * as styles from './Footer.css'
+import * as styles from './index.css'
 
 const Footer = () => {
   return (

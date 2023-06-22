@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { button } from '@/components/Button/Button.css'
+import { button } from '@/components/Button/index.css'
 import { vars } from '@/lib/theme.css'
 
 export const emphasis = style({

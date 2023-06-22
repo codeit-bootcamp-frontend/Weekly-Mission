@@ -1,5 +1,5 @@
 import ButtonLink from '@/components/ButtonLink'
-import * as styles from './NotFoundMain.css'
+import * as styles from './index.css'
 
 const NotFoundMain = () => {
   return (

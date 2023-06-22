@@ -1,5 +1,5 @@
 import ButtonLink from '@/components/ButtonLink'
-import * as styles from './PrivacyMain.css'
+import * as styles from './index.css'
 
 const PrivacyMain = () => {
   return (
