@@ -16,9 +16,32 @@
   height: 228px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   gap: 12px;
-  justify-content: center;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /*IE, Edge*/
+  scrollbar-width: none; /*Firefox*/
+
+  & .emptyLink {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #000000;
+  }
 }
+.folderWrapper::-webkit-scrollbar {
+  width: 3px; /* 스크롤바의 너비 */
+}
+.folderWrapper::-webkit-scrollbar-thumb {
+  max-height: 10%; /* 스크롤바의 길이 */
+  background: var-color.$linkbrary-gray-60; /* 스크롤바의 색상 */
+  border-radius: 20px;
+}
+.folderWrapper::-webkit-scrollbar-track {
+  background: transparent; /*스크롤바 뒷 배경 색상*/
+}
+
 .addButton {
   @include mixin.modal-button(
     linear-gradient(

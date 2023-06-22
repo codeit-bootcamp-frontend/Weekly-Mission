@@ -5,10 +5,16 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 
 import AddLinkModal from "@/components/Modals/AddLinkModal/AddLinkModal";
+import { IFolder, ILink } from "@/types/linkbrary";
 
 import styles from "./AddLinkBar.module.scss";
 
-const AddLinkBar = () => {
+interface IAddLinkBarProps {
+  folders: IFolder[] | [];
+  links: ILink[] | [];
+}
+
+const AddLinkBar = ({ folders, links }: IAddLinkBarProps) => {
   const [openAddLinkModal, setOpenAddLinkModal] = useState<boolean>(false);
   const [selectedLinkValue, setSelectedLinkValue] = useState<string>("");
   const linkInputRef = useRef<HTMLInputElement>(null);
@@ -52,6 +58,8 @@ const AddLinkBar = () => {
 
       {openAddLinkModal && (
         <AddLinkModal
+          links={links}
+          folders={folders}
           setOpenAddLinkModal={setOpenAddLinkModal}
           selectedLinkValue={selectedLinkValue}
         />

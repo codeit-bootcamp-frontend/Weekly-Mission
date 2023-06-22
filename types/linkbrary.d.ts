@@ -6,6 +6,7 @@ export interface ILink {
   title: string;
   description: string;
   image_source: string;
+  folder_id: number | null;
 }
 
 export interface IFolder {

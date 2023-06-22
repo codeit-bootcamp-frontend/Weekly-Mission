@@ -32,6 +32,8 @@ const FolderContents = ({
   return (
     <>
       <AddLinkField
+        folders={folders}
+        links={links}
         inView={inView}
         ref={(el: HTMLDivElement) => (observerTargetRefs.current[0] = el)}
       />

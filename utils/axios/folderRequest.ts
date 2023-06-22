@@ -1,11 +1,5 @@
+import { IFolder } from "@/types/linkbrary";
 import { getRequest } from "@/utils/axios/common";
-
-interface IFoldersData {
-  id: number;
-  created_at: string;
-  name: string;
-  user_id: number;
-}
 
 /**
  * 폴더 탭 목록 (페이지 url)
@@ -16,14 +10,14 @@ interface IFoldersData {
  * - /users/:userId/folders/:userId
  * - /users/:userId/links?folderId=:userId
  */
-export const getFolders = async (userId: number): Promise<IFoldersData[]> => {
+export const getFolders = async (userId: number): Promise<IFolder[]> => {
   const response = await getRequest(`/users/${userId}/folders`);
   return response.data;
 };
 export const getFolder = async (
   userId: number,
   folderId: number
-): Promise<IFoldersData> => {
+): Promise<IFolder> => {
   const response = await getRequest(`/users/${userId}/folders/${folderId}`);
   return response.data[0];
 };

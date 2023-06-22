@@ -1,25 +1,32 @@
 import Image from "next/image";
 
+import { IFolder, ILink } from "@/types/linkbrary";
+
 import styles from "./FolderItem.module.scss";
 
 interface IFolderItemProps {
-  folder: { name: string; length: number };
-  idx: number;
+  folder: IFolder;
+  links: ILink[] | [];
+  index: number;
   isChecked: boolean;
   setCheckedItemId: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const FolderItem = ({
   folder,
-  idx,
+  links,
+  index,
   isChecked,
   setCheckedItemId,
 }: IFolderItemProps) => {
-  // TODO: 데이터 수정 가능한 Api 구축하면 prop 변경 예정
+  const linkLength = links.filter(
+    (link) => link.folder_id === folder.id
+  ).length;
+
   return (
     <div
       className={`${styles.itemWrapper} ${styles[`${isChecked}`]}`}
-      onClick={() => setCheckedItemId(idx)}
+      onClick={() => setCheckedItemId(index)}
     >
       {isChecked && (
         <div className={styles.checkedIcon}>
@@ -35,7 +42,7 @@ const FolderItem = ({
         {folder.name}
       </div>
       <div className={`${styles.linkLength} ${styles[`${isChecked}`]}`}>
-        {folder.length}개 링크
+        {linkLength}개 링크
       </div>
     </div>
   );

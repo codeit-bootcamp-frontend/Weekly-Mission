@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import Gnb from "@/components/Gnb/Gnb";
 import getCurrentUser from "@/lib/getCurrentUser";
 import { getFolders } from "@/utils/axios/folderRequest";
-import { getLink } from "@/utils/axios/linkRequest";
+import { getLinks } from "@/utils/axios/linkRequest";
 
 import styles from "./page.module.scss";
 
@@ -29,8 +29,10 @@ const Tab = async ({
 
   const [folders, links] = await Promise.all([
     getFolders(userId),
-    getLink(userId, folderId),
+    getLinks(userId),
   ]);
+
+  const filteredLinks = links.filter((link) => link.folder_id === folderId);
 
   const isFolder = folders.find((folder) => folder.id === folderId);
 
@@ -42,7 +44,11 @@ const Tab = async ({
     <>
       <Gnb user={userProfile} />
       <main className={styles.main}>
-        <FolderContents links={links} folders={folders} currentTab={folderId} />
+        <FolderContents
+          links={filteredLinks}
+          folders={folders}
+          currentTab={folderId}
+        />
       </main>
     </>
   );
