@@ -4,7 +4,7 @@ import Card from "@/components/Card/Card";
 
 const cx = classNames.bind(styles);
 
-export default async function CardList({ cardList, currentFolderName }) {
+export default function CardList({ cardList, currentFolderName }) {
   return (
     <>
       <h2 className={cx("card-title")}>{currentFolderName}</h2>

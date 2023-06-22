@@ -11,9 +11,10 @@ module.exports = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "ca.slack-edge.com",
-        port: "",
-        pathname: "/T04T2BTF4F5-U04USNXQGCD-g6985a4deb55-512/**",
+        hostname: "*",
+        // hostname: "ca.slack-edge.com",
+        // port: "",
+        // pathname: "/T04T2BTF4F5-U04USNXQGCD-g6985a4deb55-512/**",
       },
     ],
   },

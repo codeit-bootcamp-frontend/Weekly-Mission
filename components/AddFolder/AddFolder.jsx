@@ -10,7 +10,7 @@ import axios from "axios";
 
 const cx = classNames.bind(styles);
 
-export default function AddFolder() {
+export default function AddFolder({ updateFolderState }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
 
@@ -30,7 +30,10 @@ export default function AddFolder() {
     axios
       .post("/api/post", { name: inputValue })
       .then((response) => {
-        console.log(response);
+        updateFolderState({
+          _id: response.data.result.insertedId,
+          name: inputValue,
+        });
       })
       .catch((error) => {
         console.log(error);

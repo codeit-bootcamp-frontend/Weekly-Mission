@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const cx = classNames.bind(styles);
 
-export default async function Folder({ href, name, selected }) {
+export default function Folder({ href, name, selected }) {
   return (
     <Link href={href} className={cx("folder", { selected })}>
       {name}
