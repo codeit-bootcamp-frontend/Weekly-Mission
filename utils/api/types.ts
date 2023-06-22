@@ -1,3 +1,10 @@
+import {
+  AxiosInstance,
+  AxiosInterceptorManager,
+  AxiosResponse,
+  InternalAxiosRequestConfig,
+} from "axios";
+
 export interface SelectedFolder {
   id: number;
   name: string;
@@ -24,4 +31,16 @@ export interface User {
   name: string;
   image_source: string;
   email: string;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type CustomResponseFormat<T = any> = {
+  data: T;
+};
+
+export interface CustomInstance extends AxiosInstance {
+  interceptors: {
+    request: AxiosInterceptorManager<InternalAxiosRequestConfig>;
+    response: AxiosInterceptorManager<AxiosResponse<CustomResponseFormat>>;
+  };
 }
