@@ -32,6 +32,10 @@ const Shared = async ({ searchParams }: ISharedProps) => {
       getLink(sharedUserId, folderId),
     ]);
 
+  if (!sharedUserProfile || !sharedUserFolderName) {
+    notFound();
+  }
+
   return (
     <>
       <main className={styles.main}>
