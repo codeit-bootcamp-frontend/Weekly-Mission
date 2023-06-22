@@ -23,7 +23,7 @@ const cx = classNames.bind(styles);
 
 export default function Folder({ params }: { params: { folderID: string[] } }) {
   const folderIDParams = params.folderID ? Number(params.folderID[0]) : 0;
-  const userID = 1; // 추후 auth 기능 추가
+  const userID = 4; // 추후 auth 기능 추가
   const [currentFolder, setCurrentFolder] = useState<{
     id: number;
     name: string;
