@@ -34,12 +34,16 @@ const AddLinkModal = ({
   const [checkedItemId, setCheckedItemId] = useState(-1);
 
   const handleClickPostLink = (): void => {
+    // TODO: selectedLinkValue를 checkedItemId 를 가진 폴더에 저장
+    const { id: selectedFolderId, user_id: selectedUserId } =
+      addFolderList[checkedItemId];
+
+    console.log(selectedFolderId, selectedUserId, selectedLinkValue);
+
     setTimeout(() => {
       setOpenAddLinkModal(false);
-      // TODO: selectedLinkValue를 checkedItemId 를 가진 폴더에 저장
     }, 500);
   };
-  console.log(links, currentFolderId, addFolderList, selectedLinkValue);
 
   return (
     <ModalLayout
