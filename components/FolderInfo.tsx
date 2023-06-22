@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import Image from "next/image";
 
-import { Folder, User } from "@/types";
+import { Folder, User } from "@/utils/api/types";
 
 import styles from "./FolderInfo.module.scss";
 

@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import classNames from "classnames/bind";
 
-import { Folder, Link } from "@/types";
+import { Folder, Link } from "@/utils/api/types";
 
 import ModalFrame from "../ModalFrame";
 

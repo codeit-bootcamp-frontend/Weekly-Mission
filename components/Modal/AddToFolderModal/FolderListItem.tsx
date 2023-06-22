@@ -3,7 +3,7 @@
 import classNames from "classnames/bind";
 import Image from "next/image";
 
-import { Folder } from "@/types";
+import { Folder } from "@/utils/api/types";
 
 import styles from "./FolderListItem.module.scss";
 

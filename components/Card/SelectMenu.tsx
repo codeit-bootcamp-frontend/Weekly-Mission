@@ -6,7 +6,7 @@ import classNames from "classnames/bind";
 
 import AddToFolderModal from "@/components/Modal/AddToFolderModal/AddToFolderModal";
 import DeleteModal from "@/components/Modal/DeleteModal";
-import { Folder, Link } from "@/types";
+import { Folder, Link } from "@/utils/api/types";
 
 import styles from "./SelectMenu.module.scss";
 
