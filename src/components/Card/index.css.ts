@@ -12,6 +12,9 @@ export const container = style({
   height: '33.4rem',
   backgroundColor: vars.color.white,
   filter: 'drop-shadow(0px 5px 25px rgba(0, 0, 0, 0.08))',
+})
+
+export const hoveredContainer = style({
   '@media': {
     '(hover: hover)': {
       backgroundColor: vars.color.gray5,
@@ -24,24 +27,19 @@ export const cardImage = style({
   overflow: 'hidden',
   width: '34rem',
   height: '20rem',
-  selectors: {
-    'img > &': {
-      objectFit: 'cover',
+})
+
+export const hoveredImage = style({
+  '@media': {
+    '(hover: hover)': {
+      transform: 'scale(1.2)',
+      overflow: 'unset',
     },
   },
 })
 
-export const hoveredCardImage = style({
-  '@media': {
-    '(hover: hover)': {
-      selectors: {
-        'img > &': {
-          transform: 'scale(1.2)',
-          overflow: 'unset',
-        },
-      },
-    },
-  },
+export const Image = style({
+  objectFit: 'cover',
 })
 
 export const bookmarkIcon = style({

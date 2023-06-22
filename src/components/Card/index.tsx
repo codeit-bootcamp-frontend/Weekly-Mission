@@ -63,11 +63,12 @@ const Card = ({ link }: ICardProps) => {
     <div
       onMouseEnter={handleHover(true)}
       onMouseLeave={handleHover(false)}
-      className={`${styles.container} ${isHovered ? styles.hovered : ''}`}
+      className={`${styles.container} ${isHovered ? styles.hoveredContainer : ''}`}
     >
       <Link href={link.url} target="_blank">
-        <div className={`${styles.cardImage} ${isHovered ? styles.hoveredCardImage : ''}`}>
+        <div className={styles.cardImage}>
           <Image
+            className={`${styles.Image} ${isHovered ? styles.hoveredImage : ''}`}
             fill
             src={link.image_source || '/default-card-image.svg'}
             alt={link.title}
