@@ -29,7 +29,12 @@ const Folder = async () => {
     <>
       <Gnb user={userProfile} />
       <main className={styles.main}>
-        <FolderContents folders={folders} links={links} currentTab={0} />
+        <FolderContents
+          userId={userId}
+          folders={folders}
+          links={links}
+          currentTab={0}
+        />
       </main>
     </>
   );

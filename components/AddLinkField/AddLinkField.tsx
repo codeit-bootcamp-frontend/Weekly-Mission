@@ -8,19 +8,20 @@ import AddLinkBar from "./AddLinkBar";
 import styles from "./AddLinkField.module.scss";
 
 interface IAddLinkFieldProps {
+  userId: number;
   folders: IFolder[] | [];
   links: ILink[] | [];
   inView: boolean | null;
 }
 
 const AddLinkField = forwardRef(function AddLinkField(
-  { folders, links, inView }: IAddLinkFieldProps,
+  { userId, folders, links, inView }: IAddLinkFieldProps,
   ref: ForwardedRef<HTMLDivElement>
 ) {
   return (
     <div className={styles.observedWrapper}>
       <div className={`${styles.addLinkContainer} ${styles[`${inView}`]}`}>
-        <AddLinkBar folders={folders} links={links} />
+        <AddLinkBar userId={userId} folders={folders} links={links} />
       </div>
       <div className={styles.observed} ref={ref}></div>
     </div>

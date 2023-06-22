@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { SyntheticEvent, useRef, useState } from "react";
 
 import Image from "next/image";
 
@@ -36,6 +36,10 @@ const LinkCard = ({
     if (isValidTarget) window.open(link.url);
   };
 
+  const handleImgError = (e: SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = "/assets/image-dummy.png";
+  };
+
   return (
     <div className={styles.cardWrapper}>
       <div className={styles.card} onClick={handleClickNavigation}>
@@ -65,6 +69,7 @@ const LinkCard = ({
           <img
             className={styles.image}
             src={link.image_source ?? "/assets/image-dummy.png"}
+            onError={handleImgError}
             alt={link.title}
           />
         </div>
@@ -72,7 +77,7 @@ const LinkCard = ({
           <div className={styles.info}>
             <span className={styles.time}>{beautifiedTimeDiff}</span>
           </div>
-          <p className={styles.text}>{link.description}</p>
+          <p className={styles.text}>{link.description ?? "설명이 없습니다"}</p>
           <div className={styles.creation}>{beautifiedDate}</div>
         </div>
       </div>

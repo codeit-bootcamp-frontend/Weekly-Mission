@@ -1,5 +1,5 @@
 import { ILink } from "@/types/linkbrary";
-import { getRequest } from "@/utils/axios/common";
+import { getRequest, postRequest } from "@/utils/axios/common";
 
 /**
  * 각 폴더에 담겨 있는 링크 목록
@@ -16,4 +16,18 @@ export const getLink = async (
     `/users/${userId}/links?folderId=${folderId}`
   );
   return response.data;
+};
+
+export const createLink = async (
+  url: string,
+  userId: number,
+  folderId?: number
+): Promise<ILink[]> => {
+  const response = await postRequest(`/links`, {
+    url,
+    userId,
+    folderId,
+  });
+
+  return response;
 };

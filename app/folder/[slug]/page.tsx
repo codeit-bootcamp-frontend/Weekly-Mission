@@ -45,6 +45,7 @@ const Tab = async ({
       <Gnb user={userProfile} />
       <main className={styles.main}>
         <FolderContents
+          userId={userId}
           links={filteredLinks}
           folders={folders}
           currentTab={folderId}

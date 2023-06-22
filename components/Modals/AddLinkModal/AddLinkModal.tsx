@@ -2,15 +2,17 @@
 
 import { useState } from "react";
 
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import { IFolder, ILink } from "@/types/linkbrary";
+import { createLink } from "@/utils/axios/linkRequest";
 
 import ModalLayout from "../ModalLayout";
 import styles from "./AddLinkModal.module.scss";
 import FolderItem from "./FolderItem";
 
 interface IAddLinkModalProps {
+  userId: number;
   folders: IFolder[] | [];
   links: ILink[] | [];
   setOpenAddLinkModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -18,12 +20,15 @@ interface IAddLinkModalProps {
 }
 
 const AddLinkModal = ({
+  userId,
   folders,
   links,
   setOpenAddLinkModal,
   selectedLinkValue,
 }: IAddLinkModalProps) => {
   // 즐겨찾기의 경우 여기가 아니라 카드의 별을 통해서만 추가할 수 있다.
+
+  const router = useRouter();
   const pathname = usePathname();
   const isEntire = pathname.split("/").length;
   const currentFolderId =
@@ -34,13 +39,16 @@ const AddLinkModal = ({
   const [checkedItemId, setCheckedItemId] = useState(-1);
 
   const handleClickPostLink = (): void => {
-    // TODO: selectedLinkValue를 checkedItemId 를 가진 폴더에 저장
-    const { id: selectedFolderId, user_id: selectedUserId } =
-      addFolderList[checkedItemId];
-
-    console.log(selectedFolderId, selectedUserId, selectedLinkValue);
+    if (checkedItemId === -1) {
+      selectedLinkValue && createLink(selectedLinkValue, userId);
+    } else {
+      const { id: selectedFolderId } = addFolderList[checkedItemId];
+      selectedLinkValue &&
+        createLink(selectedLinkValue, userId, selectedFolderId);
+    }
 
     setTimeout(() => {
+      router.refresh();
       setOpenAddLinkModal(false);
     }, 500);
   };

@@ -11,12 +11,14 @@ import AddLinkField from "../AddLinkField/AddLinkField";
 import styles from "./FolderContents.module.scss";
 
 interface IFolderContentsProps {
+  userId: number;
   links: ILink[] | [];
   folders: IFolder[] | [];
   currentTab: number;
 }
 
 const FolderContents = ({
+  userId,
   folders,
   links,
   currentTab,
@@ -32,6 +34,7 @@ const FolderContents = ({
   return (
     <>
       <AddLinkField
+        userId={userId}
         folders={folders}
         links={links}
         inView={inView}

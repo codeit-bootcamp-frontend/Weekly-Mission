@@ -10,11 +10,12 @@ import { IFolder, ILink } from "@/types/linkbrary";
 import styles from "./AddLinkBar.module.scss";
 
 interface IAddLinkBarProps {
+  userId: number;
   folders: IFolder[] | [];
   links: ILink[] | [];
 }
 
-const AddLinkBar = ({ folders, links }: IAddLinkBarProps) => {
+const AddLinkBar = ({ userId, folders, links }: IAddLinkBarProps) => {
   const [openAddLinkModal, setOpenAddLinkModal] = useState<boolean>(false);
   const [selectedLinkValue, setSelectedLinkValue] = useState<string>("");
   const linkInputRef = useRef<HTMLInputElement>(null);
@@ -58,6 +59,7 @@ const AddLinkBar = ({ folders, links }: IAddLinkBarProps) => {
 
       {openAddLinkModal && (
         <AddLinkModal
+          userId={userId}
           links={links}
           folders={folders}
           setOpenAddLinkModal={setOpenAddLinkModal}

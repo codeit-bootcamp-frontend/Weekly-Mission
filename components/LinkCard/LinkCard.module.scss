@@ -8,8 +8,7 @@
 
   .card {
     background: var-color.$linkbrary-white;
-    width: 100%;
-    max-width: 340px;
+    width: 340px;
     height: 100%;
     max-height: 335px;
     border-radius: 15px;
@@ -161,6 +160,14 @@
     .addFolderButton:hover {
       background: #e7effb;
       color: #6d6afe;
+    }
+  }
+}
+
+@include mixin.mobile {
+  .cardWrapper {
+    .card {
+      width: 280px;
     }
   }
 }
