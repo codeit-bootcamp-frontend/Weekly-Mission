@@ -1,60 +1,50 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-
-import AddLink from "@/components/AddLink/AddLink";
-import CardWrapper from "@/components/CardWrapper/CardWrapper";
+import CurrentFolderMenu from "@/components/CurrentFolderMenu/CurrentFolderMenu";
+import FolderChipField from "@/components/FolderChipField/FolderChipField";
+import LinkField from "@/components/LinkField/LinkField";
 import SearchBar from "@/components/SearchBar/SearchBar";
-import CardListOptions from "components/CardListOptions/CardListOptions";
-import FolderList from "components/FolderList/FolderList";
-import { ILink } from "lib/getFolderData";
+import useViewObserver from "@/hooks/useViewObserver";
+import { IFolder, ILink } from "@/types/linkbrary";
 
-import styles from "./FolderContents.module.css";
+import AddLinkField from "../AddLinkField/AddLinkField";
+import styles from "./FolderContents.module.scss";
 
-interface ICardWrapper {
-  links: ILink[];
-  folders: { id: number; name: string }[];
+interface IFolderContentsProps {
+  links: ILink[] | [];
+  folders: IFolder[] | [];
   currentTab: number;
-  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-const FolderContents = ({ links, folders, currentTab }: ICardWrapper) => {
-  // TODO: prop으로 현재 탭(파일 데이터), 탭 리스트(파일 목록)을 넘겨받아서, 그 탭에 있는 링크들을 목록으로 보여주기
+const FolderContents = ({
+  folders,
+  links,
+  currentTab,
+}: IFolderContentsProps) => {
+  // TODO: 전역 상태로 inView를 관리하고, AddLink만 client component로 좁히기
+  const { inView, observerTargetRefs } = useViewObserver();
 
-  const observerTargetRefs = useRef<HTMLDivElement[]>([]);
-  const [inView, setInView] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        setInView(entry.isIntersecting);
-      });
-    });
-
-    observerTargetRefs.current.forEach((ref) => io.observe(ref));
-
-    return () => {
-      io.disconnect();
-    };
-  }, []);
+  const folderList = folders.length
+    ? [{ id: 0, name: "전체" }, ...folders]
+    : folders;
+  const currentFolder = folderList.find((folder) => folder.id === currentTab);
 
   return (
     <>
-      <div className={`${styles.addLinkContainer} ${styles[`${inView}`]}`}>
-        <AddLink />
-      </div>
+      <AddLinkField
+        inView={inView}
+        ref={(el: HTMLDivElement) => (observerTargetRefs.current[0] = el)}
+      />
       <div className={styles.contents}>
-        <div ref={(el: HTMLDivElement) => (observerTargetRefs.current[0] = el)}>
-          <SearchBar placeholder="제목을 검색해 보세요" />
-        </div>
-        <FolderList
-          folders={folders}
+        <SearchBar placeholder="제목을 검색해 보세요" />
+        <FolderChipField
+          folders={folderList}
           currentTab={currentTab}
           inView={inView}
-          isLinks={links.length}
+          isLinks={links.length !== 0}
         />
-        <CardListOptions currentFolder={folders[currentTab]} />
-        <CardWrapper links={links} />
+        {currentFolder && <CurrentFolderMenu currentFolder={currentFolder} />}
+        <LinkField links={links} />
       </div>
     </>
   );

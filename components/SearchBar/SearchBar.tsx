@@ -1,14 +1,12 @@
-import React from "react";
-
 import Image from "next/image";
 
-import styles from "./SearchBar.module.css";
+import styles from "./SearchBar.module.scss";
 
-interface ISearchBar {
+interface ISearchBarProps {
   placeholder: string;
 }
 
-const SearchBar = ({ placeholder }: ISearchBar) => {
+const SearchBar = ({ placeholder }: ISearchBarProps) => {
   return (
     <div className={styles.searchBar}>
       <div className={styles.search}>

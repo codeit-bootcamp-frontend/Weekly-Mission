@@ -1,46 +1,53 @@
-import React from "react";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
 
-import { IUserData } from "lib/getUserData";
+import { getUserQueryFn } from "@/lib/tanstack/queryFns/foldersQueryFns";
+import { useQuery } from "@tanstack/react-query";
 
-import styles from "./Gnb.module.css";
+import styles from "./Gnb.module.scss";
 
-export interface IGnb {
-  // 어떤 값도 담기지 않는 빈 객체를 가리키기 위해 Record<string, never> 사용
-  user: Record<string, never> | IUserData;
+interface IGnbProps {
+  userId: number;
 }
 
-const Gnb = ({ user }: IGnb) => {
+const Gnb = ({ userId }: IGnbProps) => {
+  const { data: user } = useQuery({
+    queryKey: ["user"],
+    queryFn: () => getUserQueryFn(userId),
+  });
+
   return (
-    <header className={`${styles.header}`}>
-      <div className={`${styles.inner}`}>
-        <nav className={`${styles.nav}`}>
-          <Link href="/" className={`${styles.logo}`}>
+    <header className={styles.header}>
+      <div className={styles.inner}>
+        <nav className={styles.nav}>
+          <Link href="/" className={styles.logo}>
             <Image
               src="/assets/linkbrary-logo.svg"
               alt="Linkbrary Logo"
               width="133"
               height="25"
               priority
+              className={styles.image}
             />
           </Link>
-          {Object.keys(user).length === 0 ? (
-            <Link href="/signin" className={`${styles.signin}`}>
+          {!user ? (
+            <Link href="/api/auth/signin" className={styles.signin}>
               로그인
             </Link>
           ) : (
-            <Link href="" className={`${styles.user}`}>
-              <div className={`${styles.imgContainer}`}>
+            <Link href="" className={styles.user}>
+              <div className={styles.imgContainer}>
                 <Image
-                  src={user.profileImageSource}
+                  src={user.image_source}
                   alt={user.name}
                   width="28"
                   height="28"
+                  className={styles.image}
                 />
               </div>
-              <span>{user.email}</span>
+              <span className={styles.email}>{user.email}</span>
             </Link>
           )}
         </nav>

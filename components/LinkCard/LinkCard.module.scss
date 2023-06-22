@@ -1,0 +1,166 @@
+@use "@/styles/abstract/variables_color" as var-color;
+@use "@/styles/abstract/mixins" as mixin;
+
+.cardWrapper {
+  position: relative;
+  overflow: hidden;
+  filter: drop-shadow(0px 5px 25px rgba(0, 0, 0, 0.08));
+
+  .card {
+    background: var-color.$linkbrary-white;
+    width: 100%;
+    max-width: 340px;
+    height: 100%;
+    max-height: 335px;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+
+    .cardAsterisk {
+      width: 32px;
+      height: 32px;
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 1;
+
+      .image {
+        @include mixin.image;
+      }
+    }
+
+    .cardImgTop {
+      max-width: 340px;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+
+      .image {
+        @include mixin.image;
+        height: 100%;
+      }
+    }
+
+    .cardCaption {
+      box-sizing: border-box;
+      width: 100%;
+      height: 135px;
+      display: flex;
+      flex-direction: column;
+      padding: 15px 20px;
+      gap: 10px;
+
+      .info {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+
+        .time {
+          font-weight: 400;
+          font-size: 13px;
+          line-height: 16px;
+          color: #666666;
+        }
+      }
+
+      .text {
+        color: black;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        height: 48px;
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        word-break: break-all;
+      }
+
+      .creation {
+        margin: 0;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: #333333;
+      }
+    }
+  }
+}
+
+.card:hover {
+  .cardImgTop {
+    .image {
+      transform: scale(1.2);
+    }
+  }
+  .cardCaption {
+    background: var-color.$linkbrary-bg;
+  }
+}
+
+.kebabMenu {
+  cursor: pointer;
+  --padding: 14px;
+  position: absolute;
+  top: calc(222px - var(--padding));
+  right: calc(22px - var(--padding));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: var(--padding);
+
+  .kebabDot {
+    width: 3px;
+    height: 3px;
+    background: #333236;
+    border-radius: 50%;
+  }
+
+  .popOverWrapper {
+    position: absolute;
+    right: 0;
+    top: 22px;
+    width: 100px;
+    height: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var-color.$linkbrary-white;
+    box-shadow: 0px 2px 8px rgba(51, 50, 54, 0.1);
+
+    .deleteButton {
+      width: 100%;
+      height: 32px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 7px 12px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      color: #333236;
+    }
+    .addFolderButton {
+      width: 100%;
+      height: 32px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 7px 12px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      color: #333236;
+    }
+    .deleteButton:hover,
+    .addFolderButton:hover {
+      background: #e7effb;
+      color: #6d6afe;
+    }
+  }
+}

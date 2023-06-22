@@ -1,18 +1,18 @@
-export interface IFolder {
+export interface IFolderData {
   id: number;
   name: string;
-  owner: IOwner;
-  links: ILink[];
+  owner: IOwnerData;
+  links: ILinkData[];
   count: number;
 }
 
-export interface IOwner {
+export interface IOwnerData {
   id: number;
   name: string;
   profileImageSource: string;
 }
 
-export interface ILink {
+export interface ILinkData {
   id: number;
   createdAt: string;
   url: string;
@@ -21,7 +21,7 @@ export interface ILink {
   imageSource?: string;
 }
 
-const getFolderData = async (): Promise<IFolder> => {
+const getFolderData = async (): Promise<IFolderData> => {
   const res = await fetch("https://bootcamp-api.codeit.kr/api/sample/folder", {
     cache: "no-store",
   });

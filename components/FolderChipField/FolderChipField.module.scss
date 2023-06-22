@@ -1,0 +1,94 @@
+@use "@/styles/abstract/variables_color" as var-color;
+@use "@/styles/abstract/mixins" as mixin;
+
+.folderChipFieldWrapper {
+  width: 100%;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 0 24px;
+  display: flex;
+
+  .chipWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    box-sizing: border-box;
+  }
+  .buttonWrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+
+    .buttonText {
+      display: block;
+      min-width: 59px;
+      height: 19px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: -0.3px;
+      color: var-color.$linkbrary-primary;
+    }
+
+    .ImageWrapper {
+      position: relative;
+      width: 16px;
+      height: 16px;
+
+      .image {
+        @include mixin.image;
+      }
+    }
+  }
+}
+
+@include mixin.tablet {
+  .folderChipFieldWrapper {
+    max-width: calc(100% - 6.4rem);
+  }
+}
+
+@include mixin.mobile {
+  .buttonWrapper {
+    position: fixed;
+    width: 127px;
+    height: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+    justify-content: center;
+    background: var-color.$linkbrary-primary;
+    border: 1px solid var-color.$linkbrary-white;
+    border-radius: 20px;
+  }
+  .buttonWrapper.upperFooter {
+    bottom: 16px;
+  }
+  .buttonWrapper.upperBottom,
+  .buttonWrapper.undefined {
+    bottom: 16px;
+  }
+  .buttonWrapper.upperAddLink {
+    bottom: calc(85px + 16px);
+  }
+
+  .folderChipFieldWrapper {
+    .buttonWrapper {
+      .buttonText {
+        color: var-color.$linkbrary-gray-10;
+      }
+    }
+  }
+
+  .image {
+    filter: invert(94%) sepia(34%) saturate(5873%) hue-rotate(179deg)
+      brightness(109%) contrast(97%);
+  }
+}

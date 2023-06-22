@@ -1,0 +1,30 @@
+@use "@/styles/abstract/variables_color" as var-color;
+@use "@/styles/abstract/mixins" as mixin;
+
+.title {
+  @include mixin.modal-title(var-color.$linkbrary-gray-100);
+}
+.subTitle {
+  @include mixin.modal-sub-title(var-color.$linkbrary-gray-60) {
+    padding-top: 8px;
+  }
+}
+.folderWrapper {
+  padding-top: 32px;
+  padding-bottom: 24px;
+  width: 280px;
+  height: 228px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+}
+.addButton {
+  @include mixin.modal-button(
+    linear-gradient(
+      90.99deg,
+      var-color.$linkbrary-primary 0.12%,
+      #6ae3fe 101.84%
+    )
+  );
+}

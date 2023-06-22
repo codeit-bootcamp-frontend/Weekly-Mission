@@ -1,0 +1,63 @@
+@use "@/styles/abstract/variables_color" as var-color;
+
+.itemWrapper.false {
+  height: 40px;
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
+  padding: 8px;
+}
+.itemWrapper.true {
+  height: 40px;
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
+  background: var-color.$linkbrary-bg;
+  border-radius: 8px;
+  padding: 8px;
+  position: relative;
+}
+.checkedIcon {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  right: 8px;
+  top: 13px;
+}
+.image {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+.linkName.false {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: var-color.$linkbrary-gray-100;
+}
+.linkName.true {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: var-color.$linkbrary-primary;
+}
+.linkLength.false {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+  color: var-color.$linkbrary-gray-60;
+}
+.linkLength.true {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+  color: var-color.$linkbrary-gray-60;
+}

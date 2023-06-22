@@ -1,15 +1,23 @@
+const path = require("path");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  sassOptions: {
+    includePaths: [path.join(__dirname, "styles")],
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/users/:path*",
+        destination: "https://bootcamp-api.codeit.kr/api/users/:path*",
+      },
+    ];
+  },
   async redirects() {
     return [
       {
         source: "/folder/0",
         destination: "/folder",
-        permanent: true,
-      },
-      {
-        source: "/folder/1",
-        destination: "/folder/favorites",
         permanent: true,
       },
     ];
@@ -32,6 +40,7 @@ const nextConfig = {
       "testing-library.com",
       "static.cdninstagram.com",
       "s.pstatic.net",
+      "ca.slack-edge.com",
     ],
   },
   onDemandEntries: {

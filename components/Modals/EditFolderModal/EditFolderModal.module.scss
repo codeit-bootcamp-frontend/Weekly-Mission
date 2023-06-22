@@ -1,0 +1,30 @@
+@use "@/styles/abstract/variables_color" as var-color;
+@use "@/styles/abstract/mixins" as mixin;
+
+.title {
+  @include mixin.modal-title(var-color.$linkbrary-gray-100) {
+    padding-bottom: 24px;
+  }
+}
+
+.input {
+  @include mixin.modal-input(
+    var-color.$linkbrary-white,
+    var-color.$linkbrary-gray-20,
+    var-color.$linkbrary-gray-60
+  );
+}
+
+.buttonWrapper {
+  padding-top: 15px;
+
+  .button {
+    @include mixin.modal-button(
+      linear-gradient(
+        90.99deg,
+        var-color.$linkbrary-primary 0.12%,
+        #6ae3fe 101.84%
+      )
+    );
+  }
+}

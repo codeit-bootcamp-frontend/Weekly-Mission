@@ -1,0 +1,120 @@
+@use "@/styles/abstract/variables_color" as var-color;
+@use "@/styles/abstract/mixins" as mixin;
+
+.inner {
+  @include mixin.inner-desktop-mobile(40rem, 20rem, 6.4rem);
+}
+
+.header {
+  background-color: var-color.$linkbrary-bg-50;
+  height: 9.3rem;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  display: block;
+
+  .nav {
+    height: 9.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: transparent;
+
+    .logo {
+      display: flex;
+      width: 133px;
+
+      .image {
+        width: 100%;
+        display: block;
+      }
+    }
+
+    .signin {
+      box-sizing: border-box;
+      text-decoration: none;
+      width: 128px;
+      height: 53px;
+      background: linear-gradient(
+        90.99deg,
+        var-color.$linkbrary-primary 0.12%,
+        #6ae3fe 101.84%
+      );
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 20px;
+      color: #f5f5f5;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 21px;
+    }
+
+    .user {
+      box-sizing: border-box;
+      height: 28px;
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+
+      .imgContainer {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        .image {
+          width: 100%;
+          display: block;
+        }
+      }
+
+      .email {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        display: flex;
+        align-items: center;
+        color: #3e3e43;
+      }
+    }
+  }
+}
+
+@include mixin.mobile {
+  .header {
+    height: 6.3rem;
+
+    .nav {
+      height: 6.3rem;
+
+      .logo {
+        width: 77.58px;
+      }
+      .user .email {
+        display: none;
+      }
+      .signin {
+        width: 80px;
+        height: 37px;
+        font-size: 14px;
+        line-height: 16.71px;
+        padding: 10px 16px;
+      }
+    }
+  }
+}
+
+@include mixin.tablet {
+  .nav {
+    .logo {
+      width: 100px;
+    }
+    .signin {
+      width: 100px;
+    }
+  }
+}

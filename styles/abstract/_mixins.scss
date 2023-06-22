@@ -1,0 +1,126 @@
+@use "@/styles/abstract/variables" as var;
+
+/* media queries */
+
+@mixin mobile {
+  @media only screen and (max-width: var.$mobile) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media only screen and (max-width: var.$tablet) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media only screen and (max-width: var.$desktop) {
+    @content;
+  }
+}
+
+/* inner */
+
+@mixin inner-tablet-mobile($default_padding, $tablet_padding, $mobile_padding) {
+  margin: 0 auto;
+  width: 100%;
+  max-width: calc(1920px - $default_padding);
+  height: 100%;
+
+  @include tablet {
+    max-width: calc(1199px - $tablet_padding);
+  }
+  @include mobile {
+    max-width: calc(100% - $mobile_padding);
+  }
+}
+
+@mixin inner-desktop-mobile(
+  $default_padding,
+  $desktop_padding,
+  $mobile_padding
+) {
+  margin: 0 auto;
+  width: 100%;
+  max-width: calc(1920px - $default_padding);
+  height: 100%;
+
+  @include desktop {
+    max-width: calc(100% - $desktop_padding);
+  }
+  @include mobile {
+    max-width: calc(100% - $mobile_padding);
+  }
+}
+
+/* image items */
+
+@mixin image() {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+
+  @content;
+}
+
+/* modal items */
+
+@mixin modal-title($color) {
+  display: block;
+  width: 280px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: $color;
+  @content;
+}
+
+@mixin modal-sub-title($color) {
+  display: block;
+  width: 280px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  color: $color;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  @content;
+}
+
+@mixin modal-input($background, $border, $color) {
+  display: block;
+  width: 280px;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 18px 15px;
+  background: $background;
+  border: 1px solid $border;
+  border-radius: 8px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: $color;
+}
+
+@mixin modal-button($background) {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 20px;
+  width: 280px;
+  height: 51px;
+  background: $background;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #f5f5f5;
+  cursor: pointer;
+}

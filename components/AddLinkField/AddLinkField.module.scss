@@ -1,0 +1,40 @@
+@use "@/styles/abstract/variables_color" as var-color;
+@use "@/styles/abstract/mixins" as mixin;
+
+.observedWrapper {
+  position: relative;
+
+  .addLinkContainer {
+    width: 100%;
+    padding: 60px 32px 90px;
+    background-color: var-color.$linkbrary-bg;
+  }
+  .addLinkContainer.false {
+    position: fixed;
+    width: 100%;
+    background: var-color.$linkbrary-bg;
+    bottom: 0;
+    z-index: 99;
+    padding: 16px 32px 16px;
+  }
+
+  .observed {
+    height: 1px;
+    position: absolute;
+    bottom: 90px;
+  }
+}
+
+@include mixin.mobile {
+  .observedWrapper {
+    .addLinkContainer {
+      padding: 24px 0 40px;
+    }
+    .addLinkContainer.false {
+      padding: 16px 0 16px;
+    }
+    .observed {
+      bottom: 0px;
+    }
+  }
+}

@@ -1,20 +1,27 @@
-import React from "react";
-
 import dynamic from "next/dynamic";
 import Image from "next/image";
 
 import SearchBar from "@/components/SearchBar/SearchBar";
-import getFolderData from "lib/getFolderData";
+import getFolderData from "@/lib/getFolderData";
+import { getLinkQueryFn } from "@/lib/tanstack/queryFns/foldersQueryFns";
+import { getServerSession } from "next-auth";
 
-import styles from "./page.module.css";
+import { authOptions } from "../api/auth/[...nextauth]/route";
+import styles from "./page.module.scss";
 
-const CardWrapper = dynamic(
-  () => import("components/CardWrapper/CardWrapper"),
-  { ssr: false }
-);
+const CardWrapper = dynamic(() => import("@/components/LinkField/LinkField"), {
+  ssr: false,
+});
 
 const Shared = async () => {
+  const session = await getServerSession(authOptions);
+
+  const userId = session?.user.id as number;
+  const folderId = 1;
+
+  // TODO: 이후 요구사항이 자세히 나오면 getFolderData를 다른 api로 대체하기
   const userFolder = await getFolderData();
+  const links = await getLinkQueryFn(userId, folderId);
 
   return (
     <>
@@ -35,7 +42,7 @@ const Shared = async () => {
 
         <div className={styles.contents}>
           <SearchBar placeholder="원하는 링크를 검색해 보세요" />
-          <CardWrapper links={userFolder.links} />
+          <CardWrapper links={links} />
         </div>
       </main>
     </>

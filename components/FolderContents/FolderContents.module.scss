@@ -1,0 +1,8 @@
+@use "@/styles/abstract/variables_color" as var-color;
+
+.contents {
+  width: 100%;
+  height: auto;
+  background: var-color.$linkbrary-white;
+  margin: 0 auto;
+}
