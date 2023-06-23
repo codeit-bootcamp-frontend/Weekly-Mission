@@ -1,6 +1,5 @@
 import GNB from "@/components/GNB";
 import SearchBar from "@/components/SearchBar";
-import Card from "@/components/Card";
 import Footer from "@/components/Footer";
 import classNames from "classnames/bind";
 import styles from "./page.module.css";
@@ -10,6 +9,9 @@ import getUserData from "@/api/getUserData";
 import getFolders from "@/api/getFolders";
 import getLinks from "@/api/getLinks";
 import { notFound } from "next/navigation";
+import dynamic from "next/dynamic";
+
+const Card = dynamic(() => import("@/components/Card"), { ssr: false });
 
 export default async function Shared({ searchParams }) {
   const { user: sharedUserId, folder: sharedFolderId } = searchParams;
