@@ -23,7 +23,11 @@ const ShareButtonContainer = ({
 
   const handleClickFacebookShare = () => {
     // TODO: 배포 주소로 변경하기
-    window.open("http://www.facebook.com/sharer.php?u=https://www.naver.com/");
+    window.open(
+      "http://www.facebook.com/sharer.php?u=https://www.naver.com/",
+      "_blank",
+      "noopener,noreferrer"
+    );
 
     setTimeout(() => {
       handleClickCloseModal();
