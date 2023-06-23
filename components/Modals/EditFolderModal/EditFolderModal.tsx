@@ -2,7 +2,10 @@
 
 import { useRef } from "react";
 
+import { useRouter } from "next/navigation";
+
 import { IFolder } from "@/types/linkbrary";
+import { editFolderName } from "@/utils/axios/folderRequest";
 
 import ModalLayout from "../ModalLayout";
 import styles from "./EditFolderModal.module.scss";
@@ -16,22 +19,17 @@ const EditFolderModal = ({
   handleCloseModal,
   currentFolder,
 }: IEditFolderModalProps) => {
+  const router = useRouter();
   const folderEditNameRef = useRef<HTMLInputElement>(null);
+  const { id: currentFolderId, name: currentFolderName } = currentFolder;
 
-  const {
-    id: currentFolderId,
-    name: currentFolderName,
-    user_id: userId,
-  } = currentFolder;
-
-  console.log(currentFolderId, currentFolderName, userId);
-
-  const handleClickEditFolderName = () => {
-    // TODO: input 데이터로 폴더명 전송
-    if (!folderEditNameRef.current) return;
-    // console.log(folderEditNameRef.current.value);
+  const handleClickEditFolderName = async () => {
+    if (folderEditNameRef.current && folderEditNameRef.current.value) {
+      await editFolderName(folderEditNameRef.current.value, currentFolderId);
+    }
 
     setTimeout(() => {
+      router.refresh();
       handleCloseModal();
     }, 500);
   };

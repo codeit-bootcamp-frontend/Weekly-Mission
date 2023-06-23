@@ -21,8 +21,6 @@ const ShareFolderModal = ({
     user_id: userId,
   } = currentFolder;
 
-  console.log(currentFolderId, currentFolderName, userId);
-
   // TODO: 폴더 공유 관련 api 처리
   return (
     <ModalLayout

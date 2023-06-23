@@ -22,9 +22,7 @@ const AddFolderModal = ({
   const folderNameRef = useRef<HTMLInputElement>(null);
 
   const handleClickAddFolder = async () => {
-    if (!folderNameRef.current) return;
-
-    if (folderNameRef.current.value.length) {
+    if (folderNameRef.current && folderNameRef.current.value.length) {
       // TODO: 유저가 작성한 이름으로 정말 생성할 건지 한번 더 확인하는 문구 작성하기
       await createFolder(folderNameRef.current.value, userId);
     }

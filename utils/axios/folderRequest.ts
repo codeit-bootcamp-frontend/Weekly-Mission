@@ -62,7 +62,7 @@ export const deleteFolder = async (folderId: number): Promise<number> => {
  * @param folderId 수정하고 싶은 폴더 id
  * @returns 수정 성공 여부
  */
-export const updateFolderName = async (
+export const editFolderName = async (
   folderName: string,
   folderId: number
 ): Promise<number> => {
