@@ -8,11 +8,12 @@ import AddFolderModal from "../Modals/AddFolderModal/AddFolderModal";
 import styles from "./FolderChipField.module.scss";
 
 interface IFabProps {
+  userId: number;
   inView: boolean | null;
   isLinks: boolean;
 }
 
-const Fab = ({ inView, isLinks }: IFabProps) => {
+const Fab = ({ userId, inView, isLinks }: IFabProps) => {
   const [openAddFolderModal, setOpenAddFolderModal] = useState<boolean>(false);
 
   const addPosition = (inView: boolean | null, isLinks: boolean) => {
@@ -41,7 +42,10 @@ const Fab = ({ inView, isLinks }: IFabProps) => {
       </div>
 
       {openAddFolderModal && (
-        <AddFolderModal setOpenAddFolderModal={setOpenAddFolderModal} />
+        <AddFolderModal
+          userId={userId}
+          setOpenAddFolderModal={setOpenAddFolderModal}
+        />
       )}
     </>
   );

@@ -38,13 +38,13 @@ const AddLinkModal = ({
   );
   const [checkedItemId, setCheckedItemId] = useState(-1);
 
-  const handleClickPostLink = (): void => {
+  const handleClickPostLink = async () => {
     if (checkedItemId === -1) {
-      selectedLinkValue && createLink(selectedLinkValue, userId);
+      selectedLinkValue && (await createLink(selectedLinkValue, userId));
     } else {
       const { id: selectedFolderId } = addFolderList[checkedItemId];
       selectedLinkValue &&
-        createLink(selectedLinkValue, userId, selectedFolderId);
+        (await createLink(selectedLinkValue, userId, selectedFolderId));
     }
 
     setTimeout(() => {

@@ -1,5 +1,4 @@
-import dynamic from "next/dynamic";
-
+import FolderContents from "@/components/FolderContents/FolderContents";
 import Gnb from "@/components/Gnb/Gnb";
 import getCurrentUser from "@/lib/getCurrentUser";
 import { getFolders } from "@/utils/axios/folderRequest";
@@ -7,12 +6,7 @@ import { getLinks } from "@/utils/axios/linkRequest";
 
 import styles from "./page.module.scss";
 
-const FolderContents = dynamic(
-  () => import("@/components/FolderContents/FolderContents"),
-  { loading: () => <p>Loading...</p> }
-);
-
-export const revalidate = 3600;
+export const revalidate = 1000;
 const Folder = async () => {
   const userProfile = await getCurrentUser();
   if (!userProfile) {

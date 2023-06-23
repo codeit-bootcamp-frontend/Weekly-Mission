@@ -7,6 +7,7 @@ import FolderChip from "./FolderChip";
 import styles from "./FolderChipField.module.scss";
 
 interface IFolderChipFieldProps {
+  userId: number;
   folders: IFolder[];
   currentTab: number;
   inView: boolean | null;
@@ -14,6 +15,7 @@ interface IFolderChipFieldProps {
 }
 
 const FolderChipField = ({
+  userId,
   folders,
   currentTab,
   inView,
@@ -33,7 +35,7 @@ const FolderChipField = ({
           );
         })}
       </div>
-      <Fab inView={inView} isLinks={isLinks} />
+      <Fab userId={userId} inView={inView} isLinks={isLinks} />
     </div>
   );
 };

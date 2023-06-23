@@ -7,9 +7,11 @@
   margin: 0 auto;
   padding: 0 0 24px;
   display: flex;
+  justify-content: space-between;
 
   .chipWrapper {
     width: 100%;
+    max-width: calc(100% - 100px);
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;

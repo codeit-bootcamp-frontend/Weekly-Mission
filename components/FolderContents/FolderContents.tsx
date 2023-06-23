@@ -43,6 +43,7 @@ const FolderContents = ({
       <div className={styles.contents}>
         <SearchBar placeholder="제목을 검색해 보세요" />
         <FolderChipField
+          userId={userId}
           folders={folderList}
           currentTab={currentTab}
           inView={inView}
