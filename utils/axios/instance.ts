@@ -31,7 +31,7 @@ instance.interceptors.request.use(
      * request 직전 공통으로 진행할 작업
      */
     const { method, url } = config;
-    logOnDev(`[API] ${method?.toUpperCase()} ${url} | Request`);
+    logOnDev(`🚀 [API] ${method?.toUpperCase()} ${url} | Request`);
 
     return config;
   },
@@ -51,7 +51,7 @@ instance.interceptors.response.use(
      */
     const { method, url } = response.config;
     const { status } = response;
-    logOnDev(`[API] ${method?.toUpperCase()} ${url} | Response ${status}`);
+    logOnDev(`🚁 [API] ${method?.toUpperCase()} ${url} | Response ${status}`);
 
     return response;
   },
@@ -65,7 +65,7 @@ instance.interceptors.response.use(
       const { status, statusText } = error.response as AxiosResponse;
 
       logOnDev(
-        `[API] ${method?.toUpperCase()} ${url} | Error ${status} ${statusText} | ${message}`
+        `🚨 [API] ${method?.toUpperCase()} ${url} | Error ${status} ${statusText} | ${message}`
       );
 
       switch (status) {
@@ -91,7 +91,7 @@ instance.interceptors.response.use(
         }
       }
     } else {
-      logOnDev(`[API] | Error ${error.message}`);
+      logOnDev(`🚨 [API] | Error ${error.message}`);
     }
     return Promise.reject(error);
   }
