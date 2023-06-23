@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 
-import { ILink } from "@/types/linkbrary";
+import { IFolder, ILink } from "@/types/linkbrary";
 import beautifyDate from "@/utils/beautifyDate";
 
 import Kebab from "./Kebab";
@@ -17,6 +17,9 @@ const DynamicImage = dynamic(() => import("./DynamicImage"), {
 });
 
 interface ILinkCardProps {
+  userId: number;
+  folders: IFolder[] | [];
+  links: ILink[] | [];
   link: ILink;
   isClickedKebab: boolean;
   handleClickOpenKebab: () => void;
@@ -24,6 +27,9 @@ interface ILinkCardProps {
 }
 
 const LinkCard = ({
+  userId,
+  folders,
+  links,
   link,
   isClickedKebab,
   handleClickOpenKebab,
@@ -81,6 +87,10 @@ const LinkCard = ({
 
       <Kebab
         ref={(el: HTMLDivElement) => (notTargetRefs.current[1] = el)}
+        userId={userId}
+        folders={folders}
+        links={links}
+        linkId={link.id}
         linkUrl={link.url}
         isClickedKebab={isClickedKebab}
         handleClickOpenKebab={handleClickOpenKebab}

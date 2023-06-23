@@ -50,7 +50,7 @@ const FolderContents = ({
           isLinks={links.length !== 0}
         />
         {currentFolder && <CurrentFolderMenu currentFolder={currentFolder} />}
-        <LinkField links={links} />
+        <LinkField userId={userId} folders={folders} links={links} />
       </div>
     </>
   );

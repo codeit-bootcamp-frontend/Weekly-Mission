@@ -1,20 +1,29 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
+import { deleteLink } from "@/utils/axios/linkRequest";
+
 import ModalLayout from "../ModalLayout";
 import styles from "./DeleteLinkModal.module.scss";
 
 interface IDeleteLinkModalProps {
+  linkId: number;
   setOpenDeleteLinkModal: React.Dispatch<React.SetStateAction<boolean>>;
   selectedLinkValue: string;
 }
 
 const DeleteLinkModal = ({
+  linkId,
   setOpenDeleteLinkModal,
   selectedLinkValue,
 }: IDeleteLinkModalProps) => {
-  const handleClickDeleteLink = () => {
-    // TODO: 해당 link를 폴더에서 삭제 기능
+  const router = useRouter();
+  const handleClickDeleteLink = async () => {
+    await deleteLink(linkId);
+
     setTimeout(() => {
+      router.refresh();
       setOpenDeleteLinkModal(false);
     }, 500);
   };
