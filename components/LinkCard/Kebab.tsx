@@ -47,18 +47,18 @@ const Kebab = forwardRef(function Kebab(
       <span className={styles.kebabDot}></span>
       {isClickedKebab && (
         <div className={styles.popOverWrapper} ref={kebabRef}>
-          <div
+          <button
             className={styles.deleteButton}
             onClick={() => setOpenDeleteLinkModal(true)}
           >
             삭제하기
-          </div>
-          <div
+          </button>
+          <button
             className={styles.addFolderButton}
             onClick={() => setOpenAddLinkModal(true)}
           >
             폴더에 추가
-          </div>
+          </button>
         </div>
       )}
 

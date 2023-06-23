@@ -37,28 +37,26 @@ const Shared = async ({ searchParams }: ISharedProps) => {
   }
 
   return (
-    <>
-      <main className={styles.main}>
-        <div className={`${styles.hero} ${styles.inner}`}>
-          <div className={styles.codeitAvatar}>
-            <Image
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1199px) 100vw, 100vw"
-              src={sharedUserProfile.image_source}
-              alt="Owner Avatar"
-              className={styles.image}
-            />
-          </div>
-          <span className={styles.atsign}>@{sharedUserProfile.name}</span>
-          <span className={styles.marks}>{sharedUserFolderName.name}</span>
+    <main className={styles.main}>
+      <div className={`${styles.hero} ${styles.inner}`}>
+        <div className={styles.codeitAvatar}>
+          <Image
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1199px) 100vw, 100vw"
+            src={sharedUserProfile.image_source}
+            alt="Owner Avatar"
+            className={styles.image}
+          />
         </div>
+        <span className={styles.atsign}>@{sharedUserProfile.name}</span>
+        <span className={styles.marks}>{sharedUserFolderName.name}</span>
+      </div>
 
-        <div className={styles.contents}>
-          <SearchBar placeholder="원하는 링크를 검색해 보세요" />
-          <LinkField links={sharedUserLinks} />
-        </div>
-      </main>
-    </>
+      <div className={styles.contents}>
+        <SearchBar placeholder="원하는 링크를 검색해 보세요" />
+        <LinkField links={sharedUserLinks} />
+      </div>
+    </main>
   );
 };
 
