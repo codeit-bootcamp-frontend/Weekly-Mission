@@ -1,6 +1,7 @@
 import classNames from "classnames/bind";
 import { notFound } from "next/navigation";
 
+import { META_SHARED } from "@/app/_meta";
 import Card from "@/components/Card/Card";
 import FolderInfo from "@/components/FolderInfo";
 import SearchBar from "@/components/SearchBar";
@@ -11,9 +12,7 @@ import styles from "./page.module.scss";
 
 const cx = classNames.bind(styles);
 
-export const metadata = {
-  title: "Linkbrary : Shared",
-};
+export const metadata = META_SHARED;
 
 export default async function Shared({
   searchParams,
