@@ -69,16 +69,17 @@
     background: var-color.$linkbrary-primary;
     border: 1px solid var-color.$linkbrary-white;
     border-radius: 20px;
-  }
-  .buttonWrapper.upperFooter {
-    bottom: 16px;
-  }
-  .buttonWrapper.upperBottom,
-  .buttonWrapper.undefined {
-    bottom: 16px;
-  }
-  .buttonWrapper.upperAddLink {
-    bottom: calc(85px + 16px);
+
+    &.upperFooter {
+      bottom: 16px;
+    }
+    &.upperBottom,
+    &.undefined {
+      bottom: 16px;
+    }
+    &.upperAddLink {
+      bottom: calc(85px + 16px);
+    }
   }
 
   .folderChipFieldWrapper {

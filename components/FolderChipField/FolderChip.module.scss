@@ -14,8 +14,9 @@
   font-size: 16px;
   line-height: 19px;
   color: #000000;
-}
-.tabWrapper.true {
-  background: var-color.$linkbrary-primary;
-  color: var-color.$linkbrary-white;
+
+  &.true {
+    background: var-color.$linkbrary-primary;
+    color: var-color.$linkbrary-white;
+  }
 }

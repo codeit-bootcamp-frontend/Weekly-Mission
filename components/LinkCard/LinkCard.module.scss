@@ -142,6 +142,7 @@
       font-size: 14px;
       line-height: 17px;
       color: #333236;
+      background: var-color.$linkbrary-white;
     }
     .addFolderButton {
       width: 100%;
@@ -155,6 +156,7 @@
       font-size: 14px;
       line-height: 17px;
       color: #333236;
+      background: var-color.$linkbrary-white;
     }
     .deleteButton:hover,
     .addFolderButton:hover {

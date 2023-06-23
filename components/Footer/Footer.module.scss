@@ -33,16 +33,13 @@
       .privacy,
       .faq {
         text-decoration-line: none;
-      }
-      .privacy:link,
-      .privacy:active,
-      .privacy:hover,
-      .privacy:visited,
-      .faq:link,
-      .faq:active,
-      .faq:hover,
-      .faq:visited {
-        color: #cfcfcf;
+
+        &:link,
+        &:active,
+        &:hover,
+        &:visited {
+          color: #cfcfcf;
+        }
       }
     }
     .sns {
