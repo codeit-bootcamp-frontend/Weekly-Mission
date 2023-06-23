@@ -3,10 +3,11 @@ import { notFound } from "next/navigation";
 
 import { META_SHARED } from "@/app/_meta";
 import Card from "@/components/Card/Card";
+import OtherCardMenu from "@/components/Card/OtherCardMenu";
 import FolderInfo from "@/components/FolderInfo";
 import SearchBar from "@/components/SearchBar";
-import { getFolder, getLinks, getUser } from "@/utils/api";
-import convertParamToNum from "@/utils/validateParam";
+import { getFolder, getFolders, getLinks, getUser } from "@/utils/api";
+import convertParamToNum from "@/utils/convertParamToNum";
 
 import styles from "./page.module.scss";
 
@@ -24,9 +25,12 @@ export default async function Shared({
   const folderID = convertParamToNum(strFolderParam);
   if (!sharedUserID || !folderID) notFound();
 
-  const [sharedUser, folder, links] = await Promise.all([
+  const [sharedUser, folder, folders, links] = await Promise.all([
     getUser(sharedUserID),
     getFolder(sharedUserID, folderID),
+    // 비동기를 한 번에 처리하기 위해 userID의 folders를 이 곳에서 처리
+    // 하지만 추후 userID를 불러오는 것이 클라이언트 컴포넌트에서만 가능하다면 Menu 안에서 처리해야 함
+    getFolders(4),
     getLinks(sharedUserID, folderID),
   ]);
 
@@ -42,7 +46,11 @@ export default async function Shared({
         )}
         <section className={cx("cardContainer")}>
           {links.map((link) => (
-            <Card key={link.id} link={link} isNotOwn={true} />
+            <Card
+              key={link.id}
+              link={link}
+              menuComponent={<OtherCardMenu link={link} folders={folders} />}
+            />
           ))}
         </section>
       </main>

@@ -10,13 +10,14 @@ import { useRouter } from "next/navigation";
 import AddFolderButton from "@/components/AddFolderButton";
 import AddLinkBar from "@/components/AddLinkBar";
 import Card from "@/components/Card/Card";
+import MyCardMenu from "@/components/Card/MyCardMenu";
 import FolderChip from "@/components/FolderChip";
 import Option from "@/components/Option";
 import SearchBar from "@/components/SearchBar";
 import { useSetInViewGNB } from "@/hooks/useInViewGNBContext";
 import { getFolder, getFolders, getLinks } from "@/utils/api";
 import { Folder, Link, SelectedFolder } from "@/utils/api/types";
-import convertParamToNum from "@/utils/validateParam";
+import convertParamToNum from "@/utils/convertParamToNum";
 
 import styles from "./page.module.scss";
 
@@ -126,8 +127,13 @@ export default function Folder({ params }: { params: { id: string[] } }) {
                   <Card
                     key={link.id}
                     link={link}
-                    folders={folders}
-                    onDeleteLink={onDeleteLink}
+                    menuComponent={
+                      <MyCardMenu
+                        link={link}
+                        folders={folders}
+                        onDelete={onDeleteLink}
+                      />
+                    }
                   />
                 ))}
               </div>

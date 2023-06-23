@@ -1,16 +1,15 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 
 import classNames from "classnames/bind";
 import Image from "next/image";
 
-import { Folder, Link } from "@/utils/api/types";
+import { Link } from "@/utils/api/types";
 import calculatePassedTime from "@/utils/calculatePassedTime";
 import changeDateFormat from "@/utils/changeDateFormat";
 
 import styles from "./Card.module.scss";
-import SelectMenu from "./SelectMenu";
 import Star from "./Star";
 
 import kebab from "@/public/images/show-more.png";
@@ -19,17 +18,10 @@ const cx = classNames.bind(styles);
 
 interface CardProps {
   link: Link;
-  folders?: Folder[];
-  onDeleteLink?: (id: number) => number;
-  isNotOwn?: boolean;
+  menuComponent: ReactNode;
 }
 
-export default function Card({
-  link,
-  folders,
-  onDeleteLink,
-  isNotOwn,
-}: CardProps) {
+export default function Card({ link, menuComponent }: CardProps) {
   const defaultCardImg = "/images/default-background.png";
 
   const [shownMenu, setShownMenu] = useState(false);
@@ -40,7 +32,7 @@ export default function Card({
   const handleClickKebab = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    isNotOwn || setShownMenu((prev) => !prev);
+    setShownMenu((prev) => !prev);
   };
 
   const handleClickOutside = (e: MouseEvent) => {
@@ -100,9 +92,9 @@ export default function Card({
         >
           <Image width={21} height={17} src={kebab} alt="케밥 버튼" />
         </button>
-        {shownMenu && folders && onDeleteLink && (
+        {shownMenu && (
           <div className={cx("menuContainer")} ref={menuRef}>
-            <SelectMenu link={link} folders={folders} onDelete={onDeleteLink} />
+            {menuComponent}
           </div>
         )}
         <h2 className={cx("content")}>{link.description}</h2>
