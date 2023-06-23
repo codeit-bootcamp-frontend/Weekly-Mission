@@ -16,7 +16,13 @@ import Option from "@/components/Option";
 import SearchBar from "@/components/SearchBar";
 import { useSetInViewGNB } from "@/hooks/useInViewGNBContext";
 import { useUserId } from "@/hooks/useUserContext";
-import { getFolder, getFolders, getLinks } from "@/utils/api";
+import {
+  deleteFolder,
+  deleteLink,
+  getFolder,
+  getFolders,
+  getLinks,
+} from "@/utils/api";
 import { Folder, Link, SelectedFolder } from "@/utils/api/types";
 import convertParamToNum from "@/utils/convertParamToNum";
 
@@ -46,12 +52,16 @@ export default function Folder({ params }: { params: { id: string[] } }) {
     return newName;
   };
 
-  const onDeleteFolder = (id: number) => {
-    return id;
+  const onDeleteFolder = async (id: number) => {
+    await deleteFolder(id);
+    router.push("/folder");
   };
 
-  const onDeleteLink = (id: number) => {
-    return id;
+  const onDeleteLink = async (id: number) => {
+    await deleteLink(id);
+    const isDeleted = links.some((link) => link.id === id);
+    if (isDeleted)
+      setLinks((prevLinks) => prevLinks.filter((link) => link.id !== id));
   };
 
   useEffect(() => {

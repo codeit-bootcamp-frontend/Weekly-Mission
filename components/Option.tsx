@@ -21,7 +21,7 @@ const cx = classNames.bind(styles);
 interface OptionProps {
   folder: SelectedFolder;
   onEditFolder: (newName: string) => string;
-  onDeleteFolder: (id: number) => number;
+  onDeleteFolder: (id: number) => void;
 }
 export default function Option({
   folder,
@@ -41,6 +41,10 @@ export default function Option({
   };
 
   const openDeleteModal = () => {
+    if (folder.name === "전체" || folder.name === "⭐️ 즐겨찾기") {
+      alert(`${folder.name} 폴더는 삭제할 수 없어요!`);
+      return;
+    }
     setShownDeleteModal(true);
   };
 

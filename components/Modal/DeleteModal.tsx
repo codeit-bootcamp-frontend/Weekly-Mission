@@ -16,7 +16,7 @@ interface Item {
 interface DeleteModalProps {
   item: Item;
   onClose: () => void;
-  onDelete: (id: number) => number;
+  onDelete: (id: number) => void;
 }
 
 export default function DeleteModal({

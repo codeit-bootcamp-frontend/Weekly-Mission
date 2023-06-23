@@ -15,7 +15,7 @@ const cx = classNames.bind(styles);
 interface MyCardMenuProps {
   link: Link;
   folders: Folder[];
-  onDelete: (id: number) => number;
+  onDelete: (id: number) => void;
 }
 
 export default function MyCardMenu({
