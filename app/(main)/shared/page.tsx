@@ -21,17 +21,17 @@ export default async function Shared({
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
   const { user: strUserParam, folder: strFolderParam } = searchParams;
-  const sharedUserID = convertParamToNum(strUserParam);
-  const folderID = convertParamToNum(strFolderParam);
-  if (!sharedUserID || !folderID) notFound();
+  const sharedUserId = convertParamToNum(strUserParam);
+  const folderId = convertParamToNum(strFolderParam);
+  if (!sharedUserId || !folderId) notFound();
 
   const [sharedUser, folder, folders, links] = await Promise.all([
-    getUser(sharedUserID),
-    getFolder(sharedUserID, folderID),
-    // 비동기를 한 번에 처리하기 위해 userID의 folders를 이 곳에서 처리
-    // 하지만 추후 userID를 불러오는 것이 클라이언트 컴포넌트에서만 가능하다면 Menu 안에서 처리해야 함
+    getUser(sharedUserId),
+    getFolder(sharedUserId, folderId),
+    // 비동기를 한 번에 처리하기 위해 userId의 folders를 이 곳에서 처리
+    // 하지만 추후 userId를 불러오는 것이 클라이언트 컴포넌트에서만 가능하다면 Menu 안에서 처리해야 함
     getFolders(4),
-    getLinks(sharedUserID, folderID),
+    getLinks(sharedUserId, folderId),
   ]);
 
   return (

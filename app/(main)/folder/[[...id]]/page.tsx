@@ -24,7 +24,7 @@ import styles from "./page.module.scss";
 const cx = classNames.bind(styles);
 
 export default function Folder({ params }: { params: { id: string[] } }) {
-  const userID = 4; // 추후 auth 기능 추가
+  const userId = 4; // 추후 auth 기능 추가
   const [currentFolder, setCurrentFolder] = useState<SelectedFolder | null>(
     null,
   );
@@ -57,9 +57,9 @@ export default function Folder({ params }: { params: { id: string[] } }) {
     const fetchData = async () => {
       if (folderParam === null) return router.push("/folder");
       const [folderRes, foldersRes, linksRes] = await Promise.all([
-        getFolder(userID, folderParam),
-        getFolders(userID),
-        getLinks(userID, folderParam),
+        getFolder(userId, folderParam),
+        getFolders(userId),
+        getLinks(userId, folderParam),
       ]);
       if (folderParam === 0) {
         setCurrentFolder({ id: 0, name: "전체" });

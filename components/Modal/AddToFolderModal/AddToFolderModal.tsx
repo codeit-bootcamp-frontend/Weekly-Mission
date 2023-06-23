@@ -29,9 +29,9 @@ export default function AddToFolderModal({
     setSelectedItemId(itemId);
   };
 
-  const onAddToFolder = (link: Link, folderID: number) => {
+  const onAddToFolder = (link: Link, folderId: number) => {
     link;
-    return folderID;
+    return folderId;
   };
 
   const handleClickAddButton = () => {

@@ -8,9 +8,9 @@ import checkUserID from "@/utils/checkUserID";
 
 export default async function MainLayout({ children }: Children) {
   const isLogged = checkLoginStatus();
-  const userID = checkUserID();
+  const userId = checkUserID();
 
-  const user = isLogged ? await getUser(userID) : null;
+  const user = isLogged ? await getUser(userId) : null;
 
   return (
     <>
