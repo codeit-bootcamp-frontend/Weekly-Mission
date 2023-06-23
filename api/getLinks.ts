@@ -7,7 +7,7 @@ export default async function getLinks(userId: number | string, folderId: number
       throw new Error("Failed to links fetch");
     }
     const result = await res.json();
-    return result.distinctData;
+    return result.data;
   } catch {
     throw new Error("fetch Error");
   }
