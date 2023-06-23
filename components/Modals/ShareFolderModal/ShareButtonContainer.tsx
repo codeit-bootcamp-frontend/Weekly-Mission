@@ -1,9 +1,13 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import ShareButton from "./ShareButton";
 import styles from "./ShareFolderModal.module.scss";
 
 interface IShareButtonContainerProps {
+  currentUserId: number | undefined;
+  currentFolderId: number;
   handleClickCloseModal: () => void;
 }
 
@@ -11,8 +15,12 @@ interface IShareButtonContainerProps {
  * @function ShareButtonContainer 공유 기능을 별도 container로 분리
  */
 const ShareButtonContainer = ({
+  currentUserId,
+  currentFolderId,
   handleClickCloseModal,
 }: IShareButtonContainerProps) => {
+  const router = useRouter();
+
   const handleClickFacebookShare = () => {
     // TODO: 배포 주소로 변경하기
     window.open("http://www.facebook.com/sharer.php?u=https://www.naver.com/");
@@ -23,11 +31,15 @@ const ShareButtonContainer = ({
   };
 
   const handleClickClipboardShare = async () => {
+    const sharedParams = `/shared?user=${currentUserId}&folder=${currentFolderId}`;
     if (navigator.clipboard && window.isSecureContext) {
-      await navigator.clipboard.writeText(window.location.href);
+      await navigator.clipboard.writeText(
+        window.location.origin + sharedParams
+      );
     }
 
     setTimeout(() => {
+      router.push(sharedParams);
       handleClickCloseModal();
     }, 500);
   };

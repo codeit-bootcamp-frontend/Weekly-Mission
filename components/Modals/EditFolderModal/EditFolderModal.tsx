@@ -2,19 +2,29 @@
 
 import { useRef } from "react";
 
+import { IFolder } from "@/types/linkbrary";
+
 import ModalLayout from "../ModalLayout";
 import styles from "./EditFolderModal.module.scss";
 
 interface IEditFolderModalProps {
   handleCloseModal: () => void;
-  currentFolderName: string;
+  currentFolder: IFolder;
 }
 
 const EditFolderModal = ({
   handleCloseModal,
-  currentFolderName,
+  currentFolder,
 }: IEditFolderModalProps) => {
   const folderEditNameRef = useRef<HTMLInputElement>(null);
+
+  const {
+    id: currentFolderId,
+    name: currentFolderName,
+    user_id: userId,
+  } = currentFolder;
+
+  console.log(currentFolderId, currentFolderName, userId);
 
   const handleClickEditFolderName = () => {
     // TODO: input 데이터로 폴더명 전송

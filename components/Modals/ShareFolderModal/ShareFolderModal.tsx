@@ -1,18 +1,28 @@
 "use client";
 
+import { IFolder } from "@/types/linkbrary";
+
 import ModalLayout from "../ModalLayout";
 import ShareButtonContainer from "./ShareButtonContainer";
 import styles from "./ShareFolderModal.module.scss";
 
 interface IShareFolderModalProps {
   handleCloseModal: () => void;
-  currentFolderName: string;
+  currentFolder: IFolder;
 }
 
 const ShareFolderModal = ({
   handleCloseModal,
-  currentFolderName,
+  currentFolder,
 }: IShareFolderModalProps) => {
+  const {
+    id: currentFolderId,
+    name: currentFolderName,
+    user_id: userId,
+  } = currentFolder;
+
+  console.log(currentFolderId, currentFolderName, userId);
+
   // TODO: 폴더 공유 관련 api 처리
   return (
     <ModalLayout
@@ -21,7 +31,11 @@ const ShareFolderModal = ({
     >
       <h3 className={styles.title}>폴더 공유</h3>
       <h4 className={styles.subTitle}>{currentFolderName}</h4>
-      <ShareButtonContainer handleClickCloseModal={handleCloseModal} />
+      <ShareButtonContainer
+        currentUserId={userId}
+        currentFolderId={currentFolderId}
+        handleClickCloseModal={handleCloseModal}
+      />
     </ModalLayout>
   );
 };

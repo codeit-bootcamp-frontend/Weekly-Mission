@@ -1,17 +1,27 @@
 "use clinet";
 
+import { IFolder } from "@/types/linkbrary";
+
 import ModalLayout from "../ModalLayout";
 import styles from "./DeleteFolderModal.module.scss";
 
 interface IDeleteFolderModalProps {
   handleCloseModal: () => void;
-  currentFolderName: string;
+  currentFolder: IFolder;
 }
 
 const DeleteFolderModal = ({
   handleCloseModal,
-  currentFolderName,
+  currentFolder,
 }: IDeleteFolderModalProps) => {
+  const {
+    id: currentFolderId,
+    name: currentFolderName,
+    user_id: userId,
+  } = currentFolder;
+
+  console.log(currentFolderId, currentFolderName, userId);
+
   const handleClickDeleteFolder = () => {
     // TODO: 해당 폴더 삭제 기능
     setTimeout(() => {

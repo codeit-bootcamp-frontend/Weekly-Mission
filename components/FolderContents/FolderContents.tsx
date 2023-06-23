@@ -27,7 +27,7 @@ const FolderContents = ({
   const { inView, observerTargetRefs } = useViewObserver();
 
   const folderList = folders.length
-    ? [{ id: 0, name: "전체" }, ...folders]
+    ? [{ id: 0, name: "전체", user_id: userId }, ...folders]
     : folders;
   const currentFolder = folderList.find((folder) => folder.id === currentTab);
 
