@@ -33,7 +33,7 @@ const AddLinkModal = ({
   const isEntire = pathname.split("/").length;
   const currentFolderId =
     isEntire === 2 ? 0 : Number(pathname.replace("/folder/", ""));
-  const addFolderList = folders.filter(
+  const addFolderList = folders?.filter(
     (folder) => folder.id !== currentFolderId
   );
   const [checkedItemId, setCheckedItemId] = useState(-1);

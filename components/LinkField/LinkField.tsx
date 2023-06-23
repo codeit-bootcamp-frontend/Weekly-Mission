@@ -8,8 +8,8 @@ import { IFolder, ILink } from "@/types/linkbrary";
 import styles from "./LinkField.module.scss";
 
 interface ILinkFieldProps {
-  userId: number;
-  folders: IFolder[] | [];
+  userId?: number;
+  folders?: IFolder[] | [];
   links: ILink[] | [];
 }
 

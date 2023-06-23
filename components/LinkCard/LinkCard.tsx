@@ -17,8 +17,8 @@ const DynamicImage = dynamic(() => import("./DynamicImage"), {
 });
 
 interface ILinkCardProps {
-  userId: number;
-  folders: IFolder[] | [];
+  userId?: number;
+  folders?: IFolder[] | [];
   links: ILink[] | [];
   link: ILink;
   isClickedKebab: boolean;

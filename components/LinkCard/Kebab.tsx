@@ -10,8 +10,8 @@ import DeleteLinkModal from "../Modals/DeleteLinkModal/DeleteLinkModal";
 import styles from "./LinkCard.module.scss";
 
 interface IKebabProps {
-  userId: number;
-  folders: IFolder[] | [];
+  userId?: number;
+  folders?: IFolder[] | [];
   links: ILink[] | [];
   linkId: number;
   linkUrl: string;
@@ -62,7 +62,7 @@ const Kebab = forwardRef(function Kebab(
         </div>
       )}
 
-      {openAddLinkModal && (
+      {openAddLinkModal && folders && userId && (
         <AddLinkModal
           folders={folders}
           links={links}
