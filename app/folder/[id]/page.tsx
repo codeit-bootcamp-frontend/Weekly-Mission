@@ -56,7 +56,7 @@ export default async function FolderID({ params }: Props) {
             <FAB />
           </div>
           <div className={cx("folder-header")}>
-            <h1 className={cx("folder-title")}>전체</h1>
+            <h1 className={cx("folder-title")}>{currFolder?.name}</h1>
             <Option folderName={currFolder?.name} />
           </div>
           {links.length === 0 ? (
