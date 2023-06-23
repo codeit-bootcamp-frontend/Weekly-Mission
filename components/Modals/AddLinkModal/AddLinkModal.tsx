@@ -62,7 +62,7 @@ const AddLinkModal = ({
       <h4 className={styles.subTitle}>링크 주소</h4>
       <div className={styles.folderWrapper}>
         {addFolderList.length === 0 && (
-          <p className={styles.emptyLink}>저장된 링크가 없습니다</p>
+          <p className={styles.emptyLink}>다른 폴더가 존재하지 않아요</p>
         )}
         {addFolderList.length !== 0 &&
           addFolderList.map((folder, index) => (

@@ -1,14 +1,7 @@
+import { IUser } from "@/types/linkbrary";
 import { getRequest } from "@/utils/axios/common";
 
-interface IUserData {
-  id: number;
-  created_at: string;
-  name: string;
-  image_source: string;
-  email: string;
-}
-
-export const getUser = async (userId: number): Promise<IUserData> => {
-  const response = await getRequest(`/users/${userId}`);
-  return response.data[0];
+export const getUser = async (userId: number): Promise<IUser> => {
+  const response = await getRequest<IUser[]>(`/users/${userId}`);
+  return response[0];
 };

@@ -1,27 +1,53 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { instance, wrapRequest } from "./instance";
+import { CommonResponse } from "@/types/linkbrary";
+import { InternalAxiosRequestConfig } from "axios";
 
-// 기본 post 요청
-export const postRequest = wrapRequest(async (url: string, data: any) => {
-  return instance.post(url, data);
-});
+import { instance } from "./instance";
 
-// 기본 get 요청
-export const getRequest = wrapRequest(async (url: string, data: any) => {
-  return instance.get(url, { params: data });
-});
+/* get 요청 */
+export const getRequest = async <T>(
+  url: string,
+  config?: InternalAxiosRequestConfig
+): Promise<T> => {
+  const response = await instance.get<CommonResponse<T>>(url, config);
+  return response.data.data;
+};
 
-// 기본 put 요청
-export const putRequest = wrapRequest(async (url: string, data: any) => {
-  return instance.put(url, data);
-});
+/* post 요청 */
+export const postRequest = async <T>(
+  url: string,
+  data: any,
+  config?: InternalAxiosRequestConfig
+): Promise<T> => {
+  const response = await instance.post<CommonResponse<T>>(url, data, config);
+  return response.data.data;
+};
 
-// 기본 patch 요청
-export const patchRequest = wrapRequest(async (url: string, data: any) => {
-  return instance.patch(url, data);
-});
+/* delete 요청 */
+export const deleteRequest = async <T>(
+  url: string,
+  config?: InternalAxiosRequestConfig
+): Promise<CommonResponse<T>> => {
+  const response = await instance.delete<CommonResponse<T>>(url, config);
+  return response;
+};
 
-// 기본 delete 요청
-export const deleteRequest = wrapRequest(async (url: string) => {
-  return instance.delete(url);
-});
+/* put 요청 */
+export const putRequest = async <T>(
+  url: string,
+  data: any,
+  config?: InternalAxiosRequestConfig
+): Promise<CommonResponse<T>> => {
+  const response = await instance.put<CommonResponse<T>>(url, data, config);
+  return response;
+};
+
+/* patch 요청 */
+export const patchRequest = async <T>(
+  url: string,
+  data: any,
+  config?: InternalAxiosRequestConfig
+): Promise<CommonResponse<T>> => {
+  const response = await instance.put<CommonResponse<T>>(url, data, config);
+  return response;
+};
