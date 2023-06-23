@@ -1,4 +1,5 @@
 import { META_ROOT } from "@/app/_meta";
+import { UserIdProvider } from "@/hooks/useUserContext";
 import { pretendard } from "@/styles/fonts/localFont";
 import "@/styles/global.scss";
 import { Children } from "@/types";
@@ -9,8 +10,10 @@ export default async function RootLayout({ children }: Children) {
   return (
     <html lang="ko" className={pretendard.className}>
       <body>
-        {children}
-        <div id="modal-portal" />
+        <UserIdProvider>
+          {children}
+          <div id="modal-portal" />
+        </UserIdProvider>
       </body>
     </html>
   );

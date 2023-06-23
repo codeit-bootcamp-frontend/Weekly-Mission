@@ -28,7 +28,9 @@ const useInViewGNB = () => {
   const context = useContext(inViewGNBContext);
 
   if (!context) {
-    throw new Error("inViewGNB는 반드시 LocaleProvider 안에서 사용해야 합니다");
+    throw new Error(
+      "inViewGNB는 반드시 InViewGNBProvider 안에서 사용해야 합니다",
+    );
   }
 
   const { inViewGNB } = context;
@@ -40,7 +42,7 @@ const useSetInViewGNB = () => {
 
   if (!context) {
     throw new Error(
-      "setInViewGNB는 반드시 LocaleProvider 안에서 사용해야 합니다",
+      "setInViewGNB는 반드시 InViewGNBProvider 안에서 사용해야 합니다",
     );
   }
 

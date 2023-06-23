@@ -29,7 +29,7 @@ export default async function Shared({
     getUser(sharedUserId),
     getFolder(sharedUserId, folderId),
     // 비동기를 한 번에 처리하기 위해 userId의 folders를 이 곳에서 처리
-    // 하지만 추후 userId를 불러오는 것이 클라이언트 컴포넌트에서만 가능하다면 Menu 안에서 처리해야 함
+    // CHECK: 하지만 추후 userId를 불러오는 것이 클라이언트 컴포넌트에서만 가능하다면 Menu 안에서 처리해야 함
     getFolders(4),
     getLinks(sharedUserId, folderId),
   ]);
@@ -49,7 +49,14 @@ export default async function Shared({
             <Card
               key={link.id}
               link={link}
-              menuComponent={<OtherCardMenu link={link} folders={folders} />}
+              menuComponent={
+                <OtherCardMenu
+                  link={link}
+                  folders={folders.filter(
+                    (folder) => folder.name !== "⭐️ 즐겨찾기",
+                  )}
+                />
+              }
             />
           ))}
         </section>

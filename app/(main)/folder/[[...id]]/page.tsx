@@ -15,6 +15,7 @@ import FolderChip from "@/components/FolderChip";
 import Option from "@/components/Option";
 import SearchBar from "@/components/SearchBar";
 import { useSetInViewGNB } from "@/hooks/useInViewGNBContext";
+import { useUserId } from "@/hooks/useUserContext";
 import { getFolder, getFolders, getLinks } from "@/utils/api";
 import { Folder, Link, SelectedFolder } from "@/utils/api/types";
 import convertParamToNum from "@/utils/convertParamToNum";
@@ -24,7 +25,7 @@ import styles from "./page.module.scss";
 const cx = classNames.bind(styles);
 
 export default function Folder({ params }: { params: { id: string[] } }) {
-  const userId = 4; // 추후 auth 기능 추가
+  const userId = useUserId();
   const [currentFolder, setCurrentFolder] = useState<SelectedFolder | null>(
     null,
   );
@@ -71,7 +72,7 @@ export default function Folder({ params }: { params: { id: string[] } }) {
     };
 
     fetchData();
-  }, [folderParam, router]);
+  }, [folderParam, router, userId]);
 
   useEffect(() => {
     setInViewGNB(inViewAddLink);
@@ -130,7 +131,11 @@ export default function Folder({ params }: { params: { id: string[] } }) {
                     menuComponent={
                       <MyCardMenu
                         link={link}
-                        folders={folders}
+                        folders={folders.filter(
+                          (folder) =>
+                            folder.name !== "⭐️ 즐겨찾기" &&
+                            folder.name !== currentFolder?.name,
+                        )}
                         onDelete={onDeleteLink}
                       />
                     }
