@@ -27,11 +27,11 @@ const getFolderOwnerInfo = async (userId: string) => {
 };
 
 const getCardListProps = async (userId: string, folderId: string) => {
-  const { distinctData } = await getLinksByFolderId(userId, folderId);
-  if (distinctData.length === 0) {
+  const { data } = await getLinksByFolderId(userId, folderId);
+  if (data.length === 0) {
     notFound();
   }
-  return distinctData.map((data: any) => {
+  return data.map((data: any) => {
     return {
       id: data.id,
       href: data.url,
