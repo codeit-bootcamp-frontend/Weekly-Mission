@@ -4,15 +4,15 @@
   padding: 2rem 0 6rem;
 }
 
-.user-content {
+.shared-user-content {
   margin-bottom: 2rem;
 }
 
-.user-avatar {
+.shared-user-avatar {
   border-radius: 7rem;
 }
 
-.user-nickname {
+.shared-user-nickname {
   margin-top: 1.2rem;
   font-size: 1.6rem;
 }
