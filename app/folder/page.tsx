@@ -9,7 +9,7 @@ import styles from "./page.module.scss";
 
 const FolderContents = dynamic(
   () => import("@/components/FolderContents/FolderContents"),
-  { ssr: false }
+  { loading: () => <p>Loading...</p> }
 );
 
 export const revalidate = 3600;

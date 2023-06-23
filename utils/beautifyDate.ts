@@ -49,13 +49,15 @@ const beautifyTimeDiff: TBeautifyTimeDiff = (minutes) => {
  * yyyy.mm.dd 형식으로 반환하는 함수
  */
 const beautifyDate: TBeautifyDate = (createdAt) => {
-  const creationDate: Date = new Date(createdAt);
-  const currentDate: Date = new Date();
+  const creationDate: string = new Date(createdAt).toISOString();
+  const currentDate: string = new Date().toISOString();
   const timeDiffInMinutes =
     Math.abs(Number(currentDate) - Number(creationDate)) / 1000 / 60;
 
   const beautifiedTimeDiff = beautifyTimeDiff(timeDiffInMinutes);
-  const beautifiedDate = creationDate.toLocaleDateString().slice(0, -1);
+
+  const [yyyy, mm, dd] = creationDate.split("T")[0].split("-");
+  const beautifiedDate = `${yyyy}. ${mm[0] === "0" ? mm.slice(1) : mm}. ${dd}`;
 
   return { beautifiedDate, beautifiedTimeDiff };
 };
