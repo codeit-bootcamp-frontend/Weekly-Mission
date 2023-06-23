@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 import Card from "@/components/Card/Card";
 import FolderInfo from "@/components/FolderInfo";
 import SearchBar from "@/components/SearchBar";
-import { getFolder, getLink, getUser } from "@/utils/api";
+import { getFolder, getLinks, getUser } from "@/utils/api";
+import convertParamToNum from "@/utils/validateParam";
 
 import styles from "./page.module.scss";
 
@@ -14,30 +15,20 @@ export const metadata = {
   title: "Linkbrary : Shared",
 };
 
-const checkValidateSearchParams = (params: string | string[] | undefined) => {
-  if (!params) return false;
-  if (Array.isArray(params)) return false;
-  if (isNaN(parseInt(params))) return false;
-  return true;
-};
-
 export default async function Shared({
   searchParams,
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const { user: userParams, folder: folderParams } = searchParams;
-  if (
-    !checkValidateSearchParams(userParams) ||
-    !checkValidateSearchParams(folderParams)
-  )
-    notFound();
-  const [sharedUserID, folderID] = [Number(userParams), Number(folderParams)];
+  const { user: strUserParam, folder: strFolderParam } = searchParams;
+  const sharedUserID = convertParamToNum(strUserParam);
+  const folderID = convertParamToNum(strFolderParam);
+  if (!sharedUserID || !folderID) notFound();
 
   const [sharedUser, folder, links] = await Promise.all([
     getUser(sharedUserID),
     getFolder(sharedUserID, folderID),
-    getLink(sharedUserID, folderID),
+    getLinks(sharedUserID, folderID),
   ]);
 
   return (

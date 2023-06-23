@@ -14,27 +14,27 @@ import FolderChip from "@/components/FolderChip";
 import Option from "@/components/Option";
 import SearchBar from "@/components/SearchBar";
 import { useSetInViewGNB } from "@/hooks/useInViewGNBContext";
-import { getFolders, getLink } from "@/utils/api";
-import { Folder, Link } from "@/utils/api/types";
+import { getFolder, getFolders, getLinks } from "@/utils/api";
+import { Folder, Link, SelectedFolder } from "@/utils/api/types";
+import convertParamToNum from "@/utils/validateParam";
 
 import styles from "./page.module.scss";
 
 const cx = classNames.bind(styles);
 
-export default function Folder({ params }: { params: { folderID: string[] } }) {
-  const folderIDParams = params.folderID ? Number(params.folderID[0]) : 0;
+export default function Folder({ params }: { params: { id: string[] } }) {
   const userID = 4; // 추후 auth 기능 추가
-  const [currentFolder, setCurrentFolder] = useState<{
-    id: number;
-    name: string;
-  } | null>(null);
+  const [currentFolder, setCurrentFolder] = useState<SelectedFolder | null>(
+    null,
+  );
   const [folders, setFolders] = useState<Folder[]>([]);
   const [links, setLinks] = useState<Link[]>([]);
-  const router = useRouter();
-
   const setInViewGNB = useSetInViewGNB();
   const { ref: addLinkRef, inView: inViewAddLink } = useInView();
   const { ref: footerRef, inView: inViewFooter } = useInView();
+  const router = useRouter();
+
+  const folderParam = convertParamToNum(params.id);
 
   const onAddFolder = (name: string) => {
     return name;
@@ -53,22 +53,24 @@ export default function Folder({ params }: { params: { folderID: string[] } }) {
   };
 
   useEffect(() => {
-    getFolders(userID).then((res) => {
-      setFolders(res);
+    const fetchData = async () => {
+      if (folderParam === null) return router.push("/folder");
+      const [folderRes, foldersRes, linksRes] = await Promise.all([
+        getFolder(userID, folderParam),
+        getFolders(userID),
+        getLinks(userID, folderParam),
+      ]);
+      if (folderParam === 0) {
+        setCurrentFolder({ id: 0, name: "전체" });
+      } else {
+        setCurrentFolder({ id: folderRes.id, name: folderRes.name });
+      }
+      setFolders(foldersRes);
+      setLinks(linksRes);
+    };
 
-      const foundFolder = res.find((folder) => folder.id === folderIDParams);
-      if (foundFolder)
-        setCurrentFolder({ id: foundFolder.id, name: foundFolder.name });
-      else
-        folderIDParams
-          ? router.back()
-          : setCurrentFolder({ id: 0, name: "전체" });
-    });
-
-    getLink(userID, folderIDParams).then((res) => {
-      setLinks(res);
-    });
-  }, [folderIDParams, router]);
+    fetchData();
+  }, [folderParam, router]);
 
   useEffect(() => {
     setInViewGNB(inViewAddLink);
@@ -92,6 +94,7 @@ export default function Folder({ params }: { params: { folderID: string[] } }) {
           <div className={cx("searchBarContainer")}>
             <SearchBar />
           </div>
+          {/* TODO: Suspense 처리 */}
           {!currentFolder && <LineWave />}
           {currentFolder && (
             <div className={cx("folderContainer")}>

@@ -35,17 +35,17 @@ const getFolders = async (userID: number): Promise<Folder[]> => {
   return res;
 };
 
-const getFolder = async (userID: number, folderID: number): Promise<Folder> => {
+const getFolder = async (userID: number, folderID: number) => {
   const res = await instance.get<never, Folder[]>(
     `users/${userID}/folders/${folderID}`,
   );
   if (res.length === 0) {
-    return Promise.reject(new Error("폴더가 존재하지 않습니다."));
+    res;
   }
   return res[0];
 };
 
-const getLink = async (userID: number, folderID?: number): Promise<Link[]> => {
+const getLinks = async (userID: number, folderID?: number): Promise<Link[]> => {
   const url = folderID
     ? `users/${userID}/links/?folderId=${folderID}`
     : `users/${userID}/links`;
@@ -54,4 +54,4 @@ const getLink = async (userID: number, folderID?: number): Promise<Link[]> => {
   return res;
 };
 
-export { getUser, getFolder, getFolders, getLink };
+export { getUser, getFolder, getFolders, getLinks };
