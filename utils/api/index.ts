@@ -46,11 +46,10 @@ const getFolder = async (userId: number, folderId: number) => {
   return res[0];
 };
 
-const getLinks = async (userId: number, folderId?: number): Promise<Link[]> => {
+const getLinks = async (userId: number, folderId: number): Promise<Link[]> => {
   const url = folderId
     ? `users/${userId}/links/?folderId=${folderId}`
     : `users/${userId}/links`;
-
   const res = await instance.get<never, Link[]>(url);
   return res;
 };

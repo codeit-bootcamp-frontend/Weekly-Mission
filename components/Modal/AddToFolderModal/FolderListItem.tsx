@@ -13,12 +13,14 @@ const cx = classNames.bind(styles);
 
 interface FolderListItemProps {
   folder: Folder;
+  linkNum: number;
   selected: boolean;
   onClick: (itemId: number) => void;
 }
 
 export default function FolderListItem({
   folder,
+  linkNum,
   selected,
   onClick,
 }: FolderListItemProps) {
@@ -31,7 +33,7 @@ export default function FolderListItem({
     >
       <div className={cx("textContainer")}>
         <p className={cx("name", { selected })}>{folder.name}</p>
-        <p className={cx("linksNum")}>{folder.id}개 링크</p>
+        <p className={cx("linksNum")}>{linkNum}개 링크</p>
       </div>
       {selected && (
         <Image width={14} height={14} src={checkIcon} alt="체크 아이콘" />
