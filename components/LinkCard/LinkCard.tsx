@@ -1,7 +1,8 @@
 "use client";
 
-import { SyntheticEvent, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
+import dynamic from "next/dynamic";
 import Image from "next/image";
 
 import { ILink } from "@/types/linkbrary";
@@ -9,6 +10,11 @@ import beautifyDate from "@/utils/beautifyDate";
 
 import Kebab from "./Kebab";
 import styles from "./LinkCard.module.scss";
+
+const DynamicImage = dynamic(() => import("./DynamicImage"), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+});
 
 interface ILinkCardProps {
   link: ILink;
@@ -34,10 +40,6 @@ const LinkCard = ({
     );
 
     if (isValidTarget) window.open(link.url);
-  };
-
-  const handleImgError = (e: SyntheticEvent<HTMLImageElement, Event>) => {
-    e.currentTarget.src = "/assets/image-dummy.png";
   };
 
   return (
@@ -66,12 +68,7 @@ const LinkCard = ({
           )}
         </div>
         <div className={styles.cardImgTop}>
-          <img
-            className={styles.image}
-            src={link.image_source ?? "/assets/image-dummy.png"}
-            onError={handleImgError}
-            alt={link.title}
-          />
+          <DynamicImage imgSrc={link.image_source} title={link.title} />
         </div>
         <div className={styles.cardCaption}>
           <div className={styles.info}>

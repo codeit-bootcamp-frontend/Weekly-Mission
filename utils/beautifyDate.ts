@@ -50,15 +50,17 @@ const beautifyTimeDiff: TBeautifyTimeDiff = (minutes) => {
  */
 const beautifyDate: TBeautifyDate = (createdAt) => {
   const creationDate: string = new Date(createdAt).toISOString();
-  const currentDate: string = new Date().toISOString();
-  const timeDiffInMinutes =
-    Math.abs(Number(currentDate) - Number(creationDate)) / 1000 / 60;
+  const creationDateForDiff: Date = new Date(createdAt);
+  const currentDateForDiff: Date = new Date();
 
+  const timeDiffInMinutes =
+    Math.abs(Number(currentDateForDiff) - Number(creationDateForDiff)) /
+    1000 /
+    60;
   const beautifiedTimeDiff = beautifyTimeDiff(timeDiffInMinutes);
 
   const [yyyy, mm, dd] = creationDate.split("T")[0].split("-");
   const beautifiedDate = `${yyyy}. ${mm[0] === "0" ? mm.slice(1) : mm}. ${dd}`;
-
   return { beautifiedDate, beautifiedTimeDiff };
 };
 
