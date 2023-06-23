@@ -1,6 +1,6 @@
-import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 
+import FolderContents from "@/components/FolderContents/FolderContents";
 import Gnb from "@/components/Gnb/Gnb";
 import getCurrentUser from "@/lib/getCurrentUser";
 import { getFolders } from "@/utils/axios/folderRequest";
@@ -8,11 +8,7 @@ import { getLinks } from "@/utils/axios/linkRequest";
 
 import styles from "./page.module.scss";
 
-const FolderContents = dynamic(
-  () => import("@/components/FolderContents/FolderContents"),
-  { ssr: false }
-);
-
+export const revalidate = 1000;
 const Tab = async ({
   params,
 }: {
