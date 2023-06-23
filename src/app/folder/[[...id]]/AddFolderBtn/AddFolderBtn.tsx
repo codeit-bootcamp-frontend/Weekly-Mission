@@ -5,14 +5,19 @@ import AddFolder from "@/app/components/Modals/ModalContents/AddFolder";
 import React, { useRef, useState } from "react";
 import Image from "next/image";
 import styles from "./AddFolderBtn.module.scss";
+import { postCreateFolder } from "@/lib/api/folderApi";
 
 const ADD_FOLDER_MODAL_PROPS = {
   type: "add",
   title: "폴더 추가",
-  proceedBtnText: "추가하기",
+  // proceedBtnText: "추가하기",
 };
 
-const AddFolderBtn = () => {
+interface AddFolderBtnProps {
+  userId: string;
+}
+
+const AddFolderBtn = ({ userId }: AddFolderBtnProps) => {
   const modalRef = useRef<HTMLDialogElement>(null);
   const [modalProps, setModalProps] = useState<ModalProps>({
     ...ADD_FOLDER_MODAL_PROPS,
@@ -31,10 +36,15 @@ const AddFolderBtn = () => {
     }
   };
 
+  const handleSubmitAddFolder = async (folderName: string) => {
+    const res = await postCreateFolder(userId, folderName);
+    console.log(res);
+  };
+
   const handleClickAddFolder = () => {
     setModalProps({
       ...ADD_FOLDER_MODAL_PROPS,
-      ui: <AddFolder />,
+      ui: <AddFolder onSubmit={handleSubmitAddFolder} />,
       modalRef,
       onClose: handleCloseModal,
     });

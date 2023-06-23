@@ -27,7 +27,7 @@ const MainContent = ({ params, userId, folderList }: MainContentProps) => {
           </li>
           <FolderChipList folderList={folderList} folderId={+folderId} />
         </ul>
-        <AddFolderBtn />
+        <AddFolderBtn userId={`${userId}`} />
       </div>
       <Suspense
         fallback={

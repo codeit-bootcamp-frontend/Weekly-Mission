@@ -1,0 +1,14 @@
+@use "/src/styles/variables" as var;
+@use "../Modal.module.scss";
+@use "./EditFolderName.module.scss";
+
+.proceedBtn {
+  @extend .proceedBtn;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
