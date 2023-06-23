@@ -10,36 +10,36 @@ import SelectMenu from "./SelectMenu";
 import ModalDeleteLink from "./ModalDeleteLink";
 import ModalAdd from "./ModalAdd";
 import { DEFAULT_LINK } from "@/data/defaultData";
+import { create } from "domain";
 
 interface Props {
   data: {
     id: number;
-    created_at?: string;
+    created_at?: string | null;
     updated_at?: string | null;
-    url?: string;
-    title?: string;
-    description?: string;
-    image_source?: string;
+    url?: string | null;
+    title?: string | null;
+    description?: string | null;
+    image_source?: string | null;
   };
 }
 
-export default function Card({
-  data: {
-    created_at = DEFAULT_LINK.createdAt,
-    url = DEFAULT_LINK.url,
-    title = DEFAULT_LINK.title,
-    description = DEFAULT_LINK.description,
-    image_source = DEFAULT_LINK.imageSource,
-  },
-}: Props) {
+export default function Card({ data: { created_at, url, title, description, image_source } }: Props) {
   const [isStartSelected, SetIsStarSelected] = useState(false);
   const [isKebabSelected, setIsKebabSelected] = useState(false);
   const [isModalDeleteLinkOpen, setIsModalDeleteLinkOpen] = useState(false);
   const [isModalAddOpen, setIsModalAddOpen] = useState(false);
 
+  created_at = created_at ?? DEFAULT_LINK.createdAt;
+  url = url ?? DEFAULT_LINK.url;
+  title = title ?? DEFAULT_LINK.title;
+  description = description ?? DEFAULT_LINK.description;
+  image_source = image_source ?? DEFAULT_LINK.imageSource;
+
   const timeDiffFormat = getTimeDiffFormat(created_at);
   const dateFormat = getDateFormat(created_at);
 
+  console.log(created_at, timeDiffFormat);
   const handleClickCard = () => {
     window.open(url);
   };
@@ -67,7 +67,7 @@ export default function Card({
     <>
       <div className={cx("card")} onClick={handleClickCard}>
         <div className={cx("card-image-container")}>
-          <Image fill className={cx("card-image")} src={image_source} alt={title} />
+          {image_source && <Image fill className={cx("card-image")} src={image_source} alt={title} />}
           <button className={cx("star-button")} onClick={handleClickStar}>
             <Image className={cx("star-icon")} src="/images/default-star.svg" alt="북마크 아이콘" width={30} height={31} />
           </button>
