@@ -5,7 +5,7 @@ import { useState } from "react";
 import classNames from "classnames/bind";
 
 import useFolderLinksCount from "@/hooks/useFolderLinksCount";
-import { useUserId } from "@/hooks/useUserContext";
+import { useUserId } from "@/hooks/useUserIdContext";
 import { Folder, Link } from "@/utils/api/types";
 
 import ModalFrame from "../ModalFrame";

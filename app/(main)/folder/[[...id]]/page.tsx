@@ -15,7 +15,7 @@ import FolderChip from "@/components/FolderChip";
 import Option from "@/components/Option";
 import SearchBar from "@/components/SearchBar";
 import { useSetInViewGNB } from "@/hooks/useInViewGNBContext";
-import { useUserId } from "@/hooks/useUserContext";
+import { useUserId } from "@/hooks/useUserIdContext";
 import {
   deleteFolder,
   deleteLink,
