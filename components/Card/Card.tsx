@@ -34,13 +34,8 @@ export default function Card({
 
   const [shownMenu, setShownMenu] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-
-  const [date, setDate] = useState(new Date("2023-06-22"));
-
-  // TODO: Minified React #425 에러 해결
-  useEffect(() => {
-    setDate(new Date());
-  }, []);
+  const [currentTime, setCurrentTime] = useState<Date | null>(null);
+  const [createdTime, setCreatedTime] = useState<Date | null>(null);
 
   const handleClickKebab = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -70,6 +65,11 @@ export default function Card({
     };
   }, [shownMenu]);
 
+  useEffect(() => {
+    setCurrentTime(new Date());
+    setCreatedTime(new Date(link.created_at));
+  }, [link.created_at]);
+
   return (
     <article
       className={cx("card", { notShownMenu: !shownMenu })}
@@ -88,7 +88,7 @@ export default function Card({
       </div>
       <div className={cx("contentContainer")}>
         <div className={cx("passedTime")}>
-          {calculatePassedTime(new Date(link.created_at), date)}
+          {calculatePassedTime(createdTime, currentTime)}
         </div>
         <button
           style={{
@@ -106,9 +106,7 @@ export default function Card({
           </div>
         )}
         <h2 className={cx("content")}>{link.description}</h2>
-        <div className={cx("createdDate")}>
-          {changeDateFormat(new Date(link.created_at))}
-        </div>
+        <div className={cx("createdDate")}>{changeDateFormat(createdTime)}</div>
       </div>
     </article>
   );

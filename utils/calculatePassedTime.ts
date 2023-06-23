@@ -1,9 +1,14 @@
-const calculatePassedTime = (createdTime: Date, currentTime: Date): string => {
+const calculatePassedTime = (
+  createdTime: Date | null,
+  currentTime: Date | null,
+): string => {
   const MINUTE = 60 * 1000;
   const HOUR = 60 * MINUTE;
   const DAY = 24 * HOUR;
   const MONTH = 31 * DAY;
   const YEAR = 12 * MONTH;
+
+  if (!createdTime || !currentTime) return "";
 
   const timeDiff = currentTime.getTime() - createdTime.getTime();
 
