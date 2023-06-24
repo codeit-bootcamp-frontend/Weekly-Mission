@@ -71,7 +71,7 @@
     border-radius: 20px;
 
     &.upperFooter {
-      bottom: 16px;
+      bottom: calc(160px + 16px);
     }
     &.upperBottom,
     &.undefined {
@@ -83,6 +83,9 @@
   }
 
   .folderChipFieldWrapper {
+    .chipWrapper {
+      max-width: 100%;
+    }
     .buttonWrapper {
       .buttonText {
         color: var-color.$linkbrary-gray-10;
