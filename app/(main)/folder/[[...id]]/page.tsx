@@ -22,6 +22,7 @@ import {
   getFolder,
   getFolders,
   getLinks,
+  postFolder,
   putFolder,
 } from "@/utils/api";
 import { Folder, Link, SelectedFolder } from "@/utils/api/types";
@@ -45,8 +46,9 @@ export default function Folder({ params }: { params: { id: string[] } }) {
 
   const folderParam = convertParamToNum(params.id);
 
-  const onAddFolder = (name: string) => {
-    return;
+  const onAddFolder = async (name: string) => {
+    const addedFolder = await postFolder(name, userId);
+    setFolders([...folders, addedFolder]);
   };
 
   const onEditFolder = async (newName: string, id: number) => {

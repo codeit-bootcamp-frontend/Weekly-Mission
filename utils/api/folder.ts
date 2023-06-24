@@ -29,4 +29,15 @@ const putFolder = async (name: string, folderId: number) => {
   });
 };
 
-export { getFolder, getFolders, deleteFolder, putFolder };
+const postFolder = async (name: string, userId: number) => {
+  const res = await instance.post<never, Folder[]>("folders", {
+    name,
+    userId,
+  });
+  if (res.length === 0) {
+    res;
+  }
+  return res[0];
+};
+
+export { getFolder, getFolders, deleteFolder, putFolder, postFolder };
