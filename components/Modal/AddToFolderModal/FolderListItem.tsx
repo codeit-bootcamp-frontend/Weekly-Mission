@@ -15,7 +15,7 @@ interface FolderListItemProps {
   folder: Folder;
   linkNum: number;
   selected: boolean;
-  onClick: (itemId: number) => void;
+  onClick: (itemId: number, selected: boolean) => void;
 }
 
 export default function FolderListItem({
@@ -29,7 +29,7 @@ export default function FolderListItem({
   return (
     <div
       className={cx("container", { selected })}
-      onClick={() => onClick(folder.id)}
+      onClick={() => onClick(folder.id, selected)}
     >
       <div className={cx("textContainer")}>
         <p className={cx("name", { selected })}>{folder.name}</p>

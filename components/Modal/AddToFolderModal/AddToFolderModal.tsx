@@ -19,28 +19,25 @@ interface AddToFolderModalProps {
   link: Link;
   folders: Folder[];
   onClose: () => void;
+  onAddLink: (url: string, folderId: number | null) => void;
 }
 
 export default function AddToFolderModal({
   link,
   folders,
   onClose,
+  onAddLink,
 }: AddToFolderModalProps) {
-  const [selectedFolderId, setSelectedFolderId] = useState(0);
+  const [selectedFolderId, setSelectedFolderId] = useState<number | null>(null);
   const userId = useUserId();
   const linkNums = useFolderLinksCount(folders, userId);
 
-  const handleClickItem = (itemId: number) => {
-    setSelectedFolderId(itemId);
-  };
-
-  const onAddToFolder = (link: Link, folderId: number) => {
-    link;
-    return folderId;
+  const handleClickItem = (itemId: number, selected: boolean) => {
+    selected ? setSelectedFolderId(null) : setSelectedFolderId(itemId);
   };
 
   const handleClickAddButton = () => {
-    onAddToFolder(link, selectedFolderId);
+    onAddLink(link.url, selectedFolderId);
     onClose();
   };
 

@@ -23,6 +23,7 @@ import {
   getFolders,
   getLinks,
   postFolder,
+  postLink,
   putFolder,
 } from "@/utils/api";
 import { Folder, Link, SelectedFolder } from "@/utils/api/types";
@@ -45,6 +46,20 @@ export default function Folder({ params }: { params: { id: string[] } }) {
   const router = useRouter();
 
   const folderParam = convertParamToNum(params.id);
+
+  const onAddLink = async (url: string, folderId: number | null) => {
+    const linkRes = await postLink(url, userId, folderId);
+    if (!linkRes) return;
+    // TODO: 중복된 링크일 경우는 아직 고려 안함
+    // TODO: card를 통한 추가에서 folder_id 선택 안했을 때와, 링크 추가를 통한 추가에서 folder_id 선택 안했을 때의 구분
+    if (linkRes.folder_id === folderParam) {
+      setLinks([linkRes, ...links]);
+      return;
+    }
+    if (folderParam === 0 && linkRes.folder_id === null) {
+      setLinks([linkRes, ...links]);
+    }
+  };
 
   const onAddFolder = async (name: string) => {
     const addedFolder = await postFolder(name, userId);
@@ -156,6 +171,7 @@ export default function Folder({ params }: { params: { id: string[] } }) {
                             folder.name !== currentFolder?.name,
                         )}
                         onDelete={onDeleteLink}
+                        onAddLink={onAddLink}
                       />
                     }
                   />

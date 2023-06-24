@@ -5,7 +5,7 @@ import {
   postFolder,
   putFolder,
 } from "./folder";
-import { getLinks, deleteLink } from "./link";
+import { getLinks, deleteLink, postLink } from "./link";
 import { getUser } from "./user";
 
 export {
@@ -17,4 +17,5 @@ export {
   deleteLink,
   putFolder,
   postFolder,
+  postLink,
 };

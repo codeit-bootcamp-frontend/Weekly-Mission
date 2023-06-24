@@ -16,12 +16,14 @@ interface MyCardMenuProps {
   link: Link;
   folders: Folder[];
   onDelete: (id: number) => void;
+  onAddLink: (url: string, folderId: number | null) => void;
 }
 
 export default function MyCardMenu({
   link,
   folders,
   onDelete,
+  onAddLink,
 }: MyCardMenuProps) {
   const [shownDeleteModal, setShownDeleteModal] = useState(false);
   const [shownAddToFolderModal, setShownAddToFolderModal] = useState(false);
@@ -64,6 +66,7 @@ export default function MyCardMenu({
           link={link}
           folders={folders}
           onClose={closeAddToFolderModal}
+          onAddLink={onAddLink}
         />
       )}
     </>
