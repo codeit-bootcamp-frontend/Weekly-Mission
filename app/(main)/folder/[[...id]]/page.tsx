@@ -14,8 +14,8 @@ import MyCardMenu from "@/components/Card/MyCardMenu";
 import FolderChip from "@/components/FolderChip";
 import Option from "@/components/Option";
 import SearchBar from "@/components/SearchBar";
+import { useCurrentUser } from "@/hooks/useCurrentUserContext";
 import { useSetInViewGNB } from "@/hooks/useInViewGNBContext";
-import { useUserId } from "@/hooks/useUserIdContext";
 import {
   deleteFolder,
   deleteLink,
@@ -34,7 +34,7 @@ import styles from "./page.module.scss";
 const cx = classNames.bind(styles);
 
 export default function Folder({ params }: { params: { id: string[] } }) {
-  const userId = useUserId();
+  const { id: userId } = useCurrentUser();
   const [currentFolder, setCurrentFolder] = useState<SelectedFolder | null>(
     null,
   );

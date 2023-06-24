@@ -5,7 +5,7 @@ import { CustomInstance } from "./types";
 const instance: CustomInstance = axios.create({
   baseURL:
     process.env.NODE_ENV === "development"
-      ? "http://localhost:3000/"
+      ? "http://localhost:3000"
       : // CHECK: 서버 URL
         "https://weekly-mission-git-ian-react-week14-codeit-bootcamp.vercel.app",
   timeout: 10000,

@@ -4,8 +4,8 @@ import { useState } from "react";
 
 import classNames from "classnames/bind";
 
+import { useCurrentUser } from "@/hooks/useCurrentUserContext";
 import useFolderLinksCount from "@/hooks/useFolderLinksCount";
-import { useUserId } from "@/hooks/useUserIdContext";
 import { Folder, Link } from "@/utils/api/types";
 
 import ModalFrame from "../ModalFrame";
@@ -29,7 +29,7 @@ export default function AddToFolderModal({
   onAddLink,
 }: AddToFolderModalProps) {
   const [selectedFolderId, setSelectedFolderId] = useState<number | null>(null);
-  const userId = useUserId();
+  const { id: userId } = useCurrentUser();
   const linkNums = useFolderLinksCount(folders, userId);
 
   const handleClickItem = (itemId: number, selected: boolean) => {
