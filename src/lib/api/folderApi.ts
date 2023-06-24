@@ -1,4 +1,4 @@
-import { getRequest, postRequest } from "./common";
+import { deleteRequest, getRequest, postRequest } from "./common";
 
 export const getSampleFolder = async () => {
   const response = await getRequest(`/sample/folder`);
@@ -27,5 +27,10 @@ export const postCreateFolder = async (userId: string, folderName: string) => {
     name: folderName,
     userId: userId,
   });
+  return response;
+};
+
+export const deleteFolder = async (folderId: number) => {
+  const response = await deleteRequest(`/folders/${folderId}`);
   return response;
 };

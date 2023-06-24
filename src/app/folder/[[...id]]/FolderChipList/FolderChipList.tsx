@@ -1,4 +1,3 @@
-"use client";
 import { Folder } from "@/app/types/types";
 import React from "react";
 import FolderChip from "../FolderChip/FolderChip";

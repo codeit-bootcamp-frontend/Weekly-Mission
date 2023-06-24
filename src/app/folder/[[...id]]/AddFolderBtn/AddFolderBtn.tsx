@@ -38,7 +38,9 @@ const AddFolderBtn = ({ userId }: AddFolderBtnProps) => {
 
   const handleSubmitAddFolder = async (folderName: string) => {
     const res = await postCreateFolder(userId, folderName);
-    console.log(res);
+    if (modalRef.current) {
+      modalRef.current.close();
+    }
   };
 
   const handleClickAddFolder = () => {

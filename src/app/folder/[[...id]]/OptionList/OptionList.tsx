@@ -6,12 +6,14 @@ import Modal, { ModalProps } from "@/app/components/Modals/Modal";
 import ShareFolder from "@/app/components/Modals/ModalContents/ShareFolder";
 import EditFolderName from "@/app/components/Modals/ModalContents/EditFolderName";
 import styles from "./OptionList.module.scss";
+import DeleteFolder from "@/app/components/Modals/ModalContents/DeleteFolder";
+import { deleteFolder } from "@/lib/api/folderApi";
+import { useRouter } from "next/navigation";
 
 const DELETE_FOLDER_MODAL_PROPS = {
   type: "delete",
   title: "폴더 삭제",
   subtitle: "폴더명",
-  proceedBtnText: "삭제하기",
 };
 
 const SHARE_FOLDER_MODAL_PROPS = {
@@ -32,13 +34,18 @@ const ADD_FOLDER_MODAL_PROPS = {
   proceedBtnText: "추가하기",
 };
 
-const OptionList = () => {
+interface OptionListProps {
+  folderId: number;
+}
+
+const OptionList = ({ folderId }: OptionListProps) => {
   const modalRef = useRef<HTMLDialogElement>(null);
   const [modalProps, setModalProps] = useState<ModalProps>({
     ...ADD_FOLDER_MODAL_PROPS,
     modalRef,
     onClose: () => {},
   });
+  const router = useRouter();
   const handleCloseModal = () => {
     if (modalRef.current) {
       modalRef.current.close();
@@ -49,6 +56,12 @@ const OptionList = () => {
     if (modalRef.current) {
       modalRef.current.showModal();
     }
+  };
+
+  const handleDeleteFolder = async () => {
+    await deleteFolder(folderId);
+    handleCloseModal();
+    router.push("/folder");
   };
 
   const handleClickShareFolder = () => {
@@ -76,6 +89,7 @@ const OptionList = () => {
   const handleClickDeleteFolder = () => {
     setModalProps({
       ...DELETE_FOLDER_MODAL_PROPS,
+      ui: <DeleteFolder onDelete={handleDeleteFolder} />,
       onClose: handleCloseModal,
       modalRef,
     });

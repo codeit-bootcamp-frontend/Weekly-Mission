@@ -43,7 +43,7 @@ const CardListContainer = async ({
               "제목없음"
             : "전체"}
         </h2>
-        <OptionList />
+        <OptionList folderId={folderId} />
       </div>
       <article className={styles.cardList}>
         {cardList.length > 0 ? (
