@@ -22,6 +22,7 @@ import {
   getFolder,
   getFolders,
   getLinks,
+  putFolder,
 } from "@/utils/api";
 import { Folder, Link, SelectedFolder } from "@/utils/api/types";
 import convertParamToNum from "@/utils/convertParamToNum";
@@ -45,11 +46,17 @@ export default function Folder({ params }: { params: { id: string[] } }) {
   const folderParam = convertParamToNum(params.id);
 
   const onAddFolder = (name: string) => {
-    return name;
+    return;
   };
 
-  const onEditFolder = (newName: string) => {
-    return newName;
+  const onEditFolder = async (newName: string, id: number) => {
+    await putFolder(newName, id);
+    const updatedFolders = folders.map((folder) => {
+      if (folder.id === id) return { ...folder, name: newName };
+      return folder;
+    });
+    setFolders(updatedFolders);
+    setCurrentFolder({ id, name: newName });
   };
 
   const onDeleteFolder = async (id: number) => {

@@ -2,8 +2,9 @@
 
 import classNames from "classnames/bind";
 
+import ModalFrame from "../ModalFrame";
+
 import styles from "./DeleteModal.module.scss";
-import ModalFrame from "./ModalFrame";
 
 const cx = classNames.bind(styles);
 

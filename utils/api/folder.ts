@@ -23,4 +23,10 @@ const deleteFolder = async (folderId: number) => {
   await instance.delete(`folders/${folderId}`);
 };
 
-export { getFolder, getFolders, deleteFolder };
+const putFolder = async (name: string, folderId: number) => {
+  await instance.put(`folders/${folderId}`, {
+    name,
+  });
+};
+
+export { getFolder, getFolders, deleteFolder, putFolder };

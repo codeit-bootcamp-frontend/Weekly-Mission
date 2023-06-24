@@ -5,7 +5,8 @@ import Image from "next/image";
 
 import { SelectedFolder } from "@/utils/api/types";
 
-import ModalFrame from "./ModalFrame";
+import ModalFrame from "../ModalFrame";
+
 import styles from "./ShareModal.module.scss";
 
 import copyLink from "@/public/images/copy-link.svg";
