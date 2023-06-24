@@ -12,6 +12,7 @@ interface IFolderChipFieldProps {
   currentTab: number;
   inView: boolean | null;
   isLinks: boolean;
+  isTransition: boolean;
 }
 
 const FolderChipField = ({
@@ -20,6 +21,7 @@ const FolderChipField = ({
   currentTab,
   inView,
   isLinks,
+  isTransition,
 }: IFolderChipFieldProps) => {
   return (
     <div className={styles.folderChipFieldWrapper}>
@@ -35,7 +37,12 @@ const FolderChipField = ({
           );
         })}
       </div>
-      <Fab userId={userId} inView={inView} isLinks={isLinks} />
+      <Fab
+        userId={userId}
+        inView={inView}
+        isLinks={isLinks}
+        isTransition={isTransition}
+      />
     </div>
   );
 };

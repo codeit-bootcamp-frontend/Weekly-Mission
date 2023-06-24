@@ -11,9 +11,10 @@ interface IFabProps {
   userId: number;
   inView: boolean | null;
   isLinks: boolean;
+  isTransition: boolean;
 }
 
-const Fab = ({ userId, inView, isLinks }: IFabProps) => {
+const Fab = ({ userId, inView, isLinks, isTransition }: IFabProps) => {
   const [openAddFolderModal, setOpenAddFolderModal] = useState<boolean>(false);
 
   const addPosition = (inView: boolean | null, isLinks: boolean) => {
@@ -26,8 +27,8 @@ const Fab = ({ userId, inView, isLinks }: IFabProps) => {
     <>
       <div
         className={`${styles.buttonWrapper} ${
-          styles[`${addPosition(inView, isLinks)}`]
-        }`}
+          styles[`${isTransition ? "tr" : "not-tr"}`]
+        } ${styles[`${addPosition(inView, isLinks)}`]}`}
         onClick={() => setOpenAddFolderModal(true)}
       >
         <span className={styles.buttonText}>폴더 추가</span>

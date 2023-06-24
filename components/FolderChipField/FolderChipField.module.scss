@@ -80,6 +80,15 @@
     &.upperAddLink {
       bottom: calc(85px + 16px);
     }
+
+    &.tr {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    &.not-tr {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
   }
 
   .folderChipFieldWrapper {
