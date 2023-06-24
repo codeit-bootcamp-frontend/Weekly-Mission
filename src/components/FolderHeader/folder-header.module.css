@@ -1,0 +1,66 @@
+.folderHeaderContainer {
+  display: flex;
+  justify-content: space-between;
+  max-width: 106rem;
+  margin: 0 auto;
+}
+
+.folderHeaderOptionsContainer {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.folderTitle {
+  font-size: 2.4rem;
+  font-weight: 600;
+  padding: 2.4rem 0;
+}
+
+.folderTitle {
+  font-size: 2rem;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  position: relative;
+}
+
+.icon {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.text {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--linkbrary-blue-gray);
+}
+
+.button {
+  display: flex;
+  gap: 4px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .folderHeaderContainer {
+    display: grid;
+    gap: 1.2rem;
+  }
+
+  .folderTitle {
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 2.8rem 0 0;
+  }
+
+  .folderHeaderOptionsContainer {
+    gap: 1.2rem;
+  }
+}

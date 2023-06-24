@@ -1,0 +1,13 @@
+.starWrapper {
+  cursor: pointer;
+}
+
+.starWrapper svg path {
+  fill: var(--linkbrary-black);
+  fill-opacity: 0.2;
+}
+
+.starWrapper.starred svg path {
+  fill: var(--linkbrary-primary);
+  fill-opacity: 1;
+}

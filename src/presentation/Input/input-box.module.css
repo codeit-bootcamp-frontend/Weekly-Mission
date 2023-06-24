@@ -1,0 +1,30 @@
+.input > input {
+  display: block;
+  width: 28rem;
+  height: 6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1.8rem 1.5rem;
+  background: #ffffff;
+  outline: none;
+  border: 1px solid var(--linkbrary-light-blue-gray);
+  border-radius: 0.8rem;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 24px;
+  color: var(--linkbrary-blue-gray);
+}
+
+.input > input:focus {
+  color: var(--linkbrary-gray-100);
+  border: 1px solid var(--linkbrary-primary);
+}
+
+.input > input::placeholder {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 24px;
+  color: var(--linkbrary-blue-gray);
+}

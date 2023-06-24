@@ -1,0 +1,41 @@
+.modalContainer {
+  width: 36rem;
+  height: fit-content;
+  background-color: #ffffff;
+  padding: 3.5rem 4rem;
+  position: relative;
+  border: 0.1rem solid #ccd5e3;
+  border-radius: 1.5rem;
+}
+
+.contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.title {
+  width: 28rem;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2.4rem;
+  text-align: center;
+  color: var(--linkbrary-gray-100);
+  margin: 0;
+}
+
+.subTitle {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--linkbrary-blue-gray);
+  margin: 0;
+}

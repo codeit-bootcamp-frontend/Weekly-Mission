@@ -1,0 +1,26 @@
+.tabContainer {
+  width: max-content;
+  height: fit-content;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  color: #000000;
+  background: #ffffff;
+  border: 0.1rem solid var(--linkbrary-primary);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.tabContainer.true {
+  background: var(--linkbrary-primary);
+  color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+  .tabContainer {
+    font-size: 1.4rem;
+  }
+}

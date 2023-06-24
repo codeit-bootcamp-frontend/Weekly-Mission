@@ -1,0 +1,28 @@
+.heroSection {
+  text-align: center;
+  padding: 2rem 0 6rem;
+  background-color: var(--linkbrary-white-smoke);
+}
+
+@media screen and (max-width: 768px) {
+  .heroSection {
+    padding: 1rem 0 4rem;
+  }
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 106rem;
+}
+
+@media screen and (max-width: 1199px) {
+  .wrapper {
+    max-width: 70.4rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    max-width: 32.5rem;
+  }
+}

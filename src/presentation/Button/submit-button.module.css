@@ -1,0 +1,30 @@
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1.6rem 2rem;
+  width: 28rem;
+  height: 5.1rem;
+  border: 0;
+  border-radius: 0.8rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  display: flex;
+  align-items: center;
+  color: #f5f5f5;
+  cursor: pointer;
+}
+
+.blue {
+  background: linear-gradient(
+    90.99deg,
+    var(--linkbrary-primary) 0.12%,
+    #6ae3fe 101.84%
+  );
+}
+
+.red {
+  background-color: var(--linkbrary-red);
+}

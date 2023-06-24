@@ -1,0 +1,32 @@
+.userInfo {
+  margin: 2rem auto;
+}
+
+.userName {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  margin: 1.2rem 0 0;
+}
+
+.pageHeading {
+  padding-top: 2rem;
+  margin: 0;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 4rem;
+}
+
+@media screen and (max-width: 768px) {
+  .userInfo {
+    margin: 1rem auto;
+  }
+
+  .pageHeading {
+    padding-top: 1rem;
+    margin: 0;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3.2rem;
+  }
+}
