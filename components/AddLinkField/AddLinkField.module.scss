@@ -9,13 +9,22 @@
     padding: 60px 32px 90px;
     background-color: var-color.$linkbrary-bg;
 
-    &.false {
+    &.not-view {
       position: fixed;
       width: 100%;
       background: var-color.$linkbrary-bg;
       bottom: 0;
       z-index: 99;
       padding: 16px 32px 16px;
+    }
+
+    &.tr {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    &.not-tr {
+      opacity: 1;
+      transition: opacity 0.3s ease;
     }
   }
 
