@@ -9,10 +9,11 @@ const useFolderLinksCount = (folders: Folder[], userId: number) => {
   useEffect(() => {
     const countLinksNum = async () => {
       const folderIds = folders.map((folder) => folder.id);
-      const responses = await Promise.all(
-        folderIds.map((folderId) => getLinks(userId, folderId)),
+      const linksRes = await getLinks(userId);
+      const linkCounts = folderIds.map(
+        (folderId) =>
+          linksRes.filter((link) => link.folder_id === folderId).length,
       );
-      const linkCounts = responses.map((links) => links.length);
       setLinkNums(linkCounts);
     };
 
