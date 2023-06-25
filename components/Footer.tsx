@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import styles from "@/components/Footer.module.scss";
-import { arial } from "@/styles/fonts/localFont";
+import { arial } from "@/public/fonts/localFont";
 
 import facebookLogo from "@/public/images/sns-logo-facebook.png";
 import instagramLogo from "@/public/images/sns-logo-instagram.png";

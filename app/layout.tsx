@@ -1,6 +1,6 @@
 import { META_ROOT } from "@/app/_meta";
 import { CurrentUserProvider } from "@/hooks/useCurrentUserContext";
-import { pretendard } from "@/styles/fonts/localFont";
+import { pretendard } from "@/public/fonts/localFont";
 import "@/styles/global.scss";
 import { Children } from "@/types";
 
