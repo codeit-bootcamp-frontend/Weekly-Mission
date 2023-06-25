@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React, { ReactNode, useEffect, useRef, useState } from "react";
@@ -53,6 +54,11 @@ export default function Card({ link, menuComponent }: CardProps) {
     }
   };
 
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    const ImgElement = e.target as HTMLImageElement;
+    ImgElement.src = defaultCardImg;
+  };
+
   useEffect(() => {
     if (shownMenu) {
       document.addEventListener("click", handleClickOutside);
@@ -73,12 +79,12 @@ export default function Card({ link, menuComponent }: CardProps) {
       onClick={handleClickCard}
     >
       <div className={cx("imageContainer")}>
-        <div
+        <img
+          src={link.image_source ?? defaultCardImg}
+          alt={link.title}
           className={cx("cardImg")}
-          style={{
-            backgroundImage: `url(${link.image_source ?? defaultCardImg})`,
-          }}
-        ></div>
+          onError={handleImageError}
+        />
         <div className={cx("star")}>
           <Star />
         </div>
