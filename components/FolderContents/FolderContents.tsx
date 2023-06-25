@@ -1,11 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
-
 import CurrentFolderMenu from "@/components/CurrentFolderMenu/CurrentFolderMenu";
 import FolderChipField from "@/components/FolderChipField/FolderChipField";
 import LinkField from "@/components/LinkField/LinkField";
 import SearchBar from "@/components/SearchBar/SearchBar";
+import useViewBottom from "@/hooks/useViewBottom";
 import useViewObserver from "@/hooks/useViewObserver";
 import { IFolder, ILink } from "@/types/linkbrary";
 
@@ -27,40 +26,12 @@ const FolderContents = ({
 }: IFolderContentsProps) => {
   // TODO: 전역 상태로 inView를 관리하고, AddLink만 client component로 좁히기
   const { inView, observerTargetRefs } = useViewObserver();
+  const { isTransition, scrollRef } = useViewBottom();
 
   const folderList = folders.length
     ? [{ id: 0, name: "전체", user_id: userId }, ...folders]
     : folders;
   const currentFolder = folderList.find((folder) => folder.id === currentTab);
-
-  const FOOTER_HEIGHT = 160;
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [throttle, setThrottle] = useState(false);
-  const [isTransition, setIsTransition] = useState(false);
-
-  const handleScroll = useCallback(() => {
-    if (throttle) return;
-    if (!throttle) {
-      setThrottle(true);
-      setTimeout(() => {
-        if (scrollRef.current) {
-          const currentScrollPosition =
-            scrollRef.current.getBoundingClientRect().bottom + window.scrollY; // pageYOffset == scrollY
-          const IntersectedFooter = document.body.scrollHeight - FOOTER_HEIGHT;
-          setIsTransition(currentScrollPosition >= IntersectedFooter);
-          setThrottle(false);
-        }
-      }, 300);
-    }
-  }, [throttle]);
-
-  useEffect(() => {
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [handleScroll]);
 
   return (
     <>
