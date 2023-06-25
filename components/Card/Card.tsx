@@ -45,7 +45,12 @@ export default function Card({ link, menuComponent }: CardProps) {
   };
 
   const handleClickCard = () => {
-    if (!shownMenu) window.open(link.url, "_blank");
+    if (!shownMenu) {
+      const httpUrl = link.url.match(/^https?:\/\//i)
+        ? link.url
+        : "http://" + link.url;
+      window.open(httpUrl, "_blank");
+    }
   };
 
   useEffect(() => {
