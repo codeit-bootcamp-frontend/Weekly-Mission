@@ -63,7 +63,7 @@ export default function MyCardMenu({
       )}
       {shownAddToFolderModal && (
         <AddToFolderModal
-          link={link}
+          url={link.url}
           folders={folders}
           onClose={closeAddToFolderModal}
           onAddLink={onAddLink}

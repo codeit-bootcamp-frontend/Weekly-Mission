@@ -16,14 +16,14 @@ import FolderListItem from "./FolderListItem";
 const cx = classNames.bind(styles);
 
 interface AddToFolderModalProps {
-  link: Link;
+  url: Link["url"];
   folders: Folder[];
   onClose: () => void;
   onAddLink: (url: string, folderId: number | null) => void;
 }
 
 export default function AddToFolderModal({
-  link,
+  url,
   folders,
   onClose,
   onAddLink,
@@ -37,7 +37,7 @@ export default function AddToFolderModal({
   };
 
   const handleClickAddButton = () => {
-    onAddLink(link.url, selectedFolderId);
+    onAddLink(url, selectedFolderId);
     onClose();
   };
 
@@ -46,7 +46,7 @@ export default function AddToFolderModal({
       <div className={cx("container")}>
         <div className={cx("textContainer")}>
           <h3 className={cx("title")}>폴더에 추가</h3>
-          <p className={cx("content")}>{link.url}</p>
+          <p className={cx("content")}>{url}</p>
         </div>
         <div className={cx("list")}>
           {/* // TODO: Suspense 처리 */}
