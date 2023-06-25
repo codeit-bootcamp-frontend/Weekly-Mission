@@ -5,8 +5,8 @@ import { useState } from "react";
 import classNames from "classnames/bind";
 
 import { useCurrentUser } from "@/hooks/useCurrentUserContext";
-import useFolderLinksCount from "@/hooks/useFolderLinksCount";
-import { Folder, Link } from "@/utils/api/types";
+import useFolderAddedLinkNums from "@/hooks/useFolderAddedLinkNum";
+import { Link } from "@/utils/api/types";
 
 import ModalFrame from "../ModalFrame";
 
@@ -17,27 +17,27 @@ const cx = classNames.bind(styles);
 
 interface AddToFolderModalProps {
   url: Link["url"];
-  folders: Folder[];
   onClose: () => void;
-  onAddLink: (url: string, folderId: number | null) => void;
+  onAddLink: (url: string, userId: number, folderId: number | null) => void;
+  currentFolderId?: number | null;
 }
 
 export default function AddToFolderModal({
   url,
-  folders,
   onClose,
   onAddLink,
+  currentFolderId = null,
 }: AddToFolderModalProps) {
   const [selectedFolderId, setSelectedFolderId] = useState<number | null>(null);
   const { id: userId } = useCurrentUser();
-  const linkNums = useFolderLinksCount(folders, userId);
+  const folderList = useFolderAddedLinkNums(userId, currentFolderId);
 
   const handleClickItem = (itemId: number, selected: boolean) => {
     selected ? setSelectedFolderId(null) : setSelectedFolderId(itemId);
   };
 
   const handleClickAddButton = () => {
-    onAddLink(url, selectedFolderId);
+    onAddLink(url, userId, selectedFolderId);
     onClose();
   };
 
@@ -50,12 +50,11 @@ export default function AddToFolderModal({
         </div>
         <div className={cx("list")}>
           {/* // TODO: Suspense 처리 */}
-          {linkNums.length > 0 &&
-            folders.map((folder, idx) => (
+          {folderList.length > 0 &&
+            folderList.map((folder) => (
               <FolderListItem
                 key={folder.id}
                 folder={folder}
-                linkNum={linkNums[idx]}
                 selected={selectedFolderId === folder.id}
                 onClick={handleClickItem}
               />

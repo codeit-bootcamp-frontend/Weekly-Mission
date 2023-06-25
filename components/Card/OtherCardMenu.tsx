@@ -5,18 +5,14 @@ import { useState } from "react";
 import classNames from "classnames/bind";
 
 import AddToFolderModal from "@/components/Modal/AddToFolderModal/AddToFolderModal";
-import { Folder, Link } from "@/utils/api/types";
+import { postLink } from "@/utils/api";
+import { Link } from "@/utils/api/types";
 
 import styles from "./Menu.module.scss";
 
 const cx = classNames.bind(styles);
 
-interface OtherCardMenuProps {
-  link: Link;
-  folders: Folder[];
-}
-
-export default function OtherCardMenu({ link, folders }: OtherCardMenuProps) {
+export default function OtherCardMenu({ url }: { url: Link["url"] }) {
   const [shownAddToFolderModal, setShownAddToFolderModal] = useState(false);
 
   const openAddToFolderModal = () => {
@@ -25,6 +21,14 @@ export default function OtherCardMenu({ link, folders }: OtherCardMenuProps) {
 
   const closeAddToFolderModal = () => {
     setShownAddToFolderModal(false);
+  };
+
+  const onAddLink = async (
+    url: string,
+    currentUserId: number,
+    folderId: number | null,
+  ) => {
+    await postLink(url, currentUserId, folderId);
   };
 
   return (
@@ -36,9 +40,9 @@ export default function OtherCardMenu({ link, folders }: OtherCardMenuProps) {
       </div>
       {shownAddToFolderModal && (
         <AddToFolderModal
-          link={link}
-          folders={folders}
+          url={url}
           onClose={closeAddToFolderModal}
+          onAddLink={onAddLink}
         />
       )}
     </>

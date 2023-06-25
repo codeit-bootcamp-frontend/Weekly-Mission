@@ -46,20 +46,17 @@ export default function Folder({ params }: { params: { id: string[] } }) {
   const router = useRouter();
 
   const folderParam = convertParamToNum(params.id);
-  const filteredFolder = folders.filter(
-    (folder) =>
-      folder.name !== "⭐️ 즐겨찾기" && folder.name !== currentFolder?.name,
-  );
 
-  const onAddLink = async (url: string, folderId: number | null) => {
+  const onAddLink = async (
+    url: string,
+    userId: number,
+    folderId: number | null,
+  ) => {
     const linkRes = await postLink(url, userId, folderId);
     if (!linkRes) return;
     // TODO: 중복된 링크일 경우는 아직 고려 안하는 걸로,,
     // TODO: card를 통한 추가에서 folder_id 선택 안했을 때와, 링크 추가를 통한 추가에서 folder_id 선택 안했을 때의 구분
-    if (
-      folderParam === linkRes.folder_id ||
-      (folderParam === 0 && linkRes.folder_id === null)
-    )
+    if (folderParam === linkRes.folder_id || folderParam === 0)
       setLinks([linkRes, ...links]);
   };
 
@@ -124,7 +121,7 @@ export default function Folder({ params }: { params: { id: string[] } }) {
         })}
       >
         <div className={cx("addLinkBarContainer")}>
-          <AddLinkBar folders={filteredFolder} onAddLink={onAddLink} />
+          <AddLinkBar onAddLink={onAddLink} />
         </div>
       </div>
       <main className={cx("main", { addLinkAtBottom: !inViewAddLink })}>
@@ -168,9 +165,9 @@ export default function Folder({ params }: { params: { id: string[] } }) {
                     menuComponent={
                       <MyCardMenu
                         link={link}
-                        folders={filteredFolder}
                         onDelete={onDeleteLink}
                         onAddLink={onAddLink}
+                        currentFolderId={folderParam}
                       />
                     }
                   />

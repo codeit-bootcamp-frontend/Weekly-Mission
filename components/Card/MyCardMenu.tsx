@@ -6,7 +6,7 @@ import classNames from "classnames/bind";
 
 import AddToFolderModal from "@/components/Modal/AddToFolderModal/AddToFolderModal";
 import DeleteModal from "@/components/Modal/DeleteModal/DeleteModal";
-import { Folder, Link } from "@/utils/api/types";
+import { Link } from "@/utils/api/types";
 
 import styles from "./Menu.module.scss";
 
@@ -14,16 +14,16 @@ const cx = classNames.bind(styles);
 
 interface MyCardMenuProps {
   link: Link;
-  folders: Folder[];
   onDelete: (id: number) => void;
-  onAddLink: (url: string, folderId: number | null) => void;
+  onAddLink: (url: string, userId: number, folderId: number | null) => void;
+  currentFolderId: number | null;
 }
 
 export default function MyCardMenu({
   link,
-  folders,
   onDelete,
   onAddLink,
+  currentFolderId,
 }: MyCardMenuProps) {
   const [shownDeleteModal, setShownDeleteModal] = useState(false);
   const [shownAddToFolderModal, setShownAddToFolderModal] = useState(false);
@@ -64,9 +64,9 @@ export default function MyCardMenu({
       {shownAddToFolderModal && (
         <AddToFolderModal
           url={link.url}
-          folders={folders}
           onClose={closeAddToFolderModal}
           onAddLink={onAddLink}
+          currentFolderId={currentFolderId}
         />
       )}
     </>
