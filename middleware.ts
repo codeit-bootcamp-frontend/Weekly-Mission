@@ -16,9 +16,9 @@ export async function middleware(req: NextRequest) {
 
   // 로그인된 유저만 접근 가능
   // 경로는 /folder인데 session이 없다는 건 로그인되지 않았다는 의미
-  if (pathname.startsWith("/folder") && !session) {
-    return NextResponse.redirect(new URL("/api/auth/login", req.url));
-  }
+  // if (pathname.startsWith("/folder") && !session) {
+  //   return NextResponse.redirect(new URL("/api/auth/login", req.url));
+  // }
 
   // 로그인된 유저는 로그인, 회원가입 페이지에 접근 X
   if (pathname.startsWith("/api/auth/login") && session) {
