@@ -2,8 +2,8 @@
 
 import { useRouter } from "next/navigation";
 
+import { deleteFolder } from "@/lib/axios/folderRequest";
 import { IFolder } from "@/types/linkbrary";
-import { deleteFolder } from "@/utils/axios/folderRequest";
 
 import ModalLayout from "../ModalLayout";
 import styles from "./DeleteFolderModal.module.scss";

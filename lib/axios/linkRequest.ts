@@ -1,5 +1,5 @@
+import { deleteRequest, getRequest, postRequest } from "@/lib/axios/common";
 import { ILink } from "@/types/linkbrary";
-import { deleteRequest, getRequest, postRequest } from "@/utils/axios/common";
 
 /**
  *

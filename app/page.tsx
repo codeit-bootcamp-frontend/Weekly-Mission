@@ -2,7 +2,7 @@ import Footer from "@/components/Footer/Footer";
 import Gnb from "@/components/Gnb/Gnb";
 import ContentsSection from "@/components/MainSection/ContentsSection";
 import HeroSection from "@/components/MainSection/HeroSection";
-import getCurrentUser from "@/lib/getCurrentUser";
+import getCurrentUser from "@/utils/getCurrentUser";
 
 import styles from "./page.module.scss";
 

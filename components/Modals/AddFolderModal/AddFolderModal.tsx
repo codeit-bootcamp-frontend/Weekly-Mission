@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 import { useRouter } from "next/navigation";
 
-import { createFolder } from "@/utils/axios/folderRequest";
+import { createFolder } from "@/lib/axios/folderRequest";
 
 import ModalLayout from "../ModalLayout";
 import styles from "./AddFolderModal.module.scss";

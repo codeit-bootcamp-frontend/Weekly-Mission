@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-import { deleteLink } from "@/utils/axios/linkRequest";
+import { deleteLink } from "@/lib/axios/linkRequest";
 
 import ModalLayout from "../ModalLayout";
 import styles from "./DeleteLinkModal.module.scss";

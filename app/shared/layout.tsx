@@ -1,6 +1,6 @@
 import Footer from "@/components/Footer/Footer";
 import Gnb from "@/components/Gnb/Gnb";
-import getCurrentUser from "@/lib/getCurrentUser";
+import getCurrentUser from "@/utils/getCurrentUser";
 
 export const revalidate = 3600;
 

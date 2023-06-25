@@ -2,9 +2,9 @@ import { notFound } from "next/navigation";
 
 import FolderContents from "@/components/FolderContents/FolderContents";
 import Gnb from "@/components/Gnb/Gnb";
-import getCurrentUser from "@/lib/getCurrentUser";
-import { getFolders } from "@/utils/axios/folderRequest";
-import { getLinks } from "@/utils/axios/linkRequest";
+import { getFolders } from "@/lib/axios/folderRequest";
+import { getLinks } from "@/lib/axios/linkRequest";
+import getCurrentUser from "@/utils/getCurrentUser";
 
 import styles from "./page.module.scss";
 

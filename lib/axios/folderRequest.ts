@@ -1,10 +1,10 @@
-import { IFolder } from "@/types/linkbrary";
 import {
   deleteRequest,
   getRequest,
   postRequest,
   putRequest,
-} from "@/utils/axios/common";
+} from "@/lib/axios/common";
+import { IFolder } from "@/types/linkbrary";
 
 /**
  *

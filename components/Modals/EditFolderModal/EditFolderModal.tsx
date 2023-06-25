@@ -4,8 +4,8 @@ import { useRef } from "react";
 
 import { useRouter } from "next/navigation";
 
+import { editFolderName } from "@/lib/axios/folderRequest";
 import { IFolder } from "@/types/linkbrary";
-import { editFolderName } from "@/utils/axios/folderRequest";
 
 import ModalLayout from "../ModalLayout";
 import styles from "./EditFolderModal.module.scss";

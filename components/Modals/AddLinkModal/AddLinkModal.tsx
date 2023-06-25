@@ -4,8 +4,8 @@ import { useState } from "react";
 
 import { usePathname, useRouter } from "next/navigation";
 
+import { createLink } from "@/lib/axios/linkRequest";
 import { IFolder, ILink } from "@/types/linkbrary";
-import { createLink } from "@/utils/axios/linkRequest";
 
 import ModalLayout from "../ModalLayout";
 import styles from "./AddLinkModal.module.scss";

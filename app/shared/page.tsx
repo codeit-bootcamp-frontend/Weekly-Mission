@@ -3,9 +3,9 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import SearchBar from "@/components/SearchBar/SearchBar";
-import { getFolder } from "@/utils/axios/folderRequest";
-import { getLink } from "@/utils/axios/linkRequest";
-import { getUser } from "@/utils/axios/userRequest";
+import { getFolder } from "@/lib/axios/folderRequest";
+import { getLink } from "@/lib/axios/linkRequest";
+import { getUser } from "@/lib/axios/userRequest";
 
 import styles from "./page.module.scss";
 
