@@ -22,6 +22,7 @@ export default function AddLinkBar({ onAddLink }: AddLinkBarProps) {
   const [value, setValue] = useState("");
   const [shownAddModal, setShownAddModal] = useState(false);
 
+  // TODO: 도메인에 한글 들어가도 괜찮게 수정
   const openAddModal = () => {
     if (!checkURLFormat(value)) {
       alert("올바른 링크 형식이 아니에요!");
