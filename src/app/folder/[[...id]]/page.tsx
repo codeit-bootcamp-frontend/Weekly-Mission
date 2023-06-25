@@ -5,6 +5,7 @@ import MainContent from "./MainContent/MainContent";
 import Main from "./Main";
 import { getFoldersByUserId } from "@/lib/api/folderApi";
 import { Folder } from "@/app/types/types";
+import CardListContainer from "./CardListContainer/CardListContainer";
 
 export const fetchCache = "force-no-store";
 
@@ -28,7 +29,13 @@ const Page = async ({ params }: { params: { id?: string[] } }) => {
           userId={session.user.id}
           params={params}
           folderList={folderList ?? []}
-        />
+        >
+          <CardListContainer
+            userId={session.user.id}
+            folderList={folderList}
+            params={params}
+          />
+        </MainContent>
       </Main>
     </>
   );

@@ -6,6 +6,9 @@ import React, { useRef, useState } from "react";
 import Image from "next/image";
 import styles from "./AddFolderBtn.module.scss";
 import { postCreateFolder } from "@/lib/api/folderApi";
+import { useRecoilState } from "recoil";
+import { folderListState } from "@/app/recoil/atoms";
+import { useRouter } from "next/navigation";
 
 const ADD_FOLDER_MODAL_PROPS = {
   type: "add",
@@ -19,11 +22,14 @@ interface AddFolderBtnProps {
 
 const AddFolderBtn = ({ userId }: AddFolderBtnProps) => {
   const modalRef = useRef<HTMLDialogElement>(null);
+  const router = useRouter();
   const [modalProps, setModalProps] = useState<ModalProps>({
     ...ADD_FOLDER_MODAL_PROPS,
     modalRef,
     onClose: () => {},
   });
+  const [currentFolderList, setCurrentFolderList] =
+    useRecoilState(folderListState);
   const handleCloseModal = () => {
     if (modalRef.current) {
       modalRef.current.close();
@@ -38,6 +44,9 @@ const AddFolderBtn = ({ userId }: AddFolderBtnProps) => {
 
   const handleSubmitAddFolder = async (folderName: string) => {
     const res = await postCreateFolder(userId, folderName);
+    const newFolder = res.data[0];
+    setCurrentFolderList([...currentFolderList, newFolder]);
+    router.push(`/folder/${newFolder.id}`);
     if (modalRef.current) {
       modalRef.current.close();
     }

@@ -1,6 +1,9 @@
+"use client";
 import { Folder } from "@/app/types/types";
-import React from "react";
+import React, { useEffect } from "react";
 import FolderChip from "../FolderChip/FolderChip";
+import { useRecoilState } from "recoil";
+import { folderListState } from "@/app/recoil/atoms";
 
 interface FolderChipListProps {
   folderList: Folder[];
@@ -8,9 +11,13 @@ interface FolderChipListProps {
 }
 
 const FolderChipList = ({ folderList, folderId }: FolderChipListProps) => {
+  const [currentFolders, setCurrentFolders] = useRecoilState(folderListState);
+  useEffect(() => {
+    setCurrentFolders(folderList);
+  }, [setCurrentFolders, folderList]);
   return (
     <>
-      {folderList.map((folder) => {
+      {currentFolders.map((folder) => {
         return (
           <li key={folder.id}>
             <FolderChip

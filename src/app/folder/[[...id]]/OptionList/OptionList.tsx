@@ -9,6 +9,8 @@ import styles from "./OptionList.module.scss";
 import DeleteFolder from "@/app/components/Modals/ModalContents/DeleteFolder";
 import { deleteFolder, updateFolderName } from "@/lib/api/folderApi";
 import { useRouter } from "next/navigation";
+import { useRecoilState } from "recoil";
+import { folderListState } from "@/app/recoil/atoms";
 
 const DELETE_FOLDER_MODAL_PROPS = {
   type: "delete",
@@ -38,6 +40,8 @@ interface OptionListProps {
 }
 
 const OptionList = ({ folderId }: OptionListProps) => {
+  const [currentFolderList, setCurrentFolderList] =
+    useRecoilState(folderListState);
   const modalRef = useRef<HTMLDialogElement>(null);
   const [modalProps, setModalProps] = useState<ModalProps>({
     ...ADD_FOLDER_MODAL_PROPS,
@@ -59,12 +63,23 @@ const OptionList = ({ folderId }: OptionListProps) => {
 
   const handleDeleteFolder = async () => {
     await deleteFolder(folderId);
+    const newFolderList = currentFolderList.filter(
+      (folder) => folder.id !== folderId
+    );
+    setCurrentFolderList(newFolderList);
     handleCloseModal();
     router.push("/folder");
   };
 
   const handleEditFolderName = async (newName: string) => {
     await updateFolderName(folderId, newName);
+    const newFolderList = currentFolderList.map((folder) => {
+      if (folder.id === folderId) {
+        return { ...folder, name: newName };
+      }
+      return folder;
+    });
+    setCurrentFolderList(newFolderList);
     handleCloseModal();
   };
 
