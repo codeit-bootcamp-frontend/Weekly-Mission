@@ -34,12 +34,6 @@ export default async function Home() {
   //   }
   // }
 
-  await prisma.user.findUnique({
-    where: {
-      email: "wooleejaan@gmail.com",
-    },
-  });
-
   const userProfile = null;
 
   return (
