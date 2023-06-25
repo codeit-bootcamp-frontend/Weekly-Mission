@@ -2,10 +2,10 @@ import Footer from "@/components/Footer/Footer";
 import Gnb from "@/components/Gnb/Gnb";
 import ContentsSection from "@/components/MainSection/ContentsSection";
 import HeroSection from "@/components/MainSection/HeroSection";
+
 // import { getUser } from "@/lib/axios/userRequest";
 // import { tempUserDatas } from "@/utils/constants";
-import prisma from "@/utils/prismadb";
-
+// import prisma from "@/utils/prismadb";
 // import { getServerSession } from "next-auth";
 // import { authOptions } from "./api/auth/[...nextauth]/route";
 import styles from "./page.module.scss";
