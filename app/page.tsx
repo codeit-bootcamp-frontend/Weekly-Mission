@@ -2,8 +2,8 @@ import Footer from "@/components/Footer/Footer";
 import Gnb from "@/components/Gnb/Gnb";
 import ContentsSection from "@/components/MainSection/ContentsSection";
 import HeroSection from "@/components/MainSection/HeroSection";
+import { getUser } from "@/lib/axios/userRequest";
 
-// import { getUser } from "@/lib/axios/userRequest";
 // import { tempUserDatas } from "@/utils/constants";
 // import prisma from "@/utils/prismadb";
 // import { getServerSession } from "next-auth";
@@ -34,7 +34,7 @@ export default async function Home() {
   //   }
   // }
 
-  const userProfile = null;
+  const userProfile = await getUser(11);
 
   return (
     <>
