@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import Image from "next/image";
 
-import { Folder, User } from "@/utils/api/types";
+import { SelectedFolder, User } from "@/utils/api/types";
 
 import styles from "./FolderInfo.module.scss";
 
@@ -11,7 +11,7 @@ export default function FolderInfo({
   folder,
   owner,
 }: {
-  folder: Folder;
+  folder: SelectedFolder;
   owner: User;
 }) {
   return (

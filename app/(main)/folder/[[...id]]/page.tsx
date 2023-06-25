@@ -99,6 +99,7 @@ export default function Folder({ params }: { params: { id: string[] } }) {
       if (folderParam === 0) {
         setCurrentFolder({ id: 0, name: "전체" });
       } else {
+        if (!folderRes) return router.push("/folder");
         setCurrentFolder({ id: folderRes.id, name: folderRes.name });
       }
       setFolders(foldersRes);

@@ -13,9 +13,6 @@ const getFolder = async (userId: number, folderId: number) => {
 
 const getFolders = async (userId: number): Promise<Folder[]> => {
   const res = await instance.get<never, Folder[]>(`users/${userId}/folders`);
-  if (res.length === 0) {
-    return Promise.reject(new Error("폴더가 존재하지 않습니다."));
-  }
   return res;
 };
 
