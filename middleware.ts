@@ -8,7 +8,10 @@ export { default } from "next-auth/middleware";
 export async function middleware(req: NextRequest) {
   // getToken을 사용하면 session 데이터 가져올 수 있다.
   // 원래 jwt 토큰 생성할 때 secret 토큰을 넣어줬었다.
-  const session = await getToken({ req, secret: process.env.JWT_SECRET });
+  const session = await getToken({
+    req,
+    secret: process.env.JWT_SECRET || "jwt-secret",
+  });
   const pathname = req.nextUrl.pathname;
 
   // 로그인된 유저만 접근 가능
