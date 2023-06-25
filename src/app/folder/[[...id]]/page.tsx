@@ -6,6 +6,8 @@ import Main from "./Main";
 import { getFoldersByUserId } from "@/lib/api/folderApi";
 import { Folder } from "@/app/types/types";
 
+export const fetchCache = "force-no-store";
+
 const getFolderList = async (userId: number) => {
   const res = await getFoldersByUserId(String(userId));
   return res.data as Folder[];

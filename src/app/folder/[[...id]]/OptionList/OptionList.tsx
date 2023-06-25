@@ -7,7 +7,7 @@ import ShareFolder from "@/app/components/Modals/ModalContents/ShareFolder";
 import EditFolderName from "@/app/components/Modals/ModalContents/EditFolderName";
 import styles from "./OptionList.module.scss";
 import DeleteFolder from "@/app/components/Modals/ModalContents/DeleteFolder";
-import { deleteFolder } from "@/lib/api/folderApi";
+import { deleteFolder, updateFolderName } from "@/lib/api/folderApi";
 import { useRouter } from "next/navigation";
 
 const DELETE_FOLDER_MODAL_PROPS = {
@@ -25,7 +25,6 @@ const SHARE_FOLDER_MODAL_PROPS = {
 const EDIT_FOLDER_MODAL_PROPS = {
   type: "edit",
   title: "폴더 이름 변경",
-  proceedBtnText: "변경하기",
 };
 
 const ADD_FOLDER_MODAL_PROPS = {
@@ -64,6 +63,11 @@ const OptionList = ({ folderId }: OptionListProps) => {
     router.push("/folder");
   };
 
+  const handleEditFolderName = async (newName: string) => {
+    await updateFolderName(folderId, newName);
+    handleCloseModal();
+  };
+
   const handleClickShareFolder = () => {
     setModalProps({
       ...SHARE_FOLDER_MODAL_PROPS,
@@ -80,7 +84,12 @@ const OptionList = ({ folderId }: OptionListProps) => {
   const handleClickEditFolder = () => {
     setModalProps({
       ...EDIT_FOLDER_MODAL_PROPS,
-      ui: <EditFolderName folderName="유용한 팁" />,
+      ui: (
+        <EditFolderName
+          folderName="유용한 팁"
+          onSubmit={handleEditFolderName}
+        />
+      ),
       onClose: handleCloseModal,
       modalRef,
     });

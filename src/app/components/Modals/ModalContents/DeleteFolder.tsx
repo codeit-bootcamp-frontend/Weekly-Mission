@@ -8,7 +8,7 @@ interface DeleteFolderProps {
 const DeleteFolder = ({ onDelete }: DeleteFolderProps) => {
   return (
     <>
-      <button type="button" className={styles.proceedBtn} onClick={onDelete}>
+      <button type="button" className={styles.deleteBtn} onClick={onDelete}>
         삭제하기
       </button>
     </>

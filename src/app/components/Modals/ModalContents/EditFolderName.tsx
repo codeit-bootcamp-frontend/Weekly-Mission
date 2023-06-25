@@ -1,11 +1,38 @@
-import React from "react";
-import styles from "./EditFolderName.module.scss";
+import React, { useState } from "react";
+import styles from "./AddFolder.module.scss";
 
-const EditFolderName = ({ folderName }: { folderName: string }) => {
+interface EditFolderNameProps {
+  folderName: string;
+  onSubmit: (newName: string) => void;
+}
+
+const EditFolderName = ({ folderName, onSubmit }: EditFolderNameProps) => {
+  const [newName, setNewName] = useState("");
+
   return (
-    <div className={styles.inputBox}>
-      <input type="text" className={styles.input} placeholder={folderName} />
-    </div>
+    <form className={styles.container}>
+      <div className={styles.inputBox}>
+        <input
+          type="text"
+          name="folderName"
+          className={styles.input}
+          placeholder={folderName}
+          autoComplete="off"
+          value={newName}
+          onChange={(e) => {
+            setNewName(e.target.value);
+          }}
+        />
+      </div>
+      <input
+        type="submit"
+        className={styles.proceedBtn}
+        onClick={() => {
+          onSubmit(newName);
+        }}
+        value="변경하기"
+      />
+    </form>
   );
 };
 

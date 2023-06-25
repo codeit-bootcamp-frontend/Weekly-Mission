@@ -2,11 +2,10 @@
 @use "../Modal.module.scss";
 @use "./EditFolderName.module.scss";
 
-.proceedBtn {
+.deleteBtn {
   @extend .proceedBtn;
   background: var.$red;
 }
-
 .container {
   display: flex;
   flex-direction: column;
