@@ -10,7 +10,7 @@ export async function middleware(req: NextRequest) {
   // 원래 jwt 토큰 생성할 때 secret 토큰을 넣어줬었다.
   const session = await getToken({
     req,
-    secret: process.env.JWT_SECRET || "jwt-secret",
+    secret: "jwt-secret",
   });
   const pathname = req.nextUrl.pathname;
 
