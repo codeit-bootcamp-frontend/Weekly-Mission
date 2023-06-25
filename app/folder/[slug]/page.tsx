@@ -22,26 +22,30 @@ const Tab = async ({
 }) => {
   const session = await getServerSession(authOptions);
 
+  let userProfile;
+  let userId;
+
   if (!session?.user?.email) {
-    return null;
+    userProfile = null;
+  } else {
+    const currentUser = await prisma?.user.findUnique({
+      where: {
+        email: session.user.email,
+      },
+    });
+    if (!currentUser) {
+      userProfile = null;
+    } else {
+      userId = tempUserDatas[currentUser.id];
+      userProfile = await getUser(userId);
+    }
   }
-
-  const currentUser = await prisma?.user.findUnique({
-    where: {
-      email: session.user.email,
-    },
-  });
-
-  if (!currentUser) {
-    return null;
-  }
-
-  const userId = tempUserDatas[currentUser.id];
-  const userProfile = await getUser(userId);
 
   if (!userProfile) {
     throw new Error(`Failed to fetch user data`);
   }
+
+  userId = userProfile.id;
 
   const folderId = Number(params.slug);
 
