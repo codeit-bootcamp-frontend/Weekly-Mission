@@ -3,13 +3,13 @@ import { getUser } from "@/lib/axios/userRequest";
 import { tempUserDatas } from "@/utils/constants";
 import { getServerSession } from "next-auth";
 
-export async function getSession() {
-  return await getServerSession(authOptions);
-}
+// export async function getSession() {
+//   return await getServerSession(authOptions);
+// }
 
 export default async function getCurrentUser() {
   try {
-    const session = await getSession();
+    const session = await getServerSession(authOptions);
 
     if (!session?.user?.email) {
       return null;

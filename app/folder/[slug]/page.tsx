@@ -18,7 +18,7 @@ const Tab = async ({
 }) => {
   const userProfile = await getCurrentUser();
   if (!userProfile) {
-    throw new Error(`Failed to fetch data`);
+    throw new Error(`Failed to fetch user data`);
   }
   const userId = userProfile.id;
   const folderId = Number(params.slug);

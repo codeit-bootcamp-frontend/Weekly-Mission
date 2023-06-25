@@ -10,7 +10,7 @@ export const revalidate = 1000;
 const Folder = async () => {
   const userProfile = await getCurrentUser();
   if (!userProfile) {
-    throw new Error(`Failed to fetch data`);
+    throw new Error(`Failed to fetch user data`);
   }
   const userId = userProfile.id;
 
