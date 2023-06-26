@@ -5,11 +5,13 @@ import SearchBar from "@/components/SearchBar";
 import FolderChip from "@/components/FolderChip";
 import FAB from "@/components/FAB";
 import Option from "@/components/Option";
-import Card from "@/components/Card";
 import styles from "./page.module.css";
 import classNames from "classnames/bind";
 import getUserId from "@/data/getUserId";
 import { redirect } from "next/navigation";
+import dynamic from "next/dynamic";
+
+const Card = dynamic(() => import("@/components/Card"), { ssr: false });
 
 interface Props {
   params: {

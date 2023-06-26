@@ -6,12 +6,14 @@ import SearchBar from "@/components/SearchBar";
 import FolderChip from "@/components/FolderChip";
 import FAB from "@/components/FAB";
 import Option from "@/components/Option";
-import Card from "@/components/Card";
 import Footer from "@/components/Footer";
 import styles from "./page.module.css";
 import classNames from "classnames/bind";
 import getLinks from "@/api/getLinks";
 import getUserId from "@/data/getUserId";
+import dynamic from "next/dynamic";
+
+const Card = dynamic(() => import("@/components/Card"), { ssr: false });
 
 const cx = classNames.bind(styles);
 

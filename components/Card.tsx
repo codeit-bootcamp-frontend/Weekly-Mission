@@ -39,7 +39,6 @@ export default function Card({ data: { created_at, url, title, description, imag
   const timeDiffFormat = getTimeDiffFormat(created_at);
   const dateFormat = getDateFormat(created_at);
 
-  console.log(created_at, timeDiffFormat);
   const handleClickCard = () => {
     window.open(url);
   };
