@@ -15,6 +15,15 @@ const Card = dynamic(() => import("@/components/Card"), { ssr: false });
 
 const cx = classNames.bind(styles);
 
+export async function generateStaticParams() {
+  const userId = getUserId();
+  const folders = await getFolders(userId);
+
+  return folders.map((folder) => ({
+    id: folder.id.toString(),
+  }));
+}
+
 export default async function FolderID({ params }) {
   const { id: folderId } = params;
 
