@@ -18,12 +18,12 @@ module.exports = {
       },
     ],
   },
-  async rewrites() {
-    return [
-      {
-        source: "/api/users/:path*",
-        destination: "https://bootcamp-api.codeit.kr/api/users/:path*",
-      },
-    ];
-  },
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: "/api/users/:path*",
+  //       destination: "https://bootcamp-api.codeit.kr/api/users/:path*",
+  //     },
+  //   ];
+  // },
 };

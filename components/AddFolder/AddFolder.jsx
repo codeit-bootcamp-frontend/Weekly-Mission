@@ -7,12 +7,15 @@ import Image from "next/image";
 import Modal from "@/components/Modal/Modal";
 import TextInput from "@/components/TextInput/TextInput";
 import axios from "axios";
+import { postFolder } from "@/api/instance";
+import { useRouter } from "next/navigation";
 
 const cx = classNames.bind(styles);
 
 export default function AddFolder({ updateFolderState }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
+  const router = useRouter();
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -26,18 +29,27 @@ export default function AddFolder({ updateFolderState }) {
     setIsModalOpen(false);
   };
 
-  const addFolder = () => {
-    axios
-      .post("/api/post", { name: inputValue })
-      .then((response) => {
-        updateFolderState({
-          _id: response.data.result.insertedId,
-          name: inputValue,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  // const addFolder = () => {
+  //   axios
+  //     .post("/api/folders", { name: inputValue })
+  //     .then(() => {
+  //       router.refresh();
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+
+  const userId = "64992eec930d7d6257c06f19";
+
+  const addFolder = async () => {
+    try {
+      let res = await postFolder(inputValue, userId);
+      console.log(res);
+      router.refresh();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const modalProps = {
@@ -47,7 +59,7 @@ export default function AddFolder({ updateFolderState }) {
     button: {
       content: "추가하기",
       color: "blue",
-      addFolder,
+      handleButton: addFolder,
     },
   };
 

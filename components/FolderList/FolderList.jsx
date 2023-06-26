@@ -1,23 +1,20 @@
-"use client";
+// "use client";
 
 import Folder from "@/components/Folder/Folder";
 import styles from "./FolderList.module.css";
 import classNames from "classnames/bind";
-import { useState } from "react";
 import AddFolder from "@/components/AddFolder/AddFolder";
 
 const cx = classNames.bind(styles);
 
 export default function FolderList({ currentIdParam, folderList }) {
-  const [folderData, setFolderData] = useState(folderList);
+  // const [folderData, setFolderData] = useState(folderList);
 
-  console.log(folderData);
-
-  const updateFolderState = (data) => {
-    const copy = JSON.parse(JSON.stringify(folderData));
-    copy.push(data);
-    setFolderData(copy);
-  };
+  // const updateFolderState = (data) => {
+  //   const copy = JSON.parse(JSON.stringify(folderData));
+  //   copy.push(data);
+  //   setFolderData(copy);
+  // };
 
   return (
     <>
@@ -25,7 +22,7 @@ export default function FolderList({ currentIdParam, folderList }) {
         <li className={cx("folder")}>
           <Folder name={"전체"} href={`/folder`} selected={!currentIdParam} />
         </li>
-        {folderData?.map((folder) => (
+        {folderList.map((folder) => (
           <li key={folder._id} className={cx("folder")}>
             <Folder
               name={folder.name}
@@ -35,7 +32,7 @@ export default function FolderList({ currentIdParam, folderList }) {
           </li>
         ))}
       </ul>
-      <AddFolder updateFolderState={updateFolderState} />
+      <AddFolder />
     </>
   );
 }
