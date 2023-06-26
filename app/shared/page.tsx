@@ -13,6 +13,8 @@ import dynamic from "next/dynamic";
 
 const Card = dynamic(() => import("@/components/Card"), { ssr: false });
 
+const cx = classNames.bind(styles);
+
 export default async function Shared({ searchParams }) {
   const { user: sharedUserId, folder: sharedFolderId } = searchParams;
 
@@ -33,8 +35,6 @@ export default async function Shared({ searchParams }) {
   const { name: folderName } = folder[0];
   const { name: sharedUserName, image_source: sharedUserProfileImageSource } = sharedUserData[0];
   const { email, image_source: userProfileImageSorce } = userData[0];
-
-  const cx = classNames.bind(styles);
 
   return (
     <>

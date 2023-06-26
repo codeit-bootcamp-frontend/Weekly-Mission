@@ -13,15 +13,9 @@ import dynamic from "next/dynamic";
 
 const Card = dynamic(() => import("@/components/Card"), { ssr: false });
 
-interface Props {
-  params: {
-    id: string;
-  };
-}
-
 const cx = classNames.bind(styles);
 
-export default async function FolderID({ params }: Props) {
+export default async function FolderID({ params }) {
   const { id: folderId } = params;
 
   if (Number.isNaN(Number(folderId))) {
@@ -29,7 +23,6 @@ export default async function FolderID({ params }: Props) {
   }
 
   const userId = getUserId();
-
   const folders = await getFolders(userId);
   const currFolder = (await getFolders(userId, folderId))[0];
   const links = await getLinks(userId, folderId);
