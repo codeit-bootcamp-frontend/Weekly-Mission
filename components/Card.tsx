@@ -10,7 +10,6 @@ import SelectMenu from "./SelectMenu";
 import ModalDeleteLink from "./ModalDeleteLink";
 import ModalAdd from "./ModalAdd";
 import { DEFAULT_LINK } from "@/data/defaultData";
-import { create } from "domain";
 
 interface Props {
   data: {
@@ -45,13 +44,6 @@ export default function Card({ data: { created_at, url, title, description, imag
 
   const handleClickStar = (e: React.MouseEvent) => {
     e.stopPropagation();
-    const starImg = e.currentTarget.firstChild as HTMLImageElement;
-
-    if (isStartSelected) {
-      starImg.src = "/images/default-star.svg";
-    } else {
-      starImg.src = "/images/selected-star.svg";
-    }
     SetIsStarSelected(!isStartSelected);
   };
 
@@ -68,7 +60,11 @@ export default function Card({ data: { created_at, url, title, description, imag
         <div className={cx("card-image-container")}>
           {image_source && <Image fill className={cx("card-image")} src={image_source} alt={title} />}
           <button className={cx("star-button")} onClick={handleClickStar}>
-            <Image className={cx("star-icon")} src="/images/default-star.svg" alt="북마크 아이콘" width={30} height={31} />
+            {isStartSelected ? (
+              <Image className={cx("star-icon")} src="/images/selected-star.svg" alt="북마크 아이콘" width={30} height={31} />
+            ) : (
+              <Image className={cx("star-icon")} src="/images/default-star.svg" alt="북마크 아이콘" width={30} height={31} />
+            )}
           </button>
         </div>
         <div className={cx("text-box")}>
