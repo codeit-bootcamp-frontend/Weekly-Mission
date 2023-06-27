@@ -50,6 +50,10 @@ export interface IgetFolderProps {
   folderId: number
 }
 
+export interface IgetFoldersProps {
+  userId: number
+}
+
 export type FolderType = {
   id: number
   createdAt: string
@@ -92,4 +96,15 @@ export type ImageType = {
   alt: string
   width: number
   height: number
+}
+
+export interface IFolderProps {
+  params: {
+    id: string[] | undefined,
+  }
+}
+
+export interface IFolderMainProps {
+  userId: number
+  folderId?: number | undefined
 }

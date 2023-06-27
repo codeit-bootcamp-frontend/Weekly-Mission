@@ -4,8 +4,8 @@ export const metadata = {
   title: 'FAQ | Linkbrary',
 }
 
-const Faq = () => {
+const Page = () => {
   return <FaqMain />
 }
 
-export default Faq
+export default Page

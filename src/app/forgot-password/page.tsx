@@ -4,8 +4,8 @@ export const metadata = {
   title: '비밀번호 찾기 | Linkbrary',
 }
 
-const ForgotPassword = () => {
+const Page = () => {
   return <ForgotPasswordMain />
 }
 
-export default ForgotPassword
+export default Page

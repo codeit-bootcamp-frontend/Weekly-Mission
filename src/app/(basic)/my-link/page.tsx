@@ -4,8 +4,8 @@ export const metadata = {
   title: '내 링크 | Linkbrary',
 }
 
-const MyLink = () => {
+const Page = () => {
   return <MyLinkMain />
 }
 
-export default MyLink
+export default Page

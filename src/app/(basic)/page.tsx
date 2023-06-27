@@ -1,7 +1,7 @@
 import HomeHeader from '@/components/PageHome/HomeHeader'
 import HomeMain from '@/components/PageHome/HomeMain'
 
-const Home = () => {
+const Page = () => {
   return (
     <>
       <HomeHeader />
@@ -10,4 +10,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Page

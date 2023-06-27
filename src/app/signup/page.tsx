@@ -4,10 +4,10 @@ export const metadata = {
   title: '회원가입 | Linkbrary',
 }
 
-const Signup = () => {
+const Page = () => {
   return (
     <SignupMain />
   )
 }
 
-export default Signup
+export default Page

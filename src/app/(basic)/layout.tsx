@@ -1,8 +1,7 @@
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
-import '@/lib/global.css'
 
-const BasicLayout = ({
+const layout = ({
   children,
 }: {
   children: React.ReactNode
@@ -16,4 +15,4 @@ const BasicLayout = ({
   )
 }
 
-export default BasicLayout
+export default layout

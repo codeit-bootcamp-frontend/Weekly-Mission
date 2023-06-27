@@ -5,7 +5,7 @@ export const metadata = {
   title: '즐겨찾기 | Linkbrary',
 }
 
-const Shared = () => {
+const Page = () => {
   return (
     <>
       <SharedHeader />
@@ -14,4 +14,4 @@ const Shared = () => {
   )
 }
 
-export default Shared
+export default Page
