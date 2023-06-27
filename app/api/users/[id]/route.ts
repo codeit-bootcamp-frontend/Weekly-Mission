@@ -10,3 +10,5 @@ export async function GET(
   const user = await UserModel.findById(params.id);
   return NextResponse.json(user);
 }
+
+

@@ -7,8 +7,9 @@ import AddFolder from "@/components/AddFolder/AddFolder";
 
 const cx = classNames.bind(styles);
 
-export default function FolderList({ currentIdParam, folderList }) {
+export default function FolderList({ currentIdParam, folderList }) { //links 추가
   // const [folderData, setFolderData] = useState(folderList);
+  // all-link state 추가
 
   // const updateFolderState = (data) => {
   //   const copy = JSON.parse(JSON.stringify(folderData));

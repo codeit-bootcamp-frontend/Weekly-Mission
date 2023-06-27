@@ -16,12 +16,11 @@ const userId = "64992eec930d7d6257c06f19";
 export default async function Page({ params }) {
   // let db = (await connectDB).db("linkbrary");
   // let folderList = await db.collection("folder").find().toArray();
-  const folderList = await getFolders(userId);
-
   const currentIdParam = params.id && params.id[0];
-  console.log(folderList);
+  const folderList = await getFolders(userId); //1. no-cache
+  // 3. all-link 받아서 filter해서 prop넘겨주기
 
-  // const currentFolder = folderList.filter((obj) => obj._id === currentIdParam);
+  // const currentFolder = folderList.filter((obj) => obj._id === currentIdParam); 
   // const cardList = await getCardList(userId, currentIdParam);
   // const currentFolderName = currentFolder ? currentFolder.name : "전체";
 
@@ -31,7 +30,8 @@ export default async function Page({ params }) {
         <SearchBar />
       </div>
       <div className={cx("folder-wrapper")}>
-        <FolderList folderList={folderList} currentIdParam={currentIdParam} />
+        <FolderList folderList={folderList} currentIdParam={currentIdParam} /> 
+        {/* 안에 서치바 */}
       </div>
       {/* <CardList cardList={cardList} currentFolderName={currentFolderName} /> */}
     </div>

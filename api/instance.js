@@ -10,7 +10,7 @@ const instance = axios.create({
 
 async function getFolders(userId) {
   try {
-    const response = await instance.get(`/api/user/${userId}/folders`);
+    const response = await instance.get(`/api/users/${userId}/folders`);
     const folders = await response.data;
     return folders;
   } catch (error) {
@@ -30,7 +30,7 @@ async function getFolders(userId) {
 
 async function postFolder(value, userId) {
   try {
-    const response = await instance.post(`/api/folder`, {
+    const response = await instance.post(`/api/folders`, {
       userId,
       name: value,
     });
@@ -53,7 +53,7 @@ async function postFolder(value, userId) {
 
 async function getUser(userId) {
   try {
-    const response = await instance.get(`api/user/${userId}`);
+    const response = await instance.get(`api/users/${userId}`);
     const data = response.data;
     return data;
   } catch (error) {

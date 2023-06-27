@@ -14,7 +14,6 @@ export const FolderModel =
   mongoose.models.Folder || mongoose.model("Folder", FolderSchema);
 
 /*
-  name: { type: String, required: true },
-  user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-  boards: [{ type: Schema.Types.ObjectId, ref: 'Board' }]
-  */
+      "name": "코딩 팁",
+      "user_id": 1
+ */
