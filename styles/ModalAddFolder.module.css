@@ -1,0 +1,30 @@
+.input-content {
+  padding: 1.8rem 1.5rem;
+  border: 1px solid var(--gray-c);
+  border-radius: 0.8rem;
+  margin: 2.4rem 0 1.5rem;
+  width: 100%;
+}
+
+.input {
+  border: none;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--gray-3);
+}
+
+.add-button {
+  width: 100%;
+  padding: 1.6rem 0;
+  color: var(--gray-f);
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-radius: 0.8rem;
+  background-image: linear-gradient(to right, var(--primary), #6ae3fe);
+  cursor: pointer;
+}

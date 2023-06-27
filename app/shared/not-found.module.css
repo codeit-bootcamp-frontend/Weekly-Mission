@@ -1,0 +1,28 @@
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--primary);
+}
+
+.error-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+}
+
+.error-header {
+  font-size: 3.2rem;
+  color: #ffffff;
+}
+
+.home-button {
+  cursor: pointer;
+  padding: 1.6rem 2.4rem;
+  background-image: linear-gradient(to right, #fe8a8a, #a4ceff);
+  border-radius: 3.2rem;
+  font-size: 1.6rem;
+  color: #ffffff;
+}
