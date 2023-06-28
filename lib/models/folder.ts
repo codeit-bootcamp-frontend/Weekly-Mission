@@ -4,8 +4,7 @@ import { Schema } from "mongoose";
 const FolderSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
-    user: { type: Schema.Types.ObjectId, ref: "User", required: false },
-    links: [{ type: Schema.Types.ObjectId, ref: "links" }],
+    links: [{ type: Schema.Types.ObjectId, ref: "links", required: true }],
   },
   { timestamps: true, versionKey: false }
 );

@@ -3,10 +3,10 @@ import { Schema } from "mongoose";
 
 const UserSchema = new mongoose.Schema(
   {
-    username: { type: String, required: true },
-    password: { type: String },
+    name: { type: String, required: true },
     email: { type: String, required: true },
-    folders: [{ type: Schema.Types.ObjectId, ref: "Folder" }],
+    image_source: { type: String },
+    folderId: [{ type: Schema.Types.ObjectId, ref: "Folder", required: true }],
   },
   { timestamps: true, versionKey: false }
 );
