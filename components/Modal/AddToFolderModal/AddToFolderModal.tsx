@@ -4,7 +4,9 @@ import { useState } from "react";
 
 import classNames from "classnames/bind";
 
-import { Folder, Link } from "@/types";
+import { useCurrentUser } from "@/hooks/useCurrentUserContext";
+import useFolderAddedLinkNums from "@/hooks/useFolderAddedLinkNum";
+import { Link } from "@/utils/api/types";
 
 import ModalFrame from "../ModalFrame";
 
@@ -14,28 +16,28 @@ import FolderListItem from "./FolderListItem";
 const cx = classNames.bind(styles);
 
 interface AddToFolderModalProps {
-  link: Link;
-  folders: Folder[];
+  url: Link["url"];
   onClose: () => void;
+  onAddLink: (url: string, userId: number, folderId: number | null) => void;
+  currentFolderId?: number | null;
 }
 
 export default function AddToFolderModal({
-  link,
-  folders,
+  url,
   onClose,
+  onAddLink,
+  currentFolderId = null,
 }: AddToFolderModalProps) {
-  const [selectedItemId, setSelectedItemId] = useState(0);
-  const handleClickItem = (itemId: number) => {
-    setSelectedItemId(itemId);
-  };
+  const [selectedFolderId, setSelectedFolderId] = useState<number | null>(null);
+  const { id: userId } = useCurrentUser();
+  const folderList = useFolderAddedLinkNums(userId, currentFolderId);
 
-  const onAddToFolder = (link: Link, folderID: number) => {
-    link;
-    return folderID;
+  const handleClickItem = (itemId: number, selected: boolean) => {
+    selected ? setSelectedFolderId(null) : setSelectedFolderId(itemId);
   };
 
   const handleClickAddButton = () => {
-    onAddToFolder(link, selectedItemId);
+    onAddLink(url, userId, selectedFolderId);
     onClose();
   };
 
@@ -44,17 +46,19 @@ export default function AddToFolderModal({
       <div className={cx("container")}>
         <div className={cx("textContainer")}>
           <h3 className={cx("title")}>폴더에 추가</h3>
-          <p className={cx("content")}>{link.url}</p>
+          <p className={cx("content")}>{url}</p>
         </div>
         <div className={cx("list")}>
-          {folders.map((folder) => (
-            <FolderListItem
-              key={folder.id}
-              folder={folder}
-              selected={selectedItemId === folder.id}
-              onClick={handleClickItem}
-            />
-          ))}
+          {/* // TODO: Suspense 처리 */}
+          {folderList.length > 0 &&
+            folderList.map((folder) => (
+              <FolderListItem
+                key={folder.id}
+                folder={folder}
+                selected={selectedFolderId === folder.id}
+                onClick={handleClickItem}
+              />
+            ))}
         </div>
         <button className={cx("button")} onClick={handleClickAddButton}>
           추가하기

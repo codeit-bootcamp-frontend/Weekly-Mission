@@ -1,23 +1,23 @@
 import Footer from "@/components/Footer";
 import GNB from "@/components/GNB/GNB";
-import { VisibleGNBProvider } from "@/hooks/useVisibleGNBContext";
+import { InViewGNBProvider } from "@/hooks/useInViewGNBContext";
 import { Children } from "@/types";
 import { getUser } from "@/utils/api";
 import checkLoginStatus from "@/utils/checkLoginStatus";
-import checkUserID from "@/utils/checkUserID";
 
 export default async function MainLayout({ children }: Children) {
   const isLogged = checkLoginStatus();
-  const userID = checkUserID();
+  // CHECK: 추후 userId를 불러오는 것이 클라이언트 컴포넌트에서만 가능하다면 GNB 안에서 처리해야 함
+  const userId = 4;
 
-  const user = isLogged ? await getUser(userID) : null;
+  const user = isLogged ? await getUser(userId) : null;
 
   return (
     <>
-      <VisibleGNBProvider>
+      <InViewGNBProvider>
         <GNB user={user} />
         {children}
-      </VisibleGNBProvider>
+      </InViewGNBProvider>
       <Footer />
     </>
   );

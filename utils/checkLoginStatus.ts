@@ -1,3 +1,5 @@
-export default function checkLoginStatus() {
+const checkLoginStatus = () => {
   return true;
-}
+};
+
+export default checkLoginStatus;

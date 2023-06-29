@@ -5,24 +5,26 @@ import { useState } from "react";
 import classNames from "classnames/bind";
 
 import AddToFolderModal from "@/components/Modal/AddToFolderModal/AddToFolderModal";
-import DeleteModal from "@/components/Modal/DeleteModal";
-import { Folder, Link } from "@/types";
+import DeleteModal from "@/components/Modal/DeleteModal/DeleteModal";
+import { Link } from "@/utils/api/types";
 
-import styles from "./SelectMenu.module.scss";
+import styles from "./Menu.module.scss";
 
 const cx = classNames.bind(styles);
 
-interface SelectMenuProps {
+interface MyCardMenuProps {
   link: Link;
-  folders: Folder[];
-  onDelete: (id: number) => number;
+  onDelete: (id: number) => void;
+  onAddLink: (url: string, userId: number, folderId: number | null) => void;
+  currentFolderId: number | null;
 }
 
-export default function SelectMenu({
+export default function MyCardMenu({
   link,
-  folders,
   onDelete,
-}: SelectMenuProps) {
+  onAddLink,
+  currentFolderId,
+}: MyCardMenuProps) {
   const [shownDeleteModal, setShownDeleteModal] = useState(false);
   const [shownAddToFolderModal, setShownAddToFolderModal] = useState(false);
 
@@ -61,9 +63,10 @@ export default function SelectMenu({
       )}
       {shownAddToFolderModal && (
         <AddToFolderModal
-          link={link}
-          folders={folders}
+          url={link.url}
           onClose={closeAddToFolderModal}
+          onAddLink={onAddLink}
+          currentFolderId={currentFolderId}
         />
       )}
     </>

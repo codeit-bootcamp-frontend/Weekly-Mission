@@ -1,48 +1,49 @@
 import classNames from "classnames/bind";
-import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 
+import { META_SHARED } from "@/app/_meta";
 import Card from "@/components/Card/Card";
+import OtherCardMenu from "@/components/Card/OtherCardMenu";
 import FolderInfo from "@/components/FolderInfo";
 import SearchBar from "@/components/SearchBar";
-import { getFolder, getLink, getUser } from "@/utils/api";
+import { getFolder, getLinks, getUser } from "@/utils/api";
+import { SelectedFolder } from "@/utils/api/types";
+import convertParamToNum from "@/utils/convertParamToNum";
 
 import styles from "./page.module.scss";
 
 const cx = classNames.bind(styles);
 
-export const metadata = {
-  title: "Linkbrary : Shared",
-};
-
-const checkValidateSearchParams = (params: string | string[] | undefined) => {
-  if (!params) return false;
-  if (Array.isArray(params)) return false;
-  if (isNaN(parseInt(params))) return false;
-  return true;
-};
+export const metadata = META_SHARED;
 
 export default async function Shared({
   searchParams,
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const { user: userParams, folder: folderParams } = searchParams;
-  if (
-    !checkValidateSearchParams(userParams) ||
-    !checkValidateSearchParams(folderParams)
-  )
-    notFound();
-  const [sharedUserID, folderID] = [Number(userParams), Number(folderParams)];
+  const { user: strUserParam, folder: strFolderParam } = searchParams;
+  const sharedUserId = convertParamToNum(strUserParam);
+  const folderId = convertParamToNum(strFolderParam);
+
+  if (!sharedUserId) redirect("/");
+  if (folderId === null) redirect(`/shared?user=${sharedUserId}&folder=0`);
 
   const [sharedUser, folder, links] = await Promise.all([
-    getUser(sharedUserID),
-    getFolder(sharedUserID, folderID),
-    getLink(sharedUserID, folderID),
+    getUser(sharedUserId),
+    getFolder(sharedUserId, folderId),
+    getLinks(sharedUserId, folderId),
   ]);
+
+  let currentFolder: SelectedFolder;
+  if (folderId === 0) currentFolder = { id: 0, name: "전체" };
+  else {
+    if (!folder) redirect(`/shared?user=${sharedUserId}&folder=0`);
+    currentFolder = { id: folder.id, name: folder.name };
+  }
 
   return (
     <>
-      <FolderInfo folder={folder} owner={sharedUser} />
+      <FolderInfo folder={currentFolder} owner={sharedUser} />
       <main>
         <section className={cx("searchBarContainer")}>
           <SearchBar />
@@ -52,7 +53,11 @@ export default async function Shared({
         )}
         <section className={cx("cardContainer")}>
           {links.map((link) => (
-            <Card key={link.id} link={link} isNotOwn={true} />
+            <Card
+              key={link.id}
+              link={link}
+              menuComponent={<OtherCardMenu url={link.url} />}
+            />
           ))}
         </section>
       </main>

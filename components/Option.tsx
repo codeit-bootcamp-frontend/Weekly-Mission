@@ -5,9 +5,11 @@ import { useState } from "react";
 import classNames from "classnames/bind";
 import Image from "next/image";
 
-import DeleteModal from "@/components/Modal/DeleteModal";
-import FormModal from "@/components/Modal/FormModal";
-import ShareModal from "@/components/Modal/ShareModal";
+import DeleteModal from "@/components/Modal/DeleteModal/DeleteModal";
+import EditForm from "@/components/Modal/FormModal/EditForm";
+import FormModal from "@/components/Modal/FormModal/FormModal";
+import ShareModal from "@/components/Modal/ShareModal/ShareModal";
+import { SelectedFolder } from "@/utils/api/types";
 
 import styles from "./Option.module.scss";
 
@@ -18,10 +20,11 @@ import shareImage from "@/public/images/folder-share.svg";
 const cx = classNames.bind(styles);
 
 interface OptionProps {
-  folder: { id: number; name: string };
-  onEditFolder: (newName: string) => string;
-  onDeleteFolder: (id: number) => number;
+  folder: SelectedFolder;
+  onEditFolder: (newName: string, id: number) => void;
+  onDeleteFolder: (id: number) => void;
 }
+
 export default function Option({
   folder,
   onEditFolder,
@@ -32,6 +35,10 @@ export default function Option({
   const [shownShareModal, setShownShareModal] = useState(false);
 
   const openEditModal = () => {
+    if (folder.name === "전체" || folder.name === "⭐️ 즐겨찾기") {
+      alert(`${folder.name} 폴더는 이름을 변경할 수 없어요!`);
+      return;
+    }
     setShownEditModal(true);
   };
 
@@ -40,6 +47,10 @@ export default function Option({
   };
 
   const openDeleteModal = () => {
+    if (folder.name === "전체" || folder.name === "⭐️ 즐겨찾기") {
+      alert(`${folder.name} 폴더는 삭제할 수 없어요!`);
+      return;
+    }
     setShownDeleteModal(true);
   };
 
@@ -73,9 +84,15 @@ export default function Option({
       </div>
       {shownEditModal && (
         <FormModal
-          folder={folder}
+          title="폴더 이름 변경"
           onClose={closeEditModal}
-          onSubmit={onEditFolder}
+          formComponent={
+            <EditForm
+              folder={folder}
+              onClose={closeEditModal}
+              onSubmit={onEditFolder}
+            />
+          }
         />
       )}
       {shownDeleteModal && (

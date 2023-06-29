@@ -10,9 +10,7 @@
     width: 100%;
     height: 100%;
     transition: transform 0.5s;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    object-fit: contain;
   }
 
   &.notShownMenu:hover {
@@ -49,6 +47,7 @@
 }
 
 .passedTime {
+  height: 1.6rem;
   color: #666666;
   font-size: 1.3rem;
 }

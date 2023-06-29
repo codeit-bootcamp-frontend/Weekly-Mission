@@ -4,7 +4,8 @@ import { useState } from "react";
 
 import classNames from "classnames/bind";
 
-import FormModal from "@/components/Modal/FormModal";
+import AddForm from "@/components/Modal/FormModal/AddForm";
+import FormModal from "@/components/Modal/FormModal/FormModal";
 
 import styles from "./AddFolderButton.module.scss";
 
@@ -13,7 +14,7 @@ const cx = classNames.bind(styles);
 export default function AddFolderButton({
   onAddFolder,
 }: {
-  onAddFolder: (name: string) => string;
+  onAddFolder: (name: string) => void;
 }) {
   const [shownModal, setShownModal] = useState(false);
 
@@ -31,7 +32,15 @@ export default function AddFolderButton({
         <span>폴더 추가</span>
         <span>+</span>
       </button>
-      {shownModal && <FormModal onClose={closeModal} onSubmit={onAddFolder} />}
+      {shownModal && (
+        <FormModal
+          title="폴더 추가"
+          onClose={closeModal}
+          formComponent={
+            <AddForm onClose={closeModal} onSubmit={onAddFolder} />
+          }
+        />
+      )}
     </>
   );
 }
