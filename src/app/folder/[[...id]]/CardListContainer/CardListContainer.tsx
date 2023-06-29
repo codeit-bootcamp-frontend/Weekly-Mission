@@ -5,19 +5,20 @@ import OptionList from "../OptionList/OptionList";
 import { getLinksByFolderId } from "@/lib/api/folderApi";
 import LinkCardList from "@/app/components/LinkCardList/LinkCardList";
 import EmptyLinks from "@/app/components/LinkCardList/EmptyLinks";
+import FolderName from "../FolderName/FolderName";
 
 interface CardListContainerProps {
   folderList: Folder[];
-  folderId: number;
+  params: { id?: string[] };
   userId: number;
 }
 
 const getLinkProps = async (userId: number, folderId: number) => {
-  const { distinctData } = await getLinksByFolderId(
+  const { data } = await getLinksByFolderId(
     `${userId}`,
     `${folderId ? folderId : ""}`
   );
-  return distinctData.map((data: any) => {
+  return data.map((data: any) => {
     return {
       id: data.id,
       href: data.url,
@@ -29,21 +30,22 @@ const getLinkProps = async (userId: number, folderId: number) => {
 };
 
 const CardListContainer = async ({
-  folderId,
   folderList,
+  params,
   userId,
 }: CardListContainerProps) => {
+  const folderId = Number(params.id?.[0]) ?? 0;
   const cardList = await getLinkProps(userId, folderId);
+
+  const folderName =
+    folderId !== 0
+      ? folderList.find((folder) => folder.id === +folderId)?.name
+      : "전체";
   return (
     <>
       <div className={styles.titleRow}>
-        <h2 className={styles.title}>
-          {folderId
-            ? folderList.find((folder) => folder.id === +folderId)?.name ??
-              "제목없음"
-            : "전체"}
-        </h2>
-        <OptionList />
+        <FolderName name={folderName!} folderId={folderId} />
+        <OptionList folderId={folderId} />
       </div>
       <article className={styles.cardList}>
         {cardList.length > 0 ? (

@@ -1,4 +1,4 @@
-import { getRequest } from "./common";
+import { deleteRequest, getRequest, postRequest, putRequest } from "./common";
 
 export const getSampleFolder = async () => {
   const response = await getRequest(`/sample/folder`);
@@ -19,5 +19,25 @@ export const getLinksByFolderId = async (userId: string, folderId: string) => {
 
 export const getFoldersByUserId = async (userId: string) => {
   const response = await getRequest(`/users/${userId}/folders`);
+  return response;
+};
+
+export const postCreateFolder = async (userId: string, folderName: string) => {
+  const response = await postRequest(`/folders`, {
+    name: folderName,
+    userId: userId,
+  });
+  return response;
+};
+
+export const deleteFolder = async (folderId: number) => {
+  const response = await deleteRequest(`/folders/${folderId}`);
+  return response;
+};
+
+export const updateFolderName = async (folderId: number, newName: string) => {
+  const response = await putRequest(`/folders/${folderId}`, {
+    name: newName,
+  });
   return response;
 };

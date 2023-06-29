@@ -6,12 +6,16 @@ import Modal, { ModalProps } from "@/app/components/Modals/Modal";
 import ShareFolder from "@/app/components/Modals/ModalContents/ShareFolder";
 import EditFolderName from "@/app/components/Modals/ModalContents/EditFolderName";
 import styles from "./OptionList.module.scss";
+import DeleteFolder from "@/app/components/Modals/ModalContents/DeleteFolder";
+import { deleteFolder, updateFolderName } from "@/lib/api/folderApi";
+import { useRouter } from "next/navigation";
+import { useRecoilState } from "recoil";
+import { folderListState } from "@/app/recoil/atoms";
 
 const DELETE_FOLDER_MODAL_PROPS = {
   type: "delete",
   title: "폴더 삭제",
   subtitle: "폴더명",
-  proceedBtnText: "삭제하기",
 };
 
 const SHARE_FOLDER_MODAL_PROPS = {
@@ -23,7 +27,6 @@ const SHARE_FOLDER_MODAL_PROPS = {
 const EDIT_FOLDER_MODAL_PROPS = {
   type: "edit",
   title: "폴더 이름 변경",
-  proceedBtnText: "변경하기",
 };
 
 const ADD_FOLDER_MODAL_PROPS = {
@@ -32,13 +35,20 @@ const ADD_FOLDER_MODAL_PROPS = {
   proceedBtnText: "추가하기",
 };
 
-const OptionList = () => {
+interface OptionListProps {
+  folderId: number;
+}
+
+const OptionList = ({ folderId }: OptionListProps) => {
+  const [currentFolderList, setCurrentFolderList] =
+    useRecoilState(folderListState);
   const modalRef = useRef<HTMLDialogElement>(null);
   const [modalProps, setModalProps] = useState<ModalProps>({
     ...ADD_FOLDER_MODAL_PROPS,
     modalRef,
     onClose: () => {},
   });
+  const router = useRouter();
   const handleCloseModal = () => {
     if (modalRef.current) {
       modalRef.current.close();
@@ -49,6 +59,28 @@ const OptionList = () => {
     if (modalRef.current) {
       modalRef.current.showModal();
     }
+  };
+
+  const handleDeleteFolder = async () => {
+    await deleteFolder(folderId);
+    const newFolderList = currentFolderList.filter(
+      (folder) => folder.id !== folderId
+    );
+    setCurrentFolderList(newFolderList);
+    handleCloseModal();
+    router.push("/folder");
+  };
+
+  const handleEditFolderName = async (newName: string) => {
+    await updateFolderName(folderId, newName);
+    const newFolderList = currentFolderList.map((folder) => {
+      if (folder.id === folderId) {
+        return { ...folder, name: newName };
+      }
+      return folder;
+    });
+    setCurrentFolderList(newFolderList);
+    handleCloseModal();
   };
 
   const handleClickShareFolder = () => {
@@ -67,7 +99,12 @@ const OptionList = () => {
   const handleClickEditFolder = () => {
     setModalProps({
       ...EDIT_FOLDER_MODAL_PROPS,
-      ui: <EditFolderName folderName="유용한 팁" />,
+      ui: (
+        <EditFolderName
+          folderName="유용한 팁"
+          onSubmit={handleEditFolderName}
+        />
+      ),
       onClose: handleCloseModal,
       modalRef,
     });
@@ -76,6 +113,7 @@ const OptionList = () => {
   const handleClickDeleteFolder = () => {
     setModalProps({
       ...DELETE_FOLDER_MODAL_PROPS,
+      ui: <DeleteFolder onDelete={handleDeleteFolder} />,
       onClose: handleCloseModal,
       modalRef,
     });

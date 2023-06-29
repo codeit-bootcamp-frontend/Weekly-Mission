@@ -12,7 +12,7 @@ const Hero = () => {
           <span className={styles.tabletNl}>쉽게 저장하고</span>
           관리해 보세요
         </h1>
-        <Link href="#">링크 추가하기</Link>
+        <Link href="/folder">링크 추가하기</Link>
         <div className={styles.landingImageContainer}>
           <div className={styles.imageBox}>
             <Image src="/landing.png" alt="landing-img" fill />
