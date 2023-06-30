@@ -1,3 +1,2 @@
-DELETE http://localhost:3000/api/folders/649bc9524066601edc6e2ac7 HTTP/1.1
+DELETE http://localhost:3000/api/links/649e9a5ac9068055dd872dbf HTTP/1.1
 Content-Type: application/json
-

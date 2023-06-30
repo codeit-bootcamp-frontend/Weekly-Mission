@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/dbConnect";
 import { FolderModel } from "@/lib/models/folder";
 import { LinkModel } from "@/lib/models/link";
+import { OpenGraphScraperOptions } from "open-graph-scraper/dist/lib/types";
 
 export async function GET(req: NextRequest) {
   await dbConnect();
@@ -9,37 +10,53 @@ export async function GET(req: NextRequest) {
   return NextResponse.json(links);
 }
 
-export async function POST(req: NextRequest) {
+export async function POST(req: NextRequest, res: NextResponse) {
   await dbConnect();
   const body = await req.json();
-  const link = await LinkModel.create(body);
 
-  // const folder = await FolderModel.findByIdAndUpdate(
-  //   body.userId,
-  //   { $push: { links: link._id } }
-  // );
+  const ogs = require("open-graph-scraper");
+  const options = { url: body.url };
+  const { result } = await ogs(options);
 
-  return NextResponse.json(link);
+  if (result) {
+    body.title = result.ogTitle || null;
+    body.description = result.ogDescription || null;
+    body.imageSource = result.ogImage ? result.ogImage[0].url : null;
+  }
+
+  let link = await LinkModel.findOne({ url: body.url, userId: body.userId });
+
+  if (body.folderId && link) {
+    if (!link.folderId.includes(body.folderId)) {
+      await Promise.all([
+        LinkModel.findByIdAndUpdate(link._id, {
+          $push: { folderId: body.folderId },
+        }),
+        FolderModel.findByIdAndUpdate(body.folderId, {
+          $push: { linkId: link._id },
+        }),
+      ]);
+    } else return NextResponse.json({ message: "이미 추가된 링크입니다" });
+  } else if (body.folderId && !link) {
+    let newLink = await LinkModel.create(body);
+    await FolderModel.findByIdAndUpdate(body.folderId, {
+      $push: { linkId: newLink._id },
+    });
+  } else if (!body.folderId && !link) {
+    await LinkModel.create(body);
+  } else return NextResponse.json({ message: "이미 추가된 링크입니다" });
+
+  return NextResponse.json(body);
 }
 
-// link에 추가
-
 /*
-folder가 있을 경우 : folder에 같이 추가
-없을 경우: 
+   1. folderId값 O 
+    - 기존 link있을떄: 
+        (1) folderId 중복: pass
+        (2) folderId 없음: folderId에 id값 추가, folderModel에 해당 link추가 
+    - 기존 link없을때: link추가, folderModel에 해당 link추가 (?)
 
-*/
-// links에서 user 필터
-// 전체 links에서 folderid로 
-
-
-
-//link 추가하면? links에 데이터 추가 + (folder가 있을 경우)folders links에 추가가 되어야함.
-
-/*
-추가하는 데이터
-{
-  "url": "string",
-  "userId": 1,
-  "folderId": 1
-}*/
+   2. folderId 값 X 
+    - 기존 link있을때: pass
+    - 기존 link없을때: link에 추가 +
+  */

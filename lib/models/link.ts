@@ -5,8 +5,8 @@ const LinkSchema = new mongoose.Schema(
   {
     url: { type: String, required: true },
     title: { type: String, required: true },
-    description: { type: String },
-    image_source: { type: String },
+    description: { type: String, required: true },
+    imageSource: { type: String, required: true },
     userId: { type: Schema.Types.ObjectId, ref: "User", required: true },
     folderId: [{ type: Schema.Types.ObjectId, ref: "Folder", required: true }],
   },
