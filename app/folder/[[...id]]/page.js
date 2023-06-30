@@ -3,9 +3,9 @@ import classNames from "classnames/bind";
 import FolderList from "@/components/FolderList/FolderList";
 import CardList from "@/components/CardList/CardList";
 import SearchBar from "@/components/SearchBar/SearchBar";
-import { getFolders } from "@/api/instance";
+import LinkInput from "@/components/LinkInput/LinkInput";
+import { getFolders, getLinks } from "@/api/instance";
 // import { connectDB } from "@/api/database";
-// import { getFolderList, getCardList } from "@/api/instance";
 // import dbConnect from "@/dbConnect";
 // import { FolderModel } from "@/lib/models/folder";
 
@@ -20,20 +20,29 @@ export default async function Page({ params }) {
   const folderList = await getFolders(userId); //1. no-cache
   // 3. all-link 받아서 filter해서 prop넘겨주기
 
-  // const currentFolder = folderList.filter((obj) => obj._id === currentIdParam); 
-  // const cardList = await getCardList(userId, currentIdParam);
-  // const currentFolderName = currentFolder ? currentFolder.name : "전체";
+  // const currentFolder = folderList.filter(
+  //   (folder) => folder._id === currentIdParam
+  // );
+  const cardList = await getLinks(userId, currentIdParam);
+  // const currentFolderName = params.id ? currentFolder.name : "전체";
 
   return (
-    <div className={cx("wrapper")}>
-      <div className={cx("search-bar")}>
-        <SearchBar />
+    <>
+      <div className={cx("banner")}>
+        <LinkInput />
       </div>
-      <div className={cx("folder-wrapper")}>
-        <FolderList folderList={folderList} currentIdParam={currentIdParam} /> 
+      <div className={cx("wrapper")}>
+        <div className={cx("search-bar")}>
+          <SearchBar />
+        </div>
+        <FolderList folderList={folderList} currentIdParam={currentIdParam} />
         {/* 안에 서치바 */}
+        <CardList
+          folderList={folderList}
+          cardList={cardList}
+          currentIdParam={currentIdParam}
+        />
       </div>
-      {/* <CardList cardList={cardList} currentFolderName={currentFolderName} /> */}
-    </div>
+    </>
   );
 }

@@ -55,3 +55,8 @@
   flex-direction: column;
   gap: 1.5rem;
 }
+
+.button-wrapper {
+  font-size: 1.6rem;
+  height: 5rem;
+}

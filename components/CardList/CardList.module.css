@@ -2,18 +2,21 @@
   font-size: 2.4rem;
   margin-bottom: 2.4rem;
   font-weight: 600;
+  height: 3rem;
 }
 
 .card-list {
   display: flex;
   margin-bottom: 8rem;
-  min-height: 17rem;
   align-items: center;
+  flex-wrap: wrap;
+  height: fit-content;
+  gap: 2rem;
 }
 
-.card {
+/* .card {
   margin-right: 1.6rem;
-}
+} */
 
 .card:nth-child(3n) {
   margin-right: 0;

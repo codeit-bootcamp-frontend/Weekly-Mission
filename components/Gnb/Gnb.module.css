@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   background-color: var(--gray-5);
-  z-index: 1;
+  z-index: 999;
 }
 
 .header .container {

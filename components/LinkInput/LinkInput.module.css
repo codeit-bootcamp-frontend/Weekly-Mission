@@ -1,0 +1,32 @@
+.link-input {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.link-input input {
+  width: 80rem;
+  height: 6rem;
+  background-color: #ffffff;
+  border: 1px solid var(--primary);
+  border-radius: 1.5rem;
+  padding: 0 4.2rem;
+}
+
+.link-input input:focus {
+  outline: none;
+}
+
+.link-icon {
+  position: absolute;
+  left: 1.5rem;
+}
+
+.button-wrapper {
+  position: absolute;
+  display: flex;
+  width: 8rem;
+  height: 3.3rem;
+  font-size: 1.4rem;
+  right: 1.5rem;
+}

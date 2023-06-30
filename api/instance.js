@@ -71,18 +71,32 @@ async function getUser(userId) {
 //   }
 // }
 
-// async function getCardList(userId, folderId) {
-//   try {
-//     const url = folderId
-//       ? `api/users/${userId}/links?folderId=${folderId}`
-//       : `api/users/${userId}/links`;
+async function getLinks(userId, folderId) {
+  try {
+    const url = folderId
+      ? `api/users/${userId}/links?folderId=${folderId}`
+      : `api/users/${userId}/links`;
 
-//     const response = await instance.get(url);
-//     return response.data.distinctData;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
+    const response = await instance.get(url);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function postLink(url, userId, folderId) {
+  try {
+    const response = await instance.post(`/api/links`, {
+      url,
+      userId,
+      folderId: folderId || null,
+    });
+    const link = await response.data;
+    return link;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 // export { getUser, getFolderList, getCardList };
-export { getUser, getFolders, postFolder };
+export { getUser, getFolders, postFolder, getLinks, postLink };

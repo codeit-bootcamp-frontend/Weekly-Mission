@@ -5,10 +5,12 @@ import { FolderModel } from "@/lib/models/folder";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id : string } }
+  { params }: { params: { id: string } }
 ) {
   await dbConnect();
   const userData = await UserModel.findById(params.id);
-  const folderData = await FolderModel.find({ _id: { $in: userData.folders } });
+  const folderData = await FolderModel.find({
+    _id: { $in: userData.folderId },
+  });
   return NextResponse.json(folderData);
 }

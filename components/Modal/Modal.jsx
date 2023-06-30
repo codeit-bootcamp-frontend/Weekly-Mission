@@ -39,7 +39,9 @@ export default function Modal({
           </div>
           <div className={cx("content-container")}>
             {content}
+            <div className={cx("button-wrapper")}>
             {button && <SimpleButton {...button} onClose={onClose} />}
+            </div>
           </div>
         </div>
       </div>

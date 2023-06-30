@@ -3,13 +3,15 @@
   width: 106rem;
 }
 
-.search-bar {
-  margin-bottom: 4rem;
+.banner {
+  height: 22rem;
+  background-color: var(--gray-5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
 }
 
-.folder-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2.4rem;
+.search-bar {
+  margin-bottom: 4rem;
 }
