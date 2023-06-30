@@ -1,41 +1,60 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import dynamic from "next/dynamic";
+import FolderContents from "@/components/FolderContents/FolderContents";
+import Gnb from "@/components/Gnb/Gnb";
+import { getFolders } from "@/lib/axios/folderRequest";
+import { getLinks } from "@/lib/axios/linkRequest";
+import { getUser } from "@/lib/axios/userRequest";
 
-import {
-  getFoldersQueryFn,
-  getLinksQueryFn,
-} from "@/lib/tanstack/queryFns/foldersQueryFns";
-
+// import { tempUserDatas } from "@/utils/constants";
+// import prisma from "@/utils/prismadb";
+// import { getServerSession } from "next-auth";
+// import { authOptions } from "../api/auth/[...nextauth]/route";
 import styles from "./page.module.scss";
 
-const FolderContents = dynamic(
-  () => import("@/components/FolderContents/FolderContents"),
-  { ssr: false }
-);
+export const revalidate = 1000;
+const Folder = async () => {
+  // const session = await getServerSession(authOptions);
 
-interface IFolderProps {
-  params: {
-    userId?: number;
-  };
-}
+  // let userProfile;
+  // let userId;
+  // if (!session?.user?.email) {
+  //   userProfile = null;
+  // } else {
+  //   const currentUser = await prisma?.user.findUnique({
+  //     where: {
+  //       email: session.user.email,
+  //     },
+  //   });
+  //   if (!currentUser) {
+  //     userProfile = null;
+  //   } else {
+  //     userId = tempUserDatas[currentUser.id];
+  //     userProfile = await getUser(userId);
+  //   }
+  // }
 
-export const revalidate = 3600;
-const Folder = async ({ params }: IFolderProps) => {
-  const userId = params.userId as number;
+  // if (!userProfile) {
+  //   throw new Error(`Failed to fetch user data`);
+  // }
+
+  // userId = userProfile.id;
+
+  const userId = 11;
+  const userProfile = await getUser(userId);
 
   const [folders, links] = await Promise.all([
-    getFoldersQueryFn(userId),
-    getLinksQueryFn(userId),
+    getFolders(userId),
+    getLinks(userId),
   ]);
 
   return (
     <>
+      <Gnb user={userProfile} />
       <main className={styles.main}>
         <FolderContents
+          userId={userId}
           folders={folders}
           links={links}
           currentTab={0}
-          // currentTab={params.userId}
         />
       </main>
     </>

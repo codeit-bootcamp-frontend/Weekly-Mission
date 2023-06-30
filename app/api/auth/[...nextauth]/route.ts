@@ -1,86 +1,64 @@
-import { NextAuthOptions, Session } from "next-auth";
-import { JWT } from "next-auth/jwt";
+import prisma from "@/utils/prismadb";
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import bcrypt from "bcryptjs";
+import { NextAuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
 import Credentials from "next-auth/providers/credentials";
 
 export const authOptions: NextAuthOptions = {
-  secret: "secret",
+  adapter: PrismaAdapter(prisma),
   providers: [
     Credentials({
       name: "Credentials",
       credentials: {
-        email: { label: "Email" },
-        password: { label: "Password" },
+        email: { label: "Email", type: "text" },
+        password: { label: "Password", type: "password" },
       },
-      async authorize(credentials: Record<string, string> | undefined) {
-        // Perform database operations
-
-        try {
-          const { email, password } = credentials as {
-            email: string;
-            password: string;
-          };
-
-          // TODO: db 내 유무 확인/비밀번호 검증 코드 작성
-
-          /**
-           * @description 임시로 설정한 유저 정보입니다.
-           */
-          const user = {
-            id: Number(password), // 임시로 비밀번호가 id가 되도록 설정
-            created_at: "2023-06-04T13:03:01+00:00",
-            name: "코드잇",
-            image_source:
-              "https://codeit-images.codeit.com/badges/COMPLETE_100_LESSONS.png",
-            email: "codeit@codeit.com",
-            password: new Array(11)
-              .fill(null)
-              .map((elem, index) => String(index + 1)),
-          };
-
-          if (email === user.email && user.password.includes(password)) {
-            return Promise.resolve({
-              id: user.id,
-              name: user.name,
-              image_source: user.image_source,
-              email: user.email,
-            }) as any;
-          }
-          return Promise.reject(null);
-        } catch (e) {
-          console.log(e);
-          return Promise.reject(null);
+      async authorize(credentials) {
+        if (!credentials?.email || !credentials?.password) {
+          throw new Error("Invalid credentials");
         }
+
+        const user = await prisma.user.findUnique({
+          where: {
+            email: credentials.email,
+          },
+        });
+
+        if (!user || !user?.hashedPassword) {
+          // hashedPassword가 없으면 OAuth 로그인한 유저
+          throw new Error("Invalid credentials");
+        }
+
+        const isCorrectPassword = await bcrypt.compare(
+          credentials.password,
+          user.hashedPassword
+        );
+
+        if (!isCorrectPassword) {
+          throw new Error("Invalid credentials");
+        }
+        return user;
       },
     }),
   ],
   session: {
     strategy: "jwt",
+  },
+  jwt: {
+    secret: "jwt-secret",
     maxAge: 30 * 24 * 60 * 60, // 30 days
-    updateAge: 24 * 60 * 60, // 24 hours
+  },
+  pages: {
+    signIn: "/api/auth/login",
   },
   callbacks: {
     async jwt({ token, user }) {
-      /**
-       * "user" parameter is the object received from "authorize"
-       * "token" is being send below to "session" callback...
-       * authorize에 리턴했던 값이 user 정보에 있면 token에 추가
-       */
-      user && (token.user = user);
-      return token;
+      return { ...token, ...user };
     },
-    async session({ session, token }: { session: Session; token: JWT }) {
-      /**
-       * "session" is current session object
-       * below we set "user" param of "session" to value received from "jwt" callback
-       * token에 포함된 user 정보를 session.user에도 추가
-       * 이후 client side의 session.user에서 token.user 정보 확인 가능
-       */
-      session.user = token.user;
-      if (session.user != null && token.hasAcceptedTerms != null) {
-        session.user.hasAcceptedTerms = token?.hasAcceptedTerms;
-      }
-      return Promise.resolve(session);
+    async session({ session, token }) {
+      session.user = token;
+      return session;
     },
   },
 };

@@ -11,6 +11,14 @@ const nextConfig = {
         source: "/users/:path*",
         destination: "https://bootcamp-api.codeit.kr/api/users/:path*",
       },
+      {
+        source: "/folders/:path*",
+        destination: "https://bootcamp-api.codeit.kr/api/folders/:path*",
+      },
+      {
+        source: "/links/:path*",
+        destination: "https://bootcamp-api.codeit.kr/api/links/:path*",
+      },
     ];
   },
   async redirects() {

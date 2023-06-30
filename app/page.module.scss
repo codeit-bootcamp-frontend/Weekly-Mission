@@ -40,9 +40,10 @@
 
         p {
           display: inline-block;
-        }
-        p:first-child {
-          padding-right: 20px;
+
+          &:first-child {
+            padding-right: 20px;
+          }
         }
       }
 
@@ -142,12 +143,12 @@
       grid-template-rows: repeat(2, 1fr);
       grid-template-columns: repeat(2, 1fr);
       grid-template-areas:
-        "h i"
-        "t i";
+        "head img"
+        "texts img";
       align-content: center;
 
       h2 {
-        grid-area: h;
+        grid-area: head;
         align-self: end;
         width: 100%;
         max-width: 26.8rem;
@@ -163,7 +164,7 @@
       }
 
       p {
-        grid-area: t;
+        grid-area: texts;
         align-self: start;
         width: 100%;
         max-width: 26.2rem;
@@ -176,7 +177,7 @@
 
       .imageContainer {
         width: 55rem;
-        grid-area: i;
+        grid-area: img;
 
         .image {
           width: 100%;
@@ -186,8 +187,8 @@
     }
     .section.right {
       grid-template-areas:
-        "i h"
-        "i t";
+        "img head"
+        "img texts";
 
       h2 {
         justify-self: end;
@@ -298,9 +299,9 @@
           grid-template-rows: repeat(3, auto);
           grid-template-columns: repeat(1, auto);
           grid-template-areas:
-            "h"
-            "i"
-            "t";
+            "head"
+            "img"
+            "texts";
           align-content: center;
 
           .imageContainer {

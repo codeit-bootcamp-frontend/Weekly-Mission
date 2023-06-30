@@ -1,20 +1,31 @@
 "use clinet";
 
+import { useRouter } from "next/navigation";
+
+import { deleteFolder } from "@/lib/axios/folderRequest";
+import { IFolder } from "@/types/linkbrary";
+
 import ModalLayout from "../ModalLayout";
 import styles from "./DeleteFolderModal.module.scss";
 
 interface IDeleteFolderModalProps {
   handleCloseModal: () => void;
-  currentFolderName: string;
+  currentFolder: IFolder;
 }
 
 const DeleteFolderModal = ({
   handleCloseModal,
-  currentFolderName,
+  currentFolder,
 }: IDeleteFolderModalProps) => {
-  const handleClickDeleteFolder = () => {
-    // TODO: 해당 폴더 삭제 기능
+  const router = useRouter();
+  const { id: currentFolderId, name: currentFolderName } = currentFolder;
+
+  const handleClickDeleteFolder = async () => {
+    // TODO: 정말로 삭제할지 확인 문구 작성
+    await deleteFolder(currentFolderId);
+
     setTimeout(() => {
+      router.push("/folder");
       handleCloseModal();
     }, 500);
   };

@@ -1,23 +1,19 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-
-import { getUserQueryFn } from "@/lib/tanstack/queryFns/foldersQueryFns";
-import { useQuery } from "@tanstack/react-query";
 
 import styles from "./Gnb.module.scss";
 
 interface IGnbProps {
-  userId: number;
+  user: {
+    id: number;
+    created_at: string;
+    name: string;
+    image_source: string;
+    email: string;
+  } | null;
 }
 
-const Gnb = ({ userId }: IGnbProps) => {
-  const { data: user } = useQuery({
-    queryKey: ["user"],
-    queryFn: () => getUserQueryFn(userId),
-  });
-
+const Gnb = ({ user }: IGnbProps) => {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
@@ -33,7 +29,7 @@ const Gnb = ({ userId }: IGnbProps) => {
             />
           </Link>
           {!user ? (
-            <Link href="/api/auth/signin" className={styles.signin}>
+            <Link href="/api/auth/login" className={styles.signin}>
               로그인
             </Link>
           ) : (

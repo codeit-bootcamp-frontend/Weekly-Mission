@@ -8,11 +8,13 @@ import AddFolderModal from "../Modals/AddFolderModal/AddFolderModal";
 import styles from "./FolderChipField.module.scss";
 
 interface IFabProps {
+  userId: number;
   inView: boolean | null;
   isLinks: boolean;
+  isTransition: boolean;
 }
 
-const Fab = ({ inView, isLinks }: IFabProps) => {
+const Fab = ({ userId, inView, isLinks, isTransition }: IFabProps) => {
   const [openAddFolderModal, setOpenAddFolderModal] = useState<boolean>(false);
 
   const addPosition = (inView: boolean | null, isLinks: boolean) => {
@@ -25,8 +27,8 @@ const Fab = ({ inView, isLinks }: IFabProps) => {
     <>
       <div
         className={`${styles.buttonWrapper} ${
-          styles[`${addPosition(inView, isLinks)}`]
-        }`}
+          styles[`${isTransition ? "tr" : "not-tr"}`]
+        } ${styles[`${addPosition(inView, isLinks)}`]}`}
         onClick={() => setOpenAddFolderModal(true)}
       >
         <span className={styles.buttonText}>폴더 추가</span>
@@ -41,7 +43,10 @@ const Fab = ({ inView, isLinks }: IFabProps) => {
       </div>
 
       {openAddFolderModal && (
-        <AddFolderModal setOpenAddFolderModal={setOpenAddFolderModal} />
+        <AddFolderModal
+          userId={userId}
+          setOpenAddFolderModal={setOpenAddFolderModal}
+        />
       )}
     </>
   );

@@ -7,17 +7,21 @@ import FolderChip from "./FolderChip";
 import styles from "./FolderChipField.module.scss";
 
 interface IFolderChipFieldProps {
+  userId: number;
   folders: IFolder[];
   currentTab: number;
   inView: boolean | null;
   isLinks: boolean;
+  isTransition: boolean;
 }
 
 const FolderChipField = ({
+  userId,
   folders,
   currentTab,
   inView,
   isLinks,
+  isTransition,
 }: IFolderChipFieldProps) => {
   return (
     <div className={styles.folderChipFieldWrapper}>
@@ -33,7 +37,12 @@ const FolderChipField = ({
           );
         })}
       </div>
-      <Fab inView={inView} isLinks={isLinks} />
+      <Fab
+        userId={userId}
+        inView={inView}
+        isLinks={isLinks}
+        isTransition={isTransition}
+      />
     </div>
   );
 };

@@ -52,9 +52,10 @@
           display: block;
           border: none;
           background: transparent;
-        }
-        .input:focus {
-          outline: none;
+
+          &:focus {
+            outline: none;
+          }
         }
       }
     }

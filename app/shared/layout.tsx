@@ -1,14 +1,6 @@
-import { redirect } from "next/navigation";
-
 import Footer from "@/components/Footer/Footer";
 import Gnb from "@/components/Gnb/Gnb";
-import QueryHydrate from "@/components/QueryHydrate/QueryHydrate";
-import getQueryClient from "@/lib/tanstack/getQueryClient";
-import { getUserQueryFn } from "@/lib/tanstack/queryFns/foldersQueryFns";
-import { dehydrate } from "@tanstack/react-query";
-import { getServerSession } from "next-auth";
-
-import { authOptions } from "../api/auth/[...nextauth]/route";
+import getCurrentUser from "@/utils/getCurrentUser";
 
 export const revalidate = 3600;
 
@@ -17,27 +9,12 @@ export default async function SharedLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerSession(authOptions);
-
-  if (!session) {
-    redirect("/api/auth/signin");
-  }
-
-  const userId = session.user.id;
-
-  const queryClient = getQueryClient();
-  await queryClient.prefetchQuery(["user"], () =>
-    getUserQueryFn(userId as number)
-  );
-  const dehydratedState = dehydrate(queryClient);
-
+  const userProfile = await getCurrentUser();
   return (
     <>
-      <QueryHydrate state={dehydratedState}>
-        <Gnb userId={userId as number} />
-        {children}
-        <Footer />
-      </QueryHydrate>
+      <Gnb user={userProfile} />
+      {children}
+      <Footer />
     </>
   );
 }

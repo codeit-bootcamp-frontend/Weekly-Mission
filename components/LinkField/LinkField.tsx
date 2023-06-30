@@ -3,15 +3,17 @@
 import { useState } from "react";
 
 import LinkCard from "@/components/LinkCard/LinkCard";
-import { ILink } from "@/types/linkbrary";
+import { IFolder, ILink } from "@/types/linkbrary";
 
 import styles from "./LinkField.module.scss";
 
 interface ILinkFieldProps {
-  links: ILink[];
+  userId?: number;
+  folders?: IFolder[] | [];
+  links: ILink[] | [];
 }
 
-const LinkField = ({ links }: ILinkFieldProps) => {
+const LinkField = ({ userId, folders, links }: ILinkFieldProps) => {
   const [openKebabIndex, setOpenKebabIndex] = useState<number>(-1);
 
   if (links.length === 0) {
@@ -26,6 +28,9 @@ const LinkField = ({ links }: ILinkFieldProps) => {
         {links.map((link, index) => (
           <LinkCard
             key={link.id}
+            userId={userId}
+            folders={folders}
+            links={links}
             link={link}
             isClickedKebab={index === openKebabIndex}
             handleClickOpenKebab={() => setOpenKebabIndex(index)}
