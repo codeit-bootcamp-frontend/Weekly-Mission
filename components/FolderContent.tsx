@@ -120,12 +120,16 @@ export default function FolderContent({
               <div className={cx("folderSelect")}>
                 <div className={cx("folders")}>
                   <div className={cx("chipContainer")}>
-                    <FolderChip folder={{ id: 0, name: "전체" }} />
+                    <FolderChip
+                      folder={{ id: 0, name: "전체" }}
+                      selected={currentFolder.id === 0}
+                    />
                   </div>
                   {folders.map((folder) => (
                     <div key={folder.id} className={cx("chipContainer")}>
                       <FolderChip
                         folder={{ id: folder.id, name: folder.name }}
+                        selected={currentFolder.id === folder.id}
                       />
                     </div>
                   ))}
