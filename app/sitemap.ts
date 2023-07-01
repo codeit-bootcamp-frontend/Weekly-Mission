@@ -3,15 +3,15 @@ import { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://weekly-mission-git-fork-wooleejaan-henry-5968a4-codeit-bootcamp.vercel.app",
+      url: "https://weekly-mission-git-henry-react-codeit-bootcamp.vercel.app",
       lastModified: new Date(),
     },
     {
-      url: "https://weekly-mission-git-fork-wooleejaan-henry-5968a4-codeit-bootcamp.vercel.app/shared",
+      url: "https://weekly-mission-git-henry-react-codeit-bootcamp.vercel.app/shared",
       lastModified: new Date(),
     },
     {
-      url: "https://weekly-mission-git-fork-wooleejaan-henry-5968a4-codeit-bootcamp.vercel.app/folder",
+      url: "https://weekly-mission-git-henry-react-codeit-bootcamp.vercel.app/folder",
       lastModified: new Date(),
     },
   ];
