@@ -13,7 +13,6 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest, res: NextResponse) {
   await dbConnect();
   const body = await req.json();
-
   const ogs = require("open-graph-scraper");
   const options = { url: body.url };
   const { result } = await ogs(options);
@@ -21,10 +20,13 @@ export async function POST(req: NextRequest, res: NextResponse) {
   if (result) {
     body.title = result.ogTitle || null;
     body.description = result.ogDescription || null;
-    body.imageSource = result.ogImage ? result.ogImage[0].url : null;
+    body.image_source = result.ogImage ? result.ogImage[0].url : null;
   }
 
   let link = await LinkModel.findOne({ url: body.url, user_id: body.userId });
+
+  const {folderId, userId, ...rest} = body
+  const newObj = {...rest, folder_id: folderId, user_id: userId}
 
   if (body.folderId && link) {
     if (!link.folder_id.includes(body.folderId)) {
@@ -38,15 +40,15 @@ export async function POST(req: NextRequest, res: NextResponse) {
       ]);
     } else return NextResponse.json({ message: "이미 추가된 링크입니다" });
   } else if (body.folderId && !link) {
-    let newLink = await LinkModel.create(body);
+    let newLink = await LinkModel.create(newObj);
     await FolderModel.findByIdAndUpdate(body.folderId, {
       $push: { link_id: newLink._id },
     });
   } else if (!body.folderId && !link) {
-    await LinkModel.create(body);
+    await LinkModel.create(newObj);
   } else return NextResponse.json({ message: "이미 추가된 링크입니다" });
 
-  return NextResponse.json(body);
+  return NextResponse.json(newObj);
 }
 
 /*

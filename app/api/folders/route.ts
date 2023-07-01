@@ -12,7 +12,9 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   await dbConnect();
   const body = await req.json();
-  const folder = await FolderModel.create(body);
+  const { userId, ...rest } = body;
+  const newObj = { ...rest, user_id: userId };
+  const folder = await FolderModel.create(newObj);
 
   const user = await UserModel.findByIdAndUpdate(
     body.user_id,
