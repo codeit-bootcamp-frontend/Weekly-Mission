@@ -16,7 +16,7 @@ export const instance: CustomAxiosInterface = axios.create({
   baseURL:
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
-      : "https://weekly-mission-git-henry-react-codeit-bootcamp.vercel.app",
+      : "https://weekly-mission-git-henry-react-auth-codeit-bootcamp.vercel.app",
   headers: {
     "Content-Type": "application/json",
     Accept: "*/*",
