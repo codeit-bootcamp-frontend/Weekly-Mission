@@ -1,4 +1,4 @@
-import { BASE_URL } from "@/lib/common.api";
+const BASE_URL = process.env.BASE_URL;
 
 export const getData = async <T>(url: string): Promise<T> => {
   const response = await fetch(BASE_URL + url);

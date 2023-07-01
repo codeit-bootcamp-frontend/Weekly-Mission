@@ -20,11 +20,18 @@ const nextConfig = {
   },
   async rewrites() {
     return [
+      // {
+      //   source: "/fonts/:path*",
+      //   destination: "/fonts/:path*",
+      // },
       {
-        source: "/fonts/:path*",
-        destination: "/fonts/:path*",
+        source: "/api/:path*",
+        destination: "https://bootcamp-api.codeit.kr/api/:path*", // 수정된 목적지 URL
       },
     ];
+  },
+  env: {
+    BASE_URL: process.env.BASE_URL,
   },
 };
 
