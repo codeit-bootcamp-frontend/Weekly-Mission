@@ -32,7 +32,7 @@ const AddToFolder = () => {
             코딩팁
             <span className={styles.modalDescription}>7개 링크</span>
           </p>
-          {option === 1 && <Image width={14} height={14} src="/assets/check.svg" alt="check" />}
+          {option === 1 && <Image width={14} height={14} src="/check.svg" alt="check" />}
         </button>
         <button
           type="button"
@@ -43,7 +43,7 @@ const AddToFolder = () => {
             채용 사이트
             <span className={styles.modalDescription}>12개 링크</span>
           </p>
-          {option === 2 && <Image width={14} height={14} src="/assets/check.svg" alt="check" />}
+          {option === 2 && <Image width={14} height={14} src="/check.svg" alt="check" />}
         </button>
         <button
           type="button"
@@ -54,7 +54,7 @@ const AddToFolder = () => {
             유용한 글
             <span className={styles.modalDescription}>30개 링크</span>
           </p>
-          {option === 3 && <Image width={14} height={14} src="/assets/check.svg" alt="check" />}
+          {option === 3 && <Image width={14} height={14} src="/check.svg" alt="check" />}
         </button>
         <button
           type="button"
@@ -65,7 +65,7 @@ const AddToFolder = () => {
             나만의 장소
             <span className={styles.modalDescription}>3개 링크</span>
           </p>
-          {option === 4 && <Image width={14} height={14} src="/assets/check.svg" alt="check" />}
+          {option === 4 && <Image width={14} height={14} src="/check.svg" alt="check" />}
         </button>
       </div>
       <Button>추가하기</Button>

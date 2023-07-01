@@ -97,7 +97,7 @@ export interface IEyeTogglerProps {
 // pages
 export interface IFolderProps {
   params: {
-    id: string[] | undefined,
+    id: string[],
   }
 }
 

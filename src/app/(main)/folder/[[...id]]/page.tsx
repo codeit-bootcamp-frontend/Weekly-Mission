@@ -8,9 +8,12 @@ export const metadata = {
 }
 
 const Page = async ({ params }: IFolderProps) => {
+  const folderId = params?.id?.[0] ?? '0'
   let cardLinks: CardType[] = []
-  if (params.id) {
-    cardLinks = await getLinks({ userId: 8, folderId: Number(params.id[0]) })
+  try {
+    cardLinks = await getLinks({ userId: 8, folderId: Number(folderId) })
+  } catch (err) {
+    console.error(err)
   }
 
   return (
