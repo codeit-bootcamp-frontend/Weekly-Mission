@@ -25,8 +25,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
   let link = await LinkModel.findOne({ url: body.url, user_id: body.userId });
 
-  const {folderId, userId, ...rest} = body
-  const newObj = {...rest, folder_id: folderId, user_id: userId}
+  const { folderId, userId, ...rest } = body;
+  const newObj = folderId
+    ? { ...rest, folder_id: folderId, user_id: userId }
+    : { ...rest, user_id: userId };
 
   if (body.folderId && link) {
     if (!link.folder_id.includes(body.folderId)) {
