@@ -14,9 +14,7 @@ export async function generateMetadata({ params }: { params: { id: number } }) {
     email: "dlxkffldk37@gmail.com",
   };
   const { id: userId, name: userName } = currentUser;
-  const baseURL =
-    // CHECK: 서버 URL
-    "https://weekly-mission-git-ian-react-week14-codeit-bootcamp.vercel.app";
+  const baseURL = process.env.NEXT_PUBLIC_VERCEL_URL;
   return {
     ...META_FOLDER,
     openGraph: {
