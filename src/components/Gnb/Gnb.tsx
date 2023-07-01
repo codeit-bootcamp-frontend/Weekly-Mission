@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Gnb.module.css";
-import { getUserData } from "@/lib/getData";
+import { getData } from "@/lib/getData";
 import { userId } from "@/lib/common.api";
+import { User } from "$/types";
 
 export default async function Gnb() {
-  const user = await getUserData(`/api/users/${userId}`);
+  const user = await getData<User>(`/api/users/${userId}`);
   const { image_source: profileSrc = "", email = "" } = user || {};
 
   return (
