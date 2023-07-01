@@ -17,15 +17,23 @@ export default async function Page({ params }) {
   // let db = (await connectDB).db("linkbrary");
   // let folderList = await db.collection("folder").find().toArray();
   const currentIdParam = params.id && params.id[0];
-  const folderList = await getFolders(userId); //1. no-cache
+  const initialFolderList = await getFolders(userId); //1. no-cache
   // 3. all-link 받아서 filter해서 prop넘겨주기
 
-  // const currentFolder = folderList.filter(
-  //   (folder) => folder._id === currentIdParam
-  // );
+  const initialCurrentFolder = initialFolderList.filter(
+    (folder) => folder._id === currentIdParam
+  );
   const cardList = await getLinks(userId, currentIdParam);
   // const currentFolderName = params.id ? currentFolder.name : "전체";
- console.log(folderList)
+
+  /*
+userId={userId}
+      initialFolders={folders}
+      initialCurrentFolder={currentFolder}
+      initialLinks={filteredLinks}
+
+*/
+
   return (
     <>
       <div className={cx("banner")}>
@@ -35,12 +43,18 @@ export default async function Page({ params }) {
         <div className={cx("search-bar")}>
           <SearchBar />
         </div>
-        <FolderList folderList={folderList} currentIdParam={currentIdParam} />
+        <FolderList
+          initialFolderList={initialFolderList}
+          initialCurrentFolder={initialCurrentFolder}
+          currentIdParam={currentIdParam}
+          userId={userId}
+        />
         {/* 안에 서치바 */}
         <CardList
-          folderList={folderList}
+          initialFolderList={initialFolderList}
           cardList={cardList}
           currentIdParam={currentIdParam}
+          userId={userId}
         />
       </div>
     </>

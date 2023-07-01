@@ -30,9 +30,11 @@ export async function POST(req: NextRequest, res: NextResponse) {
     ? { ...rest, folder_id: folderId, user_id: userId }
     : { ...rest, user_id: userId };
 
+  let response;
+
   if (body.folderId && link) {
     if (!link.folder_id.includes(body.folderId)) {
-      await Promise.all([
+      response = await Promise.all([
         LinkModel.findByIdAndUpdate(link._id, {
           $push: { folder_id: body.folderId },
         }),
@@ -40,17 +42,25 @@ export async function POST(req: NextRequest, res: NextResponse) {
           $push: { link_id: link._id },
         }),
       ]);
-    } else return NextResponse.json({ message: "이미 추가된 링크입니다" });
+    } else
+      return NextResponse.json(
+        { message: "이미 추가된 링크입니다" },
+        { status: 501 }
+      );
   } else if (body.folderId && !link) {
     let newLink = await LinkModel.create(newObj);
-    await FolderModel.findByIdAndUpdate(body.folderId, {
+    response = await FolderModel.findByIdAndUpdate(body.folderId, {
       $push: { link_id: newLink._id },
     });
   } else if (!body.folderId && !link) {
-    await LinkModel.create(newObj);
-  } else return NextResponse.json({ message: "이미 추가된 링크입니다" });
+    response = await LinkModel.create(newObj);
+  } else
+    return NextResponse.json(
+      { message: "이미 추가된 링크입니다" },
+      { status: 501 }
+    );
 
-  return NextResponse.json(newObj);
+  return NextResponse.json(response);
 }
 
 /*

@@ -8,7 +8,7 @@ const LinkSchema = new mongoose.Schema(
     description: { type: String, required: true },
     image_source: { type: String, required: true },
     user_id: { type: Schema.Types.ObjectId, ref: "User", required: true },
-    folder_id: [{ type: Schema.Types.ObjectId, ref: "Folder", required: true }],
+    folder_id: [{ type: Schema.Types.ObjectId, ref: "Folder", required: false }],
   },
   {
     timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

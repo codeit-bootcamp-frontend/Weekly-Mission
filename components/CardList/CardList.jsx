@@ -9,7 +9,7 @@ import { getLinks } from "@/api/instance";
 
 const cx = classNames.bind(styles);
 
-export default function CardList({ folderList, currentIdParam }) {
+export default function CardList({ initialFolderList, currentIdParam }) {
   const [folderName, setFolderName] = useState();
   const [cardData, setCardData] = useState();
   const USERID = "64992eec930d7d6257c06f19";
@@ -19,14 +19,14 @@ export default function CardList({ folderList, currentIdParam }) {
       const currentCardData = await getLinks(USERID, currentIdParam);
       setCardData(currentCardData);
 
-      const currentFolder = folderList.filter(
-        (folder) => folder._id === currentIdParam
+      const currentFolder = initialFolderList.filter(
+        (folder) => folder.id === currentIdParam
       );
       const folderName = currentIdParam ? currentFolder[0].name : "전체";
       setFolderName(folderName);
     };
     fetchCardData();
-  }, [currentIdParam, folderList]); //초기값으로 전달해주기
+  }, [currentIdParam, initialFolderList]); //초기값으로 전달해주기
 
   return (
     <>
@@ -36,7 +36,7 @@ export default function CardList({ folderList, currentIdParam }) {
           <li className={cx("empty-data-message")}>저장된 링크가 없습니다</li>
         ) : (
           cardData?.map((card) => (
-            <li key={card._id} className={cx("card")}>
+            <li key={card.id} className={cx("card")}>
               <Card card={card} />
             </li>
           ))

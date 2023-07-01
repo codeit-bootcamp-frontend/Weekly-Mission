@@ -9,8 +9,24 @@ export async function GET(
   req: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  await dbConnect();
-  const folder = await FolderModel.findById(params.id);
+  // await dbConnect();
+  // const folder = await FolderModel.findById(params.id);
+  // if (!folder) {
+  //   return NextResponse.json([]);
+  // }
+  // return NextResponse.json(folder);
+
+  let folder;
+  try {
+    folder = await FolderModel.findById(params.id);
+  } catch (error) {
+    return NextResponse.json([]);
+  }
+
+  if (!folder) {
+    return NextResponse.json([]);
+  }
+
   return NextResponse.json(folder);
 }
 

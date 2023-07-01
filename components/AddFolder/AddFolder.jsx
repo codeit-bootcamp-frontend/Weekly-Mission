@@ -16,6 +16,7 @@ export default function AddFolder({ updateFolderState }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const router = useRouter();
+  const userId = "64992eec930d7d6257c06f19";
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -29,6 +30,23 @@ export default function AddFolder({ updateFolderState }) {
     setIsModalOpen(false);
   };
 
+  const addFolder = async () => {
+    let newFolder = await postFolder(inputValue, userId);
+    updateFolderState(newFolder);
+  };
+
+  //   const addFolder = () => {
+  //   axios
+  //     .post("/api/folders", { name: inputValue, userId })
+  //     .then(() => {
+  //       // router.refresh();
+
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+
   // const addFolder = () => {
   //   axios
   //     .post("/api/folders", { name: inputValue })
@@ -39,18 +57,6 @@ export default function AddFolder({ updateFolderState }) {
   //       console.log(error);
   //     });
   // };
-
-  const userId = "64992eec930d7d6257c06f19";
-
-  const addFolder = async () => {
-    try {
-      let res = await postFolder(inputValue, userId);
-      
-      router.refresh();
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const modalProps = {
     title: "폴더 추가",

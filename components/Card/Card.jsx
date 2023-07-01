@@ -26,7 +26,7 @@ function Card({ card }) {
             // }}
           >
             <Image
-              src={card.imageSource || "/assets/card-default.png"}
+              src={card.image_source || "/assets/card-default.png"}
               alt="card-image"
               fill
             />
