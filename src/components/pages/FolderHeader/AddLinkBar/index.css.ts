@@ -9,7 +9,7 @@ export const searchInput = style({
   width: '80rem',
   border: `1px solid ${vars.color.primary}`,
   borderRadius: '1.5rem',
-  padding: '2.25rem 11.2rem 2.25rem 5.2rem',
+  padding: '2.5rem 11.2rem 2.5rem 5.2rem',
   backgroundColor: vars.color.white,
   '::placeholder': {
     color: vars.color.gray2,
@@ -28,12 +28,14 @@ export const searchInput = style({
 
 export const shareIcon = style({
   position: 'absolute',
-  top: '2.25rem',
+  top: '2.5rem',
   left: '2rem',
   width: '2rem',
   height: '2rem',
   '@media': {
-    'screen and (max-width: 1199px)': {
+    'screen and (max-width: 767px)': {
+      top: '1.85rem',
+      left: '1rem',
       width: '1.6rem',
       height: '1.6rem',
     },
@@ -49,7 +51,7 @@ export const searchButton = style({
   width: '8rem',
   height: '3.7rem',
   '@media': {
-    'screen and (max-width: 1199px)': {
+    'screen and (max-width: 767px)': {
       top: '0.8rem',
       right: '1rem',
     },
