@@ -10,7 +10,7 @@ export async function GET(
   await dbConnect();
   const userData = await UserModel.findById(params.id);
   const folderData = await FolderModel.find({
-    _id: { $in: userData.folderId },
+    _id: { $in: userData.folder_id },
   });
   return NextResponse.json(folderData);
 }

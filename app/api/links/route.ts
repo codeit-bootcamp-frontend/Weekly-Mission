@@ -24,23 +24,23 @@ export async function POST(req: NextRequest, res: NextResponse) {
     body.imageSource = result.ogImage ? result.ogImage[0].url : null;
   }
 
-  let link = await LinkModel.findOne({ url: body.url, userId: body.userId });
+  let link = await LinkModel.findOne({ url: body.url, user_id: body.userId });
 
   if (body.folderId && link) {
-    if (!link.folderId.includes(body.folderId)) {
+    if (!link.folder_id.includes(body.folderId)) {
       await Promise.all([
         LinkModel.findByIdAndUpdate(link._id, {
-          $push: { folderId: body.folderId },
+          $push: { folder_id: body.folderId },
         }),
         FolderModel.findByIdAndUpdate(body.folderId, {
-          $push: { linkId: link._id },
+          $push: { link_id: link._id },
         }),
       ]);
     } else return NextResponse.json({ message: "이미 추가된 링크입니다" });
   } else if (body.folderId && !link) {
     let newLink = await LinkModel.create(body);
     await FolderModel.findByIdAndUpdate(body.folderId, {
-      $push: { linkId: newLink._id },
+      $push: { link_id: newLink._id },
     });
   } else if (!body.folderId && !link) {
     await LinkModel.create(body);

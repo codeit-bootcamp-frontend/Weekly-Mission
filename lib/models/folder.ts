@@ -1,13 +1,28 @@
 import mongoose from "mongoose";
 import { Schema } from "mongoose";
 
+// const schemaOptions = {
+//   timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
+// };
+
 const FolderSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
-    linkId: [{ type: Schema.Types.ObjectId, ref: "links", required: true }],
+    link_id: [{ type: Schema.Types.ObjectId, ref: "links", required: true }],
   },
-  { timestamps: true, versionKey: false }
+  {
+    timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
+    versionKey: false,
+  }
 );
+
+/*
+const schemaOptions = {
+  timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
+};
+
+const mySchema = new Schema({ name: String }, schemaOptions);
+*/
 
 export const FolderModel =
   mongoose.models.Folder || mongoose.model("Folder", FolderSchema);

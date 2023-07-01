@@ -26,7 +26,7 @@ export default function CardList({ folderList, currentIdParam }) {
       setFolderName(folderName);
     };
     fetchCardData();
-  }, [currentIdParam, folderList]);
+  }, [currentIdParam, folderList]); //초기값으로 전달해주기
 
   return (
     <>

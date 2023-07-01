@@ -17,12 +17,12 @@ export async function GET(
 
   if (!folderId) {
     linkData = await LinkModel.find({
-      userId: params.id,
+      user_id: params.id,
     });
   } else {
     linkData = await LinkModel.find({
-      userId: params.id,
-      folderId: folderId,
+      user_id: params.id,
+      folder_id: folderId,
     });
   }
 

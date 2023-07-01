@@ -14,13 +14,17 @@ export async function DELETE(
 
   if (folderId) {
     await Promise.all([
-      LinkModel.findByIdAndUpdate(params.id, { $pull: { folderId: folderId } }),
-      FolderModel.findByIdAndUpdate(folderId, { $pull: { linkId: params.id } }),
+      LinkModel.findByIdAndUpdate(params.id, {
+        $pull: { folder_id: folderId },
+      }),
+      FolderModel.findByIdAndUpdate(folderId, {
+        $pull: { link_id: params.id },
+      }),
     ]);
   } else
     await Promise.all([
       LinkModel.findByIdAndDelete(params.id),
-      FolderModel.updateMany({}, { $pull: { linkId: params.id } }),
+      FolderModel.updateMany({}, { $pull: { link_id: params.id } }),
     ]);
   return NextResponse.json(null);
 }

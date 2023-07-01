@@ -37,13 +37,13 @@ export async function DELETE(
   // 2. user: folderID 지움
   await UserModel.updateOne(
     {},
-    { $pull: { folderId: params.id } },
+    { $pull: { folder_id: params.id } },
     { new: true }
   );
   // 3. links: folderID 지움
   await LinkModel.updateMany(
     {},
-    { $pull: { folderId: params.id } }, //스키마에 있어야함 !!!
+    { $pull: { folder_id: params.id } }, //스키마에 있어야함 !!!
     { new: true }
   );
   return NextResponse.json(null);

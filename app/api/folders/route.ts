@@ -15,8 +15,8 @@ export async function POST(req: NextRequest) {
   const folder = await FolderModel.create(body);
 
   const user = await UserModel.findByIdAndUpdate(
-    body.userId,
-    { $push: { folderId: folder._id } }
+    body.user_id,
+    { $push: { folder_id: folder._id } }
     // { new: true }
   );
   return NextResponse.json(folder);

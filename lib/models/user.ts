@@ -1,14 +1,16 @@
 import mongoose from "mongoose";
 import { Schema } from "mongoose";
 
+
 const UserSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
     email: { type: String, required: true },
     image_source: { type: String },
-    folderId: [{ type: Schema.Types.ObjectId, ref: "Folder", required: true }],
+    folder_id: [{ type: Schema.Types.ObjectId, ref: "Folder", required: true }],
   },
-  { timestamps: true, versionKey: false }
+  { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }, versionKey: false },
+
 );
 
 export const UserModel =
