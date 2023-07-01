@@ -7,7 +7,10 @@ import CardContainer from '@/components/common/CardContainer'
 import Modal from '@/components/common/Modal'
 import * as styles from './index.css'
 
-const SharedMain = ({ cardLinks }: ISharedMainProps) => {
+const SharedMain = ({
+  cardLinks,
+  isMyFolder = false,
+}: ISharedMainProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [modalOption, setModalOption] = useState('')
 
@@ -33,6 +36,7 @@ const SharedMain = ({ cardLinks }: ISharedMainProps) => {
             cardLinks={cardLinks}
             handleAddToFolder={() => { return openModal('addToFolder') }}
             handleDeleteLink={() => { return openModal('deleteLink') }}
+            isMyFolder={isMyFolder}
           />
         ) : <div className={styles.emptyMessage}>저장된 링크가 없습니다</div>}
       </div>

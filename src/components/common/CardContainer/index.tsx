@@ -6,6 +6,7 @@ const CardContainer = ({
   cardLinks,
   handleAddToFolder = () => {},
   handleDeleteLink = () => {},
+  isMyFolder = false,
 }: ICardContainerProps) => {
   const renderCard = (cardLink: CardType) => {
     return (
@@ -14,6 +15,7 @@ const CardContainer = ({
         cardLink={cardLink}
         handleAddToFolder={handleAddToFolder}
         handleDeleteLink={handleDeleteLink}
+        isMyFolder={isMyFolder}
       />
     )
   }

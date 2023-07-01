@@ -26,6 +26,12 @@ const Page = async ({ searchParams }: ISharedProps) => {
   const userId = Number(user)
   const folderId = Number(folder)
 
+  let isMyFolder = false
+
+  if (userId === 7) {
+    isMyFolder = true
+  }
+
   let ownerName = ''
   let ownerImage = ''
   let folderName = ''
@@ -54,7 +60,10 @@ const Page = async ({ searchParams }: ISharedProps) => {
         ownerImage={ownerImage}
         folderName={folderName}
       />
-      <SharedMain cardLinks={cardLinks} />
+      <SharedMain
+        cardLinks={cardLinks}
+        isMyFolder={isMyFolder}
+      />
     </>
   )
 }

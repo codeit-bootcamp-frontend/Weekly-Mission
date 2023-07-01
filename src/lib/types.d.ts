@@ -54,12 +54,14 @@ export interface ICardProps {
   cardLink: CardType
   handleAddToFolder?: () => void
   handleDeleteLink?: () => void
+  isMyFolder?: boolean
 }
 
 export interface ICardContainerProps {
   cardLinks: CardType[]
   handleDeleteLink?: () => void
   handleAddToFolder?: () => void
+  isMyFolder?: boolean
 }
 
 export interface IModalProps {
@@ -117,6 +119,7 @@ export interface ISharedHeaderProps {
 
 export interface ISharedMainProps {
   cardLinks: CardType[]
+  isMyFolder?: boolean
 }
 
 // lib

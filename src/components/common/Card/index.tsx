@@ -9,12 +9,14 @@ import { ICardProps } from '@/lib/types'
 import getFormattedDate from '@/lib/utility/common/getFormattedDate'
 import getElapsedTime from '@/lib/utility/common/getElapsedTime'
 import BookmarkIcon from '@/components/common/BookmarkIcon'
+import addHttpsPrefix from '@/lib/utility/common/addHttpsPrefix'
 import * as styles from './index.css'
 
 const Card = ({
   cardLink,
   handleAddToFolder = () => {},
   handleDeleteLink = () => {},
+  isMyFolder = false,
 }: ICardProps) => {
   const [isHovered, setIsHovered] = useState(false)
   const [isKebabClicked, setIsKebabClicked] = useState(false)
@@ -63,13 +65,15 @@ const Card = ({
     }
   }, [])
 
+  const cardURL = addHttpsPrefix(cardLink.url)
+
   return (
     <div
       onMouseEnter={handleHover(true)}
       onMouseLeave={handleHover(false)}
       className={`${styles.container} ${isHovered ? styles.hoveredContainer : ''}`}
     >
-      <Link href={cardLink.url} target="_blank">
+      <Link href={cardURL} target="_blank">
         <div className={styles.cardImage}>
           <Image
             className={`${styles.Image} ${isHovered ? styles.hoveredImage : ''}`}
@@ -102,10 +106,12 @@ const Card = ({
                     e.preventDefault()
                     handleDeleteLink()
                   }}
+                  disabled={!isMyFolder}
                 >
                   삭제하기
                 </button>
                 <button
+                  className={styles.popupButton}
                   type="button"
                   onClick={(e) => {
                     e.preventDefault()
