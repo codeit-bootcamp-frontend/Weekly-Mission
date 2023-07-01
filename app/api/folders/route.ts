@@ -14,11 +14,12 @@ export async function POST(req: NextRequest) {
   const body = await req.json();
   const { userId, ...rest } = body;
   const newObj = { ...rest, user_id: userId };
+
   const folder = await FolderModel.create(newObj);
 
-  const user = await UserModel.findByIdAndUpdate(
-    body.user_id,
-    { $push: { folder_id: folder._id } }
+  await UserModel.findByIdAndUpdate(
+    body.userId,
+    { $push: { folder_id: folder.id } }
     // { new: true }
   );
   return NextResponse.json(folder);
