@@ -1,6 +1,6 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import Gnb from "$/src/components/Gnb/Gnb";
-import Footer from "@/components/Footer";
+// import Footer from "@/components/Footer";
 import { Children } from "$/types";
 
 const DefaultLayout = ({ children }: Children) => {
@@ -8,7 +8,7 @@ const DefaultLayout = ({ children }: Children) => {
     <div>
       <Gnb />
       <main>{children}</main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
