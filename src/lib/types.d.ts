@@ -108,7 +108,7 @@ export interface ISharedProps {
 
 export interface ISharedHeaderProps {
   ownerName: string
-  owenrImage: string
+  ownerImage: string
   folderName: string
 }
 

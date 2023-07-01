@@ -31,25 +31,20 @@ const Page = async ({ searchParams }: ISharedProps) => {
   let folderName = ''
   let cardLinks: CardType[] = []
 
-  if (userId) {
-    try {
-      const {
-        name: userName,
-        image_source: imageSource,
-      } = await getUser({ userId }) || {}
-      ownerName = userName || ''
-      ownerImage = imageSource || ''
-
-      if (folderId) {
-        const {
-          name: userFolderName,
-        } = await getFolder({ userId, folderId }) || {}
-        folderName = userFolderName || ''
-        cardLinks = await getLinks({ userId, folderId }) || []
-      }
-    } catch (err) {
-      console.error(err)
-    }
+  try {
+    const {
+      name: userName,
+      image_source: imageSource,
+    } = await getUser({ userId })
+    ownerName = userName
+    ownerImage = imageSource
+    const {
+      name: userFolderName,
+    } = await getFolder({ userId, folderId })
+    folderName = userFolderName
+    cardLinks = await getLinks({ userId, folderId })
+  } catch (err) {
+    console.error(err)
   }
 
   return (
