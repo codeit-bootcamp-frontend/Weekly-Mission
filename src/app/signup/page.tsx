@@ -1,4 +1,4 @@
-import SignupMain from '@/components/PageSignup/SignupMain'
+import SignupMain from '@/components/pages/SignupMain'
 
 export const metadata = {
   title: '회원가입 | Linkbrary',

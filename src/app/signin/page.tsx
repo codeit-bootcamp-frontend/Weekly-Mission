@@ -1,4 +1,4 @@
-import SigninMain from '@/components/PageSignin/SigninMain'
+import SigninMain from '@/components/pages/SigninMain'
 
 export const metadata = {
   title: '로그인 | Linkbrary',
