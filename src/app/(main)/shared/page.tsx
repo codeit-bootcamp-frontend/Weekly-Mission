@@ -28,13 +28,13 @@ const Page = async ({ searchParams }: ISharedProps) => {
 
   let isMyFolder = false
 
-  if (userId === 7) {
+  if (userId === 8) {
     isMyFolder = true
   }
 
-  let ownerName = ''
-  let ownerImage = ''
-  let folderName = ''
+  let ownerName = 'unknown'
+  let ownerImage = '/default-avatar.svg'
+  let folderName = 'Unknown'
   let cardLinks: CardType[] = []
 
   try {
