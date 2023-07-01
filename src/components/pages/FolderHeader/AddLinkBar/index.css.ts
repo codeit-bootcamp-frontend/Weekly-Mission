@@ -1,5 +1,5 @@
-import { vars } from '@/lib/theme.css'
 import { style } from '@vanilla-extract/css'
+import { vars } from '@/lib/theme.css'
 
 export const searchForm = style({
   position: 'relative',
@@ -34,8 +34,6 @@ export const shareIcon = style({
   height: '2rem',
   '@media': {
     'screen and (max-width: 1199px)': {
-      top: '1.8rem',
-      left: '1rem',
       width: '1.6rem',
       height: '1.6rem',
     },

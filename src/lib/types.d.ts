@@ -44,9 +44,12 @@ export interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEleme
   children: React.ReactNode
 }
 
-export interface IButtonLinkProps extends IButtonProps {
+export interface IButtonLinkProps {
+  className?: string
+  children: ReactNode
   href: string
 }
+
 export interface ICardProps {
   cardLink: CardType
   handleAddToFolder?: () => void

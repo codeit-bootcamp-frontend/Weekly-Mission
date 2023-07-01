@@ -5,19 +5,15 @@ import * as styles from './index.css'
 const ButtonLink = ({
   className = '',
   children,
-  href,
   ...props
 }: IButtonLinkProps) => {
   return (
-    <button
-      type="button"
+    <Link
       className={`${styles.button} ${className}`}
       {...props}
     >
-      <Link href={href}>
-        {children}
-      </Link>
-    </button>
+      {children}
+    </Link>
   )
 }
 

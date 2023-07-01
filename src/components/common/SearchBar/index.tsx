@@ -4,7 +4,11 @@ import * as styles from './index.css'
 const SearchBar = ({ className = '', placeholder = '' }) => {
   return (
     <div className={`${styles.container} ${className}`}>
-      <input className={styles.searchInput} type="search" placeholder={placeholder} />
+      <input
+        className={styles.searchInput}
+        type="search"
+        placeholder={placeholder}
+      />
       <div className={styles.searchIcon}>
         <Image
           fill

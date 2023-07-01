@@ -17,7 +17,12 @@ const AddLinkBar = () => {
         type="text"
         placeholder="링크를 추가해 보세요"
       />
-      <Button className={styles.searchButton} type="submit">추가하기</Button>
+      <Button
+        className={styles.searchButton}
+        type="submit"
+      >
+        추가하기
+      </Button>
     </form>
   )
 }

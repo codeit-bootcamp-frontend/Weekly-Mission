@@ -3,6 +3,10 @@ import getLinks from '@/lib/api/getLinks'
 import FolderMain from '@/components/pages/FolderMain'
 import FolderHeader from '@/components/pages/FolderHeader'
 
+export const metadata = {
+  title: '내 폴더 | Linkbrary',
+}
+
 const Page = async ({ params }: IFolderProps) => {
   let cardLinks: CardType[] = []
   if (params.id) {

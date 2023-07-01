@@ -1,7 +1,7 @@
 import Nav from '@/components/common/Nav'
 import Footer from '@/components/common/Footer'
 
-const layout = ({
+const Layout = ({
   children,
 }: {
   children: React.ReactNode
@@ -15,4 +15,4 @@ const layout = ({
   )
 }
 
-export default layout
+export default Layout
