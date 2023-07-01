@@ -18,7 +18,6 @@ export default function CardList({ folderList, currentIdParam }) {
     const fetchCardData = async () => {
       const currentCardData = await getLinks(USERID, currentIdParam);
       setCardData(currentCardData);
-      console.log(currentCardData);
 
       const currentFolder = folderList.filter(
         (folder) => folder._id === currentIdParam

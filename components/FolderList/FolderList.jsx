@@ -33,7 +33,7 @@ export default function FolderList({ currentIdParam, folderList }) {
           <li className={cx("folder")}>
             <Folder name={"전체"} href={`/folder`} selected={!currentIdParam} />
           </li>
-          {folderData.map((folder) => (
+          {folderList.map((folder) => (
             <li key={folder._id} className={cx("folder")}>
               <Folder
                 name={folder.name}

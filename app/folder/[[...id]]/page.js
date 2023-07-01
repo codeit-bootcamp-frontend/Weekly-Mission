@@ -25,7 +25,7 @@ export default async function Page({ params }) {
   // );
   const cardList = await getLinks(userId, currentIdParam);
   // const currentFolderName = params.id ? currentFolder.name : "전체";
-
+ console.log(folderList)
   return (
     <>
       <div className={cx("banner")}>

@@ -45,6 +45,7 @@ export default function AddFolder({ updateFolderState }) {
   const addFolder = async () => {
     try {
       let res = await postFolder(inputValue, userId);
+      
       router.refresh();
     } catch (error) {
       console.log(error);
