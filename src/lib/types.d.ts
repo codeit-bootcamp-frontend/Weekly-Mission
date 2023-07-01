@@ -96,14 +96,20 @@ export interface IFolderProps {
   }
 }
 
+export interface IFolderMainProps {
+  cardLinks: CardType[]
+}
+
 export interface ISharedProps {
   searchParams: {
     [key: string]: string | string[] | undefined
   }
 }
 
-export interface IFolderMainProps {
-  cardLinks: CardType[]
+export interface ISharedHeaderProps {
+  ownerName: string
+  owenrImage: string
+  folderName: string
 }
 
 export interface ISharedMainProps {

@@ -1,17 +1,12 @@
 import Image from 'next/image'
-import getUser from '@/lib/api/getUser'
-import getFolder from '@/lib/api/getFolder'
+import { ISharedHeaderProps } from '@/lib/types'
 import * as styles from './index.css'
 
-const SharedHeader = async () => {
-  const {
-    name: ownerName,
-    image_source: ownerImage,
-  } = await getUser({ userId: 8 })
-  const {
-    name: folderName,
-  } = await getFolder({ userId: 8, folderId: 8 })
-
+const SharedHeader = ({
+  ownerName,
+  ownerImage,
+  folderName,
+}: ISharedHeaderProps) => {
   return (
     <header className={styles.container}>
       <div className={styles.image}>
