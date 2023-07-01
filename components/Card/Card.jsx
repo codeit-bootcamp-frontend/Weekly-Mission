@@ -41,11 +41,11 @@ function Card({ card }) {
               />
             </button>
             <div className={cx("elapsed-time")}>
-              {calcElapsedTime(card.createdAt)}
+              {calcElapsedTime(card.created_at)}
             </div>
             <p className={cx("card-description")}>{card.description}</p>
             <div className={cx("created-date")}>
-              {formatCurrentDate(card.createdAt)}
+              {formatCurrentDate(card.created_at)}
             </div>
           </div>
         </article>

@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import { Schema } from "mongoose";
 
-
 const UserSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
@@ -9,8 +8,17 @@ const UserSchema = new mongoose.Schema(
     image_source: { type: String },
     folder_id: [{ type: Schema.Types.ObjectId, ref: "Folder", required: true }],
   },
-  { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }, versionKey: false },
-
+  {
+    timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
+    versionKey: false,
+    id: true,
+    toJSON: {
+      transform(doc, ret) {
+        ret.id = ret._id;
+        delete ret._id;
+      },
+    },
+  }
 );
 
 export const UserModel =
