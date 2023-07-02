@@ -15,13 +15,12 @@ export async function generateMetadata({ params }: { params: { id: number } }) {
     folder_id: [],
   };
   const { id: userId, name: userName } = currentUser;
-  const baseURL = process.env.NEXT_PUBLIC_VERCEL_URL;
   return {
     ...META_FOLDER,
     openGraph: {
       title: `Shared by ${userName} | Linkbrary`,
       description: `${userName}님이 공유한 폴더의 링크를 확인해 보세요`,
-      url: `${baseURL}/shared?user=${userId}&folder=${folderId}`,
+      url: `${process.env.BASE_URL}/shared?user=${userId}&folder=${folderId}`,
     },
   };
 }

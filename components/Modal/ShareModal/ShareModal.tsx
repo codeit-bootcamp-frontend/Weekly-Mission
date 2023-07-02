@@ -27,8 +27,7 @@ interface ShareModalProps {
 export default function ShareModal({ folder, onClose }: ShareModalProps) {
   const { id: userId, name: userName } = useCurrentUser();
 
-  const baseURL = process.env.NEXT_PUBLIC_VERCEL_URL;
-  const sharedURL = `${baseURL}/shared?user=${userId}&folder=${folder.id}`;
+  const sharedURL = `${process.env.BASE_URL}/shared?user=${userId}&folder=${folder.id}`;
 
   const handleClickFacebookShare = () => {
     window.open(
