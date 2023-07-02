@@ -6,9 +6,9 @@ import Card from "@/components/Card/Card";
 import OtherCardMenu from "@/components/Card/OtherCardMenu";
 import FolderInfo from "@/components/FolderInfo";
 import SearchBar from "@/components/SearchBar";
-import { getFolder, getLinks, getUser } from "@/utils/api";
+import { getFolder, getFolders, getLinks, getUser } from "@/utils/api";
 import { SelectedFolder } from "@/utils/api/types";
-import convertParamToNum from "@/utils/convertParamToNum";
+import convertParamToStr from "@/utils/convertParamToStr";
 
 import styles from "./page.module.scss";
 
@@ -21,25 +21,30 @@ export default async function Shared({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const { user: strUserParam, folder: strFolderParam } = searchParams;
-  const sharedUserId = convertParamToNum(strUserParam);
-  const folderId = convertParamToNum(strFolderParam);
+  const sharedUserId = convertParamToStr(searchParams.user);
+  const folderId = convertParamToStr(searchParams.folder);
+  const currentUserId = "649fc0074843a7796910d6f7"; // TODO: 서버 컴포넌트에서 userId 어떻게 얻어??
 
   if (!sharedUserId) redirect("/");
-  if (folderId === null) redirect(`/shared?user=${sharedUserId}&folder=0`);
 
-  const [sharedUser, folder, links] = await Promise.all([
+  // TODO: getFolder, getLink api에서 없는 값으로 요청 시 빈 배열 리턴하도록 수정
+  const [sharedUser, links, currentUserFolders] = await Promise.all([
     getUser(sharedUserId),
-    getFolder(sharedUserId, folderId),
     getLinks(sharedUserId, folderId),
+    getFolders(currentUserId),
   ]);
 
   let currentFolder: SelectedFolder;
-  if (folderId === 0) currentFolder = { id: 0, name: "전체" };
+  if (!folderId) currentFolder = { id: "", name: "전체" };
   else {
-    if (!folder) redirect(`/shared?user=${sharedUserId}&folder=0`);
+    const folder = await getFolder(folderId);
+    if (!folder) redirect(`/shared?user=${sharedUserId}`);
     currentFolder = { id: folder.id, name: folder.name };
   }
+
+  const filteredFolders = currentUserFolders.filter(
+    (folder) => folder.name !== "⭐️ 즐겨찾기",
+  );
 
   return (
     <>
@@ -56,7 +61,12 @@ export default async function Shared({
             <Card
               key={link.id}
               link={link}
-              menuComponent={<OtherCardMenu url={link.url} />}
+              menuComponent={
+                <OtherCardMenu
+                  url={link.url}
+                  currentUserFolders={filteredFolders}
+                />
+              }
             />
           ))}
         </section>

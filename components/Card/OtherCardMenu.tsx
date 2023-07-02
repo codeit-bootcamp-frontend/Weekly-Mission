@@ -6,13 +6,21 @@ import classNames from "classnames/bind";
 
 import AddToFolderModal from "@/components/Modal/AddToFolderModal/AddToFolderModal";
 import { postLink } from "@/utils/api";
-import { Link } from "@/utils/api/types";
+import { Folder, Link } from "@/utils/api/types";
 
 import styles from "./Menu.module.scss";
 
 const cx = classNames.bind(styles);
 
-export default function OtherCardMenu({ url }: { url: Link["url"] }) {
+interface OtherCardMenuProps {
+  url: Link["url"];
+  currentUserFolders: Folder[];
+}
+
+export default function OtherCardMenu({
+  url,
+  currentUserFolders,
+}: OtherCardMenuProps) {
   const [shownAddToFolderModal, setShownAddToFolderModal] = useState(false);
 
   const openAddToFolderModal = () => {
@@ -25,8 +33,8 @@ export default function OtherCardMenu({ url }: { url: Link["url"] }) {
 
   const onAddLink = async (
     url: string,
-    currentUserId: number,
-    folderId: number | null,
+    currentUserId: string,
+    folderId: string | null,
   ) => {
     await postLink(url, currentUserId, folderId);
   };
@@ -41,6 +49,7 @@ export default function OtherCardMenu({ url }: { url: Link["url"] }) {
       {shownAddToFolderModal && (
         <AddToFolderModal
           url={url}
+          folders={currentUserFolders}
           onClose={closeAddToFolderModal}
           onAddLink={onAddLink}
         />
