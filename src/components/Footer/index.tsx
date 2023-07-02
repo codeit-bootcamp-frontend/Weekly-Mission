@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import styles from "./Footer.module.css";
 import Link from "next/link";
-import { Arial } from "@/lib/localFont";
+import { Arial } from "$/src/utils/localFont";
 const Footer = () => {
   const SOCIAL_MEDIAS = [
     {

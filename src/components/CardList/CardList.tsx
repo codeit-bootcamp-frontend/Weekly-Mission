@@ -2,27 +2,27 @@ import React from "react";
 import styles from "./CardList.module.css";
 import Card from "@/components/Card";
 import { Link, Folder } from "$/types";
-import { getData } from "$/src/lib/getData";
+import { getData } from "$/src/utils/getData";
 
 interface CardListProps {
-  folderId: string;
-  sharedUserId: string;
+  folderId?: string;
+  userId: string | number;
 }
-const CardList = async ({ sharedUserId, folderId }: CardListProps) => {
-  const cards = await getData<Link[]>(
-    `/api/users/${sharedUserId}/links?folderId=${folderId}`,
-    "no-store"
-  );
-  console.log(cards);
+const CardList = async ({ userId, folderId }: CardListProps) => {
+  const url = folderId
+    ? `/api/users/${userId}/links?folderId=${folderId}`
+    : `/api/users/${userId}/links`;
 
-  return (
+  const cards = await getData<Link[]>(url, "no-store");
+
+  return cards.length !== 0 ? (
     <div className={styles.cardListContainer}>
-      {cards
-        // .filter((card) => card)
-        .map((card) => (
-          <Card key={card.id} card={card} />
-        ))}
+      {cards.map((card) => (
+        <Card key={card.id} card={card} />
+      ))}
     </div>
+  ) : (
+    <div className={styles.emptySavedLink}>저장한 링크가 없습니다</div>
   );
 };
 

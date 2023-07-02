@@ -23,17 +23,6 @@
   max-width: 106rem;
 }
 
-.emptySavedLink {
-  padding: 6.5rem 0 13.5rem;
-  text-align: center;
-}
-
-@media screen and (max-width: 768px) {
-  .emptySavedLink {
-    padding: 6.25rem 0 17.8rem;
-  }
-}
-
 @media screen and (max-width: 1199px) {
   .cardWrapper {
     max-width: 70.4rem;

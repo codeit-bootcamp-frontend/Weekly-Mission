@@ -1,4 +1,4 @@
-import DefaultLayout from "@/lib/DefaultLayout";
+import DefaultLayout from "@/layouts/DefaultLayout";
 import { Metadata } from "next";
 import "@/styles/global.css";
 
@@ -16,7 +16,6 @@ export default function RootLayout({
     <html lang="ko">
       <body>
         <DefaultLayout>{children}</DefaultLayout>
-        <div id="modal-root" />
       </body>
     </html>
   );

@@ -18,7 +18,7 @@ export default function Page({
       </div>
       <div className={styles.wrapper}>
         <SearchBar />
-        <CardList sharedUserId={user} folderId={folder} />
+        <CardList userId={user} folderId={folder} />
       </div>
     </>
   );

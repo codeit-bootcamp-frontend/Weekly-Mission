@@ -6,7 +6,7 @@ import { Folder } from "$/types";
 import useElementPosition from "@/hooks/useElementPosition";
 
 interface AddLinkBarProps {
-  tabs: Folder[];
+  tabs: Folder[] | undefined;
   onIsAddLinkBarBottom: (isAddLinkBarBottom: boolean) => void;
 }
 
