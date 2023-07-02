@@ -5,7 +5,7 @@ declare const global: {
   mongoose: any;
 };
 
-const MONGODB_URI: string = process.env.MONGODB_URI as string;
+const MONGODB_URI: string = process.env.MONGODB_URI_IAN as string;
 
 if (!MONGODB_URI) {
   throw new Error(
