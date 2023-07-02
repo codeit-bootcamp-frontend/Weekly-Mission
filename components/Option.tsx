@@ -21,8 +21,8 @@ const cx = classNames.bind(styles);
 
 interface OptionProps {
   folder: SelectedFolder;
-  onEditFolder: (newName: string, id: number) => void;
-  onDeleteFolder: (id: number) => void;
+  onEditFolder: (newName: string, id: string) => void;
+  onDeleteFolder: (id: string) => void;
 }
 
 export default function Option({

@@ -5,8 +5,7 @@ import { useState } from "react";
 import classNames from "classnames/bind";
 
 import { useCurrentUser } from "@/hooks/useCurrentUserContext";
-import useFolderAddedLinkNums from "@/hooks/useFolderAddedLinkNum";
-import { Link } from "@/utils/api/types";
+import { Folder, Link } from "@/utils/api/types";
 
 import ModalFrame from "../ModalFrame";
 
@@ -17,22 +16,21 @@ const cx = classNames.bind(styles);
 
 interface AddToFolderModalProps {
   url: Link["url"];
+  folders: Folder[];
   onClose: () => void;
-  onAddLink: (url: string, userId: number, folderId: number | null) => void;
-  currentFolderId?: number | null;
+  onAddLink: (url: string, userId: string, folderId: string | null) => void;
 }
 
 export default function AddToFolderModal({
   url,
+  folders,
   onClose,
   onAddLink,
-  currentFolderId = null,
 }: AddToFolderModalProps) {
-  const [selectedFolderId, setSelectedFolderId] = useState<number | null>(null);
+  const [selectedFolderId, setSelectedFolderId] = useState<string | null>(null);
   const { id: userId } = useCurrentUser();
-  const folderList = useFolderAddedLinkNums(userId, currentFolderId);
 
-  const handleClickItem = (itemId: number, selected: boolean) => {
+  const handleClickItem = (itemId: string, selected: boolean) => {
     selected ? setSelectedFolderId(null) : setSelectedFolderId(itemId);
   };
 
@@ -50,15 +48,14 @@ export default function AddToFolderModal({
         </div>
         <div className={cx("list")}>
           {/* // TODO: Suspense 처리 */}
-          {folderList.length > 0 &&
-            folderList.map((folder) => (
-              <FolderListItem
-                key={folder.id}
-                folder={folder}
-                selected={selectedFolderId === folder.id}
-                onClick={handleClickItem}
-              />
-            ))}
+          {folders.map((folder) => (
+            <FolderListItem
+              key={folder.id}
+              folder={folder}
+              selected={selectedFolderId === folder.id}
+              onClick={handleClickItem}
+            />
+          ))}
         </div>
         <button className={cx("button")} onClick={handleClickAddButton}>
           추가하기

@@ -11,14 +11,10 @@ import checkIcon from "@/public/images/check.svg";
 
 const cx = classNames.bind(styles);
 
-interface folderAddedLinkNumType extends Folder {
-  linkNum: number;
-}
-
 interface FolderListItemProps {
-  folder: folderAddedLinkNumType;
+  folder: Folder;
   selected: boolean;
-  onClick: (itemId: number, selected: boolean) => void;
+  onClick: (itemId: string, selected: boolean) => void;
 }
 
 export default function FolderListItem({
@@ -33,7 +29,7 @@ export default function FolderListItem({
     >
       <div className={cx("textContainer")}>
         <p className={cx("name", { selected })}>{folder.name}</p>
-        <p className={cx("linksNum")}>{folder.linkNum}개 링크</p>
+        <p className={cx("linksNum")}>{folder.link_id.length}개 링크</p>
       </div>
       {selected && (
         <Image width={14} height={14} src={checkIcon} alt="체크 아이콘" />

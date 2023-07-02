@@ -5,6 +5,7 @@ import { useState } from "react";
 import classNames from "classnames/bind";
 import Image from "next/image";
 
+import { Folder } from "@/utils/api/types";
 import checkURLFormat from "@/utils/checkURLFormat";
 
 import styles from "./AddLinkBar.module.scss";
@@ -15,10 +16,11 @@ import copyLink from "@/public/images/copy-link.svg";
 const cx = classNames.bind(styles);
 
 interface AddLinkBarProps {
-  onAddLink: (url: string, userId: number, folderId: number | null) => void;
+  folders: Folder[];
+  onAddLink: (url: string, userId: string, folderId: string | null) => void;
 }
 
-export default function AddLinkBar({ onAddLink }: AddLinkBarProps) {
+export default function AddLinkBar({ folders, onAddLink }: AddLinkBarProps) {
   const [value, setValue] = useState("");
   const [shownAddModal, setShownAddModal] = useState(false);
 
@@ -58,6 +60,7 @@ export default function AddLinkBar({ onAddLink }: AddLinkBarProps) {
       {shownAddModal && (
         <AddToFolderModal
           url={value}
+          folders={folders}
           onClose={closeAddModal}
           onAddLink={onAddLink}
         />

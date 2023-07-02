@@ -36,7 +36,7 @@ export async function DELETE(
   await FolderModel.findByIdAndDelete(params.id);
 
   // 2. user: folderID 지움
-  await UserModel.updateOne(
+  await UserModel.updateMany(
     {},
     { $pull: { folder_id: params.id } },
     { new: true },
