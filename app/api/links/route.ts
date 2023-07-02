@@ -27,21 +27,20 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
   const { folderId, userId, ...rest } = body;
   const newObj = folderId
-    ? { ...rest, folder_id: folderId, user_id: userId }
+    ? { ...rest, folder_id: [folderId], user_id: userId }
     : { ...rest, user_id: userId };
 
   let response;
 
   if (body.folderId && link) {
     if (!link.folder_id.includes(body.folderId)) {
-      response = await Promise.all([
-        LinkModel.findByIdAndUpdate(link._id, {
-          $push: { folder_id: body.folderId },
-        }),
-        FolderModel.findByIdAndUpdate(body.folderId, {
-          $push: { link_id: link._id },
-        }),
-      ]);
+      let newLink = await LinkModel.findByIdAndUpdate(link._id, {
+        $push: { folder_id: body.folderId },
+      });
+      await FolderModel.findByIdAndUpdate(body.folderId, {
+        $push: { link_id: link._id },
+      });
+      response = newLink;
     } else
       return NextResponse.json(
         { message: "이미 추가된 링크입니다" },
@@ -49,9 +48,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
       );
   } else if (body.folderId && !link) {
     let newLink = await LinkModel.create(newObj);
-    response = await FolderModel.findByIdAndUpdate(body.folderId, {
+    await FolderModel.findByIdAndUpdate(body.folderId, {
       $push: { link_id: newLink._id },
     });
+    response = newLink;
   } else if (!body.folderId && !link) {
     response = await LinkModel.create(newObj);
   } else
