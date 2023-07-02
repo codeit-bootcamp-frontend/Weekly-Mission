@@ -6,14 +6,10 @@ export const metadata: Metadata = {
   description: "아 그 블로그 뭐더라",
 };
 
-export default function RootLayout({
+export default function SharedLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html lang="ko">
-      <body>{children}</body>
-    </html>
-  );
+  return <>{children}</>;
 }

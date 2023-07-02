@@ -8,17 +8,15 @@ interface AddLinkModalProps {
   isAddLinkModalOpen: boolean;
   onClose: () => void;
   link: string;
-  tabs?: Folder[];
   clearInput?: () => void;
 }
 
-const AddLinkModal: React.FC<AddLinkModalProps> = ({
+const AddLinkModal = ({
   isAddLinkModalOpen,
   onClose,
   link,
-  tabs,
   clearInput,
-}) => {
+}: AddLinkModalProps) => {
   const [checkedItemId, setCheckedItemId] = useState<number | null>(null);
 
   useEffect(() => {
@@ -42,7 +40,6 @@ const AddLinkModal: React.FC<AddLinkModalProps> = ({
       onClose={onClose}
     >
       <AddLinkInFolderContent
-        tabs={tabs}
         checkedItemId={checkedItemId}
         onCheckedItemId={setCheckedItemId}
       />

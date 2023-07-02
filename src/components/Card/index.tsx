@@ -1,69 +1,27 @@
+"use client";
 import React, { useRef, useState, useEffect } from "react";
 import styles from "./Card.module.css";
 import Star from "@/components/Star";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import DropDown from "@/presentation/DropDown/DropDown";
 import DeleteLinkModal from "@/components/Modals/DeleteLinkModal";
 import AddLinkModal from "@/components/Modals/AddLinkModal";
-import { Link as Card, Folder as Tab } from "$/types";
+import { Link, Folder } from "$/types";
+import calculateTimeDiff from "@/utils/calculateTimeDiff";
 
 interface CardProps {
-  card: Card;
-  tabs?: Tab[];
+  card: Link;
+  tabs?: Folder[];
 }
 
-const Card: React.FC<CardProps> = ({ card, tabs }) => {
+const Card = ({ card, tabs }: CardProps) => {
   const [isKebabOpen, setIsKebabOpen] = useState(false);
   const [isDeleteLinkModalOpen, setIsDeleteLinkModalOpen] = useState(false);
   const [isAddLinkModalOpen, setIsAddLinkModalOpen] = useState(false);
   const cardRef = useRef<HTMLButtonElement>(null);
-  const {
-    image_source: imageSource,
-    description,
-    created_at: createdAt,
-    url,
-  } = card;
+  const { image_source, description, created_at: createdAt, url } = card;
   const router = useRouter();
-
-  function calculateTimeDiff(dateString: string): string {
-    const updatedDate = new Date(dateString);
-    const today = Date.now();
-    const timeDiff = today - updatedDate.getTime();
-
-    const MINUTE = 60 * 1000;
-    const HOUR = MINUTE * 60;
-    const DAY = HOUR * 24;
-    const MONTH = DAY * 31;
-    const YEAR = DAY * 365;
-
-    const timeUnits = [
-      { value: YEAR, label: "년" },
-      { value: MONTH, label: "개월" },
-      { value: DAY, label: "일" },
-      { value: HOUR, label: "시간" },
-      { value: MINUTE, label: "분" },
-    ];
-
-    for (let i = 0; i < timeUnits.length; i++) {
-      const { value, label } = timeUnits[i];
-
-      if (timeDiff < value) {
-        continue;
-      }
-
-      const formattedTimeDiff = Math.floor(timeDiff / value);
-
-      return (
-        formattedTimeDiff +
-        " " +
-        label +
-        (formattedTimeDiff > 1 ? " 전" : "") +
-        ""
-      );
-    }
-    return "";
-  }
 
   function parseDate(dateString: string): string {
     const date = new Date(dateString);
@@ -115,13 +73,10 @@ const Card: React.FC<CardProps> = ({ card, tabs }) => {
         onClick={handleCardClick}
       >
         <div className={styles.cardImageContainer}>
-          <Image
+          <img
             className={styles.cardImage}
-            src={imageSource || "/assets/images/default-card-img.png"}
+            src={image_source || "/assets/images/default-card-img.png"}
             alt="card image"
-            fill
-            priority
-            sizes="(max-width: 768px) 340px, (max-width: 1199px) 325px"
           />
         </div>
         <div className={styles.starIcon}>
@@ -170,7 +125,6 @@ const Card: React.FC<CardProps> = ({ card, tabs }) => {
           setIsAddLinkModalOpen(false);
         }}
         link={url}
-        tabs={tabs}
       />
     </>
   );

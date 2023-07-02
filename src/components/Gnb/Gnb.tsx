@@ -6,8 +6,8 @@ import { userId } from "@/lib/common.api";
 import { User } from "$/types";
 
 export default async function Gnb() {
-  const user = await getData<User>(`/api/users/${userId}`);
-  const { image_source: profileSrc = "", email = "" } = user || {};
+  const user = await getData<User[]>(`/api/users/${userId}`);
+  const { image_source: profileSrc = "", email = "" } = user[0] || {};
 
   return (
     <header className={styles.gnbContainer}>
