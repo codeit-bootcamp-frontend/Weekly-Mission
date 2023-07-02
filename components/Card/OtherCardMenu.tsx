@@ -14,13 +14,10 @@ const cx = classNames.bind(styles);
 
 interface OtherCardMenuProps {
   url: Link["url"];
-  currentUserFolders: Folder[];
+  folders: Folder[];
 }
 
-export default function OtherCardMenu({
-  url,
-  currentUserFolders,
-}: OtherCardMenuProps) {
+export default function OtherCardMenu({ url, folders }: OtherCardMenuProps) {
   const [shownAddToFolderModal, setShownAddToFolderModal] = useState(false);
 
   const openAddToFolderModal = () => {
@@ -49,7 +46,7 @@ export default function OtherCardMenu({
       {shownAddToFolderModal && (
         <AddToFolderModal
           url={url}
-          folders={currentUserFolders}
+          folders={folders}
           onClose={closeAddToFolderModal}
           onAddLink={onAddLink}
         />

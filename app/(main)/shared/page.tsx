@@ -8,6 +8,7 @@ import FolderInfo from "@/components/FolderInfo";
 import SearchBar from "@/components/SearchBar";
 import { getFolder, getFolders, getLinks, getUser } from "@/utils/api";
 import { SelectedFolder } from "@/utils/api/types";
+import checkFolderOperationValid from "@/utils/checkFolderOperationValid";
 import convertParamToStr from "@/utils/convertParamToStr";
 
 import styles from "./page.module.scss";
@@ -42,8 +43,8 @@ export default async function Shared({
     currentFolder = { id: folder.id, name: folder.name };
   }
 
-  const filteredFolders = currentUserFolders.filter(
-    (folder) => folder.name !== "⭐️ 즐겨찾기",
+  const foldersOperationValid = currentUserFolders.filter((folder) =>
+    checkFolderOperationValid(folder),
   );
 
   return (
@@ -62,10 +63,7 @@ export default async function Shared({
               key={link.id}
               link={link}
               menuComponent={
-                <OtherCardMenu
-                  url={link.url}
-                  currentUserFolders={filteredFolders}
-                />
+                <OtherCardMenu url={link.url} folders={foldersOperationValid} />
               }
             />
           ))}

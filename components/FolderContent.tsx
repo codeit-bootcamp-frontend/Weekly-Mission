@@ -23,6 +23,7 @@ import {
   putFolder,
 } from "@/utils/api";
 import { Folder, Link, SelectedFolder } from "@/utils/api/types";
+import checkFolderOperationValid from "@/utils/checkFolderOperationValid";
 
 import styles from "./FolderContent.module.scss";
 
@@ -49,9 +50,8 @@ export default function FolderContent({
   const { ref: addLinkRef, inView: inViewAddLink } = useInView();
   const { ref: footerRef, inView: inViewFooter } = useInView();
   const router = useRouter();
-  const filteredFolders = folders.filter(
-    (folder) =>
-      folder.name !== "⭐️ 즐겨찾기" && folder.name !== currentFolder.name,
+  const foldersOperationValid = folders.filter((folder) =>
+    checkFolderOperationValid(folder),
   );
 
   const onAddLink = async (
@@ -105,7 +105,7 @@ export default function FolderContent({
         })}
       >
         <div className={cx("addLinkBarContainer")}>
-          <AddLinkBar folders={filteredFolders} onAddLink={onAddLink} />
+          <AddLinkBar folders={foldersOperationValid} onAddLink={onAddLink} />
         </div>
       </div>
       <main className={cx("main", { addLinkAtBottom: !inViewAddLink })}>
@@ -153,7 +153,9 @@ export default function FolderContent({
                     menuComponent={
                       <MyCardMenu
                         link={link}
-                        folders={filteredFolders}
+                        folders={foldersOperationValid.filter(
+                          (folder) => folder.id !== currentFolder.id,
+                        )}
                         currentFolderId={currentFolder.id}
                         onDelete={onDeleteLink}
                         onAddLink={onAddLink}
