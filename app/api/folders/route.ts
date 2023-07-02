@@ -4,7 +4,7 @@ import dbConnect from "@/utils/mongoDB/dbConnect";
 import { FolderModel } from "@/utils/mongoDB/models/folder";
 import { UserModel } from "@/utils/mongoDB/models/user";
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   await dbConnect();
   const folders = await FolderModel.find();
   return NextResponse.json(folders);
@@ -17,10 +17,8 @@ export async function POST(req: NextRequest) {
   const newObj = { ...rest, user_id: userId };
   const folder = await FolderModel.create(newObj);
 
-  const user = await UserModel.findByIdAndUpdate(
-    body.userId,
-    { $push: { folder_id: folder.id } },
-    // { new: true }
-  );
+  await UserModel.findByIdAndUpdate(body.userId, {
+    $push: { folder_id: folder.id },
+  });
   return NextResponse.json(folder);
 }

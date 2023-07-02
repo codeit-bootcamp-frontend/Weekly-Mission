@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/utils/mongoDB/dbConnect";
 import { UserModel } from "@/utils/mongoDB/models/user";
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   await dbConnect();
   const users = await UserModel.find();
   return NextResponse.json(users);

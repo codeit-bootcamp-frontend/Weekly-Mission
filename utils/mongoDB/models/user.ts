@@ -22,9 +22,3 @@ const UserSchema = new mongoose.Schema(
 
 export const UserModel =
   mongoose.models.User || mongoose.model("User", UserSchema);
-
-/*
-  "name": "코드잇",
-  "image_source": "https://codeit-images.codeit.com/badges/COMPLETE_100_LESSONS.png",
-  "email": "codeit@codeit.com"
-*/

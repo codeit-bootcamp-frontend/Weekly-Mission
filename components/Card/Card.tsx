@@ -81,7 +81,7 @@ export default function Card({ link, menuComponent }: CardProps) {
       <div className={cx("imageContainer")}>
         <img
           src={link.image_source ?? defaultCardImg}
-          alt={link.title}
+          alt={link.title ?? "카드이미지"}
           className={cx("cardImg")}
           onError={handleImageError}
         />

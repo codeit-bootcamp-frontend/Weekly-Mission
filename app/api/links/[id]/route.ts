@@ -3,7 +3,6 @@ import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/utils/mongoDB/dbConnect";
 import { FolderModel } from "@/utils/mongoDB/models/folder";
 import { LinkModel } from "@/utils/mongoDB/models/link";
-import { UserModel } from "@/utils/mongoDB/models/user";
 
 export async function DELETE(
   req: NextRequest,

@@ -1,19 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { OpenGraphScraperOptions } from "open-graph-scraper/dist/lib/types";
 
 import dbConnect from "@/utils/mongoDB/dbConnect";
 import { FolderModel } from "@/utils/mongoDB/models/folder";
 import { LinkModel } from "@/utils/mongoDB/models/link";
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   await dbConnect();
   const links = await LinkModel.find();
   return NextResponse.json(links);
 }
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest) {
   await dbConnect();
   const body = await req.json();
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   const ogs = require("open-graph-scraper");
   const options = { url: body.url };
   const { result } = await ogs(options);
@@ -75,15 +77,3 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
   return NextResponse.json(response);
 }
-
-/*
-   1. folderId값 O 
-    - 기존 link있을떄: 
-        (1) folderId 중복: pass
-        (2) folderId 없음: folderId에 id값 추가, folderModel에 해당 link추가 
-    - 기존 link없을때: link추가, folderModel에 해당 link추가 (?)
-
-   2. folderId 값 X 
-    - 기존 link있을때: pass
-    - 기존 link없을때: link에 추가 +
-  */
