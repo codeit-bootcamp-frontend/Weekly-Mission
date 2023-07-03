@@ -1,4 +1,3 @@
-import { NextApiResponse } from "next";
 import { NextRequest, NextResponse } from "next/server";
 
 import dbConnect from "@/utils/mongoDB/dbConnect";
@@ -28,7 +27,7 @@ export async function POST(
 }
 
 export async function DELETE(
-  res: NextApiResponse,
+  req: NextRequest,
   { params }: { params: { id: string } },
 ) {
   await dbConnect();
