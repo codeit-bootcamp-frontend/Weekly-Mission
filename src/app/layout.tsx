@@ -2,6 +2,7 @@ import DefaultLayout from "@/layouts/DefaultLayout";
 import { Metadata } from "next";
 import "@/styles/global.css";
 import AddLinkBarBottomContextProvider from "@/contexts/AddLinkBarBottomContextProvider";
+import { pretendard } from "@/utils/localFont";
 
 export const metadata: Metadata = {
   title: "Linkbrary",
@@ -14,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko">
+    <html lang="ko" className={pretendard.className}>
       <body>
         <AddLinkBarBottomContextProvider>
           <DefaultLayout>{children}</DefaultLayout>
