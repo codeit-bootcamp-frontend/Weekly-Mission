@@ -1,47 +1,32 @@
-import {
-  AxiosInstance,
-  AxiosInterceptorManager,
-  AxiosResponse,
-  InternalAxiosRequestConfig,
-} from "axios";
-
 export interface SelectedFolder {
-  id: number;
+  id: string;
   name: string;
 }
 
 export interface Folder extends SelectedFolder {
   created_at: string;
-  user_id: number;
+  updated_at: string;
+  user_id: string;
+  link_id: string[];
 }
 
 export interface Link {
-  id: number;
-  created_at: string;
-  updated_at: string | null;
+  id: string;
   url: string;
-  title: string;
-  description: string;
+  title: string | null;
+  description: string | null;
   image_source: string | null;
-  folder_id: number | null;
+  user_id: string;
+  folder_id: string[];
+  created_at: string;
+  updated_at: string;
 }
 
 export interface User {
-  id: number;
-  created_at: string;
+  id: string;
   name: string;
-  image_source: string;
   email: string;
-}
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type CustomResponseFormat<T = any> = {
-  data: T;
-};
-
-export interface CustomInstance extends AxiosInstance {
-  interceptors: {
-    request: AxiosInterceptorManager<InternalAxiosRequestConfig>;
-    response: AxiosInterceptorManager<AxiosResponse<CustomResponseFormat>>;
-  };
+  image_source: string | null;
+  folder_id: string[];
+  created_at: string;
 }

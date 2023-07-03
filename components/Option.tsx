@@ -10,6 +10,7 @@ import EditForm from "@/components/Modal/FormModal/EditForm";
 import FormModal from "@/components/Modal/FormModal/FormModal";
 import ShareModal from "@/components/Modal/ShareModal/ShareModal";
 import { SelectedFolder } from "@/utils/api/types";
+import checkFolderOperationValid from "@/utils/checkFolderOperationValid";
 
 import styles from "./Option.module.scss";
 
@@ -21,8 +22,8 @@ const cx = classNames.bind(styles);
 
 interface OptionProps {
   folder: SelectedFolder;
-  onEditFolder: (newName: string, id: number) => void;
-  onDeleteFolder: (id: number) => void;
+  onEditFolder: (newName: string, id: string) => void;
+  onDeleteFolder: (id: string) => void;
 }
 
 export default function Option({
@@ -35,7 +36,7 @@ export default function Option({
   const [shownShareModal, setShownShareModal] = useState(false);
 
   const openEditModal = () => {
-    if (folder.name === "전체" || folder.name === "⭐️ 즐겨찾기") {
+    if (!checkFolderOperationValid(folder)) {
       alert(`${folder.name} 폴더는 이름을 변경할 수 없어요!`);
       return;
     }
@@ -47,7 +48,7 @@ export default function Option({
   };
 
   const openDeleteModal = () => {
-    if (folder.name === "전체" || folder.name === "⭐️ 즐겨찾기") {
+    if (!checkFolderOperationValid(folder)) {
       alert(`${folder.name} 폴더는 삭제할 수 없어요!`);
       return;
     }

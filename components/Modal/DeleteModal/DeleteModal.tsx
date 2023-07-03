@@ -10,23 +10,27 @@ const cx = classNames.bind(styles);
 
 interface Item {
   title: string;
-  id: number;
+  id: string;
   content: string;
 }
 
 interface DeleteModalProps {
   item: Item;
+  currentFolderId?: string;
   onClose: () => void;
-  onDelete: (id: number) => void;
+  onDelete: (id: string, folderId?: string) => void;
 }
 
 export default function DeleteModal({
   item,
+  currentFolderId,
   onClose,
   onDelete,
 }: DeleteModalProps) {
   const handleDelete = () => {
-    onDelete(item.id);
+    currentFolderId === ""
+      ? onDelete(item.id)
+      : onDelete(item.id, currentFolderId);
     onClose();
   };
 

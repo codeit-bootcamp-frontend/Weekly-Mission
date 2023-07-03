@@ -1,40 +1,29 @@
 import instance from "./instance";
 import { Folder } from "./types";
 
-const getFolder = async (userId: number, folderId: number) => {
-  const res = await instance.get<never, Folder[]>(
-    `users/${userId}/folders/${folderId}`,
-  );
-  if (res.length === 0) {
-    res;
-  }
-  return res[0];
+const getFolder = async (folderId: string) => {
+  return await instance.get<never, Folder>(`folders/${folderId}`);
 };
 
-const getFolders = async (userId: number): Promise<Folder[]> => {
-  const res = await instance.get<never, Folder[]>(`users/${userId}/folders`);
-  return res;
+const getFolders = async (userId: string): Promise<Folder[]> => {
+  return await instance.get<never, Folder[]>(`users/${userId}/folders`);
 };
 
-const deleteFolder = async (folderId: number) => {
+const deleteFolder = async (folderId: string) => {
   await instance.delete(`folders/${folderId}`);
 };
 
-const putFolder = async (name: string, folderId: number) => {
-  await instance.put(`folders/${folderId}`, {
+const putFolder = async (name: string, folderId: string) => {
+  await instance.post(`folders/${folderId}`, {
     name,
   });
 };
 
-const postFolder = async (name: string, userId: number) => {
-  const res = await instance.post<never, Folder[]>("folders", {
+const postFolder = async (name: string, userId: string) => {
+  return await instance.post<never, Folder>("folders", {
     name,
     userId,
   });
-  if (res.length === 0) {
-    res;
-  }
-  return res[0];
 };
 
 export { getFolder, getFolders, deleteFolder, putFolder, postFolder };

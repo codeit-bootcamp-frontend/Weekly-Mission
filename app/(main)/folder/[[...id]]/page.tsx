@@ -1,188 +1,35 @@
-"use client";
+import { redirect } from "next/navigation";
 
-import { useEffect, useState } from "react";
-import { useInView } from "react-intersection-observer";
-import { LineWave } from "react-loader-spinner";
+import FolderContent from "@/components/FolderContent";
+import { getFolders, getLinks } from "@/utils/api";
+import { SelectedFolder } from "@/utils/api/types";
+import convertParamToStr from "@/utils/convertParamToStr";
 
-import classNames from "classnames/bind";
-import { useRouter } from "next/navigation";
+export default async function Folder({ params }: { params: { id: string[] } }) {
+  // const { id: userId } = useCurrentUser();
+  const userId = "649fc0074843a7796910d6f7"; // TODO: 서버 컴포넌트에서 userId 어떻게 얻어??
+  const folderId = convertParamToStr(params.id);
 
-import AddFolderButton from "@/components/AddFolderButton";
-import AddLinkBar from "@/components/AddLinkBar";
-import Card from "@/components/Card/Card";
-import MyCardMenu from "@/components/Card/MyCardMenu";
-import FolderChip from "@/components/FolderChip";
-import Option from "@/components/Option";
-import SearchBar from "@/components/SearchBar";
-import { useCurrentUser } from "@/hooks/useCurrentUserContext";
-import { useSetInViewGNB } from "@/hooks/useInViewGNBContext";
-import {
-  deleteFolder,
-  deleteLink,
-  getFolder,
-  getFolders,
-  getLinks,
-  postFolder,
-  postLink,
-  putFolder,
-} from "@/utils/api";
-import { Folder, Link, SelectedFolder } from "@/utils/api/types";
-import convertParamToNum from "@/utils/convertParamToNum";
+  const [folders, links] = await Promise.all([
+    getFolders(userId),
+    getLinks(userId, folderId),
+  ]);
 
-import styles from "./page.module.scss";
-
-const cx = classNames.bind(styles);
-
-export default function Folder({ params }: { params: { id: string[] } }) {
-  const { id: userId } = useCurrentUser();
-  const [currentFolder, setCurrentFolder] = useState<SelectedFolder | null>(
-    null,
-  );
-  const [folders, setFolders] = useState<Folder[]>([]);
-  const [links, setLinks] = useState<Link[]>([]);
-  const setInViewGNB = useSetInViewGNB();
-  const { ref: addLinkRef, inView: inViewAddLink } = useInView();
-  const { ref: footerRef, inView: inViewFooter } = useInView();
-  const router = useRouter();
-
-  const folderParam = convertParamToNum(params.id);
-
-  const onAddLink = async (
-    url: string,
-    userId: number,
-    folderId: number | null,
-  ) => {
-    const linkRes = await postLink(url, userId, folderId);
-    if (!linkRes) return;
-    // TODO: 중복된 링크일 경우는 아직 고려 안하는 걸로,,
-    // TODO: card를 통한 추가에서 folder_id 선택 안했을 때와, 링크 추가를 통한 추가에서 folder_id 선택 안했을 때의 구분
-    if (folderParam === linkRes.folder_id || folderParam === 0)
-      setLinks([linkRes, ...links]);
-  };
-
-  const onAddFolder = async (name: string) => {
-    const addedFolder = await postFolder(name, userId);
-    setFolders([...folders, addedFolder]);
-  };
-
-  const onEditFolder = async (newName: string, id: number) => {
-    await putFolder(newName, id);
-    const updatedFolders = folders.map((folder) => {
-      if (folder.id === id) return { ...folder, name: newName };
-      return folder;
-    });
-    setFolders(updatedFolders);
-    setCurrentFolder({ id, name: newName });
-  };
-
-  const onDeleteFolder = async (id: number) => {
-    await deleteFolder(id);
-    router.push("/folder");
-  };
-
-  const onDeleteLink = async (id: number) => {
-    await deleteLink(id);
-    const isDeleted = links.some((link) => link.id === id);
-    if (isDeleted)
-      setLinks((prevLinks) => prevLinks.filter((link) => link.id !== id));
-  };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      if (folderParam === null) return router.push("/folder");
-      const [folderRes, foldersRes, linksRes] = await Promise.all([
-        getFolder(userId, folderParam),
-        getFolders(userId),
-        getLinks(userId, folderParam),
-      ]);
-      if (folderParam === 0) {
-        setCurrentFolder({ id: 0, name: "전체" });
-      } else {
-        if (!folderRes) return router.push("/folder");
-        setCurrentFolder({ id: folderRes.id, name: folderRes.name });
-      }
-      setFolders(foldersRes);
-      setLinks(linksRes);
-    };
-
-    fetchData();
-  }, [folderParam, router, userId]);
-
-  useEffect(() => {
-    setInViewGNB(inViewAddLink);
-  }, [inViewAddLink, setInViewGNB]);
+  let currentFolder: SelectedFolder;
+  if (!folderId) {
+    currentFolder = { id: "", name: "전체" };
+  } else {
+    const foundFolder = folders.find((folder) => folder.id === folderId);
+    if (!foundFolder) return redirect("/folder");
+    currentFolder = { id: foundFolder.id, name: foundFolder.name };
+  }
 
   return (
-    <>
-      <div
-        className={cx("addLinkSection", {
-          addLinkAtBottom: !inViewAddLink,
-          inViewFooter,
-        })}
-      >
-        <div className={cx("addLinkBarContainer")}>
-          <AddLinkBar onAddLink={onAddLink} />
-        </div>
-      </div>
-      <main className={cx("main", { addLinkAtBottom: !inViewAddLink })}>
-        <div ref={addLinkRef} style={{ height: "0.1px" }} />
-        <section className={cx("folderSection", {})}>
-          <div className={cx("searchBarContainer")}>
-            <SearchBar />
-          </div>
-          {/* TODO: Suspense 처리 */}
-          {!currentFolder && <LineWave />}
-          {currentFolder && (
-            <div className={cx("folderContainer")}>
-              <div className={cx("folderSelect")}>
-                <div className={cx("folders")}>
-                  <div className={cx("chipContainer")}>
-                    <FolderChip folder={{ id: 0, name: "전체" }} />
-                  </div>
-                  {folders.map((folder) => (
-                    <div key={folder.id} className={cx("chipContainer")}>
-                      <FolderChip
-                        folder={{ id: folder.id, name: folder.name }}
-                      />
-                    </div>
-                  ))}
-                </div>
-                <AddFolderButton onAddFolder={onAddFolder} />
-              </div>
-              <div className={cx("folderHeader")}>
-                <h2 className={cx("title")}>{currentFolder.name}</h2>
-                <Option
-                  folder={currentFolder}
-                  onEditFolder={onEditFolder}
-                  onDeleteFolder={onDeleteFolder}
-                />
-              </div>
-              <div className={cx("cardContainer")}>
-                {links.map((link) => (
-                  <Card
-                    key={link.id}
-                    link={link}
-                    menuComponent={
-                      <MyCardMenu
-                        link={link}
-                        onDelete={onDeleteLink}
-                        onAddLink={onAddLink}
-                        currentFolderId={folderParam}
-                      />
-                    }
-                  />
-                ))}
-              </div>
-              {links.length === 0 && (
-                <div className={cx("notExistLink")}>
-                  저장된 링크가 없습니다.
-                </div>
-              )}
-            </div>
-          )}
-        </section>
-        <div ref={footerRef} style={{ height: "0.1px" }} />
-      </main>
-    </>
+    <FolderContent
+      userId={userId}
+      initialFolders={folders}
+      initialCurrentFolder={currentFolder}
+      initialLinks={links}
+    />
   );
 }

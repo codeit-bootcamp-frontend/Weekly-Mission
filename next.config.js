@@ -1,16 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  async rewrites() {
-    return {
-      fallback: [
-        {
-          source: "/:path*",
-          destination: "https://bootcamp-api.codeit.kr/api/:path*",
-        },
-      ],
-    };
+  env: {
+    BASE_URL:
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:3000"
+        : `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
   },
+  reactStrictMode: true,
   images: {
     remotePatterns: [
       {

@@ -6,7 +6,7 @@ const createKaKaoShareButton = (
   if (window.Kakao) {
     const kakao = window.Kakao;
     if (!kakao.isInitialized()) {
-      kakao.init(process.env.NEXT_PUBLIC_KAKAO_KEY);
+      kakao.init(process.env.NEXT_PUBLIC_KAKAO_JS_KEY_IAN);
     }
     kakao.Link.createDefaultButton({
       container: "#kakao-link-btn",

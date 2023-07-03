@@ -5,6 +5,8 @@ import { User } from "@/utils/api/types";
 
 import styles from "./UserProfile.module.scss";
 
+import defaultUser from "@/public/images/default-user.png";
+
 const cx = classNames.bind(styles);
 
 export default function UserProfile({ user }: { user: User }) {
@@ -14,7 +16,7 @@ export default function UserProfile({ user }: { user: User }) {
         width={28}
         height={28}
         className={cx("userImg")}
-        src={user.image_source}
+        src={user.image_source ?? defaultUser}
         alt={user.name}
       />
       <p className={cx("userEmail")}>{user.email}</p>
