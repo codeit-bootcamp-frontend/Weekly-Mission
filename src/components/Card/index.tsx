@@ -20,7 +20,13 @@ const Card = ({ card, tabs }: CardProps) => {
   const [isDeleteLinkModalOpen, setIsDeleteLinkModalOpen] = useState(false);
   const [isAddLinkModalOpen, setIsAddLinkModalOpen] = useState(false);
   const cardRef = useRef<HTMLButtonElement>(null);
-  const { image_source, description, created_at: createdAt, url } = card;
+  const {
+    image_source,
+    description,
+    created_at: createdAt,
+    url,
+    folder_id,
+  } = card;
   const router = useRouter();
 
   function parseDate(dateString: string): string {
@@ -125,6 +131,7 @@ const Card = ({ card, tabs }: CardProps) => {
           setIsAddLinkModalOpen(false);
         }}
         link={url}
+        folder_id={folder_id}
       />
     </>
   );

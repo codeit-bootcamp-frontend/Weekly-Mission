@@ -5,8 +5,10 @@ import { Folder } from "$/types";
 import { userId } from "@/utils/common.api";
 import { getData } from "@/utils/getData";
 
+const fetchTabs = () => getData<Folder[]>(`/api/users/${userId}/folders`);
+
 const FoderTabsContextProvider = ({ children }: { children: ReactNode }) => {
-  const value = use(getData<Folder[]>(`/api/users/${userId}/folders`));
+  const value = use(fetchTabs());
 
   return (
     <FolderTabsContext.Provider value={value}>

@@ -1,73 +1,33 @@
-import React, { ReactElement, useState } from "react";
-import { useRouter } from "next/router";
-import styles from "@/styles/folder.module.css";
+"use client";
+import React, { useState, use, useContext } from "react";
+import CardList from "@/components/CardList/CardList";
+import { userId } from "@/utils/common.api";
 import SearchBar from "$/src/components/SearchBar/SearchBar";
-import CardList from "$/src/components/CardList/CardList";
-import AddLinkBar from "$/src/components/AddLinkBar/AddLinkBar";
-import FolderMenu from "@/components/FolderMenu/FolderMenu";
-import FolderHeader from "@/components/FolderHeader/FolderHeader";
-import { getData } from "$/src/utils/getData";
-import { Folder, Link } from "$/types";
-import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import FolderMenu from "$/src/components/FolderMenu/FolderMenu";
+import FolderHeader from "$/src/components/FolderHeader/FolderHeader";
+import CurrentTabContext from "@/contexts/CurrentTabContext";
+import styles from "@/styles/folder.module.css";
+import FolderTabsContext from "$/src/contexts/FolderTabsContext";
 
-interface FolderPageProps {
-  links: Link[];
-  tabs: Folder[];
-}
+function FolderPage({ params }: { params: { [key: string]: string } }) {
+  const folderId = params.slug;
+  const { currentFolderTitle, setCurrentFolderTitle } =
+    useContext(CurrentTabContext);
 
-export default function Page({
-  links,
-  tabs,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  const router = useRouter();
-  const { slug: currentTab } = router.query;
-  const [currentFolderTitle, setCurrentFolderTitle] = useState<string>("전체");
-  const [isAddLinkBarBottom, setIsAddLinkBarBottom] = useState<boolean>(false);
   return (
     <>
-      <div className={styles.heroSection}>
-        <AddLinkBar tabs={tabs} onIsAddLinkBarBottom={setIsAddLinkBarBottom} />
-      </div>
       <div className={styles.wrapper}>
-        <SearchBar />
         <FolderMenu
-          currentTab={currentTab}
-          tabs={tabs}
+          currentTab={folderId}
           onCurrentFolderTitle={setCurrentFolderTitle}
-          isAddLinkBarBottom={isAddLinkBarBottom}
         />
         <FolderHeader currentFolderTitle={currentFolderTitle} />
       </div>
       <div className={styles.cardWrapper}>
-        {links.length !== 0 ? (
-          <CardList cards={links} tabs={tabs} />
-        ) : (
-          <div className={styles.emptySavedLink}>저장한 링크가 없습니다</div>
-        )}
+        <CardList userId={userId} folderId={folderId} />
       </div>
     </>
   );
 }
 
-export const getServerSideProps: GetServerSideProps<FolderPageProps> = async (
-  context
-) => {
-  const { slug } = context.query;
-  const userId = 1;
-  const folderId = slug || "";
-
-  const linksData = await getData(
-    `/api/users/${userId}/links?folderId=${folderId}`
-  );
-  const { distinctData: links = [] } = linksData;
-
-  const tabData = await getData(`/api/users/${userId}/folders`);
-  const { data: tabs } = tabData;
-
-  return {
-    props: {
-      links,
-      tabs,
-    },
-  };
-};
+export default FolderPage;

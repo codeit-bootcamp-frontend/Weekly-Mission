@@ -7,6 +7,7 @@ interface AddLinkModalProps {
   isAddLinkModalOpen: boolean;
   onClose: () => void;
   link: string;
+  folder_id?: number | null;
   clearInput?: () => void;
 }
 
@@ -14,6 +15,7 @@ const AddLinkModal = ({
   isAddLinkModalOpen,
   onClose,
   link,
+  folder_id,
   clearInput,
 }: AddLinkModalProps) => {
   const [checkedItemId, setCheckedItemId] = useState<number | null>(null);
@@ -39,6 +41,7 @@ const AddLinkModal = ({
       onClose={onClose}
     >
       <AddLinkInFolderContent
+        folder_id={folder_id}
         checkedItemId={checkedItemId}
         onCheckedItemId={setCheckedItemId}
       />

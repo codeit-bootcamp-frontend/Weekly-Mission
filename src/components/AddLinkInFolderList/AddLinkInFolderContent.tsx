@@ -6,9 +6,11 @@ import { useContext } from "react";
 interface AddLinkInFolderContentProps {
   checkedItemId: number | null;
   onCheckedItemId: (id: number) => void;
+  folder_id?: number | null;
 }
 
 const AddLinkInFolderContent = ({
+  folder_id,
   checkedItemId,
   onCheckedItemId,
 }: AddLinkInFolderContentProps) => {
@@ -21,16 +23,18 @@ const AddLinkInFolderContent = ({
   return (
     <div className={styles.Container}>
       {tabs &&
-        tabs.map((tab) => {
-          return (
-            <AddLinkInFolderContentItem
-              key={tab.id}
-              tab={tab}
-              onClick={handleClick}
-              isClicked={tab.id === checkedItemId}
-            />
-          );
-        })}
+        tabs
+          .filter((tab) => (!tab.id && !folder_id) || tab.id !== folder_id)
+          .map((tab) => {
+            return (
+              <AddLinkInFolderContentItem
+                key={tab.id}
+                tab={tab}
+                onClick={handleClick}
+                isClicked={tab.id === checkedItemId}
+              />
+            );
+          })}
     </div>
   );
 };

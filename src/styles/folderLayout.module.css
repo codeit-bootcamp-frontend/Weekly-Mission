@@ -11,9 +11,19 @@
     height: 11.7rem;
   }
 }
-
 .wrapper {
   margin: 0 auto;
   width: 100%;
   padding: 0 2.4rem;
+}
+
+.cardWrapper {
+  margin: 0 auto;
+  max-width: 106rem;
+}
+
+@media screen and (max-width: 1199px) {
+  .cardWrapper {
+    max-width: 70.4rem;
+  }
 }

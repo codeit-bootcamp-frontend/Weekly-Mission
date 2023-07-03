@@ -3,27 +3,26 @@ import Image from "next/image";
 import styles from "./add-link-bar.module.css";
 import AddLinkModal from "@/components/Modals/AddLinkModal";
 import useElementPosition from "@/hooks/useElementPosition";
-import FolderTabsContext from "@/contexts/FolderTabsContext";
+import AddLinkBarBottomContext from "@/contexts/AddLinkBarBottomContext";
 
-interface AddLinkBarProps {
-  onIsAddLinkBarBottom: (isAddLinkBarBottom: boolean) => void;
-}
-
-const AddLinkBar = ({ onIsAddLinkBarBottom }: AddLinkBarProps) => {
-  const tabs = useContext(FolderTabsContext);
+const AddLinkBar = () => {
   const linkInputRef = useRef<HTMLInputElement>(null);
   const [isAddLinkModalOpen, setIsAddLinkModalOpen] = useState(false);
   const inputRef = useRef<HTMLDivElement>(null);
+
   const elementPosition = useElementPosition(inputRef);
 
+  const { isAddLinkBarBottom, setIsAddLinkBarBottom } = useContext(
+    AddLinkBarBottomContext
+  );
   useEffect(() => {
     if (!elementPosition) return;
     if (elementPosition <= 0) {
-      onIsAddLinkBarBottom(true);
+      setIsAddLinkBarBottom(true);
     } else {
-      onIsAddLinkBarBottom(false);
+      setIsAddLinkBarBottom(false);
     }
-  }, [elementPosition, onIsAddLinkBarBottom]);
+  }, [elementPosition, isAddLinkBarBottom, setIsAddLinkBarBottom]);
 
   const handleClick = (
     e: React.MouseEvent<HTMLButtonElement>,

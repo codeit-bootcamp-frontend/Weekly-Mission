@@ -1,19 +1,19 @@
-import React from "react";
+import React, { use } from "react";
 import styles from "./CardList.module.css";
 import Card from "@/components/Card";
-import { Link, Folder } from "$/types";
+import { Link } from "$/types";
 import { getData } from "$/src/utils/getData";
 
 interface CardListProps {
   folderId?: string;
   userId: string | number;
 }
-const CardList = async ({ userId, folderId }: CardListProps) => {
+const CardList = ({ userId, folderId }: CardListProps) => {
   const url = folderId
     ? `/api/users/${userId}/links?folderId=${folderId}`
     : `/api/users/${userId}/links`;
 
-  const cards = await getData<Link[]>(url, "no-store");
+  const cards = use(getData<Link[]>(url, "no-store"));
 
   return cards.length !== 0 ? (
     <div className={styles.cardListContainer}>

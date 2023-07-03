@@ -1,4 +1,3 @@
-"use client";
 import React, { use } from "react";
 import Image from "next/image";
 import styles from "./PageInfo.module.css";
@@ -8,7 +7,6 @@ interface PageInfoProps {
   folderId: string;
   sharedUserId: string;
 }
-
 export default function PageInfo({ sharedUserId, folderId }: PageInfoProps) {
   const user = use(getData<User[]>(`/api/users/${sharedUserId}`, "no-store"));
 

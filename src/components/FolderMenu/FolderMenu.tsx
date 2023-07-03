@@ -5,29 +5,28 @@ import FolderChipButton from "@/presentation/Button/FolderChipButton";
 import AddFolderButton from "../AddFolderButton/AddFolderButton";
 import { Folder } from "$/types";
 import FolderTabsContext from "@/contexts/FolderTabsContext";
+import AddLinkBarBottomContext from "@/contexts/AddLinkBarBottomContext";
+import { redirect } from "next/navigation";
 
 interface FolderMenuProps {
   currentTab?: string | string[] | undefined;
   onCurrentFolderTitle: (name: string) => void;
-  isAddLinkBarBottom: boolean;
 }
 
-const FolderMenu = ({
-  currentTab,
-  onCurrentFolderTitle,
-  isAddLinkBarBottom,
-}: FolderMenuProps) => {
+const FolderMenu = ({ currentTab, onCurrentFolderTitle }: FolderMenuProps) => {
   const router = useRouter();
   const tabs = useContext(FolderTabsContext);
+  const { isAddLinkBarBottom } = useContext(AddLinkBarBottomContext);
 
   const handleClick = (tab: Folder | undefined) => {
     const { id = "", name = "전체" } = tab || {};
+    onCurrentFolderTitle(name);
     if (tab) {
+      console.log(id);
       router.push(`/folder/${id}`);
     } else {
-      router.push(`/folder`);
+      router.push("/folder");
     }
-    onCurrentFolderTitle(name);
   };
 
   return (
