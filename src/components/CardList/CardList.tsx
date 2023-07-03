@@ -2,7 +2,7 @@ import React, { use } from "react";
 import styles from "./CardList.module.css";
 import Card from "@/components/Card";
 import { Link } from "$/types";
-import { getData } from "$/src/utils/getData";
+import { getData } from "@/utils/getData";
 
 interface CardListProps {
   folderId?: string;

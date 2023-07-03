@@ -4,8 +4,8 @@ import Image from "next/image";
 import styles from "./Footer.module.css";
 import Link from "next/link";
 import { Arial } from "@/utils/localFont";
-import AddLinkBarBottomContext from "$/src/contexts/AddLinkBarBottomContext";
-import useAboveBottom from "$/src/hooks/useAboveBottom";
+import AddLinkBarBottomContext from "@/contexts/AddLinkBarBottomContext";
+import useAboveBottom from "@/hooks/useAboveBottom";
 const Footer = () => {
   const SOCIAL_MEDIAS = [
     {

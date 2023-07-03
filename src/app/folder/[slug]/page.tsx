@@ -2,12 +2,12 @@
 import React, { useState, use, useContext } from "react";
 import CardList from "@/components/CardList/CardList";
 import { userId } from "@/utils/common.api";
-import SearchBar from "$/src/components/SearchBar/SearchBar";
-import FolderMenu from "$/src/components/FolderMenu/FolderMenu";
-import FolderHeader from "$/src/components/FolderHeader/FolderHeader";
+import SearchBar from "@/components/SearchBar/SearchBar";
+import FolderMenu from "@/components/FolderMenu/FolderMenu";
+import FolderHeader from "@/components/FolderHeader/FolderHeader";
 import CurrentTabContext from "@/contexts/CurrentTabContext";
 import styles from "@/styles/folder.module.css";
-import FolderTabsContext from "$/src/contexts/FolderTabsContext";
+import FolderTabsContext from "@/contexts/FolderTabsContext";
 
 function FolderPage({ params }: { params: { [key: string]: string } }) {
   const folderId = params.slug;

@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "./add-link-bar.module.css";
 import AddLinkModal from "@/components/Modals/AddLinkModal";
 import AddLinkBarBottomContext from "@/contexts/AddLinkBarBottomContext";
-import useVisibility from "$/src/hooks/useVisibility";
+import useVisibility from "@/hooks/useVisibility";
 
 const AddLinkBar = () => {
   const linkInputRef = useRef<HTMLInputElement>(null);

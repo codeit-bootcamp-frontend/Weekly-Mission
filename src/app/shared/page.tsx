@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "@/styles/shared.module.css";
-import SearchBar from "$/src/components/SearchBar/SearchBar";
-import CardList from "$/src/components/CardList/CardList";
-import PageInfo from "$/src/components/PageInfo/PageInfo";
+import SearchBar from "@/components/SearchBar/SearchBar";
+import CardList from "@/components/CardList/CardList";
+import PageInfo from "@/components/PageInfo/PageInfo";
 
 export default function Page({
   searchParams,
