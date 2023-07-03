@@ -1,3 +1,4 @@
+"use client";
 import React, { useContext, useEffect } from "react";
 import styles from "./folder-menu.module.css";
 import { useRouter } from "next/navigation";
@@ -6,29 +7,52 @@ import AddFolderButton from "../AddFolderButton/AddFolderButton";
 import { Folder } from "$/types";
 import FolderTabsContext from "@/contexts/FolderTabsContext";
 import AddLinkBarBottomContext from "@/contexts/AddLinkBarBottomContext";
-import { redirect } from "next/navigation";
+import CurrentTabContext from "@/contexts/CurrentTabContext";
+import { userId } from "@/utils/common.api";
+import { fetchData } from "@/utils/fetchData";
+import useFetch from "$/src/hooks/useFetch";
 
 interface FolderMenuProps {
   currentTab?: string | undefined;
-  onCurrentFolderTitle: (name: string) => void;
 }
 
-const FolderMenu = ({ currentTab, onCurrentFolderTitle }: FolderMenuProps) => {
+const fetchTabs = () =>
+  fetchData<Folder[]>({
+    url: `/api/users/${userId}/folders`,
+    option: "no-store",
+  });
+
+const FolderMenu = ({ currentTab }: FolderMenuProps) => {
   const router = useRouter();
-  const tabs = useContext(FolderTabsContext);
+
+  const { tabs, setTabs } = useContext(FolderTabsContext);
+  const { setCurrentFolderTitle } = useContext(CurrentTabContext);
   const { isAddLinkBarBottom } = useContext(AddLinkBarBottomContext);
+
+  useEffect(() => {
+    const fetchDataAndSetTabs = async () => {
+      try {
+        const data = await fetchTabs();
+        setTabs(data);
+      } catch (error) {
+        console.error("Error fetching tabs:", error);
+      }
+    };
+
+    fetchDataAndSetTabs();
+  }, [setTabs]);
 
   useEffect(() => {
     if (!currentTab) return;
     const foundTab = tabs?.find((tab) => tab.id === parseInt(currentTab));
     if (foundTab) {
-      onCurrentFolderTitle(foundTab.name);
+      setCurrentFolderTitle(foundTab.name);
     }
-  }, [onCurrentFolderTitle, tabs, currentTab]);
+  }, [setCurrentFolderTitle, tabs, currentTab]);
 
   const handleClick = (tab: Folder | undefined) => {
     const { id = "", name = "전체" } = tab || {};
-    onCurrentFolderTitle(name);
+    setCurrentFolderTitle(name);
     if (tab) {
       router.push(`/folder/${id}`);
     } else {

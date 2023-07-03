@@ -7,15 +7,14 @@ import Image from "next/image";
 import DropDown from "@/presentation/DropDown/DropDown";
 import DeleteLinkModal from "@/components/Modals/DeleteLinkModal";
 import AddLinkModal from "@/components/Modals/AddLinkModal";
-import { Link, Folder } from "$/types";
+import { Link } from "$/types";
 import calculateTimeDiff from "@/utils/calculateTimeDiff";
 
 interface CardProps {
   card: Link;
-  tabs?: Folder[];
 }
 
-const Card = ({ card, tabs }: CardProps) => {
+const Card = ({ card }: CardProps) => {
   const [isKebabOpen, setIsKebabOpen] = useState(false);
   const [isDeleteLinkModalOpen, setIsDeleteLinkModalOpen] = useState(false);
   const [isAddLinkModalOpen, setIsAddLinkModalOpen] = useState(false);

@@ -14,7 +14,7 @@ const AddLinkInFolderContent = ({
   checkedItemId,
   onCheckedItemId,
 }: AddLinkInFolderContentProps) => {
-  const tabs = useContext(FolderTabsContext);
+  const { tabs, setTabs } = useContext(FolderTabsContext);
 
   const handleClick = (id: number) => {
     onCheckedItemId(id);

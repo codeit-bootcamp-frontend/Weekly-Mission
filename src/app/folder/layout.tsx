@@ -1,4 +1,3 @@
-"use client";
 import { Metadata } from "next";
 import styles from "@/styles/folderLayout.module.css";
 import AddLinkBar from "@/components/AddLinkBar/AddLinkBar";

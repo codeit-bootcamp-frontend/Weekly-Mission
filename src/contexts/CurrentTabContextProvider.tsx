@@ -3,7 +3,7 @@ import React, { ReactNode, useState } from "react";
 import CurrentTabContext from "./CurrentTabContext";
 
 const CurrentTabContextProvider = ({ children }: { children: ReactNode }) => {
-  const [currentFolderTitle, setCurrentFolderTitle] = useState<string>("전체");
+  const [currentFolderTitle, setCurrentFolderTitle] = useState<string>("");
   return (
     <CurrentTabContext.Provider
       value={{ currentFolderTitle, setCurrentFolderTitle }}

@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+"use client";
+import React, { useContext, useState } from "react";
 import Image from "next/image";
 import styles from "./folder-header.module.css";
 import EditFolderModal from "../Modals/EditFolderModal";
 import ShareModal from "../Modals/ShareModal";
 import DeleteFolderModal from "../Modals/DeleteFolderModal";
+import CurrentTabContext from "$/src/contexts/CurrentTabContext";
 
-interface FolderHeaderProps {
-  currentFolderTitle: string;
-}
-
-const FolderHeader = ({ currentFolderTitle }: FolderHeaderProps) => {
+const FolderHeader = () => {
   const [isFolderEditModalOpen, setIsFolderEditModalOpen] = useState(false);
   const [isFolderDeleteModalOpen, setIsFolderDeleteModalOpen] = useState(false);
   const [isFolderShareModalOpen, setIsFolderShareModalOpen] = useState(false);
+  const { currentFolderTitle, setCurrentFolderTitle } =
+    useContext(CurrentTabContext);
 
   const handleEditClick = () => {
     setIsFolderEditModalOpen(!isFolderEditModalOpen);

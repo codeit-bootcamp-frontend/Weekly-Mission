@@ -1,5 +1,14 @@
-import { createContext } from "react";
 import { Folder } from "$/types";
-const FolderTabsContext = createContext<Folder[] | undefined>(undefined);
+import { createContext } from "react";
+
+type FolderTabsContextType = {
+  tabs: Folder[];
+  setTabs: React.Dispatch<React.SetStateAction<Folder[]>>;
+};
+
+const FolderTabsContext = createContext<FolderTabsContextType>({
+  tabs: [],
+  setTabs: () => {},
+});
 
 export default FolderTabsContext;
