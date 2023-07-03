@@ -1,16 +1,16 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
 import Image from "next/image";
 import styles from "./add-link-bar.module.css";
 import AddLinkModal from "@/components/Modals/AddLinkModal";
-import { Folder } from "$/types";
 import useElementPosition from "@/hooks/useElementPosition";
+import FolderTabsContext from "@/contexts/FolderTabsContext";
 
 interface AddLinkBarProps {
-  tabs: Folder[] | undefined;
   onIsAddLinkBarBottom: (isAddLinkBarBottom: boolean) => void;
 }
 
-const AddLinkBar = ({ tabs, onIsAddLinkBarBottom }: AddLinkBarProps) => {
+const AddLinkBar = ({ onIsAddLinkBarBottom }: AddLinkBarProps) => {
+  const tabs = useContext(FolderTabsContext);
   const linkInputRef = useRef<HTMLInputElement>(null);
   const [isAddLinkModalOpen, setIsAddLinkModalOpen] = useState(false);
   const inputRef = useRef<HTMLDivElement>(null);
@@ -82,7 +82,6 @@ const AddLinkBar = ({ tabs, onIsAddLinkBarBottom }: AddLinkBarProps) => {
           setIsAddLinkModalOpen(false);
         }}
         link={linkInputRef.current?.value ?? ""}
-        tabs={tabs}
         clearInput={clearInput}
       />
     </div>

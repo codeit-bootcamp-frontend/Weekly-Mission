@@ -1,13 +1,12 @@
 import React, { ReactElement, useState } from "react";
 import { useRouter } from "next/router";
 import styles from "@/styles/folder.module.css";
-import SearchBar from "@/components/SearchBar";
-import CardList from "@/components/CardList";
-import DefaultLayout from "@/layouts/DefaultLayout";
-import AddLinkBar from "@/components/AddLinkBar";
+import SearchBar from "$/src/components/SearchBar/SearchBar";
+import CardList from "$/src/components/CardList/CardList";
+import AddLinkBar from "$/src/components/AddLinkBar/AddLinkBar";
 import FolderMenu from "@/components/FolderMenu/FolderMenu";
 import FolderHeader from "@/components/FolderHeader/FolderHeader";
-import getData from "@/lib/getData";
+import { getData } from "$/src/utils/getData";
 import { Folder, Link } from "$/types";
 import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
 

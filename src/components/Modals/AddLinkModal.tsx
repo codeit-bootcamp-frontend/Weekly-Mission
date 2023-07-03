@@ -2,23 +2,20 @@ import { useEffect, useState } from "react";
 import ModalContainer from "./ModalContainer";
 import SubmitButton from "@/presentation/Button/SubmitButton";
 import AddLinkInFolderContent from "@/components/AddLinkInFolderList/AddLinkInFolderContent";
-import { Folder } from "$/types";
 
 interface AddLinkModalProps {
   isAddLinkModalOpen: boolean;
   onClose: () => void;
   link: string;
-  tabs?: Folder[];
   clearInput?: () => void;
 }
 
-const AddLinkModal: React.FC<AddLinkModalProps> = ({
+const AddLinkModal = ({
   isAddLinkModalOpen,
   onClose,
   link,
-  tabs,
   clearInput,
-}) => {
+}: AddLinkModalProps) => {
   const [checkedItemId, setCheckedItemId] = useState<number | null>(null);
 
   useEffect(() => {
@@ -42,7 +39,6 @@ const AddLinkModal: React.FC<AddLinkModalProps> = ({
       onClose={onClose}
     >
       <AddLinkInFolderContent
-        tabs={tabs}
         checkedItemId={checkedItemId}
         onCheckedItemId={setCheckedItemId}
       />

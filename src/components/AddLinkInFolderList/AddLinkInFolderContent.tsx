@@ -1,18 +1,19 @@
 import styles from "./add-link-in-folder-content.module.css";
 import AddLinkInFolderContentItem from "@/components/AddLinkInFolderList/AddLinkInFolderContentItem";
-import { Folder } from "$/types";
+import FolderTabsContext from "@/contexts/FolderTabsContext";
+import { useContext } from "react";
 
 interface AddLinkInFolderContentProps {
-  tabs?: Folder[];
   checkedItemId: number | null;
   onCheckedItemId: (id: number) => void;
 }
 
 const AddLinkInFolderContent = ({
-  tabs,
   checkedItemId,
   onCheckedItemId,
 }: AddLinkInFolderContentProps) => {
+  const tabs = useContext(FolderTabsContext);
+
   const handleClick = (id: number) => {
     onCheckedItemId(id);
   };
