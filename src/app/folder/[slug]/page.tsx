@@ -12,7 +12,7 @@ function FolderPage({ params }: { params: { [key: string]: string } }) {
     <>
       <div className={styles.wrapper}>
         <FolderMenu currentTab={folderId} />
-        <FolderHeader />
+        <FolderHeader currentTabId={Number(folderId)} />
       </div>
       <div className={styles.cardWrapper}>
         <CardList userId={userId} folderId={folderId} />

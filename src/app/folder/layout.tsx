@@ -3,7 +3,6 @@ import styles from "@/styles/folderLayout.module.css";
 import AddLinkBar from "@/components/AddLinkBar/AddLinkBar";
 import SearchBar from "@/components/SearchBar/SearchBar";
 import FoderTabsContextProvider from "@/contexts/FoderTabsContextProvider";
-import AddLinkBarBottomContextProvider from "@/contexts/AddLinkBarBottomContextProvider";
 import CurrentTabContextProvider from "@/contexts/CurrentTabContextProvider";
 
 export const metadata: Metadata = {

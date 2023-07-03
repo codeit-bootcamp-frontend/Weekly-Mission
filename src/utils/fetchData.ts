@@ -26,6 +26,10 @@ export const fetchData = async <T>({
     throw new Error("An error occurred while fetching the data.");
   }
 
+  if (method === "PUT") {
+    return {} as T;
+  }
+
   const responseData = await response.json();
   const data: T = responseData.data;
   return data;

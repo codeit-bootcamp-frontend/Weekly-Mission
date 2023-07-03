@@ -33,6 +33,7 @@ const FolderMenu = ({ currentTab }: FolderMenuProps) => {
     const fetchDataAndSetTabs = async () => {
       try {
         const data = await fetchTabs();
+        const sortedTabs = data.sort((a, b) => a.id - b.id); // TODO: 백엔드에서 Update할 경우 뒤로 밀리는 현상 때문에 추가. 추후 api 수정되면 삭제
         setTabs(data);
       } catch (error) {
         console.error("Error fetching tabs:", error);

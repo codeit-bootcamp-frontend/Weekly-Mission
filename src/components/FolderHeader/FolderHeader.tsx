@@ -7,7 +7,7 @@ import ShareModal from "../Modals/ShareModal";
 import DeleteFolderModal from "../Modals/DeleteFolderModal";
 import CurrentTabContext from "$/src/contexts/CurrentTabContext";
 
-const FolderHeader = () => {
+const FolderHeader = ({ currentTabId }: { currentTabId?: number }) => {
   const [isFolderEditModalOpen, setIsFolderEditModalOpen] = useState(false);
   const [isFolderDeleteModalOpen, setIsFolderDeleteModalOpen] = useState(false);
   const [isFolderShareModalOpen, setIsFolderShareModalOpen] = useState(false);
@@ -68,6 +68,7 @@ const FolderHeader = () => {
         isFolderEditModalOpen={isFolderEditModalOpen}
         onClose={() => setIsFolderEditModalOpen(false)}
         currentFolderTitle={currentFolderTitle}
+        currentTabId={currentTabId}
       />
       <ShareModal
         isFolderShareModalOpen={isFolderShareModalOpen}
