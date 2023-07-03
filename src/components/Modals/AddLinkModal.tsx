@@ -1,7 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ModalContainer from "./ModalContainer";
 import SubmitButton from "@/presentation/Button/SubmitButton";
 import AddLinkInFolderContent from "@/components/AddLinkInFolderList/AddLinkInFolderContent";
+import { Link } from "$/types";
+import { userId } from "$/src/utils/common.api";
+import { fetchData } from "$/src/utils/fetchData";
+import { useRouter } from "next/navigation";
+import CardsContext from "$/src/contexts/CardsContext";
 
 interface AddLinkModalProps {
   isAddLinkModalOpen: boolean;
@@ -19,18 +24,28 @@ const AddLinkModal = ({
   clearInput,
 }: AddLinkModalProps) => {
   const [checkedItemId, setCheckedItemId] = useState<number | null>(null);
+  const { cards, setCards } = useContext(CardsContext);
+
+  const router = useRouter();
 
   useEffect(() => {
     setCheckedItemId(null);
   }, [isAddLinkModalOpen]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!checkedItemId) return; // TODO: Add validation
     onClose();
     if (clearInput) {
       clearInput();
     }
+    const res: Link[] = await fetchData({
+      url: "/api/links",
+      method: "POST",
+      body: { url: link, userId: userId, folderId: checkedItemId },
+    });
+    router.push(`/folder/${checkedItemId}`);
+    setCards((prev) => [...prev, res[0]]);
   };
 
   return (

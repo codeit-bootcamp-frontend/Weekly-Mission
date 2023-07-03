@@ -1,8 +1,10 @@
-import React, { use } from "react";
+"use client";
+import React, { useContext, useEffect } from "react";
 import styles from "./CardList.module.css";
 import Card from "@/components/Card";
 import { Link } from "$/types";
 import { fetchData } from "$/src/utils/fetchData";
+import CardsContext from "$/src/contexts/CardsContext";
 
 interface CardListProps {
   folderId?: string;
@@ -13,7 +15,20 @@ const CardList = ({ userId, folderId }: CardListProps) => {
     ? `/api/users/${userId}/links?folderId=${folderId}`
     : `/api/users/${userId}/links`;
 
-  const cards = use(fetchData<Link[]>({ url: url, option: "no-store" }));
+  const { cards, setCards } = useContext(CardsContext);
+
+  useEffect(() => {
+    const fetchDataAndSetTabs = async () => {
+      try {
+        const data = await fetchData<Link[]>({ url: url, option: "no-store" });
+        setCards(data);
+      } catch (error) {
+        console.error("Error fetching tabs:", error);
+      }
+    };
+
+    fetchDataAndSetTabs();
+  }, [setCards, url]);
 
   return cards.length !== 0 ? (
     <div className={styles.cardListContainer}>

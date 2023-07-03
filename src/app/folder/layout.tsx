@@ -4,6 +4,7 @@ import AddLinkBar from "@/components/AddLinkBar/AddLinkBar";
 import SearchBar from "@/components/SearchBar/SearchBar";
 import FoderTabsContextProvider from "@/contexts/FoderTabsContextProvider";
 import CurrentTabContextProvider from "@/contexts/CurrentTabContextProvider";
+import CardsContextProvider from "@/contexts/CardsContextProvider";
 
 export const metadata: Metadata = {
   title: "Linkbrary",
@@ -17,15 +18,16 @@ export default function FloderLayout({
 }) {
   return (
     <FoderTabsContextProvider>
-      <div className={styles.heroSection}>
-        <AddLinkBar />
-      </div>
-      <div className={styles.wrapper}>
-        <SearchBar />
-      </div>
-      <CurrentTabContextProvider>{children}</CurrentTabContextProvider>
-
-      <div id="modal-root" />
+      <CardsContextProvider>
+        <div className={styles.heroSection}>
+          <AddLinkBar />
+        </div>
+        <div className={styles.wrapper}>
+          <SearchBar />
+        </div>
+        <CurrentTabContextProvider>{children}</CurrentTabContextProvider>
+        <div id="modal-root" />
+      </CardsContextProvider>
     </FoderTabsContextProvider>
   );
 }
