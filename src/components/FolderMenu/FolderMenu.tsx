@@ -22,7 +22,6 @@ const FolderMenu = ({ currentTab, onCurrentFolderTitle }: FolderMenuProps) => {
     const { id = "", name = "전체" } = tab || {};
     onCurrentFolderTitle(name);
     if (tab) {
-      console.log(id);
       router.push(`/folder/${id}`);
     } else {
       router.push("/folder");

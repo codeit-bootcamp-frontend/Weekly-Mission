@@ -8,9 +8,7 @@ const AddLinkBarBottomContextProvider = ({
   children: ReactNode;
 }) => {
   const [isAddLinkBarBottom, setIsAddLinkBarBottom] = useState(false);
-  useEffect(() => {
-    console.log(isAddLinkBarBottom);
-  }, [isAddLinkBarBottom]);
+  useEffect(() => {}, [isAddLinkBarBottom]);
   return (
     <AddLinkBarBottomContext.Provider
       value={{ isAddLinkBarBottom, setIsAddLinkBarBottom }}
