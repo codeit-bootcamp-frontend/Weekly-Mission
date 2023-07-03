@@ -11,7 +11,7 @@ interface EditFolderModalProps {
   isFolderEditModalOpen: boolean;
   onClose: () => void;
   currentFolderTitle: string;
-  currentTabId: number;
+  currentTabId?: number;
 }
 
 const EditFolderModal = ({

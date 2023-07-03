@@ -26,7 +26,7 @@ export const fetchData = async <T>({
     throw new Error("An error occurred while fetching the data.");
   }
 
-  if (method === "PUT") {
+  if (method === "PUT" || method === "DELETE") {
     return {} as T;
   }
 
