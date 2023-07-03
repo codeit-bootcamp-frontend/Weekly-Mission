@@ -74,6 +74,7 @@ const FolderHeader = ({ currentTabId }: { currentTabId?: number }) => {
         isFolderShareModalOpen={isFolderShareModalOpen}
         onClose={() => setIsFolderShareModalOpen(false)}
         currentFolderTitle={currentFolderTitle}
+        currentTabId={currentTabId}
       />
       <DeleteFolderModal
         currentTabId={currentTabId}

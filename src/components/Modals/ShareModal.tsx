@@ -1,18 +1,21 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import ModalContainer from "@/components/Modals/ModalContainer";
 import Image from "next/image";
 import styles from "./share-modal.module.css";
+import { userId } from "$/src/utils/common.api";
 
 interface ShareModalProps {
   isFolderShareModalOpen: boolean;
   onClose: () => void;
   currentFolderTitle: string;
+  currentTabId: number;
 }
 
 const ShareModal = ({
   isFolderShareModalOpen,
   onClose,
   currentFolderTitle,
+  currentTabId,
 }: ShareModalProps) => {
   const handleClickFacebookShare = () => {
     window.open("http://www.facebook.com/sharer.php?u=https://www.codeit.kr/");
@@ -21,7 +24,9 @@ const ShareModal = ({
 
   const copyToClipboard = async () => {
     try {
-      await navigator.clipboard.writeText(window.location.href);
+      await navigator.clipboard.writeText(
+        window.location.host + `/shared?user=${userId}&folder=${currentTabId}`
+      );
     } catch (error) {
       throw Error;
     }
