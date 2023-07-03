@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import styles from "@/styles/folderLayout.module.css";
 import AddLinkBar from "@/components/AddLinkBar/AddLinkBar";
 import SearchBar from "@/components/SearchBar/SearchBar";
-import FoderTabsContextProvider from "@/contexts/FoderTabsContextProvider";
+import FolderTabsContextProvider from "@/contexts/FolderTabsContextProvider";
 import CurrentTabContextProvider from "@/contexts/CurrentTabContextProvider";
 import CardsContextProvider from "@/contexts/CardsContextProvider";
 
@@ -17,7 +17,7 @@ export default function FloderLayout({
   children: React.ReactNode;
 }) {
   return (
-    <FoderTabsContextProvider>
+    <FolderTabsContextProvider>
       <CardsContextProvider>
         <div className={styles.heroSection}>
           <AddLinkBar />
@@ -28,6 +28,6 @@ export default function FloderLayout({
         <CurrentTabContextProvider>{children}</CurrentTabContextProvider>
         <div id="modal-root" />
       </CardsContextProvider>
-    </FoderTabsContextProvider>
+    </FolderTabsContextProvider>
   );
 }

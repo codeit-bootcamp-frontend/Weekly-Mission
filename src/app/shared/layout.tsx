@@ -1,4 +1,6 @@
-import DefaultLayout from "@/layouts/DefaultLayout";
+import CardsContextProvider from "$/src/contexts/CardsContextProvider";
+import FolderTabsContextProvider from "$/src/contexts/FolderTabsContextProvider";
+
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,5 +13,12 @@ export default function SharedLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <CardsContextProvider>
+      <FolderTabsContextProvider>
+        {children}
+        <div id="modal-root" />
+      </FolderTabsContextProvider>
+    </CardsContextProvider>
+  );
 }

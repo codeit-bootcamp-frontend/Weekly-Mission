@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
 import styles from "./Card.module.css";
 import Star from "@/components/Star";
 import { useRouter } from "next/navigation";
@@ -9,12 +9,14 @@ import DeleteLinkModal from "@/components/Modals/DeleteLinkModal";
 import AddLinkModal from "@/components/Modals/AddLinkModal";
 import { Link } from "$/types";
 import calculateTimeDiff from "@/utils/calculateTimeDiff";
-
+import { userId } from "$/src/utils/common.api";
+import FolderTabsContext from "$/src/contexts/FolderTabsContext";
 interface CardProps {
   card: Link;
+  cardOwnerId: number | string;
 }
 
-const Card = ({ card }: CardProps) => {
+const Card = ({ card, cardOwnerId }: CardProps) => {
   const [isKebabOpen, setIsKebabOpen] = useState(false);
   const [isDeleteLinkModalOpen, setIsDeleteLinkModalOpen] = useState(false);
   const [isAddLinkModalOpen, setIsAddLinkModalOpen] = useState(false);
@@ -109,7 +111,9 @@ const Card = ({ card }: CardProps) => {
             </button>
             {isKebabOpen && (
               <DropDown>
-                <div onClick={handleDeleteLinkClick}>삭제하기</div>
+                {userId === cardOwnerId && (
+                  <div onClick={handleDeleteLinkClick}>삭제하기</div>
+                )}
                 <div onClick={handleAddLinkClick}>폴더에 추가</div>
               </DropDown>
             )}

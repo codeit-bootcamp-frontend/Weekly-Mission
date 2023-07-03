@@ -5,7 +5,7 @@ import { Folder } from "$/types";
 import { userId } from "@/utils/common.api";
 import { fetchData } from "$/src/utils/fetchData";
 
-const FoderTabsContextProvider = ({ children }: { children: ReactNode }) => {
+const FolderTabsContextProvider = ({ children }: { children: ReactNode }) => {
   const [tabs, setTabs] = useState<Folder[]>([]);
 
   return (
@@ -15,4 +15,4 @@ const FoderTabsContextProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export default FoderTabsContextProvider;
+export default FolderTabsContextProvider;

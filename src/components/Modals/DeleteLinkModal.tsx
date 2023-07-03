@@ -17,8 +17,7 @@ const DeleteLinkModal = ({
   onClose,
   link,
 }: DeleteLinkModalProps) => {
-  const { cards, setCards } = useContext(CardsContext);
-  const router = useRouter();
+  const { setCards } = useContext(CardsContext);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onClose();

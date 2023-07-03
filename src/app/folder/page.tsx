@@ -12,7 +12,7 @@ function FolderPage() {
         <FolderHeader />
       </div>
       <div className={styles.cardWrapper}>
-        <CardList userId={userId} />
+        <CardList cardOwnerId={userId} />
       </div>
     </>
   );
