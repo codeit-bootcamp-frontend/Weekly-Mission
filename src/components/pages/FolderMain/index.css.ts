@@ -27,6 +27,15 @@ export const container = style({
   },
 })
 
+export const searchBar = style({
+  marginBottom: '4rem',
+  '@media': {
+    'screen and (max-width: 767px)': {
+      marginBottom: '3.2rem',
+    },
+  },
+})
+
 export const emptyMessage = style({
   margin: '6.5rem auto 3.5rem',
   textAlign: 'center',
