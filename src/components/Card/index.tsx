@@ -20,6 +20,7 @@ const Card = ({ card }: CardProps) => {
   const [isAddLinkModalOpen, setIsAddLinkModalOpen] = useState(false);
   const cardRef = useRef<HTMLButtonElement>(null);
   const {
+    id,
     image_source,
     description,
     created_at: createdAt,
@@ -123,6 +124,7 @@ const Card = ({ card }: CardProps) => {
           setIsDeleteLinkModalOpen(false);
         }}
         link={url}
+        id={id}
       />
       <AddLinkModal
         isAddLinkModalOpen={isAddLinkModalOpen}
