@@ -1,28 +1,28 @@
+"use client";
 import React, { useRef, useState, useEffect, useContext } from "react";
 import Image from "next/image";
 import styles from "./add-link-bar.module.css";
 import AddLinkModal from "@/components/Modals/AddLinkModal";
-import useElementPosition from "@/hooks/useElementPosition";
 import AddLinkBarBottomContext from "@/contexts/AddLinkBarBottomContext";
+import useVisibility from "$/src/hooks/useVisibility";
 
 const AddLinkBar = () => {
   const linkInputRef = useRef<HTMLInputElement>(null);
   const [isAddLinkModalOpen, setIsAddLinkModalOpen] = useState(false);
-  const inputRef = useRef<HTMLDivElement>(null);
 
-  const elementPosition = useElementPosition(inputRef);
+  const { ref: inputRef, isVisible } = useVisibility<HTMLInputElement>();
 
   const { isAddLinkBarBottom, setIsAddLinkBarBottom } = useContext(
     AddLinkBarBottomContext
   );
+
   useEffect(() => {
-    if (!elementPosition) return;
-    if (elementPosition <= 0) {
+    if (isVisible) {
       setIsAddLinkBarBottom(true);
     } else {
       setIsAddLinkBarBottom(false);
     }
-  }, [elementPosition, isAddLinkBarBottom, setIsAddLinkBarBottom]);
+  }, [isVisible, setIsAddLinkBarBottom]);
 
   const handleClick = (
     e: React.MouseEvent<HTMLButtonElement>,
@@ -43,7 +43,7 @@ const AddLinkBar = () => {
     <div ref={inputRef}>
       <div
         className={`${styles.formContainer} ${
-          elementPosition && elementPosition <= 0 ? styles.fixedBottom : ""
+          !isAddLinkBarBottom ? styles.fixedBottom : ""
         }`}
       >
         <form className={styles.form}>

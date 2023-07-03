@@ -18,11 +18,9 @@ export default function FloderLayout({
 }) {
   return (
     <FoderTabsContextProvider>
-      <AddLinkBarBottomContextProvider>
-        <div className={styles.heroSection}>
-          <AddLinkBar />
-        </div>
-      </AddLinkBarBottomContextProvider>
+      <div className={styles.heroSection}>
+        <AddLinkBar />
+      </div>
       <div className={styles.wrapper}>
         <SearchBar />
       </div>

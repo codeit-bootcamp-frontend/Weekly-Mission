@@ -1,5 +1,5 @@
 "use client";
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import AddLinkBarBottomContext from "./AddLinkBarBottomContext";
 
 const AddLinkBarBottomContextProvider = ({
@@ -8,6 +8,9 @@ const AddLinkBarBottomContextProvider = ({
   children: ReactNode;
 }) => {
   const [isAddLinkBarBottom, setIsAddLinkBarBottom] = useState(false);
+  useEffect(() => {
+    console.log(isAddLinkBarBottom);
+  }, [isAddLinkBarBottom]);
   return (
     <AddLinkBarBottomContext.Provider
       value={{ isAddLinkBarBottom, setIsAddLinkBarBottom }}

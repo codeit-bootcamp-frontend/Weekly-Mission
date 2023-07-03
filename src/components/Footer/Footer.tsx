@@ -1,8 +1,11 @@
-import React from "react";
+"use client";
+import React, { useContext, useEffect, useRef } from "react";
 import Image from "next/image";
 import styles from "./Footer.module.css";
 import Link from "next/link";
-import { Arial } from "$/src/utils/localFont";
+import { Arial } from "@/utils/localFont";
+import AddLinkBarBottomContext from "$/src/contexts/AddLinkBarBottomContext";
+import useAboveBottom from "$/src/hooks/useAboveBottom";
 const Footer = () => {
   const SOCIAL_MEDIAS = [
     {
@@ -27,8 +30,21 @@ const Footer = () => {
     },
   ];
 
+  // const footerPosition = useElementPosition(footerRef);
+  // const { ref: footerRef, isVisible } = useVisibility<HTMLDivElement>();
+  const { elementRef, isAboveBottom } = useAboveBottom<HTMLDivElement>();
+  const { setIsAddLinkBarBottom } = useContext(AddLinkBarBottomContext);
+
+  useEffect(() => {
+    if (isAboveBottom) {
+      setIsAddLinkBarBottom(true);
+    } else {
+      setIsAddLinkBarBottom(false);
+    }
+  }, [isAboveBottom, setIsAddLinkBarBottom]);
+
   return (
-    <div className={Arial.className}>
+    <div className={Arial.className} ref={elementRef}>
       <footer className={styles.footerWrapper}>
         <div className={styles.contentWrapper}>
           <p className={styles.copyright}>©codeit - 2023</p>

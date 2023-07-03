@@ -1,6 +1,7 @@
 import DefaultLayout from "@/layouts/DefaultLayout";
 import { Metadata } from "next";
 import "@/styles/global.css";
+import AddLinkBarBottomContextProvider from "@/contexts/AddLinkBarBottomContextProvider";
 
 export const metadata: Metadata = {
   title: "Linkbrary",
@@ -15,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <DefaultLayout>{children}</DefaultLayout>
+        <AddLinkBarBottomContextProvider>
+          <DefaultLayout>{children}</DefaultLayout>
+        </AddLinkBarBottomContextProvider>
       </body>
     </html>
   );
