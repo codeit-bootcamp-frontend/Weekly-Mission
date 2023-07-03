@@ -8,7 +8,7 @@ interface ShareModalProps {
   isFolderShareModalOpen: boolean;
   onClose: () => void;
   currentFolderTitle: string;
-  currentTabId: number;
+  currentTabId?: number;
 }
 
 const ShareModal = ({
