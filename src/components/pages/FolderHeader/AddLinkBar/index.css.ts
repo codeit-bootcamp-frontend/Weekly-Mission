@@ -46,10 +46,10 @@ export const searchButton = style({
   position: 'absolute',
   top: '1.6rem',
   right: '1.6rem',
-  padding: '1rem 1.55rem',
-  fontSize: '1.4rem',
   width: '8rem',
   height: '3.7rem',
+  padding: '1rem 1.55rem',
+  fontSize: '1.4rem',
   '@media': {
     'screen and (max-width: 767px)': {
       top: '0.8rem',

@@ -19,7 +19,10 @@ const Page = async ({ params }: IFolderProps) => {
   return (
     <>
       <FolderHeader />
-      <FolderMain cardLinks={cardLinks} />
+      <FolderMain
+        folderId={folderId}
+        cardLinks={cardLinks}
+      />
     </>
   )
 }

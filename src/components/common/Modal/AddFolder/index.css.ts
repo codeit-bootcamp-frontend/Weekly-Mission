@@ -21,3 +21,8 @@ export const modalInput = style({
   width: '28rem',
   height: '6rem',
 })
+
+export const modalButton = style({
+  width: '28rem',
+  fontSize: '1.6rem',
+})

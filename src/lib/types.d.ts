@@ -46,7 +46,7 @@ export interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEleme
 
 export interface IButtonLinkProps {
   className?: string
-  children: ReactNode
+  children: React.ReactNode
   href: string
 }
 
@@ -102,7 +102,13 @@ export interface IFolderProps {
 }
 
 export interface IFolderMainProps {
+  folderId: string
   cardLinks: CardType[]
+}
+
+export interface ISortButtonProps {
+  fill: boolean
+  children: React.ReactNode
 }
 
 export interface ISharedProps {
