@@ -3,9 +3,10 @@ import React, { ReactNode, use } from "react";
 import FolderTabsContext from "@/contexts/FolderTabsContext";
 import { Folder } from "$/types";
 import { userId } from "@/utils/common.api";
-import { getData } from "@/utils/getData";
+import { fetchData } from "$/src/utils/fetchData";
 
-const fetchTabs = () => getData<Folder[]>(`/api/users/${userId}/folders`);
+const fetchTabs = () =>
+  fetchData<Folder[]>({ url: `/api/users/${userId}/folders` });
 
 const FoderTabsContextProvider = ({ children }: { children: ReactNode }) => {
   const value = use(fetchTabs());

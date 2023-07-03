@@ -2,13 +2,15 @@ import React, { use } from "react";
 import Image from "next/image";
 import styles from "./PageInfo.module.css";
 import { User, Folder } from "$/types";
-import { getData } from "@/utils/getData";
+import { fetchData } from "$/src/utils/fetchData";
 interface PageInfoProps {
   folderId: string;
   sharedUserId: string;
 }
 export default function PageInfo({ sharedUserId, folderId }: PageInfoProps) {
-  const user = use(getData<User[]>(`/api/users/${sharedUserId}`, "no-store"));
+  const user = use(
+    fetchData<User[]>({ url: `/api/users/${sharedUserId}`, option: "no-store" })
+  );
 
   const {
     image_source = "/assets/images/users/codeit-avatar.png",
@@ -16,10 +18,10 @@ export default function PageInfo({ sharedUserId, folderId }: PageInfoProps) {
   } = user && user[0] ? user[0] : {};
 
   const folderTitleData = use(
-    getData<Folder[]>(
-      `/api/users/${sharedUserId}/folders/${folderId}`,
-      "no-store"
-    )
+    fetchData<Folder[]>({
+      url: `/api/users/${sharedUserId}/folders/${folderId}`,
+      option: "no-store",
+    })
   );
   const { name: folder = "" } =
     folderTitleData && folderTitleData[0] ? folderTitleData[0] : {};

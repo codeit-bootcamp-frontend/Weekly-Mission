@@ -1,5 +1,5 @@
 import { UserProvider } from "@/contexts/UserProvider";
-import getData from "@/lib/getData";
+import fetchData from "@/lib/fetchData";
 import "@/styles/global.css";
 import type { AppProps } from "next/app";
 import type { NextPage, NextPageContext } from "next";
@@ -37,7 +37,7 @@ MyApp.getInitialProps = async ({
 }: MyAppProps & { ctx: NextPageContext }) => {
   // TODO: 추후 인증으로 변경해야함.
   const userId = 1;
-  const data = await getData(`/api/users/${userId}`);
+  const data = await fetchData(`/api/users/${userId}`);
   const userInfo = data.data[0];
 
   let pageProps = {};

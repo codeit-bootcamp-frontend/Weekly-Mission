@@ -2,7 +2,7 @@ import React, { use } from "react";
 import styles from "./CardList.module.css";
 import Card from "@/components/Card";
 import { Link } from "$/types";
-import { getData } from "@/utils/getData";
+import { fetchData } from "$/src/utils/fetchData";
 
 interface CardListProps {
   folderId?: string;
@@ -13,7 +13,7 @@ const CardList = ({ userId, folderId }: CardListProps) => {
     ? `/api/users/${userId}/links?folderId=${folderId}`
     : `/api/users/${userId}/links`;
 
-  const cards = use(getData<Link[]>(url, "no-store"));
+  const cards = use(fetchData<Link[]>({ url: url, option: "no-store" }));
 
   return cards.length !== 0 ? (
     <div className={styles.cardListContainer}>
