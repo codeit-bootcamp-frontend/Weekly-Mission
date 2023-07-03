@@ -31,7 +31,7 @@ const nextConfig = {
     ];
   },
   env: {
-    BASE_URL: process.env.BASE_URL,
+    EVA_BASE_URL: process.env.EVA_BASE_URL,
   },
 };
 
