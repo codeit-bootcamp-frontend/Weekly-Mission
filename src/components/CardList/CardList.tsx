@@ -21,6 +21,7 @@ const CardList = ({ cardOwnerId, folderId }: CardListProps) => {
   const { setTabs } = useContext(FolderTabsContext);
   const { cards, setCards } = useContext(CardsContext);
   const pathName = usePathname();
+
   useEffect(() => {
     if (pathName !== "/shared") return;
     const fetchDataAndSetTabs = async () => {

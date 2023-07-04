@@ -7,22 +7,26 @@ interface PageInfoProps {
   folderId: string;
   sharedUserId: string;
 }
-export default function PageInfo({ sharedUserId, folderId }: PageInfoProps) {
-  const user = use(
-    fetchData<User[]>({ url: `/api/users/${sharedUserId}`, option: "no-store" })
-  );
+export default async function PageInfo({
+  sharedUserId,
+  folderId,
+}: PageInfoProps) {
+  const user = await fetchData<User[]>({
+    url: `/api/users/${sharedUserId}`,
+    option: "no-store",
+    side: "server",
+  });
 
   const {
     image_source = "/assets/images/users/codeit-avatar.png",
     name = "@코드잇",
   } = user && user[0] ? user[0] : {};
 
-  const folderTitleData = use(
-    fetchData<Folder[]>({
-      url: `/api/users/${sharedUserId}/folders/${folderId}`,
-      option: "no-store",
-    })
-  );
+  const folderTitleData = await fetchData<Folder[]>({
+    url: `/api/users/${sharedUserId}/folders/${folderId}`,
+    option: "no-store",
+    side: "server",
+  });
   const { name: folder = "" } =
     folderTitleData && folderTitleData[0] ? folderTitleData[0] : {};
 
