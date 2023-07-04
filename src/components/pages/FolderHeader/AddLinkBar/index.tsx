@@ -19,7 +19,6 @@ const AddLinkBar = () => {
       />
       <Button
         className={styles.searchButton}
-        type="button"
       >
         추가하기
       </Button>

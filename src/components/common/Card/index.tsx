@@ -99,6 +99,7 @@ const Card = ({
               </button>
               {isKebabClicked && (
               <div className={styles.popup}>
+                {isMyFolder && (
                 <button
                   className={styles.popupButton}
                   type="button"
@@ -106,10 +107,10 @@ const Card = ({
                     e.preventDefault()
                     handleDeleteLink()
                   }}
-                  disabled={!isMyFolder}
                 >
                   삭제하기
                 </button>
+                )}
                 <button
                   className={styles.popupButton}
                   type="button"

@@ -32,6 +32,19 @@ export type ImageType = {
   height: number
 }
 
+export type PostFolderType = {
+  id: number
+  created_at: string
+  name: string
+  user_id: number
+}
+
+export type ModalType = {
+  folders: FolderType[]
+  cardLinks: CardType[]
+  closeModal: () => void
+}
+
 // common
 export interface IBookmarkIconProps {
   className?: string
@@ -40,6 +53,7 @@ export interface IBookmarkIconProps {
 }
 
 export interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  type?: 'button' | 'submit' | 'reset'
   className?: string
   children: React.ReactNode
 }
@@ -66,6 +80,17 @@ export interface ICardContainerProps {
 
 export interface IModalProps {
   option: string
+  folders?: FolderType[]
+  cardLinks: CardType[]
+  closeModal: () => void
+}
+
+export interface IAddToFolderProps {
+  folders: FolderType[]
+  closeModal: () => void
+}
+
+export interface IAddFolderProps {
   closeModal: () => void
 }
 
@@ -146,5 +171,19 @@ export interface IgetLinksProps {
 }
 
 export interface IgetUserProps {
+  userId: number
+}
+
+export interface IpostFolderProps {
+  name: string
+  userId: number
+}
+
+export interface IuseScrollHandlerParams {
+  threshold: number
+}
+
+export interface IuseFolderCreatorParams {
+  name: string
   userId: number
 }

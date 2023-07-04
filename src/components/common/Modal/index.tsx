@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import { IModalProps } from '@/lib/types'
+import { IModalProps, ModalType } from '@/lib/types'
 import Image from 'next/image'
 import AddFolder from './AddFolder'
 import AddToFolder from './AddToFolder'
@@ -13,6 +13,8 @@ import * as styles from './index.css'
 
 const Modal = ({
   option,
+  folders = [],
+  cardLinks,
   closeModal,
 }: IModalProps) => {
   useEffect(() => {
@@ -37,7 +39,7 @@ const Modal = ({
     }
   }, [closeModal])
 
-  const options: Record<string, React.ComponentType> = {
+  const options: Record<string, React.ComponentType<ModalType>> = {
     editFolder: EditFolder,
     addFolder: AddFolder,
     shareFolder: ShareFolder,
@@ -51,7 +53,11 @@ const Modal = ({
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modal}>
-        <SelectedModal />
+        <SelectedModal
+          folders={folders}
+          cardLinks={cardLinks}
+          closeModal={closeModal}
+        />
         <button
           className={styles.closeButton}
           type="button"

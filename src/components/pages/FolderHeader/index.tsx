@@ -5,7 +5,7 @@ import AddLinkBar from './AddLinkBar'
 import * as styles from './index.css'
 
 const FolderHeader = () => {
-  const exceedThreshold = useScrollHandler(222)
+  const exceedThreshold = useScrollHandler({ threshold: 222 })
 
   return (
     <header className={`${styles.folderHeader} ${exceedThreshold ? styles.bottomHeader : ''}`}>

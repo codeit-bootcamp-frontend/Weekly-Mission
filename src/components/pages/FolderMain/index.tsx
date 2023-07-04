@@ -76,47 +76,49 @@ const FolderMain = ({
           <h3 className={styles.slTitle}>
             {Number(folderId) ? title : '전체'}
           </h3>
-          <div className={styles.slOption}>
-            <button
-              type="button"
-              className={styles.optionButton}
-              onClick={() => { return openModal('shareFolder') }}
-            >
-              <Image
-                src="/share.svg"
-                width={18}
-                height={18}
-                alt="Share"
-              />
-              <p>공유</p>
-            </button>
-            <button
-              type="button"
-              className={styles.optionButton}
-              onClick={() => { return openModal('editFolder') }}
-            >
-              <Image
-                src="/pen.svg"
-                width={18}
-                height={18}
-                alt="Edit"
-              />
-              <p>이름 변경</p>
-            </button>
-            <button
-              type="button"
-              className={styles.optionButton}
-              onClick={() => { return openModal('deleteFolder') }}
-            >
-              <Image
-                src="/delete.svg"
-                width={18}
-                height={18}
-                alt="Delete"
-              />
-              <p>삭제</p>
-            </button>
-          </div>
+          {Number(folderId) ? (
+            <div className={styles.slOption}>
+              <button
+                type="button"
+                className={styles.optionButton}
+                onClick={() => { return openModal('shareFolder') }}
+              >
+                <Image
+                  src="/share.svg"
+                  width={18}
+                  height={18}
+                  alt="Share"
+                />
+                <p>공유</p>
+              </button>
+              <button
+                type="button"
+                className={styles.optionButton}
+                onClick={() => { return openModal('editFolder') }}
+              >
+                <Image
+                  src="/pen.svg"
+                  width={18}
+                  height={18}
+                  alt="Edit"
+                />
+                <p>이름 변경</p>
+              </button>
+              <button
+                type="button"
+                className={styles.optionButton}
+                onClick={() => { return openModal('deleteFolder') }}
+              >
+                <Image
+                  src="/delete.svg"
+                  width={18}
+                  height={18}
+                  alt="Delete"
+                />
+                <p>삭제</p>
+              </button>
+            </div>
+          ) : <div />}
         </div>
         {cardLinks.length > 0 ? (
           <CardContainer
@@ -126,7 +128,15 @@ const FolderMain = ({
             isMyFolder
           />
         ) : <div className={styles.emptyMessage}>저장된 링크가 없습니다</div>}
-        {isModalOpen && <Modal option={modalOption} closeModal={closeModal} />}
+        {isModalOpen
+          && (
+          <Modal
+            option={modalOption}
+            folders={folders}
+            cardLinks={cardLinks}
+            closeModal={closeModal}
+          />
+          )}
       </div>
     </main>
   )

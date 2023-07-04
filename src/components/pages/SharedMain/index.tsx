@@ -40,7 +40,14 @@ const SharedMain = ({
           />
         ) : <div className={styles.emptyMessage}>저장된 링크가 없습니다</div>}
       </div>
-      {isModalOpen && <Modal option={modalOption} closeModal={closeModal} />}
+      {isModalOpen
+        && (
+        <Modal
+          option={modalOption}
+          cardLinks={cardLinks}
+          closeModal={closeModal}
+        />
+        )}
     </main>
   )
 }

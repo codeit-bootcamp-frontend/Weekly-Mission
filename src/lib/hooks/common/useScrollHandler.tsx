@@ -1,6 +1,9 @@
+import { IuseScrollHandlerParams } from '@/lib/types'
 import { useState, useEffect } from 'react'
 
-const useScrollHandler = (threshold: number) => {
+const useScrollHandler = ({
+  threshold,
+}: IuseScrollHandlerParams) => {
   const [isExceedThreshold, setIsExceedThreshold] = useState(false)
 
   useEffect(() => {
