@@ -30,8 +30,6 @@ const Footer = () => {
     },
   ];
 
-  // const footerPosition = useElementPosition(footerRef);
-  // const { ref: footerRef, isVisible } = useVisibility<HTMLDivElement>();
   const { elementRef, isAboveBottom } = useAboveBottom<HTMLDivElement>();
   const { setIsAddLinkBarBottom } = useContext(AddLinkBarBottomContext);
 

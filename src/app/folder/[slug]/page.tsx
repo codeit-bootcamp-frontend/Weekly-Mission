@@ -1,4 +1,4 @@
-import React, { useState, use, useContext } from "react";
+import React from "react";
 import CardList from "@/components/CardList/CardList";
 import { userId } from "@/utils/common.api";
 import FolderMenu from "@/components/FolderMenu/FolderMenu";

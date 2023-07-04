@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const EVA_BASE_URL = process.env.EVA_BASE_URL;
+const BASE_URL = process.env.BASE_URL;
 
 const useFetch = <T,>(
   url: string,
@@ -11,7 +11,7 @@ const useFetch = <T,>(
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(EVA_BASE_URL + url, { cache: option });
+        const response = await fetch(BASE_URL + url, { cache: option });
         const result = await response.json();
         const data = result.data;
         setData(data);

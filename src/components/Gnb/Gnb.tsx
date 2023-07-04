@@ -6,7 +6,10 @@ import { userId } from "@/utils/common.api";
 import { User } from "$/types";
 
 export default async function Gnb() {
-  const user = await fetchData<User[]>({ url: `/api/users/${userId}` });
+  const user = await fetchData<User[]>({
+    url: `/api/users/${userId}`,
+    side: "server",
+  });
   const { image_source: profileSrc = "", email = "" } = user[0] || {};
 
   return (

@@ -1,4 +1,3 @@
-import DefaultLayout from "@/layouts/DefaultLayout";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
