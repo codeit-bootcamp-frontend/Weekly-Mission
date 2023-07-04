@@ -1,18 +1,21 @@
 import styles from "./add-link-in-folder-content.module.css";
 import AddLinkInFolderContentItem from "@/components/AddLinkInFolderList/AddLinkInFolderContentItem";
-import { Folder } from "$/types";
+import FolderTabsContext from "@/contexts/FolderTabsContext";
+import { useContext } from "react";
 
 interface AddLinkInFolderContentProps {
-  tabs?: Folder[];
   checkedItemId: number | null;
   onCheckedItemId: (id: number) => void;
+  folder_id?: number | null;
 }
 
 const AddLinkInFolderContent = ({
-  tabs,
+  folder_id,
   checkedItemId,
   onCheckedItemId,
 }: AddLinkInFolderContentProps) => {
+  const { tabs, setTabs } = useContext(FolderTabsContext);
+
   const handleClick = (id: number) => {
     onCheckedItemId(id);
   };
@@ -20,16 +23,18 @@ const AddLinkInFolderContent = ({
   return (
     <div className={styles.Container}>
       {tabs &&
-        tabs.map((tab) => {
-          return (
-            <AddLinkInFolderContentItem
-              key={tab.id}
-              tab={tab}
-              onClick={handleClick}
-              isClicked={tab.id === checkedItemId}
-            />
-          );
-        })}
+        tabs
+          .filter((tab) => (!tab.id && !folder_id) || tab.id !== folder_id)
+          .map((tab) => {
+            return (
+              <AddLinkInFolderContentItem
+                key={tab.id}
+                tab={tab}
+                onClick={handleClick}
+                isClicked={tab.id === checkedItemId}
+              />
+            );
+          })}
     </div>
   );
 };

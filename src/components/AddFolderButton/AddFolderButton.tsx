@@ -15,7 +15,7 @@ const AddFolderButton = ({
     <>
       <button
         className={`${styles.buttonWrapper} ${
-          isAddLinkBarBottom ? styles.fixedBottom : ""
+          isAddLinkBarBottom ? "" : styles.addLinkVarAtBottom
         }`}
         onClick={() => setIsAddFolderModalOpen(true)}
       >

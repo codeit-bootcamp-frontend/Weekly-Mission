@@ -45,7 +45,7 @@
     z-index: 4;
     justify-content: center;
   }
-  .fixedBottom {
+  .addLinkVarAtBottom {
     bottom: 10.1rem;
   }
   .buttonText {

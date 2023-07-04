@@ -1,21 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
 import ModalContainer from "@/components/Modals/ModalContainer";
 import SubmitButton from "@/presentation/Button/SubmitButton";
+import { fetchData } from "$/src/utils/fetchData";
+import FolderTabsContext from "$/src/contexts/FolderTabsContext";
+import { useRouter } from "next/navigation";
 
 interface DeleteFolderModalProps {
   isFolderDeleteModalOpen: boolean;
   onClose: () => void;
   currentFolderTitle: string;
+  currentTabId?: number;
 }
 
 const DeleteFolderModal = ({
   isFolderDeleteModalOpen,
   onClose,
+  currentTabId,
   currentFolderTitle,
 }: DeleteFolderModalProps) => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const { tabs, setTabs } = useContext(FolderTabsContext);
+  const router = useRouter();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onClose();
+    await fetchData({
+      url: `/api/folders/${currentTabId}`,
+      method: "DELETE",
+    });
+
+    setTabs((prev) => prev.filter((tab) => tab.id !== currentTabId));
+    router.push("/folder");
   };
 
   return (

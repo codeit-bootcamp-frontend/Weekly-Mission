@@ -14,6 +14,7 @@ export interface Link {
   title: string;
   description: string;
   image_source: string | null;
+  folder_id: number | null;
 }
 
 export interface Folder {

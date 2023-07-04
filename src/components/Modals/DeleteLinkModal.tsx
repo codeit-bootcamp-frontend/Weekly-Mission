@@ -1,19 +1,33 @@
+import CardsContext from "$/src/contexts/CardsContext";
+import { fetchData } from "$/src/utils/fetchData";
 import ModalContainer from "@/components/Modals/ModalContainer";
 import SubmitButton from "@/presentation/Button/SubmitButton";
+import { useRouter } from "next/navigation";
+import { useContext } from "react";
 
 interface DeleteLinkModalProps {
+  id: number;
   isDeleteLinkModalOpen: boolean;
   onClose: () => void;
   link: string;
 }
 const DeleteLinkModal = ({
+  id,
   isDeleteLinkModalOpen,
   onClose,
   link,
 }: DeleteLinkModalProps) => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const { setCards } = useContext(CardsContext);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onClose();
+
+    await fetchData({
+      url: `/api/links/${id}`,
+      method: "DELETE",
+    });
+
+    setCards((prev) => prev.filter((link) => link.id !== id));
   };
 
   return (
