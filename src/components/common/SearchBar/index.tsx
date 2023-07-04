@@ -1,7 +1,11 @@
 import Image from 'next/image'
+import { ISearchBarProps } from '@/lib/types'
 import * as styles from './index.css'
 
-const SearchBar = ({ className = '', placeholder = '' }) => {
+const SearchBar = ({
+  className = '',
+  placeholder = '',
+}: ISearchBarProps) => {
   return (
     <div className={`${styles.container} ${className}`}>
       <input

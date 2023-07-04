@@ -22,8 +22,8 @@ const Card = ({
   const [isKebabClicked, setIsKebabClicked] = useState(false)
   const kebabRef = useRef<HTMLDivElement | null>(null)
   const [isBookmarked, setIsBookmarked] = useState(false)
-  const elapsedTime = getElapsedTime(cardLink.createdAt)
-  const formattedCreatedAt = getFormattedDate(cardLink.createdAt)
+  const elapsedTime = getElapsedTime(cardLink.created_at)
+  const formattedCreatedAt = getFormattedDate(cardLink.created_at)
 
   const handleHover = (value: boolean) => {
     return () => {

@@ -1,19 +1,24 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
 import { IFolderMainProps } from '@/lib/types'
 import CardContainer from '@/components/common/CardContainer'
 import Modal from '@/components/common/Modal'
 import SearchBar from '@/components/common/SearchBar'
 import Image from 'next/image'
-import SortButton from './SortButton'
+import SortButtonLink from './SortButtonLink'
 import * as styles from './index.css'
 
 const FolderMain = ({
   folderId,
+  folders,
   cardLinks,
 }: IFolderMainProps) => {
+  const targetFolder = folders.find((folder) => { return folder.id === Number(folderId) })
+  let title = ''
+  if (targetFolder) {
+    title = targetFolder.name
+  }
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [modalOption, setModalOption] = useState('')
 
@@ -36,9 +41,21 @@ const FolderMain = ({
         />
         <div className={styles.firstLine}>
           <div className={styles.buttons}>
-            <Link href="/folder">
-              <SortButton fill={folderId === '0'}>전체</SortButton>
-            </Link>
+            <SortButtonLink
+              fill={Number(folderId) === 0}
+              folderId={0}
+              folderName="전체"
+            />
+            {folders.map((folder) => {
+              return (
+                <SortButtonLink
+                  key={folder.id}
+                  fill={Number(folderId) === folder.id}
+                  folderId={folder.id}
+                  folderName={folder.name}
+                />
+              )
+            })}
           </div>
           <button
             type="button"
@@ -57,7 +74,7 @@ const FolderMain = ({
         </div>
         <div className={styles.secondLine}>
           <h3 className={styles.slTitle}>
-            {/* {title} */}
+            {Number(folderId) ? title : '전체'}
           </h3>
           <div className={styles.slOption}>
             <button

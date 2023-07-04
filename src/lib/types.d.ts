@@ -1,25 +1,25 @@
 // type
 export type CardType = {
   id: number
-  createdAt: string
-  updatedAt: string | null
+  created_at: string
+  updated_at: string | null
   url: string;
   title: string;
   description: string;
   image_source: string;
-  folderId: number
+  folder_id: number
 }
 
 export type FolderType = {
   id: number
-  createdAt: string
+  created_at: string
   name: string
-  userId: number
+  user_id: number
 }
 
 export type UserType = {
   id: number
-  createdAt: string
+  created_at: string
   name: string
   image_source: string
   email: string
@@ -77,7 +77,7 @@ export interface INavUserProfileProps {
 
 export interface ISearchBarProps {
   className?: string
-  placeHolder?: string
+  placeholder?: string
 }
 
 // account
@@ -103,12 +103,14 @@ export interface IFolderProps {
 
 export interface IFolderMainProps {
   folderId: string
+  folders: FolderType[]
   cardLinks: CardType[]
 }
 
 export interface ISortButtonProps {
   fill: boolean
-  children: React.ReactNode
+  folderId: number
+  folderName: string
 }
 
 export interface ISharedProps {
