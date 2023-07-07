@@ -3,7 +3,7 @@ import { IgetUserProps, UserType } from '@/lib/types'
 
 const getUser = async ({
   userId,
-}: IgetUserProps): Promise<UserType> => {
+}: IgetUserProps) => {
   const res = await api.get<{ data: UserType[] }>(
     `/users/${userId}`,
   )
