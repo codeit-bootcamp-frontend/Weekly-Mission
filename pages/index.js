@@ -1,9 +1,11 @@
 import Gnb from "@/components/Gnb";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <>
       <Gnb />
+      <Footer />
     </>
   );
 }
