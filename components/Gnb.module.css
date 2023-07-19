@@ -3,6 +3,7 @@
   position: sticky;
   top: 0;
   left: 0;
+  z-index: 1;
 }
 
 .gnb {
@@ -19,6 +20,10 @@
 .logo {
   width: 13.3rem;
   height: auto;
+}
+
+.link {
+  text-decoration: none;
 }
 
 .button {
@@ -40,6 +45,32 @@
 
 .signin {
   width: 12.8rem;
+}
+
+.profileContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.userImage {
+  display: inline-block;
+  position: relative;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.userEmail {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 1.4rem;
 }
 
 @media (max-width: 1200px) {
@@ -77,5 +108,9 @@
 
   .signin {
     width: 8rem;
+  }
+
+  .userEmail {
+    display: none;
   }
 }
