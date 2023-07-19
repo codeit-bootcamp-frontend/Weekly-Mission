@@ -33,7 +33,7 @@
 }
 
 .linksContainer {
-  margin: 0 auto;
+  padding-top: 4rem;
 }
 
 @media (max-width: 768px) {

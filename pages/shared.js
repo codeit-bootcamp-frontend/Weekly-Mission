@@ -3,6 +3,7 @@ import axios from "axios";
 import Image from "next/image";
 import Gnb from "@/components/Gnb";
 import SearchBar from "@/components/SearchBar";
+import Card from "@/components/Card";
 import styles from "@/styles/Shared.module.css";
 
 export default function Shared() {
@@ -46,6 +47,13 @@ export default function Shared() {
       </div>
       <div className={styles.linksContainer}>
         <SearchBar />
+        {links.map((link) => {
+          return (
+            <div key={link.id}>
+              <Card link={link} />
+            </div>
+          );
+        })}
       </div>
     </>
   );
