@@ -1,0 +1,26 @@
+:root {
+  --color-primary: #6d6afe;
+  --color-red: #ff5b56;
+  --color-black: #111322;
+  --color-white: #ffffff;
+  --color-gray-1: #3e3e43;
+  --color-gray-2: #9fa6b2;
+  --color-gray-3: #ccd5e3;
+  --color-gray-4: #e7effb;
+  --color-gray-5: #f0f6ff;
+}
+
+* {
+  font-family: "Pretendard";
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  margin: 0 auto;
+  font-size: 62.5%;
+}
+
+body {
+  width: 100%;
+}

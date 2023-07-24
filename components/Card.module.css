@@ -1,0 +1,23 @@
+.card {
+  position: relative;
+  width: 34rem;
+  height: 33.4rem;
+  border-radius: 1.5rem;
+  box-shadow: 0rem 0.5rem 2.5rem 0rem rgba(0, 0, 0, 0.08);
+}
+
+.link {
+  text-decoration: none;
+}
+
+.cardImage {
+  width: 34rem;
+  height: auto;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
