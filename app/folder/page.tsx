@@ -1,5 +1,5 @@
-import getUserData from "@/api/getUserData";
-import getFolders from "@/api/getFolders";
+import { getUser } from "@/api/request/request-user";
+import { getAllFolders } from "@/api/request/request-folder";
 import GNB from "@/components/GNB";
 import AddLinkBar from "@/components/AddLinkBar";
 import SearchBar from "@/components/SearchBar";
@@ -9,7 +9,7 @@ import Option from "@/components/Option";
 import Footer from "@/components/Footer";
 import styles from "./page.module.css";
 import classNames from "classnames/bind";
-import getLinks from "@/api/getLinks";
+import { getLinks } from "@/api/request/request-link";
 import getUserId from "@/data/getUserId";
 import dynamic from "next/dynamic";
 
@@ -20,11 +20,13 @@ const cx = classNames.bind(styles);
 export default async function Folder() {
   const userId = getUserId();
 
-  const userData = await getUserData(userId);
-  const folders = await getFolders(userId);
+  const userData = await getUser(userId);
+  const folders = await getAllFolders(userId);
   const links = await getLinks(userId);
 
   const { email, image_source } = userData[0];
+
+  console.log("folders:", folders);
 
   return (
     <>
@@ -38,7 +40,7 @@ export default async function Folder() {
           <div className={cx("folder-tab")}>
             <div className={cx("folderchip-container")}>
               <FolderChip active>전체</FolderChip>
-              {folders.map((folder) => (
+              {folders?.map((folder) => (
                 <FolderChip key={folder.id} id={folder.id}>
                   {folder.name}
                 </FolderChip>

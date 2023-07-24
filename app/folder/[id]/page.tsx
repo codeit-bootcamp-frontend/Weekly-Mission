@@ -1,5 +1,5 @@
-import getFolders from "@/api/getFolders";
-import getLinks from "@/api/getLinks";
+import { getAllFolders, getFolder } from "@/api/request/request-folder";
+import { getLinks } from "@/api/request/request-link";
 import AddLinkBar from "@/components/AddLinkBar";
 import SearchBar from "@/components/SearchBar";
 import FolderChip from "@/components/FolderChip";
@@ -17,7 +17,7 @@ const cx = classNames.bind(styles);
 
 export async function generateStaticParams() {
   const userId = getUserId();
-  const folders = await getFolders(userId);
+  const folders = await getAllFolders(userId);
 
   return folders.map((folder) => ({
     id: folder.id.toString(),
@@ -32,8 +32,8 @@ export default async function FolderID({ params }) {
   }
 
   const userId = getUserId();
-  const folders = await getFolders(userId);
-  const currFolder = (await getFolders(userId, folderId))[0];
+  const folders = await getAllFolders(userId);
+  const currFolder = (await getFolder(userId, folderId))[0];
   const links = await getLinks(userId, folderId);
 
   if (!currFolder) {

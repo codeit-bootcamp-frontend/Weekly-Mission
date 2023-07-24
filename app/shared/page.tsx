@@ -5,9 +5,9 @@ import classNames from "classnames/bind";
 import styles from "./page.module.css";
 import Image from "next/image";
 import getUserId from "@/data/getUserId";
-import getUserData from "@/api/getUserData";
-import getFolders from "@/api/getFolders";
-import getLinks from "@/api/getLinks";
+import { getUser } from "@/api/request/request-user";
+import { getFolder } from "@/api/request/request-folder";
+import { getLinks } from "@/api/request/request-link";
 import { notFound } from "next/navigation";
 import dynamic from "next/dynamic";
 
@@ -23,9 +23,9 @@ export default async function Shared({ searchParams }) {
   }
 
   const userId = getUserId();
-  const folder = await getFolders(sharedUserId, sharedFolderId);
-  const sharedUserData = await getUserData(sharedUserId);
-  const userData = await getUserData(userId);
+  const folder = await getFolder(sharedUserId, sharedFolderId);
+  const sharedUserData = await getUser(sharedUserId);
+  const userData = await getUser(userId);
   const links = await getLinks(sharedUserId, sharedFolderId);
 
   if (folder.length === 0) {

@@ -4,14 +4,14 @@ import classNames from "classnames/bind";
 import styles from "./page.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import getUserData from "@/api/getUserData";
+import { getUser } from "@/api/request/request-user";
 import getUserId from "@/data/getUserId";
 
 const cx = classNames.bind(styles);
 
 export default async function Home() {
   const userId = getUserId();
-  const userData = await getUserData(userId);
+  const userData = await getUser(userId);
   const { email, image_source } = userData[0];
 
   return (
