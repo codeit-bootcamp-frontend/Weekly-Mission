@@ -6,9 +6,17 @@ import SearchBar from "@/components/SearchBar";
 import Card from "@/components/Card";
 import styles from "@/styles/Shared.module.css";
 
+const INITIAL_FOLDER = {
+  folder: {
+    name: "",
+    owner: { profileImageSource: "", name: "" },
+    links: [],
+  },
+};
+
 export default function Shared() {
   const [sampleUser, setSampleUser] = useState();
-  const [sampleFolder, setSampleFolder] = useState();
+  const [sampleFolder, setSampleFolder] = useState(INITIAL_FOLDER);
 
   async function getSampleUser() {
     const res = await axios.get(`/sample/user`);
