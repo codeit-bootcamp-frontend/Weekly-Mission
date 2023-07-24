@@ -12,6 +12,12 @@ const getUserFolder = async (userId: number, folderId: number) => {
   return response.data.data;
 };
 
+const getAllFolders = async () => {
+  const respone = await instance.get("/folders");
+
+  return respone.data.data;
+};
+
 const getFolder = async (folderId: number) => {
   const response = await instance.get(`/folders/${folderId}`);
 
@@ -36,4 +42,4 @@ const deleteFolder = async (folderId: number) => {
   return response.data;
 };
 
-export { getUserAllFolders, getUserFolder, getFolder, changeFolderName, createFolder, deleteFolder };
+export { getUserAllFolders, getUserFolder, getAllFolders, getFolder, changeFolderName, createFolder, deleteFolder };
