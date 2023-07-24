@@ -1,0 +1,17 @@
+.link-title {
+  margin: 0.8rem 0 2.4rem;
+  color: var(--gray-9);
+  font-size: 1.4rem;
+}
+
+.add-button {
+  cursor: pointer;
+  margin-top: 2.4rem;
+  padding: 1.6rem 11.2rem;
+  font-size: 1.6rem;
+  color: var(--gray-f);
+  font-weight: 600;
+  background-image: linear-gradient(to right, var(--primary), #6ae3fe);
+  border: none;
+  border-radius: 0.8rem;
+}

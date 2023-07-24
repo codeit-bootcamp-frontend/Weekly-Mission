@@ -1,0 +1,46 @@
+.selected {
+  color: var(--primary);
+  background-color: var(--gray-f);
+}
+
+.folder-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.folder-list-item {
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+
+.folder-list-item:hover {
+  color: var(--primary);
+  background-color: var(--gray-f);
+}
+
+.folder-list-item-button {
+  cursor: pointer;
+  padding: 0.8rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  border: none;
+  background-color: inherit;
+}
+
+.folder-title {
+  font-size: 1.6rem;
+  color: var(--gray-3);
+}
+
+.number-of-folder {
+  font-size: 1.4rem;
+  color: var(--gray-9);
+}
+
+.check {
+  margin-left: auto;
+}

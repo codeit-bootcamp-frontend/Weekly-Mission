@@ -1,0 +1,46 @@
+:root {
+  --primary: #6d6afe;
+  --red: #ff5b56;
+  --black: #111322;
+  --white: #ffffff;
+  --gray-3: #3e3e43;
+  --gray-9: #9fa6b2;
+  --gray-c: #ccd5e3;
+  --gray-e: #e7effb;
+  --gray-f: #f0f6ff;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-family: var(--font-pretendard), sans-serif;
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 192rem;
+  min-width: 37.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+button {
+  border: none;
+  background-color: inherit;
+}

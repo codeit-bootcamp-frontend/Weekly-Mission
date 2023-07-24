@@ -1,0 +1,75 @@
+.header {
+  background-color: var(--gray-f);
+  text-align: center;
+  padding: 2rem 0 6rem;
+}
+
+.shared-user-content {
+  margin-bottom: 2rem;
+}
+
+.shared-user-avatar {
+  border-radius: 7rem;
+}
+
+.shared-user-nickname {
+  margin-top: 1.2rem;
+  font-size: 1.6rem;
+}
+
+.header-title {
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+.main {
+  padding: 4rem 0 10rem;
+  margin: 0 auto;
+  max-width: 106rem;
+}
+
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.4rem 2rem;
+}
+
+@media (max-width: 1099px) {
+  .main {
+    max-width: 70.4rem;
+  }
+
+  .card-list {
+    grid-template-columns: repeat(2, auto);
+    gap: 2.4rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    padding: 1rem 0 4rem;
+  }
+
+  .user-avatar {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .user-nickname {
+    font-size: 1.4rem;
+  }
+
+  .header-title {
+    font-size: 3.2rem;
+  }
+
+  .main {
+    max-width: 32.5rem;
+    padding: 2rem 0 6rem;
+  }
+
+  .card-list {
+    grid-template-columns: auto;
+    gap: 2rem;
+  }
+}
