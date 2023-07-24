@@ -1,11 +1,12 @@
 import axios, { AxiosInstance, AxiosError, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 
 const instance: AxiosInstance = axios.create({
-  baseURL: "https://bootcamp-api.codeit.kr/api/",
+  baseURL: process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://weekly-mission-git-alice-react-week14-codeit-bootcamp.vercel.app",
   headers: {
     "Content-Type": "application/json",
+    accept: "*/*",
   },
-  timeout: 5000,
+  timeout: 30000,
 });
 
 instance.interceptors.request.use(
