@@ -1,44 +1,47 @@
 import Link from "next/link";
 import styles from "@/components/Footer.module.css";
+import classNames from "classnames/bind";
 
 export default function Footer() {
+  const cx = classNames.bind(styles);
+
   return (
-    <div className={styles.footerContainer}>
-      <div className={styles.footer}>
-        <div className={styles.copyright}>©codeit-2023</div>
-        <div className={styles.bottomLinks}>
-          <Link className={styles.link} href="/privacy">
-            <div className={styles.bottomLink}>Privacy Policy</div>
+    <div className={cx("footer-container")}>
+      <div className={cx("footer")}>
+        <div className={cx("copyright")}>©codeit-2023</div>
+        <div className={cx("bottom-links")}>
+          <Link href="/privacy">
+            <div className={cx("bottom-link")}>Privacy Policy</div>
           </Link>
-          <Link className={styles.link} href="/faq">
-            <div className={styles.bottomLink}>FAQ</div>
+          <Link href="/faq">
+            <div className={cx("bottom-link")}>FAQ</div>
           </Link>
         </div>
-        <div className={styles.snsIcons}>
+        <div className={cx("sns-icons")}>
           <Link href="https://www.facebook.com">
             <img
-              className={styles.snsIcon}
+              className={cx("sns-icon")}
               src="/images/sns-icons/facebook.png"
               alt="페이스북"
             />
           </Link>
           <Link href="https://twitter.com">
             <img
-              className={styles.snsIcon}
+              className={cx("sns-icon")}
               src="/images/sns-icons/twitter.png"
               alt="트위터"
             />
           </Link>
           <Link href="https://www.youtube.com">
             <img
-              className={styles.snsIcon}
+              className={cx("sns-icon")}
               src="/images/sns-icons/youtube.png"
               alt="유튜브"
             />
           </Link>
           <Link href="https://www.instagram.com">
             <img
-              className={styles.snsIcon}
+              className={cx("sns-icon")}
               src="/images/sns-icons/instagram.png"
               alt="인스타그램"
             />

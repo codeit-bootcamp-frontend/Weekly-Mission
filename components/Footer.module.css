@@ -1,4 +1,4 @@
-.footerContainer {
+.footer-container {
   background-color: var(--color-black);
   height: 16rem;
 }
@@ -11,6 +11,7 @@
   display: flex;
   justify-content: space-between;
   padding: 3.2rem 10.4rem 0;
+  margin-top: 12rem;
 }
 
 .copyright {
@@ -21,29 +22,25 @@
   color: #676767;
 }
 
-.link {
-  text-decoration: none;
-}
-
-.bottomLinks {
+.bottom-links {
   display: flex;
   gap: 3rem;
 }
 
-.bottomLink {
+.bottom-link {
   font-family: "Arial";
   font-size: 1.6rem;
   font-weight: 400;
   color: #cfcfcf;
 }
 
-.snsIcons {
+.sns-icons {
   display: flex;
   gap: 1.3rem;
   align-items: flex-start;
 }
 
-.snsIcon {
+.sns-icon {
   height: 2rem;
 }
 
@@ -52,9 +49,10 @@
     height: 16rem;
     padding: 3.2rem;
     position: relative;
+    margin-top: 4rem;
   }
 
-  .bottomLinks {
+  .bottom-links {
     text-align: left;
   }
 
