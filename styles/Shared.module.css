@@ -32,7 +32,17 @@
   color: #000000;
 }
 
-.linksContainer {
+.folder {
+  padding: 4rem 0;
+}
+
+.linksWrapper {
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr); */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
   padding-top: 4rem;
 }
 

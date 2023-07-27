@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "@/lib/axios";
 import Image from "next/image";
 import Gnb from "@/components/Gnb";
 import SearchBar from "@/components/SearchBar";
 import Card from "@/components/Card";
+import Footer from "@/components/Footer";
 import styles from "@/styles/Shared.module.css";
 
 const INITIAL_FOLDER = {
@@ -53,16 +54,19 @@ export default function Shared() {
         <div className={styles.ownerName}>@{owner.name}</div>
         <div className={styles.folderName}>{name}</div>
       </div>
-      <div className={styles.linksContainer}>
+      <div className={styles.folder}>
         <SearchBar />
-        {links.map((link) => {
-          return (
-            <div key={link.id}>
-              <Card link={link} />
-            </div>
-          );
-        })}
+        <div className={styles.linksWrapper}>
+          {links.map((link) => {
+            return (
+              <div key={link.id}>
+                <Card link={link} />
+              </div>
+            );
+          })}
+        </div>
       </div>
+      <Footer />
     </>
   );
 }
