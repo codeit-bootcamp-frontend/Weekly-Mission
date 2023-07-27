@@ -1,0 +1,155 @@
+.card {
+  width: 99.8rem;
+  height: 45rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto 10rem;
+}
+
+.title {
+  width: 29.1rem;
+  font-size: 4.8rem;
+  font-weight: 700;
+  line-height: 5.7rem;
+  margin-bottom: 1rem;
+}
+
+.description {
+  width: 29.1rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #6b6b6b;
+  line-height: 2.4rem;
+}
+
+.card-image {
+  width: 55rem;
+  height: 45rem;
+}
+
+.right-image {
+  margin-left: 15.7rem;
+}
+
+.left-image {
+  margin-right: 15.7rem;
+}
+
+.gradient1 {
+  background: -webkit-linear-gradient(5.63deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient2 {
+  background: -webkit-linear-gradient(0deg, #ffd88b 0%, #6fbaff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient3 {
+  background: -webkit-linear-gradient(180deg, #528885 22%, #6d7ccd 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient4 {
+  background: -webkit-linear-gradient(0deg, #fe578f 0%, #68e8f9 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.line-tablet {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .card {
+    width: 69.8rem;
+    height: 31.5rem;
+  }
+
+  .title {
+    width: 26.2rem;
+  }
+
+  .description {
+    width: 26.2rem;
+  }
+
+  .card-image {
+    width: 38.5rem;
+    height: 31.5rem;
+  }
+
+  .right-image {
+    margin-left: 5.1rem;
+  }
+
+  .left-image {
+    margin-right: 5.1rem;
+  }
+
+  .line-desktop {
+    display: none;
+  }
+
+  .line-tablet {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .line-break {
+    display: none;
+  }
+
+  .line-tablet {
+    display: none;
+  }
+
+  .card {
+    width: auto;
+    height: auto;
+    flex-direction: column;
+    margin: 0;
+    padding: 4rem 0;
+  }
+
+  .title {
+    width: 100%;
+    margin-bottom: 2rem;
+    font-size: 2.4rem;
+    line-height: 2.9rem;
+    letter-spacing: -0.03rem;
+    order: 1;
+  }
+
+  .description {
+    width: 100%;
+    font-size: 1.5rem;
+    line-height: 150%;
+    margin-top: 1.6rem;
+    order: 3;
+  }
+
+  .card-image {
+    width: 100%;
+    height: auto;
+    order: 2;
+  }
+
+  .right-image {
+    margin: 0;
+  }
+
+  .left-image {
+    margin: 0;
+  }
+}
