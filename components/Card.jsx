@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Link from "next/link";
 import Star from "@/components/Star";
 import styles from "@/components/Card.module.css";
@@ -6,6 +7,7 @@ import { formatDate } from "@/utils/formatDate";
 import { formatTimeSpan } from "@/utils/formatTimeSpan";
 
 export default function Card({ link, today }) {
+  const [isClicked, setIsClicked] = useState(false);
   const { createdAt, url, title, description, imageSource } = link;
   const cx = classNames.bind(styles);
 
@@ -15,10 +17,14 @@ export default function Card({ link, today }) {
   const formattedDate = formatDate(createdDate);
   const formattedTimeSpan = formatTimeSpan(timeDiffMinutes);
 
+  const handleClick = () => {
+    setIsClicked(!isClicked);
+  };
+
   return (
     <div className={cx("card")}>
-      <div className={cx("star-container")}>
-        <Star />
+      <div className={cx("star-container")} onClick={handleClick}>
+        <Star isClicked={isClicked} />
       </div>
       <Link href={url} target="_blank">
         <div className={cx("card-image-container")}>

@@ -1,10 +1,16 @@
 import styles from "@/components/Star.module.css";
+import classNames from "classnames/bind";
 
-export default function Star() {
+export default function Star({ isClicked = false }) {
+  const cx = classNames.bind(styles);
+
   return (
     <>
-      <img className={styles.star} src="/images/star-default.svg" />
-      <img className={styles.star} src="/images/star-selected.svg" />
+      {isClicked ? (
+        <img className={cx("star")} src="/images/star-selected.svg" />
+      ) : (
+        <img className={cx("star")} src="/images/star-default.svg" />
+      )}
     </>
   );
 }
