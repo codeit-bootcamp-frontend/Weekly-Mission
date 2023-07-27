@@ -13,3 +13,15 @@ export function SigninButton() {
     </>
   );
 }
+
+export function AddLinkButton() {
+  const cx = classNames.bind(styles);
+
+  return (
+    <div className={cx("addlink-wrapper")}>
+      <Link href="">
+        <div className={cx("button", "add-link")}>링크 추가하기</div>
+      </Link>
+    </div>
+  );
+}

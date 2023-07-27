@@ -15,8 +15,17 @@
   line-height: 2.1rem;
 }
 
+.addlink-wrapper {
+  text-align: center;
+}
+
 .signin {
   width: 12.8rem;
+}
+
+.add-link {
+  width: 35rem;
+  margin: 4rem auto 0;
 }
 
 @media (max-width: 768px) {
@@ -29,5 +38,10 @@
 
   .signin {
     width: 8rem;
+  }
+
+  .add-link {
+    width: 20rem;
+    margin-top: 2.4rem;
   }
 }
