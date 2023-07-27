@@ -1,4 +1,4 @@
-.introduceBoard {
+.introduce-board {
   background-color: var(--color-gray-5);
   height: auto;
   padding-top: 7rem;
@@ -11,7 +11,7 @@
   line-height: 8rem;
 }
 
-.gradient1 {
+.gradient {
   background: -webkit-linear-gradient(
     1.26deg,
     var(--color-primary) 17.28%,
@@ -22,29 +22,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-.link {
-  text-decoration: none;
-}
-
-.button {
-  display: block;
-  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
-  height: 5.3rem;
-  border-radius: 0.8rem;
-  padding: 1.6rem 0;
-  color: #f5f5f5;
-  text-align: center;
-  font-size: 1.8rem;
-  font-weight: 600;
-  line-height: 2.1rem;
-}
-
-.addLink {
-  width: 35rem;
-  margin: 4rem auto 0;
-}
-
-.image1 {
+.board-image {
   display: block;
   width: 120rem;
   height: 59rem;
@@ -52,43 +30,31 @@
 }
 
 @media (max-width: 1200px) {
-  .introduceBoard {
+  .introduce-board {
     padding-top: 4rem;
   }
 
-  .lineChange {
+  .line-change {
     display: block;
   }
 
-  .image1 {
+  .board-image {
     width: 69.8rem;
     height: 34.3rem;
   }
 }
 
 @media (max-width: 768px) {
-  .introduceBoard {
+  .introduce-board {
     padding: 2.8rem 3.2rem 0;
   }
 
-  .button {
-    height: 3.7rem;
-    font-size: 1.4rem;
-    line-height: 1.7rem;
-    padding: 1rem 0;
-  }
-
-  .addLink {
-    width: 20rem;
-    margin-top: 2.4rem;
-  }
-
-  .title1 {
+  .title {
     font-size: 3.2rem;
     line-height: 4.2rem;
   }
 
-  .image1 {
+  .board-image {
     width: 100%;
     height: auto;
     margin-top: 2.4rem;
