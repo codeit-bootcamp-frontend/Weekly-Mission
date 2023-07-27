@@ -1,39 +1,35 @@
 import Link from "next/link";
 import Image from "next/image";
+import classNames from "classnames/bind";
+import { SigninButton } from "@/components/Button";
 import styles from "@/components/Gnb.module.css";
 
-function SigninButton() {
-  return (
-    <>
-      <Link className={styles.link} href="/signin">
-        <div className={`${styles.button} ${styles.signin}`}>로그인</div>
-      </Link>
-    </>
-  );
-}
-
 function UserProfile({ user }) {
+  const cx = classNames.bind(styles);
+
   return (
-    <div className={styles.profileContainer}>
-      <div className={styles.userImage}>
+    <div className={cx("profile-container")}>
+      <div className={cx("user-image")}>
         <Image
-          className={styles.image}
+          className={cx("image")}
           fill
           src={user.profileImageSource}
           alt={user.name}
         />
       </div>
-      <div className={styles.userEmail}>{user.email}</div>
+      <div className={cx("user-email")}>{user.email}</div>
     </div>
   );
 }
 
 export default function Gnb({ user }) {
+  const cx = classNames.bind(styles);
+
   return (
-    <div className={styles.gnbContainer}>
-      <div className={styles.gnb}>
+    <div className={cx("gnb-container")}>
+      <div className={cx("gnb")}>
         <Link href="/">
-          <img className={styles.logo} src="/images/logo.png" alt="Linkbrary" />
+          <img className={cx("logo")} src="/images/logo.png" alt="Linkbrary" />
         </Link>
         {user ? <UserProfile user={user} /> : <SigninButton />}
       </div>
