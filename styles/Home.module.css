@@ -1,0 +1,16 @@
+.introduce-cards-wrapper {
+  margin: 12rem 0;
+}
+
+@media (max-width: 1200px) {
+  .introduce-cards-wrapper {
+    margin: 8rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .introduce-cards-wrapper {
+    margin: 0;
+    padding: 0 3.2rem;
+  }
+}
