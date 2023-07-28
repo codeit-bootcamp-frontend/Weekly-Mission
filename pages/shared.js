@@ -6,6 +6,9 @@ import SearchBar from "@/components/SearchBar";
 import Card from "@/components/Card";
 import Footer from "@/components/Footer";
 import styles from "@/styles/Shared.module.css";
+import classNames from "classnames/bind";
+
+const TODAY = new Date();
 
 const INITIAL_FOLDER = {
   folder: {
@@ -39,28 +42,30 @@ export default function Shared() {
   const { folder } = sampleFolder;
   const { name, owner, links } = folder;
 
+  const cx = classNames.bind(styles);
+
   return (
     <>
       <Gnb user={sampleUser} />
-      <div className={styles.ownerBoard}>
-        <div className={styles.ownerImage}>
+      <div className={cx("owner-board")}>
+        <div className={cx("owner-image")}>
           <Image
-            className={styles.image}
+            className={cx("image")}
             fill
             src={owner.profileImageSource}
             alt={owner.name}
           />
         </div>
-        <div className={styles.ownerName}>@{owner.name}</div>
-        <div className={styles.folderName}>{name}</div>
+        <div className={cx("owner-name")}>@{owner.name}</div>
+        <div className={cx("folder-name")}>{name}</div>
       </div>
-      <div className={styles.folder}>
+      <div className={cx("folder")}>
         <SearchBar />
-        <div className={styles.linksWrapper}>
+        <div className={cx("links-wrapper")}>
           {links.map((link) => {
             return (
               <div key={link.id}>
-                <Card link={link} />
+                <Card link={link} today={TODAY} />
               </div>
             );
           })}
