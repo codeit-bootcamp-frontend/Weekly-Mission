@@ -13,7 +13,7 @@ export default function IntroduceCards() {
         <div className={cx("description")}>
           나중에 읽고 싶은 글, 다시 보고 싶은 영상,{" "}
           <br className={cx("line-break")} />
-          사고 싶은 옷, 기억하고 싶은 모든 것을
+          사고 싶은 옷, 기억하고 싶은 모든 것을{" "}
           <br className={cx("line-break")} />한 공간에 저장하세요.
         </div>
         <img
