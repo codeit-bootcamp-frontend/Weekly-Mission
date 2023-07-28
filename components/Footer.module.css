@@ -1,3 +1,8 @@
+.white-space {
+  height: 12rem;
+  background-color: var(--color-white);
+}
+
 .footer-container {
   background-color: var(--color-black);
   height: 16rem;
@@ -11,7 +16,6 @@
   display: flex;
   justify-content: space-between;
   padding: 3.2rem 10.4rem 0;
-  margin-top: 12rem;
 }
 
 .copyright {
@@ -45,11 +49,14 @@
 }
 
 @media (max-width: 768px) {
+  .white-space {
+    height: 4rem;
+  }
+
   .footer {
     height: 16rem;
     padding: 3.2rem;
     position: relative;
-    margin-top: 4rem;
   }
 
   .bottom-links {
