@@ -23,11 +23,12 @@
 }
 
 .addlink-input {
+  height: 6.7rem;
   font-weight: 400;
   font-size: 1.6rem;
-  height: 2.4rem;
   flex-grow: 1;
   border: none;
+  padding: 0;
 }
 
 .addlink-input:focus {
