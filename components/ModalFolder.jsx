@@ -40,6 +40,19 @@ export function ModalAddToFolder() {
       <img className={cx("close-icon")} src="/images/close.svg" />
       <div className={cx("modal-name")}>폴더에 추가</div>
       <div className={cx("small-name")}>http://www.abc.com</div>
+      <div className={cx("folder-list")}>
+        <div className={cx("folder")}>
+          <div className={cx("folder-name")}>코딩팁</div>
+          <div className={cx("link-count")}>7개 링크</div>
+        </div>
+        <div className={cx("folder", "folder-selected")}>
+          <div className={cx("folder-name", "folder-name-selected")}>
+            나만의 장소
+          </div>
+          <div className={cx("link-count")}>3개 링크</div>
+          <img className={cx("check-icon")} src="/images/check.svg" />
+        </div>
+      </div>
       <ModalButton>추가하기</ModalButton>
     </div>
   );

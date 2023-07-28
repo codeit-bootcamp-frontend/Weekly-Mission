@@ -65,3 +65,55 @@
   font-size: 1.3rem;
   color: #373740;
 }
+
+.folder-list {
+  margin: 2.4rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.folder {
+  width: 100%;
+  height: 4rem;
+  border-radius: 0.8rem;
+  padding: 0.8rem;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+}
+
+.folder:hover {
+  background-color: var(--color-gray-5);
+}
+
+.folder-selected {
+  background-color: var(--color-gray-5);
+}
+
+.folder-name {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: #373740;
+  margin-right: 0.8rem;
+}
+
+.folder-name-selected {
+  color: var(--color-primary);
+}
+
+.link-count {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: var(--color-gray-2);
+}
+
+.check-icon {
+  width: 1.4rem;
+  height: 1.4rem;
+  position: absolute;
+  top: 1.3rem;
+  right: 0.8rem;
+}
