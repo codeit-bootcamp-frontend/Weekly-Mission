@@ -20,28 +20,28 @@ export default function Footer() {
             </Link>
           </div>
           <div className={cx("sns-icons")}>
-            <Link href="https://www.facebook.com">
+            <Link href="https://www.facebook.com" target="_blank">
               <img
                 className={cx("sns-icon")}
                 src="/images/sns-icons/facebook.png"
                 alt="페이스북"
               />
             </Link>
-            <Link href="https://twitter.com">
+            <Link href="https://twitter.com" target="_blank">
               <img
                 className={cx("sns-icon")}
                 src="/images/sns-icons/twitter.png"
                 alt="트위터"
               />
             </Link>
-            <Link href="https://www.youtube.com">
+            <Link href="https://www.youtube.com" target="_blank">
               <img
                 className={cx("sns-icon")}
                 src="/images/sns-icons/youtube.png"
                 alt="유튜브"
               />
             </Link>
-            <Link href="https://www.instagram.com">
+            <Link href="https://www.instagram.com" target="_blank">
               <img
                 className={cx("sns-icon")}
                 src="/images/sns-icons/instagram.png"
