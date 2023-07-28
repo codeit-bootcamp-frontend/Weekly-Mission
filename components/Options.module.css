@@ -1,0 +1,22 @@
+.option-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 1.2rem;
+}
+
+.option {
+  color: var(--color-gray-2);
+  font-weight: 600;
+  font-size: 1.4rem;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .option-buttons {
+    justify-content: flex-start;
+  }
+}
