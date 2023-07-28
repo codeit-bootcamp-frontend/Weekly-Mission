@@ -1,0 +1,19 @@
+.select-popover {
+  width: 10rem;
+  height: 6.4rem;
+  box-shadow: 0 0.2rem 0.8rem 0 rgba(51, 50, 54, 0.1);
+  cursor: pointer;
+}
+
+.select-option {
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: #333236;
+  padding: 0.7rem 0;
+  text-align: center;
+}
+
+.select-option:hover {
+  background-color: var(--color-gray-4);
+  color: var(--color-primary);
+}
