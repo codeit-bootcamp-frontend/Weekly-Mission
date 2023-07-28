@@ -28,6 +28,10 @@
   left: 1.6rem;
 }
 
+.search-bar:hover {
+  box-shadow: 0rem 0.5rem 1rem 0rem rgba(0, 0, 0, 0.08);
+}
+
 @media (max-width: 768px) {
   .searchInput {
     height: 4.3rem;
