@@ -1,0 +1,40 @@
+.fab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  width: 12.7rem;
+  height: 3.5rem;
+  padding: 0.8rem 0;
+  border-radius: 2rem;
+  line-height: 1.9rem;
+  color: var(--color-primary);
+  font-weight: 500;
+  font-size: 1.6rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.add-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.add {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .add-colored {
+    display: none;
+  }
+
+  .add {
+    display: block;
+  }
+
+  .fab {
+    background-color: var(--color-primary);
+    color: #e7effb;
+  }
+}
