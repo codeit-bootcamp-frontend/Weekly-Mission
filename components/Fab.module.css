@@ -13,6 +13,7 @@
   font-size: 1.6rem;
   text-align: center;
   cursor: pointer;
+  border: 0.1rem solid #ffffff;
 }
 
 .add-icon {
@@ -36,5 +37,8 @@
   .fab {
     background-color: var(--color-primary);
     color: #e7effb;
+    position: fixed;
+    bottom: 10.1rem;
+    z-index: 10;
   }
 }
