@@ -1,0 +1,33 @@
+.folder-chip {
+  display: inline-block;
+  height: 3.5rem;
+  border-radius: 0.5rem;
+  border: 0.1rem solid var(--color-primary);
+  text-align: center;
+  padding: 0.6rem 1.2rem 0;
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: #000000;
+  cursor: pointer;
+}
+
+.folder-chip:hover {
+  background-color: #e7effb;
+}
+
+.folder-chip-selected {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.folder-chip-selected:hover {
+  background-color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .folder-chip {
+    font-size: 1.4rem;
+    height: 2.9rem;
+    padding: 0.6rem 1rem;
+  }
+}
