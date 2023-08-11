@@ -4,9 +4,10 @@
   border-radius: 0.5rem;
   border: 0.1rem solid var(--color-primary);
   text-align: center;
-  padding: 0.6rem 1.2rem 0;
+  padding: 0.8rem 1.2rem 0;
   font-weight: 400;
   font-size: 1.6rem;
+  line-height: 1.909rem;
   color: #000000;
   cursor: pointer;
 }
@@ -28,6 +29,7 @@
   .folder-chip {
     font-size: 1.4rem;
     height: 2.9rem;
-    padding: 0.6rem 1rem;
+    padding: 0.6rem 1rem 0;
+    line-height: 1.671rem;
   }
 }
