@@ -4,7 +4,7 @@ const nextConfig = {
     BASE_URL:
       process.env.NODE_ENV === "development"
         ? "http://localhost:3000"
-        : `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
+        : `https://${process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL}`,
   },
   reactStrictMode: true,
   images: {
