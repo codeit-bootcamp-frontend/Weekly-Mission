@@ -6,8 +6,7 @@ export const META_ROOT = {
   openGraph: {
     title: "Linkbrary",
     description: "세상의 모든 정보를 쉽게 저장하고 관리해 보세요",
-    // CHECK: 서버 URL
-    url: "https://weekly-mission-git-ian-react-week14-codeit-bootcamp.vercel.app",
+    url: process.env.BASE_URL,
     type: "website",
     images: [
       {

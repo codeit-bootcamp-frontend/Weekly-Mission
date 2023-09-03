@@ -27,10 +27,7 @@ interface ShareModalProps {
 export default function ShareModal({ folder, onClose }: ShareModalProps) {
   const { id: userId, name: userName } = useCurrentUser();
 
-  const baseURL =
-    // CHECK: 서버 URL
-    "https://weekly-mission-git-ian-react-week14-codeit-bootcamp.vercel.app";
-  const sharedURL = `${baseURL}/shared?user=${userId}&folder=${folder.id}`;
+  const sharedURL = `${process.env.BASE_URL}/shared?user=${userId}&folder=${folder.id}`;
 
   const handleClickFacebookShare = () => {
     window.open(

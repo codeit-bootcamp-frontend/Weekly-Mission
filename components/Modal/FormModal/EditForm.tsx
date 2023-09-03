@@ -13,7 +13,7 @@ const cx = classNames.bind(styles);
 interface EditFormProps {
   folder: SelectedFolder;
   onClose: () => void;
-  onSubmit: (name: string, id: number) => void;
+  onSubmit: (name: string, id: string) => void;
 }
 
 export default function EditForm({ folder, onClose, onSubmit }: EditFormProps) {

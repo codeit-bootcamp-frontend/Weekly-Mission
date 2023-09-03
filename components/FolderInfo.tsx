@@ -5,15 +5,16 @@ import { SelectedFolder, User } from "@/utils/api/types";
 
 import styles from "./FolderInfo.module.scss";
 
+import defaultOwner from "@/public/images/default-owner.png";
+
 const cx = classNames.bind(styles);
 
-export default function FolderInfo({
-  folder,
-  owner,
-}: {
+interface FolderInfoProps {
   folder: SelectedFolder;
   owner: User;
-}) {
+}
+
+export default function FolderInfo({ folder, owner }: FolderInfoProps) {
   return (
     <header className={cx("headerFolder")}>
       <div className={cx("ownerContainer")}>
@@ -21,7 +22,7 @@ export default function FolderInfo({
           <Image
             fill
             sizes="(max-width: 1200px) 60px, (max-width: 768px) 40px"
-            src={owner.image_source}
+            src={owner.image_source ?? defaultOwner}
             alt="폴더 사용자 프로필 이미지"
           />
         </div>
